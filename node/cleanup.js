@@ -15,7 +15,7 @@ fs.writeFileSync("docs/powers.default.json", JSON.stringify(defpower, null, 2));
 
 for (let category in categories) {
     console.log(category);
-    fs.writeFileSync(`docs/powers.${category}.json`, JSON.stringify(categories[category], null, 2));
+    fs.writeFileSync(`docs/powers/${category}.json`, JSON.stringify(categories[category], null, 2));
 }
 
 function removeDefaults(objects) {
