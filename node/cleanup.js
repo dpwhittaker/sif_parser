@@ -1,13 +1,18 @@
 const fs = require('fs');
 
+let messages = JSON.parse(fs.readFileSync(`piggs/clientmessages.json`));
+
 cleanupFile('powers');
 cleanupFile('powersets');
+cleanupFile('powercats', true);
+cleanupFile('classes');
 
-function cleanupFile(file) {
+function cleanupFile(file, skipCats) {
     let things = JSON.parse(fs.readFileSync(`piggs/${file}.json`));
     let dflt = removeDefaults(things);
     fs.writeFileSync(`docs/${file}.json`, JSON.stringify(things));
     fs.writeFileSync(`docs/${file}.default.json`, JSON.stringify(dflt, null, 2));
+    if (skipCats) return;
     let categories = {};
     for (let thing of things) {
         let category = thing.full_name.split('.')[0];
@@ -34,6 +39,8 @@ function removeDefaults(objects) {
         let isObject = false;
         for (let object of objects) {
             if (!object) continue;
+            if (typeof object[field] === 'string' && object[field] in messages)
+                object[field] = messages[object[field]];
             let value = JSON.stringify(object[field]);
             if (!value) continue;
             if (value.startsWith("[{")) arrayOfObjects = true;
