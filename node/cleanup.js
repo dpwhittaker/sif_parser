@@ -10,8 +10,8 @@ for (let power of powers) {
     categories[category].push(power);
 }
 
-fs.writeFileSync("../powers.clean.json", JSON.stringify(powers, null, 2));
-fs.writeFileSync("../powers.default.json", JSON.stringify(defpower, null, 2));
+fs.writeFileSync("docs/powers.json", JSON.stringify(powers));
+fs.writeFileSync("docs/powers.default.json", JSON.stringify(defpower, null, 2));
 
 for (let category in categories) {
     console.log(category);
@@ -19,7 +19,7 @@ for (let category in categories) {
 }
 
 function removeDefaults(objects) {
-    let dflt = {sub:{}};
+    let dflt = {};
     let fields = new Set();
     for (let object of objects) for (let field in object) fields.add(field);
     for (let field of fields) {
@@ -56,10 +56,12 @@ function removeDefaults(objects) {
             console.log(`${field}: ${bestValue} (${bestCount} out of ${count} - not enough)`);
         }
         if (arrayOfObjects) {
+            if (!dflt.sub) dflt.sub = {};
             console.log(field);
             dflt.sub[field] = removeDefaults(objects.flatMap(o => o[field]).filter(o => o));
         }
         else if (isObject) {
+            if (!dflt.sub) dflt.sub = {};
             console.log(field);
             dflt.sub[field] = removeDefaults(objects.map(o => o[field]).filter(o => o));
         }
