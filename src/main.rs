@@ -2,6 +2,9 @@ use index_datamanip::*;
 use serde_json;
 use std::fs;
 use std::error::Error;
+use std::fmt::Debug;
+use serde::Serialize;
+use serde::de::DeserializeOwned;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let bin = Pigg::new("piggs/bin.pigg")?;
@@ -9,21 +12,22 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let messbin = bin.get_data("bin/clientmessages-en.bin")?;
     let messages = parse_messages::get_pmessages(&messbin)?;
-    //for (key, val) in messages.iter() { println!("Got: {}: {}", key, val); }
-
-    let powersbin = binpowers.get_data("bin/powers.bin")?;
-    let mut powers = defs::decode::<objects::Power>(&powersbin)?;
-    for power in powers.iter_mut() { power.fix_strings(&messages); }
-    let mut json = serde_json::to_string(&powers)?;
-    fs::write("piggs/powers.json", &json)?;
-    //for val in powers.iter() { println!("Got: {}", val); }
-
-    let powersetsbin = bin.get_data("bin/powersets.bin")?;
-    let mut powersets = defs::decode::<objects::Powerset>(&powersetsbin)?;
-    for powerset in powersets.iter_mut() { powerset.fix_strings(&messages); }
-    json = serde_json::to_string(&powersets)?;
-    fs::write("piggs/powersets.json", &json)?;
-    //for val in powers.iter() { println!("Got: {}", val); }
+    fs::write("piggs/clientmessages.json", &serde_json::to_string(&messages)?)?;
     
+    convert::<objects::Power>(&binpowers, "powers")?;
+    convert::<objects::Powerset>(&bin, "powersets")?;
+    convert::<objects::PowerCategory>(&bin, "powercats")?;
+    convert::<objects::Class>(&bin, "classes")?;
+    
+    Ok(())
+}
+
+fn convert<T: DeserializeOwned + Serialize + Debug>(pigg: &Pigg, file: &str) -> Result<(), Box<dyn Error>> {
+    println!("{}", file);
+
+    let bin = pigg.get_data(&format!("bin/{}.bin", file))?;
+    let things = defs::decode::<T>(&bin)?;
+    fs::write(&format!("piggs/{}.json", file), &serde_json::to_string(&things)?)?;
+
     Ok(())
 }
