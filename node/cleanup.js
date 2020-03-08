@@ -19,16 +19,22 @@ for (let category in categories) {
 }
 
 function removeDefaults(objects) {
-    let dflt = {};
-    for (let field in objects[0]) {
+    let dflt = {sub:{}};
+    let fields = new Set();
+    for (let object of objects) for (let field in object) fields.add(field);
+    for (let field of fields) {
         let values = {};
         let bestCount = 0;
         let bestValue = null;
         let count = 0;
+        let arrayOfObjects = false;
+        let isObject = false;
         for (let object of objects) {
             if (!object) continue;
             let value = JSON.stringify(object[field]);
             if (!value) continue;
+            if (value.startsWith("[{")) arrayOfObjects = true;
+            if (value.startsWith("{")) isObject = true;
             count++;
             if (value in values)
                 values[value]++;
@@ -47,17 +53,15 @@ function removeDefaults(objects) {
                     delete object[field];
             }
         } else {
-            if (bestValue.startsWith("[")) {
-                console.log(field);
-                dflt[field] = removeDefaults(objects.flatMap(o => o[field]).filter(o => o));
-            }
-            else if (bestValue.startsWith("{")) {
-                console.log(field);
-                dflt[field] = removeDefaults(objects.map(o => o[field]).filter(o => o));
-            }
-            else {
-                console.log(`${field}: ${bestValue} (${bestCount} out of ${count} - not enough)`);
-            }
+            console.log(`${field}: ${bestValue} (${bestCount} out of ${count} - not enough)`);
+        }
+        if (arrayOfObjects) {
+            console.log(field);
+            dflt.sub[field] = removeDefaults(objects.flatMap(o => o[field]).filter(o => o));
+        }
+        else if (isObject) {
+            console.log(field);
+            dflt.sub[field] = removeDefaults(objects.map(o => o[field]).filter(o => o));
         }
     }
     return dflt;
