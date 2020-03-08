@@ -1,42 +1,29 @@
 use index_datamanip::*;
 use serde_json;
 use std::fs;
+use std::error::Error;
 
-fn main() {
-    println!("Hello, world!");
-    let bin = match Pigg::new("../bin.pigg") {
-        Ok(bin) => bin,
-        Err(error) => panic!("Problem opening bin pigg: {:?}", error)
-    };
-    let messbin = match bin.get_data("bin/clientmessages-en.bin") {
-        Ok(mb) => mb,
-        Err(error) => panic!("Problem loading clientmessages: {:?}", error)
-    };
-    let messages = match parse_messages::get_pmessages(&messbin) {
-        Ok(m) => m,
-        Err(error) => panic!("Problem loading messages: {:?}", error)
-    };
+fn main() -> Result<(), Box<dyn Error>> {
+    let bin = Pigg::new("piggs/bin.pigg")?;
+    let binpowers = Pigg::new("piggs/bin_powers.pigg")?;
+
+    let messbin = bin.get_data("bin/clientmessages-en.bin")?;
+    let messages = parse_messages::get_pmessages(&messbin)?;
     //for (key, val) in messages.iter() { println!("Got: {}: {}", key, val); }
-    let binpowers = match Pigg::new("../bin_powers.pigg") {
-        Ok(bin) => bin,
-        Err(error) => panic!("Problem opening powers pigg: {:?}", error)
-    };
-    let powersbin = match binpowers.get_data("bin/powers.bin") {
-        Ok(pb) => pb,
-        Err(error) => panic!("Problem loading powers: {:?}", error)
-    };
-    let mut powers = match defs::decode::<objects::Power>(&powersbin) {
-        Ok(p) => p,
-        Err(error) => panic!("Problem decoding powers: {:?}", error)
-    };
+
+    let powersbin = binpowers.get_data("bin/powers.bin")?;
+    let mut powers = defs::decode::<objects::Power>(&powersbin)?;
     for power in powers.iter_mut() { power.fix_strings(&messages); }
-    let json = match serde_json::to_string_pretty(&powers) {
-        Ok(j) => j,
-        Err(error) => panic!("Problem serializing powers: {:?}", error)
-    };
-    match fs::write("../powers.json", &json) {
-        Ok(_) => println!("wrote powers.json"),
-        Err(error) => panic!("Problem writing powers.json: {:?}", error)
-    };
+    let mut json = serde_json::to_string(&powers)?;
+    fs::write("piggs/powers.json", &json)?;
     //for val in powers.iter() { println!("Got: {}", val); }
+
+    let powersetsbin = bin.get_data("bin/powersets.bin")?;
+    let mut powersets = defs::decode::<objects::Powerset>(&powersetsbin)?;
+    for powerset in powersets.iter_mut() { powerset.fix_strings(&messages); }
+    json = serde_json::to_string(&powersets)?;
+    fs::write("piggs/powersets.json", &json)?;
+    //for val in powers.iter() { println!("Got: {}", val); }
+    
+    Ok(())
 }

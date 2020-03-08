@@ -1,21 +1,24 @@
 const fs = require('fs');
 
-let powers = JSON.parse(fs.readFileSync('../powers.json'));
-let defpower = removeDefaults(powers);
+cleanupFile('powers');
+cleanupFile('powersets');
 
-let categories = {};
-for (let power of powers) {
-    let category = power.full_name.split('.')[0];
-    if (!categories[category]) categories[category] = [];
-    categories[category].push(power);
-}
-
-fs.writeFileSync("docs/powers.json", JSON.stringify(powers));
-fs.writeFileSync("docs/powers.default.json", JSON.stringify(defpower, null, 2));
-
-for (let category in categories) {
-    console.log(category);
-    fs.writeFileSync(`docs/powers/${category}.json`, JSON.stringify(categories[category], null, 2));
+function cleanupFile(file) {
+    let things = JSON.parse(fs.readFileSync(`piggs/${file}.json`));
+    let dflt = removeDefaults(things);
+    fs.writeFileSync(`docs/${file}.json`, JSON.stringify(things));
+    fs.writeFileSync(`docs/${file}.default.json`, JSON.stringify(dflt, null, 2));
+    let categories = {};
+    for (let thing of things) {
+        let category = thing.full_name.split('.')[0];
+        if (!categories[category])
+            categories[category] = [];
+        categories[category].push(thing);
+    }
+    for (let category in categories) {
+        console.log(category);
+        fs.writeFileSync(`docs/${file}/${category}.json`, JSON.stringify(categories[category], null, 2));
+    }
 }
 
 function removeDefaults(objects) {
