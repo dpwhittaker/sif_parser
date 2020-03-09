@@ -1,5 +1,17 @@
 const fs = require('fs');
 
+const excludedFields = ['visual_fx','attack_bits','hit_bits','initial_attack_bits',
+'attack_fx','hit_fx','initial_attack_fx','continuing_fx','continuing_fx1','mode_bits',
+'attack_frames','custom_fx','block_bits','wind_up_bits','death_bits','activation_bits',
+'deactivation_bits','activation_fx','deactivation_fx','secondary_attack_fx','wind_up_fx',
+'block_fx','death_fx','continuing_fx2','continuing_fx3','continuing_fx4','conditional_fx',
+'conditional_fx1','conditional_fx2','conditional_fx3','conditional_fx4',
+'frames_before_hit','frames_before_secondary_hit','delayed_hit','attack_frames',
+'initial_frames_before_hit','initial_attack_fxframe_delay','projectile_speed',
+'secondary_projectile_speed','initial_frames_before_block','ignore_attack_time_errors',
+'frames_before_block','fx_important','primary_tint','secondary_tint','fx','continuing_bits',
+'conditional_bits','attrib_cache','messages']
+
 let messages = JSON.parse(fs.readFileSync(`piggs/clientmessages.json`));
 
 cleanupFile('powers');
@@ -24,7 +36,7 @@ function cleanupFile(file) {
         }
         c[cats[cats.length - 1]] = thing;
     }
-    fs.writeFileSync(`docs/${file}.json`, JSON.stringify(categories, null, 2));
+    fs.writeFileSync(`docs/${file}.json`, JSON.stringify(categories));
     fs.writeFileSync(`docs/${file}.default.json`, JSON.stringify(dflt, null, 2));
     for (let category in categories) {
         console.log(category);
@@ -49,6 +61,10 @@ function removeDefaults(objects) {
     let fields = new Set();
     for (let object of objects) for (let field in object) fields.add(field);
     for (let field of fields) {
+        if (excludedFields.includes(field)) {
+            for (let object of objects) delete object[field];
+            continue;
+        }
         let values = {};
         let bestCount = 0;
         let bestValue = null;
@@ -72,8 +88,8 @@ function removeDefaults(objects) {
             }
             let value = JSON.stringify(object[field]);
             if (!value) continue;
-            if (value.startsWith("[{")) arrayOfObjects = true;
-            if (value.startsWith("{")) isObject = true;
+            if (value.startsWith('[{')) arrayOfObjects = true;
+            if (value.startsWith('{')) isObject = true;
             count++;
             if (value in values)
                 values[value]++;
