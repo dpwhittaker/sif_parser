@@ -1,0 +1,235 @@
+{
+  "crcfull_name": 2989504844,
+  "source_file": "DEFS/POWERS/BRUTE_DEFENSE_ENERGY_AURA.POWERS",
+  "source_name": "Brute_Defense.Energy_Aura.Energy_Drain",
+  "display_name": "Energy Drain",
+  "display_help": "Energy Drain leeches energy directly from the bodies of all nearby foes, draining their Endurance. Each foe you draw energy from increases your Endurance and Defense. If there are no foes within range, you will not gain any Endurance or Defense. Recharge: Slow",
+  "display_short_help": "PBAoE, Self +End, +Def, Foe -End",
+  "icon_name": "EnergyAura_Drain.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 12,
+  "time_to_activate": 2.37,
+  "recharge_time": 60,
+  "endurance_cost": 13,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    33,
+    28,
+    23,
+    18,
+    6
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.33,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of endurance.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} draining {Damage} points of endurance."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Melee_EndDrain",
+          "scale": -10,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of endurance.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} draining {Damage} points of endurance."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -1,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            116,
+            120,
+            124,
+            128,
+            132,
+            136
+          ],
+          "target": 0,
+          "table": "Melee_Buff_Def",
+          "scale": 0.05,
+          "duration": 45,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Your {PowerName} increases your defense!"
+          }
+        },
+        {
+          "attrib": [
+            116,
+            120,
+            124,
+            128,
+            132,
+            136
+          ],
+          "target": 0,
+          "table": "Melee_Buff_Def",
+          "scale": 0.1,
+          "duration": 45,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Your {PowerName} increases your defense!"
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDEFCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 25,
+          "delay": 0.25,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} granting them {Damage} points of endurance.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} granting you {Damage} points of endurance."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    88,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_ENERGYAURA_ENERGYDRAIN.PFX",
+  "attack_bits": [
+    20,
+    324
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    324
+  ],
+  "attack_fx": "V_COV/POWERS/ENERGYAURA/ENERGYDRAINAREAINDICATOR.FX",
+  "hit_fx": "V_COV/POWERS/ENERGYAURA/ENERGYDRAIN.FX",
+  "initial_attack_fx": "V_COV/POWERS/ENERGYAURA/ENERGYDRAINAREAINDICATOR.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 53,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 53,
+  "custom_fx": [
+    {
+      "token": "Bright Energy",
+      "alt_theme": [
+        "Energy Fields"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_ENERGYAURA_ENERGYDRAIN.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/ENERGYDRAINAREAINDICATOR.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/ENERGYDRAIN.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/ENERGYDRAINAREAINDICATOR.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_ENERGYAURA_ENERGYDRAIN.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/SUBTRACTIVE/ENERGYDRAINAREAINDICATOR.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/SUBTRACTIVE/ENERGYDRAIN.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/SUBTRACTIVE/ENERGYDRAINAREAINDICATOR.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53
+    }
+  ]
+}

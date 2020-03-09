@@ -1,0 +1,122 @@
+{
+  "crcfull_name": 2801689529,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+  "source_name": "RoguesGallery.Colleague.Cinders",
+  "display_name": "Cinders",
+  "display_help": "You create a whirling field of cinders around yourself, causing nearby targets to choke. This causes all affected targets to become incapacitated and held in place. Recharge: Slow",
+  "display_short_help": "PBAoE, Hold (Foe)",
+  "display_target_help": "You are held.",
+  "display_target_short_help": "Hold",
+  "icon_name": "FireTrap_Cinders.tga",
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "accuracy": 0.8,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 30,
+  "time_to_activate": 1.07,
+  "recharge_time": 45,
+  "endurance_cost": 21,
+  "ai_groups": [
+    "kMidBattle",
+    "kEndBattle"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 21,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 6,
+  "attrib_cache": [
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_CINDERS.PFX",
+  "attack_bits": [
+    20,
+    254
+  ],
+  "initial_attack_bits": [
+    20,
+    254
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/CINDERS.FX",
+  "hit_fx": "POWERS/FIRECONTROL/EMBERSHITSOOTANDCINDERS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/CINDERS.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 23
+}

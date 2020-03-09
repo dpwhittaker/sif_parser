@@ -1,0 +1,289 @@
+{
+  "crcfull_name": 466700449,
+  "source_file": "DEFS/POWERS/PEACEBRINGER_DEFENSIVE_LUMINOUS_AURA.POWERS",
+  "source_name": "Peacebringer_Defensive.Luminous_Aura.White_Dwarf_Flare",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "White Dwarf Flare",
+  "display_help": "You channel the might of your Kheldian energy into the very Earth itself. The ground erupts and cracks with luminous energy, blasting all nearby foes, knocking them back and reducing their defense. This power is only available while in White Dwarf Form. Damage: High, Recharge: Slow",
+  "display_short_help": "PBAoE Melee, High DMG(Energy), Foe -DEF, Knockback",
+  "display_target_help": "The White Dwarf Flare has weakened your Defenses!",
+  "display_target_short_help": "-DEF",
+  "icon_name": "LuminousAura_SolarFlare.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "buy_requires": [
+    "Peacebringer_Defensive.Luminous_Aura.White_Dwarf",
+    "Inherent.Inherent.White_Dwarf_Flare",
+    "!",
+    "&&"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "time_to_activate": 2.1,
+  "recharge_time": 16,
+  "endurance_cost": 15.184,
+  "boosts_allowed": [
+    23,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_required": [
+    2
+  ],
+  "modes_disallowed": [
+    1,
+    4,
+    5,
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 0.9,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 0.9268,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 2,
+          "duration": 10,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "@ToHitRoll",
+        "0.2",
+        "+",
+        "@ToHit",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1284,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1284,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "server_tray_priority": 1008,
+  "server_tray_requires": [
+    "Temporary_Powers.Temporary_Powers.Hide_Kheldian_Server_Tray",
+    "ownPower?",
+    "!"
+  ],
+  "attrib_cache": [
+    16,
+    184,
+    248,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_HANDCLAP.PFX",
+  "attack_bits": [
+    20,
+    303
+  ],
+  "block_bits": [
+    53
+  ],
+  "wind_up_bits": [
+    367
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    303
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/FOOTSTOMP/FOOTSTOMP.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/FOOTSTOMP/FOOTSTOMP.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 63,
+  "initial_frames_before_hit": 22,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "NoBubble",
+        "TintableTail"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_HANDCLAP.PFX",
+      "attack_bits": [
+        20,
+        303
+      ],
+      "block_bits": 53,
+      "wind_up_bits": [
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        303
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/FOOTSTOMP/FOOTSTOMP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/FOOTSTOMP/FOOTSTOMP.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 22,
+      "palette": "Additive"
+    }
+  ]
+}

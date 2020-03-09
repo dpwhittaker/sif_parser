@@ -1,0 +1,387 @@
+{
+  "crcfull_name": 1545423153,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_TIME_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Time_Manipulation.Time_Shift",
+  "display_name": "Time Shift",
+  "display_help": "You shift time on an area, replacing your foes with future or past versions of themselves. This shift can be very disorienting and will incapacitate affected foes. Stronger foes may be able to resist the effect, but they still will have their movement speed and accuracy reduced. Targets affected by the Delayed effect will suffer from a more powerful disorientation, however its benefits are brief. Recharge: Very Long",
+  "display_short_help": "AoE, Foe Disorient, -Speed, -ToHit",
+  "display_target_help": "You have been disoriented by future visions of pain.",
+  "display_target_short_help": "Disorient, -Speed, -ToHit",
+  "icon_name": "TimeManipulation_TimeShift",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 0.8,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "range": 70,
+  "time_to_activate": 2.03,
+  "recharge_time": 90,
+  "endurance_cost": 20.18,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    21,
+    18,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [TIME CRAWL].",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [TIME CRAWL].",
+            "display_float": "Time Crawl"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [TIME CRAWL].",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [TIME CRAWL].",
+            "display_float": "Time Crawl"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            188,
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.4,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Ranged_SpeedRunning",
+          "scale": -1,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.4,
+          "duration": 20,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.033,
+          "duration": 9.53,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 6,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    188,
+    192,
+    200,
+    204,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_TIMESHIFT.PFX",
+  "attack_bits": [
+    20,
+    312,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    312,
+    681
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESHIFT_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_HIT2.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESHIFT_ATTACK.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/FARSIGHT_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/FARSIGHT_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 50,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 50,
+  "primary_tint": [
+    194,
+    225,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    97,
+    176,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_TIMESHIFT.PFX",
+      "attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/FARSIGHT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_HIT2.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/FARSIGHT_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/FARSIGHT_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/FARSIGHT_CONTINUING.FX",
+      "frames_before_hit": 50,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 50,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_TIMESHIFT.PFX",
+      "attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/FARSIGHT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_HIT2.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/FARSIGHT_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/FARSIGHT_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/FARSIGHT_CONTINUING.FX",
+      "frames_before_hit": 50,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 50
+    }
+  ]
+}

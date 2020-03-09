@@ -1,0 +1,388 @@
+{
+  "crcfull_name": 2608181247,
+  "source_file": "DEFS/POWERS/EPIC_DOMINATOR_MACE_MASTERY.POWERS",
+  "source_name": "Epic.Dominator_Mace_Mastery.Disruptor_Blast",
+  "display_name": "Disruptor Blast",
+  "display_help": "Fires a tremendous charge of kinetic energy from your Bane Mace. This charge is so powerful it will explode on impact, blasting all nearby foes. Some affected foes may be knocked back by the force of the blast. You must be level 41 and have Poisonous Ray or Scorpion Shield before selecting this power. Damage: Moderate, Recharge: Long",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Smashing/Energy), Foe Knockback",
+  "icon_name": "Arachnos_Patron_RangedAoEModerateDmg.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing",
+    "Energy"
+  ],
+  "buy_requires": [
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "Epic.Dominator_Mace_Mastery.Poisonous_Ray",
+    "Epic.Dominator_Mace_Mastery.Scorpion_Shield",
+    "||",
+    "&&"
+  ],
+  "accuracy": 1.05,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 2,
+  "recharge_time": 32,
+  "endurance_cost": 18.98,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.4738,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.4738,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.9477,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    16,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_DISRUPTORBLAST.PFX",
+  "attack_bits": [
+    20,
+    130,
+    138,
+    394
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    138,
+    394,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+  "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLASTAOE.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLASTAOE.FX",
+  "mode_bits": [
+    20,
+    130,
+    88
+  ],
+  "frames_before_hit": 38,
+  "delayed_hit": true,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 68,
+  "initial_attack_fxframe_delay": 30,
+  "projectile_speed": 105,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_DISRUPTORBLAST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        138,
+        394
+      ],
+      "activation_bits": [
+        20,
+        130,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        138,
+        394,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        88
+      ],
+      "frames_before_hit": 38,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 68,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 105,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_DISRUPTORBLAST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        138,
+        394
+      ],
+      "activation_bits": [
+        20,
+        130,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        138,
+        394,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        88
+      ],
+      "frames_before_hit": 38,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 68,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 105
+    }
+  ]
+}

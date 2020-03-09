@@ -1,0 +1,378 @@
+{
+  "crcfull_name": 2206522198,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_TITAN_WEAPONS.POWERS",
+  "source_name": "Brute_Melee.Titan_Weapons.Follow_Through",
+  "display_name": "Follow Through",
+  "display_help": "You Follow Through with a massive attack dealing Superior Smashing damage, knocking your opponent down and possibly stunning them. Additionally, Follow Through can cause the target to suffer a small amount of Lethal damage over time. NOTE: Follow Through requires Momentum in order to be activated. Damage: Superior, Recharge: Long",
+  "display_short_help": "Melee, Superior DMG(Smashing), Foe Minor DoT(Lethal), Knockdown, Stun, Requires Momentum",
+  "display_target_help": "You are disoriented.",
+  "display_target_short_help": "Disoriented",
+  "icon_name": "TitanWeapons_FollowThrough.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "range": 9,
+  "time_to_activate": 1,
+  "recharge_time": 10,
+  "endurance_cost": 10.49776,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    21,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_required": [
+    96
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.156,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 1.6,
+          "period": 0.5,
+          "tick_chance": 0.85,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 4,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.9702,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "highlight_eval": [
+    "kFastMode",
+    "Mode?"
+  ],
+  "highlight_ring": [
+    255,
+    127,
+    0,
+    255
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    276,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_FOLLOWTHROUGH_FAST.PFX",
+  "attack_bits": [
+    20,
+    130,
+    141,
+    766,
+    269,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    141,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    141,
+    766,
+    269,
+    681,
+    187
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+  "mode_bits": [
+    20,
+    130,
+    141
+  ],
+  "frames_before_hit": 27,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 62,
+  "primary_tint": [
+    100,
+    100,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    200,
+    150,
+    100,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_FOLLOWTHROUGH_FAST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        269,
+        681
+      ],
+      "activation_bits": [
+        20,
+        130,
+        141,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        269,
+        681,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+      "mode_bits": [
+        20,
+        130,
+        141
+      ],
+      "frames_before_hit": 27,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 62,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_FOLLOWTHROUGH_FAST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        269,
+        681
+      ],
+      "activation_bits": [
+        20,
+        130,
+        141,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        269,
+        681,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/FOLLOWTHROUGH_FAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/FOLLOWTHROUGH_FAST_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/FOLLOWTHROUGH_FAST.FX",
+      "mode_bits": [
+        20,
+        130,
+        141
+      ],
+      "frames_before_hit": 27,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 62
+    }
+  ]
+}

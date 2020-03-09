@@ -1,0 +1,872 @@
+{
+  "Thunder_Kick": {
+    "crcfull_name": 2464348915,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Thunder_Kick",
+    "display_name": "Thunder Kick",
+    "display_help": "You strike your opponent with a fast kick that causes smashing damage. The speed of this attack could catch your opponent unawares, stunning them briefly.",
+    "display_short_help": "Melee, Moderate DMG (Smashing), Chance to Stun (Foe)",
+    "display_target_help": "You have been stunned.",
+    "display_target_short_help": "Stun",
+    "icon_name": "MartialArts_ThunderKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.1,
+    "range": 5,
+    "time_to_activate": 1.07,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      0,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MARTIALARTS_KICK.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/THUNDERKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/THUNDERKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/THUNDERKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 32
+  },
+  "Storm_Kick": {
+    "crcfull_name": 1193654960,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Storm_Kick",
+    "display_name": "Storm Kick",
+    "display_help": "You strike your opponent with a roundhouse kick that causes smashing damage and has the chance to knock the target down.",
+    "display_short_help": "Melee, High DMG (Smashing), Chance for Knockdown (Foe)",
+    "icon_name": "MartialArts_StormKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.1,
+    "range": 5,
+    "time_to_activate": 1,
+    "recharge_time": 6,
+    "endurance_cost": 9.24,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MARTIALARTS_TIGERSFURY.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257,
+      683
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257,
+      683
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/STORMKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MAHITSLRG.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/STORMKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 30
+  },
+  "Crane_Kick": {
+    "crcfull_name": 520147516,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Crane_Kick",
+    "display_name": "Crane Kick",
+    "display_help": "You strike your opponent with a slow kick that causes smashing damage and can knock your target back.",
+    "display_short_help": "Melee, High DMG (Smashing), Chance for Knockback (Foe)",
+    "icon_name": "MartialArts_CraneKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.1,
+    "range": 5,
+    "time_to_activate": 2,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MARTIALARTS_ELEPHANTKICK.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257,
+      47
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/CRANEKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MACRANEKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/CRANEKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 60
+  },
+  "Dragons_Tail": {
+    "crcfull_name": 1668433850,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Dragons_Tail",
+    "display_name": "Dragon's Tail",
+    "display_help": "This low spinning kick deals slightly more damage than Thunder Kick, but has a chance to hit all enemies in melee range. Successful hits may trip and knock down your opponents. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "PBAoE, High DMG(Smashing), Chance for Knockdown (Foe)",
+    "icon_name": "MartialArts_MonkeySweep.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 8,
+    "time_to_activate": 1.5,
+    "recharge_time": 14,
+    "endurance_cost": 18.2,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYER_MARTIALARTS_DRAGONSTAIL.PFX",
+    "attack_bits": [
+      20,
+      111,
+      318,
+      766
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      318,
+      766
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/MONKEYKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MONKEYKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/MONKEYKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 45
+  },
+  "Dull_Pain": {
+    "crcfull_name": 3694146626,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Dull_Pain",
+    "display_name": "Dull Pain",
+    "display_help": "Channeling your personal training, you become nearly impervious to pain. This has the effect of increasing your maximum hitpoints for a time.",
+    "display_short_help": "Self, +MaxHP",
+    "icon_name": "Syndicate_TubCi_DullPain.tga",
+    "time_to_activate": 0.73,
+    "recharge_time": 360,
+    "endurance_cost": 11.48,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              80
+            ],
+            "aspect": 8,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 4,
+            "duration": 120,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/REGENERATION/DULLPAIN.FX"
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 3,
+            "delay": 1
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      28,
+      80
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/REGENERATION_DULL_PAIN.PFX",
+    "attack_bits": [
+      247
+    ],
+    "initial_attack_bits": [
+      247
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 22,
+    "initial_frames_before_hit": 20
+  },
+  "Aimed_Shot": {
+    "crcfull_name": 85672649,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Aimed_Shot",
+    "display_name": "Aimed Shot",
+    "display_help": "You fire a well aimed shot at a single target, causing lethal damage.",
+    "display_short_help": "Ranged, Superior DMG(Lethal)",
+    "display_target_help": "Though it takes longer to execute, your Aimed Shot deals greater damage than the Talon Snap Shot. Damage: High, Recharge: Moderate",
+    "icon_name": "Archery_MediumArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.155,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_MEDIUM.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/NEW_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 45,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 210
+  },
+  "Fistful_of_Arrows": {
+    "crcfull_name": 4177772126,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Fistful_of_Arrows",
+    "display_name": "Fistful of Arrows",
+    "display_help": "You fire a fistful of arrows at foes in a cone in front of you, causing lethal damage to each target you hit.",
+    "display_short_help": "Ranged (Cone), High DMG (Lethal)",
+    "icon_name": "Archery_ConeArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.155,
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 50,
+    "arc": 0.5235988,
+    "range": 50,
+    "time_to_activate": 2.03,
+    "recharge_time": 8,
+    "endurance_cost": 13.72,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_CONE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      395
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      395,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/NEW_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_CONE.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/CONEARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_CONE.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 27,
+    "delayed_hit": true,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 47,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 210
+  },
+  "Blazing_Arrow": {
+    "crcfull_name": 2382285239,
+    "source_file": "DEFS/POWERS/SYNDICATE_TUB_CI.POWERS",
+    "source_name": "Syndicate.Tub_Ci.Blazing_Arrow",
+    "display_name": "Blazing Arrow",
+    "display_help": "You fire an arrow wreathed in flame at a foe. The target suffers lethal damage and is set ablaze, suffering fire damage over time.",
+    "display_short_help": "Ranged, Moderate DMG (Lethal), Moderate DoT (Fire)",
+    "display_target_help": "You are suffering fire damage over time.",
+    "display_target_short_help": "DoT (Fire)",
+    "icon_name": "Archery_FlamingArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal",
+      "Fire"
+    ],
+    "accuracy": 1.155,
+    "range": 80,
+    "time_to_activate": 2.67,
+    "recharge_time": 12,
+    "endurance_cost": 15.96,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            },
+            "fx": {
+              "continuing_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX"
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 4.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "dont_set_stance": true,
+    "attrib_cache": [
+      4,
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_FLAMING_ARROW.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      766,
+      683
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      766,
+      683,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/NEW_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX",
+    "hit_fx": "POWERS/FIRECONTROL/FIREARROWHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 48,
+    "delayed_hit": true,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 68,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 210
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "crcfull_name": 2655556590,
+  "source_file": "DEFS/POWERS/V_PARAGONPOLICE_HERACLES_TEARGAS.POWERS",
+  "source_name": "V_ParagonPolice.Heracles_TearGas.Tear_Gas_DOT",
+  "display_name": "Tear Gas",
+  "display_help": "The Tear Gas has left you choking and helpless.",
+  "display_short_help": "Hold",
+  "icon_name": "Temporary_TearGas.tga",
+  "type": 1,
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "activate_period": 0.5,
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "isPVPMap?",
+        "!",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "table": "Melee_Immobilize",
+          "scale": 2,
+          "duration": 4,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/GADGETS/TEARGASGRENADECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "isPVPMap?",
+        "&&",
+        "kHeld",
+        "target>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "table": "Melee_Immobilize",
+          "scale": 2,
+          "duration": 4,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 21,
+              "seconds": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Human",
+        "target.HasTag?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            320
+          ],
+          "scale": 1000,
+          "duration": 4,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_bits": [
+              500,
+              21
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            320
+          ],
+          "scale": 1000,
+          "duration": 4,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_bits": [
+              500,
+              21
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    268,
+    320
+  ]
+}

@@ -1,0 +1,2634 @@
+{
+  "Electron_Shackles": {
+    "crcfull_name": 3661150259,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Electron_Shackles",
+    "display_name": "Electron Shackles",
+    "display_help": "Immobilizes a single target and deals some energy damage over time. Some more resilient foes may require multiple attacks to Immobilize. Electron Shackles can also reduce a target's Defense and will surround it in negatively charged particles. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Energy), Foe Immobilize",
+    "display_target_help": "You are immobilized by the Electric Fence.",
+    "display_target_short_help": "Immobilize",
+    "icon_name": "AtomicManipulation_Immob",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "cast_through_hold": true,
+    "cast_through_sleep": true,
+    "cast_through_stun": true,
+    "cast_through_terrorize": true,
+    "range": 50,
+    "time_to_activate": 1.17,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.115,
+            "duration": 4.75,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2758,
+            "duration": 8.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 15,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 1.5,
+            "duration": 10,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You surround {PlayerDest} with electrons!",
+              "display_victim_hit": "{PlayerSource} has surrounded you with electrons!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "GammaBurst"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons",
+          "target.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Gamma Ray"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.077,
+            "duration": 8.67,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      272,
+      324,
+      328,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_ELECTRONSHACKLES.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_CONDITIONAL.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_CONDITIONAL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_ELECTRONSHACKLES.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_CONDITIONAL.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_ELECTRONSHACKLES.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLELECTRONSHACKLES.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLELECTRONSHACKLES_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLELECTRONSHACKLES.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLELECTRONSHACKLES_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLELECTRONSHACKLES_CONDITIONAL.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Negatron_Slam": {
+    "crcfull_name": 3329615132,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Negatron_Slam",
+    "display_name": "Negatron Slam",
+    "display_help": "You channel a greater amount of radiation into your fists and deliver a hard-hitting blow that deals Moderate Energy and Smashing damage to the target as well as reduce their Defense for a short time. The affected target will also be surrounded in negatively charged particles. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, High DMG(Energy/Smash), Foe -Def, Knockdown, Special",
+    "display_target_help": "Your defense has been reduced by Radioactive Smash!",
+    "display_target_short_help": "-Def",
+    "icon_name": "AtomicManipulation_WeakPunch",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 7,
+    "time_to_activate": 1.5,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.49,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.47,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4625,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.3874,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "scale": 1.5,
+            "duration": 10,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.33,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.33,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You surround {PlayerDest} with electrons!",
+              "display_victim_hit": "{PlayerSource} has surrounded you with electrons!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "GammaBurst"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons",
+          "target.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Gamma Ray"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.099,
+            "duration": 9,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      328,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_RADIOACTIVESMASH.PFX",
+    "attack_bits": [
+      20,
+      263
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEERADIOACTIVESMASH.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEBASICPUNCHHIT2.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEERADIOACTIVESMASH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_RADIOACTIVESMASH.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEERADIOACTIVESMASH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEBASICPUNCHHIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEERADIOACTIVESMASH.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25,
+        "primary_tint": [
+          255,
+          178,
+          48,
+          255
+        ],
+        "secondary_tint": [
+          255,
+          255,
+          194,
+          255
+        ],
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_RADIOACTIVESMASH.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEERADIOACTIVESMASH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEBASICPUNCHHIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEERADIOACTIVESMASH.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25,
+        "primary_tint": [
+          0,
+          179,
+          0,
+          255
+        ],
+        "secondary_tint": [
+          255,
+          255,
+          128,
+          255
+        ]
+      }
+    ]
+  },
+  "Positron_Cell": {
+    "crcfull_name": 50619358,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Positron_Cell",
+    "display_name": "Positron Cell",
+    "display_help": "Encases a single target in a cage made of positrons. The radiation emitted slowly hurts the victim, inflicting energy damage over time. The encased victim is held helpless and unable to defend themselves in addition to being surrounded by positively charged particles. Damage, Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Energy), Foe Hold, -To Hit",
+    "display_target_help": "The Penumbral Grasp has stopped you in your tracks!",
+    "display_target_short_help": "Hold, -To Hit",
+    "icon_name": "AtomicManipulation_Hold",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 11.388,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.22,
+            "duration": 4.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.3138,
+            "duration": 4.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 1.5,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You surround {PlayerDest} with positrons!",
+              "display_victim_hit": "{PlayerSource} has surrounded you with positrons!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "GammaBurst"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons",
+          "target.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Gamma Ray"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.11,
+            "duration": 9.17,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      268,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_POSITRONCELL.PFX",
+    "attack_bits": [
+      20,
+      305
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      305
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL_CONDITIONAL.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL_CONDITIONAL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_POSITRONCELL.PFX",
+        "attack_bits": [
+          20,
+          305
+        ],
+        "initial_attack_bits": [
+          20,
+          305
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CONTROLPOSITRONCELL_CONDITIONAL.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_POSITRONCELL.PFX",
+        "attack_bits": [
+          20,
+          305
+        ],
+        "initial_attack_bits": [
+          20,
+          305
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLPOSITRONCELL.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLPOSITRONCELL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLPOSITRONCELL.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLPOSITRONCELL_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CONTROLPOSITRONCELL_CONDITIONAL.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Ionize": {
+    "crcfull_name": 3138315104,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Ionize",
+    "display_name": "Ionize",
+    "display_help": "Greatly increases the amount of damage you deal for a few seconds, as well as slightly increasing your chance to hit.",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "AtomicManipulation_BuildUp",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner core with your {PowerName} and are more deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_FUSION.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEFUSION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEFUSION.FX",
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_FUSION.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEFUSION.FX",
+        "hit_fx": "POWERS/FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEFUSION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_FUSION.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEFUSION.FX",
+        "hit_fx": "POWERS/FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEFUSION.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Beta_Decay": {
+    "crcfull_name": 3641017114,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Beta_Decay",
+    "display_name": "Beta Decay",
+    "display_help": "While Beta Decay is active, nearby foes will have their chance to hit and defense decreased slightly. You will gain a recharge bonus per nearby target up to 10 targets. The first target grants the largest benefit. Recharge: Moderate",
+    "display_short_help": "Toggle: Foe, -To Hit, -Defense, Self +Recharge",
+    "icon_name": "AtomicManipulation_Decay",
+    "type": 2,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "time_to_activate": 0.67,
+    "recharge_time": 10,
+    "activate_period": 1,
+    "endurance_cost": 0.208,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      11,
+      10
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 1.25,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "scale": 1.5,
+            "duration": 1,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "tag": [
+          "StealthOn"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.1,
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.025,
+            "duration": 1,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      100,
+      184,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_BETADECAY.PFX",
+    "activation_bits": [
+      245
+    ],
+    "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORBETADECAY.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUINGSILENT.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUINGSILENT.FX",
+    "frames_before_hit": 17,
+    "attack_frames": 20,
+    "initial_frames_before_hit": 17,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_BETADECAY.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORBETADECAY.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUINGSILENT.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUINGSILENT.FX",
+        "mode_bits": [],
+        "frames_before_hit": 17,
+        "attack_frames": 20,
+        "initial_frames_before_hit": 17,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_BETADECAY.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORBETADECAY.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/CHOKINGCLOUDCONTINUINGSILENT.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/CHOKINGCLOUDCONTINUINGSILENT.FX",
+        "mode_bits": [],
+        "frames_before_hit": 17,
+        "attack_frames": 20,
+        "initial_frames_before_hit": 17
+      }
+    ]
+  },
+  "Metabolic_Acceleration": {
+    "crcfull_name": 1192222068,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Metabolic_Acceleration",
+    "display_name": "Metabolic Acceleration",
+    "display_help": "You cloak yourself in a field of radiation that increases your running speed, attack speed, Endurance recovery and Regeneration rate. However, only half of this regeneration bonus is enhanceable. Your metabolism is increased so much that you become resistant to effects such as Sleep, Hold, Disorient, Immobilization and Endurance Drain. Recharge: Moderate",
+    "display_short_help": "Toggle: Self +Recharge, +Special, +Regeneration, +Recovery, +Res(Hold, Stun, Sleep, Immobilize, End)",
+    "display_attacker_hit": "You are now more accurate and recover both health and endurance more quickly.",
+    "icon_name": "AtomicManipulation_Metabolism",
+    "type": 2,
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "time_to_activate": 0.73,
+    "recharge_time": 10,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 1.125,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 1.125,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 0.5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              88,
+              236
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_Boolean",
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      88,
+      232,
+      236,
+      268,
+      272,
+      276,
+      280,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_FALLOUTSHELTER.PFX",
+    "activation_bits": [
+      247
+    ],
+    "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORFALLOUTSHELTERACTIVATION.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORFALLOUTSHELTERFOLLOW.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORFALLOUTSHELTERFOLLOW.FX",
+    "frames_before_hit": 20,
+    "attack_frames": 22,
+    "initial_frames_before_hit": 20,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_FALLOUTSHELTER.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          247
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORFALLOUTSHELTERACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORFALLOUTSHELTERFOLLOW.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORFALLOUTSHELTERFOLLOW.FX",
+        "mode_bits": [],
+        "frames_before_hit": 20,
+        "attack_frames": 22,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_FALLOUTSHELTER.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          247
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORFALLOUTSHELTERACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORFALLOUTSHELTERFOLLOW.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORFALLOUTSHELTERFOLLOW.FX",
+        "mode_bits": [],
+        "frames_before_hit": 20,
+        "attack_frames": 22,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Atom_Smasher": {
+    "crcfull_name": 669637241,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Atom_Smasher",
+    "display_name": "Atom Smasher",
+    "display_help": "You charge up a dangerously unstable amount of radioactive energy into a single fist before driving it into the ground and causing a small explosion. Foes caught in the blast will suffer High Energy and Toxic damage and have their defense reduced. Damage: High, Recharge: Long",
+    "display_short_help": "PBAoE, High DMG(Energy/Toxic), Foe -Def, Disorient, Special",
+    "display_target_help": "Your defense has been reduced by Atom Smasher!",
+    "display_target_short_help": "-Def",
+    "icon_name": "AtomicManipulation_AtomSmasher",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "target_near_ground": true,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "range": 7,
+    "time_to_activate": 2.93,
+    "recharge_time": 22,
+    "endurance_cost": 20.176,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.388,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.164,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3331,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9992,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "scale": 1.2,
+            "duration": 10,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 6,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.077,
+            "duration": 10.43,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_ATOMSMASHER.PFX",
+    "attack_bits": [
+      20,
+      631,
+      683,
+      221
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      631,
+      683,
+      221
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEATOMSMASHER.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEBASICPUNCHHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEATOMSMASHER.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 55,
+    "attack_frames": 88,
+    "initial_frames_before_hit": 55,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_ATOMSMASHER.PFX",
+        "attack_bits": [
+          20,
+          631,
+          683,
+          221
+        ],
+        "initial_attack_bits": [
+          20,
+          631,
+          683,
+          221
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEATOMSMASHER.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEBASICPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEATOMSMASHER.FX",
+        "frames_before_hit": 55,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 55,
+        "palette": ""
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_ATOMSMASHER.PFX",
+        "attack_bits": [
+          20,
+          631,
+          683,
+          221
+        ],
+        "initial_attack_bits": [
+          20,
+          631,
+          683,
+          221
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEATOMSMASHER.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEBASICPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEATOMSMASHER.FX",
+        "frames_before_hit": 55,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 55,
+        "palette": ""
+      }
+    ]
+  },
+  "Radioactive_Cloud": {
+    "crcfull_name": 1326007957,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Radioactive_Cloud",
+    "display_name": "Radioactive Cloud",
+    "display_help": "When activated, you generate toxic radioactive gas around yourself. Any nearby foes may be overcome by the gas, leaving them choking and helpless. Recharge: Long",
+    "display_short_help": "PBAoE, Foe Hold",
+    "display_target_help": "You are caught in a Choking Cloud.",
+    "display_target_short_help": "Hold",
+    "icon_name": "AtomicManipulation_HoldPBAoE",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "time_to_activate": 1.07,
+    "recharge_time": 90,
+    "endurance_cost": 20.18,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      30,
+      23,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Melee_Level",
+            "duration": 10,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_RadiationCloud"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.018,
+            "duration": 8.57,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_RADIOACTIVECLOUD.PFX",
+    "attack_bits": [
+      20,
+      254
+    ],
+    "initial_attack_bits": [
+      20,
+      254
+    ],
+    "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/RADIOACTIVECLOUD.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUING.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_RADIOACTIVECLOUD.PFX",
+        "attack_bits": [
+          20,
+          254
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/RADIOACTIVECLOUD.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUING.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONCONTROL_RADIOACTIVECLOUD.PFX",
+        "attack_bits": [
+          20,
+          254
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/RADIOACTIVECLOUD.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/CHOKINGCLOUDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/CHOKINGCLOUDCONTINUING.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Positronic_Fist": {
+    "crcfull_name": 125112444,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_RADIATION_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Radiation_Manipulation.Positronic_Fist",
+    "display_name": "Positronic Fist",
+    "display_help": "You hammer your foe with a brutal smashing attack charged with a lethal dose of radiation. Your target will suffer Extreme Energy and Smashing damage, will have its defense reduced and will be disoriented for a short time in addition to being surrounded by positively charged particles.",
+    "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe -Def, Disorient, Special",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "-Def, Disoriented",
+    "icon_name": "AtomicManipulation_HeavyPunch",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 2.67,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.89,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.67,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7672,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.3015,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You surround {PlayerDest} with positrons!",
+              "display_victim_hit": "{PlayerSource} has surrounded you with positrons!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "GammaBurst"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons",
+          "target.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Gamma Ray"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_GammaBurst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Polarize"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Radiation_Control_Negatrons",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Radiation_Control_Positrons"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.176,
+            "duration": 10.17,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "anim_main_target_only": true,
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      276,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_DEVASTATINGBLOW.PFX",
+    "attack_bits": [
+      20,
+      652
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      652
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOWHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 66,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 66,
+    "primary_tint": [
+      77,
+      153,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      97,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_DEVASTATINGBLOW.PFX",
+        "attack_bits": [
+          20,
+          652
+        ],
+        "initial_attack_bits": [
+          20,
+          652
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOWHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+        "frames_before_hit": 66,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 66,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_DEVASTATINGBLOW.PFX",
+        "attack_bits": [
+          20,
+          652
+        ],
+        "initial_attack_bits": [
+          20,
+          652
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEDEVASTATINGBLOW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEBASICPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEDEVASTATINGBLOW.FX",
+        "frames_before_hit": 66,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 66
+      }
+    ]
+  }
+}

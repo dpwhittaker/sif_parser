@@ -1,0 +1,201 @@
+{
+  "crcfull_name": 1694302645,
+  "source_file": "DEFS/POWERS/DEFENDER_BUFF_KINETICS.POWERS",
+  "source_name": "Defender_Buff.Kinetics.Transfusion",
+  "display_name": "Transfusion",
+  "display_help": "Transfusion drains an enemy of some Endurance and reduces the target's Regeneration rate, and transfers that energy, in the form of Hit Points, to all allies near the affected foe. You can use Transfusion to heal yourself as well as your allies. Recharge: Moderate",
+  "display_short_help": "Ranged, Foe -End, -Regen, Team Heal",
+  "display_target_help": "Your Regeneration rate has been reduced.",
+  "display_target_short_help": "-Regeneration",
+  "icon_name": "KineticBoost_Transfusion.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "accuracy": 1.2,
+  "range": 60,
+  "time_to_activate": 1.17,
+  "recharge_time": 8,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    23,
+    22,
+    18,
+    14,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            8304,
+            4
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} siphons the endurance and regeneration rate of {PlayerDest}",
+            "display_victim_hit": "{PlayerSource} siphons off your endurance and regeneration rate!"
+          },
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_Transfusion"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_EndDrain",
+          "scale": -0.1,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.5,
+          "duration": 20,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -3.33,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -11.5,
+          "duration": 20,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    88,
+    232,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_KINETICS_TRANSFUSION.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "POWERS/KINETICS/KINTRANSFUSION.FX",
+  "hit_fx": "POWERS/KINETICS/KINTRANSFUSIONHIT.FX",
+  "initial_attack_fx": "POWERS/KINETICS/KINTRANSFUSION.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_KINETICS_TRANSFUSION.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINTRANSFUSION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINTRANSFUSIONHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINTRANSFUSION.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_KINETICS_TRANSFUSION.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINTRANSFUSION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINTRANSFUSIONHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINTRANSFUSION.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "crcfull_name": 4191118433,
+  "source_file": "DEFS/POWERS/DILEMMADIABOLIQUE_LIFEGIVING_ESSENCE.POWERS",
+  "source_name": "DilemmaDiabolique.Lifegiving_Essence.Restoration",
+  "display_name": "Restoration",
+  "display_help": "You have been restored to top fighting condition by the energy released from a defeated Lifegiving Essence. If defeated, you will be fully healed, recover all endurance and be untouchable for 10 seconds. If you are alive, you will gain a heal over time that will restore 25% of your max health over 5 seconds.",
+  "display_short_help": "Restoration",
+  "display_target_help": "You have been restored to top fighting condition by the energy released from a defeated Lifegiving Essence. If defeated, you will be fully healed, recover all endurance and be untouchable for 10 seconds. If you are alive, you will gain a heal over time that will restore 25% of your max health over 5 seconds.",
+  "display_target_short_help": "Restoration",
+  "icon_name": "DilemmaDiabolique_Diabolique_Restoration.tga",
+  "accuracy": 2,
+  "castable_after_death": 1,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "shoot_through_untouchable": true,
+  "ai_report": 1,
+  "effect_area": 2,
+  "max_targets_hit": 999,
+  "radius": 500,
+  "activate_period": 60,
+  "target_visibility": 1,
+  "ents_auto_hit": [
+    2,
+    5
+  ],
+  "ents_affected": [
+    2,
+    5
+  ],
+  "ai_groups": [
+    "kPostDeath"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "100",
+        "/",
+        "0.00",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+          },
+          "fx": {
+            "continuing_bits": [
+              323
+            ]
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "delay": 0.5,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            296
+          ],
+          "scale": 1000,
+          "duration": 10,
+          "delay": 1,
+          "flags": [
+            8752,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Untouchable"
+          },
+          "fx": {
+            "continuing_fx": "CUSTOMIZEABLEPOWERS/INVULNERABILITY/MINIMAL_INVINCIBILITY_CONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            491
+          ],
+          "aspect": 32,
+          "duration": 10,
+          "delay": 1,
+          "caster_stack_type": 1,
+          "flags": [
+            8752,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Untouchable"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "100",
+        "/",
+        "0.00",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "scale": 0.05,
+          "duration": 4.5,
+          "period": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage over time.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage over time."
+          }
+        }
+      ]
+    }
+  ],
+  "is_environment_hit": true,
+  "attrib_cache": [
+    28,
+    88,
+    296,
+    491
+  ]
+}

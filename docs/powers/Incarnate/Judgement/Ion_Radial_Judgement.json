@@ -1,0 +1,276 @@
+{
+  "crcfull_name": 1811696233,
+  "source_file": "DEFS/POWERS/INCARNATE_JUDGEMENT.POWERS",
+  "source_name": "Incarnate.Judgement.Ion_Radial_Judgement",
+  "free": true,
+  "display_name": "Ion Radial Judgement",
+  "display_help": "Chain Ranged AoE, Extreme DMG(Energy). Note that Ion Radial Judgement is unaffected by Recharge Time, Range or Arc changes. Recharge: Long",
+  "display_short_help": "Chain Ranged AoE, Extreme DMG(Energy), Foe -End, -Recovery",
+  "display_target_help": "The Ion Judgement can drain its targets of endurance or even trap them in an electrostatic field.",
+  "display_target_short_help": "-Recovery",
+  "icon_name": "Incarnate_Judgement_Ion_Uncommon.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||"
+  ],
+  "accuracy": 2,
+  "range": 80,
+  "time_to_activate": 2.5,
+  "recharge_time": 90,
+  "endurance_cost": 20,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    37,
+    33,
+    23,
+    22,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 4,
+          "delay": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 4,
+          "magnitude": 55,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            468
+          ],
+          "table": "Ranged_Ones",
+          "duration": 2,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            8752,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "IncarnatePets_Ion_Radial_Judgement_Jump1",
+              "priority_list": "PL_Untargetable_FightPreferRanged"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.35
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "scale": -10
+        }
+      ]
+    }
+  ],
+  "ignore_strength": true,
+  "max_boosts": 0,
+  "strengths_disallowed": [
+    356,
+    348,
+    340,
+    344
+  ],
+  "travel_suppression": 3,
+  "force_level_bought": 49,
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    461,
+    465,
+    468
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/INCARNATE_JUDGMENT_ION.PFX",
+  "attack_bits": [
+    20,
+    262
+  ],
+  "hit_bits": [
+    49,
+    585
+  ],
+  "initial_attack_bits": [
+    20,
+    262
+  ],
+  "attack_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION.FX",
+  "hit_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION_HIT.FX",
+  "initial_attack_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION.FX",
+  "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+  "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 75,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 75,
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    20,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/INCARNATE_JUDGMENT_ION.PFX",
+      "attack_bits": [
+        20,
+        262
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        262
+      ],
+      "attack_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION.FX",
+      "hit_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION_HIT.FX",
+      "initial_attack_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+      "frames_before_hit": 75,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 75,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/INCARNATE_JUDGMENT_ION.PFX",
+      "attack_bits": [
+        20,
+        262
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        262
+      ],
+      "attack_fx": "INCARNATEPOWERS/JUDGMENT/SUBTRACTIVE/JUDGMENT_ION.FX",
+      "hit_fx": "INCARNATEPOWERS/JUDGMENT/SUBTRACTIVE/JUDGMENT_ION_HIT.FX",
+      "initial_attack_fx": "INCARNATEPOWERS/JUDGMENT/SUBTRACTIVE/JUDGMENT_ION.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGE.FX",
+      "frames_before_hit": 75,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 75
+    }
+  ]
+}

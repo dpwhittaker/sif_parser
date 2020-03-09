@@ -1,0 +1,177 @@
+{
+  "crcfull_name": 663811203,
+  "source_file": "DEFS/POWERS/CORRUPTOR_BUFF_KINETICS.POWERS",
+  "source_name": "Corruptor_Buff.Kinetics.Repel",
+  "display_name": "Repel",
+  "display_help": "Repel creates a zone of kinetic energy that violently repels nearby foes. Each foe that is repelled costs additional Endurance. Recharge: Slow",
+  "display_short_help": "Toggle: Self AoE Knockback",
+  "display_attacker_hit": "You protect yourself with your {PowerName}, and will knock down any foe that approaches you.",
+  "icon_name": "KineticBoost_Repel.tga",
+  "type": 2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 9,
+  "time_to_activate": 1.07,
+  "recharge_time": 20,
+  "activate_period": 0.5,
+  "endurance_cost": 0.325,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    17
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "ReduceIfKD"
+      ],
+      "chance": 1.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 3,
+          "magnitude": 0,
+          "stack_type": 3,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "magnitude": 0,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 3,
+          "duration": 0.5,
+          "magnitude": 0,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knocked {PlayerDest} from their feet with your {PowerName} attack!",
+            "display_victim_hit": "{PlayerSource} knocks you from your feet with their {PowerName} attack!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "magnitude": 0,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    88,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_KINETICS_REPEL.PFX",
+  "activation_bits": [
+    20,
+    254
+  ],
+  "activation_fx": "POWERS/KINETICS/KINREPEL.FX",
+  "hit_fx": "POWERS/KINETICS/KINREPELHIT.FX",
+  "frames_before_hit": 23,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_KINETICS_REPEL.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        254
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINREPEL.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINREPELHIT.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_KINETICS_REPEL.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        254
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINREPEL.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINREPELHIT.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

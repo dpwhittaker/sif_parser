@@ -1,0 +1,97 @@
+{
+  "crcfull_name": 753275680,
+  "source_file": "DEFS/POWERS/KHELDIAN_PETS_ENERGY_DRONE2.POWERS",
+  "source_name": "Kheldian_Pets.Energy_Drone2.Impact",
+  "display_name": "Impact",
+  "display_help": "The Energy Drone explodes on impact.",
+  "display_short_help": "AoE Energy, Knockback",
+  "icon_name": "PowerBlast_NovaBlast.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "castable_after_death": 1,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "recharge_time": 1000,
+  "boosts_allowed": [
+    17,
+    9,
+    5
+  ],
+  "ai_groups": [
+    "kPostDeath"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    328
+  ]
+}

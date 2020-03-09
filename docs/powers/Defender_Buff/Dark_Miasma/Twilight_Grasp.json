@@ -1,0 +1,236 @@
+{
+  "crcfull_name": 4201080535,
+  "source_file": "DEFS/POWERS/DEFENDER_BUFF_DARK_MIASMA.POWERS",
+  "source_name": "Defender_Buff.Dark_Miasma.Twilight_Grasp",
+  "display_name": "Twilight Grasp",
+  "display_help": "You channel Negative Energy from the Netherworld through yourself to a targeted foe. Twilight Grasp drains the power from that target and slowly transfers it to you and all nearby allies. The targeted foe's chance to hit, damage and regeneration rate are reduced, while you and your nearby allies are healed. Recharge: Moderate",
+  "display_short_help": "Ranged, Foe -To Hit, -DMG, -Regen, Team Heal",
+  "display_target_help": "The Twilight Grasp has reduced your chance to hit and Damage potential.",
+  "display_target_short_help": "-To Hit, -DMG",
+  "icon_name": "DarkMiasma_TwilightGrasp.tga",
+  "attack_types": [
+    "Ranged",
+    "NegativeEnergy"
+  ],
+  "range": 80,
+  "time_to_activate": 2.37,
+  "recharge_time": 8,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    14,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            112,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_Twilight"
+            }
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 20,
+          "messages": {
+            "display_attacker_hit": "You capture {PlayerDest} in your {PowerName}, reducing their damage, To Hit and regeneration rate!",
+            "display_victim_hit": "{PlayerSource} captures you in their {PowerName}, reducing your damage, To Hit and regeneration rate!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "duration": 20,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.5,
+          "duration": 20,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -11.5,
+          "duration": 20,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "duration": 20,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    232,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_DARKMIASMA_TWILIGHTGRASP.PFX",
+  "attack_bits": [
+    20,
+    324
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    324
+  ],
+  "attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+  "hit_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALHIT.FX",
+  "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 53,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 53,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_DARKMIASMA_TWILIGHTGRASP.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/DARKNESSBLASTHEALATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/DARKNESSBLASTHEALHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/DARKNESSBLASTHEALATTACK.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53
+    },
+    {
+      "token": "Dark Glow",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_DARKMIASMA_TWILIGHTGRASP.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/SOUL/DARKNESSBLASTHEALATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/SOUL/DARKNESSBLASTHEALHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/SOUL/DARKNESSBLASTHEALATTACK.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "crcfull_name": 718741943,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Mayhem_EMP_Glove",
+  "free": true,
+  "display_name": "EMP Glove",
+  "display_help": "This glove can deliver a high power, focused Electromagnetic Pulse to a target. Deals good damage and can drain Endurance from the target. Very effective against machines of all types. The EMP Glove has 10 charges. Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DMG(Energy), Foe -END",
+  "icon_name": "Temporary_EMPGlove.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 2,
+  "recharge_time": 8,
+  "endurance_cost": 10.66,
+  "num_charges": 10,
+  "target": 19,
+  "modes_disallowed": [
+    9,
+    12,
+    1,
+    2,
+    4,
+    5
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.1,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -2.67,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Electronic",
+        "target.HasTag?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "deletable": true,
+  "max_boosts": 0,
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    88,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ELECTRICAL_BOLT_LIGHTNING_BOLT.PFX",
+  "attack_bits": [
+    20,
+    329
+  ],
+  "hit_bits": [
+    49,
+    283
+  ],
+  "initial_attack_bits": [
+    20,
+    329
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGBOLT.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGBOLTHIT.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGBOLT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 26,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 26
+}

@@ -1,0 +1,2496 @@
+{
+  "Electric_Fence": {
+    "crcfull_name": 3244959420,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Electric_Fence",
+    "display_name": "Electric Fence",
+    "display_help": "Surrounds and Immobilizes a single target in an Electric Fence. Deals some damage over time and slowly drains some Endurance. Useful for keeping villains at bay and bringing down fliers. Damage: Minor(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Energy), Foe Immobilize, -End, -Fly, -Knockback",
+    "display_target_help": "You are immobilized by the Electric Fence.",
+    "display_target_short_help": "Dot(Energy), Immobilize, -End, -Fly, -KB",
+    "icon_name": "ElectricControl_ElectricFence.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 4,
+    "endurance_cost": 7.8,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.028,
+            "duration": 6.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.3458,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 5,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -1,
+            "duration": 6.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 22.5,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 15,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 2
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 2.6,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You recover some of the Endurance you drained.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      88,
+      236,
+      272,
+      284,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_ELECTRICFENCE.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_ACTIVATION.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 25,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_ELECTRICFENCE.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_ELECTRICFENCE.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Tesla_Cage": {
+    "crcfull_name": 3105397092,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Tesla_Cage",
+    "display_name": "Tesla Cage",
+    "display_help": "Tesla Cage confines the target in an electrical prison. The target is overwhelmed by the electrical charge and is left helpless and can be attacked. The target is drained of some Endurance and some of that Endurance may be transferred back to you. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Energy), Foe Hold, -End",
+    "display_target_help": "The Tesla Cage is holding you helpless.",
+    "display_target_short_help": "Hold, -End",
+    "icon_name": "ElectricControl_TeslaCage.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 2.17,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.07,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 18,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.2391,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -1.25,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 3.43,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You recover some of the Endurance you drained.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      88,
+      236,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_ELECTRICSHACKLES.PFX",
+    "attack_bits": [
+      20,
+      365
+    ],
+    "hit_bits": [
+      49,
+      283
+    ],
+    "initial_attack_bits": [
+      20,
+      365
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_ACTIVATION.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_CONTINUING.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 29,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_ELECTRICSHACKLES.PFX",
+        "attack_bits": [
+          20,
+          365
+        ],
+        "hit_bits": [
+          49,
+          283
+        ],
+        "initial_attack_bits": [
+          20,
+          365
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/TESLACAGE_CONTINUING.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 29,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_ELECTRICSHACKLES.PFX",
+        "attack_bits": [
+          20,
+          365
+        ],
+        "hit_bits": [
+          49,
+          283
+        ],
+        "initial_attack_bits": [
+          20,
+          365
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/TESLACAGE_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/TESLACAGE_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/TESLACAGE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/TESLACAGE_CONTINUING.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 29
+      }
+    ]
+  },
+  "Chain_Fences": {
+    "crcfull_name": 2987027120,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Chain_Fences",
+    "display_name": "Chain Fences",
+    "display_help": "You can immobilize multiple foes in a chain of electricity, dealing minor damage to all foes in range and draining some endurance. This power also reduces Flight capacity in targets. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged AoE, Minor DMG(Energy), Foe Immobilize, -End, -Fly",
+    "display_target_help": "You are immobilized and your flight capability reduced by the Chain Fences.",
+    "display_target_short_help": "Immobilize, -End, -Fly",
+    "icon_name": "ElectricControl_ChainFences.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 0.9,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 80,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "endurance_cost": 15.6,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 22.5,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.539,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -2,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 6
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      88,
+      236,
+      272,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/CHAINFENCES_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/CHAINFENCES_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Jolting_Chain": {
+    "crcfull_name": 396598585,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Jolting_Chain",
+    "display_name": "Jolting Chain",
+    "display_help": "You can send a bolt of electricity through multiple opponents, causing a muscle spasm and dealing minor damage. Each foe is knocked down, and the electric charge can fork several times, jumping to several opponents rapidly. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged Chain AoE, Minor DMG(Energy), Foe Knockdown, -End",
+    "display_target_short_help": "Knockdown, -End",
+    "icon_name": "ElectricControl_JoltingChain.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 2.07,
+    "recharge_time": 8,
+    "endurance_cost": 10.4,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "delay": 0.25,
+            "flags": [
+              8832,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Chain_Jolt_Dominator_Jump1",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "delay": 0.5,
+            "flags": [
+              8832,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Chain_Jolt_Dominator_Jump1",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "duration": 4,
+            "magnitude": 57,
+            "period": 4.25,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.66,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.1691,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -2,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.66,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 8
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      88,
+      236,
+      328,
+      461,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 30,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_ACTIVATION.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 30
+      }
+    ]
+  },
+  "Stunning_Aura": {
+    "crcfull_name": 3744145151,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Stunning_Aura",
+    "display_name": "Conductive Aura",
+    "display_help": "While this power is active, the air around you becomes charged with electricity, leaping out and shocking foes that get too close. Foes will lose some endurance, while you gain Recovery and Regeneration per target hit. Recharge: Slow",
+    "display_short_help": "Toggle: PBAoE, Foe -End, Self +Rec, +Regen",
+    "display_target_help": "You have been hit by the Conductive Aura!",
+    "display_target_short_help": "-End",
+    "icon_name": "ElectricControl_StunningAura.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 8,
+    "radius": 20,
+    "time_to_activate": 2.03,
+    "recharge_time": 15,
+    "activate_period": 2,
+    "boosts_allowed": [
+      33,
+      18,
+      14,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains {PlayerDest} Endurance!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -5,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.05,
+            "duration": 2.25,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.0313,
+            "duration": 2.25,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      88,
+      232,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_STUNNINGAURA.PFX",
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      255,
+      607
+    ],
+    "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/STUNNINGAURA_ACTIVATION.FX",
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_STUNNINGAURA.PFX",
+        "hit_bits": [
+          49,
+          585
+        ],
+        "activation_bits": [
+          20,
+          255,
+          607
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/STUNNINGAURA_ACTIVATION.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_STUNNINGAURA.PFX",
+        "hit_bits": [
+          49,
+          585
+        ],
+        "activation_bits": [
+          20,
+          255,
+          607
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/STUNNINGAURA_ACTIVATION.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Static_Field": {
+    "crcfull_name": 1541487257,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Static_Field",
+    "display_name": "Static Field",
+    "display_help": "You can build up a Static Field at a nearby location. Any foes in the field may lose control of their muscles due to the static charge, and will shake violently. Foes may also be drained of some endurance, and some of that endurance may be transferred to nearby allies. Any attack will interrupt the effect temporarily and foes will re-gain control, although their movement and attack rates will be reduced. This effect can last for some time, and will continue to paralyze foes in the field. Recharge: Slow",
+    "display_short_help": "Target (Location AoE), Foe Sleep, -End, -Speed, -Recharge",
+    "display_target_help": "You are temporarily paralyzed by the static field.",
+    "display_target_short_help": "Sleep, -End",
+    "icon_name": "ElectricControl_StaticField.tga",
+    "target_near_ground": true,
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 40,
+    "endurance_cost": 15.6,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      29,
+      23,
+      22,
+      20,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 25,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You create a Static Field nearby!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Static_Field_Dominator"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_STATICFIELD.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/STATICFIELD_ACTIVATION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_STATICFIELD.PFX",
+        "attack_bits": [
+          20,
+          252
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          252
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/STATICFIELD_ACTIVATION.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_STATICFIELD.PFX",
+        "attack_bits": [
+          20,
+          252
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          252
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/STATICFIELD_ACTIVATION.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Paralyzing_Blast": {
+    "crcfull_name": 540730597,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Paralyzing_Blast",
+    "display_name": "Paralyzing Blast",
+    "display_help": "Summoning a large amount of energy, you can completely paralyze a group of foes in cages of electricity for a short time. These foes may be drained of some endurance as well. Recharge: Very Long",
+    "display_short_help": "Ranged AoE, Foe Hold, -End",
+    "display_target_help": "You have been caged by the Paralyzing Blast.",
+    "display_target_short_help": "Hold, -End",
+    "icon_name": "ElectricControl_ParalyzingBlast.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 0.8,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 20,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 240,
+    "endurance_cost": 15.6,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      30,
+      23,
+      22,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.07,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -1.25,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 8
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      88,
+      236,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_PARALYZINGBLAST.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_PARALYZINGBLAST.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_PARALYZINGBLAST.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_CONTINUING.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30
+      }
+    ]
+  },
+  "Synaptic_Overload": {
+    "crcfull_name": 1160217055,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Synaptic_Overload",
+    "display_name": "Synaptic Overload",
+    "display_help": "This power can subtly scramble the synapses of any target affected, causing hallucinations and confusion amongst foes. The electric charge lasts for some time, and will jump slowly to other opponents causing wide spread confusion. Foes may not be aware that this has happened, and will not be alerted to your presence. You will also not receive experience for any damage dealt by confused opponents. Recharge: Slow",
+    "display_short_help": "Ranged Chain AoE, Foe Confuse, -End",
+    "display_target_help": "Your neurons have been scrambled by the Synaptic Overload.",
+    "display_target_short_help": "Confuse, -End",
+    "icon_name": "ElectricControl_SynapticOverload.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "ai_report": 1,
+    "range": 80,
+    "time_to_activate": 2.37,
+    "recharge_time": 60,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      8,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -2,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          },
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 24
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 22.5,
+            "magnitude": 3,
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 2.1,
+            "delay": 1,
+            "flags": [
+              8832,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Chain_Confuse_Dominator_Jump1",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4.1,
+            "delay": 2,
+            "flags": [
+              8832,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Chain_Confuse_Dominator_Jump1",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "duration": 8,
+            "magnitude": 58,
+            "period": 4.25,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 8
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      88,
+      236,
+      256,
+      461,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_SYNAPTICOVERLOAD.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_ACTIVATION.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_ACTIVATION.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_SYNAPTICOVERLOAD.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_ACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SYNAPTICOVERLOAD_CONTINUING.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 53,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_SYNAPTICOVERLOAD.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/SYNAPTICOVERLOAD_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/SYNAPTICOVERLOAD_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/SYNAPTICOVERLOAD_ACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/SYNAPTICOVERLOAD_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/SYNAPTICOVERLOAD_CONTINUING.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 53
+      }
+    ]
+  },
+  "Gremlins": {
+    "crcfull_name": 1461253488,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Electric_Control.Gremlins",
+    "display_name": "Gremlins",
+    "display_help": "Mastery over electricity allows you to create almost sentient elementals of lightning. These elementals are mischievous in nature, and enjoy creating havoc and interfering with electronic equipment or magical cantrips. They also never work alone, where there is one Gremlin, there is often another nearby. Recharge: Very Long",
+    "display_short_help": "Summon Gremlins: Melee Minor DMG(Energy)",
+    "icon_name": "ElectricControl_Gremlins.tga",
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 240,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You call forth Two {PowerName} to wreak havoc!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Gremlin",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Gremlin",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_GENERATEGREMLINS.PFX",
+    "attack_bits": [
+      20,
+      250
+    ],
+    "initial_attack_bits": [
+      20,
+      250
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICGREMLIN_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICGREMLIN_ACTIVATION.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 28,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_GENERATEGREMLINS.PFX",
+        "attack_bits": [
+          20,
+          250
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          250
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICGREMLIN_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICGREMLIN_ACTIVATION.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 28,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_GENERATEGREMLINS.PFX",
+        "attack_bits": [
+          20,
+          250
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          250
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICGREMLIN_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICGREMLIN_ACTIVATION.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 28
+      }
+    ]
+  }
+}

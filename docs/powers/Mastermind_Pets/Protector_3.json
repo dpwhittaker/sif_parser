@@ -1,0 +1,456 @@
+{
+  "Photon_Grenade": {
+    "crcfull_name": 644051463,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_PROTECTOR_3.POWERS",
+    "source_name": "Mastermind_Pets.Protector_3.Photon_Grenade",
+    "display_name": "Photon Grenade",
+    "display_help": "The Photon Grenade has Disoriented you.",
+    "display_short_help": "Disorient",
+    "icon_name": "otics_LaserRifleStunGrenade.tga",
+    "attack_types": [
+      "AOE",
+      "Energy",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 16,
+    "endurance_cost": 15.184,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 4,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      0,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTARMY_STUNGRENADES.PFX",
+    "attack_bits": [
+      483
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      483
+    ],
+    "attack_fx": "V_COV/POWERS/ROBOTICS/BOTPULSARBLAST.FX",
+    "hit_fx": "V_COV/POWERS/ROBOTICS/PULSARHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/ROBOTICS/BOTPULSARBLAST.FX",
+    "frames_before_hit": 35,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 35,
+    "projectile_speed": 72
+  },
+  "Dispersion_Bubble": {
+    "crcfull_name": 643426732,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_PROTECTOR_3.POWERS",
+    "source_name": "Mastermind_Pets.Protector_3.Dispersion_Bubble",
+    "display_name": "Dispersion Bubble",
+    "display_help": "Creates a large bubble which protects all allies inside. While active, the Dispersion Bubble gives all allies within increased Defense against all attacks including Psionic and Area of Effect attacks. The Dispersion Bubble also protects allies from Immobilization, Disorient, and Hold effects. Recharge: Slow",
+    "display_short_help": "Toggle: PBAoE, Team +DEF, +Res(Hold, Immobilize, Disorient)",
+    "display_target_help": "The Dispersion Bubble is increasing your Defenses and is providing protection from Hold, Immobilize and Disorienting attacks.",
+    "display_target_short_help": "+DEF, +Res(Hold, Immobilize, Disorient)",
+    "display_attacker_hit": "You protect {PlayerDest} from most damage types with your {PowerName}.",
+    "display_victim_hit": "{PlayerSource} protects you from most damage types with a {PowerName}.",
+    "icon_name": "ForceField_DispersionBubble.tga",
+    "type": 2,
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "ai_report": 1,
+    "effect_area": 2,
+    "max_targets_hit": 255,
+    "radius": 25,
+    "time_to_activate": 1.07,
+    "recharge_time": 30,
+    "activate_period": 2,
+    "endurance_cost": 1.04,
+    "ents_auto_hit": [
+      16,
+      1
+    ],
+    "ents_affected": [
+      16,
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      6
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144
+            ],
+            "table": "Ranged_Buff_Def",
+            "duration": 2.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268,
+              272,
+              276
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -20,
+            "duration": 2.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268,
+              272,
+              276
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 2,
+            "duration": 2.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      268,
+      272,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FORCEFIELD_DISPERSIONBUBBLE.PFX",
+    "activation_bits": [
+      20,
+      254,
+      723
+    ],
+    "activation_fx": "POWERS/FORCEFIELD/DISPERSIONBUBBLE.FX",
+    "frames_before_hit": 23,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23
+  },
+  "Seeker_Drones": {
+    "crcfull_name": 2602652777,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_PROTECTOR_3.POWERS",
+    "source_name": "Mastermind_Pets.Protector_3.Seeker_Drones",
+    "display_name": "Seeker Drones",
+    "display_help": "You creates two Seeker Drones. These Seeker Drones will follow you until they detect an enemy and then they will zero in on their targets and detonate on impact. The small explosive flash of energy does only minor damage, but the concussion can weaken foes. Affected targets will have reduced Damage, Accuracy and Perception and may even be Disoriented for a short while. You can only ever have Two Seeker Drones out at one time and they can be destroyed by your foes. Recharge: Long",
+    "display_short_help": "Summon Seekers: Ranged Disorient, -DMG, -ACC, -Perception, Low DMG(Energy)",
+    "icon_name": "Traps_DroppedAoEDebuffDamage.tga",
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 180,
+    "endurance_cost": 13,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      23,
+      21,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 3,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Protector_Traps_Seeker1",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "delay": 1,
+            "stack_type": 3,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Protector_Traps_Seeker2",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTARMY_PROTECTOR_SUMMON.PFX",
+    "attack_bits": [
+      162,
+      396,
+      684
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      162,
+      396,
+      684
+    ],
+    "frames_before_hit": 36,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 36
+  },
+  "Upgrade": {
+    "crcfull_name": 29285471,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_PROTECTOR_3.POWERS",
+    "source_name": "Mastermind_Pets.Protector_3.Upgrade",
+    "display_name": "Upgrade",
+    "display_help": "This Protector Bot has been Upgraded. It can now fire a Photon Grenade and create Seeker Drones.",
+    "display_short_help": "Upgrade",
+    "icon_name": "Robotics_UpgradeRobot.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              320
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 10.25,
+            "magnitude": 10,
+            "stack_type": 3,
+            "flags": [
+              1072,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "V_COV/POWERS/ROBOTICS/ROBOT_ARMY_MECHTWOUPGRADE2_WEAPON.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      320
+    ]
+  }
+}

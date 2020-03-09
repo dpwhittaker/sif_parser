@@ -1,0 +1,224 @@
+{
+  "crcfull_name": 2949767763,
+  "source_file": "DEFS/POWERS/ROMANS_DEATHTHROW.POWERS",
+  "source_name": "Romans.DeathThrow.Death_Throw",
+  "display_name": "Death Throw",
+  "display_help": "Activating this power channels the power of the Netherworld to weaken your foes, in an attempt to revive all nearby fallen allies. You must stand near your defeated allies to revive them, then select a foe. The selected foe and all nearby foes will be Slowed, Disoriented, and drained of some life. Revived allies will have full Hit Points and Endurance and will suffer no ill effects and is left protected from XP Debt for 90 seconds. Recharge: Very Long",
+  "display_short_help": "Ranged (AoE), Minor DMG(Negative), Target Slow, -Recharge, Disorient, Ally Rez",
+  "display_target_help": "You have been Disoriented. Your Attack rate and Running speed are reduced by the Howling Twilight.",
+  "display_target_short_help": "-Recharge, -SPD, Disorient",
+  "display_attacker_hit": "Your {PowerName} reduced {PlayerDest} attack rate and movement speed.",
+  "icon_name": "DarkArmor_SoulTransfer.tga",
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "castable_after_death": 1,
+  "effect_area": 7,
+  "time_to_activate": 3.17,
+  "recharge_time": 180,
+  "ents_auto_hit": [
+    21
+  ],
+  "ents_affected": [
+    21
+  ],
+  "ai_groups": [
+    "kPostDeath"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "group",
+        "target>",
+        "Romans",
+        "eq",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 30,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} reduces the Attack rate, and Regeneration rate of {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} reduces your attack rate and regeneration rate with their {PowerName}!"
+          },
+          "fx": {
+            "continuing_fx": "POWERS/DARKNESSCONTROL/HOWLINGTWILIGHTHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 30,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDALL.FX"
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.25,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 15,
+          "magnitude": 12,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -5,
+          "duration": 30,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "group",
+        "target>",
+        "Romans",
+        "eq",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            260
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Scare {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Scares you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0,
+      "requires": [
+        "Romans_Romulus_Nictus",
+        "target.VillainName>"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "table": "Ranged_Ones",
+          "duration": 1,
+          "period": 1.5,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage over time.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage over time."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "duration": 1,
+          "delay": 0.3,
+          "period": 1.5,
+          "flags": [
+            96,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    20,
+    28,
+    88,
+    188,
+    192,
+    200,
+    204,
+    232,
+    260,
+    276,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_HOWLING_TWILIGHT.PFX",
+  "attack_bits": [
+    20,
+    272
+  ],
+  "hit_bits": [
+    49,
+    585
+  ],
+  "initial_attack_bits": [
+    20,
+    272
+  ],
+  "attack_fx": "POWERS/DARKNESSCONTROL/HOWLINGTWILIGHT.FX",
+  "hit_fx": "POWERS/EMPATHY/SOULTRANSFERABSORBPAIN.FX",
+  "initial_attack_fx": "POWERS/DARKNESSCONTROL/HOWLINGTWILIGHT.FX",
+  "attack_frames": 95
+}

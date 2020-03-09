@@ -1,0 +1,347 @@
+{
+  "crcfull_name": 3711350635,
+  "source_file": "DEFS/POWERS/SCRAPPER_MELEE_FIERY_MELEE.POWERS",
+  "source_name": "Scrapper_Melee.Fiery_Melee.Scorch",
+  "display_name": "Scorch",
+  "display_help": "This power engulfs your hands in flames, and can ignite the target of your Scorching attack. Once on fire, the target will suffer damage over time. Damage: Minor, Recharge: Fast",
+  "display_short_help": "Melee, Minor DMG(Fire)",
+  "display_target_help": "You are burning!",
+  "display_target_short_help": "DoT(Fire)",
+  "icon_name": "FieryFray_TargetedLightMelee.tga",
+  "attack_types": [
+    "Melee",
+    "Fire"
+  ],
+  "range": 7,
+  "time_to_activate": 1,
+  "recharge_time": 3,
+  "endurance_cost": 4.368,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.84,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.2199,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PlayerCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.2199,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "MLCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.84,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BossCrit"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.6624,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.378,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": -0.2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.045,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "proc_main_target_only": true,
+  "travel_suppression": 1,
+  "attrib_cache": [
+    8
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_FIERYMELEE_SCORCH.PFX",
+  "attack_bits": [
+    20,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/FIREHAND_RIGHT.FX",
+  "hit_fx": "POWERS/FIRECONTROL/SCORCHHIT.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/FIREHAND_RIGHT.FX",
+  "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+  "continuing_fx1": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 30,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "alt_theme": [
+        "Bright Fire 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_FIERYMELEE_SCORCH.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYMELEE/FIREHAND_RIGHT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIERYMELEE/SCORCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYMELEE/FIREHAND_RIGHT.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "attack_frames": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "alt_theme": [
+        "Dark Fire 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_FIERYMELEE_SCORCH.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYMELEE/SUBTRACTIVE/FIREHAND_RIGHT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIERYMELEE/SUBTRACTIVE/SCORCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYMELEE/SUBTRACTIVE/FIREHAND_RIGHT.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "attack_frames": 30
+    }
+  ]
+}

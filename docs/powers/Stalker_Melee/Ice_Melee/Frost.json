@@ -1,0 +1,327 @@
+{
+  "crcfull_name": 3278710082,
+  "source_file": "DEFS/POWERS/STALKER_MELEE_ICE_MELEE.POWERS",
+  "source_name": "Stalker_Melee.Ice_Melee.Frost",
+  "display_name": "Frost",
+  "display_help": "You create a short cone of Frost in front of you that can deal some damage and Slow a foe's speed, due to their uncontrollable shivering. Damage: Moderate(DoT), Recharge: Slow",
+  "display_short_help": "Close (Cone), Moderate DoT(Cold), Foe -Recharge, -SPD",
+  "display_target_help": "You are chilled. Your Attack speed and Running speed are reduced.",
+  "display_target_short_help": "DoT(Cold), -Recharge, -SPD",
+  "icon_name": "IcyOnslaught_Frost.tga",
+  "attack_types": [
+    "AOE",
+    "Cold"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "arc": 1.5707964,
+  "range": 10,
+  "time_to_activate": 2.27,
+  "recharge_time": 11,
+  "endurance_cost": 11.024,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.27,
+          "duration": 1.1,
+          "period": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.404,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.404,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.2,
+          "duration": 8,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.2,
+          "duration": 8
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.4002,
+          "duration": 1.1,
+          "period": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.4004,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.4004,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    12,
+    188,
+    192,
+    200,
+    204,
+    356,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_FROST.PFX",
+  "attack_bits": [
+    20,
+    306
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    306
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/FROST.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/FROST.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 68,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "Color Tintable 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_FROST.PFX",
+      "attack_bits": [
+        20,
+        306
+      ],
+      "initial_attack_bits": [
+        20,
+        306
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/FROST.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/FROST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEHITCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEHITCONTINUING.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 68,
+      "initial_frames_before_hit": 25,
+      "palette": "ice"
+    }
+  ]
+}

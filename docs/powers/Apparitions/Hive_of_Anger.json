@@ -1,0 +1,666 @@
+{
+  "Possession": {
+    "crcfull_name": 849103951,
+    "source_file": "DEFS/POWERS/APPARITIONS_HIVE_OF_ANGER.POWERS",
+    "source_name": "Apparitions.Hive_of_Anger.Possession",
+    "display_name": "Possession",
+    "display_help": "The focused hatred of an Enraged Spectre can restore and sustain nearby Apparitions.",
+    "display_short_help": "PBAoE Heal",
+    "display_target_help": "The focused hatred of an Enraged Spectre can restore and sustain nearby Apparitions.",
+    "display_target_short_help": "PBAoE Heal",
+    "icon_name": "Apparitions_EnragedRegeneration.tga",
+    "type": 2,
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "range": 40,
+    "recharge_time": 20,
+    "activate_period": 2,
+    "endurance_cost": 5,
+    "target": 19,
+    "ai_groups": [
+      "kMidBattle"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "kHitPoints%",
+          "source>",
+          ">"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "type": 3,
+            "table": "Ranged_Ones",
+            "magnitude_expr": [
+              "kHitPoints%",
+              "target>",
+              "kHitPoints%",
+              "source>",
+              "-",
+              "negate",
+              "200",
+              "/",
+              "@Scale",
+              "*"
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "type": 3,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "magnitude_expr": [
+              "kHitPoints%",
+              "target>",
+              "kHitPoints%",
+              "source>",
+              "-",
+              "200",
+              "/",
+              "@Scale",
+              "*"
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "kHitPoints%",
+          "source>",
+          "<"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "type": 3,
+            "table": "Ranged_Ones",
+            "magnitude_expr": [
+              "kHitPoints%",
+              "source>",
+              "kHitPoints%",
+              "target>",
+              "-",
+              "200",
+              "/",
+              "@Scale",
+              "*"
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "type": 3,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "magnitude_expr": [
+              "kHitPoints%",
+              "source>",
+              "kHitPoints%",
+              "target>",
+              "-",
+              "negate",
+              "200",
+              "/",
+              "@Scale",
+              "*"
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 100,
+    "attrib_cache": [
+      24
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_APPARITIONS_POSSESS_MERGED.PFX",
+    "hit_bits": [
+      49,
+      245
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/POSSESS_MERGED_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/POSSESS_MERGED_ATTACK.FX",
+    "frames_before_hit": 1,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 1,
+    "ignore_attack_time_errors": "c-jhamilton"
+  },
+  "Hateful_Burst": {
+    "crcfull_name": 197815431,
+    "source_file": "DEFS/POWERS/APPARITIONS_HIVE_OF_ANGER.POWERS",
+    "source_name": "Apparitions.Hive_of_Anger.Hateful_Burst",
+    "display_name": "Hateful Burst",
+    "display_help": "You unleash a bolt of pure hatred at your target. The target suffers lethal damage and negative energy damage, as well as a reduction in their damage output.",
+    "display_short_help": "Ranged, Minor DMG (Lethal/Negative Energy), -DMG (All)",
+    "display_target_help": "Your damage output has been reduced for all damage types.",
+    "display_target_short_help": "-DMG (All)",
+    "icon_name": "Apparitions_HatefulBlast.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "NegativeEnergy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "arc": 2.0943952,
+    "range": 40,
+    "time_to_activate": 1,
+    "recharge_time": 8,
+    "endurance_cost": 12,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.42,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.42,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 0.5,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_APPARITIONS_SPIRITBASIC_HATEFULBLAST.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSBLAST2.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSBLASTHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSBLAST2.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 22,
+    "projectile_speed": 51,
+    "primary_tint": [
+      84,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      150,
+      150,
+      150,
+      255
+    ]
+  },
+  "Wrathful_Infusion": {
+    "crcfull_name": 3983437764,
+    "source_file": "DEFS/POWERS/APPARITIONS_HIVE_OF_ANGER.POWERS",
+    "source_name": "Apparitions.Hive_of_Anger.Wrathful_Infusion",
+    "display_name": "Wrathful Infusion",
+    "display_help": "You create a prison of suffering around your target, crushing their very soul with your overwhelming hatred. The target is enraged, forcing them to attack you, and suffers negative energy damage.",
+    "display_short_help": "Moderate DMG(Negative Energy), Foe Taunt",
+    "display_target_help": "You are held and taking damage over time.",
+    "display_target_short_help": "DoT (Negative Energy), Chance for DoT (Lethal), Held",
+    "icon_name": "Apparitions_CrushingHate.tga",
+    "range": 60,
+    "time_to_activate": 2,
+    "recharge_time": 20,
+    "endurance_cost": 10,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Ranged_Taunt",
+            "scale": 6,
+            "magnitude": 4,
+            "period": 1,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} catches you in the grip of their {PowerName}, enraging you!"
+            },
+            "fx": {
+              "continuing_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/POSSESSEDCITIZEN_BOSS_RESISTANCE.FX"
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 6,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      20,
+      248
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_APPARITIONS_CRUSHINGHATE.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      247
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSHANDS3.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSHANDS3.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/CRUSHINGHATE_CONDITIONAL.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/APPARITIONS/CRUSHINGHATE_CONDITIONAL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 40,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 40,
+    "primary_tint": [
+      84,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      150,
+      150,
+      150,
+      255
+    ]
+  },
+  "Crushing_Hate": {
+    "crcfull_name": 2453444064,
+    "source_file": "DEFS/POWERS/APPARITIONS_HIVE_OF_ANGER.POWERS",
+    "source_name": "Apparitions.Hive_of_Anger.Crushing_Hate",
+    "display_name": "Crushing Hate",
+    "display_help": "You create a prison of suffering around your target, crushing their very soul with your overwhelming hatred. The target is held in place and suffers negative energy damage. The force of the hatred is so enormous that this power also has the potential to manifest with lethal damage.",
+    "display_short_help": "Moderate DMG(Negative Energy/Lethal), Foe Hold",
+    "display_target_help": "You are held and taking damage over time.",
+    "display_target_short_help": "DoT (Negative Energy), Chance for DoT (Lethal), Held",
+    "icon_name": "Apparitions_CrushingHate.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 15,
+    "endurance_cost": 13.7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.163,
+            "duration": 6,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 6,
+            "magnitude": 3,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.163,
+            "duration": 6,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      4,
+      20,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_APPARITIONS_CRUSHINGHATE.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      247
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSHANDS3.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/DARKNESSHANDS3.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/CRUSHINGHATE_CONDITIONAL.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/APPARITIONS/CRUSHINGHATE_CONDITIONAL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 40,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 40,
+    "primary_tint": [
+      84,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      150,
+      150,
+      150,
+      255
+    ]
+  },
+  "Dissipate": {
+    "crcfull_name": 2158676550,
+    "source_file": "DEFS/POWERS/APPARITIONS_HIVE_OF_ANGER.POWERS",
+    "source_name": "Apparitions.Hive_of_Anger.Dissipate",
+    "display_name": "Dissipate",
+    "display_help": "The spirit possessing this person emerges!",
+    "display_short_help": "Special",
+    "display_target_help": "The spirit possessing this person emerges!",
+    "display_target_short_help": "Special",
+    "icon_name": "Possessed_Emerge.tga",
+    "accuracy": 1.2,
+    "castable_after_death": 1,
+    "time_to_activate": 3.1,
+    "recharge_time": 600,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "A Fractured Spirit emerges!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Apparitions_Fractured_Spirit",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "A Fractured Spirit emerges!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Apparitions_Fractured_Spirit",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "A Fractured Spirit emerges!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Apparitions_Fractured_Spirit",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "A Fractured Spirit emerges!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Apparitions_Fractured_Spirit",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 999,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_APPARITIONS_EMERGE.PFX",
+    "attack_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/EMERGE_ACTIVATION.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/EMERGE_ACTIVATION.FX",
+    "primary_tint": [
+      84,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      150,
+      150,
+      150,
+      255
+    ]
+  }
+}

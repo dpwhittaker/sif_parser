@@ -1,0 +1,174 @@
+{
+  "crcfull_name": 2392776014,
+  "source_file": "DEFS/POWERS/CORRUPTOR_BUFF_KINETICS.POWERS",
+  "source_name": "Corruptor_Buff.Kinetics.Transference",
+  "display_name": "Transference",
+  "display_help": "Transference drains an enemy of some of their Endurance and transfers that Endurance to all allies near the affected foe. You can use Transference to recover Endurance for yourself as well as your allies. Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Target -End, Team +Recovery, Special",
+  "display_target_help": "Your Endurance has been drained.",
+  "display_target_short_help": "-Endurance",
+  "icon_name": "KineticBoost_Transferance.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "accuracy": 1.1,
+  "range": 60,
+  "time_to_activate": 2.27,
+  "recharge_time": 30,
+  "endurance_cost": 2.6,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            8304,
+            4
+          ],
+          "messages": {
+            "display_attacker_hit": "You Siphon the endurance of {PlayerDest} to add to the endurance of everyone near them!",
+            "display_victim_hit": "{PlayerSource} siphons off your endurance to increase the endurance of all their allies near you!"
+          },
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_Transference_Controller"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_EndDrain",
+          "scale": -0.45,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} drains some of your endurance with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -16.67,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} drains some of your endurance with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    88,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_KINETICS_TRANSFERENCE.PFX",
+  "attack_bits": [
+    20,
+    306
+  ],
+  "hit_bits": [
+    49,
+    245
+  ],
+  "initial_attack_bits": [
+    20,
+    306
+  ],
+  "attack_fx": "POWERS/KINETICS/KINTRANSFERENCE.FX",
+  "hit_fx": "POWERS/KINETICS/KINTRANSFERENCEHIT.FX",
+  "initial_attack_fx": "POWERS/KINETICS/KINTRANSFERENCE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 68,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_KINETICS_TRANSFERENCE.PFX",
+      "attack_bits": [
+        20,
+        306
+      ],
+      "hit_bits": [
+        49,
+        245
+      ],
+      "initial_attack_bits": [
+        20,
+        306
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINTRANSFERENCE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINTRANSFERENCEHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/KINTRANSFERENCE.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 68,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_KINETICS_TRANSFERENCE.PFX",
+      "attack_bits": [
+        20,
+        306
+      ],
+      "hit_bits": [
+        49,
+        245
+      ],
+      "initial_attack_bits": [
+        20,
+        306
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINTRANSFERENCE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINTRANSFERENCEHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICS/SUBTRACTIVE/KINTRANSFERENCE.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 68,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

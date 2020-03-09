@@ -1,0 +1,154 @@
+{
+  "crcfull_name": 2599872418,
+  "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+  "source_name": "Pool.Medicine.Aid_Self",
+  "display_name": "Aid Self",
+  "display_help": "You are able to heal yourself. This hypo also leaves you wide awake and resistant to stun effects. If you have also trained Field Medic, this power will also grant you an unenhanceable, long duration endurance over time effect. Purchasing Aid Self requires the user to be level 14 and possess either Aid Other or Injection.",
+  "display_short_help": "Self, Heal, +Res(Stun), +EndGain(Synergy)",
+  "display_target_help": "Due to your Field Medic training, you are gaining a constant stream of endurance over time due from Aid Self.",
+  "display_target_short_help": "+EndGain",
+  "icon_name": "Medicine_SelfAdministration.tga",
+  "buy_requires": [
+    "Pool.Medicine.Aid_Other",
+    "Pool.Medicine.Stimulant",
+    "||"
+  ],
+  "time_to_activate": 4.33,
+  "recharge_time": 20,
+  "endurance_cost": 13,
+  "interrupt_time": 1,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    32,
+    23,
+    18,
+    14
+  ],
+  "modes_disallowed": [
+    117,
+    118,
+    8,
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 1.96,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Heal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Heal damage."
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "aspect": 24,
+          "table": "Melee_Res_Boolean",
+          "scale": 1.75,
+          "duration": 45,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Pool.Medicine.Field_Medic",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "target": 0,
+          "scale": 0.05,
+          "duration": 8.1,
+          "period": 2,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "You have gained {Damage} points of endurance due to lingering effects of your improved {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFENDCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 4,
+  "attrib_cache": [
+    28,
+    88,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDSELF.PFX",
+  "wind_up_bits": [
+    384,
+    692
+  ],
+  "attack_fx": "POWERS/MEDICINE/MSELF.FX",
+  "hit_fx": "POWERS/HEALING/HEALING.FX",
+  "initial_attack_fx": "POWERS/MEDICINE/MSELF.FX",
+  "frames_before_hit": 1,
+  "attack_frames": 100,
+  "initial_frames_before_hit": 1,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDSELF.PFX",
+      "wind_up_bits": [
+        384,
+        692
+      ],
+      "hit_bits": [],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/AIDSELF_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/AIDSELF_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 1,
+      "attack_frames": 100,
+      "initial_frames_before_hit": 1,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDSELF.PFX",
+      "wind_up_bits": [
+        384,
+        692
+      ],
+      "hit_bits": [],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/AIDSELF_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/AIDSELF_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 1,
+      "attack_frames": 100,
+      "initial_frames_before_hit": 1
+    }
+  ]
+}

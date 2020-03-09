@@ -1,0 +1,340 @@
+{
+  "crcfull_name": 2277933970,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Martial_Manipulation.Ki_Push",
+  "display_name": "Ki Push",
+  "display_help": "You smash your foe with a burst of Ki Energy, sending them flying through the air in slow motion. Damage: Moderate, Recharge: Fast",
+  "display_short_help": "Melee, Moderate DMG(Smash), Foe Repel, KB",
+  "display_target_help": "You have been smashed with a Ki Push and are being repelled.",
+  "display_target_short_help": "Melee, Moderate DMG(Smash), Foe Repel, KB",
+  "icon_name": "MartialManipulation_KiPush.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "toggle_ignore_hold": true,
+  "toggle_ignore_sleep": true,
+  "toggle_ignore_stun": true,
+  "range": 7,
+  "time_to_activate": 0.83,
+  "recharge_time": 6,
+  "endurance_cost": 5.2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    52
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            332
+          ],
+          "scale": 4,
+          "duration": 2,
+          "stack_type": 3,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You repel {PlayerDest} with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} repels you with a {PowerName}!"
+          },
+          "fx": {
+            "conditional_bits": [
+              621,
+              19,
+              21
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            268
+          ],
+          "scale": 4,
+          "duration": 2,
+          "stack_type": 3,
+          "flags": [
+            660,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 4,
+          "delay": 2.05,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "scale": 4,
+          "duration": 2,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            660,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            332
+          ],
+          "scale": 2,
+          "duration": 2,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You repel {PlayerDest} with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} repels you with a {PowerName}!"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.2209,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 4,
+          "delay": 2.05,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.055,
+          "duration": 8.33,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    268,
+    328,
+    332
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_KIPUSH.PFX",
+  "attack_bits": [
+    20,
+    283,
+    261,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    283,
+    261,
+    681
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 25,
+  "primary_tint": [
+    255,
+    175,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    75,
+    0,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_KIPUSH.PFX",
+      "attack_bits": [
+        20,
+        283,
+        261,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        283,
+        261,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+      "attack_frames": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_KIPUSH.PFX",
+      "attack_bits": [
+        20,
+        283,
+        261,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        283,
+        261,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/QUICKSTRIKE_ACTIVATE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/KINETICMELEE_HIT_SMALL.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/QUICKSTRIKE_ACTIVATE.FX",
+      "attack_frames": 25
+    }
+  ]
+}

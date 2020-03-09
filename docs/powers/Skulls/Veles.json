@@ -1,0 +1,810 @@
+{
+  "Grave_Knight": {
+    "crcfull_name": 714980077,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Grave_Knight",
+    "display_name": "Grave Knight",
+    "display_help": "You summon a Grave Knight to assist you in battle.",
+    "display_short_help": "Summon Grave Knight",
+    "icon_name": "Skulls_Veles_GraveKnight.tga",
+    "time_to_activate": 1.07,
+    "recharge_time": 90,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Skulls_GraveKnight",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_SKELETON.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/2NDPETSUMMON.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/2NDPETSUMMON.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 19,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 19
+  },
+  "Shadow_Punch": {
+    "crcfull_name": 934186063,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Shadow_Punch",
+    "display_name": "Shadow Punch",
+    "display_help": "You charge up your fists with negative energy before punching a nearby foe. The target suffers negative energy and smashing damage, as well as a reduced chance to hit.",
+    "display_short_help": "Melee, Moderate DMG (Smashing/Negative Energy), -ToHit (Foe)",
+    "display_target_help": "Your chance to hit has been reduced.",
+    "display_target_short_help": "-ToHit",
+    "icon_name": "ShadowFighting_ShadowPunch.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "NegativeEnergy"
+    ],
+    "range": 5,
+    "time_to_activate": 0.57,
+    "recharge_time": 3,
+    "endurance_cost": 5.88,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.35,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 6,
+            "tick_chance": 0.997,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SHADOWFIGHTING_SHADOW_PUNCH.PFX",
+    "attack_bits": [
+      20,
+      256
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/SHADOWPUNCH.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MARTIALARTSHITSDARKNESS.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/SHADOWPUNCH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 17,
+    "initial_frames_before_hit": 16
+  },
+  "Dark_Blast": {
+    "crcfull_name": 1211999289,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Dark_Blast",
+    "display_name": "Dark Blast",
+    "display_help": "You fire concentrated negative energy at a single target. The target suffers negative energy damage and a reduced chance to hit.",
+    "display_short_help": "Ranged, Minor DMG (Negative Energy), -ToHit (Foe)",
+    "display_target_help": "Your chance to hit has been reduced.",
+    "display_target_short_help": "-ToHit",
+    "icon_name": "Skulls_Veles_DarkBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 100,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 6,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARKNESS_CONTROL_DARK_BLAST.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLAST2.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLAST2.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 22,
+    "projectile_speed": 51
+  },
+  "Gloom": {
+    "crcfull_name": 290103722,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Gloom",
+    "display_name": "Gloom",
+    "display_help": "The Gloom is slowly draining your life and reducing your Accuracy.",
+    "display_short_help": "Ranged, High DoT (Negative Energy), -ToHit (Foe)",
+    "display_target_help": "You are suffering negative energy damage over time and a reduced chance to hit.",
+    "display_target_short_help": "DoT(Negative Energy), -ToHit",
+    "icon_name": "Skulls_Veles_Gloom.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.1,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARKNESS_CONTROL_SOUL_DRAIN.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/SOULDRAIN.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/SOULDRAIN.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 33,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 90
+  },
+  "Smite": {
+    "crcfull_name": 1849090057,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Smite",
+    "display_name": "Smite",
+    "display_help": "You charge up your fists with negative energy and unleash a powerful attack on a nearby foe. The target suffers negative energy and smashing damage, as well as a reduced chance to hit.",
+    "display_short_help": "Melee, High DMG (Smashing/Negative Energy), -ToHit (Foe)",
+    "display_target_help": "Your chance to hit has been reduced.",
+    "display_target_short_help": "-ToHit",
+    "icon_name": "ShadowFighting_Smite.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "NegativeEnergy"
+    ],
+    "range": 5,
+    "time_to_activate": 0.97,
+    "recharge_time": 10,
+    "endurance_cost": 9.24,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SHADOWFIGHTING_SMITE.PFX",
+    "attack_bits": [
+      20,
+      154,
+      265
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      265
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/SHADOWPUNCH.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MARTIALARTSHITSDARKNESS2.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/SHADOWPUNCH.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 29
+  },
+  "Siphon_Life": {
+    "crcfull_name": 1000695071,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Siphon_Life",
+    "display_name": "Siphon Life",
+    "display_help": "You siphon the life out of a target, causing negative energy damage and healing yourself. The affected target also suffers a reduced chance to hit.",
+    "display_short_help": "Melee, High DMG (Negative Energy), -ToHit (Foe), Heal (Self)",
+    "display_target_help": "Your chance to hit has been reduced.",
+    "display_target_short_help": "-ToHit",
+    "icon_name": "ShadowFighting_SiphonLife.tga",
+    "attack_types": [
+      "Melee",
+      "NegativeEnergy"
+    ],
+    "range": 5,
+    "time_to_activate": 1.93,
+    "recharge_time": 18,
+    "endurance_cost": 21,
+    "target": 19,
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "delay": 0.5
+          }
+        ]
+      },
+      {
+        "chance": 0.997,
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20,
+      28,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SHADOWFIGHTING_SIPHON_LIFE.PFX",
+    "attack_bits": [
+      20,
+      305
+    ],
+    "hit_bits": [
+      49,
+      247
+    ],
+    "initial_attack_bits": [
+      20,
+      305
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/SIPHONLIFE.FX",
+    "hit_fx": "POWERS/EMPATHY/DARKNESSABSORBPAINWITHRAYSANDHEAL.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/SIPHONLIFE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 25
+  },
+  "Soul_Extraction": {
+    "crcfull_name": 813950933,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Soul_Extraction",
+    "display_name": "Soul Extraction",
+    "display_help": "You can extract the soul, creating a ghost to aid you in battle.",
+    "display_short_help": "Summon Ghost",
+    "icon_name": "Skulls_Veles_SoulExtraction.tga",
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 60,
+    "endurance_cost": 14,
+    "target": 24,
+    "ents_auto_hit": [
+      24
+    ],
+    "ents_affected": [
+      24
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Skulls_Ghost",
+                "priority_list": "Combat"
+              }
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "scale": 0,
+            "duration": 0.5,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage over time.",
+              "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage over time."
+            },
+            "fx": {
+              "continuing_bits": [
+                323,
+                683
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      28,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_GHOST.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/ENCHANTDEAD.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/ENCHANTDEAD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Soul_Drain": {
+    "crcfull_name": 1732832821,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Soul_Drain",
+    "display_name": "Soul Drain",
+    "display_help": "You drain the essence of all nearby foes' souls, thus increasing your own strength. Each affected foe will lose some Hit Points and add to your damage potential and chance to hit.",
+    "display_short_help": "PBAoE, Moderate DMG (Negative Energy), +DMG (All, Self), +ToHit (Self)",
+    "icon_name": "ShadowFighting_StealPower.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 10,
+    "time_to_activate": 2.37,
+    "recharge_time": 120,
+    "endurance_cost": 21,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 0.5,
+            "duration": 30,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/STEALPOWERCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 1.25,
+            "duration": 30,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SHADOWFIGHTING_STEAL_POWER.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/STEALPOWER.FX",
+    "hit_fx": "POWERS/EMPATHY/DARKNESSABSORBPAINWITHRAYSANDHEAL.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/STEALPOWER.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53
+  },
+  "Lich": {
+    "crcfull_name": 3106384312,
+    "source_file": "DEFS/POWERS/SKULLS_VELES.POWERS",
+    "source_name": "Skulls.Veles.Lich",
+    "display_name": "Lich",
+    "display_help": "You summon a Lich to assist you in battle.",
+    "display_short_help": "Summon Lich",
+    "icon_name": "Skulls_Veles_Lich.tga",
+    "time_to_activate": 3.17,
+    "recharge_time": 120,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 99999,
+            "delay": 0.5,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Skulls_Lich",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_LICH.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/SUMMONFINAL.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/SUMMONFINAL.FX",
+    "attack_frames": 95
+  }
+}

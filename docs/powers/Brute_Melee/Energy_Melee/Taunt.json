@@ -1,0 +1,168 @@
+{
+  "crcfull_name": 1597377762,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_ENERGY_MELEE.POWERS",
+  "source_name": "Brute_Melee.Energy_Melee.Taunt",
+  "display_name": "Taunt",
+  "display_help": "Taunt foes to attack you. Useful to pull enemies off allies and keep them attacking you to raise your Fury. A To Hit check is required to Taunt enemy players, but is not needed against critter targets. Recharge: Fast",
+  "display_short_help": "Ranged (Targeted AoE), Foe Taunt",
+  "display_target_help": "You have been Taunted.",
+  "display_target_short_help": "Taunt",
+  "icon_name": "PowerPunch_Taunt.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 5,
+  "radius": 15,
+  "range": 70,
+  "time_to_activate": 1.67,
+  "recharge_time": 10,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    28,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_Taunt",
+          "scale": 20,
+          "magnitude": 4,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Taunt {PlayerDest} to attack you.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_Taunt",
+          "scale": 5,
+          "magnitude": 4,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} hit, and you Taunt {PlayerDest} to attack you.",
+            "display_victim_hit": "{Playersource} hit you with their {Powername}. You have been Taunted!"
+          }
+        }
+      ]
+    },
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            348
+          ],
+          "aspect": 16,
+          "scale": -0.75,
+          "duration": 12,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        ">=",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            468
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} partially hit! {PlayerDest} is not taunted but their range is reduced!",
+            "display_victim_hit": "{Playersource} partially hits you with their Taunt! Your range is reduced but the Taunt is not successful!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    248,
+    348,
+    468
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ENERGYMELEE_TAUNT.PFX",
+  "attack_bits": [
+    20,
+    358,
+    688
+  ],
+  "initial_attack_bits": [
+    20,
+    358,
+    688
+  ],
+  "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 20,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 20
+}

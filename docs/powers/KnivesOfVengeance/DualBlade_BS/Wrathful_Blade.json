@@ -1,0 +1,229 @@
+{
+  "crcfull_name": 2886462439,
+  "source_file": "DEFS/POWERS/KNIVESOFVENGEANCE_DUALBLADE_BS.POWERS",
+  "source_name": "KnivesOfVengeance.DualBlade_BS.Wrathful_Blade",
+  "display_name": "Wrathful Blade",
+  "display_help": "You stab your blades into your target, drawing the life essence out of the target through your blades, healing you. The target suffers from a large wound which does not heal easily, causing lethal damage. The strain of such a wound also lowers their maximum HP, healing effectiveness, regeneration and recovery. Occasionally, it will also cause endurance loss.",
+  "display_short_help": "Melee, Superior DMG(Lethal), Moderate DoT (Lethal), Heal(Self), RES(Heal,Foe), -Rec(Foe), -Regen(Foe), Chance for -MaxHP(Foe), -End(Foe)",
+  "display_target_help": "You are suffering from a gaping wound which weakens you significantly.",
+  "display_target_short_help": "DoT(Lethal), -MaxHP, -Rec, -Regen",
+  "icon_name": "KnivesOfVengeance_WrathfulBlade.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "range": 10,
+  "time_to_activate": 1.2,
+  "recharge_time": 60,
+  "endurance_cost": 11,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 1.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "delay": 1.5,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 24,
+          "scale": -0.5,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            232,
+            236
+          ],
+          "scale": -0.15,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.20",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            80
+          ],
+          "aspect": 8,
+          "table": "Melee_HealSelf",
+          "scale": -1,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The wound from {PlayerSource}'s {PowerName} is severe enough to reduce your maximum health and drain your endurance!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "preference_multiplier": 20,
+  "attrib_cache": [
+    4,
+    28,
+    80,
+    88,
+    232,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DUALBLADES_FOLLOWUP_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    305
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    305,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+  "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_HIT.FX",
+  "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    87
+  ],
+  "attack_frames": 36,
+  "initial_frames_before_hit": 35,
+  "initial_attack_fxframe_delay": 20,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/DUALBLADES_FOLLOWUP_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        766,
+        305
+      ],
+      "block_bits": 53,
+      "activation_bits": [
+        20,
+        130,
+        133,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        766,
+        305
+      ],
+      "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+      "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+      "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_HIT.FX",
+      "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        87
+      ],
+      "attack_frames": 36,
+      "palette": ""
+    }
+  ]
+}

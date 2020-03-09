@@ -1,0 +1,372 @@
+{
+  "crcfull_name": 3062603491,
+  "source_file": "DEFS/POWERS/SCRAPPER_MELEE_KATANA.POWERS",
+  "source_name": "Scrapper_Melee.Katana.Whirling_Sword",
+  "display_name": "The Lotus Drops",
+  "display_help": "You perform The Lotus Drops maneuver, attacking all foes in melee range. This attack wounds your opponents, causing them to take moderate damage over time and reduces their Defense. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "PBAoE Melee, Moderate DMG(Lethal), Foe -Def",
+  "display_target_help": "The Katana has reduced your Defenses.",
+  "display_target_short_help": "-DEF",
+  "icon_name": "Katana_WhirlingSword.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "accuracy": 1.05,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 1.83,
+  "recharge_time": 14,
+  "endurance_cost": 13,
+  "boosts_allowed": [
+    23,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.12,
+          "duration": 2.1,
+          "delay": 1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "duration": 10,
+          "tick_chance": 0.998,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.2805,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PlayerCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.2805,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "MLCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BossCrit"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.7886,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.45,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.054,
+          "duration": 2.1,
+          "delay": 1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    4,
+    8,
+    184
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/KATANA_TWIRL_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    170,
+    264
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    134,
+    170,
+    186
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    170,
+    264,
+    186
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+  "attack_fx": "POWERS/MEDIEVALWEAPONS/KATANATWIRL.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+  "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/KATANATWIRLINITIAL.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    134,
+    170,
+    85
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 55,
+  "initial_frames_before_hit": 55,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/KATANA_TWIRL_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        134,
+        170,
+        264
+      ],
+      "block_bits": 53,
+      "activation_bits": [
+        20,
+        130,
+        133,
+        134,
+        170,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        134,
+        170,
+        264
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+      "attack_fx": "POWERS/MEDIEVALWEAPONS/KATANATWIRL.FX",
+      "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+      "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/KATANATWIRL.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        134,
+        170,
+        85
+      ],
+      "frames_before_hit": 25,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    }
+  ]
+}

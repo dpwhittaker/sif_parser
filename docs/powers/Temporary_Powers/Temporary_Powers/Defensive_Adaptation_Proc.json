@@ -1,0 +1,160 @@
+{
+  "crcfull_name": 1616527951,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Defensive_Adaptation_Proc",
+  "free": true,
+  "display_name": "Defensive Adaptation",
+  "display_help": "While Defensive Adaptation is active, most of your damaging powers will cause you to heal a small amount of health.",
+  "display_short_help": "+Hit Points",
+  "icon_name": "Incarnate_Hybrid_Assault_Uncommon.tga",
+  "type": 5,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "HealSelf"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "CategoryName",
+        "power.base>",
+        "Judgement",
+        "eq",
+        "!",
+        "&&",
+        "activateperiod",
+        "power.base>",
+        "0",
+        "==",
+        "&&",
+        "enttype",
+        "source>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "type": 3,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 0.015,
+          "magnitude_expr": [
+            "activatetime",
+            "power.base>",
+            "@StdResult",
+            "*"
+          ],
+          "stack_type": 3,
+          "flags": [
+            212,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} points of health!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "HealSelf"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "CategoryName",
+        "power.base>",
+        "Judgement",
+        "eq",
+        "!",
+        "&&",
+        "activateperiod",
+        "power.base>",
+        "0",
+        "==",
+        "!",
+        "&&",
+        "enttype",
+        "source>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "type": 3,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 0.06,
+          "magnitude_expr": [
+            ".11",
+            "activateperiod",
+            "power.base>",
+            "0",
+            "2",
+            "minmax",
+            "*",
+            "@StdResult",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "stack_type": 3,
+          "flags": [
+            212,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} points of health!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    }
+  ],
+  "ignore_strength": true,
+  "show_in_inventory": 0,
+  "show_in_manage": false,
+  "show_in_info": false,
+  "max_boosts": 0,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    28
+  ]
+}

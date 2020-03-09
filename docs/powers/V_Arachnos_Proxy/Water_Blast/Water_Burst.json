@@ -1,0 +1,345 @@
+{
+  "crcfull_name": 3888700585,
+  "source_file": "DEFS/POWERS/V_ARACHNOS_PROXY_WATER_BLAST.POWERS",
+  "source_name": "V_Arachnos_Proxy.Water_Blast.Water_Burst",
+  "display_name": "Water Burst",
+  "display_help": "You cause water to violently explode from beneath your target's feet blasting all foes nearby with freezing cold water. Affected targets will suffer Moderate Cold and Smashing damage, have their movement speed reduced and may be knocked down by the force of the blast. Water Burst consumes all Tidal Power. It will deal additional cold damage and have a greater chance to knockdown for each stack of Tidal Power. If you have 3 stacks of Tidal Power Water Burst will have a 100% chance to knock the targets into the air. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Cold/Smash), Foe -Speed, Knockdown, Self -Tidal Power",
+  "display_target_help": "Your movement speed has been reduced by the Water Burst!",
+  "display_target_short_help": "'-SPD, Knockdown",
+  "icon_name": "WaterBlast_WaterBurst.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing",
+    "Cold"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 1.73,
+  "recharge_time": 16,
+  "endurance_cost": 15.2,
+  "target": 19,
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.225,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.675,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 10
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            1
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Tidal_Power"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "1",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.045,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "2",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.108,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "3",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.225,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "0",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.45,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "1",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.7,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "2",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "Temporary_Powers.Temporary_Powers.Tidal_Power",
+    "ownPowerNum?",
+    "3",
+    "=="
+  ],
+  "highlight_ring": [
+    255,
+    127,
+    0,
+    255
+  ],
+  "attrib_cache": [
+    0,
+    12,
+    188,
+    192,
+    200,
+    204,
+    328,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WATERBURST.PFX",
+  "attack_bits": [
+    20,
+    631,
+    221
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    631,
+    221
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERBURST.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERHIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERBURST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 24,
+  "attack_frames": 52,
+  "initial_frames_before_hit": 24,
+  "primary_tint": [
+    100,
+    140,
+    215,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    140,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WATERBURST.PFX",
+      "attack_bits": [
+        20,
+        631,
+        221
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        221
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERBURST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERBURST.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 52,
+      "initial_frames_before_hit": 24,
+      "palette": ""
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WATERBURST.PFX",
+      "attack_bits": [
+        20,
+        631,
+        221
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        221
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/WATERBURST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/WATERHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/WATERBURST.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 52,
+      "initial_frames_before_hit": 24,
+      "palette": ""
+    }
+  ]
+}

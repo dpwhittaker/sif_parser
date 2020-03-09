@@ -1,0 +1,97 @@
+{
+  "crcfull_name": 135691262,
+  "source_file": "DEFS/POWERS/DILEMMADIABOLIQUE_DIABOLIQUE.POWERS",
+  "source_name": "DilemmaDiabolique.Diabolique.Consuming_Burst",
+  "display_name": "Consuming Burst",
+  "display_help": "You coalesce an orb of crystalline death energy and throw it at a single target. When the orb hits the target, it explodes in a shower of deadly shrapnel. The main target, and all those caught in the burst radius, suffer cold damage. Additionally, their protections against further cold damage are reduced and their endurance costs are increased.",
+  "display_short_help": "TAoE (Secondary Target), Moderate DMG (Cold), Minor DoT(Cold), -DEF(Foe,Cold), -RES(Foe,Cold), +EndCost(Foe)",
+  "display_target_help": "You are freezing, taking cold damage over time. Additionally, your protections against cold damage are reduced and your powers cost more endurance to execute.",
+  "display_target_short_help": "DoT (Cold), -DEF(Cold), -RES(Cold), +EndCost",
+  "icon_name": "DilemmaDiabolique_Diabolique_ConsumingBurst.tga",
+  "attack_types": [
+    "Ranged",
+    "Cold"
+  ],
+  "target_requires": [
+    "enttype",
+    "target>",
+    "player",
+    "eq"
+  ],
+  "accuracy": 2,
+  "range": 150,
+  "time_to_activate": 2.03,
+  "recharge_time": 14,
+  "endurance_cost": 22,
+  "target": 19,
+  "ai_groups": [
+    "kSecondaryTarget"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.25,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 2,
+          "flags": [
+            112,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Diabolique_Pet_ConsumingBurst"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 900,
+  "attrib_cache": [
+    12,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DIABOLIQUE_CONSUMINGBLAST.PFX",
+  "attack_bits": [
+    20,
+    262
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    262
+  ],
+  "attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/CONSUMINGBLAST_ATTACK.FX",
+  "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/DIABOLIQUE_HIT.FX",
+  "initial_attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/CONSUMINGBLAST_ATTACK.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 78,
+  "delayed_hit": true,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 78,
+  "projectile_speed": 90
+}

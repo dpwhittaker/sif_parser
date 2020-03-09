@@ -1,0 +1,249 @@
+{
+  "crcfull_name": 1469930972,
+  "source_file": "DEFS/POWERS/PRESTIGE_PRESTIGE_ATTACKS.POWERS",
+  "source_name": "Prestige.Prestige_Attacks.Brawl_Tranq",
+  "free": true,
+  "display_name": "Tranq Dart",
+  "display_help": "Thanks to the advances of science, you know have access to a basic chemical weapon: the Tranq Dart. This attack can be used at short range to deal minor Lethal and Toxic damage to a target. In addition there is a small chance you can put the target to Sleep with this dart, but they will wake up the next time they are damaged or healed. This power receives a damage bonus that decreases as you level up. At around level 15 you stop benefiting from this power's damage bonus altogether. Damage: Minor, Recharge: Fast",
+  "display_short_help": "Ranged Minor DMG(Lethal/Toxic), Foe Sleep",
+  "display_target_help": "The Tranq Dart has put you to Sleep.",
+  "display_target_short_help": "Sleep",
+  "icon_name": "Temporary_TargetedSleep.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "accuracy": 1.2,
+  "range": 45,
+  "time_to_activate": 1,
+  "recharge_time": 4,
+  "endurance_cost": 2.08,
+  "target": 19,
+  "modes_disallowed": [
+    9,
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "level",
+        "source>",
+        "15",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.2,
+          "delay": 0.125,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "level",
+        "source>",
+        "16",
+        "<"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "magnitude_expr": [
+            "15",
+            "level",
+            "source>",
+            "-",
+            ".07",
+            "*",
+            ".3",
+            "+",
+            ".33",
+            "*",
+            "@StdResult",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "magnitude_expr": [
+            "15",
+            "level",
+            "source>",
+            "-",
+            ".07",
+            "*",
+            ".3",
+            "+",
+            ".67",
+            "*",
+            "@StdResult",
+            "*"
+          ],
+          "delay": 0.125,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 6,
+          "magnitude": 2,
+          "delay": 0.5,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              276
+            ],
+            "conditional_fx": "GENERICCONTINUING/SLEEPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 2,
+          "magnitude": 0.5,
+          "delay": 0.5,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              276
+            ],
+            "conditional_fx": "GENERICCONTINUING/SLEEPCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "show_in_manage": false,
+  "max_boosts": 0,
+  "travel_suppression": 3,
+  "force_level_bought": 0,
+  "attrib_cache": [
+    4,
+    36,
+    280
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/BRAWL_SCIENCE.PFX",
+  "attack_bits": [
+    20,
+    298
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    298
+  ],
+  "attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/SCIDARTTHROW.FX",
+  "hit_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/SCIDARTHIT.FX",
+  "initial_attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/SCIDARTTHROW.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 16,
+  "projectile_speed": 60
+}

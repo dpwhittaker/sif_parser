@@ -1,0 +1,1461 @@
+{
+  "Spirit_Shark": {
+    "crcfull_name": 1296979271,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Leviathan_Mastery.Spirit_Shark",
+    "display_name": "Spirit Shark",
+    "display_help": "You are empowered with the Spirit of the Mako Shark. You can project this spirit to attack and maul your opponent. The Shark Spirit will manifest and attack your foe, quickly dealing heavy lethal damage over time. Damage: Heavy(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Heavy DoT(Lethal), Foe Knockback",
+    "display_target_help": "You are being mauled by a Spirit Shark.",
+    "display_target_short_help": "DoT(Lethal)",
+    "icon_name": "Arachnos_Patron_TargetedRangedHighDmg.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Brute",
+      "==",
+      "$archetype",
+      "@Class_Tanker",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 3,
+    "recharge_time": 9,
+    "endurance_cost": 8.58,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 3.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.86,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.86,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!",
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.86,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.45,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.045,
+            "duration": 3.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      8,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARK.PFX",
+    "attack_bits": [
+      20,
+      325
+    ],
+    "hit_bits": [
+      49,
+      283
+    ],
+    "initial_attack_bits": [
+      20,
+      325
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CHARGE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CHARGE.FX",
+    "frames_before_hit": 60,
+    "delayed_hit": true,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 60,
+    "projectile_speed": 42,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARK.PFX",
+        "attack_bits": [
+          20,
+          325
+        ],
+        "hit_bits": [
+          49,
+          283
+        ],
+        "initial_attack_bits": [
+          20,
+          325
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 60,
+        "delayed_hit": true,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 60,
+        "projectile_speed": 42,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "School_of_Sharks": {
+    "crcfull_name": 1520798912,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Leviathan_Mastery.School_of_Sharks",
+    "display_name": "School of Sharks",
+    "display_help": "You can call forth a school of vicious Shark Spirits that will swim out in a cone formation and will encircle your foes, draining their spirit energy. The encircling Shark Spirits will immobilize most foes while they deal negative energy damage over time. Both you and the target must be Near the Ground for this power to activate. Damage: Moderate(DoT), Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Moderate DoT(Negative), Foe Immobilize",
+    "display_target_help": "The School of Sharks has Immobilized you, inflicting negative Damage over Time.",
+    "display_target_short_help": "Immobilize, DoT(Negative)",
+    "icon_name": "Arachnos_Patron_ConeImmobilize.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Brute",
+      "==",
+      "$archetype",
+      "@Class_Tanker",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "target_near_ground": true,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 50,
+    "arc": 0.5235988,
+    "range": 50,
+    "time_to_activate": 2.37,
+    "recharge_time": 20,
+    "endurance_cost": 12.74,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.135,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1064,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1167,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1167,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1669,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.0608,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.045,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      8,
+      20,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+    "continuing_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+    "continuing_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 50,
+    "delayed_hit": true,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 50,
+    "projectile_speed": 30,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+        "frames_before_hit": 50,
+        "delayed_hit": true,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 50,
+        "projectile_speed": 30,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Chum_Spray": {
+    "crcfull_name": 3259094033,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Leviathan_Mastery.Chum_Spray",
+    "display_name": "Bile Spray",
+    "display_help": "Sharks will eat anything, so their stomach acid must be powerful indeed. You can regurgitate this acid and spew a corrosive spray of bile at a foe. Affected foes in the cone area will take toxic damage over time. You must be level 41 and have Spirit Shark or School of Sharks before selecting this power. Damage: Moderate(DoT), Recharge: Long",
+    "display_short_help": "Ranged (Cone), Moderate DoT(Toxic)",
+    "display_target_short_help": "DoT (Toxic)",
+    "icon_name": "Arachnos_Patron_RangedConeModerateDmg.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Brute_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Brute_Leviathan_Mastery.School_of_Sharks",
+      "||",
+      "&&"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 60,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7772,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.0864,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2953,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.315,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.045,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      8,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_BILESPRAY.PFX",
+    "attack_bits": [
+      20,
+      327
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_CHUM.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_CHUM_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_CHUM.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 35,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_BILESPRAY.PFX",
+        "attack_bits": [
+          20,
+          327
+        ],
+        "initial_attack_bits": [
+          20,
+          327
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/BILESPRAY_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/BILESPRAY_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/BILESPRAY_ATTACK.FX",
+        "frames_before_hit": 35,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Arctic_Breath": {
+    "crcfull_name": 466199614,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Leviathan_Mastery.Arctic_Breath",
+    "display_name": "Arctic Breath",
+    "display_help": "Sharks will eat anything, so their stomach acid must be powerful indeed. You can regurgitate this freezing acid and spew a corrosive spray of bile at a foe. Affected foes in the cone area will take cold damage over time, and have their damage resistance, Defense, movement rate, and recharge rate reduced. This ice will stick to foes, causing them to fall down occasionally. You must be level 41 and have Spirit Shark or School of Sharks before selecting this power. Damage: Moderate(DoT), Recharge: Long",
+    "display_short_help": "Ranged (Cone), Minor DoT(Cold), Foe -Speed, -Recharge, -DEF -Res, knock down",
+    "display_target_short_help": "DoT(Cold), -DMG, -Res, -SPD, -Recharge",
+    "icon_name": "Arachnos_Patron_ConeSlow.tga",
+    "attack_types": [
+      "AOE",
+      "Cold"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Brute_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Brute_Leviathan_Mastery.School_of_Sharks",
+      "||",
+      "&&"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 60,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1295,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1943,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2953,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 10
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Debuff_Res_Dmg",
+            "scale": -1.5,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 1.5,
+            "duration": 10,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "chance": 0.03,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.1,
+            "duration": 10,
+            "period": 0.25,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.02,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.1,
+            "duration": 10,
+            "period": 0.25,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.225,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.045,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      188,
+      192,
+      200,
+      204,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_ARCTICBREATH.PFX",
+    "attack_bits": [
+      20,
+      327
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/CORALAX/WATERSPRAY.FX",
+    "hit_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUINGWITHOUTCRYSTALS.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/CORALAX/WATERSPRAY.FX",
+    "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 35,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_ARCTICBREATH.PFX",
+        "attack_bits": [
+          20,
+          327
+        ],
+        "initial_attack_bits": [
+          20,
+          327
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/ARCTICBREATH_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/ARCTICBREATH_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/ARCTICBREATH_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "frames_before_hit": 35,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Summon_Guardian": {
+    "crcfull_name": 2516112358,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Leviathan_Mastery.Summon_Guardian",
+    "display_name": "Summon Guardian",
+    "display_help": "Captain Mako has shown you how to summon a Coralax Guardian Sentinel to do your bidding. These creatures are composed of living coral made from the sea-goddess Merulina. Your access to this Guardian is very limited. You can only summon it once every 15 minutes and it will leave after 4 minutes, or if you exit a zone or mission. You must be level 44 and have two other Leviathan Mastery Powers before selecting this power. Recharge: Extremely Long",
+    "display_short_help": "Summon Sentinel: Ranged Moderate DMG(Smashing)",
+    "icon_name": "Arachnos_Patron_SummonOnePet.tga",
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Brute_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Brute_Leviathan_Mastery.School_of_Sharks",
+      "&&",
+      "Epic.Brute_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Brute_Leviathan_Mastery.Chum_Spray",
+      "&&",
+      "||",
+      "Epic.Brute_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Brute_Leviathan_Mastery.Arctic_Breath",
+      "&&",
+      "||",
+      "Epic.Brute_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Brute_Leviathan_Mastery.Chum_Spray",
+      "&&",
+      "||",
+      "Epic.Brute_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Brute_Leviathan_Mastery.Arctic_Breath",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 3.2,
+    "recharge_time": 900,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      17,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Coral_Guardian_Sentinel",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SUMMON.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "ENEMYFX/V_CORALAX/CORAL_GUARDIAN/SUMMON_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/V_CORALAX/CORAL_GUARDIAN/SUMMON_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 96,
+    "initial_frames_before_hit": 37,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_ATTACK.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 96,
+        "initial_frames_before_hit": 37,
+        "palette": "Additive"
+      }
+    ]
+  }
+}

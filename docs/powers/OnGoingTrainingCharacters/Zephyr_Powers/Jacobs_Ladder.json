@@ -1,0 +1,119 @@
+{
+  "crcfull_name": 513340613,
+  "source_file": "DEFS/POWERS/ONGOINGTRAININGCHARACTERS_ZEPHYR_POWERS.POWERS",
+  "source_name": "OnGoingTrainingCharacters.Zephyr_Powers.Jacobs_Ladder",
+  "display_name": "Jacobs Ladder",
+  "display_help": "You are able to generate a strong current between your arms and snap a powerful bolt of electricity in an arc in front of you. This melee attack can electrocute all foes within the arc dealing High energy damage. Jacobs Ladder can drain some Endurance from your target and may overload their synapses, leaving him writhing for a moment. Disturbing an overloaded target will disperse the electrical charge and release him. Damage: High, Recharge: Moderate",
+  "display_short_help": "Melee (Cone), High DMG(Energy), Foe Sleep, -End",
+  "display_target_help": "You are in shock from the Jacobs Ladder attack and cannot move.",
+  "display_target_short_help": "Sleep",
+  "icon_name": "ElectricMelee_ConeModerateDmg.tga",
+  "attack_types": [
+    "Melee",
+    "Energy"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 5,
+  "radius": 5,
+  "arc": 0.87266463,
+  "range": 5,
+  "time_to_activate": 1.67,
+  "recharge_time": 8,
+  "endurance_cost": 11.48,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.07,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Sleep",
+          "scale": 6,
+          "magnitude": 2,
+          "delay": 0.25,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYBOLTHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -1,
+          "duration": 2,
+          "fx": {
+            "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "preference_multiplier": 4,
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    280
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_ELECTRICMELEE_JACOBSLADDER.PFX",
+  "attack_bits": [
+    20,
+    568
+  ],
+  "initial_attack_bits": [
+    20,
+    568
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYSHOTGUN.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/RED_CHRAGEDBRAWLHIT.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYSHOTGUN.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 40,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 40
+}

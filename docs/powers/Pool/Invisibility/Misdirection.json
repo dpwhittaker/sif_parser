@@ -1,0 +1,164 @@
+{
+  "crcfull_name": 4263339614,
+  "source_file": "DEFS/POWERS/POOL_INVISIBILITY.POWERS",
+  "source_name": "Pool.Invisibility.Misdirection",
+  "display_name": "Misdirection",
+  "display_help": "You redirect the anger of enemies around you, placating them. This causes them to break off their attacks. The momentary lack of awareness this causes also leads to reduced resistance to damage for a short time. You must be at least level 14 and have trained any two other Concealment powers before you can train this power. Recharge: Very Long",
+  "display_short_help": "PBAoE, Foe Placate, -Res(All)",
+  "display_target_help": "You have been placated and your damage resistance has been reduced.",
+  "display_target_short_help": "Placate, -RES(All)",
+  "icon_name": "Invisibility_Placate.tga",
+  "buy_requires": [
+    "Pool.Invisibility.Stealth",
+    "Pool.Invisibility.Grant_Invisibility",
+    "&&",
+    "Pool.Invisibility.Stealth",
+    "Pool.Invisibility.Invisibility",
+    "&&",
+    "||",
+    "Pool.Invisibility.Stealth",
+    "Pool.Invisibility.Phase_Shift",
+    "&&",
+    "||",
+    "Pool.Invisibility.Grant_Invisibility",
+    "Pool.Invisibility.Invisibility",
+    "&&",
+    "||",
+    "Pool.Invisibility.Grant_Invisibility",
+    "Pool.Invisibility.Phase_Shift",
+    "&&",
+    "||",
+    "Pool.Invisibility.Invisibility",
+    "Pool.Invisibility.Phase_Shift",
+    "&&",
+    "||"
+  ],
+  "ai_report": 1,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "time_to_activate": 1.5,
+  "recharge_time": 240,
+  "endurance_cost": 9.75,
+  "boosts_allowed": [
+    23,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    8,
+    12,
+    117,
+    118
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            252
+          ],
+          "aspect": 32,
+          "type": 0,
+          "scale": 15,
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You redirect the anger of {PlayerDest}, placating them. This induces a momentary lack of awareness that also reduces their resistance to damage.",
+            "display_victim_hit": "You have been placated by {PowerName} and are unable to target {PlayerSource}. Your resistance to damage has also been reduced."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            252
+          ],
+          "aspect": 32,
+          "type": 0,
+          "scale": 9,
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You redirect the anger of {PlayerDest}, placating them. This induces a momentary lack of awareness that also reduces their resistance to damage.",
+            "display_victim_hit": "You have been placated by {PowerName} and are unable to target {PlayerSource}. Your resistance to damage has also been reduced."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Melee_Res_DMG",
+          "scale": -1.5,
+          "duration": 15,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    252
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_BRAWLING_PLACATE.PFX",
+  "attack_bits": [
+    20,
+    441
+  ],
+  "hit_bits": [
+    49,
+    442
+  ],
+  "initial_attack_bits": [
+    20,
+    441
+  ],
+  "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 45
+}

@@ -1,0 +1,113 @@
+{
+  "crcfull_name": 3882135856,
+  "source_file": "DEFS/POWERS/BOOSTS_ATTUNED_OPPORTUNITY_STRIKES_F.POWERS",
+  "source_name": "Boosts.Attuned_Opportunity_Strikes_F.Attuned_Opportunity_Strikes_F",
+  "display_name": "Opportunity Strikes: Recharge/Chance for +Opportunity (Sentinel)",
+  "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. Gives the slotted power a chance to boost your Opportunity chances for a short time, and reduces the power's recharge time by {Boost.Attrib.RechargeTime.Scale}%. This enhancement's chance to trigger is equal to approximately 1 times per minute. This enhancement can only be slotted by Sentinels and may be slotted into any Sentinel damage power.",
+  "display_short_help": "Increases Attack Rate, Chance for +Opportunity",
+  "icon_name": "E_ICON_Opportunity_Strikes_ATO.tga",
+  "type": 3,
+  "slot_requires": [
+    "Attuned_Opportunity_Strikes_F",
+    "BoostsSlotted>",
+    "0",
+    "<=",
+    "Superior_Attuned_Superior_Opportunity_Strikes_F",
+    "BoostsSlotted>",
+    "0",
+    "<=",
+    "&&",
+    "arch",
+    "char>",
+    "Class_Sentinel",
+    "eq",
+    "&&"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "effects": [
+    {
+      "tag": [
+        "rechargetime"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Boosts_33",
+          "scale": 0.4375,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            2608,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "procs_per_minute": 1,
+      "requires": [
+        "enttype",
+        "source>",
+        "player",
+        "eq",
+        "activateperiod",
+        "power.base>",
+        "activatetime",
+        "power.base>",
+        "+",
+        "0",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 25,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your opportunity is increased by {Damage} from {PowerName}!",
+            "display_victim_hit": "",
+            "display_float": "OPPORTUNITY STRIKES!"
+          }
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "boost_ignore_effectiveness": true,
+  "boost_always_count_for_set": true,
+  "boost_combinable": false,
+  "boost_use_player_level": true,
+  "boost_catalyst_conversion": "Boosts.Superior_Attuned_Superior_Opportunity_Strikes_F.Superior_Attuned_Superior_Opportunity_Strikes_F",
+  "min_slot_level": 9,
+  "attrib_cache": [
+    96,
+    356
+  ]
+}

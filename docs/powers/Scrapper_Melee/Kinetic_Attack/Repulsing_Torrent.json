@@ -1,0 +1,400 @@
+{
+  "crcfull_name": 1162439603,
+  "source_file": "DEFS/POWERS/SCRAPPER_MELEE_KINETIC_ATTACK.POWERS",
+  "source_name": "Scrapper_Melee.Kinetic_Attack.Repulsing_Torrent",
+  "display_name": "Repulsing Torrent",
+  "display_help": "Repulsing Torrent unleashes a cone of powerful energy that can smash foes and possibly send them flying. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Cone), Moderate DMG(Energy/Smash), Foe Knockback",
+  "icon_name": "KineticAttack_RepulsingTorrent.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing",
+    "Energy"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 40,
+  "arc": 0.7853982,
+  "range": 40,
+  "time_to_activate": 2,
+  "recharge_time": 12,
+  "endurance_cost": 11.856,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.825,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.275,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 3,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 3,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.7476,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2492,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "CritPlayer"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.9968,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "CritSmall"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "CritLarge"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.6309,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.495,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    0,
+    8,
+    16,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_KINETICMELEE_REPULSINGTORRENT.PFX",
+  "attack_bits": [
+    20,
+    283,
+    261,
+    583
+  ],
+  "hit_bits": [
+    49,
+    247
+  ],
+  "initial_attack_bits": [
+    20,
+    283,
+    261,
+    583
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/REPULSINGTORRENT_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/REPULSINGTORRENT_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/REPULSINGTORRENT_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 55,
+  "delayed_hit": true,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 55,
+  "projectile_speed": 83,
+  "primary_tint": [
+    255,
+    175,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    75,
+    0,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_KINETICMELEE_REPULSINGTORRENT.PFX",
+      "attack_bits": [
+        20,
+        283,
+        261,
+        583
+      ],
+      "hit_bits": [
+        49,
+        247
+      ],
+      "initial_attack_bits": [
+        20,
+        283,
+        261,
+        583
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/REPULSINGTORRENT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/REPULSINGTORRENT_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/REPULSINGTORRENT_ATTACK.FX",
+      "frames_before_hit": 55,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 55,
+      "projectile_speed": 83,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_KINETICMELEE_REPULSINGTORRENT.PFX",
+      "attack_bits": [
+        20,
+        283,
+        261,
+        583
+      ],
+      "hit_bits": [
+        49,
+        247
+      ],
+      "initial_attack_bits": [
+        20,
+        283,
+        261,
+        583
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/REPULSINGTORRENT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/REPULSINGTORRENT_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/REPULSINGTORRENT_ATTACK.FX",
+      "frames_before_hit": 55,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 55,
+      "projectile_speed": 83
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "Deflection": {
+    "crcfull_name": 1906907754,
+    "source_file": "DEFS/POWERS/P_GHOULS_GHOULX_DEFENSE.POWERS",
+    "source_name": "P_Ghouls.GhoulX_Defense.Deflection",
+    "display_name": "Deflection",
+    "display_help": "Your mastery of the shield allows you to easily deflect melee attacks, and attacks that do get through your ironclad defenses tend to do less damage. While Deflection is active the user will gain defense to melee attacks and some minor resistance to lethal and smashing damage. Recharge: Fast",
+    "display_short_help": "Toggle: Self +DEF(Melee), +Res(Lethal, Smashing)",
+    "display_attacker_hit": "You engage {PowerName} increasing your melee defense as well as your lethal and smashing resistance.",
+    "display_power_defense_float": "Blocked",
+    "icon_name": "ShieldDefense_ActiveDefense.tga",
+    "type": 1,
+    "time_to_activate": 1.5,
+    "recharge_time": 4,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              108
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 0.5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 0.5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "dont_set_stance": true,
+    "attrib_cache": [
+      0,
+      4,
+      108
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MISSIONMAKERSECONDARY_SHIELDDEFENSE_SHIELD.PFX",
+    "mode_bits": [
+      20,
+      89
+    ]
+  },
+  "Against_All_Odds": {
+    "crcfull_name": 4040278454,
+    "source_file": "DEFS/POWERS/P_GHOULS_GHOULX_DEFENSE.POWERS",
+    "source_name": "P_Ghouls.GhoulX_Defense.Against_All_Odds",
+    "display_name": "Against All Odds",
+    "display_help": "The harder pressed you are in combat the greater your offensive abilities become. Each enemy that stands toe-to-toe with you in combat will grant you a damage bonus. The first foe you engage in melee grants the highest damage bonus, and up to 10 foes can contribute to this effect. Each foe in melee range also suffers from reduced damage as your shield deflects a portion of their damage. Recharge: Slow",
+    "display_short_help": "Toggle: Self +DMG, Foe -DMG",
+    "display_attacker_hit": "You are ready for the worst, you gain a damage bonus for each foe you engage in melee.",
+    "icon_name": "ShieldDefense_AgainstAllOdds.tga",
+    "type": 1,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 2.5,
+    "recharge_time": 10,
+    "activate_period": 1,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 0.55,
+            "duration": 1,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Melee_Debuff_Dam",
+            "duration": 1,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "dont_set_stance": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ]
+  }
+}

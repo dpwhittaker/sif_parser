@@ -1,0 +1,732 @@
+{
+  "Twilight_Grasp": {
+    "crcfull_name": 1680717662,
+    "source_file": "DEFS/POWERS/BLACKKNIGHTS_DARK_MIASMA.POWERS",
+    "source_name": "BlackKnights.Dark_Miasma.Twilight_Grasp",
+    "display_name": "Twilight Grasp",
+    "display_help": "You channel negative energy from the Netherworld through yourself to a targeted foe. This energy drains your target's life force and slowly transfers it to you and all nearby allies. The targeted foe's regeneration, chance to hit and damage are reduced, while you and your nearby allies are healed.",
+    "display_short_help": "Ranged, -DMG(Foe,All), -ToHit(Foe), -Regen(Foe), Heal(Self and Allies)",
+    "display_target_help": "Your damage potential, chance to hit and regeneration rate have been reduced.",
+    "display_target_short_help": "-ToHit, -DMG(All), -Regen",
+    "icon_name": "BlackKnights_TwilightGrasp.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 2.37,
+    "recharge_time": 8,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Twilight"
+              }
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.5,
+            "duration": 20,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} captures you within a {PowerName}, reducing your damage, chance to hit and regeneration rate."
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 5,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      232,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_TWILIGHT_GRASP.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53
+  },
+  "Nether_Well": {
+    "crcfull_name": 1902173305,
+    "source_file": "DEFS/POWERS/BLACKKNIGHTS_DARK_MIASMA.POWERS",
+    "source_name": "BlackKnights.Dark_Miasma.Nether_Well",
+    "display_name": "Nether Well",
+    "display_help": "Drops a large patch of viscous Negative Energy which dramatically slows down enemies that run through it and reduces their damage resistance. Affected targets are stuck and cannot jump or fly. Recharge: Slow",
+    "display_short_help": "Targeted AoE, -RES(Foe, All), -Speed(Foe, All), -Fly(Foe), -Jump(Foe)",
+    "display_target_help": "Your movement speed and damage resistance have been reduced. You also find it more difficult to jump or fly away.",
+    "display_target_short_help": "-RES(All), -Speed(All), -Fly, -Jump",
+    "icon_name": "BlackKnights_NetherWell.tga",
+    "target_near_ground": true,
+    "range": 90,
+    "time_to_activate": 3.1,
+    "recharge_time": 45,
+    "endurance_cost": 11,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "BlackKnights_NetherPatch"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 9,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_TARPATCHCAST.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/TARPATCHCAST.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/TARPATCHCAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 93,
+    "initial_frames_before_hit": 32
+  },
+  "Shadow_Fall": {
+    "crcfull_name": 3129762550,
+    "source_file": "DEFS/POWERS/BLACKKNIGHTS_DARK_MIASMA.POWERS",
+    "source_name": "BlackKnights.Dark_Miasma.Shadow_Fall",
+    "display_name": "Shadow Fall",
+    "display_help": "Envelops you and your nearby teammates in a shroud of darkness. Shadow Fall does not grant Invisibility, but it does make you harder to detect. Even if you are discovered, Shadow Fall grants a bonus to defense against all attacks and resistance to Fear, while reducing energy, negative energy, and psionic damage.",
+    "display_short_help": "PBAoE, Stealth (Team), +DEF(Team, All), +RES(Team, Energy, Negative, Psionics, Fear)",
+    "icon_name": "BlackKnights_Shadowfall.tga",
+    "type": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 40,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      16,
+      1
+    ],
+    "ents_affected": [
+      16,
+      1
+    ],
+    "group_membership": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 35,
+            "duration": 0.75,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 31,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/SHADOWHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 350,
+            "duration": 0.75,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 2,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 13,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 31,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144
+            ],
+            "table": "Ranged_Buff_Def",
+            "scale": 0.5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.7,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              16,
+              20,
+              24
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      16,
+      20,
+      24,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      220,
+      224,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_SHADOW_FALL.PFX",
+    "activation_bits": [
+      20,
+      255,
+      723
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/SHADOWFALL.FX",
+    "attack_frames": 61
+  },
+  "Nether_Void": {
+    "crcfull_name": 216709997,
+    "source_file": "DEFS/POWERS/BLACKKNIGHTS_DARK_MIASMA.POWERS",
+    "source_name": "BlackKnights.Dark_Miasma.Nether_Void",
+    "display_name": "Nether Void",
+    "display_help": "You envelop your target in a mass of nether energy which can break through an opponent's phased state. The target is held and unable to move as the nether energy drains their life essence, causing negative energy damage over time.",
+    "display_short_help": "Ranged, High DoT(Negative Energy), Hold(Foe)",
+    "display_target_help": "You are held in place and are suffering negative energy damage over time. These effects will apply to you even if phased.",
+    "display_target_short_help": "DoT(Negative Energy), Held",
+    "icon_name": "BlackKnights_NetherVoid.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "shoot_through_untouchable": true,
+    "range": 70,
+    "time_to_activate": 2.67,
+    "recharge_time": 14,
+    "endurance_cost": 11,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 5.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 7,
+    "attrib_cache": [
+      20,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANBLACKKNIGHTS_NETHERVOID.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/SHADOWFIELD_ATTACK.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/SHADOWFIELD_ATTACK.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+    "conditional_fx": "ENEMYFX/BLACKKNIGHTS/NETHERVOID_PET.FX",
+    "conditional_fx1": "ENEMYFX/BLACKKNIGHTS/NETHERVOID_PET.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 45,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 45,
+    "primary_tint": [
+      32,
+      32,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      64,
+      64,
+      96,
+      255
+    ]
+  },
+  "Fade": {
+    "crcfull_name": 1421227307,
+    "source_file": "DEFS/POWERS/BLACKKNIGHTS_DARK_MIASMA.POWERS",
+    "source_name": "BlackKnights.Dark_Miasma.Fade",
+    "display_name": "Fade",
+    "display_help": "You partially bring yourself and all nearby teammates into the Netherworld, vastly increasing their Defense to all attacks for a very short period of time as well as increasing their resistance to Defense Debuffs.",
+    "display_short_help": "PBAoE, +DEF(Team, All), +RES(Team,Defense Debuffs)",
+    "icon_name": "BlackKnights_Fade.tga",
+    "effect_area": 2,
+    "max_targets_hit": 8,
+    "radius": 40,
+    "time_to_activate": 2.03,
+    "recharge_time": 240,
+    "endurance_cost": 8,
+    "ents_auto_hit": [
+      8,
+      1
+    ],
+    "ents_affected": [
+      8,
+      1
+    ],
+    "ai_groups": [
+      "kDebuff",
+      "kMidBattle",
+      "kEndBattle"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116
+            ],
+            "table": "Ranged_Buff_Def",
+            "scale": 2,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              120,
+              124,
+              128,
+              132,
+              136,
+              140
+            ],
+            "target": 0,
+            "table": "Ranged_Buff_Def",
+            "scale": 2,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Ranged_Res_Boolean",
+            "scale": 0.75,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      184,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_DARKNESSAFFINITY_FADE.PFX",
+    "attack_bits": [
+      255,
+      723
+    ],
+    "initial_attack_bits": [
+      255,
+      723
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/FADE_ATTACK.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/FADE_ATTACK.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/FADE_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/FADE_CONTINUING.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 28,
+    "primary_tint": [
+      180,
+      150,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      180,
+      150,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_DARKNESSAFFINITY_FADE.PFX",
+        "attack_bits": [
+          255,
+          723
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          255,
+          723
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/FADE_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/FADE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/FADE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/FADE_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 28
+      }
+    ]
+  },
+  "Dread_Servant": {
+    "crcfull_name": 3709713073,
+    "source_file": "DEFS/POWERS/BLACKKNIGHTS_DARK_MIASMA.POWERS",
+    "source_name": "BlackKnights.Dark_Miasma.Dread_Servant",
+    "display_name": "Dread Servant",
+    "display_help": "Summons a Dark Servant to your aid. This Dark Servant possesses an assortment of dark powers to weaken your foes.",
+    "display_short_help": "Summon",
+    "icon_name": "BlackKnights_DarkServant.tga",
+    "accuracy": 2,
+    "time_to_activate": 3.17,
+    "recharge_time": 300,
+    "endurance_cost": 35,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "BlackKnights_DreadServant",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 20,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_DARK_SERVANT.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_frames": 95
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "crcfull_name": 3403658295,
+  "source_file": "DEFS/POWERS/INHERENT_INHERENT.POWERS",
+  "source_name": "Inherent.Inherent.Rage",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "Fury",
+  "display_help": "As a Brute engages in combat, it unleashes his Fury. The longer he remains in combat, attacking and being attacked, the more damage he deals.",
+  "display_short_help": "Self +DMG, Special",
+  "icon_name": "Inherent_BlasterDesperation.tga",
+  "type": 1,
+  "buy_requires": [
+    "$archetype",
+    "@Class_Brute",
+    "=="
+  ],
+  "activate_requires": [
+    "$archetype",
+    "@Class_Brute",
+    "=="
+  ],
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "effects": [
+    {
+      "requires": [
+        "AttackedByOtherClick",
+        "target.EventCount>",
+        "0",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "type": 3,
+          "target": 0,
+          "scale": 0,
+          "magnitude_expr": [
+            "AttackedByOtherClick",
+            "target.EventCount>",
+            "0.25",
+            "*",
+            "0.0",
+            "5.0",
+            "minmax",
+            "100.0",
+            "kMeter",
+            "source>",
+            "100",
+            "*",
+            "-",
+            "20.0",
+            "/",
+            "dup",
+            "*",
+            "0.0",
+            "10.0",
+            "minmax",
+            "*"
+          ],
+          "flags": [
+            96,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "ActivateAttackClick",
+        "target.EventCount>",
+        "0",
+        ">"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "type": 3,
+          "target": 0,
+          "magnitude_expr": [
+            "ActivateAttackClick",
+            "target.EventCount>",
+            "@StdResult",
+            "*",
+            "0.0",
+            "10.0",
+            "minmax",
+            "100.0",
+            "kMeter",
+            "source>",
+            "100",
+            "*",
+            "-",
+            "20.0",
+            "/",
+            "dup",
+            "*",
+            "0.0",
+            "10.0",
+            "minmax",
+            "*"
+          ],
+          "flags": [
+            96,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "show_in_manage": false,
+  "max_boosts": 0,
+  "attrib_cache": [
+    96
+  ]
+}

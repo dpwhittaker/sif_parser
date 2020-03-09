@@ -1,0 +1,207 @@
+{
+  "crcfull_name": 1812846895,
+  "source_file": "DEFS/POWERS/BOOSTS_ATTUNED_OVERWHELMING_FORCE_F.POWERS",
+  "source_name": "Boosts.Attuned_Overwhelming_Force_F.Attuned_Overwhelming_Force_F",
+  "display_name": "Overwhelming Force: Damage/Chance for Knockdown/Knockback to Knockdown",
+  "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. Provides a 20% chance to cause knockdown to your targets, enhances the damage of a power by {Boost.Attrib.Damage.Scale}%, and converts any Knockback this power deals into Knockdown. Some powers may have their chance to Knockdown reduced when this enhancement is slotted. This enhancement also has a penchant for the dramatic...",
+  "display_short_help": "+DMG, Chance for Knockdown, Converts Knockback to Knockdown",
+  "icon_name": "E_ICON_Summer_Event.tga",
+  "type": 3,
+  "slot_requires": [
+    "Attuned_Overwhelming_Force_F",
+    "BoostsSlotted>",
+    "0",
+    "<="
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "effects": [
+    {
+      "tag": [
+        "Knock"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": -10,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            2608,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Knock"
+      ],
+      "procs_per_minute": 2.5,
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            212,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Knock"
+      ],
+      "procs_per_minute": 2.5,
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "flags": [
+            212,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            468
+          ],
+          "target": 0,
+          "scale": -0.6,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            477
+          ],
+          "target": 0,
+          "scale": -1,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            2608,
+            0
+          ],
+          "param": {
+            "EffectFilter": {
+              "tag": "ReduceIfKD"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Damage"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Boosts_33",
+          "scale": 0.625,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            2608,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "boost_ignore_effectiveness": true,
+  "boost_always_count_for_set": true,
+  "boost_combinable": false,
+  "boost_use_player_level": true,
+  "min_slot_level": 9,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    324,
+    328,
+    468,
+    477
+  ]
+}

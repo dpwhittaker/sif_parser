@@ -1,0 +1,535 @@
+{
+  "O2_Boost": {
+    "crcfull_name": 2551342541,
+    "source_file": "DEFS/POWERS/TSOO_TSOO_SORCERER_BOOST.POWERS",
+    "source_name": "Tsoo.Tsoo_Sorcerer_Boost.O2_Boost",
+    "display_name": "O2 Boost",
+    "display_help": "Saturates the air around a targeted ally with rich oxygen, to heal his wounds. The O2 boost can also protect a targeted ally from Sleep, Immobilize, Confuse and Stun effects.",
+    "display_short_help": "Ally Heal +Res(Effects)",
+    "display_target_help": "Saturates the air around a targeted ally with rich oxygen, to heal his wounds. The O2 boost can also protect a targeted ally from Sleep, Immobilize, Confuse and Stun effects.",
+    "display_target_short_help": "Ally Heal +Res(Effects)",
+    "icon_name": "StormSummoning_O2Boost.tga",
+    "range": 20,
+    "time_to_activate": 2.27,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "ai_groups": [
+      "kHealAlly"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Ranged_Heal",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points of damage and protect you from Sleep and Disorientation."
+            }
+          },
+          {
+            "attrib": [
+              256,
+              272,
+              276
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -15,
+            "duration": 45,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              280
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 4,
+            "duration": 45,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      28,
+      256,
+      272,
+      276,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/STORMSUMMONING_O2_BOOST.PFX",
+    "attack_bits": [
+      20,
+      306
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      306
+    ],
+    "attack_fx": "POWERS/STORMSUMMONING/SSO2BOOST.FX",
+    "hit_fx": "POWERS/STORMSUMMONING/SSO2BOOSTHIT.FX",
+    "initial_attack_fx": "POWERS/STORMSUMMONING/SSO2BOOST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 68,
+    "initial_frames_before_hit": 25
+  },
+  "Hurricane": {
+    "crcfull_name": 3606201924,
+    "source_file": "DEFS/POWERS/TSOO_TSOO_SORCERER_BOOST.POWERS",
+    "source_name": "Tsoo.Tsoo_Sorcerer_Boost.Hurricane",
+    "display_name": "Hurricane",
+    "display_help": "The Hurricane restricts your vision. Your attack Range and Accuracy are reduced.",
+    "display_short_help": "-Range, -ACC",
+    "display_target_help": "The Hurricane restricts your vision. Your attack Range and Accuracy are reduced.",
+    "display_target_short_help": "-Range, -ACC",
+    "icon_name": "StormSummoning_Hurricane.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "time_to_activate": 2.03,
+    "recharge_time": 10,
+    "activate_period": 0.5,
+    "endurance_cost": 0.35,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Scrapper",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Tanker",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "scale": -0.6,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 4,
+            "duration": 0.75,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 4,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      100,
+      328,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/STORMSUMMONING_HURRICANE.PFX",
+    "activation_bits": [
+      20,
+      255
+    ],
+    "activation_fx": "POWERS/STORMSUMMONING/SSHURRICANE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Petrifying_Gaze": {
+    "crcfull_name": 1854017960,
+    "source_file": "DEFS/POWERS/TSOO_TSOO_SORCERER_BOOST.POWERS",
+    "source_name": "Tsoo.Tsoo_Sorcerer_Boost.Petrifying_Gaze",
+    "display_name": "Petrifying Gaze",
+    "display_help": "You are petrified and cannot move or attack!",
+    "display_short_help": "Hold",
+    "display_target_help": "You are petrified and cannot move or attack!",
+    "display_target_short_help": "Hold",
+    "icon_name": "DarkMiasma_PetrifyingGaze.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZEHITCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_PETRIFYING_GAZE.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZE.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 45
+  },
+  "Chill_of_the_Night": {
+    "crcfull_name": 219424883,
+    "source_file": "DEFS/POWERS/TSOO_TSOO_SORCERER_BOOST.POWERS",
+    "source_name": "Tsoo.Tsoo_Sorcerer_Boost.Chill_of_the_Night",
+    "display_name": "Chill of the Night",
+    "display_help": "The Chill of the Night is chilling you. Your Accuracy is reduced and you are taking damage over time.",
+    "display_short_help": "DoT(Negative), -ACC",
+    "display_target_help": "The Chill of the Night is chilling you. Your Accuracy is reduced and you are taking damage over time.",
+    "display_target_short_help": "DoT(Negative), -ACC",
+    "icon_name": "DarkMiasma_ChillOfTheNight.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 3.17,
+    "recharge_time": 10,
+    "activate_period": 2,
+    "endurance_cost": 2.8,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 3,
+            "duration": 2,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "duration": 2,
+            "period": 2.5,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_DARKEST_NIGHT.PFX",
+    "activation_bits": [
+      20,
+      272
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHT.FX",
+    "attack_frames": 95
+  },
+  "Darkest_Night": {
+    "crcfull_name": 4129881722,
+    "source_file": "DEFS/POWERS/TSOO_TSOO_SORCERER_BOOST.POWERS",
+    "source_name": "Tsoo.Tsoo_Sorcerer_Boost.Darkest_Night",
+    "display_name": "Darkest Night",
+    "display_help": "Darkest Night has robbed you of Accuracy and Damage potential.",
+    "display_short_help": "-DMG, -ACC",
+    "display_target_help": "Darkest Night has robbed you of Accuracy and Damage potential.",
+    "display_target_short_help": "-DMG, -ACC",
+    "display_victim_hit": "{PlayerSource} reduces your damage with his {PowerName}.",
+    "icon_name": "DarkMiasma_DarkestNight.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "range": 70,
+    "time_to_activate": 3.17,
+    "recharge_time": 10,
+    "activate_period": 0.5,
+    "endurance_cost": 0.35,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_CHILL_OF_THE_NIGHT.PFX",
+    "activation_bits": [
+      20,
+      272
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKNESSHANDS3.FX",
+    "attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "attack_frames": 95
+  },
+  "Teleport": {
+    "crcfull_name": 2997007316,
+    "source_file": "DEFS/POWERS/TSOO_TSOO_SORCERER_BOOST.POWERS",
+    "source_name": "Tsoo.Tsoo_Sorcerer_Boost.Teleport",
+    "display_name": "Teleport",
+    "display_help": "The Tsoo Sorcerer can Teleport long distances.",
+    "display_short_help": "Self Travel",
+    "display_target_help": "The Tsoo Sorcerer can Teleport long distances.",
+    "display_target_short_help": "Self Travel",
+    "icon_name": "Teleportation_Teleport.tga",
+    "effect_area": 3,
+    "range": 300,
+    "time_to_activate": 2,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 22,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kTeleport"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0,
+            "duration": 1.5,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              292
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 10,
+            "delay": 1.17,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      292,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/TELEPORTATION_TELEPORT.PFX",
+    "attack_bits": [
+      533
+    ],
+    "initial_attack_bits": [
+      533
+    ],
+    "attack_fx": "POWERS/TELEPORTATION/TELEPORTSELF.FX",
+    "initial_attack_fx": "POWERS/TELEPORTATION/TELEPORTSELF.FX",
+    "frames_before_hit": 24,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 24
+  }
+}

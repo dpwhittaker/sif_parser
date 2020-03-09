@@ -1,0 +1,235 @@
+{
+  "crcfull_name": 1404603728,
+  "source_file": "DEFS/POWERS/WARSHADE_DEFENSIVE_UMBRAL_AURA.POWERS",
+  "source_name": "Warshade_Defensive.Umbral_Aura.Black_Dwarf_Drain",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "Black Dwarf Drain",
+  "display_help": "You tap the primal forces of your Nictus power to create an Essence Draining conduit between a foe and yourself. This will transfer Hit Points from your enemy to yourself. Foes drained in this manner have their attack and movement speed reduced. This power is only available while in Black Dwarf Form. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Melee, Moderate DMG(Negative), Foe -Recharge, -SPD; Self +HP",
+  "display_target_help": "Your Attack speed and movement speed have been reduced by the Black Dwarf Drain. You focus your attacks on the Black Dwarf.",
+  "display_target_short_help": "-SPD, -Recharge, Taunt",
+  "icon_name": "UmbralAura_EssenceDrain.tga",
+  "attack_types": [
+    "Melee",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "Warshade_Defensive.Umbral_Aura.Black_Dwarf",
+    "Inherent.Inherent.Black_Dwarf_Drain",
+    "!",
+    "&&"
+  ],
+  "range": 7,
+  "time_to_activate": 1.93,
+  "recharge_time": 15,
+  "endurance_cost": 15.6,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    18,
+    14,
+    9,
+    5
+  ],
+  "modes_required": [
+    5
+  ],
+  "modes_disallowed": [
+    1,
+    2,
+    4,
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 1.75,
+          "delay": 0.5,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Heal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Heal damage."
+          }
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.2,
+          "duration": 6,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.2,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "@ToHitRoll",
+        "0.2",
+        "+",
+        "@ToHit",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1284,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1284,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "server_tray_priority": 1006,
+  "server_tray_requires": [
+    "Temporary_Powers.Temporary_Powers.Hide_Kheldian_Server_Tray",
+    "ownPower?",
+    "!"
+  ],
+  "attrib_cache": [
+    20,
+    28,
+    188,
+    192,
+    200,
+    204,
+    248,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/WARSHADOW_TANKER_MELEE_SIPHONLIFE.PFX",
+  "attack_bits": [
+    20,
+    305
+  ],
+  "hit_bits": [
+    49,
+    247
+  ],
+  "initial_attack_bits": [
+    20,
+    305
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/NICTUS/LIFEDRAIN/BLACKDWARFDRAIN.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/NICTUS/LIFEDRAIN/LIFEDRAINHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/NICTUS/LIFEDRAIN/BLACKDWARFDRAIN.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 58,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "NoBubble"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/WARSHADOW_TANKER_MELEE_SIPHONLIFE.PFX",
+      "attack_bits": [
+        20,
+        305
+      ],
+      "hit_bits": [
+        49,
+        247
+      ],
+      "initial_attack_bits": [
+        20,
+        305
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/LIFEDRAIN/BLACKDWARFDRAIN.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/LIFEDRAIN/LIFEDRAINHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/LIFEDRAIN/BLACKDWARFDRAIN.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 58,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

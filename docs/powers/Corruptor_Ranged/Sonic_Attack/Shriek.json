@@ -1,0 +1,361 @@
+{
+  "crcfull_name": 2700829521,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_SONIC_ATTACK.POWERS",
+  "source_name": "Corruptor_Ranged.Sonic_Attack.Shriek",
+  "display_name": "Shriek",
+  "display_help": "You let forth a quick Shriek, damaging your target and weakening their Damage Resistance. Damage: Minor, Recharge: Very Fast",
+  "display_short_help": "Ranged, Minor DMG(Smashing/Energy), Foe -Res(All)",
+  "display_target_help": "The sonic Shriek has weakened you. You are more vulnerable to damage.",
+  "display_target_short_help": "-Resist",
+  "icon_name": "SonicBlast_Quick.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 1,
+  "recharge_time": 3,
+  "endurance_cost": 4.368,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.42,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.42,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5124,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5124,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.84,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.0248,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -2,
+          "duration": 5,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHRIEK.PFX",
+  "attack_bits": [
+    20,
+    327,
+    258,
+    681,
+    383
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    327,
+    258,
+    681,
+    383
+  ],
+  "attack_fx": "POWERS/SONICCONTROL/BLASTS/HEROSMALLBLAST.FX",
+  "hit_fx": "POWERS/SONICCONTROL/BLASTS/STANDARDBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/SONICCONTROL/BLASTS/HEROSMALLBLAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 28,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 28,
+  "projectile_speed": 105,
+  "custom_fx": [
+    {
+      "token": "Bright Sonic Attack",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHRIEK.PFX",
+      "attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        383
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        383
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/HEROSMALLBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/HEROSMALLBLAST.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 105,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Sonic Attack",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHRIEK.PFX",
+      "attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        383
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        383
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/HEROSMALLBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/HEROSMALLBLAST.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 105
+    },
+    {
+      "token": "Bright Sonic Alternate",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHRIEK.PFX",
+      "display_name": "Bright Shriek Alternate",
+      "attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_HEROSMALLBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_HEROSMALLBLAST.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 105,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Sonic Alternate",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHRIEK.PFX",
+      "display_name": "Dark Shriek Alternate",
+      "attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        258,
+        681,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_HEROSMALLBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_HEROSMALLBLAST.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 105
+    }
+  ]
+}

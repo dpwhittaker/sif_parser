@@ -1,0 +1,345 @@
+{
+  "crcfull_name": 1145050833,
+  "source_file": "DEFS/POWERS/SCRAPPER_MELEE_CLAWS.POWERS",
+  "source_name": "Scrapper_Melee.Claws.Shockwave",
+  "display_name": "Shockwave",
+  "display_help": "Projects a Shockwave of focused power that can travel a short distance. Shockwave travels in a wide arc in front of you dealing moderate damage and, possibly knocking back foes. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Melee (Cone), Moderate DMG(Lethal), Foe Knockback",
+  "icon_name": "Claws_Wave.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 30,
+  "arc": 1.5707964,
+  "range": 30,
+  "time_to_activate": 1,
+  "recharge_time": 12.1,
+  "endurance_cost": 11.5648,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.05,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.6261,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 0.7,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PlayerCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.6261,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "MLCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.05,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BossCrit"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.828,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.4725,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    4,
+    8,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/CLAWS_WAVE_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    139,
+    766,
+    47
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    139,
+    188
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    766,
+    47,
+    188
+  ],
+  "activation_fx": "POWERS/CLAWS/CUSTOMWEAPON_CLAWS.FX",
+  "attack_fx": "POWERS/CLAWS/CLAWSFOCUS2.FX",
+  "hit_fx": "POWERS/CLAWS/CLAWSFOCUSHIT2.FX",
+  "initial_attack_fx": "POWERS/CLAWS/CLAWSFOCUS2.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    139,
+    87
+  ],
+  "frames_before_hit": 19,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 38,
+  "initial_attack_fxframe_delay": 19,
+  "projectile_speed": 54,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/CLAWS_WAVE_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        139,
+        766,
+        47
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        139,
+        766,
+        47
+      ],
+      "activation_fx": "POWERS/CLAWS/CUSTOMWEAPON_CLAWS.FX",
+      "attack_fx": "POWERS/CLAWS/CLAWSFOCUS2.FX",
+      "hit_fx": "POWERS/CLAWS/CLAWSFOCUSHIT2.FX",
+      "initial_attack_fx": "POWERS/CLAWS/CLAWSFOCUS2.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139,
+        87
+      ],
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 54,
+      "palette": ""
+    }
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "crcfull_name": 2185168073,
+  "source_file": "DEFS/POWERS/STALKER_DEFENSE_BIO_ORGANIC_ARMOR.POWERS",
+  "source_name": "Stalker_Defense.Bio_Organic_Armor.Genetic_Corruption",
+  "display_name": "Genetic Corruption",
+  "display_help": "Your Bio Armor is capable of corrupting the genetic code of nearby foes, reducing the damage they deal. Lesser foes may be put to sleep for a short time. While Efficiency Adaptation is active, this power grants a moderate bonus to Regeneration. While Defensive Adaptation is active you gain a minor bonus to all types of damage resistance and increase the potency of this power's damage debuff. If Offensive Adaptation is active enemies are more likely to fall asleep. These special bonuses are unenhanceable. Recharge: Fast",
+  "display_short_help": "Toggle: PBAoE, Foe Sleep, -Damage(All), Self +Special",
+  "display_target_help": "The toxic cloud is breaking down your genetic material reducing your damage and potentially putting you to sleep.",
+  "display_target_short_help": "Sleep, -DMG(All)",
+  "icon_name": "BioOrganicArmor_GeneticCorruption.tga",
+  "type": 2,
+  "attack_types": [
+    "Melee"
+  ],
+  "target_requires": [
+    "kMeter",
+    "source>",
+    ".9",
+    "<"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 1.07,
+  "recharge_time": 4,
+  "activate_period": 4,
+  "endurance_cost": 2.08,
+  "ents_auto_hit": [
+    19,
+    1
+  ],
+  "ents_affected": [
+    19,
+    1
+  ],
+  "boosts_allowed": [
+    23,
+    20,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "NormalDebuffGC"
+      ],
+      "chance": 0.66,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "&&",
+        "kOffensiveAdaptation",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 6,
+          "magnitude": 2,
+          "stack_type": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "NormalDebuffGC"
+      ],
+      "chance": 0.66,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "&&",
+        "kOffensiveAdaptation",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "OffensiveAdaptationGC"
+      ],
+      "chance": 0.85,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "&&",
+        "kOffensiveAdaptation",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 6,
+          "magnitude": 2,
+          "stack_type": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "OffensiveAdaptationGC"
+      ],
+      "chance": 0.85,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "&&",
+        "kOffensiveAdaptation",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "kRestedAdaptation",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 0.3,
+          "duration": 4.25,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "kDefensiveAdaptation",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            36
+          ],
+          "aspect": 24,
+          "target": 0,
+          "table": "Melee_Res_DMG",
+          "scale": 0.75,
+          "duration": 4.25,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            8,
+            12,
+            16,
+            20,
+            24
+          ],
+          "aspect": 24,
+          "target": 0,
+          "table": "Melee_Res_DMG",
+          "duration": 4.25,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "kDefensiveAdaptation",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 1.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "kDefensiveAdaptation",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 1.995,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    232,
+    280
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_GENETICCORRUPTION.PFX",
+  "activation_bits": [
+    20,
+    254
+  ],
+  "activation_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/GENETICCORRUPTION.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/CONTAMINATION_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/BIOARMOR/CONTAMINATION_CONTINUING.FX",
+  "frames_before_hit": 23,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 23,
+  "primary_tint": [
+    120,
+    81,
+    82,
+    255
+  ],
+  "secondary_tint": [
+    246,
+    239,
+    80,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_GENETICCORRUPTION.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        254
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/GENETICCORRUPTION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/CONTAMINATION_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/BIOARMOR/CONTAMINATION_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "Minimal FX",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_GENETICCORRUPTION.PFX",
+      "display_name": "P962008385",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        254
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/GENETICCONTAMINATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/CONTAMINATION_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/BIOARMOR/CONTAMINATION_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "crcfull_name": 2465449923,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_WIND_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Wind_Control.Microburst",
+  "display_name": "Microburst",
+  "display_help": "You release all available Pressure to create an extremely powerful blast of air that descends from the skies and spreads out over a large radius. Any foes caught within the burst are immediately stunned by the force of the wind and suffer smashing damage.Flying foes are knocked out of the sky, while all foes suffer reduced movement speed that lingers for some time. The damage done increases in proportion to the amount of Pressure released when using this power. Also, Microburst can reduce your target's defenses at the when the highest levels of Pressure are released. Damage: Variable, Recharge: Long",
+  "display_short_help": "Ranged (Targeted AoE), Minor DMG(Smashing), Stun(Foe), -Speed(Foe, All), -Fly(Foe), -Rech(Foe), Chance for -DEF(Foe, All), Consumes Pressure",
+  "display_target_help": "You are caught in a powerful microburst and have been stunned. You also suffer reduced movement and attack speeds and are unable to fly. There is a chance that you are also suffering from reduced defenses, depending on the Pressure released when your attacker created this microburst.",
+  "display_target_short_help": "Stun, -Speed(All), -Rech, -Fly, Chance for -DEF(All)",
+  "icon_name": "WindControl_Microburst.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing"
+  ],
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "range": 70,
+  "time_to_activate": 2.37,
+  "recharge_time": 90,
+  "endurance_cost": 19.5,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    21,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "scale": 0.2,
+          "magnitude_expr": [
+            "@Scale",
+            "0.02",
+            "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+            "source.ownPowerNum?",
+            "*",
+            "+",
+            "@Value",
+            "*",
+            "@Effectiveness",
+            "*",
+            "@Strength",
+            "*"
+          ],
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1429,
+          "magnitude_expr": [
+            "@Scale",
+            "0.02",
+            "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+            "source.ownPowerNum?",
+            "*",
+            "+",
+            "@Value",
+            "*",
+            "@Effectiveness",
+            "*",
+            "@Strength",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 12,
+          "magnitude": 3,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1064,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 12,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 12,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -2,
+          "duration": 12,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+        "source.ownPowerNum?",
+        "5",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 2,
+          "duration": 12,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "The Pressure released with your {PowerName} is enough to allow it to lower your opponent's defenses.",
+            "display_victim_hit": "Your defenses have been lowered by {PlayerSource}'s {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+        "source.ownPowerNum?",
+        "6",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 2.5,
+          "duration": 12,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 1,
+          "table": "Ranged_Ones",
+          "duration": 1.1,
+          "delay": 0.2,
+          "period": 0.2,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "I Drain Pressure!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            468
+          ],
+          "aspect": 32,
+          "type": 2,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "flags": [
+            1584,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "You release all atmospheric Pressure changes you have accumulated."
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    184,
+    188,
+    192,
+    200,
+    204,
+    276,
+    284,
+    356,
+    468,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_FIRECONTROL_FLASHFIRE.PFX",
+  "attack_bits": [
+    20,
+    324
+  ],
+  "initial_attack_bits": [
+    20,
+    324
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/FLASHFIRE.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/FLASHFIRE.FX",
+  "continuing_fx": "POWERS/FIRECONTROL/HOTFEETHIT.FX",
+  "continuing_fx1": "POWERS/FIRECONTROL/HOTFEETHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 53,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 53,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_FIRECONTROL_FLASHFIRE.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FLASHFIRE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FLASHFIRE.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/HOTFEETHIT.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/HOTFEETHIT.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_FIRECONTROL_FLASHFIRE.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FLASHFIRE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FLASHFIRE.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/HOTFEETHIT.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/HOTFEETHIT.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53
+    }
+  ]
+}

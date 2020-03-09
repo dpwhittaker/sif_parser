@@ -1,0 +1,541 @@
+{
+  "crcfull_name": 3291666559,
+  "source_file": "DEFS/POWERS/SCRAPPER_MELEE_ELECTRICAL_MELEE.POWERS",
+  "source_name": "Scrapper_Melee.Electrical_Melee.Thunder_Strike",
+  "display_name": "Thunder Strike",
+  "display_help": "A massive attack. You smash your foes with all the power of a lightning bolt. The pummeled victim takes tremendous damage and may be Disoriented. Any nearby foes may be knocked down and take some damage from the shockwave as well as have some endurance drained. Damage: High, Recharge: Slow",
+  "display_short_help": "Melee (AoE), High DMG(Smash, Energy), Foe Disorient, Knockback, -End",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "ElectricMelee_TargetedAoEHeavyDmg.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 7,
+  "range": 7,
+  "time_to_activate": 3.3,
+  "recharge_time": 18,
+  "endurance_cost": 10.192,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    21,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 5,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.07,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Melee_EndDrain",
+          "scale": -2,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.9799,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.9799,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -1,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "radius_outer": 7,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.96,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "radius_outer": 7,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.64,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "radius_outer": 7,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.64,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PlayerCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.9599,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "MLCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.96,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BossCrit"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.5457,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.45,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "radius_outer": 7,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.432,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    8,
+    16,
+    88,
+    236,
+    276,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_ELECTRICALMELEE_THUNDERSTRIKE.PFX",
+  "attack_bits": [
+    20,
+    354
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    354
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/THUNDERSTRIKE_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/THUNDERSTRIKE_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/THUNDERSTRIKE_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 69,
+  "attack_frames": 99,
+  "initial_frames_before_hit": 69,
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    87,
+    48,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_ELECTRICALMELEE_THUNDERSTRIKE.PFX",
+      "attack_bits": [
+        20,
+        354
+      ],
+      "initial_attack_bits": [
+        20,
+        354
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/THUNDERSTRIKE_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/THUNDERSTRIKE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/THUNDERSTRIKE_ATTACK.FX",
+      "frames_before_hit": 69,
+      "attack_frames": 99,
+      "initial_frames_before_hit": 69,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_ELECTRICALMELEE_THUNDERSTRIKE.PFX",
+      "attack_bits": [
+        20,
+        354
+      ],
+      "initial_attack_bits": [
+        20,
+        354
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/THUNDERSTRIKE_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/THUNDERSTRIKE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/THUNDERSTRIKE_ATTACK.FX",
+      "frames_before_hit": 69,
+      "attack_frames": 99,
+      "initial_frames_before_hit": 69
+    }
+  ]
+}

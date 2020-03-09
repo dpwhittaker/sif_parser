@@ -1,0 +1,177 @@
+{
+  "crcfull_name": 2549915183,
+  "source_file": "DEFS/POWERS/MASTERMIND_PETS_ASSAULT.POWERS",
+  "source_name": "Mastermind_Pets.Assault.Plasma_Blast",
+  "display_name": "Plasma Blast",
+  "display_help": "Plasma burns are hard to heal. The burns have halted your Regeneration rate.",
+  "display_short_help": "-Regeneration",
+  "icon_name": "Robotics_LaserRifleBurst.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 2,
+  "recharge_time": 4,
+  "endurance_cost": 5.2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.3",
+        "<=",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -5,
+          "duration": 30,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.3",
+        "<=",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 30,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    356
+  ],
+  "attrib_cache": [
+    16,
+    232,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ROBOTARMY_PLASMA_BLAST.PFX",
+  "attack_bits": [
+    483
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    483
+  ],
+  "attack_fx": "V_COV/POWERS/ROBOTICS/ROBOT_HEAVYLAZERRIFLEBURST.FX",
+  "hit_fx": "V_COV/POWERS/ROBOTICS/HEAVYHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/ROBOTICS/ROBOT_HEAVYLAZERRIFLEBURST.FX",
+  "frames_before_hit": 33,
+  "delayed_hit": true,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 33,
+  "projectile_speed": 360
+}

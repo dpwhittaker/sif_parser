@@ -1,0 +1,212 @@
+{
+  "crcfull_name": 1378638437,
+  "source_file": "DEFS/POWERS/EPIC_DARKNESS_MASTERY.POWERS",
+  "source_name": "Epic.Darkness_Mastery.Petrifying_Gaze",
+  "display_name": "Petrifying Gaze",
+  "display_help": "Petrifies a single targeted foe with a terrifying gaze. The victim is Held and defenseless. Recharge: Slow",
+  "display_short_help": "Ranged Hold",
+  "display_target_help": "You are being held by the Petrifying Gaze.",
+  "display_target_short_help": "Hold",
+  "display_attacker_hit": "Your {Powername} Immobilizes {PlayerDest} and reduces his defense.",
+  "icon_name": "DarknessMastery_PetrifyingGaze.tga",
+  "attack_types": [
+    "Ranged",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Scrapper",
+    "==",
+    "$archetype",
+    "@Class_Stalker",
+    "==",
+    "||"
+  ],
+  "range": 50,
+  "time_to_activate": 1.67,
+  "recharge_time": 32,
+  "endurance_cost": 9.75,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_DARKMIASMA_PETRIFYINGGAZE.PFX",
+  "attack_bits": [
+    20,
+    311
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    311
+  ],
+  "attack_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZE.FX",
+  "initial_attack_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZE.FX",
+  "conditional_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZEHITCONTINUING.FX",
+  "conditional_fx1": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZEHITCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 30,
+  "projectile_speed": 45,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "Custom Dark Cast",
+        "Color Tintable With Skull",
+        "Color Tintable No Skull",
+        "Color Tintable Alt With Skull",
+        "Color Tintable Alt No Skull"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_DARKMIASMA_PETRIFYINGGAZE.PFX",
+      "attack_bits": [
+        20,
+        311
+      ],
+      "initial_attack_bits": [
+        20,
+        311
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/PETRIFYINGGAZE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/PETRIFYINGGAZE.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/PETRIFYINGGAZEHITCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/DARKMIASMA/PETRIFYINGGAZEHITCONTINUING.FX",
+      "frames_before_hit": 30,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 30,
+      "projectile_speed": 45
+    },
+    {
+      "token": "Dark Glow",
+      "alt_theme": [
+        "Dark Glow Alt"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_DARKMIASMA_PETRIFYINGGAZE.PFX",
+      "attack_bits": [
+        20,
+        305
+      ],
+      "initial_attack_bits": [
+        20,
+        305
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKGRASP_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKGRASP_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKGRASP_CONDITIONAL.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKGRASP_CONDITIONAL.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 30
+    }
+  ]
+}

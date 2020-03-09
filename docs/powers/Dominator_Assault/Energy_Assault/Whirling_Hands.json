@@ -1,0 +1,379 @@
+{
+  "crcfull_name": 2018820898,
+  "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+  "source_name": "Dominator_Assault.Energy_Assault.Whirling_Hands",
+  "display_name": "Whirling Hands",
+  "display_help": "By focusing your energy into the muscles in your arms, you can launch a dizzying flurry of attacks against every foe in melee range. Some foes may be hit hard enough to be Disoriented as well. This power will inflict bonus damage if used while in Energy Focus mode. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "PBAoE Melee, Moderate DMG(Smash/Energy), Special",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "EnergyAssault_WhirlingHands.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "time_to_activate": 2.5,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "boosts_allowed": [
+    23,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [],
+      "effect": [
+        {
+          "requires": [],
+          "attrib_mod": [
+            {
+              "attrib": 0,
+              "type": 1,
+              "table": "Melee_Damage",
+              "scale": 0.4601,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+              }
+            },
+            {
+              "attrib": 16,
+              "type": 1,
+              "table": "Melee_Damage",
+              "scale": 0.6901,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+              }
+            }
+          ]
+        },
+        {
+          "requires": [
+            "kEnergyFocus",
+            "Source.Mode?"
+          ],
+          "attrib_mod": [
+            {
+              "attrib": 16,
+              "type": 1,
+              "table": "Melee_Damage",
+              "scale": 1.1502,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_float": "Energy Release"
+              }
+            },
+            {
+              "attrib": 475,
+              "aspect": 0,
+              "type": 2,
+              "target": 0,
+              "magnitude": 131,
+              "stack_type": 1,
+              "flags": [
+                112,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "chance": 0.3,
+          "requires": [],
+          "attrib_mod": [
+            {
+              "attrib": 276,
+              "aspect": 0,
+              "table": "Melee_Stun",
+              "scale": 5,
+              "magnitude": 2,
+              "flags": [
+                1280,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+                "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+              },
+              "fx": {
+                "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ],
+      "effect": [
+        {
+          "requires": [],
+          "attrib_mod": [
+            {
+              "attrib": 0,
+              "type": 1,
+              "table": "Melee_PvPDamage",
+              "scale": 0.6743,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+              }
+            },
+            {
+              "attrib": 16,
+              "type": 1,
+              "table": "Melee_PvPDamage",
+              "scale": 1.0114,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+              }
+            }
+          ]
+        },
+        {
+          "requires": [
+            "kEnergyFocus",
+            "Source.Mode?"
+          ],
+          "attrib_mod": [
+            {
+              "attrib": 16,
+              "type": 1,
+              "table": "Melee_PvPDamage",
+              "scale": 1.6857,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_float": "Energy Release"
+              }
+            },
+            {
+              "attrib": 475,
+              "aspect": 0,
+              "type": 2,
+              "target": 0,
+              "magnitude": 131,
+              "stack_type": 1,
+              "flags": [
+                112,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "chance": 0.3,
+          "requires": [],
+          "attrib_mod": [
+            {
+              "attrib": 276,
+              "aspect": 0,
+              "table": "Melee_PvPMez",
+              "magnitude": 2,
+              "suppress": [
+                {
+                  "event": 19
+                },
+                {
+                  "event": 20
+                },
+                {
+                  "event": 21
+                },
+                {
+                  "event": 22
+                },
+                {
+                  "event": 23
+                }
+              ],
+              "flags": [
+                1280,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+                "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+              },
+              "fx": {
+                "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "highlight_eval": [
+    "kEnergyFocus",
+    "Mode?"
+  ],
+  "highlight_ring": [
+    255,
+    128,
+    0,
+    255
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    16,
+    96,
+    276,
+    475
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_WHIRLINGHANDS.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    200
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    200
+  ],
+  "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+  "attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+  "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+  "initial_attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 36,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 36,
+  "custom_fx": [
+    {
+      "token": "Bright Energy",
+      "alt_theme": [
+        "Bright Energy Cast"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_WHIRLINGHANDS.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        200
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        200
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+      "frames_before_hit": 36,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 36,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy",
+      "alt_theme": [
+        "Dark Energy Cast"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_WHIRLINGHANDS.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        200
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        200
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHFLURY.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHFLURY.FX",
+      "frames_before_hit": 36,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 36
+    }
+  ]
+}

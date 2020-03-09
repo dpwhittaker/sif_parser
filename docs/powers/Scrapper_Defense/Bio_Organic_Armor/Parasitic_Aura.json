@@ -1,0 +1,290 @@
+{
+  "crcfull_name": 3766859374,
+  "source_file": "DEFS/POWERS/SCRAPPER_DEFENSE_BIO_ORGANIC_ARMOR.POWERS",
+  "source_name": "Scrapper_Defense.Bio_Organic_Armor.Parasitic_Aura",
+  "display_name": "Parasitic Aura",
+  "display_help": "You release a cloud of parasites around you that draw out your enemies' genetic material. These parasites dramatically increase your survivability by gaining damage absorption while boosting your regeneration and recovery rate for a short time. Affected foes will be infected and deal reduced damage for a short while. While Efficient Adaptation is active, this power will grant additional regeneration and recovery per target hit. While Defensive Adaptation is active, this power will grant a small amount of additional damage absorption and increase the effectiveness of this power's damage debuff. Recharge: Very Long",
+  "display_short_help": "PBAoE, Self +Absorb, +Regeneration, +Recovery, Foe -DMG",
+  "icon_name": "BioOrganicArmor_ParasiticAura.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "accuracy": 1.5,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "time_to_activate": 1.87,
+  "recharge_time": 270,
+  "endurance_cost": 18.2,
+  "boosts_allowed": [
+    33,
+    23,
+    18,
+    14,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.3,
+          "duration": 45,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} siphons the genetic material of your target and boosts your own regeneration, recovery as well as granting a measure of damage absorption for a short time!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 0.5,
+          "duration": 45,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            84
+          ],
+          "target": 0,
+          "scale": 0.1,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            84
+          ],
+          "aspect": 8,
+          "type": 3,
+          "target": 0,
+          "duration": 45,
+          "magnitude_expr": [
+            "Max.kHitPoints",
+            "source>",
+            "0.1",
+            "*",
+            "@Strength",
+            "*"
+          ],
+          "flags": [
+            96,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kRestedAdaptation",
+        "Source.Mode?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.125,
+          "duration": 45,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 0.15,
+          "duration": 45,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kDefensiveAdaptation",
+        "Source.Mode?"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            84
+          ],
+          "target": 0,
+          "scale": 0.033,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            84
+          ],
+          "aspect": 8,
+          "type": 3,
+          "target": 0,
+          "duration": 45,
+          "magnitude_expr": [
+            "Max.kHitPoints",
+            "source>",
+            "0.033",
+            "*",
+            "@Strength",
+            "*"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 2.66,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kDefensiveAdaptation",
+        "Source.Mode?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 2,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "ignore_strength": true,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    84,
+    232,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_PARASITICAURA.PFX",
+  "attack_bits": [
+    20,
+    302
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    302
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/PARASITICAURA.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/PARASITIC_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/PARASITICAURA.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "attack_frames": 56,
+  "initial_frames_before_hit": 30,
+  "primary_tint": [
+    120,
+    81,
+    82,
+    255
+  ],
+  "secondary_tint": [
+    246,
+    239,
+    80,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_PARASITICAURA.PFX",
+      "attack_bits": [
+        20,
+        302
+      ],
+      "initial_attack_bits": [
+        20,
+        302
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/PARASITICAURA.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/PARASITIC_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/PARASITICAURA.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 56,
+      "initial_frames_before_hit": 30,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

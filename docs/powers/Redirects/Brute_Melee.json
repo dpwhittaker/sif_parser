@@ -1,0 +1,406 @@
+{
+  "Savage_Leap": {
+    "crcfull_name": 3440753629,
+    "source_file": "DEFS/POWERS/REDIRECTS_BRUTE_MELEE.POWERS",
+    "source_name": "Redirects.Brute_Melee.Savage_Leap",
+    "free": true,
+    "display_name": "Savage Leap",
+    "display_help": "You throw yourself at your distant foes while slashing and tearing wildly dealing moderate lethal damage and causing your foes to suffer from additional minor lethal damage over time. The damage of this power can increase based on how far away you leap from, with up to double damage dealt at its strongest. Savage Leap build 1 stacks of Blood Frenzy for every 20 ft in between your target and you, up to 3 stacks. Damage: Superior, Minor DoT, Recharge: Long",
+    "display_short_help": "PBAoE, Superior DMG(Lethal), Foe Minor DoT(Lethal), +3 Blood Frenzy, Self Teleport",
+    "display_target_help": "You are bleeding!",
+    "display_target_short_help": "Minor DoT(Lethal)",
+    "icon_name": "SavageMelee_SavageLeap.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "range": 70,
+    "recharge_time": 40,
+    "target": 19,
+    "target_secondary": 34,
+    "boosts_allowed": [
+      28,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.85,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.07,
+            "duration": 3.1,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.76,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.06,
+            "duration": 3.1,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "Raid",
+          "target.HasTag?",
+          "&&",
+          "@ToHitRoll",
+          "0.2",
+          "+",
+          "@ToHit",
+          "<",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_InherentTaunt",
+            "magnitude": 4,
+            "delay": 0.1,
+            "flags": [
+              1284,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "Raid",
+          "target.HasTag?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_InherentTaunt",
+            "magnitude": 4,
+            "delay": 0.1,
+            "flags": [
+              1284,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "Raid",
+          "target.HasTag?",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "kRage",
+          "source>",
+          "70",
+          "<",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              96
+            ],
+            "target": 0,
+            "scale": 0.05,
+            "delay": 0.1,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.38,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.03,
+            "duration": 3.1,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      8,
+      96,
+      248
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_SAVAGELEAPAOE.PFX",
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_HIT.FX",
+    "frames_before_hit": 0,
+    "attack_frames": 0,
+    "initial_frames_before_hit": 0,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_SAVAGELEAPAOE.PFX",
+        "block_bits": 53,
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_HIT.FX",
+        "mode_bits": [],
+        "frames_before_hit": 0,
+        "attack_frames": 0,
+        "initial_frames_before_hit": 0,
+        "palette": ""
+      }
+    ]
+  }
+}

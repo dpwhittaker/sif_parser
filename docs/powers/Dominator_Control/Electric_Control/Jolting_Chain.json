@@ -1,0 +1,281 @@
+{
+  "crcfull_name": 396598585,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ELECTRIC_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Electric_Control.Jolting_Chain",
+  "display_name": "Jolting Chain",
+  "display_help": "You can send a bolt of electricity through multiple opponents, causing a muscle spasm and dealing minor damage. Each foe is knocked down, and the electric charge can fork several times, jumping to several opponents rapidly. Damage: Minor, Recharge: Moderate",
+  "display_short_help": "Ranged Chain AoE, Minor DMG(Energy), Foe Knockdown, -End",
+  "display_target_short_help": "Knockdown, -End",
+  "icon_name": "ElectricControl_JoltingChain.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 2.07,
+  "recharge_time": 8,
+  "endurance_cost": 10.4,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "delay": 0.25,
+          "flags": [
+            8832,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_Chain_Jolt_Dominator_Jump1",
+              "priority_list": "PL_Untargetable_FightPreferRanged"
+            }
+          }
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "delay": 0.5,
+          "flags": [
+            8832,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_Chain_Jolt_Dominator_Jump1",
+              "priority_list": "PL_Untargetable_FightPreferRanged"
+            }
+          }
+        },
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 4,
+          "magnitude": 57,
+          "period": 4.25,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.66,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.1691,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -2,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.66,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.1,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 8
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    328,
+    461,
+    465
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 30,
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    20,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_ACTIVATION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_ACTIVATION.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 30
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "crcfull_name": 848060903,
+  "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+  "source_name": "BanishedPantheon.Sentinel.Frigid_Stomp",
+  "display_name": "Frigid Stomp",
+  "display_help": "You stomp the ground with tremendous force, unleashing a shockwave of death energy that strikes nearby targets for cold and negative energy damage. Additionally, the affected targets suffer from endurance drain and reduced regeneration and recovery. Finally, the longer the Sentinel remains alive, the more likely his presence will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+  "display_short_help": "PBAoE, Moderate DMG (Cold, Negative Energy), EndDrain(Foe), Knockup(Foe), -Regen(Foe), -Rec(Foe), Chance for +EndCost(Foe)",
+  "display_target_help": "You are suffering from endurance drain and from reduced regeneration and recovery. There is also the potential for your powers to cost more endurance to execute.",
+  "display_target_short_help": "-End, -Regen, -Rec, Chance for +EndCost",
+  "icon_name": "BanishedPantheon_Sentinel_FrigidStomp.tga",
+  "attack_types": [
+    "AOE",
+    "Cold",
+    "NegativeEnergy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 999,
+  "radius": 15,
+  "range": 20,
+  "time_to_activate": 2.1,
+  "recharge_time": 6,
+  "endurance_cost": 10,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.3,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Melee_Knockback",
+          "scale": 2,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.02,
+          "duration": 4,
+          "period": 1,
+          "tick_chance": 0.6,
+          "flags": [
+            212,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            476
+          ],
+          "target": 0,
+          "scale": 0.2,
+          "duration": 600,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "EffectFilter": {
+              "tag": "SentinelEnd"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -0.1,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -0.1,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SentinelEnd"
+      ],
+      "chance": -1.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            364
+          ],
+          "aspect": 16,
+          "scale": -0.08,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource}'s {PowerName} has increased the endurance cost of your powers!"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    12,
+    20,
+    88,
+    232,
+    236,
+    324,
+    364,
+    476
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_FRIGID_STOMP.PFX",
+  "attack_bits": [
+    20,
+    322,
+    602,
+    48
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    322,
+    602,
+    48
+  ],
+  "attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDSTOMP_ATTACK.FX",
+  "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_HIT.FX",
+  "initial_attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDSTOMP_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 63,
+  "initial_frames_before_hit": 22
+}

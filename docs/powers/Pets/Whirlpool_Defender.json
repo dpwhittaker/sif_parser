@@ -1,0 +1,228 @@
+{
+  "Whirlpool": {
+    "crcfull_name": 3612352019,
+    "source_file": "DEFS/POWERS/PETS_WHIRLPOOL_DEFENDER.POWERS",
+    "source_name": "Pets.Whirlpool_Defender.Whirlpool",
+    "display_name": "Whirlpool",
+    "display_help": "You create a violent whirlpool at the target location causing Cold damage over time, reducing the targets' speed and defense for a short time. Whirlpool grants 1 stack of Tidal Power. Damage: High(DoT), Recharge: Long",
+    "display_short_help": "Ranged (Location AoE), High DoT(Cold), -Speed, -Defense, Self +Tidal Power",
+    "display_target_help": "The whirlpool reduces the defense and movement speed of its victims.",
+    "display_target_short_help": "DoT(Cold), -Defense, -SPD",
+    "display_victim_hit": "You are in a Whirlpool! Your Speed and Defense has been reduced!",
+    "icon_name": "WaterBlast_Whirlpool.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Cold"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "activate_period": 0.5,
+    "boosts_allowed": [
+      29,
+      18,
+      10,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.0455,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "aspect": 8,
+            "table": "Melee_SpeedRunning",
+            "scale": -1,
+            "duration": 1.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.0455,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.4,
+            "duration": 1.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.4,
+            "duration": 1.5,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              192
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 1.5,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 1.5,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      12,
+      184,
+      188,
+      192,
+      200,
+      204
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WHIRLPOOL_PET.PFX",
+    "activation_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WHIRLPOOL.FX",
+    "primary_tint": [
+      100,
+      140,
+      215,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      140,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WHIRLPOOL_PET.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WHIRLPOOL.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WHIRLPOOL_PET.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/WHIRLPOOL.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "Avoid": {
+    "crcfull_name": 2774653738,
+    "source_file": "DEFS/POWERS/PETS_WHIRLPOOL_DEFENDER.POWERS",
+    "source_name": "Pets.Whirlpool_Defender.Avoid",
+    "display_name": "Avoid",
+    "display_help": "Foes will avoid this area.",
+    "display_short_help": "Avoid",
+    "icon_name": "WaterBlast_Whirlpool.tga",
+    "type": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              469
+            ],
+            "scale": 5,
+            "duration": 0.75,
+            "period": 1,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      469
+    ]
+  }
+}

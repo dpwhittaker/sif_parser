@@ -1,0 +1,218 @@
+{
+  "crcfull_name": 2687807486,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_PLANT_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Plant_Manipulation.Thorn_Burst",
+  "display_name": "Thorn Burst",
+  "display_help": "You can explode dozens of Thorns in all directions around you. These Thorns only travel a short distance, but they can deal moderate damage and poison any target close to you. Toxic damage from the thorns can reduce the Defense of affected foes. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "PBAoE Melee, Moderate DMG(Lethal), DoT(Toxic) -DEF",
+  "display_target_help": "You are poisoned! You are taking Toxic Damage and your Defense is Reduced.",
+  "display_target_short_help": "DoT(Toxic) -DEF",
+  "icon_name": "PlantManipulation_ThornBurst",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "time_to_activate": 3,
+  "recharge_time": 17,
+  "endurance_cost": 16.016,
+  "boosts_allowed": [
+    23,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.95,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 3,
+          "duration": 10,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.817,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.061,
+          "duration": 10.5,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    184
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PLANTMANIPULATION_THORNBURST.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    330
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    330
+  ],
+  "activation_fx": "V_COV/POWERS/QUILLS/QUILLSHTHDAMAGENOSPIKES.FX",
+  "attack_fx": "V_COV/POWERS/QUILLS/QUILLBURST.FX",
+  "hit_fx": "V_COV/POWERS/QUILLS/IMPALEHITQUICK.FX",
+  "initial_attack_fx": "V_COV/POWERS/QUILLS/QUILLBURST.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    139
+  ],
+  "frames_before_hit": 50,
+  "attack_frames": 90,
+  "initial_frames_before_hit": 50,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PLANTMANIPULATION_THORNBURST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        330
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        330
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNBURST_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNYDARTS_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNBURST_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 50,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 50,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

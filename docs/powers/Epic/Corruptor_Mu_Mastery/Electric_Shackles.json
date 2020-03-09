@@ -1,0 +1,382 @@
+{
+  "crcfull_name": 1649462783,
+  "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_MU_MASTERY.POWERS",
+  "source_name": "Epic.Corruptor_Mu_Mastery.Electric_Shackles",
+  "display_name": "Electric Shackles",
+  "display_help": "Electric Shackles binds a foes limbs, leaving the target held and helpless. The target is drained of some Endurance and some of that Endurance may be transferred back to you. You must be level 41 and have Power Sink or Charged Armor before selecting this power. Damage: Minor, Recharge: Long",
+  "display_short_help": "Ranged, Minor DMG(Energy), Foe Hold, -End",
+  "display_target_help": "The Electric Shackles is holding you helpless.",
+  "display_target_short_help": "Hold",
+  "icon_name": "Arachnos_Patron_TargetedHold.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "buy_requires": [
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "Epic.Corruptor_Mu_Mastery.Power_Sink",
+    "Epic.Corruptor_Mu_Mastery.Charged_Armor",
+    "||",
+    "&&"
+  ],
+  "range": 60,
+  "time_to_activate": 2.17,
+  "recharge_time": 32,
+  "endurance_cost": 8.58,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    30,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.15,
+          "duration": 6.3,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.07
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.3999,
+          "duration": 6.3,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -1.25
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 8
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.15,
+          "duration": 6.3,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.3999,
+          "duration": 6.3,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 4.29,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You recover some of the Endurance you drained.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICSHACKLES.PFX",
+  "attack_bits": [
+    20,
+    365
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    365
+  ],
+  "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_HANDLIGHTNINGFX/REDMU_CAGEBOLTS.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_LIGHTNINGBOLTHIT.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_HANDLIGHTNINGFX/REDMU_CAGEBOLTS.FX",
+  "conditional_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_SHOCKING_HOLD.FX",
+  "conditional_fx1": "V_COV/ENEMYPOWERS/ARACHNOS/MU_SHOCKING_HOLD.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 29,
+  "attack_frames": 65,
+  "initial_frames_before_hit": 29,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICSHACKLES.PFX",
+      "attack_bits": [
+        20,
+        365
+      ],
+      "initial_attack_bits": [
+        20,
+        365
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_CONDITIONAL.FX",
+      "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_CONDITIONAL.FX",
+      "frames_before_hit": 29,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 29,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICSHACKLES.PFX",
+      "attack_bits": [
+        20,
+        365
+      ],
+      "initial_attack_bits": [
+        20,
+        365
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_CONDITIONAL.FX",
+      "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_CONDITIONAL.FX",
+      "frames_before_hit": 29,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 29
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "crcfull_name": 2126642229,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_FIRE_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Fire_Manipulation.Hot_Feet",
+  "display_name": "Hot Feet",
+  "display_help": "While active, you heat the earth in a large area around yourself. Enemy movement is Slowed as they attempt to flee the immediate area. All foes in the affected area may also suffer some damage over time. You cannot fly and must be near the ground to use this power. Damage: Minor(DoT), Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Foe -SPD",
+  "display_target_help": "The ground below you is incredibly hot. You are burning and your running speed is reduced.",
+  "display_target_short_help": "DoT(Fire), -SPD",
+  "icon_name": "FireManipulation_HotFeet.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "near_ground": true,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "time_to_activate": 1.47,
+  "recharge_time": 20,
+  "activate_period": 2,
+  "endurance_cost": 2.08,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    29,
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.25,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            260
+          ],
+          "type": 0,
+          "scale": 4,
+          "magnitude": 3,
+          "stack_type": 3,
+          "flags": [
+            1296,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Scare {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Scares you with their {PowerName}."
+          }
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "scale": -10,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.7,
+          "duration": 2.3,
+          "stack_type": 3,
+          "flags": [
+            648,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2033,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    188,
+    260,
+    284
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_FIREMANIPULATION_HOTFEET.PFX",
+  "activation_bits": [
+    20,
+    263
+  ],
+  "activation_fx": "POWERS/FIRECONTROL/HOTFEET.FX",
+  "continuing_fx": "POWERS/FIRECONTROL/HOTFEETHIT.FX",
+  "continuing_fx1": "POWERS/FIRECONTROL/HOTFEETHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 44,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "alt_theme": [
+        "Bright Fire 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_FIREMANIPULATION_HOTFEET.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        263
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIREMANIPULATION/HOTFEET_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/FIREMANIPULATION/HOTFEET_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/FIREMANIPULATION/HOTFEET_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 44,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "alt_theme": [
+        "Dark Fire 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_FIREMANIPULATION_HOTFEET.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        263
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIREMANIPULATION/SUBTRACTIVE/HOTFEET_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/FIREMANIPULATION/SUBTRACTIVE/HOTFEET_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/FIREMANIPULATION/SUBTRACTIVE/HOTFEET_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 44,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

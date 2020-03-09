@@ -1,0 +1,396 @@
+{
+  "crcfull_name": 2236059389,
+  "source_file": "DEFS/POWERS/EPIC_DOMINATOR_MACE_MASTERY.POWERS",
+  "source_name": "Epic.Dominator_Mace_Mastery.Poisonous_Ray",
+  "display_name": "Poisonous Ray",
+  "display_help": "The Bane Mace can fire a nasty Poison Ray. This toxin is suspended in a polarized plasma field and delivered like an energy blast. Upon impact, the toxin directly attacks the immune system, reducing the affected targets Defense and Damage Resistance as it deals toxic damage. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged DoT(Poison), Foe -RES, -DEF",
+  "display_target_help": "Your Defense and Damage Resistances have been reduced. You are taking toxic damage over time.",
+  "display_target_short_help": "DoT(Poison), -RES, -DEF",
+  "icon_name": "Arachnos_Patron_TargetedDeBuffDefense.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Dominator",
+    "==",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "accuracy": 1.05,
+  "range": 80,
+  "time_to_activate": 2,
+  "recharge_time": 24,
+  "endurance_cost": 13,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.05,
+          "duration": 9.3,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.38,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1255,
+          "duration": 9.3,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 2,
+          "duration": 30,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -2.5,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.76,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    184
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_POISONOUSRAY.PFX",
+  "attack_bits": [
+    20,
+    130,
+    138,
+    394
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    138,
+    394,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+  "attack_fx": "V_COV/POWERS/PATRON/MACEMASTERY/MACEMASTERY_POISONOUSBLAST.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/PATRON/MACEMASTERY/MACEMASTERY_POISONOUSBLAST.FX",
+  "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/TARANTULA_VENOMBOLTHIT.FX",
+  "continuing_fx1": "V_COV/ENEMYPOWERS/ARACHNOS/TARANTULA_VENOMBOLTHIT.FX",
+  "mode_bits": [
+    20,
+    130,
+    88
+  ],
+  "frames_before_hit": 41,
+  "delayed_hit": true,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 71,
+  "initial_attack_fxframe_delay": 30,
+  "projectile_speed": 66,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_POISONOUSRAY.PFX",
+      "attack_bits": [
+        20,
+        130,
+        138,
+        394
+      ],
+      "activation_bits": [
+        20,
+        130,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        138,
+        394,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/POISONOUSRAY_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/POISONOUSRAY_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/POISONOUSRAY_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/POISONOUSRAY_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        88
+      ],
+      "frames_before_hit": 41,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 71,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 66,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_POISONOUSRAY.PFX",
+      "attack_bits": [
+        20,
+        130,
+        138,
+        394
+      ],
+      "activation_bits": [
+        20,
+        130,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        138,
+        394,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/POISONOUSRAY_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/POISONOUSRAY_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/POISONOUSRAY_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/POISONOUSRAY_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        88
+      ],
+      "frames_before_hit": 41,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 71,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 66
+    }
+  ]
+}

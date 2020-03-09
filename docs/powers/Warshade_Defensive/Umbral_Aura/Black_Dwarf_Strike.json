@@ -1,0 +1,333 @@
+{
+  "crcfull_name": 84773364,
+  "source_file": "DEFS/POWERS/WARSHADE_DEFENSIVE_UMBRAL_AURA.POWERS",
+  "source_name": "Warshade_Defensive.Umbral_Aura.Black_Dwarf_Strike",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "Black Dwarf Strike",
+  "display_help": "The Black Dwarf Strike is a moderate melee attack that releases Nictus Dark Energy on impact, which can Knock Down foes, and slows a targets attack and movement speed. This power is only available while in Black Dwarf Form. Damage: Moderate, Recharge: Very Fast",
+  "display_short_help": "Melee, Moderate DMG(Smash/Negative), Foe -Recharge, -SPD, Knockback",
+  "display_target_help": "Your Attack speed and movement speed have been reduced by the Black Dwarf Strike. You focus your attacks on the Black Dwarf.",
+  "display_target_short_help": "-SPD, -Recharge, Taunt",
+  "icon_name": "UmbralAura_BlackDwarfStrike.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "Warshade_Defensive.Umbral_Aura.Black_Dwarf",
+    "Inherent.Inherent.Black_Dwarf_Strike",
+    "!",
+    "&&"
+  ],
+  "range": 7,
+  "time_to_activate": 1.2,
+  "recharge_time": 3,
+  "endurance_cost": 4.368,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_required": [
+    5
+  ],
+  "modes_disallowed": [
+    1,
+    2,
+    4,
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 0.34,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 0.5435,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 1.0885,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.2,
+          "duration": 6,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.2,
+          "duration": 6
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "@ToHitRoll",
+        "0.2",
+        "+",
+        "@ToHit",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1284,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1284,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "server_tray_priority": 1010,
+  "server_tray_requires": [
+    "Temporary_Powers.Temporary_Powers.Hide_Kheldian_Server_Tray",
+    "ownPower?",
+    "!"
+  ],
+  "attrib_cache": [
+    0,
+    20,
+    188,
+    192,
+    200,
+    204,
+    248,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/WARSHADOW_TANKER_MEDIUMPUNCH.PFX",
+  "attack_bits": [
+    20,
+    263,
+    256
+  ],
+  "block_bits": [
+    53
+  ],
+  "wind_up_bits": [
+    367
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    263,
+    256
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/NICTUS/PUNCH/PEACEPUNCH.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/NICTUS/PUNCH/PUNCHHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/NICTUS/PUNCH/PEACEPUNCH.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 24,
+  "attack_frames": 36,
+  "initial_frames_before_hit": 24,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "NoBubble"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/WARSHADOW_TANKER_MEDIUMPUNCH.PFX",
+      "attack_bits": [
+        20,
+        263,
+        256
+      ],
+      "block_bits": 53,
+      "wind_up_bits": [
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        263,
+        256
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/PUNCH/PEACEPUNCH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/PUNCH/PUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/PUNCH/PEACEPUNCH.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 36,
+      "initial_frames_before_hit": 24
+    }
+  ]
+}

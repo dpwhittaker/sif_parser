@@ -1,0 +1,875 @@
+{
+  "Zapp_Quick": {
+    "crcfull_name": 3230470806,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_STALKER_EPICMUMASTERY_SNIPE.POWERS",
+    "source_name": "Villain_Pets.Stalker_EpicMuMastery_Snipe.Zapp_Quick",
+    "display_name": "Zapp",
+    "display_help": "A focused blast of Mu electrical energy that can travel great distances with high Accuracy. Zapp drains Endurance, and is best fired from a distance, as it can be interrupted. Some of the Endurance you drain may transfer back to you. Damage: Extreme, Rech",
+    "display_short_help": "Sniper, Extreme DMG(Energy), Foe -End",
+    "icon_name": "Arachnos_Patron_TargetedRangedSnipe.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "range": 150,
+    "time_to_activate": 1.33,
+    "recharge_time": 24,
+    "endurance_cost": 17.94,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 1.75,
+            "magnitude_expr": [
+              "cur.kToHit",
+              "source>",
+              "0.75",
+              "-",
+              "0.22",
+              "/",
+              "-1.0",
+              "1.0",
+              "minmax",
+              "0.314285714",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.14
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "eq",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 4.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.0",
+          ">",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 1.75,
+            "magnitude_expr": [
+              "cur.kToHit",
+              "source>",
+              "0.75",
+              "-",
+              "0.22",
+              "/",
+              "-1.0",
+              "1.0",
+              "minmax",
+              "0.314285714",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.9",
+          "<",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 4.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.291,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -3
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "eq",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.291,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.0",
+          ">",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.291,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.9",
+          "<",
+          "kHeld",
+          "target>",
+          "0.0",
+          ">",
+          "kSleep",
+          "target>",
+          "0.0",
+          ">",
+          "||",
+          "&&",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.291,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 4
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 8.97,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You recover some of the Endurance you drained.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      16,
+      88,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP_QUICK.PFX",
+    "attack_bits": [
+      20,
+      681,
+      381,
+      684
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      681,
+      381,
+      684
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPP_QUICK.FX",
+    "hit_fx": "POWERS/ELECTRICITYCONTROL/RED_CHRAGEDBRAWLHIT.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPP_QUICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 28,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 28,
+    "projectile_speed": 60,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP_QUICK.PFX",
+        "attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/CHARGEDBRAWL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_QUICK.FX",
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 60,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP_QUICK.PFX",
+        "attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/CHARGEDBRAWL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_QUICK.FX",
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 60
+      }
+    ]
+  },
+  "Zapp_Normal": {
+    "crcfull_name": 2866531247,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_STALKER_EPICMUMASTERY_SNIPE.POWERS",
+    "source_name": "Villain_Pets.Stalker_EpicMuMastery_Snipe.Zapp_Normal",
+    "display_name": "Zapp",
+    "display_help": "A focused blast of Mu electrical energy that can travel great distances with high Accuracy. Zapp drains Endurance, and is best fired from a distance, as it can be interrupted. Some of the Endurance you drain may transfer back to you. Damage: Extreme, Rech",
+    "display_short_help": "Sniper, Extreme DMG(Energy), Foe -End",
+    "icon_name": "Arachnos_Patron_TargetedRangedSnipe.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 150,
+    "time_to_activate": 4.33,
+    "recharge_time": 24,
+    "endurance_cost": 17.94,
+    "interrupt_time": 3,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      32,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.56,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+              "display_float": "SNIPER SHOT"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.14
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "eq",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.78,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.0",
+          ">",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.78,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.9",
+          "<",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 4.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 4.391,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+              "display_float": "SNIPER SHOT"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -3
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "eq",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 4.391,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.0",
+          ">",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 4.391,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0.9",
+          "<",
+          "kHeld",
+          "target>",
+          "0.0",
+          ">",
+          "kSleep",
+          "target>",
+          "0.0",
+          ">",
+          "||",
+          "&&",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 4.391,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 4
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 8.97,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You recover some of the Endurance you drained.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      16,
+      88,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP.PFX",
+    "attack_bits": [
+      20,
+      258,
+      683
+    ],
+    "wind_up_bits": [
+      371
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258,
+      683
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPP_ZERO.FX",
+    "hit_fx": "POWERS/ELECTRICITYCONTROL/RED_CHRAGEDBRAWLHIT.FX",
+    "wind_up_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPPWINDUP.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPP_ZERO.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 1,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 1,
+    "projectile_speed": 60,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP.PFX",
+        "attack_bits": [
+          20,
+          258,
+          683
+        ],
+        "wind_up_bits": [
+          371
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          683
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/CHARGEDBRAWL_HIT.FX",
+        "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_WINDUP.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_ATTACK.FX",
+        "frames_before_hit": 1,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 1,
+        "projectile_speed": 60,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP.PFX",
+        "attack_bits": [
+          20,
+          258,
+          683
+        ],
+        "wind_up_bits": [
+          371
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          683
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/CHARGEDBRAWL_HIT.FX",
+        "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_WINDUP.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_ATTACK.FX",
+        "frames_before_hit": 1,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 1,
+        "projectile_speed": 60
+      }
+    ]
+  }
+}

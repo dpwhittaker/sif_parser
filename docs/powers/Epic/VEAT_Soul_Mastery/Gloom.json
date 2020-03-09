@@ -1,0 +1,176 @@
+{
+  "crcfull_name": 4058564255,
+  "source_file": "DEFS/POWERS/EPIC_VEAT_SOUL_MASTERY.POWERS",
+  "source_name": "Epic.VEAT_Soul_Mastery.Gloom",
+  "display_name": "Gloom",
+  "display_help": "Gloom slowly drains a target of life, while reducing his Accuracy. Slower than Dark Blast, but deals more damage over time. Damage: High(DoT), Recharge: Moderate",
+  "display_short_help": "Ranged, High DoT(Negative), Foe -ACC",
+  "display_target_help": "The Gloom is causing damage to you and reducing your Accuracy.",
+  "display_target_short_help": "DoT(Negative), -ACC",
+  "icon_name": "Arachnos_Patron_TargetedRangedHighDmg.tga",
+  "attack_types": [
+    "Ranged",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Arachnos_Soldier",
+    "==",
+    "$archetype",
+    "@Class_Arachnos_Widow",
+    "==",
+    "||",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "range": 80,
+  "time_to_activate": 1.1,
+  "recharge_time": 12,
+  "endurance_cost": 10.66,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    11,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.22,
+          "duration": 3.6,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.75,
+          "duration": 10,
+          "fx": {
+            "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.1833,
+          "duration": 3.6,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    20,
+    100
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_GLOOM.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "hit_bits": [
+    49,
+    585
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULDRAIN.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULDRAIN.FX",
+  "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+  "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "delayed_hit": true,
+  "attack_frames": 33,
+  "initial_frames_before_hit": 25,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_GLOOM.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/GLOOM_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/GLOOM_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 33,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 90
+    }
+  ]
+}

@@ -1,0 +1,1296 @@
+{
+  "Burst": {
+    "crcfull_name": 1031556834,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.Burst",
+    "display_name": "Burst",
+    "display_help": "Quickly fires a Burst of rounds at a single target at very long range. Damage is average, but the fire rate is fast. Can also reduce the target's defense. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Lethal), Foe -DEF",
+    "display_target_help": "Your Defense has been reduced by the Assault Rifle.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Paramilitary_AssaultRifleBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 90,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 0.27,
+            "duration": 0.91,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 8,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "dont_set_stance": true,
+    "point_value": 110,
+    "attrib_cache": [
+      4,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_BURST_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      174
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      174,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+    "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_BURST_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          174
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          174
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+        "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 8,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 8,
+        "palette": ""
+      }
+    ]
+  },
+  "Soldiers": {
+    "crcfull_name": 2857249968,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.Soldiers",
+    "display_name": "Soldiers",
+    "display_help": "Calls forth one to three Mercenary Soldiers (depending on your level) to do your bidding. The third Soldier you gain will be a Medic. All Soldiers use Sub Machine Guns, but these can be upgraded. You may only have 3 Soldiers under your control at any given time. If you attempt to call more Soldiers, you can only replace the ones you have lost in battle. If you already have three, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Soldier",
+    "icon_name": "Paramilitary_DraftArmy.tga",
+    "time_to_activate": 2.03,
+    "recharge_time": 60,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Minion_Grunt",
+          "eq",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Soldier",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Lt_Grunt",
+          "eq",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Soldier",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">",
+          "arch",
+          "source>",
+          "Class_Lt_Grunt",
+          "eq",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 4,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Medic",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Soldier",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Soldier",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "17",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 4,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Medic",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 20,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Slug": {
+    "crcfull_name": 3590527608,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.Slug",
+    "display_name": "Slug",
+    "display_help": "Fires a single Slug at a targeted foe. Firing a single Slug is slower than firing a Burst, but deals more damage, is longer range, and can knock down foes. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Lethal), Foe Knockback",
+    "icon_name": "Paramilitary_AssaultRifleSlug.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 100,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "dont_set_stance": true,
+    "point_value": 100,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_SLUG_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+    "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 35,
+    "initial_attack_fxframe_delay": 3,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_SLUG_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+        "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32,
+        "palette": ""
+      }
+    ]
+  },
+  "Spec_Ops": {
+    "crcfull_name": 3907128684,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.Spec_Ops",
+    "display_name": "Spec Ops",
+    "display_help": "You can enlist one to two highly skilled Spec Ops Mercenary (depending on your level). Spec Ops weapons are highly accurate and long ranged, and they are adept in many different tactical weapons. Like all Henchmen, Spec Ops can be equipped with even deadlier munitions. You may only have 2 Spec Ops under your control at any given time. If you attempt to summon more Spec Ops, you can only replace the ones you have lost in battle. If you already have two, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Spec Ops",
+    "icon_name": "Paramilitary_EnlistSpecialForces.tga",
+    "time_to_activate": 2.03,
+    "recharge_time": 90,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Spec_Ops",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "23",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Spec_Ops",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 22,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "M30_Grenade": {
+    "crcfull_name": 717506628,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.M30_Grenade",
+    "display_name": "M30 Grenade",
+    "display_help": "Launches a Grenade at long range from beneath the barrel of your Assault Rifle. This explosion affects all within the blast radius, and can knock them back. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal/Smash), Knockback",
+    "icon_name": "Paramilitary_AssaultRifleGrenade.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 20.44,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 3,
+    "dont_set_stance": true,
+    "point_value": 35,
+    "attrib_cache": [
+      0,
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_GRENADE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+    "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 33,
+    "initial_attack_fxframe_delay": 3,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_GRENADE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+        "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 90,
+        "palette": ""
+      }
+    ]
+  },
+  "Commando": {
+    "crcfull_name": 324149116,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.Commando",
+    "display_name": "Commando",
+    "display_help": "Enlists one highly trained Commando. The Commando is a seasoned professional who favors heavy assault weapons. He is simply a one man army that can leave a wake of destruction in his path. In addition to standard Soldier resistance, the Commandos experience also makes him resistant to Fear and his rugged advanced training makes him slightly resistant to Fire, Cold and Toxic Damage. You may only have 1 Commando under your control at any given time. If you attempt to summon another Commando, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Commando",
+    "icon_name": "Paramilitary_SuperSoldier.tga",
+    "time_to_activate": 2.03,
+    "recharge_time": 120,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Commando",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 24,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Serum": {
+    "crcfull_name": 1644739633,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_MERCENARIES.POWERS",
+    "source_name": "Mission_Maker_Attacks.Mercenaries.Serum",
+    "display_name": "Serum",
+    "display_help": "You can use a special Serum to turn one Mercenary into a virtually Unstoppable killing machine for a short time. Once the Mercenary is injected with this Serum, his Damage, chance to hit, Endurance Recovery, and Damage Resistance to all damage except Psionics, will be greatly increased. The target Mercenary will also be virtually immune to controlling effects including Disorient, Sleep, Hold, Immobilize and Knockback. After the Serum wears off, the Mercenary will be exhausted and drained of all Endurance and be unable to recover endurance for a short while. Recharge: Very Long",
+    "display_short_help": "Buff Mercenary +DMG, +RES(All except Psionic), +To Hit, +Recovery",
+    "icon_name": "Paramilitary_Serum.tga",
+    "range": 100,
+    "time_to_activate": 1.3,
+    "recharge_time": 1000,
+    "endurance_cost": 13,
+    "target_visibility": 1,
+    "target": 25,
+    "ents_auto_hit": [
+      25
+    ],
+    "ents_affected": [
+      25
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "NPC_Pets_MA_Soldier",
+          "target.VillainName>",
+          "NPC_Pets_MA_Spec_Ops",
+          "target.VillainName>",
+          "||",
+          "NPC_Pets_MA_Medic",
+          "target.VillainName>",
+          "||",
+          "NPC_Pets_MA_Commando",
+          "target.VillainName>",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 7,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/INVULNERABILITY/MERC_INVULNERABILITY.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328,
+              332
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 10,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              332
+            ],
+            "table": "Ranged_Ones",
+            "scale": -10,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -50,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_Buff_ToHit",
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8
+            ],
+            "aspect": 16,
+            "table": "Ranged_Res_Dmg",
+            "scale": 0.5,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -10,
+            "duration": 20,
+            "delay": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "delay": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "preference_multiplier": 6,
+    "point_value": 3,
+    "point_multiplier": 0.1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      36,
+      88,
+      100,
+      236,
+      268,
+      272,
+      276,
+      280,
+      324,
+      328,
+      332
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_BOOSTSERUM.PFX",
+    "attack_bits": [
+      20,
+      245,
+      512,
+      277
+    ],
+    "hit_bits": [
+      245,
+      512,
+      49
+    ],
+    "initial_attack_bits": [
+      20,
+      245,
+      512,
+      277
+    ],
+    "attack_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTSERUM.FX",
+    "hit_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTSERUMHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTSERUM.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 39,
+    "initial_frames_before_hit": 12,
+    "projectile_speed": 25.5
+  }
+}

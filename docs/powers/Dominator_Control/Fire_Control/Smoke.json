@@ -1,0 +1,185 @@
+{
+  "crcfull_name": 4070540034,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_FIRE_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Fire_Control.Smoke",
+  "display_name": "Smoke",
+  "display_help": "Covers all foes near your target in clouds of Smoke. Your enemies are so blinded that they can hardly see a thing. Most foes will not be able to see past normal melee range, although some may have better perception. If the affected targets are attacked, they will be alerted to your presence, but will suffer a penalty to their chance to hit Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Foe -Perception, -To Hit",
+  "display_target_help": "The Smoke is reducing your visual range and chance to hit.",
+  "display_target_short_help": "-Perception, -To Hit",
+  "display_attacker_hit": "You have been blinded by the Smoke from {PlayerSource}. Your chance to hit and perception have been reduced.",
+  "icon_name": "FireTrap_Smoke.tga",
+  "ai_report": 1,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 35,
+  "range": 80,
+  "time_to_activate": 1.17,
+  "recharge_time": 15,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.9,
+          "duration": 60,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 60,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            228
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.9,
+          "duration": 20,
+          "stack_type": 3,
+          "cancel_events": [
+            17
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    100,
+    228
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_SMOKE.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "continuing_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX",
+  "continuing_fx1": "POWERS/FIRECONTROL/SMOKEHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_SMOKE.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIREHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIREHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SMOKEHIT.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SMOKEHIT.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_SMOKE.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIREHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIREHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/SMOKEHIT.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/SMOKEHIT.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

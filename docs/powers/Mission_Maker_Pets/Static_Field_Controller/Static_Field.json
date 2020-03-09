@@ -1,0 +1,198 @@
+{
+  "crcfull_name": 2192314895,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_PETS_STATIC_FIELD_CONTROLLER.POWERS",
+  "source_name": "Mission_Maker_Pets.Static_Field_Controller.Static_Field",
+  "display_name": "Static Field",
+  "display_help": "All foes that pass near this field will be electrocuted.",
+  "display_short_help": "Static Field",
+  "icon_name": "ElectricalBolt_LightningBolt.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "activate_period": 4,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 4.25,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Energy built up from the Static Field causes {PlayerDest} to shake uncontrollably!",
+            "display_victim_hit": "Energy from the Static Field builds up in your body, causing you to shake violently."
+          },
+          "fx": {
+            "conditional_bits": [
+              276
+            ],
+            "conditional_fx": "GENERICCONTINUING/SLEEPCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.4,
+          "duration": 4.25,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.4,
+          "duration": 4.25,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.3,
+          "duration": 4.25,
+          "stack_type": 3,
+          "flags": [
+            664,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 3.25,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your sleep effect on {PlayerDest} with your {PowerName} was even more powerful!",
+            "display_victim_hit": "{PlayerSource} lands an extra strong sleep effect on you with their {PowerName}!",
+            "display_float": "Overpower"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.03,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.25,
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_Static_Field_End_Recovery_Controller",
+              "priority_list": "PL_Untargetable_FightPreferRanged"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "attrib_cache": [
+    88,
+    188,
+    192,
+    200,
+    204,
+    280,
+    356,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_STATICFIELD.PFX",
+  "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/STATICFIELD_PET.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    20,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_STATICFIELD.PFX",
+      "hit_bits": [],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/STATICFIELD_PET.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_STATICFIELD.PFX",
+      "hit_bits": [],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/STATICFIELD_PET.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_CONTINUING.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

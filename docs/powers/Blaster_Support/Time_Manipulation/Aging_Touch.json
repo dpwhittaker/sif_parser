@@ -1,0 +1,287 @@
+{
+  "crcfull_name": 221889722,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_TIME_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Time_Manipulation.Aging_Touch",
+  "display_name": "Aging Touch",
+  "display_help": "You touch an enemy and accelerate their aging process causing exhaustion and psionic damage. Affected enemies will continue to age for a limited time, and suffering psionic damage over time. Targets affected by the Delayed effect will suffer from a more psionic damage over time. Damage: Minor, Recharge: Fast",
+  "display_short_help": "Melee, Minor DMG(Psionic)",
+  "display_target_help": "You are aging rapidly!",
+  "display_target_short_help": "DoT(Psionic)",
+  "icon_name": "TimeManipulation_AgingTouch",
+  "attack_types": [
+    "Melee",
+    "Energy"
+  ],
+  "range": 7,
+  "time_to_activate": 1,
+  "recharge_time": 6,
+  "endurance_cost": 6.864,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time [TIME CRAWL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time [TIME CRAWL].",
+            "display_float": "Time Crawl"
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.3399,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.028,
+          "duration": 2.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource}' {PowerName} aging effect is exhausting you, draining some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Melee_EndDrain",
+          "scale": -1,
+          "duration": 2.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource}' {PowerName} aging effect is exhausting you, draining some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.066,
+          "duration": 8.5,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    88
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_AGINGTOUCH.PFX",
+  "attack_bits": [
+    20,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_AGINGTOUCH.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_AGINGTOUCH.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SLOW_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SLOW_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 30,
+  "primary_tint": [
+    194,
+    225,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    97,
+    176,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_AGINGTOUCH.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_AGINGTOUCH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_AGINGTOUCH.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SLOW_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SLOW_CONTINUING.FX",
+      "attack_frames": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_AGINGTOUCH.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_AGINGTOUCH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_AGINGTOUCH.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/SLOW_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/SLOW_CONTINUING.FX",
+      "attack_frames": 30
+    }
+  ]
+}

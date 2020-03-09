@@ -1,0 +1,250 @@
+{
+  "crcfull_name": 2237404020,
+  "source_file": "DEFS/POWERS/INHERENT_INHERENT.POWERS",
+  "source_name": "Inherent.Inherent.Bright_Nova_Detonation",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "Bright Nova Detonation",
+  "display_help": "You hurl a large blast of Kheldian light energy that violently explodes on impact, damaging all foes near the target, reducing their defense. Some affected targets may get knocked back. This power is only available while in Bright Nova Form. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Smash/Energy), Foe -DEF, Knockback",
+  "display_target_help": "The Bright Nova Detonation has weakened your Defenses!",
+  "display_target_short_help": "-DEF",
+  "icon_name": "LuminousBlast_LuminousDetonation.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing",
+    "Energy"
+  ],
+  "buy_requires": [
+    "0"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 100,
+  "time_to_activate": 2.5,
+  "recharge_time": 16,
+  "endurance_cost": 15.184,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_required": [
+    1
+  ],
+  "modes_disallowed": [
+    2,
+    4,
+    5,
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_SSDamage",
+          "scale": 0.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_SSDamage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_SSDamage",
+          "scale": 0.6871,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_SSDamage",
+          "scale": 0.343,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "duration": 10,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 4,
+  "server_tray_priority": 1007,
+  "server_tray_requires": [
+    "Temporary_Powers.Temporary_Powers.Hide_Kheldian_Server_Tray",
+    "ownPower?",
+    "!"
+  ],
+  "attrib_cache": [
+    0,
+    16,
+    184,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_BLASTER_RANGEDAOE.PFX",
+  "attack_bits": [
+    20,
+    327
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    327
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/BLASTERFORMPEACEMEGABLAST.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/BLASTERFORMPEACEMEGABLAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 28,
+  "delayed_hit": true,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 28,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "TintableTail"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_BLASTER_RANGEDAOE.PFX",
+      "attack_bits": [
+        20,
+        327
+      ],
+      "initial_attack_bits": [
+        20,
+        327
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/BLASTERFORMPEACEMEGABLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/BLASTERFORMPEACEMEGABLAST.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    }
+  ]
+}

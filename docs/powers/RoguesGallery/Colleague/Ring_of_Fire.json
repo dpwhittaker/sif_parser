@@ -1,0 +1,192 @@
+{
+  "crcfull_name": 807183735,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+  "source_name": "RoguesGallery.Colleague.Ring_of_Fire",
+  "display_name": "Ring of Fire",
+  "display_help": "You immobilize your foe in a ring of fire, causing fire damage over time. Affected targets cannot move and are unable to fly. Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DoT(Fire), Immobilize (Foe), -Fly (Foe)",
+  "display_target_help": "You are suffering fire damage over time and are immobilized.",
+  "display_target_short_help": "DoT (Fire), Immobilize",
+  "icon_name": "FireTrap_RingOfFire.tga",
+  "attack_types": [
+    "Ranged",
+    "Fire"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 1.17,
+  "recharge_time": 4,
+  "endurance_cost": 10.5,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.15,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.15,
+          "duration": 7.2,
+          "delay": 2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 15,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 10,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "POWERS/FIRECONTROL/BURNINGRING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 10,
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 0,
+              "always": true
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "POWERS/FIRECONTROL/BURNINGRING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 8,
+  "attrib_cache": [
+    8,
+    272,
+    284,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_FLAME_RING.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23
+}

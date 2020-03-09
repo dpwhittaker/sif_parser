@@ -1,0 +1,2449 @@
+{
+  "Ki_Push": {
+    "crcfull_name": 2277933970,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Ki_Push",
+    "display_name": "Ki Push",
+    "display_help": "You smash your foe with a burst of Ki Energy, sending them flying through the air in slow motion. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Smash), Foe Repel, KB",
+    "display_target_help": "You have been smashed with a Ki Push and are being repelled.",
+    "display_target_short_help": "Melee, Moderate DMG(Smash), Foe Repel, KB",
+    "icon_name": "MartialManipulation_KiPush.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "cast_through_hold": true,
+    "cast_through_sleep": true,
+    "cast_through_stun": true,
+    "cast_through_terrorize": true,
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "range": 7,
+    "time_to_activate": 0.83,
+    "recharge_time": 6,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      52
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              332
+            ],
+            "scale": 4,
+            "duration": 2,
+            "stack_type": 3,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You repel {PlayerDest} with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} repels you with a {PowerName}!"
+            },
+            "fx": {
+              "conditional_bits": [
+                621,
+                19,
+                21
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "scale": 4,
+            "duration": 2,
+            "stack_type": 3,
+            "flags": [
+              660,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 4,
+            "delay": 2.05,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "scale": 4,
+            "duration": 2,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              660,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              332
+            ],
+            "scale": 2,
+            "duration": 2,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You repel {PlayerDest} with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} repels you with a {PowerName}!"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2209,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 4,
+            "delay": 2.05,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.055,
+            "duration": 8.33,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      268,
+      328,
+      332
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_KIPUSH.PFX",
+    "attack_bits": [
+      20,
+      283,
+      261,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      283,
+      261,
+      681
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 25,
+    "primary_tint": [
+      255,
+      175,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      75,
+      0,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_KIPUSH.PFX",
+        "attack_bits": [
+          20,
+          283,
+          261,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          283,
+          261,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/KIPUSH.FX",
+        "attack_frames": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_KIPUSH.PFX",
+        "attack_bits": [
+          20,
+          283,
+          261,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          283,
+          261,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/QUICKSTRIKE_ACTIVATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/KINETICMELEE_HIT_SMALL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KINETICMELEE/SUBTRACTIVE/QUICKSTRIKE_ACTIVATE.FX",
+        "attack_frames": 25
+      }
+    ]
+  },
+  "Storm_Kick": {
+    "crcfull_name": 3771954509,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Storm_Kick",
+    "display_name": "Storm Kick",
+    "display_help": "You can unleash a roundhouse kick that pummels your foe for moderate damage, knocking them down. Storm Kick has an additional chance to cause your target to bleed for Lethal damage over time. Damage: Moderate, Recharge: Medium",
+    "display_short_help": "Melee, Moderate DMG(Smash), DoT(Lethal), Foe Knockdown",
+    "icon_name": "MartialManipulation_StormKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.07,
+    "recharge_time": 6,
+    "endurance_cost": 6.864,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1111,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 1.5,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.0926,
+            "duration": 1.5,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.071,
+            "duration": 8.57,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_STORMKICK.PFX",
+    "attack_bits": [
+      20,
+      635,
+      257
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      635,
+      257
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/STORMKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MAHITSLRG.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/STORMKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 32,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_STORMKICK.PFX",
+        "attack_bits": [
+          20,
+          635,
+          257
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          635,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/STORMKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/STORMKICK.FX",
+        "attack_frames": 32,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_STORMKICK.PFX",
+        "attack_bits": [
+          20,
+          635,
+          257
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          635,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/STORMKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/STORMKICK.FX",
+        "attack_frames": 32
+      }
+    ]
+  },
+  "Reach_for_the_Limit": {
+    "crcfull_name": 3826318124,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Reach_for_the_Limit",
+    "display_name": "Reach for the Limit",
+    "display_help": "You are constantly looking for vulnerabilities in your foes' stances and positioning. Whenever you attack, you have a chance to gain a moderate +ToHit and +Damage bonus for a short duration.",
+    "display_short_help": "All Attacks: Chance for +ToHit, +DMG(All)",
+    "icon_name": "MartialManipulation_ReachfortheLimit.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "max_boosts": 0,
+    "attrib_cache": [
+      468
+    ]
+  },
+  "Build_Up_Proc": {
+    "crcfull_name": 2255354229,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Build_Up_Proc",
+    "auto_issue": true,
+    "free": true,
+    "display_name": "Reach for the Limit",
+    "display_help": "Greatly boosts your attacks for a few seconds. Slightly increases chance to hit.",
+    "display_short_help": "Self +DMG, +To Hit",
+    "display_target_help": "Greatly boosts your attacks for a few seconds. Slightly increases chance to hit.",
+    "display_target_short_help": "Self +DMG, +To Hit",
+    "icon_name": "MartialManipulation_ReachfortheLimit.tga",
+    "type": 5,
+    "buy_requires": [
+      "Blaster_Support.Martial_Manipulation.Reach_for_the_Limit"
+    ],
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      9,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "procs_per_minute": 0.67,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You {PowerName} and are more deadly for a short while.",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Reach_For_The_Limit"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "attrib_cache": [
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACHFORTHELIMIT.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+    "initial_attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACHFORTHELIMIT.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACHFORTHELIMIT.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Burst_of_Speed": {
+    "crcfull_name": 3829217026,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Burst_of_Speed",
+    "display_name": "Burst of Speed",
+    "display_help": "Channeling physical Ki inwards, you move more quickly than can be seen for an instant, allowing you to move instantly to a targeted location and strike at targets within melee range. You can use this Burst of Speed up to 3 times before it needs to recharge.",
+    "display_short_help": "Location AoE Moderate DMG (Smash), Self Teleport",
+    "icon_name": "MartialManipulation_BurstofSpeed.tga",
+    "effect_area": 3,
+    "range": 200,
+    "time_to_activate": 1,
+    "recharge_time": 90,
+    "endurance_cost": 13.52,
+    "target": 22,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              292
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "delay": -0.3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 2,
+            "delay": -0.2,
+            "stack_type": 3,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Burst_of_Speed"
+              }
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.026,
+            "duration": 8.5,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "SpeedRefresh"
+        ],
+        "chance": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              485
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "delay": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Blaster_Support.Martial_Manipulation.Burst_of_Speed"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              476
+            ],
+            "type": 3,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 30,
+            "duration_expr": [
+              "rechargetime",
+              "power.boosted>"
+            ],
+            "magnitude_expr": [
+              "-1"
+            ],
+            "delay": 1,
+            "flags": [
+              9776,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "SpeedRefresh"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      292,
+      461,
+      476,
+      485
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_BURSTOFSPEED.PFX",
+    "attack_bits": [
+      20,
+      635,
+      304
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      635,
+      304
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/BURSTOFSPEED.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/BURSTOFSPEED.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 26,
+    "attack_frames": 77,
+    "initial_frames_before_hit": 26,
+    "ignore_attack_time_errors": "jhamilton",
+    "primary_tint": [
+      255,
+      175,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      75,
+      0,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_BURSTOFSPEED.PFX",
+        "attack_bits": [
+          20,
+          635,
+          304
+        ],
+        "initial_attack_bits": [
+          20,
+          635,
+          304
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/BURSTOFSPEED.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/BURSTOFSPEED.FX",
+        "frames_before_hit": 26,
+        "attack_frames": 77,
+        "initial_frames_before_hit": 26,
+        "ignore_attack_time_errors": "jhamilton",
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_BURSTOFSPEED.PFX",
+        "attack_bits": [
+          20,
+          635,
+          304
+        ],
+        "initial_attack_bits": [
+          20,
+          635,
+          304
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/BURSTOFSPEED.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/BURSTOFSPEED.FX",
+        "frames_before_hit": 26,
+        "attack_frames": 77,
+        "initial_frames_before_hit": 26,
+        "ignore_attack_time_errors": "jhamilton"
+      }
+    ]
+  },
+  "Dragons_Tail": {
+    "crcfull_name": 2051731137,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Dragons_Tail",
+    "display_name": "Dragon's Tail",
+    "display_help": "This low spinning kick deals moderate damage, but has a chance to hit all enemies in melee range. Successful hits may trip and knock down your opponents. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "PBAoE Melee, Moderate DMG(Smash), Foe Knockdown",
+    "icon_name": "MartialManipulation_DragonsTail.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 1.5,
+    "recharge_time": 14,
+    "endurance_cost": 13.52,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.18,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1485,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.045,
+            "duration": 9,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_DRAGONSTAIL.PFX",
+    "attack_bits": [
+      20,
+      111,
+      318
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      318
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/MONKEYKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MONKEYKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/MONKEYKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 45,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_DRAGONSTAIL.PFX",
+        "attack_bits": [
+          20,
+          111,
+          318
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          318
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MONKEYKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MONKEYKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MONKEYKICK.FX",
+        "attack_frames": 45,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_DRAGONSTAIL.PFX",
+        "attack_bits": [
+          20,
+          111,
+          318
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          318
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MONKEYKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MONKEYKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MONKEYKICK.FX",
+        "attack_frames": 45
+      }
+    ]
+  },
+  "Reaction_Time": {
+    "crcfull_name": 1372339862,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Reaction_Time",
+    "display_name": "Reaction Time",
+    "display_help": "You attune yourself to the world around you, moving with preternatural speed. All enemies nearby move slowly and have reduced recharge, and you can absorb small amounts of damage every 2 seconds. When Reaction Time is deactivated, you gain a burst of speed for a short duration, increasing your own recharge and move speed.",
+    "display_short_help": "Toggle (PBAoE), Self Absorb over Time, +Recovery, Foe –Rech, - Move, Special",
+    "display_target_help": "Your Attack speed, Running speed and damage are reduced by the Chilling Embrace.",
+    "display_target_short_help": "-Recharge, -SPD, -DMG",
+    "display_attacker_hit": "Your {PowerName} Slows all nearby foes.",
+    "icon_name": "MartialManipulation_ReactionTime.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "cast_through_hold": true,
+    "cast_through_sleep": true,
+    "cast_through_stun": true,
+    "cast_through_terrorize": true,
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 30,
+    "time_to_activate": 1.83,
+    "recharge_time": 10,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      19,
+      1
+    ],
+    "ents_affected": [
+      19,
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      29,
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "entref",
+          "target>",
+          "entref",
+          "source>",
+          "eq",
+          "!",
+          "cur.kHeld",
+          "source>",
+          "0",
+          ">",
+          "cur.kStun",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kSleep",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kTerrorized",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.7,
+            "duration": 5,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.4,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.7,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "entref",
+          "target>",
+          "entref",
+          "source>",
+          "eq",
+          "!",
+          "&&",
+          "cur.kHeld",
+          "source>",
+          "0",
+          ">",
+          "cur.kStun",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kSleep",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kTerrorized",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              188
+            ],
+            "aspect": 8,
+            "table": "Melee_SpeedRunning",
+            "scale": -1,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "application_type": 2,
+            "target": 0,
+            "table": "Melee_Slow",
+            "scale": -0.7,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "application_type": 2,
+            "target": 0,
+            "table": "Melee_Slow",
+            "scale": -0.4,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "aspect": 8,
+            "application_type": 2,
+            "target": 0,
+            "table": "Melee_SpeedRunning",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "application_type": 2,
+            "target": 0,
+            "table": "Melee_Slow",
+            "scale": -0.7,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "entref",
+          "target>",
+          "entref",
+          "source>",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              84
+            ],
+            "aspect": 8,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 0.5,
+            "duration": 3,
+            "stack_type": 1,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 0.5,
+            "duration": 3,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      84,
+      188,
+      192,
+      200,
+      204,
+      236,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACTIONTIME.PFX",
+    "activation_bits": [
+      472
+    ],
+    "activation_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/REACTIONTIME.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 55,
+    "initial_frames_before_hit": 28,
+    "primary_tint": [
+      60,
+      20,
+      200,
+      255
+    ],
+    "secondary_tint": [
+      0,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACTIONTIME.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          472
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/REACTIONTIME.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 28,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACTIONTIME.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          472
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/REACTIONTIME.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMESJUNCTURE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMESJUNCTURE_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 28
+      }
+    ]
+  },
+  "Inner_Will": {
+    "crcfull_name": 560274551,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Inner_Will",
+    "display_name": "Inner Will",
+    "display_help": "When pushed to your limit, you can tap into an inner reserve of power, allowing you to overcome impossible odds. When you are below half health, below half endurance, or the victim of any status effect, you may activate Inner Will. Inner Will cancels any status effects currently affecting you, increases your resistance to status effects by 100%, and increases the power of your own status effect-inducing powers. Inner Will also heals you for a moderate amount when activated. Recharge: Very Long",
+    "display_short_help": "Self Heal, Special",
+    "icon_name": "MartialManipulation_InnerWill.tga",
+    "target_requires": [
+      "kHitPoints%",
+      "source>",
+      "50",
+      "<",
+      "kEndurance%",
+      "source>",
+      "50",
+      "<",
+      "||",
+      "cur.kHeld",
+      "source>",
+      "0",
+      ">",
+      "||",
+      "cur.kImmobilize",
+      "source>",
+      "0",
+      ">",
+      "||",
+      "cur.kStun",
+      "source>",
+      "0",
+      ">",
+      "||",
+      "cur.kTerrorized",
+      "source>",
+      "0",
+      ">",
+      "||",
+      "cur.kConfused",
+      "source>",
+      "0",
+      ">",
+      "||",
+      "cur.kSleep",
+      "source>",
+      "0",
+      ">",
+      "||"
+    ],
+    "cast_through_hold": true,
+    "cast_through_sleep": true,
+    "cast_through_stun": true,
+    "cast_through_terrorize": true,
+    "time_to_activate": 1.03,
+    "recharge_time": 180,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 3,
+            "target": 0,
+            "duration": 30,
+            "magnitude_expr": [
+              "mod.kStun",
+              "source>",
+              "1",
+              "+",
+              "2",
+              "30",
+              "minmax",
+              "negate"
+            ],
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your {PowerName} and break out of any status effects that were on you.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              280
+            ],
+            "type": 3,
+            "target": 0,
+            "duration": 30,
+            "magnitude_expr": [
+              "mod.kSleep",
+              "source>",
+              "1",
+              "+",
+              "2",
+              "30",
+              "minmax",
+              "negate"
+            ],
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 3,
+            "target": 0,
+            "duration": 30,
+            "magnitude_expr": [
+              "mod.kImmobilize",
+              "source>",
+              "1",
+              "+",
+              "2",
+              "30",
+              "minmax",
+              "negate"
+            ],
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 3,
+            "target": 0,
+            "duration": 30,
+            "magnitude_expr": [
+              "mod.kHeld",
+              "source>",
+              "1",
+              "+",
+              "2",
+              "30",
+              "minmax",
+              "negate"
+            ],
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              256
+            ],
+            "type": 3,
+            "target": 0,
+            "duration": 30,
+            "magnitude_expr": [
+              "mod.kConfused",
+              "source>",
+              "1",
+              "+",
+              "2",
+              "30",
+              "minmax",
+              "negate"
+            ],
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              264
+            ],
+            "type": 3,
+            "target": 0,
+            "duration": 30,
+            "magnitude_expr": [
+              "mod.kTerrorized",
+              "source>",
+              "1",
+              "+",
+              "2",
+              "30",
+              "minmax",
+              "negate"
+            ],
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              256,
+              264,
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 24,
+            "target": 0,
+            "duration": 30,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              256,
+              264,
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.5,
+            "duration": 30,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "target": 0,
+            "scale": 0.075,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+              "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "target": 0,
+            "scale": 0.075,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+              "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      28,
+      256,
+      264,
+      268,
+      272,
+      276,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_INNERWILL.PFX",
+    "attack_bits": [
+      635,
+      719
+    ],
+    "initial_attack_bits": [
+      635,
+      719
+    ],
+    "attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+    "initial_attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_INNERWILL.PFX",
+        "attack_bits": [
+          635,
+          719
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          635,
+          719
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_INNERWILL.PFX",
+        "attack_bits": [
+          635,
+          719
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          635,
+          719
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Throw_Sand": {
+    "crcfull_name": 4215154604,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Throw_Sand",
+    "display_name": "Throw Sand",
+    "display_help": "You grab some nearby debris and fling it towards a nearby foe, obstructing their vision and dazing them. Recharge: Long",
+    "display_short_help": "Ranged (Cone), Foe Stun, -Perception",
+    "display_target_help": "You have been blinded. You are stunned and have difficulty seeing.",
+    "display_target_short_help": "Stun, -Perception",
+    "icon_name": "MartialManipulations_ThrowSand.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "accuracy": 0.8,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 40,
+    "arc": 0.7853982,
+    "range": 40,
+    "time_to_activate": 1.07,
+    "recharge_time": 90,
+    "endurance_cost": 20.18,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      11,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Sleep",
+            "scale": 8,
+            "magnitude": 3,
+            "delay": 0.25,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ]
+            }
+          },
+          {
+            "attrib": [
+              228
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.9,
+            "duration": 20,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "delay": 0.25,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ]
+            }
+          },
+          {
+            "attrib": [
+              228
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.9,
+            "duration": 20,
+            "stack_type": 3,
+            "cancel_events": [
+              17
+            ]
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.029,
+            "duration": 8.57,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      228,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_THROWSAND.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 29,
+    "primary_tint": [
+      255,
+      240,
+      132,
+      255
+    ],
+    "secondary_tint": [
+      227,
+      222,
+      181,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_THROWSAND.PFX",
+        "attack_bits": [
+          20,
+          320
+        ],
+        "initial_attack_bits": [
+          20,
+          320
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/THROWSAND_CONTINUING.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 29,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_THROWSAND.PFX",
+        "attack_bits": [
+          20,
+          320
+        ],
+        "initial_attack_bits": [
+          20,
+          320
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/THROWSAND.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/THROWSAND_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/THROWSAND.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/THROWSAND_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/THROWSAND_CONTINUING.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 29
+      }
+    ]
+  },
+  "Eagles_Claw": {
+    "crcfull_name": 25345275,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Martial_Manipulation.Eagles_Claw",
+    "display_name": "Eagles Claw",
+    "display_help": "You can perform a devastating kick that can severely Disorient most opponents. Eagle's Claw strikes so powerfully that it weakens your target's resolve, reducing their Range and Recharge for several seconds after attacking. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Melee, Superior DMG(Smash), Foe Minor Disorient, +Special",
+    "display_target_help": "You have been Disoriented and Demoralized. Your Range and Recharge have been reduced.",
+    "display_target_short_help": "Disorient, -Range, -Recharge",
+    "icon_name": "MartialManipulation_EaglesClaw.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 2.53,
+    "recharge_time": 18,
+    "endurance_cost": 11.856,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.24,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 4,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.8907,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              348,
+              356
+            ],
+            "aspect": 16,
+            "scale": -0.25,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.167,
+            "duration": 10.03,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      276,
+      348,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_EAGLESCLAW.PFX",
+    "attack_bits": [
+      20,
+      111,
+      319,
+      257
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      319,
+      257
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/EAGLESCLAW.FX",
+    "hit_fx": "POWERS/MARTIALARTS/EAGLESCLAWHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/EAGLESCLAW.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 39,
+    "attack_frames": 76,
+    "initial_frames_before_hit": 39,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_EAGLESCLAW.PFX",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/EAGLESCLAW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/EAGLESCLAWHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/EAGLESCLAW.FX",
+        "frames_before_hit": 39,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 39,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_EAGLESCLAW.PFX",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/EAGLESCLAW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/EAGLESCLAWHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/EAGLESCLAW.FX",
+        "frames_before_hit": 39,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 39
+      }
+    ]
+  }
+}

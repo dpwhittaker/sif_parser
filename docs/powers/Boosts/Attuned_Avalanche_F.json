@@ -1,0 +1,142 @@
+{
+  "Attuned_Avalanche_F": {
+    "crcfull_name": 1771135302,
+    "source_file": "DEFS/POWERS/BOOSTS_ATTUNED_AVALANCHE_F.POWERS",
+    "source_name": "Boosts.Attuned_Avalanche_F.Attuned_Avalanche_F",
+    "display_name": "Avalanche: Recharge/Chance for Knockdown",
+    "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. Gives the slotted power a chance to knockdown targets of this power, and reduces the power's recharge time by {Boost.Attrib.RechargeTime.Scale}%. This enhancement's chance to trigger is equal to approximately 2.5 times per minute.",
+    "display_short_help": "Increases Recharge, Chance for Knockdown",
+    "icon_name": "E_ICON_Avalanche",
+    "type": 3,
+    "slot_requires": [
+      "Attuned_Avalanche_F",
+      "BoostsSlotted>",
+      "0",
+      "<=",
+      "Superior_Attuned_Avalanche_F",
+      "BoostsSlotted>",
+      "0",
+      "<=",
+      "&&"
+    ],
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      9,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "effects": [
+      {
+        "tag": [
+          "rechargetime"
+        ],
+        "procs_per_minute": 2.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Boosts_33",
+            "scale": 0.4375,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              2608,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Knock"
+        ],
+        "procs_per_minute": 2.5,
+        "requires": [
+          "target.isFriend?",
+          "!",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              212,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Knock"
+        ],
+        "procs_per_minute": 2.5,
+        "requires": [
+          "target.isFriend?",
+          "!",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              212,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "boost_ignore_effectiveness": true,
+    "boost_always_count_for_set": true,
+    "boost_combinable": false,
+    "boost_use_player_level": true,
+    "boost_catalyst_conversion": "Boosts.Superior_Attuned_Avalanche_F.Superior_Attuned_Avalanche_F",
+    "min_slot_level": 9,
+    "attrib_cache": [
+      328,
+      356
+    ]
+  }
+}

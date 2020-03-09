@@ -1,0 +1,823 @@
+{
+  "Frigid_Slash": {
+    "crcfull_name": 3557567348,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_DEFILER.POWERS",
+    "source_name": "BanishedPantheon.Defiler.Frigid_Slash",
+    "display_name": "Frigid Slash",
+    "display_help": "You slash your target with icy claws, cursing them with the pain of death. As the pain courses through the body, it causes cold and negative energy damage. Additionally, the target's defense against cold and negative energy attacks is reduced. Finally, the longer you remain in combat, the more likely you will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "Melee, Moderate DMG (Cold/Negative Energy), -RES(Foe, Cold/Negative Energy), Chance for +EndCost(Foe)",
+    "display_target_help": "Your resistance against cold and negative energy attacks has been reduced, and you may suffer increased endurance costs.",
+    "display_target_short_help": "-RES (Cold/Negative Energy), Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Defiler_FrigidSlash.tga",
+    "attack_types": [
+      "Melee",
+      "Cold",
+      "NegativeEnergy"
+    ],
+    "range": 5,
+    "time_to_activate": 0.57,
+    "recharge_time": 4,
+    "endurance_cost": 4,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              12,
+              20
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -1,
+            "duration": 8,
+            "stack_type": 3,
+            "flags": [
+              208,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 300,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "DefilerEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "DefilerEnd"
+        ],
+        "chance": -1,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "scale": -0.1,
+            "duration": 3,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BANISHEDPANTHEON_DEFILER_FRIGIDSLASH.PFX",
+    "attack_bits": [
+      20,
+      256
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256
+    ],
+    "attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDSLASH_ATTACK.FX",
+    "hit_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDSLASH_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDSLASH_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 17,
+    "initial_frames_before_hit": 16,
+    "primary_tint": [
+      100,
+      200,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      50,
+      75,
+      100,
+      255
+    ]
+  },
+  "Frigid_Thorns": {
+    "crcfull_name": 1285396485,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_DEFILER.POWERS",
+    "source_name": "BanishedPantheon.Defiler.Frigid_Thorns",
+    "display_name": "Frigid Thorns",
+    "display_help": "You launch a volley of icy quills from your body, striking targets in all directions around you. Each affected target is touched by death energy, suffering cold and negative energy damage. Additionally, the quills cause weakness, which prevents flight and reduces both movement and combat speed. Finally, the longer you remain in combat, the more likely you will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "PBAoE, High DMG (Cold/Negative Energy), -Speed(Foe, All), -Rech(Foe), -Fly(Foe), Chance for +EndCost(Foe)",
+    "display_target_help": "Your movement and combat speeds have been reduced and are unable to fly. You may also suffer increased damage costs.",
+    "display_target_short_help": "-Speed(All), -Rech, -Fly, Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Defiler_FrigidThorns.tga",
+    "attack_types": [
+      "Melee",
+      "Cold",
+      "NegativeEnergy",
+      "Lethal"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 999,
+    "radius": 20,
+    "time_to_activate": 3,
+    "recharge_time": 10,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.7,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "flags": [
+              216,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              216,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              192,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "scale": -5,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -10,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 300,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "DefilerEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "DefilerEnd"
+        ],
+        "chance": -0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "scale": -0.1,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      188,
+      192,
+      200,
+      204,
+      284,
+      356,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BANISHEDPANTHEON_DEFILER_FRIGIDTHORNS.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      330
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      330,
+      188
+    ],
+    "attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDTHORNS_ATTACK.FX",
+    "hit_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDQUILLS_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDTHORNS_ATTACK.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 69,
+    "initial_attack_fxframe_delay": 19,
+    "primary_tint": [
+      100,
+      200,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      50,
+      75,
+      100,
+      255
+    ]
+  },
+  "Frigid_Blast": {
+    "crcfull_name": 1042427316,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_DEFILER.POWERS",
+    "source_name": "BanishedPantheon.Defiler.Frigid_Blast",
+    "display_name": "Frigid Blast",
+    "display_help": "You launch a blast of death energy at your target. This causes cold and negative energy damage. Further, the affected target suffers from reduced chance to hit and lower resistance to additional cold and negative energy damage. Finally, the longer you remain in combat, the more likely you will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "Ranged (Cone), Superior DMG(Cold/Negative Energy), -ToHit(Foe), -RES(Foe, Cold/Negative Energy), Chance for +EndCost(Foe)",
+    "display_target_help": "Your chance to hit has been reduced and your resistance against cold and negative energy attacks has been lowered. You may also suffer increased endurance costs.",
+    "display_target_short_help": "-ToHit, -RES(Cold/Negative Energy), Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Defiler_FrigidBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Cold",
+      "NegativeEnergy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 50,
+    "arc": 1.0471976,
+    "range": 40,
+    "time_to_activate": 1.67,
+    "recharge_time": 12,
+    "endurance_cost": 17,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              192,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              12,
+              20
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -1.25,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              208,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.2,
+            "duration": 300,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "DefilerEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "DefilerEnd"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      100,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BANISHEDPANTHEON_DEFILER_FRIGIDBLAST.PFX",
+    "attack_bits": [
+      20,
+      183,
+      722
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      183,
+      722
+    ],
+    "attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDBLAST_ATTACK.FX",
+    "hit_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDBURST_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDBLAST_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 17,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 17,
+    "projectile_speed": 60,
+    "primary_tint": [
+      50,
+      200,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      50,
+      75,
+      100,
+      255
+    ]
+  },
+  "Frigid_Storm": {
+    "crcfull_name": 77577494,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_DEFILER.POWERS",
+    "source_name": "BanishedPantheon.Defiler.Frigid_Storm",
+    "display_name": "Frigid Storm",
+    "display_help": "All foes that pass through this storm will be shredded with shards of falling death energy, suffering cold and negative energy damage over time. Additionally, damage is reduced on all opponents within the storm.",
+    "display_short_help": "Targeted AoE, Minor DoT(Cold/Negative Energy), -DMG(Foe, All)",
+    "display_target_help": "You are caught in a frigid storm and will suffer cold and negative energy damage continuously while you remain within it, in addition to reduced damage potential. Leave the storm's field to eliminate the damage and debuff.",
+    "display_target_short_help": "DoT(Cold/Negative Energy), -DMG(All)",
+    "icon_name": "BanishedPantheon_Defiler_FrigidStorm.tga",
+    "range": 100,
+    "time_to_activate": 2.03,
+    "recharge_time": 25,
+    "endurance_cost": 19.5,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 10,
+            "flags": [
+              192,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} creates a {PowerName} at your location!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "BanishedPantheonEndgame_Defiler_StormPet"
+              }
+            }
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.6,
+            "duration": 300,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "DefilerEnd"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BANISHEDPANTHEON_DEFILER_FRIGIDSTORM.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDSTORM_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDSTORM_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "primary_tint": [
+      100,
+      200,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      50,
+      75,
+      100,
+      255
+    ]
+  },
+  "Frigid_Burst": {
+    "crcfull_name": 1724639278,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_DEFILER.POWERS",
+    "source_name": "BanishedPantheon.Defiler.Frigid_Burst",
+    "display_name": "Frigid Burst",
+    "display_help": "You fire a mass of coalesced death energy at a single target. This mass explodes on reaching its destination, causing the target and those nearby to suffer its ill effects. In addition to cold and negative energy damage, the affected targets have reduced defense, regeneration and recovery.",
+    "display_short_help": "Targeted AoE, Superior DMG(Cold/Negative Energy), -DEF(Foe, All), -Regen(Foe), -Rec(Foe), -End(Foe)",
+    "display_target_help": "You are suffering endurance drain over time. Your defense, regeneration and recovery are also reduced.",
+    "display_target_short_help": "-DEF(All), -Regen, -Rec, -End",
+    "icon_name": "BanishedPantheon_Defiler_FrigidBurst.tga",
+    "attack_types": [
+      "AOE",
+      "Cold",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 12,
+    "endurance_cost": 20,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.02,
+            "duration": 2.5,
+            "delay": 0.5,
+            "period": 0.8,
+            "tick_chance": 0.85,
+            "flags": [
+              212,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              192,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              208,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              208,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.2,
+            "duration": 300,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "DefilerEnd"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      88,
+      184,
+      232,
+      236,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BANISHEDPANTHEON_DEFILER_DECOMPOSINGBURST.PFX",
+    "attack_bits": [
+      20,
+      262
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      262
+    ],
+    "attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDBURST_ATTACK.FX",
+    "hit_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDBURST_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/DEFILER_FRIGIDBURST_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 90,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 90,
+    "projectile_speed": 42,
+    "primary_tint": [
+      100,
+      200,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      50,
+      75,
+      100,
+      255
+    ]
+  }
+}

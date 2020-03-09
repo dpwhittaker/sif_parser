@@ -1,0 +1,261 @@
+{
+  "crcfull_name": 1811921199,
+  "source_file": "DEFS/POWERS/EPIC_SENTINEL_FIRE_MASTERY.POWERS",
+  "source_name": "Epic.Sentinel_Fire_Mastery.Fire_Cages",
+  "display_name": "Fire Cages",
+  "display_help": "Immobilizes a group of foes in Fire Cages, dealing Fire damage over time. More resilient foes may require multiple Fire Cages to Immobilize. Fire Cages is slower and less damaging than Ring of Fire, but can capture multiple targets. Damage: Minor(DoT), Recharge: Moderate",
+  "display_short_help": "Ranged (Targeted AoE), Minor DoT(Fire), Foe Immobilize",
+  "display_target_help": "The Fire Cage is burning you and preventing you from moving.",
+  "display_target_short_help": "Immobilize, DoT(Fire)",
+  "icon_name": "FireTrap_FireCage.tga",
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Sentinel",
+    "=="
+  ],
+  "accuracy": 0.9,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 30,
+  "range": 60,
+  "time_to_activate": 1.03,
+  "recharge_time": 16,
+  "endurance_cost": 19.5,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.11,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 12,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 12,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 10,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.08,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 5,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    8,
+    272,
+    284,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_FIRECAGES.PFX",
+  "attack_bits": [
+    20,
+    299
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    299
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "conditional_fx": "POWERS/FIRECONTROL/FIRERING.FX",
+  "conditional_fx1": "POWERS/FIRECONTROL/FIRERING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 19,
+  "attack_frames": 31,
+  "initial_frames_before_hit": 19,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_FIRECAGES.PFX",
+      "attack_bits": [
+        20,
+        299
+      ],
+      "initial_attack_bits": [
+        20,
+        299
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIREHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIREHANDS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIRERING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIRERING.FX",
+      "frames_before_hit": 19,
+      "attack_frames": 31,
+      "initial_frames_before_hit": 19,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_FIRECAGES.PFX",
+      "attack_bits": [
+        20,
+        299
+      ],
+      "initial_attack_bits": [
+        20,
+        299
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIREHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIREHANDS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIRERING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIRERING.FX",
+      "frames_before_hit": 19,
+      "attack_frames": 31,
+      "initial_frames_before_hit": 19
+    }
+  ]
+}

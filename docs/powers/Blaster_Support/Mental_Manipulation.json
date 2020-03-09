@@ -1,0 +1,2185 @@
+{
+  "Subdual": {
+    "crcfull_name": 3898161028,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Subdual",
+    "display_name": "Subdual",
+    "display_help": "Subdual deals moderate Psionic damage and may leave the targeted foe Immobilized for a brief time. Immobilized foes cannot move but can still attack. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DOT(Psionic), Foe Immobilize",
+    "display_target_help": "You have been Subdued and are being held immobile.",
+    "display_target_short_help": "Immobilize",
+    "icon_name": "MentalControl_Subdue.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "cast_through_hold": true,
+    "cast_through_sleep": true,
+    "cast_through_stun": true,
+    "cast_through_terrorize": true,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 4,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.3458,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.11,
+            "duration": 9.17,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SUBDUAL.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "POWERS/PSIONICS/SUBDUEPSIONICBLAST.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONICS/SUBDUEPSIONICBLAST.FX",
+    "conditional_fx": "POWERS/PSIONICS/TEALHITWITHRINGSCONTNUING.FX",
+    "conditional_fx1": "POWERS/PSIONICS/TEALHITWITHRINGSCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20,
+    "projectile_speed": 51,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SUBDUAL.PFX",
+        "attack_bits": [
+          20,
+          311
+        ],
+        "initial_attack_bits": [
+          20,
+          311
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBDUAL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBDUAL_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+        "frames_before_hit": 20,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20,
+        "projectile_speed": 51,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SUBDUAL.PFX",
+        "attack_bits": [
+          20,
+          311
+        ],
+        "initial_attack_bits": [
+          20,
+          311
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/SUBDUAL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/SUBDUAL_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+        "frames_before_hit": 20,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20,
+        "projectile_speed": 51
+      },
+      {
+        "token": "Bright Mental Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SUBDUAL.PFX",
+        "display_name": "Bright Fist Cast",
+        "attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CUSTANIM_SUBDUAL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CUSTANIM_SUBDUAL_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+        "frames_before_hit": 20,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20,
+        "projectile_speed": 51,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SUBDUAL.PFX",
+        "display_name": "Dark Fist Cast",
+        "attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CUSTANIM_SUBDUAL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CUSTANIM_SUBDUAL_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+        "frames_before_hit": 20,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20,
+        "projectile_speed": 51
+      }
+    ]
+  },
+  "Mind_Probe": {
+    "crcfull_name": 3336058618,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Mind_Probe",
+    "display_name": "Mind Probe",
+    "display_help": "Grip the minds of your foe with a Mind Probe. You must be in close proximity to pull off this attack that wrecks havoc on your foes synapses, dealing moderate Psionic Damage while reducing their attack speed. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Melee, Moderate DMG(Psionic), Target -Recharge",
+    "display_target_help": "The Mind Probe has slowed your Attack rate.",
+    "display_target_short_help": "-Recharge",
+    "icon_name": "PsionicAssault_MindProbe.tga",
+    "attack_types": [
+      "Melee",
+      "Psionic"
+    ],
+    "range": 7,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.4,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.5389,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.077,
+            "duration": 8.67,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_MINDPROBE.PFX",
+    "attack_bits": [
+      20,
+      301,
+      256
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      301,
+      256
+    ],
+    "attack_fx": "V_COV/POWERS/PSIONICS/MELEEMEDIUM.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PSIONICS/MELEEMEDIUM.FX",
+    "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 17,
+    "initial_frames_before_hit": 17,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "alt_theme": [
+          "Bright Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_MINDPROBE.PFX",
+        "attack_bits": [
+          20,
+          301,
+          256
+        ],
+        "initial_attack_bits": [
+          20,
+          301,
+          256
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/MINDPROBE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/MINDPROBE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 17,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 17,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "alt_theme": [
+          "Dark Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_MINDPROBE.PFX",
+        "attack_bits": [
+          20,
+          301,
+          256
+        ],
+        "initial_attack_bits": [
+          20,
+          301,
+          256
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/MINDPROBE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/MINDPROBE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 17,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 17
+      }
+    ]
+  },
+  "Telekinetic_Thrust": {
+    "crcfull_name": 3698639335,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Telekinetic_Thrust",
+    "display_name": "Telekinetic Thrust",
+    "display_help": "A focused attack of intense mental power that violently sends a nearby foe flying. Deals minimal damage, but can be very effective. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Melee, Minor DMG(Psionic/Smash), Foe Knockback",
+    "icon_name": "PsionicAssault_TelekineticThrust.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Psionic"
+    ],
+    "range": 7,
+    "time_to_activate": 2.07,
+    "recharge_time": 6,
+    "endurance_cost": 6.864,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 8,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.0888,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 8,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.137,
+            "duration": 9.57,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_TELEKINETICTHRUST.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "V_COV/POWERS/PSIONICS/MELEESHOVE.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PSIONICS/MELEESHOVE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "alt_theme": [
+          "Bright Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_TELEKINETICTHRUST.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/TELEKINETICTHRUST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/TELEKINETICTHRUST_ATTACK.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "alt_theme": [
+          "Dark Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_TELEKINETICTHRUST.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/TELEKINETICTHRUST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/TELEKINETICTHRUST_ATTACK.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16
+      }
+    ]
+  },
+  "Psychic_Scream": {
+    "crcfull_name": 2298839413,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Psychic_Scream",
+    "display_name": "Psychic Scream",
+    "display_help": "This howl of Psionic energy resonates in the minds of all foes within its conical area of effect, inflicting moderate damage. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Psionic), Foe -Recharge",
+    "display_target_help": "The Psychic Scream has reduced your Attack rate.",
+    "display_target_short_help": "-Recharge",
+    "icon_name": "PsionicAssault_PsychicScream.tga",
+    "attack_types": [
+      "AOE",
+      "Psionic"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 60,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 12,
+    "endurance_cost": 11.856,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.04,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.0034,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.064,
+            "duration": 10.17,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSCREAM.PFX",
+    "attack_bits": [
+      20,
+      311,
+      47,
+      683
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      311,
+      47,
+      683
+    ],
+    "attack_fx": "POWERS/PSIONICS/PSIONICSCREAM_SLOWERCAST.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONICS/PSIONICSCREAM_SLOWERCAST.FX",
+    "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "delayed_hit": true,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 35,
+    "projectile_speed": 51,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSCREAM.PFX",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/PSYCHICSCREAM_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/PSYCHICSCREAM_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 51,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSCREAM.PFX",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/PSYCHICSCREAM_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/PSYCHICSCREAM_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 51
+      },
+      {
+        "token": "Bright Mental Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSCREAM.PFX",
+        "display_name": "Bright Palm Blast",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CUSTANIM_PSYCHICSCREAM_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CUSTANIM_PSYCHICSCREAM_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 51,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSCREAM.PFX",
+        "display_name": "Dark Palm Blast",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CUSTANIM_PSYCHICSCREAM_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CUSTANIM_PSYCHICSCREAM_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 51
+      }
+    ]
+  },
+  "Build_Up": {
+    "crcfull_name": 2514481693,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Build_Up",
+    "display_name": "Concentration",
+    "display_help": "Greatly boosts your attacks for a few seconds. Slightly increases chance to hit. Recharge: Long",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "MentalControl_BuildUp.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You concentrate for a moment and become more accurate and deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_BUILDUP.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/PSIONIC_FOLLOWUPHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONIC_FOLLOWUPHIT.FX",
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "alt_theme": [
+          "Bright Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_BUILDUP.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/BUILDUP_ATTACK.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "alt_theme": [
+          "Dark Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_BUILDUP.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/BUILDUP_ATTACK.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Drain_Psyche": {
+    "crcfull_name": 2402346477,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Drain_Psyche",
+    "display_name": "Drain Psyche",
+    "display_help": "You Drain the Psyche of nearby foes, thus weakening their Hit Point Regeneration and Endurance Recovery and boosting your own. Recharge: Very Long",
+    "display_short_help": "PBAoE Foe -Regen, -Recovery; Self +Regen, +Recovery",
+    "icon_name": "PsionicAssault_PsychicSiphon.tga",
+    "attack_types": [
+      "AOE",
+      "Psionic"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "time_to_activate": 1.33,
+    "recharge_time": 120,
+    "endurance_cost": 13,
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      14,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 0.75,
+            "duration": 30,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFMAXHPCONT.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 0.75,
+            "duration": 30,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFENDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "scale": -2.5,
+            "duration": 30,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You drain the Psyche from {PlayerDest} and reduce their Regeneration and Recovery rate.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -2.5,
+            "duration": 30,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "scale": -5,
+            "duration": 30,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You drain the Psyche from {PlayerDest} and reduce their Regeneration and Recovery rate.",
+              "display_victim_hit": "{PlayerSource} Drains your Psyche and reduces your Regeneration and Recovery rate."
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -0.8,
+            "duration": 30,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.035,
+            "duration": 8.83,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      232,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_DRAINPSYCHE.PFX",
+    "attack_bits": [
+      246
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      246
+    ],
+    "attack_fx": "V_COV/POWERS/PSIONICS/PBAOESECONDARYDRAIN.FX",
+    "hit_fx": "V_COV/POWERS/PSIONICS/PBAOESECONDARYDRAINHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PSIONICS/PBAOESECONDARYDRAIN.FX",
+    "attack_frames": 40,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "alt_theme": [
+          "Bright Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_DRAINPSYCHE.PFX",
+        "attack_bits": [
+          246
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          246
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/DRAINPSYCHE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/DRAINPSYCHE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/DRAINPSYCHE_ATTACK.FX",
+        "mode_bits": [],
+        "attack_frames": 40,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "alt_theme": [
+          "Dark Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_DRAINPSYCHE.PFX",
+        "attack_bits": [
+          246
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          246
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/DRAINPSYCHE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/DRAINPSYCHE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/DRAINPSYCHE_ATTACK.FX",
+        "mode_bits": [],
+        "attack_frames": 40
+      }
+    ]
+  },
+  "World_of_Confusion": {
+    "crcfull_name": 2840872197,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.World_of_Confusion",
+    "display_name": "World of Confusion",
+    "display_help": "This toggle power allows you to cause psionic damage and cause confusion within a group of foes, creating chaos. The chance of confusing an enemy is lower than then chance of damaging them, and it may take multiple hits to affect stronger opponents. All affected foes within the area will turn and attack each other, ignoring all heroes. You will not receive any Experience Points for foes defeated by Confused enemies. Recharge: Moderate",
+    "display_short_help": "Toggle: PBAoE, Minor DoT(Psionic), Foe Confuse",
+    "display_target_help": "You are confused and may attack an incorrect target.",
+    "display_target_short_help": "Confuse",
+    "icon_name": "MentalControl_WorldOfConfusion.tga",
+    "type": 2,
+    "attack_types": [
+      "Psionic"
+    ],
+    "ai_report": 1,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 1.67,
+    "recharge_time": 10,
+    "activate_period": 4,
+    "endurance_cost": 0.52,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      8,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.25",
+          "+",
+          "@ToHit",
+          "<",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 24
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.25",
+          "+",
+          "@ToHit",
+          "<",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 1.5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.12,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      24,
+      256
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_WORLDOFCONFUSION.PFX",
+    "activation_bits": [
+      20,
+      255
+    ],
+    "activation_fx": "POWERS/PSIONICS/MENTALMANIPULATION_WORLDOFCONFUSION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 28,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 28,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "alt_theme": [
+          "Bright Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_WORLDOFCONFUSION.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          255
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/WORLDOFCONFUSION_ACTIVATION.FX",
+        "frames_before_hit": 28,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 28,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "alt_theme": [
+          "Dark Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_WORLDOFCONFUSION.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          255
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/WORLDOFCONFUSION_ACTIVATION.FX",
+        "frames_before_hit": 28,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 28
+      }
+    ]
+  },
+  "Scare": {
+    "crcfull_name": 410742456,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Scare",
+    "display_name": "Scare",
+    "display_help": "You entwine a single foe within their deepest fears and cause them to helplessly tremble for a brief while.",
+    "display_short_help": "Ranged, Foe Fear",
+    "display_target_help": "You are Scared.",
+    "display_target_short_help": "Fear",
+    "icon_name": "MentalControl_Scare.tga",
+    "attack_types": [
+      "Melee",
+      "Psionic"
+    ],
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 20,
+    "endurance_cost": 10.4,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      12,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_Fear",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_Fear",
+            "scale": 7,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.176,
+            "duration": 10.17,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      264
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SCARE.PFX",
+    "attack_bits": [
+      20,
+      311,
+      47,
+      683
+    ],
+    "initial_attack_bits": [
+      20,
+      311,
+      47,
+      683
+    ],
+    "attack_fx": "POWERS/PSIONICS/MENTALMANIPULATION_SCARE.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONICS/MENTALMANIPULATION_SCARE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 20,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SCARE.PFX",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SCARE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SCARE_ATTACK.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SCARE.PFX",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/SCARE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/SCARE_ATTACK.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 20
+      },
+      {
+        "token": "Bright Mental Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SCARE.PFX",
+        "display_name": "Bright Vertigo Cast",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CUSTANIM_SCARE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CUSTANIM_SCARE_ATTACK.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_SCARE.PFX",
+        "display_name": "Dark Vertigo Cast",
+        "attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          311,
+          47,
+          683,
+          685,
+          692
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CUSTANIM_SCARE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/HIT_PSIONICDAMAGE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CUSTANIM_SCARE_ATTACK.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Psychic_Shockwave": {
+    "crcfull_name": 1272738360,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MENTAL_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Mental_Manipulation.Psychic_Shockwave",
+    "display_name": "Psychic Shockwave",
+    "display_help": "Psychic Shockwave is a devastating Psionic attack that wracks the minds of all nearby foes. Affected foes may have a reduced attack rate and may be left Disoriented. Damage: High Recharge: Slow",
+    "display_short_help": "Close (AoE), High DMG(Psionic), Foe Disorient -Recharge",
+    "display_target_help": "The Psychic Wail has reduced your attack rate.",
+    "display_target_short_help": "-Recharge",
+    "icon_name": "PsionicAssault_PsionicShockwave.tga",
+    "attack_types": [
+      "AOE",
+      "Psionic"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 1.97,
+    "recharge_time": 20,
+    "endurance_cost": 10.192,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.737,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.04,
+            "duration": 9.47,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 6,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      276,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSHOCKWAVE.PFX",
+    "attack_bits": [
+      20,
+      363
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      363
+    ],
+    "attack_fx": "V_COV/POWERS/PSIONICS/PBAOEHEAVYDAMAGE.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PSIONICS/PBAOEHEAVYDAMAGE.FX",
+    "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 17,
+    "attack_frames": 59,
+    "initial_frames_before_hit": 17,
+    "custom_fx": [
+      {
+        "token": "Bright Mental Manipulation",
+        "alt_theme": [
+          "Bright Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSHOCKWAVE.PFX",
+        "attack_bits": [
+          20,
+          363
+        ],
+        "initial_attack_bits": [
+          20,
+          363
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/PSYCHICSHOCKWAVE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/PSYCHICSHOCKWAVE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/PSYCHICSHOCKWAVE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 17,
+        "attack_frames": 59,
+        "initial_frames_before_hit": 17,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Mental Manipulation",
+        "alt_theme": [
+          "Dark Mental Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_PSYCHICSHOCKWAVE.PFX",
+        "attack_bits": [
+          20,
+          363
+        ],
+        "initial_attack_bits": [
+          20,
+          363
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/PSYCHICSHOCKWAVE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/PSYCHICSHOCKWAVE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/PSYCHICSHOCKWAVE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+        "frames_before_hit": 17,
+        "attack_frames": 59,
+        "initial_frames_before_hit": 17
+      }
+    ]
+  }
+}

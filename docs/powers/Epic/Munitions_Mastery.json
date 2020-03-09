@@ -1,0 +1,1178 @@
+{
+  "Body_Armor": {
+    "crcfull_name": 3540579463,
+    "source_file": "DEFS/POWERS/EPIC_MUNITIONS_MASTERY.POWERS",
+    "source_name": "Epic.Munitions_Mastery.Body_Armor",
+    "display_name": "Body Armor",
+    "display_help": "You have Body Armor that will reduce all Smashing and Lethal damage. This power is always on, and costs no Endurance.",
+    "display_short_help": "Auto: Self +Res (Smash, Lethal)",
+    "icon_name": "MunitionsMastery_BodyArmor.tga",
+    "type": 1,
+    "buy_requires": [
+      "$archetype",
+      "@Class_Blaster",
+      "=="
+    ],
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      35
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 1.25,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 1.25,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ]
+  },
+  "Cryo_Freeze_Ray": {
+    "crcfull_name": 48729122,
+    "source_file": "DEFS/POWERS/EPIC_MUNITIONS_MASTERY.POWERS",
+    "source_name": "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+    "display_name": "Cryo Freeze Ray",
+    "display_help": "Although this weapon deals very little damage, the Cryo Freeze Ray encases your foe in a block of ice, holding him helpless in place for a while. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged, Minor DMG(Cold), Foe Hold",
+    "display_target_help": "You are frozen in place!",
+    "display_target_short_help": "Hold",
+    "icon_name": "MunitionsMastery_CryoFreezeRay.tga",
+    "attack_types": [
+      "Ranged",
+      "Cold"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Blaster",
+      "=="
+    ],
+    "range": 60,
+    "time_to_activate": 1.87,
+    "recharge_time": 16,
+    "endurance_cost": 8.58,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      12,
+      268,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_FREEZERAY.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "POWERS/COLDCONTROL/PLAYER_EPIC_ASSAULTWEP_FREEZERAY.FX",
+    "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+    "initial_attack_fx": "POWERS/COLDCONTROL/PLAYER_EPIC_ASSAULTWEP_FREEZERAY.FX",
+    "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+    "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+    "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+    "conditional_fx1": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 42,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 150,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_FREEZERAY.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_bits": [
+          20,
+          130,
+          131,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/CRYOFREEZERAY_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/CRYOFREEZERAY_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 12,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 42,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 150,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Sleep_Grenade": {
+    "crcfull_name": 854274964,
+    "source_file": "DEFS/POWERS/EPIC_MUNITIONS_MASTERY.POWERS",
+    "source_name": "Epic.Munitions_Mastery.Sleep_Grenade",
+    "display_name": "Sleep Grenade",
+    "display_help": "Launches a Sleep Grenade at long range from beneath the barrel of your Assault Rifle. This small blast does minor smashing damage but affects all foes within the blast radius, and can knock them back. You must be level 41 and have Body Armor or Cryo Freeze Ray before selecting this power. Damage: Minor, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Minor DMG(Smash), Foe Sleep",
+    "display_target_help": "You have been rendered unconscious.",
+    "display_target_short_help": "Sleep",
+    "icon_name": "MunitionsMastery_SleepGrenade.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing"
+    ],
+    "buy_requires": [
+      "Epic.Munitions_Mastery.Body_Armor",
+      "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+      "||"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 90,
+    "endurance_cost": 19.5,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      20,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Ranged_Sleep",
+            "scale": 20,
+            "magnitude": 3,
+            "delay": 0.26,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "delay": 0.26,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_SLEEPGRENADE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "V_COV/WEAPONFX/PLAYER_EPIC_ASSAULTWEP_SLEEPGRENADE.FX",
+    "hit_fx": "POWERS/ITEMSANDTEMPPOWERS/TEARGASSHIT.FX",
+    "initial_attack_fx": "V_COV/WEAPONFX/PLAYER_EPIC_ASSAULTWEP_SLEEPGRENADE.FX",
+    "conditional_fx": "POWERS/GADGETS/TEARGASGRENADECONTINUING.FX",
+    "conditional_fx1": "POWERS/GADGETS/TEARGASGRENADECONTINUING.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 42,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_SLEEPGRENADE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_bits": [
+          20,
+          130,
+          131,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SLEEPGRENADE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SLEEPGRENADE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SLEEPGRENADE_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/TEARGASGRENADECONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/TEARGASGRENADECONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 12,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 42,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_SLEEPGRENADE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_bits": [
+          20,
+          130,
+          131,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/SLEEPGRENADE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/SLEEPGRENADE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/SLEEPGRENADE_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/TEARGASGRENADECONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/TEARGASGRENADECONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 12,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 42,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Surveillance": {
+    "crcfull_name": 3878840437,
+    "source_file": "DEFS/POWERS/EPIC_MUNITIONS_MASTERY.POWERS",
+    "source_name": "Epic.Munitions_Mastery.Surveillance",
+    "display_name": "Surveillance",
+    "display_help": "When this power is activated, you focus your senses to analyze your target's defensive capabilities and discover their weaknesses. By sharing your knowledge of the target's weaknesses with your team mates, you effectively reduce their defense and resistance to damage. Your Combat Attributes Window will also show the combat attributes of the target. You must be level 41 and have Body Armor or Cryo Freeze Ray before selecting this power. Recharge: Slow",
+    "display_short_help": "Ranged Foe -DEF, -RES (All)",
+    "display_target_help": "Your Defense and Resistance to damage has been reduced.",
+    "display_target_short_help": "-DEF, -RES(All)",
+    "icon_name": "MunitionsMastery_Surveillance.tga",
+    "buy_requires": [
+      "Epic.Munitions_Mastery.Body_Armor",
+      "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+      "||"
+    ],
+    "ai_report": 1,
+    "range": 80,
+    "time_to_activate": 1.5,
+    "recharge_time": 45,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      10,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              479
+            ],
+            "scale": 54,
+            "stack_type": 3,
+            "flags": [
+              212,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -2,
+            "duration": 20,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "scale": 2,
+            "duration": 20,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      479
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_SURVEILLANCE.PFX",
+    "attack_bits": [
+      474,
+      345
+    ],
+    "hit_bits": [
+      318,
+      111,
+      341
+    ],
+    "initial_attack_bits": [
+      474,
+      345
+    ],
+    "attack_fx": "V_COV/POWERS/ARACHNOSSOLDIER/TRAINING_SURVEILLANCE.FX",
+    "hit_fx": "V_COV/POWERS/ARACHNOSSOLDIER/TRAINING_SURVEILLANCE_HIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/ARACHNOSSOLDIER/TRAINING_SURVEILLANCE.FX",
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_SURVEILLANCE.PFX",
+        "attack_bits": [
+          474,
+          345
+        ],
+        "hit_bits": [
+          318,
+          111,
+          341
+        ],
+        "initial_attack_bits": [
+          474,
+          345
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SURVEILLANCE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SURVEILLANCE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SURVEILLANCE_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_SURVEILLANCE.PFX",
+        "attack_bits": [
+          474,
+          345
+        ],
+        "hit_bits": [
+          318,
+          111,
+          341
+        ],
+        "initial_attack_bits": [
+          474,
+          345
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/SURVEILLANCE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/SURVEILLANCE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/SURVEILLANCE_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "LRM_Rocket": {
+    "crcfull_name": 362494254,
+    "source_file": "DEFS/POWERS/EPIC_MUNITIONS_MASTERY.POWERS",
+    "source_name": "Epic.Munitions_Mastery.LRM_Rocket",
+    "display_name": "LRM Rocket",
+    "display_help": "The LRM Rocket is a powerful piece of hardware. It is very accurate and has a very long range. The impressive round can knock down its target. The LRM Rocket is bulky, awkward to use and you must take your time to aim, so this attack can be interrupted. You must be level 44 and have two other Munitions Mastery Powers before selecting this power. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Interruptible (Targeted AoE), Superior DMG(Lethal/Smash), Foe Knockback",
+    "icon_name": "MunitionsMastery_LRMRocket.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "Epic.Munitions_Mastery.Body_Armor",
+      "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+      "&&",
+      "Epic.Munitions_Mastery.Body_Armor",
+      "Epic.Munitions_Mastery.Sleep_Grenade",
+      "&&",
+      "||",
+      "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+      "Epic.Munitions_Mastery.Sleep_Grenade",
+      "&&",
+      "||",
+      "Epic.Munitions_Mastery.Body_Armor",
+      "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+      "&&",
+      "||",
+      "Epic.Munitions_Mastery.Body_Armor",
+      "Epic.Munitions_Mastery.Surveillance",
+      "&&",
+      "||",
+      "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+      "Epic.Munitions_Mastery.Surveillance",
+      "&&",
+      "||"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 20,
+    "range": 150,
+    "time_to_activate": 5.87,
+    "recharge_time": 240,
+    "endurance_cost": 22.75,
+    "interrupt_time": 4,
+    "target": 19,
+    "boosts_allowed": [
+      32,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.49,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.4109,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.1164,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      0,
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_LRMROCKET.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      394
+    ],
+    "wind_up_bits": [
+      20,
+      130,
+      131,
+      220
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      394
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_EPIC_ASSAULTWEP_MISSILE.FX",
+    "hit_fx": "WEAPONFX/ROCKETLAUNCHERHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_EPIC_ASSAULTWEP_MISSILE.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 3,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 3,
+    "projectile_speed": 165,
+    "primary_tint": [
+      150,
+      255,
+      15,
+      255
+    ],
+    "secondary_tint": [
+      15,
+      15,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_LRMROCKET.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          394
+        ],
+        "wind_up_bits": [
+          20,
+          130,
+          131,
+          220
+        ],
+        "activation_bits": [
+          20,
+          130,
+          131,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          394
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/LRMROCKET_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/LRMROCKET_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/LRMROCKET_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 3,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 3,
+        "projectile_speed": 165,
+        "primary_tint": [
+          150,
+          255,
+          15,
+          255
+        ],
+        "secondary_tint": [
+          15,
+          15,
+          255,
+          255
+        ],
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_LRMROCKET.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          394
+        ],
+        "wind_up_bits": [
+          20,
+          130,
+          131,
+          220
+        ],
+        "activation_bits": [
+          20,
+          130,
+          131,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          394
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/LRMROCKET_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/LRMROCKET_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/SUBTRACTIVE/LRMROCKET_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 3,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 3,
+        "projectile_speed": 165,
+        "primary_tint": [
+          150,
+          255,
+          15,
+          255
+        ],
+        "secondary_tint": [
+          15,
+          15,
+          255,
+          255
+        ]
+      }
+    ]
+  }
+}

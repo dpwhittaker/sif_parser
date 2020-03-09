@@ -1,0 +1,2939 @@
+{
+  "Power_Bolt": {
+    "crcfull_name": 3285041795,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Power_Bolt",
+    "display_name": "Power Bolt",
+    "display_help": "A quick attack that rapidly hurls small bolts of energy at foes, sometimes knocking them down. If used against a Disoriented foe, there is a small chance to enter Energy Focus mode. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "EnergyAssault_PowerBolt.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.504,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.756,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "kEnergyFocus",
+          "Source.Mode?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 15,
+            "magnitude": 131,
+            "period": 20,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Energy Stored"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      96,
+      328,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBOLT.PFX",
+    "attack_bits": [
+      20,
+      329,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      329,
+      681
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/RAPID.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/RAPID.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 90,
+    "primary_tint": [
+      255,
+      128,
+      128,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      32,
+      32,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBOLT.PFX",
+        "attack_bits": [
+          20,
+          329,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          329,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/RAPID.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/RAPID.FX",
+        "frames_before_hit": 25,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 25,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBOLT.PFX",
+        "attack_bits": [
+          20,
+          329,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          329,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/RAPID.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/RAPID.FX",
+        "frames_before_hit": 25,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 25,
+        "projectile_speed": 90
+      },
+      {
+        "token": "Bright Energy Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBOLT.PFX",
+        "display_name": "Bright Power Bolt",
+        "attack_bits": [
+          20,
+          329,
+          681,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          329,
+          681,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_RAPID.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_RAPID.FX",
+        "frames_before_hit": 25,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 25,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBOLT.PFX",
+        "display_name": "Dark Power Bolt",
+        "attack_bits": [
+          20,
+          329,
+          681,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          329,
+          681,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_RAPID.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_RAPID.FX",
+        "frames_before_hit": 25,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 25,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Bone_Smasher": {
+    "crcfull_name": 1236807604,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Bone_Smasher",
+    "display_name": "Bone Smasher",
+    "display_help": "This melee attack can be slow, but it compensates by dealing a good amount of damage and having a good chance to Disorient the target. If used against a Disoriented foe, there is a small chance to enter Energy Focus mode. This power will weaken the target's secondary effects if used while in Energy Focus mode. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee, High DMG(Smash/Energy), Disorient, Special",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "EnergyAssault_BoneSmasher.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 7,
+    "time_to_activate": 1.5,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.784,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.176,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.74,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.11,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kEnergyFocus",
+          "Source.Mode?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              28,
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144,
+              184,
+              84,
+              88,
+              100,
+              188,
+              192,
+              256,
+              264,
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 16,
+            "table": "Melee_Stun",
+            "scale": -0.25,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "magnitude": 131,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "aspect": 16,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Energy Release"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "kEnergyFocus",
+          "Source.Mode?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 15,
+            "magnitude": 131,
+            "period": 20,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Energy Stored"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "kEnergyFocus",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      255,
+      128,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      16,
+      28,
+      84,
+      88,
+      96,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      184,
+      188,
+      192,
+      256,
+      264,
+      268,
+      272,
+      276,
+      280,
+      465,
+      468,
+      475
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_BONESMASHER.PFX",
+    "attack_bits": [
+      20,
+      263
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/SINGLELARGEPOWERPUNCH.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT2.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/SINGLELARGEPOWERPUNCH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "alt_theme": [
+          "Bright Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_BONESMASHER.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SINGLELARGEPOWERPUNCH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SINGLELARGEPOWERPUNCH.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "alt_theme": [
+          "Dark Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_BONESMASHER.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/SINGLELARGEPOWERPUNCH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/SINGLELARGEPOWERPUNCH.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Power_Push": {
+    "crcfull_name": 401846974,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Power_Push",
+    "display_name": "Power Push",
+    "display_help": "Power Push deals a high amount of Energy and Smashing damage and sends the target flying for a great distance. If used against a Disoriented foe, there is a small chance to enter Energy Focus mode. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged High DMG(Energy/Smash), Foe High Knockback",
+    "icon_name": "EnergyAssault_PowerPush.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.4,
+    "range": 70,
+    "time_to_activate": 1.1,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.656,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.984,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 8,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.596,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.894,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 8,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "kEnergyFocus",
+          "Source.Mode?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 15,
+            "magnitude": 131,
+            "period": 20,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Energy Stored"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      96,
+      328,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERPUSH.PFX",
+    "attack_bits": [
+      20,
+      299
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      299
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/POWERPUSH.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/POWERPUSH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 33,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 90,
+    "primary_tint": [
+      255,
+      128,
+      128,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      32,
+      32,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "alt_theme": [
+          "Bright Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERPUSH.PFX",
+        "attack_bits": [
+          20,
+          299
+        ],
+        "initial_attack_bits": [
+          20,
+          299
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/POWERPUSH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/POWERPUSH.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 33,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "alt_theme": [
+          "Dark Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERPUSH.PFX",
+        "attack_bits": [
+          20,
+          299
+        ],
+        "initial_attack_bits": [
+          20,
+          299
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/POWERPUSH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/POWERPUSH.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 33,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Power_Blast": {
+    "crcfull_name": 1021742721,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Power_Blast",
+    "display_name": "Power Blast",
+    "display_help": "A much more powerful, yet slower version of Power Bolt. Power Blast sends a focused beam of energy at a foe that can knock them back. If used against a Disoriented foe, there is a small chance to enter Energy Focus mode. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "EnergyAssault_PowerBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.49,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.47,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.4923,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.4768,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "kEnergyFocus",
+          "Source.Mode?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 15,
+            "magnitude": 131,
+            "period": 20,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Energy Stored"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      96,
+      328,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBLAST.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 90,
+    "primary_tint": [
+      255,
+      128,
+      128,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      32,
+      32,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "alt_theme": [
+          "Bright Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBLAST.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLAST.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "alt_theme": [
+          "Dark Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBLAST.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLAST.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Power_Boost": {
+    "crcfull_name": 3072642922,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Power_Boost",
+    "display_name": "Power Up",
+    "display_help": "Boosts the damage and secondary effects of your powers. Your powers' effects like Heals, Defense Buffs, Endurance Drains, Disorients, Holds, Immobilizes and more, are all improved. The effects of Power Up last a short while, and only the next couple of attacks will be boosted. Recharge: Long",
+    "display_short_help": "Self +Special, +Dmg(All)",
+    "icon_name": "EnergyAssault_PowerBoost.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 7.8,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28,
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144,
+              184,
+              84,
+              88,
+              100,
+              188,
+              192,
+              256,
+              264,
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Stun",
+            "scale": 0.5,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 4,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "aspect": 32,
+            "scale": 0,
+            "messages": {
+              "display_attacker_hit": "You build up your power to enhance the secondary effects and damage of your powers moderately.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      36,
+      84,
+      88,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      184,
+      188,
+      192,
+      256,
+      264,
+      268,
+      272,
+      276,
+      280,
+      468
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBOOST.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/BUILDUPPOWERBOOST.FX",
+    "initial_attack_fx": "POWERS/BUILDUPPOWERBOOST.FX"
+  },
+  "Whirling_Hands": {
+    "crcfull_name": 2018820898,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Whirling_Hands",
+    "display_name": "Whirling Hands",
+    "display_help": "By focusing your energy into the muscles in your arms, you can launch a dizzying flurry of attacks against every foe in melee range. Some foes may be hit hard enough to be Disoriented as well. This power will inflict bonus damage if used while in Energy Focus mode. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "PBAoE Melee, Moderate DMG(Smash/Energy), Special",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "EnergyAssault_WhirlingHands.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "time_to_activate": 2.5,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [],
+        "effect": [
+          {
+            "requires": [],
+            "attrib_mod": [
+              {
+                "attrib": 0,
+                "type": 1,
+                "table": "Melee_Damage",
+                "scale": 0.4601,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+                }
+              },
+              {
+                "attrib": 16,
+                "type": 1,
+                "table": "Melee_Damage",
+                "scale": 0.6901,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+                }
+              }
+            ]
+          },
+          {
+            "requires": [
+              "kEnergyFocus",
+              "Source.Mode?"
+            ],
+            "attrib_mod": [
+              {
+                "attrib": 16,
+                "type": 1,
+                "table": "Melee_Damage",
+                "scale": 1.1502,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_float": "Energy Release"
+                }
+              },
+              {
+                "attrib": 475,
+                "aspect": 0,
+                "type": 2,
+                "target": 0,
+                "magnitude": 131,
+                "stack_type": 1,
+                "flags": [
+                  112,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "chance": 0.3,
+            "requires": [],
+            "attrib_mod": [
+              {
+                "attrib": 276,
+                "aspect": 0,
+                "table": "Melee_Stun",
+                "scale": 5,
+                "magnitude": 2,
+                "flags": [
+                  1280,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+                  "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+                },
+                "fx": {
+                  "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ],
+        "effect": [
+          {
+            "requires": [],
+            "attrib_mod": [
+              {
+                "attrib": 0,
+                "type": 1,
+                "table": "Melee_PvPDamage",
+                "scale": 0.6743,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+                }
+              },
+              {
+                "attrib": 16,
+                "type": 1,
+                "table": "Melee_PvPDamage",
+                "scale": 1.0114,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+                }
+              }
+            ]
+          },
+          {
+            "requires": [
+              "kEnergyFocus",
+              "Source.Mode?"
+            ],
+            "attrib_mod": [
+              {
+                "attrib": 16,
+                "type": 1,
+                "table": "Melee_PvPDamage",
+                "scale": 1.6857,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_float": "Energy Release"
+                }
+              },
+              {
+                "attrib": 475,
+                "aspect": 0,
+                "type": 2,
+                "target": 0,
+                "magnitude": 131,
+                "stack_type": 1,
+                "flags": [
+                  112,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "chance": 0.3,
+            "requires": [],
+            "attrib_mod": [
+              {
+                "attrib": 276,
+                "aspect": 0,
+                "table": "Melee_PvPMez",
+                "magnitude": 2,
+                "suppress": [
+                  {
+                    "event": 19
+                  },
+                  {
+                    "event": 20
+                  },
+                  {
+                    "event": 21
+                  },
+                  {
+                    "event": 22
+                  },
+                  {
+                    "event": 23
+                  }
+                ],
+                "flags": [
+                  1280,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+                  "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+                },
+                "fx": {
+                  "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "kEnergyFocus",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      255,
+      128,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      16,
+      96,
+      276,
+      475
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_WHIRLINGHANDS.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      200
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      200
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 36,
+    "attack_frames": 75,
+    "initial_frames_before_hit": 36,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "alt_theme": [
+          "Bright Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_WHIRLINGHANDS.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+        "frames_before_hit": 36,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 36,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "alt_theme": [
+          "Dark Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_WHIRLINGHANDS.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHFLURY.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHFLURY.FX",
+        "frames_before_hit": 36,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 36
+      }
+    ]
+  },
+  "Total_Focus": {
+    "crcfull_name": 2245458378,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Total_Focus",
+    "display_name": "Total Focus",
+    "display_help": "Total Focus is complete mastery over Energy Melee. This melee attack is a very slow, but incredibly devastating attack that can knock out most opponents, leaving them Disoriented. Due to the exhausting nature of Total Focus, recharge time is very long. This power will enter Energy Focus mode. Damage: Extreme, Recharge: Long",
+    "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "EnergyAssault_TotalFocus.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 2.53,
+    "recharge_time": 22,
+    "endurance_cost": 20.176,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.552,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.328,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2204,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.8306,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "delay": 2,
+        "requires": [
+          "kEnergyFocus",
+          "Source.Mode?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 15,
+            "magnitude": 131,
+            "period": 20,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Energy Stored"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      16,
+      96,
+      276,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_TOTALFOCUS.PFX",
+    "attack_bits": [
+      20,
+      354,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      354,
+      681
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/TOTALFOCUSFAST_ATTACK.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/TOTALFOCUSFAST_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 76,
+    "initial_frames_before_hit": 53,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "alt_theme": [
+          "Bright Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_TOTALFOCUS.PFX",
+        "attack_bits": [
+          20,
+          354,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          354,
+          681
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSFAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSFAST_ATTACK.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 53,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "alt_theme": [
+          "Dark Energy Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_TOTALFOCUS.PFX",
+        "attack_bits": [
+          20,
+          354,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          354,
+          681
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/TOTALFOCUSFAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/TOTALFOCUSFAST_ATTACK.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 53
+      }
+    ]
+  },
+  "Sniper_Blast": {
+    "crcfull_name": 3740980591,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Sniper_Blast",
+    "display_name": "Sniper Blast",
+    "display_help": "A focused blast that can travel great distances with high Accuracy. This is a sniper attack, and is best fired from a distance, as it can be interrupted. If you are engaged in battle this attack becomes instant-cast. If you are not engaged, it will do bonus damage. If used against a Disoriented foe, there is a small chance to enter Energy Focus mode. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Sniper, Extreme DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "EnergyAssault_SniperBlaster.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 150,
+    "time_to_activate": 1.33,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "target": 19,
+    "boosts_allowed": [
+      32,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "redirect": [
+      {
+        "power": "Villain_Pets.Dominator_EnergyAssault_Snipe.Sniper_Blast_Quick",
+        "requires": [
+          "kEngaged",
+          "Source.Mode?",
+          "Set_Bonus.Set_Bonus.Experienced_Marksman",
+          "source.ownPower?",
+          "||"
+        ]
+      },
+      {
+        "power": "Villain_Pets.Dominator_EnergyAssault_Snipe.Sniper_Blast_Normal"
+      }
+    ],
+    "effects": [],
+    "highlight_eval": [
+      "kEngaged",
+      "Mode?",
+      "Set_Bonus.Set_Bonus.Experienced_Marksman",
+      "ownPower?",
+      "||"
+    ],
+    "highlight_ring": [
+      255,
+      255,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_SNIPERBLAST_QUICK.PFX",
+    "attack_bits": [
+      20,
+      681,
+      381,
+      684
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      681,
+      381,
+      684
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+    "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERWINDUP_QUICK.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 28,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 28,
+    "projectile_speed": 210,
+    "primary_tint": [
+      255,
+      128,
+      128,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      32,
+      32,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_SNIPERBLAST_QUICK.PFX",
+        "attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERWINDUP_QUICK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 210,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_SNIPERBLAST_QUICK.PFX",
+        "attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERWINDUP_QUICK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 210
+      },
+      {
+        "token": "Bright Energy Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_SNIPERBLAST_QUICK.PFX",
+        "display_name": "Bright Sniper Alternate",
+        "attack_bits": [
+          20,
+          258,
+          683,
+          685,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          683,
+          685,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERWINDUP_QUICK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+        "mode_bits": [
+          20,
+          685,
+          692
+        ],
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 210,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_SNIPERBLAST_QUICK.PFX",
+        "display_name": "Dark Sniper Alternate",
+        "attack_bits": [
+          20,
+          258,
+          683,
+          685,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          683,
+          685,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERWINDUP_QUICK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+        "mode_bits": [
+          20,
+          685,
+          692
+        ],
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 210
+      }
+    ]
+  },
+  "Power_Burst": {
+    "crcfull_name": 1678723867,
+    "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+    "source_name": "Dominator_Assault.Energy_Assault.Power_Burst",
+    "display_name": "Power Burst",
+    "display_help": "A devastating attack that can knock your target off their feet. This power will inflict bonus damage if used while in Energy Focus mode. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Superior DMG(Energy/Smash), Foe Knockback, Special",
+    "icon_name": "EnergyAssault_PowerBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 14,
+    "endurance_cost": 13.52,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.78,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.82,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ],
+        "effect": [
+          {
+            "requires": [
+              "kEnergyFocus",
+              "Source.Mode?"
+            ],
+            "attrib_mod": [
+              {
+                "attrib": 16,
+                "type": 1,
+                "table": "Melee_Damage",
+                "scale": 1.69,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_float": "Energy Release"
+                }
+              },
+              {
+                "attrib": 475,
+                "aspect": 0,
+                "type": 2,
+                "target": 0,
+                "magnitude": 131,
+                "stack_type": 1,
+                "flags": [
+                  112,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.8516,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.2774,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ],
+        "effect": [
+          {
+            "requires": [
+              "kEnergyFocus",
+              "Source.Mode?"
+            ],
+            "attrib_mod": [
+              {
+                "attrib": 16,
+                "type": 1,
+                "table": "Ranged_PvPDamage",
+                "scale": 0.6387,
+                "flags": [
+                  640,
+                  0
+                ],
+                "messages": {
+                  "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                  "display_float": "Energy Release"
+                }
+              },
+              {
+                "attrib": 475,
+                "aspect": 0,
+                "type": 2,
+                "target": 0,
+                "magnitude": 131,
+                "stack_type": 1,
+                "flags": [
+                  112,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kEnergyFocus",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      255,
+      128,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      96,
+      328,
+      475
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+    "attack_bits": [
+      20,
+      329
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      329
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 26,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 26,
+    "projectile_speed": 90,
+    "primary_tint": [
+      255,
+      128,
+      128,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      32,
+      32,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+        "attack_bits": [
+          20,
+          329
+        ],
+        "initial_attack_bits": [
+          20,
+          329
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+        "frames_before_hit": 26,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 26,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+        "attack_bits": [
+          20,
+          329
+        ],
+        "initial_attack_bits": [
+          20,
+          329
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGAFAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGABLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGAFAST.FX",
+        "frames_before_hit": 26,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 26,
+        "projectile_speed": 90
+      },
+      {
+        "token": "Bright Energy Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+        "display_name": "Bright Power Burst",
+        "attack_bits": [
+          20,
+          329,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          329,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_MEGAFAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_MEGAFAST.FX",
+        "frames_before_hit": 26,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 26,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+        "display_name": "Dark Power Burst",
+        "attack_bits": [
+          20,
+          329,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          329,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_MEGAFAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGABLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_MEGAFAST.FX",
+        "frames_before_hit": 26,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 26,
+        "projectile_speed": 90
+      }
+    ]
+  }
+}

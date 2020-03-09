@@ -1,0 +1,358 @@
+{
+  "crcfull_name": 3125521021,
+  "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_LEVIATHAN_MASTERY.POWERS",
+  "source_name": "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+  "display_name": "School of Sharks",
+  "display_help": "You can call forth a school of vicious Shark Spirits that will swim out in a cone formation and will encircle your foes, draining their spirit energy. The encircling Shark Spirits will immobilize most foes while they deal negative energy damage over time.",
+  "display_short_help": "Ranged (Cone), Moderate DoT(Negative), Foe Immobilize",
+  "display_target_help": "The School of Sharks has Immobilized you, inflicting negative Damage over Time.",
+  "display_target_short_help": "Immobilize, DoT(Negative)",
+  "icon_name": "Arachnos_Patron_ConeImmobilize.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Corruptor",
+    "==",
+    "$archetype",
+    "@Class_Defender",
+    "==",
+    "||",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "target_near_ground": true,
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 50,
+  "arc": 0.5235988,
+  "range": 50,
+  "time_to_activate": 2.37,
+  "recharge_time": 20,
+  "endurance_cost": 12.74,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.135,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 7.1,
+          "delay": 1,
+          "period": 1,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1064,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1167,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1167,
+          "duration": 7.1,
+          "delay": 1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1064,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.1669,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    4,
+    20,
+    272
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+  "attack_bits": [
+    20,
+    324
+  ],
+  "initial_attack_bits": [
+    20,
+    324
+  ],
+  "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+  "continuing_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+  "continuing_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 50,
+  "delayed_hit": true,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 50,
+  "projectile_speed": 30,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+      "frames_before_hit": 50,
+      "delayed_hit": true,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 50,
+      "projectile_speed": 30,
+      "palette": "Additive"
+    }
+  ]
+}

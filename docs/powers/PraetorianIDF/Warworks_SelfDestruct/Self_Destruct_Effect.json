@@ -1,0 +1,114 @@
+{
+  "crcfull_name": 2607393266,
+  "source_file": "DEFS/POWERS/PRAETORIANIDF_WARWORKS_SELFDESTRUCT.POWERS",
+  "source_name": "PraetorianIDF.Warworks_SelfDestruct.Self_Destruct_Effect",
+  "display_name": "Self Destruct Effect",
+  "display_help": "The Warworks are rigged to explode when they are incapacitated, this will deal moderate lethal and fire damage to all nearby.",
+  "display_short_help": "Post Death, PBAoE, Moderate DMG(Fire/Lethal), Foe Knockback",
+  "icon_name": "FireBlast_Inferno.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Smashing",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "time_to_activate": 4,
+  "activate_period": 100,
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.25,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.25,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    16,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_ACU_SELF_DESTRUCT.PFX",
+  "activation_fx": "ENEMYFX/PRAETORIAN/WARWORKS/SELFDESTRUCT_ATTACK_ACU.FX",
+  "hit_fx": "ENEMYFX/PRAETORIAN/WARWORKS/SELFDESTRUCT_HIT_ACU.FX"
+}

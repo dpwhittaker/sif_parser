@@ -1,0 +1,196 @@
+{
+  "crcfull_name": 2364246847,
+  "source_file": "DEFS/POWERS/EPIC_DARK_MASTERY.POWERS",
+  "source_name": "Epic.Dark_Mastery.Dark_Consumption",
+  "display_name": "Dark Consumption",
+  "display_help": "The dark power of the Netherworld allows you to tap the essence of your foe's soul and transfer it to yourself. This will drain the Hit Points of your enemy and add to your Endurance. Damage: Moderate, Recharge: Very Long",
+  "display_short_help": "PBAoE Moderate DMG(Negative), Self +End",
+  "icon_name": "ShadowFighting_DarkConsumption.tga",
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Defender",
+    "==",
+    "$archetype",
+    "@Class_Corruptor",
+    "==",
+    "||"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 1.03,
+  "recharge_time": 360,
+  "endurance_cost": 0.65,
+  "boosts_allowed": [
+    33,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 25,
+          "delay": 0.25,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    20,
+    88
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_DARKCONSUMPTION.PFX",
+  "attack_bits": [
+    20,
+    302
+  ],
+  "hit_bits": [
+    49,
+    585
+  ],
+  "initial_attack_bits": [
+    20,
+    302
+  ],
+  "attack_fx": "POWERS/DARKNESSCONTROL/CONSUMPTION.FX",
+  "hit_fx": "POWERS/DARKNESSCONTROL/CONSUMPTIONHIT.FX",
+  "initial_attack_fx": "POWERS/DARKNESSCONTROL/CONSUMPTION.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 31,
+  "initial_frames_before_hit": 22,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "Custom Dark Cast",
+        "Color Tintable No Skull",
+        "Color Tintable Alt No Skull",
+        "Color Tintable With Skull",
+        "Color Tintable Alt With Skull"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_DARKCONSUMPTION.PFX",
+      "attack_bits": [
+        20,
+        302
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        302
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/CONSUMPTION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/CONSUMPTIONHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/CONSUMPTION.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 31,
+      "initial_frames_before_hit": 22
+    },
+    {
+      "token": "Dark Glow",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_DARKCONSUMPTION.PFX",
+      "attack_bits": [
+        20,
+        302
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        302
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_CONSUMPTION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_CONSUMPTIONHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_CONSUMPTION.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 31,
+      "initial_frames_before_hit": 22
+    }
+  ]
+}

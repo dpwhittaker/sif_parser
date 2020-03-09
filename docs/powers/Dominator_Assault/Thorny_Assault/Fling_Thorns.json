@@ -1,0 +1,400 @@
+{
+  "crcfull_name": 3254899739,
+  "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_THORNY_ASSAULT.POWERS",
+  "source_name": "Dominator_Assault.Thorny_Assault.Fling_Thorns",
+  "display_name": "Fling Thorns",
+  "display_help": "You can throw dozens of Thorns in a wide cone in front of you, impaling foes caught within the area. These Thorns deals moderate damage, and poisons any targets it hits. Thorn poison deals additional Toxic damage and can reduce your foes' Defense. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Ranged (Cone), Moderate DMG(Lethal), DoT(Toxic) -DEF",
+  "display_target_help": "You are poisoned! You are taking Toxic Damage and your Defense is Reduced.",
+  "display_target_short_help": "DoT(Toxic) -DEF",
+  "icon_name": "ThornyAssault_FlingThorns.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 30,
+  "arc": 1.5707964,
+  "range": 30,
+  "time_to_activate": 1.63,
+  "recharge_time": 10,
+  "endurance_cost": 11.17544,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.7747,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.086,
+          "duration": 4.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 2,
+          "duration": 8,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.9411,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    4,
+    36,
+    96,
+    184
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_FLINGTHORNS.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    320
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    139,
+    188
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    320,
+    188
+  ],
+  "activation_fx": "V_COV/POWERS/QUILLS/QUILLSHTHDAMAGENOSPIKES.FX",
+  "attack_fx": "V_COV/POWERS/QUILLS/QUILLS_CONE.FX",
+  "hit_fx": "V_COV/POWERS/QUILLS/QUILLS_CONE_HIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/QUILLS/QUILLS_CONE.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    139
+  ],
+  "frames_before_hit": 16,
+  "delayed_hit": true,
+  "attack_frames": 49,
+  "initial_frames_before_hit": 25,
+  "initial_attack_fxframe_delay": 19,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_FLINGTHORNS.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/FLINGTHORNS_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/FLINGTHORNS_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/FLINGTHORNS_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 49,
+      "initial_frames_before_hit": 25,
+      "initial_attack_fxframe_delay": 19,
+      "projectile_speed": 90,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "Spines",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_FLINGTHORNS.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THROWSPINES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THROWSPINES_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THROWSPINES_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 49,
+      "initial_frames_before_hit": 25,
+      "initial_attack_fxframe_delay": 19,
+      "projectile_speed": 90,
+      "palette": "CustomPowerDefault"
+    },
+    {
+      "token": "MetalSpikes",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_FLINGTHORNS.PFX",
+      "display_name": "Metal Spikes",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THROWSPINES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THROWSPINES_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THROWSPINES_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 49,
+      "initial_frames_before_hit": 25,
+      "initial_attack_fxframe_delay": 19,
+      "projectile_speed": 90,
+      "palette": "CustomPowerDefault"
+    },
+    {
+      "token": "CrystalSpines",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_FLINGTHORNS.PFX",
+      "display_name": "Crystalline Spines",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THROWSPINES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THROWSPINES_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THROWSPINES_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 49,
+      "initial_frames_before_hit": 25,
+      "initial_attack_fxframe_delay": 19,
+      "projectile_speed": 90,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "SlateSpines",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_FLINGTHORNS.PFX",
+      "display_name": "Slate Spines",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        320,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THROWSPINES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THROWSPINES_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THROWSPINES_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 49,
+      "initial_frames_before_hit": 25,
+      "initial_attack_fxframe_delay": 19,
+      "projectile_speed": 90,
+      "palette": "Earth"
+    }
+  ]
+}

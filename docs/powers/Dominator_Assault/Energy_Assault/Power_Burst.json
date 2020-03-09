@@ -1,0 +1,382 @@
+{
+  "crcfull_name": 1678723867,
+  "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_ENERGY_ASSAULT.POWERS",
+  "source_name": "Dominator_Assault.Energy_Assault.Power_Burst",
+  "display_name": "Power Burst",
+  "display_help": "A devastating attack that can knock your target off their feet. This power will inflict bonus damage if used while in Energy Focus mode. Damage: Superior, Recharge: Slow",
+  "display_short_help": "Superior DMG(Energy/Smash), Foe Knockback, Special",
+  "icon_name": "EnergyAssault_PowerBurst.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 14,
+  "endurance_cost": 13.52,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.78,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.82,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ],
+      "effect": [
+        {
+          "requires": [
+            "kEnergyFocus",
+            "Source.Mode?"
+          ],
+          "attrib_mod": [
+            {
+              "attrib": 16,
+              "type": 1,
+              "table": "Melee_Damage",
+              "scale": 1.69,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_float": "Energy Release"
+              }
+            },
+            {
+              "attrib": 475,
+              "aspect": 0,
+              "type": 2,
+              "target": 0,
+              "magnitude": 131,
+              "stack_type": 1,
+              "flags": [
+                112,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.8516,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.2774,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ],
+      "effect": [
+        {
+          "requires": [
+            "kEnergyFocus",
+            "Source.Mode?"
+          ],
+          "attrib_mod": [
+            {
+              "attrib": 16,
+              "type": 1,
+              "table": "Ranged_PvPDamage",
+              "scale": 0.6387,
+              "flags": [
+                640,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [ENERGY RELEASE].",
+                "display_float": "Energy Release"
+              }
+            },
+            {
+              "attrib": 475,
+              "aspect": 0,
+              "type": 2,
+              "target": 0,
+              "magnitude": 131,
+              "stack_type": 1,
+              "flags": [
+                112,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.6,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.6,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "kEnergyFocus",
+    "Mode?"
+  ],
+  "highlight_ring": [
+    255,
+    128,
+    0,
+    255
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    16,
+    96,
+    328,
+    475
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+  "attack_bits": [
+    20,
+    329
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    329
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 26,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 26,
+  "projectile_speed": 90,
+  "primary_tint": [
+    255,
+    128,
+    128,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    32,
+    32,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+      "attack_bits": [
+        20,
+        329
+      ],
+      "initial_attack_bits": [
+        20,
+        329
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGAFAST.FX",
+      "frames_before_hit": 26,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+      "attack_bits": [
+        20,
+        329
+      ],
+      "initial_attack_bits": [
+        20,
+        329
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGAFAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGABLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGAFAST.FX",
+      "frames_before_hit": 26,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26,
+      "projectile_speed": 90
+    },
+    {
+      "token": "Bright Energy Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+      "display_name": "Bright Power Burst",
+      "attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_MEGAFAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_MEGAFAST.FX",
+      "frames_before_hit": 26,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_ENERGYASSAULT_POWERBURST.PFX",
+      "display_name": "Dark Power Burst",
+      "attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_MEGAFAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/MEGABLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_MEGAFAST.FX",
+      "frames_before_hit": 26,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26,
+      "projectile_speed": 90
+    }
+  ]
+}

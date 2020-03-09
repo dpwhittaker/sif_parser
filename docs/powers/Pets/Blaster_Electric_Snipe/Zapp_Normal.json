@@ -1,0 +1,357 @@
+{
+  "crcfull_name": 2130539732,
+  "source_file": "DEFS/POWERS/PETS_BLASTER_ELECTRIC_SNIPE.POWERS",
+  "source_name": "Pets.Blaster_Electric_Snipe.Zapp_Normal",
+  "display_name": "Zapp",
+  "display_help": "A focused electrical blast that can travel great distances with high Accuracy. Zapp drains Endurance, and is best fired from a distance, as it can be interrupted. Some of the Endurance you drain may transfer back to you. Damage: Extreme, Recharge: Slow",
+  "display_short_help": "Sniper, Extreme DMG(Energy), Foe -End",
+  "icon_name": "ElectricalBolt_Zapp.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 150,
+  "time_to_activate": 3.33,
+  "recharge_time": 12,
+  "endurance_cost": 14.352,
+  "interrupt_time": 2,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    32,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 4.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+            "display_float": "SNIPER SHOT"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.15,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 3.211,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SNIPER SHOT].",
+            "display_float": "SNIPER SHOT"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -3,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 7.2,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You recover some of the Endurance you drained.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            348
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.5,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} helps you focus your abilities on your target, increasing your range for a short time!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "magnitude": 0,
+          "duration_expr": [
+            "activatetime",
+            "power.base>",
+            "7.5",
+            "+"
+          ],
+          "magnitude_expr": [
+            ".066",
+            "activatetime",
+            "power.base>",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    88,
+    236,
+    348
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ELECTRICALBLAST_ZAPP.PFX",
+  "attack_bits": [
+    20,
+    258,
+    683
+  ],
+  "wind_up_bits": [
+    371
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258,
+    683
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/ZAPP.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHIT.FX",
+  "wind_up_fx": "POWERS/ELECTRICITYCONTROL/ZAPPWINDUP.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/ZAPP.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 1,
+  "attack_frames": 40,
+  "initial_frames_before_hit": 1,
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ELECTRICALBLAST_ZAPP.PFX",
+      "attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "wind_up_bits": [
+        371
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ZAPP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYBOLTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ZAPPWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ZAPP.FX",
+      "frames_before_hit": 1,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 1,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ELECTRICALBLAST_ZAPP.PFX",
+      "attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "wind_up_bits": [
+        371
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ZAPP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYBOLTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ZAPPWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ZAPP.FX",
+      "frames_before_hit": 1,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 1
+    },
+    {
+      "token": "Bright Electric Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ELECTRICALBLAST_ZAPP.PFX",
+      "display_name": "Bright Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "wind_up_bits": [
+        371,
+        685,
+        692
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ZAPP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYBOLTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ZAPPWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ZAPP.FX",
+      "frames_before_hit": 1,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 1,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electric Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ELECTRICALBLAST_ZAPP.PFX",
+      "display_name": "Dark Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "wind_up_bits": [
+        371,
+        685,
+        692
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ZAPP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYBOLTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ZAPPWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ZAPP.FX",
+      "frames_before_hit": 1,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 1
+    }
+  ]
+}

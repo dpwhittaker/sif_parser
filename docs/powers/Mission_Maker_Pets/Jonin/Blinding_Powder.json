@@ -1,0 +1,181 @@
+{
+  "crcfull_name": 1350593357,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_PETS_JONIN.POWERS",
+  "source_name": "Mission_Maker_Pets.Jonin.Blinding_Powder",
+  "display_name": "Blinding Powder",
+  "display_help": "Your have been blinded. You are helpless and confused.",
+  "display_short_help": "-To Hit, Sleep, Confuse, -Perception",
+  "display_target_short_help": "-To Hit, Sleep, Confuse, -Perception",
+  "display_attacker_hit": "{PlayerSource} blinds {PlayerDest} with their {PowerName} putting them to sleep and reducing their chance to hit and perception!",
+  "display_victim_hit": "{PlayerSource} blinds you with their {PowerName} putting you to sleep and reducing your chance to hit and perception!",
+  "icon_name": "Gadgets_SmokeGrenade.tga",
+  "attack_types": [
+    "AOE"
+  ],
+  "ai_report": 1,
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 25,
+  "arc": 0.7853982,
+  "range": 25,
+  "time_to_activate": 1.07,
+  "recharge_time": 120,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    11,
+    8,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Sleep",
+          "scale": 10,
+          "magnitude": 2,
+          "delay": 0.25,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              376
+            ]
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "duration": 15,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "V_COV/POWERS/NINJITSU/BLINDINGPOWDERCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 20,
+          "magnitude": 2,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "scale": -0.9,
+          "duration": 20,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "scale": -0.9,
+          "duration": 20,
+          "stack_type": 3,
+          "cancel_events": [
+            17
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    356
+  ],
+  "attrib_cache": [
+    100,
+    228,
+    256,
+    280
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/JOUNIN_JOUNIN_BLINDINGPOWDER.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    134,
+    170,
+    208,
+    186
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "activation_fx": "WEAPONS/NINJA_KATANA_LEFT.FX",
+  "attack_fx": "V_COV/POWERS/NINJITSU/CONEWHITEBLINDINGPOWDER.FX",
+  "initial_attack_fx": "V_COV/POWERS/NINJITSU/CONEWHITEBLINDINGPOWDER.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    134
+  ],
+  "frames_before_hit": 19,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 19
+}

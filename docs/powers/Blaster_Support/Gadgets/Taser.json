@@ -1,0 +1,231 @@
+{
+  "crcfull_name": 2411928763,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_GADGETS.POWERS",
+  "source_name": "Blaster_Support.Gadgets.Taser",
+  "display_name": "Taser",
+  "display_help": "The High Voltage Taser is an overcharged stun-gun, releasing a high-voltage, high-amperage electrical charge that can Disorient most opponents with major tissue damage. The Taser has a very short range. Damage: High, Recharge: Moderate",
+  "display_short_help": "Melee, High DMG(Energy), Foe Disorient",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "Gadgets_Taser.tga",
+  "attack_types": [
+    "Melee",
+    "Energy"
+  ],
+  "range": 20,
+  "time_to_activate": 1,
+  "recharge_time": 10,
+  "endurance_cost": 10.192,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.96,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 5,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "magnitude": 0,
+          "duration_expr": [
+            "activatetime",
+            "power.base>",
+            "7.5",
+            "+"
+          ],
+          "magnitude_expr": [
+            ".066",
+            "activatetime",
+            "power.base>",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_GADGETS_TASER.PFX",
+  "attack_bits": [
+    20,
+    298
+  ],
+  "hit_bits": [
+    49,
+    283
+  ],
+  "initial_attack_bits": [
+    20,
+    298
+  ],
+  "attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/TECHDARTTHROW.FX",
+  "hit_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/TECHDARTHIT.FX",
+  "initial_attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/TECHDARTTHROW.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 16,
+  "projectile_speed": 60,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_GADGETS_TASER.PFX",
+      "attack_bits": [
+        20,
+        298
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        298
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/GADGETS/TECHDARTTHROW.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/GADGETS/TECHDARTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GADGETS/TECHDARTTHROW.FX",
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 16,
+      "projectile_speed": 60,
+      "palette": "Additive"
+    }
+  ]
+}

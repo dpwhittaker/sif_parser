@@ -1,0 +1,286 @@
+{
+  "crcfull_name": 2303177190,
+  "source_file": "DEFS/POWERS/CORRUPTOR_BUFF_TIME_MANIPULATION.POWERS",
+  "source_name": "Corruptor_Buff.Time_Manipulation.Time_Crawl",
+  "display_name": "Time Crawl",
+  "display_help": "You're able to dramatically slow the time around a single enemy, reducing their movement speed and attack rate. Time is slowed to such an extreme that their wounds will take longer to heal, reducing their regeneration rate. Time Crawl applies the Delayed effect on its target. Debuff and control effects from other Time Manipulation powers are increased on targets affected by Delayed. Recharge: Long.",
+  "display_short_help": "Ranged Foe, -Speed, -Recharge, -Regen, Special",
+  "display_target_help": "Your attack rate, movement speed and regeneration rate have been reduced",
+  "display_target_short_help": "-Speed, -Recharge, -Regen, Special",
+  "icon_name": "TimeManipulation_TimeCrawl.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 1.6,
+  "recharge_time": 15,
+  "endurance_cost": 10.4,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "You reduce the attack rate, movement speed, regeneration rate of the target.",
+            "display_victim_hit": "{PlayerSource} slows you down to a crawl with their {PowerName}, reducing your movement speed, attack speed and regeneration speed."
+          },
+          "fx": {
+            "continuing_fx": "PFX2"
+          }
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.6,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            468
+          ],
+          "table": "Ranged_Ones",
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Ranged_SpeedRunning",
+          "scale": -1,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -4,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    188,
+    192,
+    200,
+    204,
+    232,
+    356,
+    468,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_TIMEMANIPULATION_TIMECRAWL.PFX",
+  "attack_bits": [
+    20,
+    258,
+    627
+  ],
+  "hit_bits": [
+    49,
+    585
+  ],
+  "initial_attack_bits": [
+    20,
+    258,
+    627
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_ATTACK.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_ATTACK.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_CONTINUING.FX",
+  "continuing_fx2": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SLOW_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 13,
+  "attack_frames": 48,
+  "initial_frames_before_hit": 13,
+  "primary_tint": [
+    194,
+    225,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    50,
+    63,
+    103,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_TIMEMANIPULATION_TIMECRAWL.PFX",
+      "attack_bits": [
+        20,
+        258,
+        627
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        627
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMECRAWL_CONTINUING.FX",
+      "continuing_fx2": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SLOW_CONTINUING.FX",
+      "frames_before_hit": 13,
+      "attack_frames": 48,
+      "initial_frames_before_hit": 13,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_TIMEMANIPULATION_TIMECRAWL.PFX",
+      "attack_bits": [
+        20,
+        258,
+        627
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        627
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMECRAWL_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMECRAWL_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMECRAWL_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMECRAWL_CONTINUING.FX",
+      "continuing_fx2": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/SLOW_CONTINUING.FX",
+      "frames_before_hit": 13,
+      "attack_frames": 48,
+      "initial_frames_before_hit": 13
+    }
+  ]
+}

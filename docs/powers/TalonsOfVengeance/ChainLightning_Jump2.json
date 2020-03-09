@@ -1,0 +1,174 @@
+{
+  "Charge": {
+    "crcfull_name": 582873932,
+    "source_file": "DEFS/POWERS/TALONSOFVENGEANCE_CHAINLIGHTNING_JUMP2.POWERS",
+    "source_name": "TalonsOfVengeance.ChainLightning_Jump2.Charge",
+    "display_name": "Charge",
+    "display_help": "You have been struck by chain lightning.",
+    "display_short_help": "Charged",
+    "display_target_help": "You are still charged from Chain Lightning. Energy may jump from you to another target.",
+    "display_target_short_help": "Charged",
+    "icon_name": "TalonsOfVengeance_ChainLightning.tga",
+    "type": 1,
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "target_requires": [
+      "kChain_Jolt_Mode",
+      "target.mode?",
+      "!"
+    ],
+    "accuracy": 1.5,
+    "effect_area": 2,
+    "max_targets_hit": 1,
+    "radius": 15,
+    "activate_period": 4,
+    "target": 19,
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1.5,
+            "delay": 1,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "TalonsOfVengeance_ChainLightning_Jump3",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1.5,
+            "delay": 2,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "TalonsOfVengeance_ChainLightning_Jump3",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.66,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "duration": 4,
+            "magnitude": 57,
+            "period": 2.25,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      328,
+      461,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_TALONSOFVENGEANCE_ORACLE_CHAINLIGHTNING_PET.PFX",
+    "hit_bits": [
+      49,
+      585
+    ],
+    "hit_fx": "ENEMYFX/PRAETORIAN/TALONS/JOLTINGCHAIN_PET.FX",
+    "primary_tint": [
+      150,
+      110,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      70,
+      20,
+      255,
+      255
+    ]
+  }
+}

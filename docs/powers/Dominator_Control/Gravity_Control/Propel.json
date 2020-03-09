@@ -1,0 +1,269 @@
+{
+  "crcfull_name": 2715257055,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Gravity_Control.Propel",
+  "display_name": "Propel",
+  "display_help": "You can open a gravitational rift and retrieve a heavy object, then Propel it at your foes for Smashing Damage. This power can deal bonus damage when used against targets held by Gravity Distortion. This attack's force is so strong that it can knockback additional nearby enemies. Damage: High, Recharge: Moderate",
+  "display_short_help": "Ranged, High DMG(Smash), Foe Knockback",
+  "icon_name": "GravityControl_Propel.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 4,
+  "radius": 15,
+  "range": 60,
+  "time_to_activate": 2.07,
+  "recharge_time": 8,
+  "endurance_cost": 9.36,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.96,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "radius_inner": 0,
+      "radius_outer": 15,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "flags": [
+            2704,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.769,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "radius_inner": 0,
+      "radius_outer": 15,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            2704,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "now",
+        "GravityDistortion",
+        "target.TokenTime>",
+        "-",
+        "12",
+        "<"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.49,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+            "display_float": "Impact!"
+          }
+        }
+      ]
+    }
+  ],
+  "proc_main_target_only": true,
+  "anim_main_target_only": true,
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_PROPEL.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "POWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+  "hit_fx": "POWERS/GRAVITYCONTROL/GCPROPEL_HIT.FX",
+  "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 45,
+  "delayed_hit": true,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 45,
+  "projectile_speed": 150,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_PROPEL.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCPROPEL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+      "frames_before_hit": 45,
+      "delayed_hit": true,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 45,
+      "projectile_speed": 150,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_PROPEL.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCPROPEL1.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCPROPEL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCPROPEL1.FX",
+      "frames_before_hit": 45,
+      "delayed_hit": true,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 45,
+      "projectile_speed": 150
+    }
+  ]
+}

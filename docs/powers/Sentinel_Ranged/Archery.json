@@ -1,0 +1,2071 @@
+{
+  "Snap_Shot": {
+    "crcfull_name": 3830175240,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Snap_Shot",
+    "display_name": "Snap Shot",
+    "display_help": "A quick attack that fires an arrow at your foe after only minimal aiming. Fast, but little damage. Damage: Minor, Recharge: Very Fast",
+    "display_short_help": "Ranged, Minor DMG(Lethal)",
+    "icon_name": "Archery_QuickArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.155,
+    "range": 60,
+    "time_to_activate": 1,
+    "recharge_time": 2,
+    "endurance_cost": 3.54,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.7778,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Vulnerability"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": -0.2,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "stack_key": 16,
+            "flags": [
+              131728,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Vulnerability!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Opportunity"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Vulnerability"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Offensive Opportunity"
+            }
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 99,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 101,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kDomination",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      465,
+      473,
+      475,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_QUICK_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      681,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_QUICK.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_QUICK.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 22,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 42,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 300,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_QUICK_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          681,
+          188
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_QUICK.FX",
+        "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_QUICK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 22,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 22,
+        "projectile_speed": 300,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Aimed_Shot": {
+    "crcfull_name": 1731759253,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Aimed_Shot",
+    "display_name": "Aimed Shot",
+    "display_help": "Though it takes longer to execute, your Aimed Shot deals greater damage than Snap Shot. Damage: High, Recharge: Fast",
+    "display_short_help": "Ranged, High DMG(Lethal)",
+    "icon_name": "Archery_MediumArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.155,
+    "range": 60,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.8984,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Vulnerability"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": -0.2,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "stack_key": 16,
+            "flags": [
+              131728,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Vulnerability!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Opportunity"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "delay": 15,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Vulnerability"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Defensive Opportunity"
+            }
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 104,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 99,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kDomination",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      465,
+      473,
+      475,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_MEDIUM_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 24,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 44,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 300,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_MEDIUM_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          680
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          680,
+          188
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+        "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 24,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 24,
+        "projectile_speed": 300,
+        "palette": ""
+      }
+    ]
+  },
+  "Fistful_of_Arrows": {
+    "crcfull_name": 2133751256,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Fistful_of_Arrows",
+    "display_name": "Fistful of Arrows",
+    "display_help": "You fire a fistful of arrows at foes in a cone in front of you. Good at close range. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Lethal)",
+    "icon_name": "Archery_ConeArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.155,
+    "effect_area": 1,
+    "max_targets_hit": 6,
+    "radius": 40,
+    "arc": 0.87266463,
+    "range": 40,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "endurance_cost": 8.53,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.91,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.9469,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_CONE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      395
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      395,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_CONE.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/CONEARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_CONE.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 27,
+    "delayed_hit": true,
+    "initial_frames_before_hit": 47,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 300,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_CONE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          395
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          395,
+          188
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_CONE.FX",
+        "hit_fx": "WEAPONS/BOW/ARCHERY/CONEARROWSHIT.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_CONE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 27,
+        "delayed_hit": true,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 27,
+        "projectile_speed": 300,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Stunning_Shot": {
+    "crcfull_name": 1751624078,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Stunning_Shot",
+    "display_name": "Stunning Shot",
+    "display_help": "You fire a blunt, weighted arrow at your target's chest. The Stunning Shot inflicts high damage and has a good chance of stunning your foe. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged Disorient, High DMG(Smashing)",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "Archery_StunArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "accuracy": 1.155,
+    "range": 60,
+    "time_to_activate": 1,
+    "recharge_time": 8,
+    "endurance_cost": 8.53,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 4,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_STUN_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      681,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_STUN.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/STUNARROWHITS.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_STUN.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 23,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 43,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 210,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_STUN_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          681,
+          188
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_STUN.FX",
+        "hit_fx": "WEAPONS/BOW/ARCHERY/STUNARROWHITS.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_STUN.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 23,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 23,
+        "projectile_speed": 210,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Aim": {
+    "crcfull_name": 4215207952,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Aim",
+    "display_name": "Aim",
+    "display_help": "Greatly increases the chance to hit of your attacks for a few seconds. Slightly increases damage and range. Recharge: Long",
+    "display_short_help": "Self +To Hit, +DMG, +Range",
+    "icon_name": "Archery_Aim.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You quickly take aim and are more accurate, more deadly and able to shoot a longer distance for a short while.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFTOHITCONT.FX"
+            }
+          },
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.333,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_AIM_NOGEO.PFX",
+    "attack_bits": [
+      245
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "POWERS/BUILDUP_ARCHERY_AIM.FX",
+    "initial_attack_fx": "POWERS/BUILDUP_ARCHERY_AIM.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "initial_attack_fxframe_delay": 20,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_AIM_NOGEO.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          245
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "POWERS/BUILDUP_ARCHERY_AIM.FX",
+        "initial_attack_fx": "POWERS/BUILDUP_ARCHERY_AIM.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "attack_frames": 35,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Explosive_Arrow": {
+    "crcfull_name": 1890071662,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Explosive_Arrow",
+    "display_name": "Explosive Arrow",
+    "display_help": "You fire a grenade-tipped arrow at long range. This explosion affects all within the blast radius, and can knock them back. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal/Smash), Knockback",
+    "icon_name": "Archery_ExplodingArrow.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Smashing"
+    ],
+    "accuracy": 1.155,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 60,
+    "time_to_activate": 1,
+    "recharge_time": 16,
+    "endurance_cost": 15.18,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2666,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.532,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_EXPLODING_ARROW_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_EXPLODE.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_EXPLODE.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 24,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 44,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 300,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_EXPLODING_ARROW_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          680
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          680,
+          188
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_EXPLODE.FX",
+        "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_EXPLODE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 24,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 24,
+        "projectile_speed": 300,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Blazing_Arrow": {
+    "crcfull_name": 1599372548,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Blazing_Arrow",
+    "display_name": "Blazing Arrow",
+    "display_help": "You fire a Blazing Arrow at your foe, dealing some Lethal damage and causing them to catch on fire and burn. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Lethal), Minor DoT(Fire)",
+    "display_target_help": "You are on fire!",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "Archery_FlamingArrow.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal",
+      "Fire"
+    ],
+    "accuracy": 1.155,
+    "range": 60,
+    "time_to_activate": 1.83,
+    "recharge_time": 10,
+    "endurance_cost": 10.19,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            },
+            "fx": {
+              "continuing_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 3.135,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.125,
+            "duration": 4.125,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_FLAMING_ARROW_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      766,
+      683
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      766,
+      683,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX",
+    "hit_fx": "POWERS/FIRECONTROL/FIREARROWHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 48,
+    "delayed_hit": true,
+    "attack_frames": 55,
+    "initial_frames_before_hit": 68,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 300,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_FLAMING_ARROW_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          766,
+          683
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          766,
+          683,
+          188
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX",
+        "hit_fx": "POWERS/FIRECONTROL/FIREARROWHIT.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_FLAME.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 48,
+        "delayed_hit": true,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 48,
+        "projectile_speed": 300,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Ranged_Shot": {
+    "crcfull_name": 3855655364,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Ranged_Shot",
+    "display_name": "Perfect Shot",
+    "display_help": "A perfectly aimed and fast shot that blasts your foes. Damage: Very High, Recharge: Slow",
+    "display_short_help": "Very High DMG(Lethal)",
+    "icon_name": "Archery_Heavy",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.386,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 12,
+    "endurance_cost": 11.86,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 2.28,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.049,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYER_BLASTER_ARCHERY_AIMEDSHOT.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      680,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+    "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 24,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 44,
+    "initial_attack_fxframe_delay": 20,
+    "projectile_speed": 300,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYER_BLASTER_ARCHERY_AIMEDSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          680
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          680
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+        "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_MID.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 24,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 24,
+        "projectile_speed": 300,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Rain_of_Arrows": {
+    "crcfull_name": 2620586654,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ARCHERY.POWERS",
+    "source_name": "Sentinel_Ranged.Archery.Rain_of_Arrows",
+    "display_name": "Rain of Arrows",
+    "display_help": "You unleash a Rain of Arrows on a targeted location, damaging foes within a large area. Damage: Extreme (DoT), Recharge: Long",
+    "display_short_help": "Ranged (Location AoE), Extreme DoT(Lethal)",
+    "icon_name": "Archery_RainofArrows.tga",
+    "effect_area": 3,
+    "range": 40,
+    "time_to_activate": 2,
+    "recharge_time": 95,
+    "endurance_cost": 15.6,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You launch a {PowerName}!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_RainofArrows_Visual"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 1,
+            "delay": 1.8,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_RainofArrows_Sentinel"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 6,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARCHERY_RAIN_ARROWS_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      277,
+      221
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      277,
+      221,
+      186
+    ],
+    "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+    "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_RAIN.FX",
+    "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_RAIN.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      135,
+      85
+    ],
+    "frames_before_hit": 54,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 74,
+    "initial_attack_fxframe_delay": 20,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ARCHERY_RAIN_ARROWS_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          277,
+          221
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          277,
+          221
+        ],
+        "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+        "attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_RAIN.FX",
+        "initial_attack_fx": "WEAPONS/BOW/ARCHERY/ARROW_RAIN.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          135,
+          85
+        ],
+        "frames_before_hit": 54,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 54,
+        "palette": "Additive"
+      }
+    ]
+  }
+}

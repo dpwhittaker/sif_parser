@@ -1,0 +1,290 @@
+{
+  "crcfull_name": 3507792282,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_ICE_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Ice_Manipulation.Chilling_Embrace",
+  "display_name": "Frigid Protection",
+  "display_help": "While active, you dramatically lower the temperature around yourself, Slowing the attack rate of all nearby foes, as well as their movement speed and damage. The air around your body becomes so cold that attacks deflect off of it, granting you absorption, while your body becomes extremely energy efficient, granting you bonus Recovery. Recharge: Very Fast",
+  "display_short_help": "Toggle: PBAoE, Foe -Recharge, -Speed, -DMG, Self +Absorb over Time, +Recovery",
+  "display_target_help": "Your Attack speed, Running speed and damage are reduced by the Chilling Embrace.",
+  "display_target_short_help": "-Recharge, -SPD, -DMG",
+  "display_attacker_hit": "Your {PowerName} Slows all nearby foes.",
+  "icon_name": "IceManipulation_ChillingEmbrace.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "Cold"
+  ],
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "toggle_ignore_hold": true,
+  "toggle_ignore_sleep": true,
+  "toggle_ignore_stun": true,
+  "effect_area": 2,
+  "max_targets_hit": 11,
+  "radius": 30,
+  "time_to_activate": 0.73,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "ents_auto_hit": [
+    19,
+    1
+  ],
+  "ents_affected": [
+    19,
+    1
+  ],
+  "boosts_allowed": [
+    33,
+    29,
+    18,
+    14
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "cur.kHeld",
+        "source>",
+        "0",
+        ">",
+        "cur.kStun",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kSleep",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kTerrorized",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.7,
+          "duration": 5,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.4,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.7,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 2,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            208,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "&&",
+        "cur.kHeld",
+        "source>",
+        "0",
+        ">",
+        "cur.kStun",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kSleep",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kTerrorized",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Melee_SpeedRunning",
+          "scale": -1,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            84
+          ],
+          "aspect": 8,
+          "table": "Melee_HealSelf",
+          "scale": 0.5,
+          "duration": 3,
+          "stack_type": 1,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.5,
+          "duration": 3,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    84,
+    188,
+    192,
+    200,
+    204,
+    236,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ICEMANIPULATION_CHILLINGEMBRACE.PFX",
+  "activation_bits": [
+    20,
+    249
+  ],
+  "activation_fx": "POWERS/ICEARMOR/CHILLINGEMBRACE.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "attack_frames": 22,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "Color Tintable 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ICEMANIPULATION_CHILLINGEMBRACE.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        249
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ICEARMOR/CHILLINGEMBRACE.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 22,
+      "initial_frames_before_hit": 16,
+      "palette": "ice"
+    }
+  ]
+}

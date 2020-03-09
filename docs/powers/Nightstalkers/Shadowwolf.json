@@ -1,0 +1,543 @@
+{
+  "Dire_Howl": {
+    "crcfull_name": 812887259,
+    "source_file": "DEFS/POWERS/NIGHTSTALKERS_SHADOWWOLF.POWERS",
+    "source_name": "Nightstalkers.Shadowwolf.Dire_Howl",
+    "display_name": "Dire Howl",
+    "display_help": "You unleash a dreadful howl that strikes fear into those arrayed against you. Affected targets suffer energy damage, then negative energy damage over time as the howl's influence takes effect. Targets also suffer reduced resistance to all damage types. There is a small chance that a target will be rendered afraid by the howl, but any target so affected cannot be made afraid again for a long while.",
+    "display_short_help": "PBAoE, Moderate DMG (Energy), Minor DoT (Negative Energy), -RES(Foe, All), Chance for Terrorize(Foe)",
+    "display_target_help": "You are suffering negative energy damage over time and your resistance to all damage types has been reduced. There is also a chance that you are terrorized.",
+    "display_target_short_help": "DoT (Negative Energy), -RES(All), Chance for Terrorize",
+    "icon_name": "SpiritStalkers_DireHowl.tga",
+    "attack_types": [
+      "AOE",
+      "Energy",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 5,
+    "radius": 15,
+    "time_to_activate": 2.83,
+    "recharge_time": 10,
+    "endurance_cost": 20,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/HOWLINGTWILIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "scale": -0.1,
+            "duration": 10,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "scale": 3,
+            "magnitude": 4,
+            "stack_type": 1,
+            "suppress": [
+              {
+                "event": 23,
+                "seconds": 30,
+                "always": true
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 5,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      264
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_DIREHOWL.PFX",
+    "attack_bits": [
+      20,
+      870,
+      417,
+      683
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      870,
+      417,
+      683
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/PRIMALROAR_ATTACK.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/PRIMALROAR_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/PRIMALROAR_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 38,
+    "attack_frames": 85,
+    "initial_frames_before_hit": 38
+  },
+  "Raking_Claws": {
+    "crcfull_name": 850832660,
+    "source_file": "DEFS/POWERS/NIGHTSTALKERS_SHADOWWOLF.POWERS",
+    "source_name": "Nightstalkers.Shadowwolf.Raking_Claws",
+    "display_name": "Raking Claws",
+    "display_help": "You tear at your target with a vicious claw attack, causing lethal damage. Your target is left with wounds which cause additional lethal damage over time.",
+    "display_short_help": "Melee, Moderate DMG(Lethal), Moderate DoT (Lethal)",
+    "display_target_help": "You are suffering lethal damage over time.",
+    "display_target_short_help": "DoT (Lethal)",
+    "icon_name": "SpiritStalkers_RakingClaws.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "range": 5,
+    "time_to_activate": 1,
+    "recharge_time": 3,
+    "endurance_cost": 8.58,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGESHARD.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 2,
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_RAKINGCLAWS.PFX",
+    "attack_bits": [
+      20,
+      405,
+      870,
+      681
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      405,
+      870,
+      681
+    ],
+    "hit_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/CLAWRAKE_HIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 30,
+    "primary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_RAKINGCLAWS.PFX",
+        "attack_bits": [
+          20,
+          405,
+          870,
+          681
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          405,
+          870,
+          681
+        ],
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/CLAWRAKE_HIT.FX",
+        "attack_frames": 30,
+        "palette": ""
+      }
+    ]
+  },
+  "Shadowfire": {
+    "crcfull_name": 4111126050,
+    "source_file": "DEFS/POWERS/NIGHTSTALKERS_SHADOWWOLF.POWERS",
+    "source_name": "Nightstalkers.Shadowwolf.Shadowfire",
+    "display_name": "Shadowfire",
+    "display_help": "You unleash a cone of dark fire from deep within, scorching all targets within a cone in front of you. These targets suffer both fire and negative energy damage, as the fire licks at the soul of the target. The target is also set ablaze, suffering additional fire damage over time.",
+    "display_short_help": "Ranged, High DMG(Negative Energy/Fire), Minor DoT(Fire)",
+    "display_target_help": "You are on fire and burning!",
+    "display_target_short_help": "DoT (Fire)",
+    "icon_name": "SpiritStalkers_Shadowfire.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy",
+      "Fire"
+    ],
+    "range": 80,
+    "time_to_activate": 2.83,
+    "recharge_time": 8,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "delay": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/SOULDRAINHITCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      8,
+      20
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_SHADOWFIRE.PFX",
+    "attack_bits": [
+      20,
+      870,
+      417
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      870,
+      417
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_ATTACK.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_ATTACK.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_CONTINUING.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 19,
+    "delayed_hit": true,
+    "attack_frames": 85,
+    "initial_frames_before_hit": 19,
+    "projectile_speed": 90,
+    "primary_tint": [
+      90,
+      200,
+      212,
+      255
+    ],
+    "secondary_tint": [
+      1,
+      1,
+      1,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_SHADOWFIRE.PFX",
+        "attack_bits": [
+          20,
+          870,
+          417
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          870,
+          417
+        ],
+        "attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_ATTACK.FX",
+        "hit_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_HIT.FX",
+        "initial_attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_ATTACK.FX",
+        "conditional_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_CONTINUING.FX",
+        "conditional_fx1": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/SHADOWFIRE_CONTINUING.FX",
+        "frames_before_hit": 19,
+        "delayed_hit": true,
+        "attack_frames": 85,
+        "initial_frames_before_hit": 19,
+        "projectile_speed": 90,
+        "palette": ""
+      }
+    ]
+  },
+  "Touch_of_the_Beyond": {
+    "crcfull_name": 3995680955,
+    "source_file": "DEFS/POWERS/NIGHTSTALKERS_SHADOWWOLF.POWERS",
+    "source_name": "Nightstalkers.Shadowwolf.Touch_of_the_Beyond",
+    "display_name": "Touch of the Beyond",
+    "display_help": "You snap at your target, afflicting them with a painful bite that causes negative energy damage over time. This attack also decreases the effectiveness of healing on your target, an effect which is refreshed each time the target is bitten, until healing has no effect.",
+    "display_short_help": "Melee, Moderate DoT (Negative Energy), +RES(Foe, Heal)",
+    "display_target_help": "You are suffering negative energy damage over time. The effectiveness of all healing on you has been reduced.",
+    "display_target_short_help": "DoT (Negative Energy), +RES(Heal)",
+    "icon_name": "SpiritStalkers_TouchOfTheBeyond.tga",
+    "attack_types": [
+      "Melee",
+      "NegativeEnergy"
+    ],
+    "range": 10,
+    "time_to_activate": 1.4,
+    "recharge_time": 6,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.13,
+            "duration": 2.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "scale": 0.1,
+            "duration": 12,
+            "caster_stack_type": 1,
+            "stack_type": 7,
+            "stack_limit": 5,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      20,
+      28
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_TOUCHOFTHEBEYOND.PFX",
+    "attack_bits": [
+      20,
+      405,
+      870,
+      65
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      405,
+      870,
+      65
+    ],
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEASTMASTERY/MAIMINGBITE_HIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 13,
+    "attack_frames": 42,
+    "initial_frames_before_hit": 13,
+    "primary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_TOUCHOFTHEBEYOND.PFX",
+        "attack_bits": [
+          20,
+          405,
+          870,
+          65
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          405,
+          870,
+          65
+        ],
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEASTMASTERY/MAIMINGBITE_HIT.FX",
+        "frames_before_hit": 13,
+        "attack_frames": 42,
+        "initial_frames_before_hit": 13,
+        "palette": ""
+      }
+    ]
+  }
+}

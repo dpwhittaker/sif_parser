@@ -1,0 +1,131 @@
+{
+  "crcfull_name": 374287223,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_ROFLSTOMP.POWERS",
+  "source_name": "RoguesGallery.ROFLSTOMP.Tank_Grenade",
+  "display_name": "Tank Grenade",
+  "display_help": "You launch a fragmentation grenade at long range from your armor's backpack. This explodes on impact, throwing shrapnel that causes smashing and lethal damage. There is also a high chance that the concussive effect from the explosion will knock affected targets back.",
+  "display_short_help": "Ranged (Targeted AoE), Superior DMG (Lethal/Smashing), Chance for Knockback (Foe)",
+  "icon_name": "RoguesGallery_ROFLSTOMP_TankGrenade.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal",
+    "Smashing"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 12,
+  "endurance_cost": 20,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 5
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_FRK_GRENADE_BACK.PFX",
+  "attack_bits": [
+    20,
+    311
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    311
+  ],
+  "attack_fx": "WEAPONFX/FRK_GERNADELAUNCHER.FX",
+  "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+  "initial_attack_fx": "WEAPONFX/FRK_GERNADELAUNCHER.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 21,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 21,
+  "projectile_speed": 60
+}

@@ -1,0 +1,666 @@
+{
+  "crcfull_name": 4061432500,
+  "source_file": "DEFS/POWERS/POOL_EXPERIMENTATION.POWERS",
+  "source_name": "Pool.Experimentation.Toxic_Dart",
+  "display_name": "Toxic Dart",
+  "display_help": "You fire a toxic dart at your target causing an very minor amount of immediate lethal damage followed by a High amount of toxic damage over time. Recharge: Fast",
+  "display_short_help": "Ranged, Minor DMG(Lethal), High DMG(Toxic)",
+  "display_target_short_help": "High DoT(Toxic)",
+  "icon_name": "Experimentation_ToxicDart.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "range": 80,
+  "time_to_activate": 1.07,
+  "recharge_time": 6,
+  "endurance_cost": 8.58,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    8,
+    12,
+    117,
+    118
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.12,
+          "duration": 4.6,
+          "delay": 0.5,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1263,
+          "duration": 4.6,
+          "delay": 0.5,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "eq",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "eq",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.389,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.389,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.389,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.389,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.389,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "@ToHitRoll",
+        "0.2",
+        "+",
+        "@ToHit",
+        "<",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Tanker",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Ranged_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Tanker",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Ranged_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    4,
+    36,
+    248
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/ORIGINPOOL_EXPERIMENTATION_TOXICDART.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_ATTACK.FX",
+  "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_ATTACK.FX",
+  "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 19,
+  "delayed_hit": true,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 19,
+  "projectile_speed": 45,
+  "primary_tint": [
+    0,
+    255,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    255,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "alt_theme": [
+        "Minimal FX"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/ORIGINPOOL_EXPERIMENTATION_TOXICDART.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_CONTINUING.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 45,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/ORIGINPOOL_EXPERIMENTATION_TOXICDART.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/SUBTRACTIVE/TOXICDART_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/SUBTRACTIVE/TOXICDART_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/SUBTRACTIVE/TOXICDART_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/EXPERIMENTATION/TOXICDART_CONTINUING.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 45
+    }
+  ]
+}

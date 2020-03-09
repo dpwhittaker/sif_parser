@@ -1,0 +1,2031 @@
+{
+  "BS_Bash": {
+    "crcfull_name": 605696620,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.BS_Bash",
+    "display_name": "Bash",
+    "display_help": "You Bash with your mace dealing moderate Smashing damage and minor Toxic damage over time. NOTE: This power will deal critical damage if used after a successful Placate or while the user is hidden with the Bane Spider Cloaking Device. Damage: Moderate Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Smash), Minor DoT(Toxic), Foe Disorient",
+    "display_target_help": "You have been disoriented and poisoned.",
+    "display_target_short_help": "Disorient, DoT(Poison)",
+    "icon_name": "BaneSpider_Bash.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.491,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9945,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_float": "STEALTH STRIKE"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6667,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_float": "STEALTH STRIKE"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      36,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_BASH.PFX",
+    "attack_bits": [
+      20,
+      130,
+      164,
+      266,
+      680
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      164,
+      266,
+      680,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "POWERS/MEDIEVALWEAPONS/SWORDSLICECHOP2.FX",
+    "hit_fx": "WEAPONFX/ARACHNOSMACEHIT.FX",
+    "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/SWORDSLICECHOP2.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "attack_frames": 40,
+    "initial_frames_before_hit": 45,
+    "initial_attack_fxframe_delay": 30
+  },
+  "Mace_Beam": {
+    "crcfull_name": 2633377636,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Mace_Beam",
+    "display_name": "Mace Beam",
+    "display_help": "The Nullifier Mace has several different ranged attack modes. The Mace Beam is a moderate damage single target attack with a chance to knock a foe off their feet. Damage: Moderate Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "BaneSpider_MaceBeam.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "range": 70,
+    "time_to_activate": 2,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.98,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.98,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_MACEBEAM.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLAST.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 36,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 66,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 105
+  },
+  "Mace_Beam_Blast": {
+    "crcfull_name": 4017532936,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Mace_Beam_Blast",
+    "display_name": "Mace Beam Blast",
+    "display_help": "The Nullifier Mace is capable of firing a tremendous bolt of force from the end of it. The Mace Beam Blast is a Light damage area of effect attack, foes struck by the blast may be knocked back. Damage: Light Recharge: Medium",
+    "display_short_help": "Ranged (Targeted AoE), Light DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "BaneSpider_MaceBeamBlast.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "range": 70,
+    "time_to_activate": 2,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.33,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.33,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.848,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.848,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_MACEBEAMBLAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLASTAOE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLASTAOE.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 41,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 71,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 105
+  },
+  "Build_Up": {
+    "crcfull_name": 1326146720,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Build_Up",
+    "display_name": "Build Up",
+    "display_help": "Greatly increases the amount of damage you deal for a few seconds, as well as slightly increasing your chance to hit. Recharge: Slow",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "BaneSpider_BuildUp.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner strength with your {PowerName} and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_BUILDUP.PFX",
+    "attack_bits": [
+      20,
+      130,
+      245
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      245
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "POWERS/FOLLOWUPMACEHIT.FX",
+    "initial_attack_fx": "POWERS/FOLLOWUPMACEHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ]
+  },
+  "Mace_Beam_Volley": {
+    "crcfull_name": 4187070590,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Mace_Beam_Volley",
+    "display_name": "Mace Beam Volley",
+    "display_help": "The Nullifier Mace can fire a volley of energy at all foes in front of the user. The Mace Beam Volley is a Moderate damage area of effect cone attack with a chance to knock foes off their feet. Damage: Moderate Recharge: Medium",
+    "display_short_help": "Ranged Cone, Moderate DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "BaneSpider_MaceBeamVolley.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 40,
+    "arc": 0.7853982,
+    "range": 40,
+    "time_to_activate": 2,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.29,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.8907,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.8907,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_MACEBEAMVOLLEY.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACESCATTERSHOT.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACESCATTERSHOT.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 36,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 66,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 105
+  },
+  "Pulverize": {
+    "crcfull_name": 195528304,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Pulverize",
+    "display_name": "Pulverize",
+    "display_help": "You are capable of Pulverizing a foe with your Nullifier Mace dealing high damage, causing toxic damage over time. Pulverize will occasionally disorient foes as well. NOTE: This power will deal critical damage if used after a successful Placate or while the user is hidden with the Bane Spider Cloaking Device. Damage: High Recharge: Moderate",
+    "display_short_help": "Melee, High DMG(Smash), Minor DoT(Toxic), Foe Disorient",
+    "display_target_help": "You have been disoriented and poisoned.",
+    "display_target_short_help": "Disorient, DoT(Poison)",
+    "icon_name": "BaneSpider_Pulverize.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.5,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7699,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1806,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_float": "STEALTH STRIKE"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.0933,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_float": "STEALTH STRIKE"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      36,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_PULVERIZE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      269
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      269,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "POWERS/MEDIEVALWEAPONS/MACESMASH.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/MACEHIT2.FX",
+    "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/MACESMASH.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "attack_frames": 45,
+    "initial_frames_before_hit": 45,
+    "initial_attack_fxframe_delay": 30
+  },
+  "Poisonous_Ray": {
+    "crcfull_name": 1677779126,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Poisonous_Ray",
+    "display_name": "Poisonous Ray",
+    "display_help": "You fire a Poisonous Ray from your mace causing damage over time as reducing the target's defense. Damage: Moderate Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DoT(Toxic), -DEF",
+    "display_target_help": "You have been poisoned and your defense has been reduced.",
+    "display_target_short_help": "DoT(Poison), '-DEF",
+    "icon_name": "BaneSpider_PoisonousRay.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "accuracy": 1.05,
+    "range": 40,
+    "time_to_activate": 2,
+    "recharge_time": 9,
+    "endurance_cost": 9.36,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "duration": 2.1,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 15,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      36,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_POISONOUSRAY.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/POWERS/ARACHNOSSOLDIER/BANESPIDER_POISONOUSRAY.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/ARACHNOSSOLDIER/BANESPIDER_POISONOUSRAY.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 32,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 62,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 66
+  },
+  "Shatter": {
+    "crcfull_name": 3470007873,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Shatter",
+    "display_name": "Shatter",
+    "display_help": "You attempt to Shatter the bones of your opponent by striking them with all your might. This attack will deal great damage and can knock foes back a great ways. NOTE: This power will deal critical damage if used after a successful Placate or while the user is hidden with the Bane Spider Cloaking Device. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG(Smash), Minor DoT(Toxic), High Knockback",
+    "display_target_help": "You have been poisoned.",
+    "display_target_short_help": "DoT(Poison)",
+    "icon_name": "BaneSpider_Shatter.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 10,
+    "time_to_activate": 2.33,
+    "recharge_time": 12,
+    "endurance_cost": 11.856,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.28,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.5109,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.6748,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [EXECUTIONER'S STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [EXECUTIONER'S STRIKE].",
+              "display_float": "EXECUTIONER'S STRIKE"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.52,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [EXECUTIONER'S STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [EXECUTIONER'S STRIKE].",
+              "display_float": "EXECUTIONER'S STRIKE"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      0,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_SHATTER.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      263
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      263,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "POWERS/MEDIEVALWEAPONS/WARMACESWING.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/MACEHITGRAND.FX",
+    "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/WARMACESWING.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 67,
+    "initial_attack_fxframe_delay": 30
+  },
+  "Placate": {
+    "crcfull_name": 2542720005,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Placate",
+    "display_name": "Placate",
+    "display_help": "Allow you to trick a foe to no longer attack you. A successful Placate will also Hide you. This Hide is very brief, and offers no Defense bonus, but it will allow you to deliver a Critical Hit. However, if you attack a Placated Foe, they will be able to attack you back. Recharge: Long",
+    "display_short_help": "Melee, Foe Placate, Self Stealth/Hide",
+    "display_target_help": "You have been Placated.",
+    "display_target_short_help": "Placate",
+    "icon_name": "BaneSpider_Placate.tga",
+    "ai_report": 1,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 60,
+    "endurance_cost": 2.6,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 10,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} has Placated you."
+            }
+          },
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "scale": 54,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "scale": 500,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              372
+            ],
+            "target": 0,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      100,
+      220,
+      224,
+      252,
+      372,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_PLACATE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      441
+    ],
+    "hit_bits": [
+      49,
+      442
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      441,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "attack_frames": 50,
+    "initial_frames_before_hit": 45
+  },
+  "Crowd_Control": {
+    "crcfull_name": 4196056061,
+    "source_file": "DEFS/POWERS/ARACHNOS_SOLDIERS_BANE_SPIDER_SOLDIER.POWERS",
+    "source_name": "Arachnos_Soldiers.Bane_Spider_Soldier.Crowd_Control",
+    "display_name": "Crowd Control",
+    "display_help": "You swing your mace in a wide arc in front of you. This attack strikes all foes within melee range, deals them serious damage and minor Toxic damage over time, and knocks them down. NOTE: This power may deal critical damage if used after a successful Placate or while the user is hidden with the Bane Spider Cloaking Device. Damage: High Recharge: Moderate",
+    "display_short_help": "Melee (Cone), High DMG(Smash), Minor DoT(Toxic), Foe Knockback",
+    "display_target_help": "You have been poisoned.",
+    "display_target_short_help": "DoT(Poison)",
+    "icon_name": "BaneSpider_CrowdControl.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 7,
+    "arc": 3.1415927,
+    "range": 7,
+    "time_to_activate": 2,
+    "recharge_time": 16,
+    "endurance_cost": 15.184,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.61,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7183,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1461,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_float": "STEALTH STRIKE"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.0733,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [STEALTH STRIKE].",
+              "display_float": "STEALTH STRIKE"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_CROWDCONTROL.PFX",
+    "attack_bits": [
+      20,
+      130,
+      164,
+      265
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      164,
+      265,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "POWERS/MEDIEVALWEAPONS/MACECLOBBERWAVE.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/MACEHITGRAND.FX",
+    "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/MACECLOBBERWAVE.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 27,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 57,
+    "initial_attack_fxframe_delay": 30
+  }
+}

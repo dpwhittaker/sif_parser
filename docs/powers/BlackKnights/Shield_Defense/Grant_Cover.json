@@ -1,0 +1,140 @@
+{
+  "crcfull_name": 3795407086,
+  "source_file": "DEFS/POWERS/BLACKKNIGHTS_SHIELD_DEFENSE.POWERS",
+  "source_name": "BlackKnights.Shield_Defense.Grant_Cover",
+  "display_name": "Grant Cover",
+  "display_help": "You are able to use your shield to defend nearby allies. Any teammates who remain nearby gain a bonus to their defense. Additionally, the caster and teammates will gain some resistance to defense and recharge rate debuffs.",
+  "display_short_help": "PBAoE, +DEF(Team, All but Psionic), +RES(Team, Defense Debuff, Recharge Debuff)",
+  "icon_name": "BlackKnights_GrantCover.tga",
+  "type": 1,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "time_to_activate": 2.5,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "ents_auto_hit": [
+    8,
+    1
+  ],
+  "ents_affected": [
+    8,
+    1
+  ],
+  "ai_groups": [
+    "kBuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            104,
+            108,
+            112,
+            116,
+            120,
+            124,
+            128,
+            132,
+            136
+          ],
+          "table": "Melee_Buff_Def",
+          "scale": 1.125,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/SHIELDS/GRANTCOVER_CONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "aspect": 24,
+          "table": "Melee_Res_Boolean",
+          "scale": 0.4,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 24,
+          "scale": 0.3,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    104,
+    108,
+    112,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    184,
+    356
+  ]
+}

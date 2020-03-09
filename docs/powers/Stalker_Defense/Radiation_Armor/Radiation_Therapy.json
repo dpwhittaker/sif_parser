@@ -1,0 +1,291 @@
+{
+  "crcfull_name": 2368198406,
+  "source_file": "DEFS/POWERS/STALKER_DEFENSE_RADIATION_ARMOR.POWERS",
+  "source_name": "Stalker_Defense.Radiation_Armor.Radiation_Therapy",
+  "display_name": "Radiation Therapy",
+  "display_help": "You concentrate your energies to harness the healing powers of radiation to mend your wounds and rebuild your endurance. Each nearby foe will increase the health and endurance you recover. Affected foes will have their regeneration rates substantially reduced for a short time. Recharge: Very Long",
+  "display_short_help": "PBAoE, Minor DMG(Energy), Minor DoT(Toxic), Foe -Regen, Self +HP, +End, Res(-Regen)",
+  "icon_name": "RadiationArmor_RadiationTherapy.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 3,
+  "effect_area": 2,
+  "max_targets_hit": 11,
+  "radius": 20,
+  "time_to_activate": 1.03,
+  "recharge_time": 60,
+  "endurance_cost": 13,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    19,
+    1
+  ],
+  "boosts_allowed": [
+    33,
+    23,
+    18,
+    14,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "target.isFriend?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.05,
+          "duration": 4.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 1.1,
+          "delay": 0.25,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} points of health!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 0.22,
+          "delay": 0.25,
+          "stack_type": 5,
+          "stack_limit": 10,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} points of health!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 5,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 2.5,
+          "stack_type": 5,
+          "stack_limit": 10,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "aspect": 24,
+          "target": 0,
+          "table": "Melee_Res_Boolean",
+          "scale": 0.75,
+          "duration": 60,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -1.5,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Melee_Res_Boolean",
+          "scale": -3.75,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    16,
+    28,
+    36,
+    88,
+    232
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_RADIATIONTHERAPY.PFX",
+  "attack_bits": [
+    20,
+    302
+  ],
+  "initial_attack_bits": [
+    20,
+    302
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORRADIATIONTHERAPY.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORRADIATIONTHERAPY_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORRADIATIONTHERAPY.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 31,
+  "initial_frames_before_hit": 22,
+  "primary_tint": [
+    77,
+    153,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    255,
+    97,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_RADIATIONTHERAPY.PFX",
+      "attack_bits": [
+        20,
+        302
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        302
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORRADIATIONTHERAPY.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORRADIATIONTHERAPY_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORRADIATIONTHERAPY.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 31,
+      "initial_frames_before_hit": 22
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_RADIATIONTHERAPY.PFX",
+      "attack_bits": [
+        20,
+        302
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        302
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORRADIATIONTHERAPY.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORRADIATIONTHERAPY_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORRADIATIONTHERAPY.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 31,
+      "initial_frames_before_hit": 22
+    }
+  ]
+}

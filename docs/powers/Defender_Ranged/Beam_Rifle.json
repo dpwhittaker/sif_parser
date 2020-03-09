@@ -1,0 +1,3560 @@
+{
+  "Single_Shot": {
+    "crcfull_name": 2191657607,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Single_Shot",
+    "display_name": "Single Shot",
+    "display_help": "You fire a single blast from your Beam Rifle which deals Moderate Energy damage and has a chance to knock the target down. If the target is suffering from Disintegrate, Single Shot will reduce the target's regeneration rate slightly. In addition, targets already affected by the Disintegrating effect have a chance to spread to 3 nearby targets. This Spread Disintegration effect can only hit targets that aren't already affected by the Disintegration effect. Spread Disintegration causes Minor Energy damage over time. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Energy), Foe Knockdown, Special",
+    "icon_name": "BeamRifle_SingleShot.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.2599,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.75,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} effect reduces {PlayerDest} regeneration rate slightly due to Disintegration.",
+              "display_victim_hit": "{PlayerSource}'s Disintegration effect reduces your regeneration rate with their {PowerName}!",
+              "display_float": "Disintegrate"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -3,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} effect reduces {PlayerDest} regeneration rate slightly due to Disintegration.",
+              "display_victim_hit": "{PlayerSource}'s Disintegration effect reduces your regeneration rate with their {PowerName}!",
+              "display_float": "Disintegrate"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate"
+        ],
+        "chance": 0.2,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              504
+            ],
+            "aspect": 16,
+            "scale": 0,
+            "magnitude": 0,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Pets.DisintegrateSpread.Disintegrate_Spread"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      232,
+      328,
+      504
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_SINGLESHOT.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      681,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_SINGLESHOT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_SINGLESHOT.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 13,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 43,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 105,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_SINGLESHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_SINGLESHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_SINGLESHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 13,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 13,
+        "projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_SINGLESHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_SINGLESHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_SINGLESHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 13,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 13,
+        "projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_SINGLESHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_SINGLESHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_SINGLESHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 13,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 43,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_SINGLESHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_SINGLESHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_SINGLESHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 13,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 43,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 105,
+        "palette": ""
+      }
+    ]
+  },
+  "Charged_Shot": {
+    "crcfull_name": 634135026,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Charged_Shot",
+    "display_name": "Charged Shot",
+    "display_help": "By charging up your Beam Rifle, you're able to launch a concentrated blast of energy at your foe to cause High Energy damage. The impact strikes with such force that it can knock your target off of their feet. Charge Shot causes additional damage if the target is suffering from the Disintegrating effect. In addition, targets already affected by the Disintegrating effect have a chance to spread to 3 nearby targets. This Disintegrate Spread effect can only hit targets that aren't already affected by the Disintegrating effect. Disintegrate Spread causes Minor Energy damage over time. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Energy), Foe Knockdown, Special",
+    "icon_name": "BeamRifle_ChargedShot.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.8889,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate Bonus"
+        ],
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.246,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate Bonus"
+        ],
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2833,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate"
+        ],
+        "chance": 0.39,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              504
+            ],
+            "aspect": 16,
+            "scale": 0,
+            "magnitude": 0,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Pets.DisintegrateSpread.Disintegrate_Spread"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      328,
+      504
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_CHARGEDSHOT.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      47
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      47,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 29,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 59,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 155,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CHARGEDSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 29,
+        "projectile_speed": 155,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CHARGEDSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 29,
+        "projectile_speed": 155,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CHARGEDSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 59,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 155,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CHARGEDSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 59,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 155,
+        "palette": ""
+      }
+    ]
+  },
+  "Cutting_Beam": {
+    "crcfull_name": 3687734841,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Cutting_Beam",
+    "display_name": "Cutting Beam",
+    "display_help": "You fire a constant stream of energy from your weapon and sweep it in a broad arc blasting all foes in a wide cone in front of you. Cutting beam deals Moderate Energy damage and reduces the targets' Defense. This power will cause Minor Energy damage over time if the target is suffering from the Disintegrating effect. Damage: Moderate, Recharge: Long",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Energy), Foe -Def(All), Special",
+    "display_target_help": "Your defense has been reduced by the Cutting Beam!",
+    "display_target_short_help": "-Def",
+    "icon_name": "BeamRifle_CuttingBeam.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 50,
+    "arc": 0.5235988,
+    "range": 50,
+    "time_to_activate": 1.9,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.919,
+            "delay": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.8693,
+            "delay": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.101,
+            "duration": 2.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.0956,
+            "duration": 2.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_CUTTINGBEAM.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      680
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      680,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM3.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM3.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 40,
+    "attack_frames": 57,
+    "initial_frames_before_hit": 70,
+    "initial_attack_fxframe_delay": 30,
+    "secondary_projectile_speed": 105,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CUTTINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          680
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          680
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 40,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 40,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CUTTINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          680
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          680
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CUTTINGBEAM_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 40,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 40,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CUTTINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          680
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          680,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 40,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 30,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_CUTTINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          680
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          680,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CUTTINGBEAM_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CUTTINGBEAM3.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 40,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 30,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      }
+    ]
+  },
+  "Disintegrate": {
+    "crcfull_name": 2602435381,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Disintegrate",
+    "display_name": "Disintegrate",
+    "display_help": "You fire a stream of energy at your foe which causes them to slowly disintegrate and suffer High Energy damage over time. Even after the damage over time effect wears off the target will have their regeneration rate reduced and suffer from the Disintegration effect for an additional period of time. Using Beam Rifle powers on targets affected by Disintegrate will inflict additional effects. Additionally if Single Shot, Charged Shot, Lancer Shot and Penetrating Ray are used on a target suffering from Disintegrating, they have a chance to cause this effect to spread to up 3 nearby targets that aren't already suffering from Disintegrating. Targets affected by this Disintegrate Spread will also suffer some Minor Energy damage over time. Damage: High, Recharge: Long",
+    "display_short_help": "Ranged, High DoT(Energy), Foe -Regen, Special",
+    "icon_name": "BeamRifle_Disintegrate.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.1,
+    "range": 80,
+    "time_to_activate": 1.9,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.216,
+            "duration": 10.5,
+            "period": 1.11,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.5,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} effect reduces {PlayerDest} regeneration rate slightly due to Disintegration.",
+              "display_victim_hit": "{PlayerSource}'s Disintegration effect reduces your regeneration rate with their {PowerName}!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2343,
+            "duration": 10.5,
+            "period": 1.11,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -6,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} effect reduces {PlayerDest} regeneration rate slightly due to Disintegration.",
+              "display_victim_hit": "{PlayerSource}'s Disintegration effect reduces your regeneration rate with their {PowerName}!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "duration": 1,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      232,
+      468,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_DISINTEGRATE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      694
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      694,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 57,
+    "initial_frames_before_hit": 59,
+    "initial_attack_fxframe_delay": 30,
+    "secondary_projectile_speed": 105,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_DISINTEGRATE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          694
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          694
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 29,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_DISINTEGRATE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          694
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          694
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 29,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_DISINTEGRATE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          694
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          694,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 59,
+        "initial_attack_fxframe_delay": 30,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_DISINTEGRATE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          694
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          694,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_DISINTEGRATE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 59,
+        "initial_attack_fxframe_delay": 30,
+        "secondary_projectile_speed": 105,
+        "palette": ""
+      }
+    ]
+  },
+  "Aim": {
+    "crcfull_name": 568579289,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Aim",
+    "display_name": "Aim",
+    "display_help": "Greatly increases the chance to hit of your attacks for a few seconds. Slightly increases damage. Recharge: Long",
+    "display_short_help": "Self +To-hit, +DMG",
+    "display_attacker_hit": "You activate {PowerName} and increase the power of your next few attacks.",
+    "icon_name": "BeamRifle_Aim.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You quickly take aim and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_AIM.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      245
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      245,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_AIM.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_AIM.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "initial_attack_fxframe_delay": 30,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_AIM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_AIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_AIM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "attack_frames": 35,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_AIM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_AIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_AIM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "attack_frames": 35,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_AIM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          245,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_AIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_AIM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "attack_frames": 35,
+        "initial_attack_fxframe_delay": 30,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_AIM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          245,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_AIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_AIM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "attack_frames": 35,
+        "initial_attack_fxframe_delay": 30,
+        "palette": ""
+      }
+    ]
+  },
+  "Lancer_Shot": {
+    "crcfull_name": 2663512605,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Lancer_Shot",
+    "display_name": "Lancer Shot",
+    "display_help": "You charge up your Beam Rifle and deliver an incredibly focused ray of energy at a nearby foe that deals Superior Energy damage and will briefly stun the target. Lancer Shot will cause additional damage if the target is suffering from the Disintegrating effect. In addition, targets already affected by the Disintegrating effect have a chance to spread to 3 nearby targets. This Disintegrate Spread effect can only hit targets that aren't already affected by the Disintegration effect. Disintegrate Spread causes Minor Energy damage over time. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Superior DMG(Energy), Foe Stun, Special",
+    "display_target_help": "You have disoriented by the Lancer Shot's impact.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "BeamRifle_LancerShot.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "range": 80,
+    "time_to_activate": 1.9,
+    "recharge_time": 11,
+    "endurance_cost": 11.024,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 2.12,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.1699,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate Bonus"
+        ],
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.424,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate Bonus"
+        ],
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.434,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Disintegrate"
+        ],
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              504
+            ],
+            "aspect": 16,
+            "scale": 0,
+            "magnitude": 0,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Pets.DisintegrateSpread.Disintegrate_Spread"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      276,
+      504
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      691
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      691,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 57,
+    "initial_frames_before_hit": 53,
+    "initial_attack_fxframe_delay": 30,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          691
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 23,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 23,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          691
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 23,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 23,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          691
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          691,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 23,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 53,
+        "initial_attack_fxframe_delay": 30,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          691
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          691,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 23,
+        "attack_frames": 57,
+        "initial_frames_before_hit": 53,
+        "initial_attack_fxframe_delay": 30,
+        "palette": ""
+      }
+    ]
+  },
+  "Penetrating_Ray": {
+    "crcfull_name": 1332325253,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Penetrating_Ray",
+    "display_name": "Penetrating Ray",
+    "display_help": "You take careful aim at your target and deliver a punishing supercharged shot from your Beam Rifle. This causes Extreme Energy damage and may knock the target off their feet. If the target is also suffering from the Disintegrating effect it will also suffer additional damage over time. Like all Sniper attacks it will be interrupted if you're attacked. In addition, targets already affected by the Disintegrating effect will cause this effect to spread to 3 nearby targets. This Disintegrate Spread effect can only hit targets that aren't already affected by the Disintegrating effect. Disintegrate Spread causes Minor Energy damage over time. If you are engaged in battle this attack becomes instant-cast. If you are not engaged, it will do bonus damage. Damage: Extreme, Recharge: Very Slow",
+    "display_short_help": "Sniper, Extreme Dmg(Energy), Foe Knockdown, Special",
+    "icon_name": "BeamRifle_PenetratingRay.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "range": 150,
+    "time_to_activate": 1.67,
+    "recharge_time": 12,
+    "endurance_cost": 14.352,
+    "target": 19,
+    "boosts_allowed": [
+      32,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "redirect": [
+      {
+        "power": "Pets.Defender_BR_Snipe.Penetrating_Ray_Quick",
+        "requires": [
+          "kEngaged",
+          "Source.Mode?",
+          "Set_Bonus.Set_Bonus.Experienced_Marksman",
+          "source.ownPower?",
+          "||"
+        ]
+      },
+      {
+        "power": "Pets.Defender_BR_Snipe.Penetrating_Ray_Normal"
+      }
+    ],
+    "effects": [],
+    "highlight_eval": [
+      "kEngaged",
+      "Mode?",
+      "Set_Bonus.Set_Bonus.Experienced_Marksman",
+      "ownPower?",
+      "||"
+    ],
+    "highlight_ring": [
+      255,
+      255,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_PENETRATINGRAY_QUICK.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      47
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      47,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 29,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 59,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 60,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PENETRATINGRAY_QUICK.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 29,
+        "projectile_speed": 60,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PENETRATINGRAY_QUICK.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 29,
+        "projectile_speed": 60,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PENETRATINGRAY_QUICK.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 59,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 60,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PENETRATINGRAY_QUICK.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          47
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          47,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_CHARGEDSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 29,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 59,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 60,
+        "palette": ""
+      }
+    ]
+  },
+  "Piercing_Beam": {
+    "crcfull_name": 2648130864,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Piercing_Beam",
+    "display_name": "Piercing Beam",
+    "display_help": "You release a supercharged beam in a narrow cone of energy that pierces through up to 3 enemies. Piercing Beam deals High Energy damage and briefly reduces their damage resistance. If a target struck by Piercing Beam is suffering from the Disintegrating effect it will immediately suffer additional damage. Damage: High, Recharge: Long",
+    "display_short_help": "Narrow Ranged (Cone), High DMG(Energy), Foes -Res, Special",
+    "display_target_help": "Your damage resistance has been reduced by the Piercing Beam.",
+    "display_target_short_help": "-Res",
+    "icon_name": "BeamRifle_PiercingBeam.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 3,
+    "radius": 80,
+    "arc": 0.08726647,
+    "range": 80,
+    "time_to_activate": 2.33,
+    "recharge_time": 14,
+    "endurance_cost": 13.52,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 2.17,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.4399,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7161,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.4752,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -2,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      693
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      693,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_HEAVY.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 80,
+    "initial_attack_fxframe_delay": 30,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_HEAVY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 50,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_HEAVY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 50,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_HEAVY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 80,
+        "initial_attack_fxframe_delay": 30,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_HEAVY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 80,
+        "initial_attack_fxframe_delay": 30,
+        "palette": ""
+      }
+    ]
+  },
+  "Overcharge": {
+    "crcfull_name": 2685063833,
+    "source_file": "DEFS/POWERS/DEFENDER_RANGED_BEAM_RIFLE.POWERS",
+    "source_name": "Defender_Ranged.Beam_Rifle.Overcharge",
+    "display_name": "Overcharge",
+    "display_help": "You overcharge your Beam Rifle and release a massive blast of energy at a group of distant foes causing Extreme Energy damage, causing Minor Energy damage over time, reducing the defense of all affected foes and potentially stunning affected foes. If Overcharge strikes a target suffering from the Disintegrating effect they will be affected by a longer stun. Damage: Extreme, Recharge: Very Long",
+    "display_short_help": "Ranged (Targeted AoE), Extreme DMG(Energy), Foe Minor DoT (Energy), -Def(All), Disorient, Special",
+    "display_target_help": "You have been disoriented and are suffering energy damage over time from the Overcharge.",
+    "display_target_short_help": "Disorient, Minor DoT(Energy)",
+    "icon_name": "BeamRifle_Overcharge.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.4,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "range": 80,
+    "time_to_activate": 2.9,
+    "recharge_time": 125,
+    "endurance_cost": 20.8,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.2378,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 1.5,
+            "duration": 15,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 4,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DISINTEGRATE].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DISINTEGRATE].",
+              "display_float": "Disintegrate"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      184,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_OVERCHARGE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      142,
+      693
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      142,
+      86,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      142,
+      693,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+    "mode_bits": [
+      20,
+      130,
+      142,
+      131,
+      86
+    ],
+    "frames_before_hit": 55,
+    "delayed_hit": true,
+    "attack_frames": 87,
+    "initial_frames_before_hit": 85,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 500,
+    "secondary_projectile_speed": 500,
+    "primary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedrawBright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_OVERCHARGE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 55,
+        "delayed_hit": true,
+        "attack_frames": 87,
+        "initial_frames_before_hit": 55,
+        "projectile_speed": 500,
+        "secondary_projectile_speed": 500,
+        "palette": ""
+      },
+      {
+        "token": "NoRedrawDark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_OVERCHARGE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          186
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 55,
+        "delayed_hit": true,
+        "attack_frames": 87,
+        "initial_frames_before_hit": 55,
+        "projectile_speed": 500,
+        "secondary_projectile_speed": 500,
+        "palette": ""
+      },
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_OVERCHARGE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 55,
+        "delayed_hit": true,
+        "attack_frames": 87,
+        "initial_frames_before_hit": 85,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 500,
+        "secondary_projectile_speed": 500,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_OVERCHARGE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          142,
+          693
+        ],
+        "activation_bits": [
+          20,
+          130,
+          142,
+          86,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          142,
+          693,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_OVERCHARGE_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          142,
+          131,
+          86
+        ],
+        "frames_before_hit": 55,
+        "delayed_hit": true,
+        "attack_frames": 87,
+        "initial_frames_before_hit": 85,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 500,
+        "secondary_projectile_speed": 500,
+        "palette": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "crcfull_name": 617846898,
+  "source_file": "DEFS/POWERS/V_ARACHNOS_DUST_DEVIL.POWERS",
+  "source_name": "V_Arachnos.Dust_Devil.Dust_Devil",
+  "display_name": "Dust Devil",
+  "display_help": "Any foes that enter this whirlwind will be tossed into the air.",
+  "display_short_help": "-Perception, -ToHit, -Defense",
+  "display_target_help": "The Dust Devil winds buffet you, dealing smashing Damage over Time, reducing your defense, and Disorients you.",
+  "display_target_short_help": "-Perception, -ToHit, -Defense",
+  "icon_name": "StormSummoning_Tornado.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 7,
+  "activate_period": 5,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.8,
+          "duration": 5,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 1.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            644,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    100,
+    184,
+    228
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "crcfull_name": 2264593448,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_SAVAGE_MELEE.POWERS",
+  "source_name": "Brute_Melee.Savage_Melee.Savage_Leap",
+  "display_name": "Savage Leap",
+  "display_help": "You throw yourself at your distant foes while slashing and tearing wildly dealing moderate lethal damage and causing your foes to suffer from additional minor lethal damage over time. The damage of this power can increase based on how far away you leap from, with up to double damage dealt at its strongest. Savage Leap build 1 stacks of Blood Frenzy for every 20 ft in between your target and you, up to 3 stacks. Damage: Superior, Minor DoT, Recharge: Long",
+  "display_short_help": "PBAoE, Superior DMG(Lethal), Foe Minor DoT(Lethal), Self 1 to 3 Blood Frenzy, Teleport",
+  "display_target_help": "You are bleeding!",
+  "display_target_short_help": "Minor DoT(Lethal)",
+  "icon_name": "SavageMelee_SavageLeap.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "range": 70,
+  "time_to_activate": 1.166667,
+  "recharge_time": 40,
+  "endurance_cost": 17.58,
+  "target": 19,
+  "target_secondary": 34,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    28,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "distance",
+        "7",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            292
+          ],
+          "target": 0,
+          "delay": 0.1,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BuildFrenzy"
+      ],
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Savage_Melee_Exhausted",
+        "source.ownPower?",
+        "!",
+        "distance",
+        "0",
+        ">=",
+        "&&",
+        "distance",
+        "20",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain 1 stack of Blood Frenzy!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BuildFrenzy"
+      ],
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Savage_Melee_Exhausted",
+        "source.ownPower?",
+        "!",
+        "distance",
+        "20",
+        ">=",
+        "&&",
+        "distance",
+        "40",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain 2 stacks of Blood Frenzy!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker"
+              ],
+              "count": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BuildFrenzy"
+      ],
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Savage_Melee_Exhausted",
+        "source.ownPower?",
+        "!",
+        "distance",
+        "40",
+        ">=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain 3 stacks of Blood Frenzy!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker"
+              ],
+              "count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Brute_Melee_Aux.Savage_Melee.Savage_Leap_AoE"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "position_center": 2,
+  "position_distance": -0.5,
+  "attrib_cache": [
+    292,
+    473,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_SAVAGELEAP.PFX",
+  "attack_bits": [
+    20,
+    596,
+    401,
+    304
+  ],
+  "initial_attack_bits": [
+    20,
+    596,
+    401,
+    304
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_ATTACK.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 10,
+  "initial_frames_before_hit": 10,
+  "primary_tint": [
+    255,
+    126,
+    48,
+    255
+  ],
+  "secondary_tint": [
+    89,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_SAVAGELEAP.PFX",
+      "attack_bits": [
+        20,
+        596,
+        401,
+        304
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        596,
+        401,
+        304
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_ATTACK.FX",
+      "frames_before_hit": 10,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 10,
+      "palette": ""
+    }
+  ]
+}

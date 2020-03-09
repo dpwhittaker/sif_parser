@@ -1,0 +1,395 @@
+{
+  "Tornado": {
+    "crcfull_name": 3381899956,
+    "source_file": "DEFS/POWERS/PETS_TORNADO.POWERS",
+    "source_name": "Pets.Tornado.Tornado",
+    "display_name": "Tornado",
+    "display_help": "Any foes that enter this whirlwind will be tossed into the air.",
+    "display_short_help": "Knockback, Disorient",
+    "display_target_help": "The Tornado winds buffet you, dealing smashing Damage over Time, reducing your defense, and Disorients you.",
+    "display_target_short_help": "DoT(Smashin), -DEF, Disorient",
+    "icon_name": "StormSummoning_Tornado.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE"
+    ],
+    "accuracy": 1.3,
+    "effect_area": 2,
+    "max_targets_hit": 5,
+    "radius": 7,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      21,
+      17,
+      10,
+      9
+    ],
+    "effects": [
+      {
+        "tag": [
+          "ReduceIfKD"
+        ],
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 3,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ReduceIfKD"
+        ],
+        "chance": 1.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 2,
+            "magnitude": 2,
+            "delay": 2.5,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "delay": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 1.5,
+            "duration": 8,
+            "stack_type": 3,
+            "flags": [
+              644,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 2,
+            "magnitude": 2,
+            "delay": 2.5,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      184,
+      276,
+      324,
+      328
+    ]
+  },
+  "Tornado_Attack": {
+    "crcfull_name": 3148732753,
+    "source_file": "DEFS/POWERS/PETS_TORNADO.POWERS",
+    "source_name": "Pets.Tornado.Tornado_Attack",
+    "display_name": "Tornado",
+    "display_help": "Any foes that enter this whirlwind will be tossed into the air.",
+    "display_short_help": "Knockback, Disorient",
+    "display_target_help": "The Tornado winds buffet you, dealing smashing Damage over Time, reducing your defense, and Disorients you.",
+    "display_target_short_help": "DoT(Smashin), -DEF, Disorient",
+    "icon_name": "StormSummoning_Tornado.tga",
+    "range": 1,
+    "recharge_time": 2,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "aspect": 32,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      468
+    ]
+  },
+  "Tornado_Fear": {
+    "crcfull_name": 564518524,
+    "source_file": "DEFS/POWERS/PETS_TORNADO.POWERS",
+    "source_name": "Pets.Tornado.Tornado_Fear",
+    "display_name": "Tornado Fear",
+    "display_help": "Your foes are afraid of Tornadoes.",
+    "display_short_help": "Tornado Fear",
+    "display_target_help": "The Tornado winds buffet you, dealing smashing Damage over Time, reducing your defense, and Disorients you.",
+    "display_target_short_help": "DoT(Smashin), -DEF, Disorient",
+    "icon_name": "StormSummoning_Tornado.tga",
+    "type": 1,
+    "accuracy": 1.4,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 20,
+    "activate_period": 0.2,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              260
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.5,
+            "magnitude": 10,
+            "flags": [
+              1072,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      260
+    ]
+  },
+  "Invisible": {
+    "crcfull_name": 2163031544,
+    "source_file": "DEFS/POWERS/PETS_TORNADO.POWERS",
+    "source_name": "Pets.Tornado.Invisible",
+    "display_name": "Invisible",
+    "display_help": "Any foes that enter this whirlwind will be tossed into the air.",
+    "display_short_help": "Tornado",
+    "icon_name": "Invulnerability_TemporaryInvulnerabilty.tga",
+    "type": 1,
+    "activate_period": 0.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "duration": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "target": 0,
+            "scale": 0.3,
+            "duration": 0.5,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 100,
+            "duration": 0.5,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              228
+            ],
+            "target": 0,
+            "scale": 0.5,
+            "duration": 0.5,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      28,
+      188,
+      228,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TORNADO_INVISIBLE.PFX",
+    "activation_fx": "POWERS/AIRCONTROL/TORNADO.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TORNADO_INVISIBLE.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/TORNADO/TORNADO.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  }
+}

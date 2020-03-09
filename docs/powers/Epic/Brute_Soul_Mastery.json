@@ -1,0 +1,985 @@
+{
+  "Gloom": {
+    "crcfull_name": 4283881227,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_SOUL_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Soul_Mastery.Gloom",
+    "display_name": "Gloom",
+    "display_help": "Gloom slowly drains a target of life, while reducing his Accuracy. Slower than Dark Blast, but deals more damage over time. Damage: High(DoT), Recharge: Moderate",
+    "display_short_help": "Ranged, High DoT(Negative), Foe -ACC",
+    "display_target_help": "The Gloom is causing damage to you and reducing your Accuracy.",
+    "display_target_short_help": "DoT(Negative), -ACC",
+    "icon_name": "Arachnos_Patron_TargetedRangedHighDmg.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Brute",
+      "==",
+      "$archetype",
+      "@Class_Tanker",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 1.1,
+    "recharge_time": 12,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.22,
+            "duration": 3.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1833,
+            "duration": 3.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.099,
+            "duration": 3.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      8,
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_GLOOM.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULDRAIN.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULDRAIN.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 33,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_GLOOM.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/GLOOM_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/GLOOM_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "frames_before_hit": 25,
+        "delayed_hit": true,
+        "attack_frames": 33,
+        "initial_frames_before_hit": 25,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Soul_Tentacles": {
+    "crcfull_name": 2479714230,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_SOUL_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Soul_Mastery.Soul_Tentacles",
+    "display_name": "Soul Tentacles",
+    "display_help": "You can create a cone shaped rift to the Netherworld that allows the souls of the damned to slip into our reality. These Soul Tentacles will snare all foes within range, Immobilizing them while they drain their life. Damage: Moderate(DoT), Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Negative), Foe Immobilize",
+    "display_target_help": "The Soul Tentacles are immobilizing you.",
+    "display_target_short_help": "Immobilize",
+    "icon_name": "Arachnos_Patron_ConeImmobilize.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Brute",
+      "==",
+      "$archetype",
+      "@Class_Tanker",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 40,
+    "arc": 0.43633232,
+    "range": 40,
+    "time_to_activate": 1.67,
+    "recharge_time": 20,
+    "endurance_cost": 12.74,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.135,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1072,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1703,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.045,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      8,
+      20,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_SOULTENTACLES.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SOULTENDRILS.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SOULSTORMHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SOULTENDRILS.FX",
+    "conditional_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SOULTENDRILSHITCONTINUING.FX",
+    "conditional_fx1": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SOULTENDRILSHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 52.5,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_SOULTENTACLES.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULTENTACLES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULSTORM_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULTENTACLES_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULTENTACLES_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULTENTACLES_CONTINUING.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 52.5
+      }
+    ]
+  },
+  "Darkest_Night": {
+    "crcfull_name": 3649030775,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_SOUL_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Soul_Mastery.Darkest_Night",
+    "display_name": "Darkest Night",
+    "display_help": "While active, you channel Negative Energy onto a targeted foe. Darkest Night decreases the damage potential and chance to hit of the target, and all foes nearby, as long as you keep the power active. You must be level 41 and have Gloom or Soul Tentacles before selecting this power. Recharge: Moderate",
+    "display_short_help": "Toggle: Ranged (Targeted AoE), Foe -DMG -To Hit",
+    "display_target_help": "Your chance to hit and Damage potential are reduced by the darkness.",
+    "display_target_short_help": "-To Hit, -DMG",
+    "display_attacker_hit": "Your {PowerName} reduced the damage and chance to hit of {PlayerDest} and all foes nearby.",
+    "display_victim_hit": "{PlayerSource} reduces your damage and chance to hit with their {PowerName}.",
+    "icon_name": "Arachnos_Patron_AoEDamageDebuff.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Brute_Soul_Mastery.Gloom",
+      "Epic.Brute_Soul_Mastery.Soul_Tentacles",
+      "||",
+      "&&"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "range": 70,
+    "time_to_activate": 2.37,
+    "recharge_time": 10,
+    "activate_period": 0.5,
+    "endurance_cost": 0.325,
+    "target": 17,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      11
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 0.75,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 4,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_DARKESTNIGHT.PFX",
+    "activation_bits": [
+      20,
+      272
+    ],
+    "activation_fx": "V_COV/POWERS/PATRON/SOULMASTERY/DARKESTNIGHT/DARKNESSHANDS3.FX",
+    "attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_DARKESTNIGHT.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          272
+        ],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/DARKESTNIGHT_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/CHILLOFNIGHT_SUBTRACTIVE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMIASMA/CHILLOFNIGHT_SUBTRACTIVE.FX",
+        "mode_bits": [],
+        "frames_before_hit": 53,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 53
+      }
+    ]
+  },
+  "Dark_Obliteration": {
+    "crcfull_name": 1883710078,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_SOUL_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Soul_Mastery.Dark_Obliteration",
+    "display_name": "Dark Obliteration",
+    "display_help": "You hurl a large blast of negative energy that violently explodes on impact, exposing the dark power of the Netherworld to all foes near the target. Dark Obliteration can reduce the Accuracy of all affected targets. You must be level 41 and have Gloom or Soul Tentacles before selecting this power. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Negative), Foe -ACC",
+    "icon_name": "Arachnos_Patron_RangedAoEModerateDmg.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Brute_Soul_Mastery.Gloom",
+      "Epic.Brute_Soul_Mastery.Soul_Tentacles",
+      "||",
+      "&&"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7323,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.405,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      8,
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_DARKOBLITERATION.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULEXPLOSION.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULEXPLOSION.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 24,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 24,
+    "projectile_speed": 51,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_DARKOBLITERATION.PFX",
+        "attack_bits": [
+          20,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          258
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/DARKOBLITERATION_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/NIGHTFALL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/DARKOBLITERATION_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "frames_before_hit": 24,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 24,
+        "projectile_speed": 51
+      }
+    ]
+  },
+  "Summon_Widow": {
+    "crcfull_name": 2263463029,
+    "source_file": "DEFS/POWERS/EPIC_BRUTE_SOUL_MASTERY.POWERS",
+    "source_name": "Epic.Brute_Soul_Mastery.Summon_Widow",
+    "display_name": "Summon Widow",
+    "display_help": "Ghost Widow has assigned a beautiful but deadly Blood Widow assassins for you to command. Their weapons of choice include wrist retractable mounted razors and darts, all tipped in deadly poison. Your access to this Blood Widow is very limited, and you can only summon her once every 15 minutes and she will leave after 4 minutes, until defeated, or until you leave a zone or mission. You must be level 44 and have two other Soul Mastery Powers before selecting this power. Recharge: Extremely Long",
+    "display_short_help": "Summon Blood Widow: Melee Moderate DMG(Lethal)",
+    "icon_name": "Arachnos_Patron_SummonOnePet.tga",
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Brute_Soul_Mastery.Gloom",
+      "Epic.Brute_Soul_Mastery.Soul_Tentacles",
+      "&&",
+      "Epic.Brute_Soul_Mastery.Gloom",
+      "Epic.Brute_Soul_Mastery.Darkest_Night",
+      "&&",
+      "||",
+      "Epic.Brute_Soul_Mastery.Gloom",
+      "Epic.Brute_Soul_Mastery.Dark_Obliteration",
+      "&&",
+      "||",
+      "Epic.Brute_Soul_Mastery.Soul_Tentacles",
+      "Epic.Brute_Soul_Mastery.Darkest_Night",
+      "&&",
+      "||",
+      "Epic.Brute_Soul_Mastery.Soul_Tentacles",
+      "Epic.Brute_Soul_Mastery.Dark_Obliteration",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 3.2,
+    "recharge_time": 900,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Blood_Widow",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_SUMMON.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SUMMONSOUL.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/SUMMONSOUL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 96,
+    "initial_frames_before_hit": 37,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SUMMON_ATTACK.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 96,
+        "initial_frames_before_hit": 37
+      }
+    ]
+  }
+}

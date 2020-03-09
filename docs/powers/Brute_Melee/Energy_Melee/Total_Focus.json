@@ -1,0 +1,261 @@
+{
+  "crcfull_name": 1262592101,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_ENERGY_MELEE.POWERS",
+  "source_name": "Brute_Melee.Energy_Melee.Total_Focus",
+  "display_name": "Total Focus",
+  "display_help": "Total Focus is complete mastery over Energy Melee. This is a very slow, but incredibly devastating attack that can knock out most opponents, leaving them Disoriented. Due to the exhausting nature of Total Focus, recharge time is very long. Damage: Extreme, Recharge: Long",
+  "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe Disorient",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "PowerPunch_TotalFocus.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 7,
+  "time_to_activate": 3.3,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.56,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.053,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.4569,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.602,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    8,
+    16,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ENERGYMELEE_TOTALFOCUS.PFX",
+  "attack_bits": [
+    20,
+    354
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    354
+  ],
+  "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+  "attack_fx": "POWERS/POWERPUNCH/TOTALFOCUSPOWERPUNCH.FX",
+  "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+  "initial_attack_fx": "POWERS/POWERPUNCH/TOTALFOCUSPOWERPUNCH.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 69,
+  "attack_frames": 99,
+  "initial_frames_before_hit": 69,
+  "custom_fx": [
+    {
+      "token": "Bright Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ENERGYMELEE_TOTALFOCUS.PFX",
+      "attack_bits": [
+        20,
+        354
+      ],
+      "initial_attack_bits": [
+        20,
+        354
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSPOWERPUNCH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSPOWERPUNCH.FX",
+      "frames_before_hit": 69,
+      "attack_frames": 99,
+      "initial_frames_before_hit": 69,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ENERGYMELEE_TOTALFOCUS.PFX",
+      "attack_bits": [
+        20,
+        354
+      ],
+      "initial_attack_bits": [
+        20,
+        354
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/TOTALFOCUSPOWERPUNCH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/TOTALFOCUSPOWERPUNCH.FX",
+      "frames_before_hit": 69,
+      "attack_frames": 99,
+      "initial_frames_before_hit": 69
+    }
+  ]
+}

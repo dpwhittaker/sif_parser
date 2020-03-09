@@ -1,0 +1,1064 @@
+{
+  "Repel": {
+    "crcfull_name": 3064466759,
+    "source_file": "DEFS/POWERS/PETS_SINGULARITY.POWERS",
+    "source_name": "Pets.Singularity.Repel",
+    "display_name": "Repel",
+    "display_help": "Repel creates a zone of kinetic energy that violently repels nearby foes. Each villain that is repelled costs additional Endurance. Recharge: Slow",
+    "display_short_help": "Toggle: Self AoE Knockback",
+    "display_attacker_hit": "You protect yourself with your {PowerName}, and will knock down any villain that approaches you.",
+    "icon_name": "KineticBoost_Repel.tga",
+    "type": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 9,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      17
+    ],
+    "effects": [
+      {
+        "tag": [
+          "ReduceIfKD"
+        ],
+        "chance": 1.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 3,
+            "duration": 0.5,
+            "stack_type": 3,
+            "flags": [
+              192,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 3,
+            "duration": 0.5,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              192,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_REPEL.PFX",
+    "activation_bits": [
+      20,
+      254
+    ],
+    "activation_fx": "POWERS/KINETICS/SINGULARITY.FX",
+    "hit_fx": "POWERS/KINETICS/KINREPELHIT.FX",
+    "frames_before_hit": 23,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_REPEL.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          254
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/SINGULARITY.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/KINREPELHIT.FX",
+        "mode_bits": [],
+        "frames_before_hit": 23,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_REPEL.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          254
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/SUBTRACTIVE/SINGULARITY.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/SUBTRACTIVE/KINREPELHIT.FX",
+        "mode_bits": [],
+        "frames_before_hit": 23,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Crush": {
+    "crcfull_name": 1542458119,
+    "source_file": "DEFS/POWERS/PETS_SINGULARITY.POWERS",
+    "source_name": "Pets.Singularity.Crush",
+    "display_name": "Crush",
+    "display_help": "Creates a localized gravitational field strong enough to Immobilize a single foe. Crush can also bring down flying entities. This power deals Smashing damage over time and can Slow the movement of targets that escape its grasp. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Smash), Foe Immobilize, -Fly",
+    "icon_name": "GravityControl_Crush.tga",
+    "accuracy": 1.2,
+    "range": 60,
+    "time_to_activate": 1.33,
+    "recharge_time": 4,
+    "target": 19,
+    "boosts_allowed": [
+      22,
+      15,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 15,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      0,
+      188,
+      192,
+      200,
+      204,
+      272,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_CRUSH.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELDCONTINUING.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELDCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 93,
+    "initial_frames_before_hit": 32,
+    "ignore_attack_time_errors": "c-jhamilton",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_CRUSH.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONFIELDCONTINUING.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 93,
+        "initial_frames_before_hit": 32,
+        "ignore_attack_time_errors": "c-jhamilton",
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_CRUSH.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCCRUSH_SINGULARITY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCCRUSH_SINGULARITY.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONFIELDCONTINUING.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 93,
+        "initial_frames_before_hit": 32,
+        "ignore_attack_time_errors": "c-jhamilton"
+      }
+    ]
+  },
+  "Lift": {
+    "crcfull_name": 1662774193,
+    "source_file": "DEFS/POWERS/PETS_SINGULARITY.POWERS",
+    "source_name": "Pets.Singularity.Lift",
+    "display_name": "Lift",
+    "display_help": "Negates the gravity around a single target. Lift violently sends an enemy straight into the air, then slams them to the ground for Smashing damage. This power can bring flying foes to the ground. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Smash)",
+    "icon_name": "GravityControl_Lift.tga",
+    "range": 60,
+    "time_to_activate": 1.03,
+    "recharge_time": 6,
+    "target": 19,
+    "boosts_allowed": [
+      22,
+      17,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.32,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "delay": 2,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "now",
+          "GravityDistortion",
+          "target.TokenTime>",
+          "-",
+          "12",
+          "<"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.33,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+              "display_float": "Impact!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      0,
+      284,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_LIFT.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCLIFT_SINGULARITY.FX",
+    "hit_fx": "POWERS/GRAVITYCONTROL/GCLIFTHIT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCLIFT_SINGULARITY.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 31,
+    "initial_frames_before_hit": 22,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_LIFT.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFT.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 31,
+        "initial_frames_before_hit": 22,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_LIFT.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCLIFT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCLIFTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCLIFT.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 31,
+        "initial_frames_before_hit": 22
+      }
+    ]
+  },
+  "Gravity_Distortion": {
+    "crcfull_name": 2219919217,
+    "source_file": "DEFS/POWERS/PETS_SINGULARITY.POWERS",
+    "source_name": "Pets.Singularity.Gravity_Distortion",
+    "display_name": "Gravity Distortion",
+    "display_help": "Causes a single foe to be trapped in a misshapen gravity field, rendering them unable to take action. Gravity Distortion deals Smashing damage to the target. Damage: Moderate(DoT), Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DoT(Smash), Foe Hold, -Fly",
+    "icon_name": "GravityControl_GravityDistortion.tga",
+    "accuracy": 1.2,
+    "range": 60,
+    "time_to_activate": 1.83,
+    "recharge_time": 8,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      22,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 9,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3.5,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              497
+            ],
+            "aspect": 32,
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1920,
+              0
+            ],
+            "param": {}
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.22,
+            "duration": 4.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      0,
+      188,
+      192,
+      200,
+      204,
+      268,
+      324,
+      328,
+      497
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_GRAVITYDISTORTION.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTION_SINGULARITY.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTION_SINGULARITY.FX",
+    "continuing_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONCONTINUING.FX",
+    "continuing_fx1": "POWERS/GRAVITYCONTROL/GCDISTORTIONCONTINUING.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCCRUSHCONTINUING.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCCRUSHCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 96,
+    "initial_frames_before_hit": 37,
+    "ignore_attack_time_errors": "c-jhamilton",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_GRAVITYDISTORTION.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/GCDISTORTION_SINGULARITY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/GCDISTORTION_SINGULARITY.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCCRUSHFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCCRUSHFIELDCONTINUING.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 96,
+        "initial_frames_before_hit": 37,
+        "ignore_attack_time_errors": "c-jhamilton",
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_SINGULARITY_GRAVITYDISTORTION.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/SUBTRACTIVE/GCDISTORTION_SINGULARITY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PETS/SINGULARITY/SUBTRACTIVE/GCDISTORTION_SINGULARITY.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCCRUSHFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCCRUSHFIELDCONTINUING.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 96,
+        "initial_frames_before_hit": 37,
+        "ignore_attack_time_errors": "c-jhamilton"
+      }
+    ]
+  },
+  "Resistance": {
+    "crcfull_name": 2490082378,
+    "source_file": "DEFS/POWERS/PETS_SINGULARITY.POWERS",
+    "source_name": "Pets.Singularity.Resistance",
+    "display_name": "Resistance",
+    "display_help": "Singularity is highly resistant to most attacks.",
+    "display_short_help": "Resistance",
+    "icon_name": "Invulnerability_TemporaryInvulnerabilty.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              28,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 10,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "target": 0,
+            "scale": -100,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": -0.25,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "scale": 0,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328,
+              332
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 100,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328,
+              332
+            ],
+            "target": 0,
+            "scale": -100,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      36,
+      100,
+      268,
+      272,
+      276,
+      280,
+      284,
+      324,
+      328,
+      332,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/AUTOPOWER_SPAWN_PET.PFX",
+    "activation_bits": [
+      295,
+      48
+    ]
+  }
+}

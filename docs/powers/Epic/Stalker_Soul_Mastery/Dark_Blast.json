@@ -1,0 +1,298 @@
+{
+  "crcfull_name": 1978396072,
+  "source_file": "DEFS/POWERS/EPIC_STALKER_SOUL_MASTERY.POWERS",
+  "source_name": "Epic.Stalker_Soul_Mastery.Dark_Blast",
+  "display_name": "Dark Blast",
+  "display_help": "A long range blast of dark energy. Deals moderate Negative Energy damage and reduces the target's Accuracy. Damage: Moderate, Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DMG(Negative), Foe -ACC",
+  "display_target_help": "The Dark Blast has reduced your Accuracy.",
+  "display_target_short_help": "-ACC",
+  "icon_name": "Arachnos_Patron_TargetedRangedModDmg.tga",
+  "attack_types": [
+    "Ranged",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Stalker",
+    "==",
+    "$archetype",
+    "@Class_Scrapper",
+    "==",
+    "||",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "range": 80,
+  "time_to_activate": 1,
+  "recharge_time": 6,
+  "endurance_cost": 6.5,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    11,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.75,
+          "duration": 6,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.8575,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.8575,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.8575,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    20,
+    100
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_DARKBLAST.PFX",
+  "attack_bits": [
+    20,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258
+  ],
+  "attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULBLAST.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULBLASTHIT.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/GHOSTWIDOW/DARKSOULBLAST.FX",
+  "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+  "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 22,
+  "projectile_speed": 51,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_DARKBLAST.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/DARKBLAST_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/NIGHTFALL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/DARKBLAST_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+      "frames_before_hit": 22,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 22,
+      "projectile_speed": 51
+    }
+  ]
+}

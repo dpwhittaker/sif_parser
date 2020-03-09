@@ -1,0 +1,151 @@
+{
+  "crcfull_name": 3364344229,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Alt_Signature_Summon_Ranged",
+  "free": true,
+  "display_name": "Signature Summon (Ranged Damage)",
+  "display_help": "Through your dedication and loyalty you've been granted the right to call upon the aid of an Echo of a ranged damage signature character. Heroes will summon an Echo of Positron and Villains will summon an Echo of Scirocco. Your summoned ally will vanish after 4 minutes, after being defeated or after you zone, whichever happens first. You must be level 4 or greater to use this power. Recharge: Long",
+  "display_short_help": "Summon: Ranged Signature Character",
+  "icon_name": "Temporary_SignatureSummon.tga",
+  "activate_requires": [
+    "Temporary_Powers.Temporary_Powers.Alt_Signature_Summon_Lock",
+    "!",
+    "level",
+    "char>",
+    "4",
+    ">=",
+    "&&"
+  ],
+  "target_near_ground": true,
+  "ignore_level_bought": true,
+  "effect_area": 3,
+  "range": 60,
+  "time_to_activate": 2.03,
+  "recharge_time": 240,
+  "endurance_cost": 9.75,
+  "stacking_usage": true,
+  "num_charges": 5,
+  "max_num_charges": 100,
+  "target": 20,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "modes_disallowed": [
+    9,
+    12,
+    1,
+    2,
+    4,
+    5
+  ],
+  "effects": [
+    {
+      "requires": [
+        "type",
+        "source>",
+        "hero",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 240,
+          "delay": 1.5,
+          "stack_type": 1,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_SignatureSummon_Positron",
+              "priority_list": "PL_FightPreferMelee"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "type",
+        "source>",
+        "villain",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 240,
+          "delay": 1.5,
+          "stack_type": 1,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_SignatureSummon_Scirocco",
+              "priority_list": "PL_FightPreferRanged"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Alt_Signature_Summon_Lock"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "show_in_manage": false,
+  "max_boosts": 0,
+  "travel_suppression": 4,
+  "attrib_cache": [
+    461,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_SUMMON_JUMPBOT.PFX",
+  "attack_bits": [
+    474,
+    681
+  ],
+  "initial_attack_bits": [
+    474,
+    681
+  ],
+  "attack_fx": "GENERIC/WRISTBAND_ACTIVATION_QUICK.FX",
+  "initial_attack_fx": "GENERIC/WRISTBAND_ACTIVATION_QUICK.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25
+}

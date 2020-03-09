@@ -1,0 +1,1183 @@
+{
+  "Ice_Blast": {
+    "crcfull_name": 2497452536,
+    "source_file": "DEFS/POWERS/EPIC_ICE_MASTERY.POWERS",
+    "source_name": "Epic.Ice_Mastery.Ice_Blast",
+    "display_name": "Ice Blast",
+    "display_help": "Ice Blast hurls shards of ice at foes and Slows their attacks and movement for a time. Slower recharge than Ice Bolt, but more damage. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Cold/Smash), Foe -Recharge, -SPD",
+    "display_target_help": "Your Attack rate and Running speed are reduced.",
+    "display_target_short_help": "-Recharge, -SPD",
+    "icon_name": "IceMastery_IceBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Cold"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Controller",
+      "=="
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.3778,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.5112,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.889,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 10
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      12,
+      188,
+      192,
+      200,
+      204,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_ICEBLAST.PFX",
+    "attack_bits": [
+      20,
+      183,
+      722
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      183,
+      722
+    ],
+    "attack_fx": "POWERS/COLDCONTROL/ICEBLAST.FX",
+    "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+    "initial_attack_fx": "POWERS/COLDCONTROL/ICEBLAST.FX",
+    "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 17,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 17,
+    "projectile_speed": 60,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_ICEBLAST.PFX",
+        "attack_bits": [
+          20,
+          183,
+          722
+        ],
+        "initial_attack_bits": [
+          20,
+          183,
+          722
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBLAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 17,
+        "projectile_speed": 60,
+        "palette": "ice"
+      },
+      {
+        "token": "Custom Ice Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_ICEBLAST.PFX",
+        "display_name": "Custom Ice Cast",
+        "attack_bits": [
+          20,
+          183,
+          722,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          183,
+          722,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_ICEBLAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_ICEBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 17,
+        "projectile_speed": 60,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Hibernate": {
+    "crcfull_name": 4213952697,
+    "source_file": "DEFS/POWERS/EPIC_ICE_MASTERY.POWERS",
+    "source_name": "Epic.Ice_Mastery.Hibernate",
+    "display_name": "Hibernate",
+    "display_help": "When you activate this power, you encase yourself in a block of solid ice, making yourself invulnerable, though you are frozen solid and cannot act. While Hibernating within this block of ice, you heal damage and recover endurance at an incredible rate. You can emerge at will by deactivating the power, but you cannot Hibernate for more than 30 seconds. If you activate this power while in the air, you will fall. Recharge: Long",
+    "display_short_help": "Toggle: Self +Regeneration, +Recovery, Invulnerable; Self Hold",
+    "display_attacker_hit": "You Hibernate in a block of ice, and are almost completely invulnerable while you heal at an astonishing rate.",
+    "icon_name": "IceArmor_Hybernate.tga",
+    "type": 2,
+    "buy_requires": [
+      "$archetype",
+      "@Class_Controller",
+      "=="
+    ],
+    "time_to_activate": 0.07,
+    "recharge_time": 240,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      14
+    ],
+    "group_membership": [
+      0
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37,
+      29
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272,
+              296,
+              304
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 0.75,
+            "magnitude": 100,
+            "stack_type": 3,
+            "flags": [
+              1072,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 4,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.NoPhase"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      232,
+      236,
+      272,
+      296,
+      304,
+      324,
+      328,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ICEARMOR_HIBERNATE.PFX",
+    "continuing_fx": "POWERS/ICEARMOR/HIBERNATE.FX",
+    "continuing_fx1": "POWERS/ICEARMOR/HIBERNATE.FX",
+    "mode_bits": [
+      594
+    ],
+    "frames_before_hit": 1,
+    "attack_frames": 2,
+    "initial_frames_before_hit": 1,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ICEARMOR_HIBERNATE.PFX",
+        "hit_bits": [],
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/ICEARMOR/HIBERNATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/ICEARMOR/HIBERNATE_CONTINUING.FX",
+        "mode_bits": [
+          594
+        ],
+        "frames_before_hit": 1,
+        "attack_frames": 2,
+        "initial_frames_before_hit": 1,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Frozen_Armor": {
+    "crcfull_name": 2189951553,
+    "source_file": "DEFS/POWERS/EPIC_ICE_MASTERY.POWERS",
+    "source_name": "Epic.Ice_Mastery.Frozen_Armor",
+    "display_name": "Frozen Armor",
+    "display_help": "While this power is active, you coat yourself in rock hard Frozen Armor. The hardness of the Frozen Armor offers good defense to Smashing and Lethal attack as well as reduces Cold damage. Also, Fire attacks deal slightly less damage. You must be level 41 and have Ice Blast or Hibernate before selecting this power. Recharge: Very Fast",
+    "display_short_help": "Toggle: Self +Def(Smash, Lethal), +Res(Cold, Fire)",
+    "display_attacker_hit": "You are now more defensive to smashing and lethal attacks.",
+    "icon_name": "IceArmor_IceArmor.tga",
+    "type": 2,
+    "buy_requires": [
+      "Epic.Ice_Mastery.Ice_Blast",
+      "Epic.Ice_Mastery.Hibernate",
+      "||"
+    ],
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "time_to_activate": 0.73,
+    "recharge_time": 2,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      35,
+      23,
+      18,
+      6
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              116,
+              120
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 1.5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              116,
+              120,
+              132,
+              136,
+              140
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 1.5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              8,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              388,
+              392,
+              404,
+              408,
+              412
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.1,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      8,
+      12,
+      36,
+      116,
+      120,
+      132,
+      136,
+      140,
+      388,
+      392,
+      404,
+      408,
+      412
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ICEARMOR_ICEARMOR.PFX",
+    "activation_bits": [
+      245
+    ],
+    "activation_fx": "POWERS/ICEARMOR/FROZENARMOR_CONTINUING.FX",
+    "continuing_fx": "POWERS/ICEARMOR/ICEARMOR_CONTINUING.FX",
+    "continuing_fx1": "POWERS/ICEARMOR/ICEARMOR_CONTINUING.FX",
+    "frames_before_hit": 16,
+    "attack_frames": 22,
+    "initial_frames_before_hit": 16,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ICEARMOR_ICEARMOR.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ICEARMOR/FROZENARMOR_CONTINUING.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEARMOR_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEARMOR_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 16,
+        "attack_frames": 22,
+        "initial_frames_before_hit": 16,
+        "palette": "ice"
+      },
+      {
+        "token": "Minimal FX",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ICEARMOR_ICEARMOR.PFX",
+        "display_name": "P962008385",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ICEARMOR/FROZENARMOR_CONTINUING.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEARMOR_MINIMAL_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEARMOR_MINIMAL_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 16,
+        "attack_frames": 22,
+        "initial_frames_before_hit": 16,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Frost_Breath": {
+    "crcfull_name": 3469169380,
+    "source_file": "DEFS/POWERS/EPIC_ICE_MASTERY.POWERS",
+    "source_name": "Epic.Ice_Mastery.Frost_Breath",
+    "display_name": "Frost Breath",
+    "display_help": "Unleashes a cone of frosty breath that can Slow your opponents' movement and attacks. Very accurate and very deadly at medium range. You must have two other Ice Mastery power to select this power. You must be level 41 and have Ice Blast or Hibernate before selecting this power. Damage: Moderate(DoT), Recharge: Slow",
+    "display_short_help": "Close (Cone), Moderate DoT(Cold), Foe -Recharge, -SPD",
+    "display_target_help": "You are freezing. Your Attack rate and Running speed are reduced by the Frost Breath.",
+    "display_target_short_help": "DoT(Cold), -Recharge, -SPD",
+    "icon_name": "IceMastery_FrostBreath.tga",
+    "attack_types": [
+      "AOE",
+      "Cold"
+    ],
+    "buy_requires": [
+      "Epic.Ice_Mastery.Ice_Blast",
+      "Epic.Ice_Mastery.Hibernate",
+      "||"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 40,
+    "arc": 0.5235988,
+    "range": 40,
+    "time_to_activate": 2.67,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7,
+            "duration": 0.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7,
+            "duration": 0.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.5477,
+            "duration": 0.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.5477,
+            "duration": 0.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 10
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      12,
+      188,
+      192,
+      200,
+      204,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_FROSTBREATH.PFX",
+    "attack_bits": [
+      20,
+      327
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327
+    ],
+    "attack_fx": "POWERS/COLDCONTROL/FROSTBREATH.FX",
+    "hit_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUINGWITHOUTCRYSTALS.FX",
+    "initial_attack_fx": "POWERS/COLDCONTROL/FROSTBREATH.FX",
+    "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 35,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_FROSTBREATH.PFX",
+        "attack_bits": [
+          20,
+          327
+        ],
+        "initial_attack_bits": [
+          20,
+          327
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/FROSTBREATH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/COLDMISTCONTINUINGWITHOUTCRYSTALS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/FROSTBREATH.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "frames_before_hit": 35,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "palette": "ice"
+      },
+      {
+        "token": "Custom Ice Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_FROSTBREATH.PFX",
+        "display_name": "Custom Icy Embrace",
+        "attack_bits": [
+          20,
+          327,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          327,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_FROSTBREATH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/COLDMISTCONTINUINGWITHOUTCRYSTALS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_FROSTBREATH.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+        "frames_before_hit": 35,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Ice_Storm": {
+    "crcfull_name": 2925627738,
+    "source_file": "DEFS/POWERS/EPIC_ICE_MASTERY.POWERS",
+    "source_name": "Epic.Ice_Mastery.Ice_Storm",
+    "display_name": "Ice Storm",
+    "display_help": "Shred your foes with this Ice Storm. This power deals a lot of damage in a large area and can Slow all affected targets movement and attack speed. You must be level 44 and have two other Ice Mastery Powers before selecting this power. Damage: Minor(DoT), Recharge: Long",
+    "display_short_help": "Ranged (Location AoE), Minor DoT(Cold), Foe -Recharge, -SPD",
+    "display_target_help": "Your Attack rate and Running speed are reduced.",
+    "display_target_short_help": "-Recharge, -SPD",
+    "icon_name": "IceMastery_FreezingRain.tga",
+    "buy_requires": [
+      "Epic.Ice_Mastery.Ice_Blast",
+      "Epic.Ice_Mastery.Hibernate",
+      "&&",
+      "Epic.Ice_Mastery.Ice_Blast",
+      "Epic.Ice_Mastery.Frozen_Armor",
+      "&&",
+      "||",
+      "Epic.Ice_Mastery.Hibernate",
+      "Epic.Ice_Mastery.Frozen_Armor",
+      "&&",
+      "||",
+      "Epic.Ice_Mastery.Ice_Blast",
+      "Epic.Ice_Mastery.Hibernate",
+      "&&",
+      "||",
+      "Epic.Ice_Mastery.Ice_Blast",
+      "Epic.Ice_Mastery.Frost_Breath",
+      "&&",
+      "||",
+      "Epic.Ice_Mastery.Hibernate",
+      "Epic.Ice_Mastery.Frost_Breath",
+      "&&",
+      "||"
+    ],
+    "accuracy": 2,
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 120,
+    "endurance_cost": 19.5,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      9
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 15,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Epic_IceStorm"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ICEBLAST_ICESTORM.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "POWERS/COLDCONTROL/CHILLINGHANDS.FX",
+    "initial_attack_fx": "POWERS/COLDCONTROL/CHILLINGHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Ice Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ICEBLAST_ICESTORM.PFX",
+        "attack_bits": [
+          20,
+          252
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          252
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CHILLINGHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CHILLINGHANDS.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "ice"
+      }
+    ]
+  }
+}

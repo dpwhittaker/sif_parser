@@ -1,0 +1,355 @@
+{
+  "crcfull_name": 3755919455,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_ELECTRICAL_BLAST.POWERS",
+  "source_name": "Corruptor_Ranged.Electrical_Blast.Tesla_Cage",
+  "display_name": "Tesla Cage",
+  "display_help": "Tesla Cage confines the target in an electrical prison. The target is overwhelmed by the electrical charge and is left helpless and can be attacked. The target is drained of some Endurance and some of that Endurance may be transferred back to you. Damage: Minor, Recharge: Moderate",
+  "display_short_help": "Ranged, Minor DMG(Energy), Foe Hold, -End",
+  "display_target_help": "The Tesla Cage is holding you helpless.",
+  "display_target_short_help": "Hold",
+  "icon_name": "ElectricalBolt_TelsaCage.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 60,
+  "time_to_activate": 2.17,
+  "recharge_time": 10,
+  "endurance_cost": 6.864,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    30,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.07,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -1.25,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.15,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 8
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.15,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1109,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 3.43,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You recover some of the Endurance you drained.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_TESLACAGE.PFX",
+  "attack_bits": [
+    20,
+    365
+  ],
+  "hit_bits": [
+    49,
+    283
+  ],
+  "initial_attack_bits": [
+    20,
+    365
+  ],
+  "attack_fx": "V_COV/POWERS/ELECTRICALBLAST/ELECTRICITYCAGEBOLTS.FX",
+  "hit_fx": "V_COV/POWERS/ELECTRICALBLAST/THUNDERBOLTHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/ELECTRICALBLAST/ELECTRICITYCAGEBOLTS.FX",
+  "conditional_fx": "V_COV/POWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+  "conditional_fx1": "V_COV/POWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 29,
+  "attack_frames": 65,
+  "initial_frames_before_hit": 29,
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "alt_theme": [
+        "Bright Electric Cast"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_TESLACAGE.PFX",
+      "attack_bits": [
+        20,
+        365
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        365
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGEBOLTS.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGEBOLTS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+      "frames_before_hit": 29,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 29,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "alt_theme": [
+        "Dark Electric Cast"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_TESLACAGE.PFX",
+      "attack_bits": [
+        20,
+        365
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        365
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGEBOLTS.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGEBOLTS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGE.FX",
+      "frames_before_hit": 29,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 29
+    }
+  ]
+}

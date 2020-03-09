@@ -1,0 +1,274 @@
+{
+  "crcfull_name": 2383189930,
+  "source_file": "DEFS/POWERS/SENTINEL_RANGED_ICE_BLAST.POWERS",
+  "source_name": "Sentinel_Ranged.Ice_Blast.Chilling_Ray",
+  "display_name": "Chilling Ray",
+  "display_help": "Chilling Ray encases your foe in a frail block of ice, holding them helpless in place for a while. The block of ice will break if attacked. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DMG(Cold), Foe Sleep",
+  "display_target_help": "You are frozen solid by the Chilling Ray.",
+  "display_target_short_help": "Sleep",
+  "icon_name": "IceBlast_FreezeRay.tga",
+  "attack_types": [
+    "Ranged",
+    "Cold"
+  ],
+  "range": 60,
+  "time_to_activate": 1.67,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    20,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.11,
+          "duration": 9.17,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 6
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 6,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Ranged_Sleep",
+          "scale": 8,
+          "magnitude": 3,
+          "delay": 0.2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "delay": 0.2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    12,
+    188,
+    192,
+    200,
+    204,
+    280,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_CHILLINGRAY.PFX",
+  "attack_bits": [
+    20,
+    183,
+    722
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    183,
+    722
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/FREEZERAY.FX",
+  "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/FREEZERAY.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "conditional_fx1": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 17,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 17,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_CHILLINGRAY.PFX",
+      "attack_bits": [
+        20,
+        183,
+        722
+      ],
+      "initial_attack_bits": [
+        20,
+        183,
+        722
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/FREEZERAY.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/FREEZERAY.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "frames_before_hit": 17,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 17,
+      "projectile_speed": 90,
+      "palette": "ice"
+    },
+    {
+      "token": "Custom Ice Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_CHILLINGRAY.PFX",
+      "display_name": "Custom Freeze Ray",
+      "attack_bits": [
+        20,
+        183,
+        722
+      ],
+      "initial_attack_bits": [
+        20,
+        183,
+        722
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_FREEZERAY.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_FREEZERAY.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "frames_before_hit": 17,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 17,
+      "projectile_speed": 90,
+      "palette": "ice"
+    }
+  ]
+}

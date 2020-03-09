@@ -1,0 +1,257 @@
+{
+  "crcfull_name": 4067378342,
+  "source_file": "DEFS/POWERS/PETS_WIND_CONTROL_VORTEX.POWERS",
+  "source_name": "Pets.Wind_Control_Vortex.Crash_of_Thunder",
+  "display_name": "Crash of Thunder",
+  "display_help": "You create a massive crash of thunder around a targeted foe. This sonic assault causes energy damage to affected targets and has a chance to stun all affected targets.",
+  "display_short_help": "Ranged (Foe Targeted AoE), Moderate DMG (Energy), Chance for Stun (Foe)",
+  "display_target_help": "You have been stunned by a crash of thunder caused by a nearby Vortex.",
+  "display_target_short_help": "Stun",
+  "icon_name": "WindControl_Vortex_CrashOfThunder.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "range": 80,
+  "time_to_activate": 2.37,
+  "recharge_time": 10,
+  "endurance_cost": 10.2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    21,
+    18,
+    9,
+    5
+  ],
+  "effects": [
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 6,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.41,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.868,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "VortexCritical"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.41,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "VortexCritical"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.868,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    16,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_STORMSUMMONING_THUNDERCLAP.PFX",
+  "attack_bits": [
+    20,
+    324
+  ],
+  "initial_attack_bits": [
+    20,
+    324
+  ],
+  "attack_fx": "POWERS/STORMSUMMONING/SSTHUNDERCLAP.FX",
+  "initial_attack_fx": "POWERS/STORMSUMMONING/SSTHUNDERCLAP.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 53,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 53,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_STORMSUMMONING_THUNDERCLAP.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/STORMSUMMONING/SSTHUNDERCLAP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STORMSUMMONING/SSTHUNDERCLAP.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53,
+      "palette": "Additive"
+    }
+  ]
+}

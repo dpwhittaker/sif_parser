@@ -1,0 +1,457 @@
+{
+  "Chill_of_the_Night": {
+    "crcfull_name": 1861827171,
+    "source_file": "DEFS/POWERS/ROMANS_NICTUSORB_3.POWERS",
+    "source_name": "Romans.NictusOrb_3.Chill_of_the_Night",
+    "display_name": "Chill of the Night",
+    "display_help": "The Chill of the Night surrounds you, reducing your Accuracy, and slowly dealing Negative Damage to you.",
+    "display_short_help": "-ACC",
+    "display_target_help": "The Chill of the Night surrounds you, reducing your Accuracy, and slowly dealing Negative Damage to you.",
+    "display_target_short_help": "-ACC",
+    "icon_name": "DarkMiasma_ChillOfTheNight.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 3.17,
+    "recharge_time": 10,
+    "activate_period": 2,
+    "endurance_cost": 0.35,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 3,
+            "duration": 2,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "duration": 2,
+            "period": 2.5,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_DARKEST_NIGHT.PFX",
+    "activation_bits": [
+      20,
+      272
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHT.FX",
+    "attack_frames": 95
+  },
+  "Sunless_Mire": {
+    "crcfull_name": 4042875341,
+    "source_file": "DEFS/POWERS/ROMANS_NICTUSORB_3.POWERS",
+    "source_name": "Romans.NictusOrb_3.Sunless_Mire",
+    "display_name": "Sunless Mire",
+    "display_help": "Sunless Mire can drain the essence of all nearby foes, thus increasing your own strength. Each affected foe will lose some Hit Points and add to your Damage and chance to hit. Damage: Moderate, Recharge: Very Long",
+    "display_short_help": "PBAoE, Moderate DMG(Negative), Foe -Recharge, -SPD; Self +DMG, +To Hit",
+    "display_target_help": "Your attack rate and Running speed have been reduced by the Sunless Mire.",
+    "display_target_short_help": "-Recharge, -SPD",
+    "icon_name": "UmbralBlast_SunlessMire.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 2.37,
+    "recharge_time": 4,
+    "endurance_cost": 21,
+    "ents_auto_hit": [
+      21
+    ],
+    "ents_affected": [
+      21
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "group",
+          "target>",
+          "Romans",
+          "eq",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.62,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 6
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Romans_Romulus_Nictus",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_Buff_ToHit",
+            "scale": 0.5,
+            "duration": 6,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/COSMICPOWERS/NICTUS/STEALPOWER/STEALPOWERCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Melee_Buff_Dmg",
+            "scale": 1.25,
+            "duration": 6,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      188,
+      192,
+      200,
+      204,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/WARSHADOW_STEAL_POWER.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/COSMICPOWERS/NICTUS/STEALPOWER/STEALPOWER.FX",
+    "hit_fx": "POWERS/COSMICPOWERS/NICTUS/STEALPOWER/STEALPOWERHIT.FX",
+    "initial_attack_fx": "POWERS/COSMICPOWERS/NICTUS/STEALPOWER/STEALPOWER.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53
+  },
+  "Resistance": {
+    "crcfull_name": 3026533622,
+    "source_file": "DEFS/POWERS/ROMANS_NICTUSORB_3.POWERS",
+    "source_name": "Romans.NictusOrb_3.Resistance",
+    "display_name": "Resistance",
+    "display_help": "Archvillain resistance.",
+    "display_short_help": "Resistance",
+    "display_target_help": "Archvillain resistance.",
+    "display_target_short_help": "Resistance",
+    "icon_name": "e3brawling.tga",
+    "type": 1,
+    "activate_period": 99999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144,
+              184,
+              88,
+              100,
+              188,
+              228,
+              324,
+              328,
+              332,
+              232,
+              236,
+              336,
+              356
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              292,
+              248,
+              256,
+              260,
+              264,
+              268,
+              272,
+              276,
+              296,
+              300,
+              304
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": -500,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328,
+              332
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": -100,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      88,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      184,
+      188,
+      228,
+      232,
+      236,
+      248,
+      256,
+      260,
+      264,
+      268,
+      272,
+      276,
+      292,
+      296,
+      300,
+      304,
+      324,
+      328,
+      332,
+      336,
+      356
+    ]
+  },
+  "Fly": {
+    "crcfull_name": 3328992381,
+    "source_file": "DEFS/POWERS/ROMANS_NICTUSORB_3.POWERS",
+    "source_name": "Romans.NictusOrb_3.Fly",
+    "display_name": "Fly",
+    "display_help": "Chularn can Fly!",
+    "display_short_help": "Self Travel",
+    "display_target_help": "Chularn can Fly!",
+    "display_target_short_help": "Self Travel",
+    "icon_name": "Flight_TravelFlight.tga",
+    "type": 1,
+    "activate_period": 5,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "target": 0,
+            "duration": 5.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              208
+            ],
+            "target": 0,
+            "table": "Melee_Control",
+            "scale": 2,
+            "duration": 5.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              192
+            ],
+            "target": 0,
+            "table": "Melee_SpeedFlying",
+            "duration": 5.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              212
+            ],
+            "target": 0,
+            "table": "Melee_Friction",
+            "scale": 2,
+            "duration": 5.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      192,
+      208,
+      212,
+      284
+    ]
+  }
+}

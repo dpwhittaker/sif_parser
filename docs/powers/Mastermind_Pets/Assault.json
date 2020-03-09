@@ -1,0 +1,530 @@
+{
+  "Resistance": {
+    "crcfull_name": 2186803546,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_ASSAULT.POWERS",
+    "source_name": "Mastermind_Pets.Assault.Resistance",
+    "display_name": "Resistance",
+    "display_help": "Robots are resistant to Sleep, Fear, and Disorient. They are also resistant to Lethal, Cold, and Psionic damage. It has a Plasma Blast and melee Smash attack.",
+    "display_short_help": "Auto Res Sleep, Fear, Disorient, Lethal, Cold, Psionic",
+    "icon_name": "Invulnerability_TemporaryInvulnerabilty.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              264,
+              280
+            ],
+            "target": 0,
+            "scale": -4,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              264,
+              280
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 0.5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "target": 0,
+            "scale": -1,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              4,
+              12,
+              24
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "scale": 0.105,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      4,
+      12,
+      24,
+      264,
+      276,
+      280
+    ]
+  },
+  "Plasma_Blast": {
+    "crcfull_name": 2549915183,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_ASSAULT.POWERS",
+    "source_name": "Mastermind_Pets.Assault.Plasma_Blast",
+    "display_name": "Plasma Blast",
+    "display_help": "Plasma burns are hard to heal. The burns have halted your Regeneration rate.",
+    "display_short_help": "-Regeneration",
+    "icon_name": "Robotics_LaserRifleBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.3",
+          "<=",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -5,
+            "duration": 30,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.3",
+          "<=",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -10,
+            "duration": 30,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      16,
+      232,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTARMY_PLASMA_BLAST.PFX",
+    "attack_bits": [
+      483
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      483
+    ],
+    "attack_fx": "V_COV/POWERS/ROBOTICS/ROBOT_HEAVYLAZERRIFLEBURST.FX",
+    "hit_fx": "V_COV/POWERS/ROBOTICS/HEAVYHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/ROBOTICS/ROBOT_HEAVYLAZERRIFLEBURST.FX",
+    "frames_before_hit": 33,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 33,
+    "projectile_speed": 360
+  },
+  "Smash": {
+    "crcfull_name": 2077277056,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_ASSAULT.POWERS",
+    "source_name": "Mastermind_Pets.Assault.Smash",
+    "display_name": "Smash",
+    "display_help": "The Assault Bot has Disoriented you.",
+    "display_short_help": "Disorient",
+    "icon_name": "Sword_Hack.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 2.67,
+    "recharge_time": 16,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_MALTA_HERCULES_BACKHAND.PFX",
+    "attack_bits": [
+      20,
+      719,
+      265
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      719,
+      265
+    ],
+    "attack_fx": "POWERS/CLAWS/CLAWSSTREAKS13.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MAHITSLRG.FX",
+    "initial_attack_fx": "POWERS/CLAWS/CLAWSSTREAKS13.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 80
+  },
+  "Super_Leap": {
+    "crcfull_name": 4126748262,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_ASSAULT.POWERS",
+    "source_name": "Mastermind_Pets.Assault.Super_Leap",
+    "display_name": "Super Leap",
+    "display_help": "Bots can Super Leap",
+    "display_short_help": "Self Leap",
+    "icon_name": "Jump_LongJump.tga",
+    "type": 1,
+    "recharge_time": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kJump"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "target": 0,
+            "table": "Melee_Leap",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              200
+            ],
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "target": 0,
+            "table": "Melee_SpeedRunning",
+            "scale": 0.1,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              208
+            ],
+            "target": 0,
+            "table": "Melee_Control",
+            "scale": 10,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              212
+            ],
+            "target": 0,
+            "table": "Melee_Friction",
+            "scale": 10,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      188,
+      200,
+      204,
+      208,
+      212
+    ]
+  }
+}

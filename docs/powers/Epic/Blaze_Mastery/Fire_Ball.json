@@ -1,0 +1,565 @@
+{
+  "crcfull_name": 984262780,
+  "source_file": "DEFS/POWERS/EPIC_BLAZE_MASTERY.POWERS",
+  "source_name": "Epic.Blaze_Mastery.Fire_Ball",
+  "display_name": "Fire Ball",
+  "display_help": "Hurls an exploding Fireball that consumes a targeted foe, and all nearby enemies. Anyone in that explosion is burned and set ablaze. You must be level 44 and have two other Blaze Mastery Powers before selecting this power. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Fire/Smash)",
+  "display_target_help": "You re on fire!",
+  "display_target_short_help": "DoT(Fire)",
+  "icon_name": "FireBlast_FireBall.tga",
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "buy_requires": [
+    "Epic.Blaze_Mastery.Ring_of_Fire",
+    "Epic.Blaze_Mastery.Char",
+    "&&",
+    "Epic.Blaze_Mastery.Ring_of_Fire",
+    "Epic.Blaze_Mastery.Fire_Blast",
+    "&&",
+    "||",
+    "Epic.Blaze_Mastery.Char",
+    "Epic.Blaze_Mastery.Fire_Blast",
+    "&&",
+    "||",
+    "Epic.Blaze_Mastery.Ring_of_Fire",
+    "Epic.Blaze_Mastery.Char",
+    "&&",
+    "||",
+    "Epic.Blaze_Mastery.Ring_of_Fire",
+    "Epic.Blaze_Mastery.Melt_Armor",
+    "&&",
+    "||",
+    "Epic.Blaze_Mastery.Char",
+    "Epic.Blaze_Mastery.Melt_Armor",
+    "&&",
+    "||"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 1,
+  "recharge_time": 32,
+  "endurance_cost": 18.98,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1977,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.7008,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8985,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!",
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.7323,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1611,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5712,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.0732,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.7323,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.7323,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.7323,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8985,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8985,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    8
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+  "attack_bits": [
+    20,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258
+  ],
+  "activation_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "attack_fx": "POWERS/FIRECONTROL/XXLARGEFIREBALL.FX",
+  "hit_fx": "POWERS/FIRECONTROL/FIREBALLHIT.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/XXLARGEFIREBALL.FX",
+  "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+  "continuing_fx1": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 18,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 18,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREHANDS.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "frames_before_hit": 18,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 18,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREHANDS.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "frames_before_hit": 18,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 18,
+      "projectile_speed": 90
+    },
+    {
+      "token": "Bright Fire Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+      "display_name": "Bright Fire Crush",
+      "attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREHANDS.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/CUSTANIM_FIREBALL_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/CUSTANIM_FIREBALL_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "frames_before_hit": 18,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 18,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+      "display_name": "Dark Fire Crush",
+      "attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREHANDS.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/CUSTANIM_FIREBALL_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/CUSTANIM_FIREBALL_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "frames_before_hit": 18,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 18,
+      "projectile_speed": 90
+    }
+  ]
+}

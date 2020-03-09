@@ -1,0 +1,357 @@
+{
+  "crcfull_name": 739624346,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_ICE_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Ice_Control.Frostbite",
+  "display_name": "Frostbite",
+  "display_help": "Immobilizes a group of foes in icy traps. Deals minimal Cold damage over time and slightly Slows the targets. Slower and less damaging than Chilblain, but can capture multiple targets. More resilient foes may only be Slowed. Damage: Minor(DoT), Recharge: Moderate",
+  "display_short_help": "Ranged (Targeted AoE), Minor DoT(Cold), Foe Immobilize, -SPD, -Recharge",
+  "display_target_help": "The Frostbite is causing damage over time to you, and is holding you immobile. Your Attack rate and Running speed are also reduced.",
+  "display_target_short_help": "DoT(Cold), Immobilize, -SPD, -Recharge",
+  "icon_name": "IceFormation_FrostBite.tga",
+  "attack_types": [
+    "AOE",
+    "Cold"
+  ],
+  "accuracy": 0.9,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 30,
+  "range": 80,
+  "time_to_activate": 2.07,
+  "recharge_time": 8,
+  "endurance_cost": 15.6,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1301,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 5,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 22.5,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1056,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 15,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 15,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 15,
+          "flags": [
+            664,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 12,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 10,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    12,
+    188,
+    192,
+    200,
+    204,
+    272,
+    284,
+    324,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ICECONTROL_FROSTBITE.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/CHILLBLAINSHANDSA.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/CHILLBLAINSHANDSA.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "conditional_fx": "POWERS/COLDCONTROL/DEEPFREEZE.FX",
+  "conditional_fx1": "POWERS/COLDCONTROL/DEEPFREEZE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ICECONTROL_FROSTBITE.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICECONTROL/CHILLBLAINSHANDSA.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICECONTROL/CHILLBLAINSHANDSA.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/DEEPFREEZE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/DEEPFREEZE.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16,
+      "palette": "ice"
+    }
+  ]
+}

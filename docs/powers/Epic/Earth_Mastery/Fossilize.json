@@ -1,0 +1,286 @@
+{
+  "crcfull_name": 2700688437,
+  "source_file": "DEFS/POWERS/EPIC_EARTH_MASTERY.POWERS",
+  "source_name": "Epic.Earth_Mastery.Fossilize",
+  "display_name": "Fossilize",
+  "display_help": "Encases a single target within solid stone. The stone slowly crushes the victim, dealing Smashing damage. The Fossilized victim is held helpless and unable to defend himself. You must be level 41 and have one other Earth Mastery power to select this power. Damage, Moderate, Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DMG(Smash), Foe Hold, -DEF",
+  "display_target_help": "You have been Fossilized. You cannot move and your Defense is reduced.",
+  "display_target_short_help": "Hold, -DEF",
+  "icon_name": "EarthGrasp_Fossilize.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "buy_requires": [
+    "Epic.Earth_Mastery.Stone_Prison",
+    "Epic.Earth_Mastery.Salt_Crystals",
+    "||"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 2.07,
+  "recharge_time": 32,
+  "endurance_cost": 10.66,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 12,
+          "magnitude": 3,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 3.129,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 2,
+          "duration": 12,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.45,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    8,
+    184,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "POWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+  "initial_attack_fx": "POWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+  "continuing_fx": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+  "continuing_fx1": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+  "conditional_fx": "POWERS/EARTHCONTROL/FOSSILHIT.FX",
+  "conditional_fx1": "POWERS/EARTHCONTROL/FOSSILHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILHIT.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILHIT.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16,
+      "palette": "Earth"
+    },
+    {
+      "token": "Lava",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+      "display_name": "Lava",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/FOSSILHIT.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/FOSSILHIT.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "Crystal",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/FOSSILHIT.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/FOSSILHIT.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

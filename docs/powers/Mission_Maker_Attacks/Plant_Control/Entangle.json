@@ -1,0 +1,219 @@
+{
+  "crcfull_name": 260657321,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_PLANT_CONTROL.POWERS",
+  "source_name": "Mission_Maker_Attacks.Plant_Control.Entangle",
+  "display_name": "Entangle",
+  "display_help": "Immobilizes your target by Entangling their feet in a twisted mass of thorny roots. The roots do smashing and lethal damage to the target over time. More resilient foes may require multiple applications to Immobilize. Entangle can immobilize flying targets, if they are near the ground when attacked. Damage: Moderate(DoT), Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DoT(Smashing, Lethal), Foe Immobilize",
+  "display_target_help": "The roots have Entangled you, crushing and cutting you. You are immobile and cannot fly.",
+  "display_target_short_help": "Immobilize, DoT(Smashing, Lethal), -Fly",
+  "icon_name": "PlantControl_Entangle.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal",
+    "Smashing"
+  ],
+  "accuracy": 1.2,
+  "target_near_ground": true,
+  "range": 80,
+  "time_to_activate": 1.2,
+  "recharge_time": 4,
+  "endurance_cost": 10.5,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.1,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.1,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "magnitude": 4,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "ENEMYFX/CROATOA/TUATHA/ENTANGLE.FX"
+          }
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 15,
+          "flags": [
+            568,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 15,
+          "flags": [
+            552,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.2,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          },
+          "fx": {
+            "conditional_fx": "ENEMYFX/CROATOA/TUATHA/ENTANGLE.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 8,
+  "point_value": 135,
+  "attrib_cache": [
+    0,
+    4,
+    272,
+    284,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLANTCONTROL_RANGED_IMMOBILIZE.PFX",
+  "attack_bits": [
+    20,
+    183
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    183
+  ],
+  "attack_fx": "ENEMYFX/CROATOA/TUATHA/ENTANGLEPLANTSEEDTHROW.FX",
+  "hit_fx": "V_COV/POWERS/PLANTCONTROL/PLANTCONTROLHIT.FX",
+  "initial_attack_fx": "ENEMYFX/CROATOA/TUATHA/ENTANGLEPLANTSEEDTHROW.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "delayed_hit": true,
+  "attack_frames": 36,
+  "initial_frames_before_hit": 23,
+  "projectile_speed": 60
+}

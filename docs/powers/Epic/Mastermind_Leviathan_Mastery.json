@@ -1,0 +1,1163 @@
+{
+  "School_of_Sharks": {
+    "crcfull_name": 424349311,
+    "source_file": "DEFS/POWERS/EPIC_MASTERMIND_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Mastermind_Leviathan_Mastery.School_of_Sharks",
+    "display_name": "School of Sharks",
+    "display_help": "You can call forth a school of vicious Shark Spirits that will swim out in a cone formation and will encircle your foes, draining their spirit energy. The encircling Shark Spirits will immobilize most foes while they deal negative energy damage over time. Both you and the target must be Near the Ground for this power to activate. Damage: Moderate(DoT), Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Moderate DoT(Negative), Foe Immobilize",
+    "display_target_help": "The School of Sharks has Immobilized you, inflicting negative Damage over Time.",
+    "display_target_short_help": "Immobilize, DoT(Negative)",
+    "icon_name": "Arachnos_Patron_ConeImmobilize.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Mastermind",
+      "==",
+      "$archetype",
+      "@Class_Blaster",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "target_near_ground": true,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 50,
+    "arc": 0.5235988,
+    "range": 50,
+    "time_to_activate": 2.37,
+    "recharge_time": 20,
+    "endurance_cost": 12.74,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.135,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1064,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.1167,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.1167,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      20,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+    "continuing_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+    "continuing_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 50,
+    "delayed_hit": true,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 50,
+    "projectile_speed": 30,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+        "frames_before_hit": 50,
+        "delayed_hit": true,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 50,
+        "projectile_speed": 30,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Chum_Spray": {
+    "crcfull_name": 3810756558,
+    "source_file": "DEFS/POWERS/EPIC_MASTERMIND_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Mastermind_Leviathan_Mastery.Chum_Spray",
+    "display_name": "Bile Spray",
+    "display_help": "Sharks will eat anything, so their stomach acid must be powerful indeed. You can regurgitate this acid and spew a corrosive spray of bile at a foe. Affected foes in the cone area will take toxic damage over time. Damage: Moderate(DoT), Recharge: Long",
+    "display_short_help": "Ranged (Cone), Moderate DoT(Toxic)",
+    "display_target_short_help": "DoT (Toxic)",
+    "icon_name": "Arachnos_Patron_RangedConeModerateDmg.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Mastermind",
+      "==",
+      "$archetype",
+      "@Class_Blaster",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 60,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.7772,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.0864,
+            "duration": 4.25,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_BILESPRAY.PFX",
+    "attack_bits": [
+      20,
+      327
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_CHUM.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_CHUM_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_CHUM.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 35,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_BILESPRAY.PFX",
+        "attack_bits": [
+          20,
+          327
+        ],
+        "initial_attack_bits": [
+          20,
+          327
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/BILESPRAY_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/BILESPRAY_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/BILESPRAY_ATTACK.FX",
+        "frames_before_hit": 35,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 35,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Knockout_Blow": {
+    "crcfull_name": 3815177804,
+    "source_file": "DEFS/POWERS/EPIC_MASTERMIND_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Mastermind_Leviathan_Mastery.Knockout_Blow",
+    "display_name": "Knockout Blow",
+    "display_help": "You can channel the massive strength of the Leviathan into a Knockout Blow. This punch does Superior damage, and has a great chance of Holding your target. You must be level 41 and have School of Sharks or Bile Spray before selecting this power. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG(Smash), Foe Hold",
+    "display_target_help": "You have been knocked out!",
+    "display_target_short_help": "Hold",
+    "icon_name": "Arachnos_Patron_KOBlow.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Mastermind_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Mastermind_Leviathan_Mastery.Chum_Spray",
+      "||",
+      "&&"
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 2.23,
+    "recharge_time": 40,
+    "endurance_cost": 23.14,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.56,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 3.561,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      268,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_KNOCKOUTBLOW.PFX",
+    "attack_bits": [
+      20,
+      357
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      357
+    ],
+    "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSKO.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_KOBLOW_HIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSKO.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 48,
+    "attack_frames": 67,
+    "initial_frames_before_hit": 48,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_KNOCKOUTBLOW.PFX",
+        "attack_bits": [
+          20,
+          357
+        ],
+        "initial_attack_bits": [
+          20,
+          357
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/STRENGTHSTREAKSKO.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUPERSTRENGTH_KOBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/STRENGTHSTREAKSKO.FX",
+        "frames_before_hit": 48,
+        "attack_frames": 67,
+        "initial_frames_before_hit": 48,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_KNOCKOUTBLOW.PFX",
+        "attack_bits": [
+          20,
+          357
+        ],
+        "initial_attack_bits": [
+          20,
+          357
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/STRENGTHSTREAKSKO.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/SUPERSTRENGTH_KOBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/STRENGTHSTREAKSKO.FX",
+        "frames_before_hit": 48,
+        "attack_frames": 67,
+        "initial_frames_before_hit": 48
+      },
+      {
+        "token": "Bright Heroic",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_KNOCKOUTBLOW.PFX",
+        "display_name": "Bright Double Fisted Strike",
+        "attack_bits": [
+          20,
+          357,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          357,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/STRENGTHSTREAKSKO.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUPERSTRENGTH_KOBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/STRENGTHSTREAKSKO.FX",
+        "frames_before_hit": 39,
+        "attack_frames": 67,
+        "initial_frames_before_hit": 39,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Heroic",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_KNOCKOUTBLOW.PFX",
+        "display_name": "Dark Double Fisted Strike",
+        "attack_bits": [
+          20,
+          357,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          357,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUBTRACTIVE/STRENGTHSTREAKSKO.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUBTRACTIVE/SUPERSTRENGTH_KOBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUBTRACTIVE/STRENGTHSTREAKSKO.FX",
+        "frames_before_hit": 39,
+        "attack_frames": 67,
+        "initial_frames_before_hit": 39
+      }
+    ]
+  },
+  "Shark_Skin": {
+    "crcfull_name": 469320945,
+    "source_file": "DEFS/POWERS/EPIC_MASTERMIND_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Mastermind_Leviathan_Mastery.Shark_Skin",
+    "display_name": "Shark Skin",
+    "display_help": "The power of the Leviathan Mako has shown you seems to have no end. Shark Skin improves your damage resistance to Lethal, Smashing and cold damage. You must be level 41 and have School of Sharks or Bile Spray before selecting this power. Recharge: Fast",
+    "display_short_help": "Toggle: Self +Res(Smash, Lethal, Cold)",
+    "display_attacker_hit": "Your {PowerName} protects you from lethal, smashing, and cold.",
+    "icon_name": "Arachnos_Patron_ResistBuff.tga",
+    "type": 2,
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Mastermind_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Mastermind_Leviathan_Mastery.Chum_Spray",
+      "||",
+      "&&"
+    ],
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "time_to_activate": 0.67,
+    "recharge_time": 4,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      35,
+      23,
+      18
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SHARKSKIN.PFX",
+    "activation_bits": [
+      245
+    ],
+    "activation_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MAKOSKIN/MAKOSKIN.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SHARKSKIN.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SHARKSKIN_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Minimal FX",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SHARKSKIN.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SHARKSKIN_NOSYMBOL_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Spirit_Shark_Jaws": {
+    "crcfull_name": 1110922019,
+    "source_file": "DEFS/POWERS/EPIC_MASTERMIND_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Mastermind_Leviathan_Mastery.Spirit_Shark_Jaws",
+    "display_name": "Spirit Shark Jaws",
+    "display_help": "You can summon a massive Spirit Shark that will attack your foe from below. The Shark will grip your foe with its massive jaws and attempt to hold the target while it mauls it, dealing lethal Damage over Time. Flying Targets will likely be pulled to the ground. You must be level 44 and have two other Leviathan Mastery Powers before selecting this power. Recharge: Slow",
+    "display_short_help": "Ranged, Moderate DoT(Lethal), Foe Hold, -Fly",
+    "display_target_help": "You are being Held by a Spirit Shark Jaws and are taking lethal Damage over Time as you are Mauled.",
+    "display_target_short_help": "Hold, DoT(Lethal)",
+    "icon_name": "Arachnos_Patron_TargetedHold.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Mastermind_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Mastermind_Leviathan_Mastery.Chum_Spray",
+      "&&",
+      "Epic.Mastermind_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Mastermind_Leviathan_Mastery.Knockout_Blow",
+      "&&",
+      "||",
+      "Epic.Mastermind_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Mastermind_Leviathan_Mastery.Shark_Skin",
+      "&&",
+      "||",
+      "Epic.Mastermind_Leviathan_Mastery.Chum_Spray",
+      "Epic.Mastermind_Leviathan_Mastery.Knockout_Blow",
+      "&&",
+      "||",
+      "Epic.Mastermind_Leviathan_Mastery.Chum_Spray",
+      "Epic.Mastermind_Leviathan_Mastery.Shark_Skin",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 32,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.135,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.5978,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2657,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      268,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARKJAWS.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+    "conditional_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY_BIGHOLD.FX",
+    "conditional_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY_BIGHOLD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 21,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 21,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARKJAWS.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRTSHARKJAWS_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRTSHARKJAWS_CONDITIONAL.FX",
+        "frames_before_hit": 21,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 21,
+        "palette": "Additive"
+      }
+    ]
+  }
+}

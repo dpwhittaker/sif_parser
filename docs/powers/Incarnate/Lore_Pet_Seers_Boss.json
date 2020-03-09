@@ -1,0 +1,414 @@
+{
+  "Levitate": {
+    "crcfull_name": 4002188904,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_SEERS_BOSS.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Seers_Boss.Levitate",
+    "free": true,
+    "display_name": "Levitate",
+    "display_help": "You can send a single target violently into the air, then slam them to the ground for Smashing damage. This power can bring flying foes to the ground. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Smash), Foe Knock Up",
+    "icon_name": "MentalControl_Levitate.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "range": 80,
+    "time_to_activate": 0.57,
+    "recharge_time": 4,
+    "target": 19,
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.32,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "delay": 2,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      0,
+      284,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_SEER_LEVITATE.PFX",
+    "attack_bits": [
+      20,
+      272,
+      302
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      272,
+      302
+    ],
+    "attack_fx": "POWERS/MENTALPOWERS/HEADCASTMENTALPOWERS.FX",
+    "hit_fx": "POWERS/MENTALPOWERS/MENTALCONTROL_LEVITATE.FX",
+    "initial_attack_fx": "POWERS/MENTALPOWERS/HEADCASTMENTALPOWERS.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 17
+  },
+  "Mental_Blast": {
+    "crcfull_name": 3407487700,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_SEERS_BOSS.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Seers_Boss.Mental_Blast",
+    "free": true,
+    "display_name": "Mental Blast",
+    "display_help": "This attack does moderate Psionic damage, and can slightly reduce a target's attack speed. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Psionic), Target -Recharge",
+    "display_target_help": "The Mental Blast has slowed your Attack rate.",
+    "display_target_short_help": "-Recharge",
+    "icon_name": "PsionicAssault_MentalDart.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "range": 100,
+    "time_to_activate": 1.07,
+    "recharge_time": 4,
+    "target": 19,
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 5,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      24,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_SEER_MENTALBLAST.PFX",
+    "attack_bits": [
+      20,
+      681,
+      312,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      681,
+      312,
+      47
+    ],
+    "attack_fx": "POWERS/PSIONICS/PSIONICBLAST_SLOWCAST.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONICS/PSIONICBLAST_SLOWCAST.FX",
+    "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 51
+  },
+  "Dominate": {
+    "crcfull_name": 107822288,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_SEERS_BOSS.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Seers_Boss.Dominate",
+    "free": true,
+    "display_name": "Dominate",
+    "display_help": "Your mind has been Dominated. You are Held.",
+    "display_short_help": "Hold",
+    "display_target_help": "Your mind has been Dominated. You are Held.",
+    "display_target_short_help": "Hold",
+    "icon_name": "MentalControl_Command.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "range": 80,
+    "time_to_activate": 0.93,
+    "recharge_time": 8,
+    "target": 19,
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.164,
+            "duration": 5.1,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      24,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_SEER_DOMINATE.PFX",
+    "attack_bits": [
+      20,
+      300,
+      362,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      362,
+      47
+    ],
+    "attack_fx": "POWERS/MENTALPOWERS/COMMAND2.FX",
+    "hit_fx": "POWERS/MENTALPOWERS/MINDCONTROLHIT.FX",
+    "initial_attack_fx": "POWERS/MENTALPOWERS/COMMAND2.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 28,
+    "initial_frames_before_hit": 20
+  }
+}

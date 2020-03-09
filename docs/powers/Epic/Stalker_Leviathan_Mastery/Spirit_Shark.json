@@ -1,0 +1,329 @@
+{
+  "crcfull_name": 963622303,
+  "source_file": "DEFS/POWERS/EPIC_STALKER_LEVIATHAN_MASTERY.POWERS",
+  "source_name": "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+  "display_name": "Spirit Shark",
+  "display_help": "You are empowered with the Spirit of the Mako Shark. You can project this spirit to attack and maul your opponent. The Shark Spirit will manifest and attack your foe, quickly dealing moderate lethal damage over time. Damage: Moderate(DoT), Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DoT(Lethal), Foe Knockback",
+  "display_target_help": "You are being mauled by a Spirit Shark.",
+  "display_target_short_help": "DoT(Lethal)",
+  "icon_name": "Arachnos_Patron_TargetedRangedModDmg.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Stalker",
+    "==",
+    "$archetype",
+    "@Class_Scrapper",
+    "==",
+    "||",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "range": 80,
+  "time_to_activate": 3,
+  "recharge_time": 6,
+  "endurance_cost": 6.5,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 3.2,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.74,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 0.7,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.74,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.74,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    4,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARK.PFX",
+  "attack_bits": [
+    20,
+    325
+  ],
+  "hit_bits": [
+    49,
+    283
+  ],
+  "initial_attack_bits": [
+    20,
+    325
+  ],
+  "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CHARGE.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CHARGE.FX",
+  "frames_before_hit": 60,
+  "delayed_hit": true,
+  "attack_frames": 90,
+  "initial_frames_before_hit": 60,
+  "projectile_speed": 42,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARK.PFX",
+      "attack_bits": [
+        20,
+        325
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        325
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 60,
+      "delayed_hit": true,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 60,
+      "projectile_speed": 42,
+      "palette": "Additive"
+    }
+  ]
+}

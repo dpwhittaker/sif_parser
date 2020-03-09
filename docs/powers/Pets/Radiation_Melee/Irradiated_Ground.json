@@ -1,0 +1,209 @@
+{
+  "crcfull_name": 3501572395,
+  "source_file": "DEFS/POWERS/PETS_RADIATION_MELEE.POWERS",
+  "source_name": "Pets.Radiation_Melee.Irradiated_Ground",
+  "display_name": "Irradiated Ground",
+  "display_help": "While active you will scorch the earth beneath you leaving toxic clouds of radioactive gas in your wake. Foes that enter these clouds will suffer Minor Toxic damage, have their defense reduced and also have a tiny chance of being Contaminated. Hitting Contaminated foes with single target Radiation Melee powers cause a small burst of damage to foes near the target. Damage: Minor, Recharge: Moderate",
+  "display_short_help": "Minor DoT(Toxic) Patch, Foe -Def, Special",
+  "display_target_help": "Radiation burns you causing minor toxic damage and reduces your defense!",
+  "display_target_short_help": "Minor DoT(Toxic) Patch, Foe -Def, Special",
+  "icon_name": "RadiationMelee_IrradiatedGround.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "activate_period": 2,
+  "boosts_allowed": [
+    10,
+    9,
+    5
+  ],
+  "effects": [
+    {
+      "requires": [
+        "arch",
+        "source.owner>",
+        "Class_Scrapper",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1238,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "source.owner>",
+        "Class_Scrapper",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1238,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "source.owner>",
+        "Class_Tanker",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.088,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "source.owner>",
+        "Class_Brute",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.0825,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 0.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            644,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated_Imunity",
+        "target.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You contaminate {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} has contaminated you.",
+            "display_float": "Contaminated!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    184,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_IRRADIATEDGROUNDPET.PFX",
+  "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/IRRADIATEDGROUND/IRRADIATEDGROUND_ACTIVATION.FX",
+  "primary_tint": [
+    77,
+    153,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    255,
+    97,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_IRRADIATEDGROUNDPET.PFX",
+      "hit_bits": [],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/IRRADIATEDGROUND/IRRADIATEDGROUND_ACTIVATION.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": ""
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_IRRADIATEDGROUNDPET.PFX",
+      "hit_bits": [],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/IRRADIATEDGROUND/SUBTRACTIVE/IRRADIATEDGROUND_ACTIVATION.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": ""
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "crcfull_name": 3833373830,
+  "source_file": "DEFS/POWERS/NEWPRAETORIANS_PENDRAGON.POWERS",
+  "source_name": "NewPraetorians.Pendragon.Arc_of_Devastation",
+  "display_name": "Arc of Devastation",
+  "display_help": "You swing your weapon in a powerful arc which deals smashing damage to all in the way. There is also a chance that the target may be knocked down and stunned. If stunned, the opponent will also suffer reductions in attack speed and recharge rate.",
+  "display_short_help": "Melee (Cone), High DMG (Smashing), Chance for Knockdown (Foe), Stun (Foe), -Rech (Foe), -ToHit (Foe)",
+  "display_target_help": "You have been stunned and both your attack speed and chance to hit have been reduced.",
+  "display_target_short_help": "Stun, -Rech, -ToHit",
+  "icon_name": "NewPraetorians_Pendragon_ArcOfDevastation.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 5,
+  "radius": 10,
+  "arc": 2.0943952,
+  "range": 10,
+  "time_to_activate": 1.5,
+  "recharge_time": 20,
+  "endurance_cost": 19,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.75",
+        "<=",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.75",
+        "<=",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 5
+            }
+          ],
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.35",
+        "<=",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 6,
+          "magnitude": 5,
+          "delay": 2,
+          "flags": [
+            1296,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.35",
+        "<=",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 6,
+          "magnitude": 5,
+          "delay": 2,
+          "suppress": [
+            {
+              "event": 19,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.35",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.15,
+          "duration": 9,
+          "delay": 3,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 9,
+          "delay": 3,
+          "stack_type": 3
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "preference_multiplier": 16,
+  "attrib_cache": [
+    0,
+    100,
+    276,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_WAVEOFDESTRUCTION_FAST.PFX",
+  "attack_bits": [
+    20,
+    130,
+    141,
+    766,
+    258,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    141,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    141,
+    766,
+    258,
+    681,
+    187
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/ARCOFDESTRUCTION_HIT_FAST.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+  "mode_bits": [
+    20,
+    130,
+    141
+  ],
+  "frames_before_hit": 39,
+  "attack_frames": 45,
+  "initial_frames_before_hit": 74,
+  "primary_tint": [
+    100,
+    100,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    200,
+    150,
+    100,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_WAVEOFDESTRUCTION_FAST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        258,
+        681
+      ],
+      "activation_bits": [
+        20,
+        130,
+        141,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        258,
+        681,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/ARCOFDESTRUCTION_HIT_FAST.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+      "mode_bits": [
+        20,
+        130,
+        141
+      ],
+      "frames_before_hit": 39,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 74,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_WAVEOFDESTRUCTION_FAST.PFX",
+      "attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        258,
+        681
+      ],
+      "activation_bits": [
+        20,
+        130,
+        141,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        141,
+        766,
+        258,
+        681,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/WAVEOFDESTRUCTION_FAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/ARCOFDESTRUCTION_HIT_FAST.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/WAVEOFDESTRUCTION_FAST.FX",
+      "mode_bits": [
+        20,
+        130,
+        141
+      ],
+      "frames_before_hit": 39,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 74
+    }
+  ]
+}

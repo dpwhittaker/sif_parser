@@ -1,0 +1,137 @@
+{
+  "crcfull_name": 3264776746,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_ARCHON_KRUGER.POWERS",
+  "source_name": "RoguesGallery.Archon_Kruger.Power_Bolt",
+  "display_name": "Power Bolt",
+  "display_help": "You rapidly hurl a bolt of energy at a single foe, causing energy and smashing damage. There is a chance that the target will also be knocked down.",
+  "display_short_help": "Ranged, Minor DMG (Energy/Smashing), Chance for Knockdown (Foe)",
+  "icon_name": "RoguesGallery_ArchonKruger_PowerBolt.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 2,
+  "recharge_time": 4,
+  "endurance_cost": 7,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 5
+            }
+          ],
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 4,
+  "attrib_cache": [
+    0,
+    16,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ENERGY_BLAST_FAST_ENERGY_BLAST.PFX",
+  "attack_bits": [
+    20,
+    329
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    329
+  ],
+  "attack_fx": "POWERS/ENERGYBLAST/RAPID.FX",
+  "hit_fx": "POWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/ENERGYBLAST/RAPID.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "delayed_hit": true,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 25,
+  "projectile_speed": 90
+}

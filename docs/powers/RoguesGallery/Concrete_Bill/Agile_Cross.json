@@ -1,0 +1,193 @@
+{
+  "crcfull_name": 3077946626,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_CONCRETE_BILL.POWERS",
+  "source_name": "RoguesGallery.Concrete_Bill.Agile_Cross",
+  "display_name": "Agile Cross",
+  "display_help": "You execute a sweeping right hook that can strike multiple targets in your frontal arc. This attack will cause smashing damage. The force of the attack causes trauma, which causes minor lethal damage and reduced regeneration and recovery rates.",
+  "display_short_help": "Melee (Cone), High DMG (Smashing), Minor DoT (Lethal), Chance for -Regen(Foe), -Rec(Foe)",
+  "display_target_help": "You are affected by trauma and are suffering internal bleeding. Your regeneration and recovery are reduced.",
+  "display_target_short_help": "DoT(Lethal), -Regen, -Rec",
+  "icon_name": "KnivesOfVengeance_AgileCross.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 5,
+  "radius": 7,
+  "arc": 1.0471976,
+  "range": 7,
+  "time_to_activate": 1.67,
+  "recharge_time": 10,
+  "endurance_cost": 9,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 1.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.60",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -0.05,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Your regeneration and recovery have been reduced by {PlayerSource}'s {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -0.05,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 10,
+  "attrib_cache": [
+    0,
+    4,
+    232,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SWEEPCROSS.PFX",
+  "attack_bits": [
+    20,
+    624,
+    238
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    624,
+    238
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 25,
+  "primary_tint": [
+    255,
+    126,
+    48,
+    255
+  ],
+  "secondary_tint": [
+    89,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SWEEPCROSS.PFX",
+      "attack_bits": [
+        20,
+        624,
+        238
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        624,
+        238
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SWEEPCROSS.PFX",
+      "attack_bits": [
+        20,
+        624,
+        238
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        624,
+        238
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SWEEPINGCROSS_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SWEEPINGCROSS_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SWEEPINGCROSS_ATTACK.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

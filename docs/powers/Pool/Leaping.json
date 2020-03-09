@@ -1,0 +1,1471 @@
+{
+  "Jump_Kick": {
+    "crcfull_name": 1678232593,
+    "source_file": "DEFS/POWERS/POOL_LEAPING.POWERS",
+    "source_name": "Pool.Leaping.Jump_Kick",
+    "display_name": "Jump Kick",
+    "display_help": "A good jumping kick attack that may knock foes down. Good if you are looking for another attack power. Recharge: Very Fast",
+    "display_short_help": "Melee, Moderate DMG(Smash), Foe Knockdown",
+    "icon_name": "Jump_JumpKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "near_ground": true,
+    "range": 7,
+    "time_to_activate": 1.5,
+    "recharge_time": 2.8,
+    "endurance_cost": 5.46,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.562,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "eq",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "&&",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "eq",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "arch",
+          "source>",
+          "Class_Corruptor",
+          "eq",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Scrapper",
+          "eq",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.562,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "eq",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.781,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "&&",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.562,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Stalker",
+          "eq",
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.562,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "arch",
+          "source>",
+          "Class_Corruptor",
+          "eq",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.562,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_JUMPKICK.PFX",
+    "attack_bits": [
+      20,
+      308
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      308
+    ],
+    "attack_fx": "POWERS/LEAPING/LEAPINGKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MARTIALARTSHITS.FX",
+    "initial_attack_fx": "POWERS/LEAPING/LEAPINGKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 33,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 33,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_JUMPKICK.PFX",
+        "attack_bits": [
+          20,
+          308
+        ],
+        "initial_attack_bits": [
+          20,
+          308
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/JUMPKICK_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/JUMPKICK_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/JUMPKICK_ATTACK.FX",
+        "frames_before_hit": 33,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 33,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_JUMPKICK.PFX",
+        "attack_bits": [
+          20,
+          308
+        ],
+        "initial_attack_bits": [
+          20,
+          308
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/JUMPKICK_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/JUMPKICK_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/JUMPKICK_ATTACK.FX",
+        "frames_before_hit": 33,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 33
+      }
+    ]
+  },
+  "Combat_Jumping": {
+    "crcfull_name": 1975888444,
+    "source_file": "DEFS/POWERS/POOL_LEAPING.POWERS",
+    "source_name": "Pool.Leaping.Combat_Jumping",
+    "display_name": "Combat Jumping",
+    "display_help": "While active, Combat Jumping increases your Defense to all attacks, and adds resistance to Immobilization. Moderately increases your jump height and distance while providing good air control.",
+    "display_short_help": "Toggle: Self +Jump, +DEF(All), Res(Immobilization)",
+    "display_attacker_hit": "Your {PowerName} has made you harder to hit.",
+    "display_power_defense_float": "Dodged",
+    "icon_name": "Jump_CombatJump.tga",
+    "type": 2,
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "activate_period": 0.5,
+    "endurance_cost": 0.0325,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      16,
+      6
+    ],
+    "group_membership": [
+      3,
+      7
+    ],
+    "modes_disallowed": [
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "target": 0,
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              200
+            ],
+            "target": 0,
+            "scale": 0.01,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              208
+            ],
+            "target": 0,
+            "table": "Melee_Control",
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              212
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 0.25,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": -30,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 0.25,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": 3,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      200,
+      204,
+      208,
+      212,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+    "activation_fx": "POWERS/LEAPING/LEAPING.FX",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUPERJUMP_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/SUPERJUMP_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      },
+      {
+        "token": "Minimal FX",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+        "hit_bits": [],
+        "activation_fx": "POWERS/LEAPING/LEAPING_NOFX.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "Long_Jump": {
+    "crcfull_name": 2336762267,
+    "source_file": "DEFS/POWERS/POOL_LEAPING.POWERS",
+    "source_name": "Pool.Leaping.Long_Jump",
+    "display_name": "Super Jump",
+    "display_help": "While this power is active, you can leap great distances and heights, easily jumping over buildings and from rooftop to rooftop! If you attack a target while this power is on, you will temporarily be reduced to a normal jump height.",
+    "display_short_help": "Toggle: Self Long Jump",
+    "icon_name": "Jump_LongJump.tga",
+    "type": 2,
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "activate_period": 0.5,
+    "endurance_cost": 0.2275,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      16
+    ],
+    "group_membership": [
+      3,
+      7
+    ],
+    "modes_disallowed": [
+      8,
+      7,
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "target": 0,
+            "table": "Melee_Leap",
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "suppress": [
+              {
+                "event": 1,
+                "seconds": 4,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              200
+            ],
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "suppress": [
+              {
+                "event": 1,
+                "seconds": 4,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              208
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "suppress": [
+              {
+                "event": 1,
+                "seconds": 4,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              212
+            ],
+            "target": 0,
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "suppress": [
+              {
+                "event": 1,
+                "seconds": 4,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "target": 0,
+            "table": "Melee_Leap",
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              200
+            ],
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              208
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              212
+            ],
+            "target": 0,
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      200,
+      204,
+      208,
+      212
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+    "activation_fx": "POWERS/LEAPING/LEAPING.FX",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUPERJUMP_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/SUPERJUMP_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      },
+      {
+        "token": "Minimal FX",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SUPERJUMP.PFX",
+        "hit_bits": [],
+        "activation_fx": "POWERS/LEAPING/LEAPING_NOFX.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "Leap": {
+    "crcfull_name": 1465334586,
+    "source_file": "DEFS/POWERS/POOL_LEAPING.POWERS",
+    "source_name": "Pool.Leaping.Leap",
+    "display_name": "Acrobatics",
+    "display_help": "While this power is active, you are very nimble and Acrobatic. You can avoid most Knockback effects and are resistant to Hold effects. You must be at least level 14 and have two other Leaping Powers before selecting Acrobatics. Recharge: Moderate",
+    "display_short_help": "Toggle: Self +Res(Knockback, Hold)",
+    "display_attacker_hit": "You become more nimble and are less likely to be knocked down or held.",
+    "icon_name": "Jump_Acrobatics.tga",
+    "type": 2,
+    "buy_requires": [
+      "Pool.Leaping.Jump_Kick",
+      "Pool.Leaping.Combat_Jumping",
+      "&&",
+      "Pool.Leaping.Jump_Kick",
+      "Pool.Leaping.Long_Jump",
+      "&&",
+      "||",
+      "Pool.Leaping.Combat_Jumping",
+      "Pool.Leaping.Long_Jump",
+      "&&",
+      "||"
+    ],
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "time_to_activate": 0.67,
+    "recharge_time": 10,
+    "activate_period": 1,
+    "endurance_cost": 0.26,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      17
+    ],
+    "modes_disallowed": [
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -7,
+            "duration": 1.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -2,
+            "duration": 1.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "target": 0,
+            "scale": -2,
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": 1.75,
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": 3.75,
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -7,
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -2,
+            "duration": 1.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      268,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/LEAPING_ACROBATICS.PFX",
+    "activation_bits": [
+      278,
+      296
+    ],
+    "attack_frames": 20
+  },
+  "Spring_Attack": {
+    "crcfull_name": 2582200167,
+    "source_file": "DEFS/POWERS/POOL_LEAPING.POWERS",
+    "source_name": "Pool.Leaping.Spring_Attack",
+    "display_name": "Spring Attack",
+    "display_help": "You leap into the air and smash down among ranks of foes in the blink of an eye. Using this power allows you to jump to a selected area to deal significant smashing damage to all foes near the location you teleport to, most foes that are struck by your Spring Attack will be knocked down. You must be at least level 14 and have two other Leaping Powers before selecting Spring Attack. Damage: High, Recharge: Long",
+    "display_short_help": "PBAoE Superior DMG(Smashing), Foe Knockdown; Self Teleport",
+    "icon_name": "Jump_SpringAttack.tga",
+    "buy_requires": [
+      "Pool.Leaping.Jump_Kick",
+      "Pool.Leaping.Combat_Jumping",
+      "&&",
+      "Pool.Leaping.Jump_Kick",
+      "Pool.Leaping.Long_Jump",
+      "&&",
+      "||",
+      "Pool.Leaping.Combat_Jumping",
+      "Pool.Leaping.Long_Jump",
+      "&&",
+      "||"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 1.5,
+    "recharge_time": 120,
+    "endurance_cost": 13.52,
+    "target": 22,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              292
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "delay": 0.7,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4,
+            "delay": 0.625,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Spring_Attack"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      292,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SPRINGATTACK.PFX",
+    "attack_bits": [
+      20,
+      597,
+      685,
+      47
+    ],
+    "initial_attack_bits": [
+      20,
+      597,
+      685,
+      47
+    ],
+    "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SPRINGATTACK.FX",
+    "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SPRINGATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 0,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 0,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SPRINGATTACK.PFX",
+        "attack_bits": [
+          20,
+          597,
+          685,
+          47
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          597,
+          685,
+          47
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/CUSTOM_SPRINGATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/CUSTOM_SPRINGATTACK.FX",
+        "frames_before_hit": 0,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 0,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_LEAPING_SPRINGATTACK.PFX",
+        "attack_bits": [
+          20,
+          597,
+          685,
+          47
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          597,
+          685,
+          47
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/SPRINGATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/LEAPING/SUBTRACTIVE/SPRINGATTACK.FX",
+        "frames_before_hit": 0,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 0
+      }
+    ]
+  }
+}

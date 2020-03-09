@@ -1,0 +1,1405 @@
+{
+  "Chain_Fences": {
+    "crcfull_name": 862429263,
+    "source_file": "DEFS/POWERS/EPIC_SENTINEL_ELECTRICITY_MASTERY.POWERS",
+    "source_name": "Epic.Sentinel_Electricity_Mastery.Chain_Fences",
+    "display_name": "Chain Fences",
+    "display_help": "You can immobilize multiple foes in a chain of electricity, dealing minor damage to all foes in range and draining some endurance. This power also reduces Flight capacity in targets. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged AoE, Minor DMG(Energy), Foe Immobilize, -End, -Fly",
+    "display_target_help": "You are immobilized and your flight capability reduced by the Chain Fences.",
+    "display_target_short_help": "Immobilize, -End, -Fly",
+    "icon_name": "ElectricControl_ChainFences.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Sentinel",
+      "=="
+    ],
+    "accuracy": 0.9,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 80,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "endurance_cost": 19.5,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 6
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2798,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      88,
+      236,
+      272,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/CHAINFENCES_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/CHAINFENCES_ACTIVATION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Havok_Punch": {
+    "crcfull_name": 2465583023,
+    "source_file": "DEFS/POWERS/EPIC_SENTINEL_ELECTRICITY_MASTERY.POWERS",
+    "source_name": "Epic.Sentinel_Electricity_Mastery.Havok_Punch",
+    "display_name": "Havoc Punch",
+    "display_help": "The Havoc Punch is a slower attack than Charged Brawl, but makes up for it with a greater damage. Havoc Punch can may knock down targets, drain some Endurance from your target, or even overload their synapses, leaving them writhing for a moment. A portion of the drained Endurance may be given back to you. Disturbing an overloaded target will disperse the electrical charge and release them. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Melee, High DMG(Smash/Energy), Foe Sleep, -End, Knock back",
+    "display_target_help": "You have been put to sleep by the Havok Punch.",
+    "display_target_short_help": "Sleep",
+    "icon_name": "ElectricControl_HavokPunch.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Sentinel",
+      "=="
+    ],
+    "range": 7,
+    "time_to_activate": 1.5,
+    "recharge_time": 28,
+    "endurance_cost": 16.9,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      20,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Melee_Sleep",
+            "scale": 15,
+            "magnitude": 3,
+            "delay": 0.25,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 4
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.57,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -4,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "delay": 0.25,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      16,
+      88,
+      236,
+      280,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_HAVOKPUNCH.PFX",
+    "attack_bits": [
+      20,
+      263
+    ],
+    "block_bits": [
+      53
+    ],
+    "wind_up_bits": [
+      367
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYCONTROL.FX",
+    "hit_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHIT3.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYCONTROL.FX",
+    "continuing_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_HAVOKPUNCH.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "block_bits": 53,
+        "wind_up_bits": [
+          367
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/HAVOKPUNCH_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/HAVOKPUNCH_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/HAVOKPUNCH_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_HAVOKPUNCH.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "block_bits": 53,
+        "wind_up_bits": [
+          367
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/HAVOKPUNCH_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/HAVOKPUNCH_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/HAVOKPUNCH_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25
+      },
+      {
+        "token": "Bright Electric Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_HAVOKPUNCH.PFX",
+        "display_name": "Bright Electric Punch",
+        "attack_bits": [
+          20,
+          263,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "wind_up_bits": [
+          367
+        ],
+        "initial_attack_bits": [
+          20,
+          263,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/HAVOKPUNCH_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/HAVOKPUNCH_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/HAVOKPUNCH_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "frames_before_hit": 21,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 21,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electric Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_HAVOKPUNCH.PFX",
+        "display_name": "Dark Electric Punch",
+        "attack_bits": [
+          20,
+          263,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "wind_up_bits": [
+          367
+        ],
+        "initial_attack_bits": [
+          20,
+          263,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/HAVOKPUNCH_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/HAVOKPUNCH_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/HAVOKPUNCH_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "frames_before_hit": 21,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 21
+      }
+    ]
+  },
+  "Paralyzing_Jolt": {
+    "crcfull_name": 2123955466,
+    "source_file": "DEFS/POWERS/EPIC_SENTINEL_ELECTRICITY_MASTERY.POWERS",
+    "source_name": "Epic.Sentinel_Electricity_Mastery.Paralyzing_Jolt",
+    "display_name": "Paralyzing Jolt",
+    "display_help": "You strike an enemy with a powerful jolt of electricity, disorienting him, draining some endurance and causing moderate damage over time. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Energy), Foe Stun, -End",
+    "display_target_help": "The Tesla Cage is holding you helpless.",
+    "display_target_short_help": "Hold, -End",
+    "icon_name": "ElectricControl_TeslaCage.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "buy_requires": [
+      "Epic.Sentinel_Electricity_Mastery.Chain_Fences",
+      "Epic.Sentinel_Electricity_Mastery.Havok_Punch",
+      "||"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 2.07,
+    "recharge_time": 16,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.07,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.489,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -1.25,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      88,
+      236,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 30,
+    "primary_tint": [
+      188,
+      88,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      40,
+      20,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/JOLTINGCHAIN_ACTIVATION.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_JOLTINGCHAIN.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/JOLTINGCHAIN_ACTIVATION.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 30
+      }
+    ]
+  },
+  "Lightning_Field": {
+    "crcfull_name": 2835680305,
+    "source_file": "DEFS/POWERS/EPIC_SENTINEL_ELECTRICITY_MASTERY.POWERS",
+    "source_name": "Epic.Sentinel_Electricity_Mastery.Lightning_Field",
+    "display_name": "Lightning Field",
+    "display_help": "While active, you emit a storm of electricity that constantly damages all nearby foes. Damage: Minor(DoT), Recharge: Slow",
+    "display_short_help": "Toggle: PBAoE, Minor DoT(Energy), Foe -End",
+    "display_target_help": "You are taking damage from the Lightning Field.",
+    "display_target_short_help": "DoT(Energy)",
+    "icon_name": "ElectricControl_LightningField.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "buy_requires": [
+      "Epic.Sentinel_Electricity_Mastery.Chain_Fences",
+      "Epic.Sentinel_Electricity_Mastery.Havok_Punch",
+      "||"
+    ],
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "time_to_activate": 2.03,
+    "recharge_time": 10,
+    "activate_period": 2,
+    "endurance_cost": 1.3,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      19,
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "entref",
+          "source>",
+          "entref",
+          "target>",
+          "eq",
+          "!",
+          "&&",
+          "cur.kHeld",
+          "source>",
+          "0",
+          ">",
+          "cur.kStun",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kSleep",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kTerrorized",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.17,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.02,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "entref",
+          "source>",
+          "entref",
+          "target>",
+          "eq",
+          "!",
+          "&&",
+          "cur.kHeld",
+          "source>",
+          "0",
+          ">",
+          "cur.kStun",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kSleep",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "cur.kTerrorized",
+          "source>",
+          "0",
+          ">",
+          "||",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -1,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.17,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGFIELD.PFX",
+    "activation_bits": [
+      20,
+      255
+    ],
+    "activation_fx": "POWERS/ELECTRICITYCONTROL/CHAINLIGHTNING2.FX",
+    "continuing_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX",
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGFIELD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          255
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/LIGHTNINGFIELD_ACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electricity",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGFIELD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          255
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/LIGHTNINGFIELD_ACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25
+      },
+      {
+        "token": "Bright Electric Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGFIELD.PFX",
+        "display_name": "Bright Lightning Field",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          254,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/LIGHTNINGFIELD_ACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electric Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGFIELD.PFX",
+        "display_name": "Dark Lightning Field",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          254,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/LIGHTNINGFIELD_ACTIVATION.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Rehabilitating_Circuit": {
+    "crcfull_name": 1759190612,
+    "source_file": "DEFS/POWERS/EPIC_SENTINEL_ELECTRICITY_MASTERY.POWERS",
+    "source_name": "Epic.Sentinel_Electricity_Mastery.Rehabilitating_Circuit",
+    "display_name": "Rehabilitating Circuit",
+    "display_help": "You can use your Rehabilitating Circuit to heal the wounds of your group. Although you can be healed by this power, you need to use it against an ally for the chain to affect you. Recharge: Moderate",
+    "display_short_help": "Chain, Team +Heal",
+    "icon_name": "ElectricControl_Heal",
+    "buy_requires": [
+      "Epic.Sentinel_Electricity_Mastery.Chain_Fences",
+      "Epic.Sentinel_Electricity_Mastery.Havok_Punch",
+      "&&",
+      "Epic.Sentinel_Electricity_Mastery.Chain_Fences",
+      "Epic.Sentinel_Electricity_Mastery.Paralyzing_Jolt",
+      "&&",
+      "||",
+      "Epic.Sentinel_Electricity_Mastery.Chain_Fences",
+      "Epic.Sentinel_Electricity_Mastery.Lightning_Field",
+      "&&",
+      "||",
+      "Epic.Sentinel_Electricity_Mastery.Havok_Punch",
+      "Epic.Sentinel_Electricity_Mastery.Paralyzing_Jolt",
+      "&&",
+      "||",
+      "Epic.Sentinel_Electricity_Mastery.Havok_Punch",
+      "Epic.Sentinel_Electricity_Mastery.Lightning_Field",
+      "&&",
+      "||"
+    ],
+    "ai_report": 1,
+    "effect_area": 4,
+    "max_targets_hit": 255,
+    "radius": 20,
+    "chain_fork": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 32,
+    "endurance_cost": 16.25,
+    "target": 16,
+    "ents_auto_hit": [
+      16,
+      1
+    ],
+    "ents_affected": [
+      16,
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Ranged_Heal",
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} {Damage} points of damage.",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points of damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      28
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/ELECTRICAFFINITY_REHABILITATINGCIRCUIT.PFX",
+    "attack_bits": [
+      20,
+      362,
+      685
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362,
+      685
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/CUSTANIM_BOLTCAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYBOLTCHAINHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/CUSTANIM_BOLTCAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 16,
+    "primary_tint": [
+      0,
+      125,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      0,
+      75,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright Electric",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/ELECTRICAFFINITY_REHABILITATINGCIRCUIT.PFX",
+        "attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/CUSTANIM_BOLTCAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYBOLTCHAINHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/CUSTANIM_BOLTCAST.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 16,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Electric",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/ELECTRICAFFINITY_REHABILITATINGCIRCUIT.PFX",
+        "attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/CUSTANIM_BOLTCAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYBOLTCHAINHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/CUSTANIM_BOLTCAST.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 16
+      }
+    ]
+  }
+}

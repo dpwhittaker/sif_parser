@@ -1,0 +1,397 @@
+{
+  "Self_Destruct": {
+    "crcfull_name": 479698705,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_WARWORKS_SELFDESTRUCT.POWERS",
+    "source_name": "PraetorianIDF.Warworks_SelfDestruct.Self_Destruct",
+    "display_name": "Self Destruct",
+    "display_help": "The Warworks are rigged to explode when they are incapacitated, this will deal moderate lethal and fire damage to all nearby.",
+    "display_short_help": "Post Death, PBAoE, Moderate DMG(Fire/Lethal), Foe Knockback",
+    "icon_name": "FireBlast_Inferno.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing",
+      "Energy"
+    ],
+    "target_near_ground": true,
+    "castable_after_death": 1,
+    "time_to_activate": 4,
+    "recharge_time": 600,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 10,
+            "delay": 3,
+            "flags": [
+              568,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "PraetorianIDF_Warworks_Self_Destruct"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ]
+  },
+  "Self_Destruct_Effect": {
+    "crcfull_name": 2607393266,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_WARWORKS_SELFDESTRUCT.POWERS",
+    "source_name": "PraetorianIDF.Warworks_SelfDestruct.Self_Destruct_Effect",
+    "display_name": "Self Destruct Effect",
+    "display_help": "The Warworks are rigged to explode when they are incapacitated, this will deal moderate lethal and fire damage to all nearby.",
+    "display_short_help": "Post Death, PBAoE, Moderate DMG(Fire/Lethal), Foe Knockback",
+    "icon_name": "FireBlast_Inferno.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Smashing",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 4,
+    "activate_period": 100,
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_ACU_SELF_DESTRUCT.PFX",
+    "activation_fx": "ENEMYFX/PRAETORIAN/WARWORKS/SELFDESTRUCT_ATTACK_ACU.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/WARWORKS/SELFDESTRUCT_HIT_ACU.FX"
+  },
+  "Meltdown": {
+    "crcfull_name": 371317051,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_WARWORKS_SELFDESTRUCT.POWERS",
+    "source_name": "PraetorianIDF.Warworks_SelfDestruct.Meltdown",
+    "display_name": "Meltdown",
+    "display_help": "The Warworks are rigged to explode, this particular unit was equipped to melt down and leave behind a plasma patch.",
+    "display_short_help": "Post Death, PBAoE Light DMG(Fire/Lethal), Moderate DoT(Fire)",
+    "icon_name": "FireBlast_Inferno.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Fire"
+    ],
+    "target_near_ground": true,
+    "castable_after_death": 1,
+    "time_to_activate": 4,
+    "recharge_time": 600,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 10,
+            "delay": 3,
+            "flags": [
+              568,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "PraetorianIDF_Warworks_Meltdown"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ]
+  },
+  "Meltdown_Effect": {
+    "crcfull_name": 2080924292,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_WARWORKS_SELFDESTRUCT.POWERS",
+    "source_name": "PraetorianIDF.Warworks_SelfDestruct.Meltdown_Effect",
+    "display_name": "Meltdown Effect",
+    "display_help": "The Warworks are rigged to explode, this particular unit was equipped to melt down and leave behind a plasma patch.",
+    "display_short_help": "Post Death, PBAoE Light DMG(Fire/Lethal), Moderate DoT(Fire)",
+    "icon_name": "FireBlast_Inferno.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Fire"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 4,
+    "activate_period": 1000,
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.125,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.125,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      4,
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_BCU_MELT_DOWN.PFX",
+    "attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/MELTDOWN_ATTACK.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/WARWORKS/CHARGEDSHOT_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/MELTDOWN_ATTACK.FX"
+  },
+  "Meltdown_Burn": {
+    "crcfull_name": 512415433,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_WARWORKS_SELFDESTRUCT.POWERS",
+    "source_name": "PraetorianIDF.Warworks_SelfDestruct.Meltdown_Burn",
+    "display_name": "Meltdown Burn",
+    "display_help": "All foes that pass through these flames will be burned.",
+    "display_short_help": "Moderate DoT(Fire)",
+    "display_target_help": "All foes that pass through these flames will be burned.",
+    "display_target_short_help": "Moderate DoT(Fire)",
+    "icon_name": "FlamingShield_Burn.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 8,
+    "activate_period": 0.5,
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.08,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.04,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_BCU_MELT_DOWN_PET.PFX",
+    "activation_fx": "ENEMYFX/PRAETORIAN/WARWORKS/BURNPATCH_PET.FX",
+    "continuing_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_CONTINUING.FX",
+    "continuing_fx1": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_CONTINUING.FX"
+  }
+}

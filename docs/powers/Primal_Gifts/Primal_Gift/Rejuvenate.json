@@ -1,0 +1,191 @@
+{
+  "crcfull_name": 91940085,
+  "source_file": "DEFS/POWERS/PRIMAL_GIFTS_PRIMAL_GIFT.POWERS",
+  "source_name": "Primal_Gifts.Primal_Gift.Rejuvenate",
+  "display_name": "Rejuvenate",
+  "display_help": "This power will heal the caster, however its special effects vary depending on form. While in primal form the caster will heal nearby allies for a small amount and cause them to recover additional health over time. While in Hunter or Prowler form the user will only heal themselves, but for a larger amount. They'll also receive a boost to recovery for a short time. Rejuvenate builds 1 Primal Energy. Recharge: Long",
+  "display_short_help": "Self, Special Heal",
+  "icon_name": "PrimalGifts_Rejuvenate.tga",
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "time_to_activate": 1.5,
+  "recharge_time": 60,
+  "endurance_cost": 6.24,
+  "ents_auto_hit": [
+    1,
+    16
+  ],
+  "ents_affected": [
+    1,
+    16
+  ],
+  "boosts_allowed": [
+    33,
+    23,
+    18,
+    14
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "kProwlerMode",
+        "Source.Mode?",
+        "kHunterMode",
+        "Source.Mode?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 2.5,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} hit points begin to rapidly recover endurance!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.5,
+          "duration": 30,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHunterMode",
+        "Source.Mode?",
+        "!",
+        "kProwlerMode",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "table": "Melee_Heal",
+          "scale": 2,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} hit points!",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of healing!"
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "table": "Melee_Heal",
+          "scale": 0.15,
+          "duration": 9.1,
+          "delay": 1,
+          "period": 1,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} continues to mend your wounds for {Damage} points of healing!",
+            "display_victim_hit": "{PlayerSource} continues to heal you with their {PowerName} for {Damage} points of healing!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 4,
+  "cancelable": true,
+  "attrib_cache": [
+    28,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_HEALINGFLAMES.PFX",
+  "attack_bits": [
+    245
+  ],
+  "initial_attack_bits": [
+    245
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/HEALINGFLAMES.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/HEALINGFLAMES.FX",
+  "frames_before_hit": 16,
+  "attack_frames": 45,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "alt_theme": [
+        "Bright Flames"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_HEALINGFLAMES.PFX",
+      "attack_bits": [
+        245
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        245
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/HEALINGFLAMES.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/HEALINGFLAMES.FX",
+      "mode_bits": [],
+      "frames_before_hit": 16,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 16,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "alt_theme": [
+        "Dark Flames"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_HEALINGFLAMES.PFX",
+      "attack_bits": [
+        245
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        245
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/HEALINGFLAMES.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/HEALINGFLAMES.FX",
+      "mode_bits": [],
+      "frames_before_hit": 16,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 16
+    }
+  ]
+}

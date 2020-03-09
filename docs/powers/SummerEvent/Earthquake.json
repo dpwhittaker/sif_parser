@@ -1,0 +1,235 @@
+{
+  "Earthquake_Master": {
+    "crcfull_name": 3408847690,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_EARTHQUAKE.POWERS",
+    "source_name": "SummerEvent.Earthquake.Earthquake_Master",
+    "display_name": "Earthquake",
+    "display_help": "You create a localized earthquake at your target's current location. This hits any targets caught within its area of effect on an ongoing basis, but can be avoided if the area is evacuated.",
+    "display_short_help": "Summon",
+    "display_target_help": "You are caught in a devastating earthquake!",
+    "display_target_short_help": "Summon",
+    "icon_name": "SummerEvent_Cornutus_ShatteringStrike.tga",
+    "type": 1,
+    "activate_period": 999,
+    "target_visibility": 1,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 6,
+            "delay": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} creates a devastating {PowerName} centered on you!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "SummerEvent_Earthquake"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 2,
+            "delay": 6,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "SummerEvent_EarthquakeDebuff"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_TALONSOFVENGEANCE_SIBYL_EARTHQUAKE_PET.PFX",
+    "attack_fx": "ENEMYFX/PRAETORIAN/TALONS/EARTHSIBYL_EARTHQUAKE.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/TALONS/EARTHSIBYL_EARTHQUAKE.FX"
+  },
+  "Earthquake": {
+    "crcfull_name": 4235060261,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_EARTHQUAKE.POWERS",
+    "source_name": "SummerEvent.Earthquake.Earthquake",
+    "display_name": "Earthquake",
+    "display_help": "The violent shaking of the earthquake deals smashing damage and knocks down targets caught in its area. Additionally, because of debris thrown into the air, nearby flying characters can be knocked to the ground.",
+    "display_short_help": "PBAoE, High DoT(Smashing), -Fly, Knockup",
+    "display_target_help": "You have been knocked off your feet and are unable to fly.",
+    "display_target_short_help": "-Fly, Chance to Knockdown",
+    "icon_name": "SummerEvent_Cornutus_ShatteringStrike.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 999,
+    "radius": 20,
+    "activate_period": 1,
+    "target_visibility": 1,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      324
+    ]
+  },
+  "Earthquake_Debuff": {
+    "crcfull_name": 3592314862,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_EARTHQUAKE.POWERS",
+    "source_name": "SummerEvent.Earthquake.Earthquake_Debuff",
+    "display_name": "Earthquake",
+    "display_help": "The violent shaking of the earthquake leaves a cloud of dust and debris in the air. This reduces your chance to hit, slows movement and attack speeds and prevents flight.",
+    "display_short_help": "PBAoE, -Fly(Foe), -Speed(All, Foe), -To Hit(Foe), -Rech(Foe)",
+    "display_target_help": "You have been weakened by the dust cloud remaining after the earthquake.",
+    "display_target_short_help": "-Fly, -Speed (All), -To Hit, -Rech",
+    "icon_name": "SummerEvent_Cornutus_ShatteringStrike.tga",
+    "type": 1,
+    "effect_area": 2,
+    "max_targets_hit": 999,
+    "radius": 20,
+    "activate_period": 999,
+    "target_visibility": 1,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -10,
+            "duration": 10,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 10,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              188,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 10,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              192
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.6,
+            "duration": 10,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "table": "Melee_Slow",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      100,
+      188,
+      192,
+      200,
+      204,
+      284,
+      356
+    ]
+  }
+}

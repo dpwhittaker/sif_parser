@@ -1,0 +1,283 @@
+{
+  "crcfull_name": 3714618732,
+  "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_TALONS_BOSS.POWERS",
+  "source_name": "Incarnate.Lore_Pet_Talons_Boss.Autumnal_Equinox",
+  "free": true,
+  "display_name": "Autumnal Equinox",
+  "display_help": "Calling on the strength of the seasons, you concentrate both ice and fire on your target. The target is held in a block of ice and is unable to move while they cook inside the block.",
+  "display_short_help": "Ranged, High DMG(Cold), Minor DoT (Fire), Hold(Foe), -Speed(Foe, All), -Rech(Foe)",
+  "display_target_help": "You are frozen in place and being cooked within the ice. Once free, your attack and movement speeds will be reduced.",
+  "display_target_short_help": "DoT(Fire), Hold, -Speed(All), -Rech",
+  "icon_name": "TalonsOfVengeance_SorceressSerene_AutumnalEquinox.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Cold",
+    "Fire"
+  ],
+  "range": 80,
+  "time_to_activate": 1.23,
+  "recharge_time": 8,
+  "target": 19,
+  "boosts_allowed": [
+    39,
+    30,
+    23,
+    9,
+    5
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.08,
+          "duration": 3.7,
+          "delay": 0.5,
+          "period": 1,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 15,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 2,
+          "magnitude": 3,
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    8,
+    12,
+    188,
+    192,
+    200,
+    204,
+    268,
+    324,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_TALONSOFVENGEANCE_DIVINER_AUTUMNALEQUINOX.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    395
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    395,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+  "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_SPECIAL2_ATTACK.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_SPECIAL2_HIT.FX",
+  "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_SPECIAL2_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    87
+  ],
+  "frames_before_hit": 20,
+  "attack_frames": 37,
+  "initial_frames_before_hit": 40,
+  "initial_attack_fxframe_delay": 20
+}

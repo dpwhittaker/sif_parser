@@ -1,0 +1,196 @@
+{
+  "crcfull_name": 485835680,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Golden_Rings",
+  "free": true,
+  "display_name": "Golden Rings",
+  "display_help": "Although this power deals very little damage, the Golden Rings encase your foe, holding him helpless in place for a while. This power will last for 12 days. Damage: Minor, Recharge: Slow",
+  "display_short_help": "Ranged, Minor DMG(Energy), Foe Hold",
+  "display_target_help": "You are held.",
+  "display_target_short_help": "Hold",
+  "icon_name": "Temporary_TearGas.tga",
+  "attack_types": [
+    "Ranged",
+    "Cold"
+  ],
+  "range": 60,
+  "time_to_activate": 1.17,
+  "recharge_time": 60,
+  "endurance_cost": 6.864,
+  "lifetime": 1036800,
+  "target": 19,
+  "modes_disallowed": [
+    9,
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/ITEMSANDTEMPPOWERS/GOLDENRINGSHOLDCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/ITEMSANDTEMPPOWERS/GOLDENRINGSHOLDCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHeld",
+        "target>",
+        "0",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 10,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 10,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    268,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/WINTEREVENT_FIVERING_HOLD.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "POWERS/ITEMSANDTEMPPOWERS/GOLDENRINGSHANDS.FX",
+  "hit_fx": "POWERS/ITEMSANDTEMPPOWERS/GOLDENRINGSHOLDHIT.FX",
+  "initial_attack_fx": "POWERS/ITEMSANDTEMPPOWERS/GOLDENRINGSHANDS.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23
+}

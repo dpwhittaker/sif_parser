@@ -1,0 +1,120 @@
+{
+  "crcfull_name": 1639918954,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIRE_MANIPULATION.POWERS",
+  "source_name": "Mission_Maker_Secondary.Fire_Manipulation.Hot_Feet",
+  "display_name": "Hot Feet",
+  "display_help": "While active, you heat the earth in a large area around yourself. Enemy movement is Slowed as they attempt to flee the immediate area. All foes in the affected area may also suffer some damage over time. You cannot fly and must be near the ground to use this power. Damage: Minor(DoT), Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Foe -SPD",
+  "display_target_help": "The ground below you is incredibly hot. You are burning and your running speed is reduced.",
+  "display_target_short_help": "DoT(Fire), -SPD",
+  "icon_name": "FireManipulation_HotFeet.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "near_ground": true,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "time_to_activate": 1.47,
+  "recharge_time": 20,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_TempDamage",
+          "scale": 0.25,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        },
+        {
+          "attrib": [
+            260
+          ],
+          "type": 0,
+          "scale": 4,
+          "magnitude": 3,
+          "stack_type": 3,
+          "flags": [
+            1296,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "scale": -10,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.7,
+          "duration": 2.3,
+          "stack_type": 3,
+          "flags": [
+            648,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/HOTFEETHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "point_value": 40,
+  "attrib_cache": [
+    8,
+    188,
+    260,
+    284
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_HOT_FEET.PFX",
+  "activation_bits": [
+    20,
+    263
+  ],
+  "activation_fx": "POWERS/FIRECONTROL/HOTFEET.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 44,
+  "initial_frames_before_hit": 25
+}

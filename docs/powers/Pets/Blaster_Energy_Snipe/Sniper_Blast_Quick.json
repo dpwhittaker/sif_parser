@@ -1,0 +1,421 @@
+{
+  "crcfull_name": 4147648887,
+  "source_file": "DEFS/POWERS/PETS_BLASTER_ENERGY_SNIPE.POWERS",
+  "source_name": "Pets.Blaster_Energy_Snipe.Sniper_Blast_Quick",
+  "display_name": "Sniper Blast",
+  "display_help": "A focused blast that can travel great distances with high Accuracy. This is a sniper attack, and is best fired from a distance, as it can be interrupted. Sniper Blast may knock targets backwards. Damage: Superior, Recharge: Slow",
+  "display_short_help": "Sniper, Extreme DMG(Energy/Smash), Foe Knockback",
+  "icon_name": "PowerBlast_SniperBlast.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 150,
+  "time_to_activate": 1.33,
+  "recharge_time": 12,
+  "endurance_cost": 14.352,
+  "target": 19,
+  "boosts_allowed": [
+    32,
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "scale": 2.28,
+          "magnitude_expr": [
+            "cur.kToHit",
+            "source>",
+            "0.75",
+            "-",
+            "0.22",
+            "/",
+            "-1.0",
+            "1.0",
+            "minmax",
+            "0.210526316",
+            "*",
+            "1",
+            "+",
+            "@StdResult",
+            "*",
+            "0.3",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "scale": 2.28,
+          "magnitude_expr": [
+            "cur.kToHit",
+            "source>",
+            "0.75",
+            "-",
+            "0.22",
+            "/",
+            "-1.0",
+            "1.0",
+            "minmax",
+            "0.210526316",
+            "*",
+            "1",
+            "+",
+            "@StdResult",
+            "*",
+            "0.7",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5433,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.2677,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 0.7,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            348
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.5,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} helps you focus your abilities on your target, increasing your range for a short time!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "magnitude": 0,
+          "duration_expr": [
+            "activatetime",
+            "power.base>",
+            "7.5",
+            "+"
+          ],
+          "magnitude_expr": [
+            ".066",
+            "activatetime",
+            "power.base>",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    328,
+    348
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ENERGYBLAST_SNIPERBLAST_QUICK.PFX",
+  "attack_bits": [
+    20,
+    681,
+    381,
+    684
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    681,
+    381,
+    684
+  ],
+  "attack_fx": "POWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+  "hit_fx": "POWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+  "wind_up_fx": "POWERS/ENERGYBLAST/SNIPERWINDUP_QUICK.FX",
+  "initial_attack_fx": "POWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 28,
+  "delayed_hit": true,
+  "attack_frames": 40,
+  "initial_frames_before_hit": 28,
+  "projectile_speed": 210,
+  "custom_fx": [
+    {
+      "token": "Bright Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ENERGYBLAST_SNIPERBLAST_QUICK.PFX",
+      "attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERWINDUP_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 210,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ENERGYBLAST_SNIPERBLAST_QUICK.PFX",
+      "attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERWINDUP_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 210
+    },
+    {
+      "token": "Bright Energy Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ENERGYBLAST_SNIPERBLAST_QUICK.PFX",
+      "display_name": "Bright Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERWINDUP_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SNIPERBLAST_QUICK.FX",
+      "mode_bits": [
+        20,
+        685,
+        692
+      ],
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 210,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ENERGYBLAST_SNIPERBLAST_QUICK.PFX",
+      "display_name": "Dark Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERWINDUP_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/SNIPERBLAST_QUICK.FX",
+      "mode_bits": [
+        20,
+        685,
+        692
+      ],
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 210
+    }
+  ]
+}

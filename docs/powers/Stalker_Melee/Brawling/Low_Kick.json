@@ -1,0 +1,538 @@
+{
+  "crcfull_name": 1573178470,
+  "source_file": "DEFS/POWERS/STALKER_MELEE_BRAWLING.POWERS",
+  "source_name": "Stalker_Melee.Brawling.Low_Kick",
+  "display_name": "Shin Breaker",
+  "display_help": "You execute a quick but powerful kick targeting your foe's leg in an attempt to cripple their movement. Shin Breaker deals Superior Smashing damage and moderately reduces your target's movement speed and defense for a short time. Shin Breaker is a Combo Builder and adds 1 Combo Level. Damage: Superior, Recharge: Slow",
+  "display_short_help": "Melee, Superior DMG (Smash), Foe -Speed, -Defense, Combo Builder",
+  "display_target_help": "The Shin Breaker has reduced your movement speed as well as your defense.",
+  "display_target_short_help": "-SPD, -DEF",
+  "icon_name": "Brawling_LowKick.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "range": 7,
+  "time_to_activate": 1.33,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 8
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "scale": -1.6,
+          "duration": 8
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 8,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "duration": 10,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.651,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.651,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.651,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.64,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 1!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 2!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+        "source.ownPower?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.9,
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    184,
+    188,
+    200,
+    204,
+    284,
+    473,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SHINBREAKER.PFX",
+  "attack_bits": [
+    20,
+    624,
+    48,
+    257
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    624,
+    48,
+    257
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 18,
+  "attack_frames": 40,
+  "initial_frames_before_hit": 18,
+  "primary_tint": [
+    255,
+    126,
+    48,
+    255
+  ],
+  "secondary_tint": [
+    89,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SHINBREAKER.PFX",
+      "attack_bits": [
+        20,
+        624,
+        48,
+        257
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        624,
+        48,
+        257
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+      "frames_before_hit": 18,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 18,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SHINBREAKER.PFX",
+      "attack_bits": [
+        20,
+        624,
+        48,
+        257
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        624,
+        48,
+        257
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SHINBREAKER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SHINBREAKER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SHINBREAKER_ATTACK.FX",
+      "frames_before_hit": 18,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 18
+    }
+  ]
+}

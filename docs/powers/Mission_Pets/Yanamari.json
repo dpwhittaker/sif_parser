@@ -1,0 +1,816 @@
+{
+  "Twilight_Grasp": {
+    "crcfull_name": 1722409118,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Twilight_Grasp",
+    "display_name": "Twilight Grasp",
+    "display_help": "You channel Negative Energy from the Netherworld through yourself to a targeted foe. Twilight Grasp drains the power from that target and slowly transfers it to you and all nearby allies. The targeted foe's Accuracy and damage are reduced, while you and your nearby allies are healed. Recharge: Moderate",
+    "display_short_help": "Ranged, Foe -Acc -DMG, Team Heal",
+    "display_target_help": "The Twilight Grasp has reduced your Accuracy and Damage potential.",
+    "display_target_short_help": "-ACC, -DMG",
+    "icon_name": "DarkMiasma_TwilightGrasp.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 2.37,
+    "recharge_time": 8,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Twilight"
+              }
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "magnitude": 100,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 2,
+            "magnitude": 0,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/SHADOWHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.5,
+            "duration": 20
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      232,
+      272,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_TWILIGHT_GRASP.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53
+  },
+  "Darkest_Night": {
+    "crcfull_name": 395557598,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Darkest_Night",
+    "display_name": "Darkest Night",
+    "display_help": "While active, you channel Negative Energy onto a targeted foe. Darkest Night decreases the damage potential and Accuracy of the target, and all foes nearby, as long as you keep the power active. Recharge: Slow",
+    "display_short_help": "Toggle: Ranged (Targeted AoE), Foe -DMG -ACC",
+    "display_target_help": "Your Accuracy and Damage potential are reduced by the darkness.",
+    "display_target_short_help": "-ACC, -DMG",
+    "display_attacker_hit": "Your {PowerName} reduced the damage of {PlayerDest}.",
+    "display_victim_hit": "{PlayerSource} reduces your damage with his {PowerName}.",
+    "icon_name": "DarkMiasma_DarkestNight.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "range": 70,
+    "time_to_activate": 3.17,
+    "recharge_time": 10,
+    "activate_period": 0.5,
+    "endurance_cost": 0.35,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 0.75,
+            "stack_type": 3
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_CHILL_OF_THE_NIGHT.PFX",
+    "activation_bits": [
+      20,
+      272
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKNESSHANDS3.FX",
+    "attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "attack_frames": 95
+  },
+  "Shadow_Fall": {
+    "crcfull_name": 4216082051,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Shadow_Fall",
+    "display_name": "Shadow Fall",
+    "display_help": "Envelops you and your nearby teammates in a shroud of darkness. Shadow Fall does not grant Invisibility, but it does make you harder to detect. Even if you are discovered, Shadow Fall grants a bonus to Defense and Resistance to Fear, while reducing Energy, Negative Energy, and Psionic Damage. Shadow Fall reduces your movement speed, but not your allies'. Recharge: Slow",
+    "display_short_help": "Toggle: PBAoE, Team Stealth, +DEF, +Res(Energy, Negative, Psionics, Fear)",
+    "display_target_help": "Shadow Fall has made you difficult to detect, which increases your Defense. Shadowfall also partially absorbs and deflects Energy, Negative Energy and Psionic damage. You are also less fearful.",
+    "display_target_short_help": "Stealth, +DEF, +Res(Energy, Negative, Psionics, Fear))",
+    "display_attacker_hit": "You hide {PlayerDest} within your {PowerName}.",
+    "display_victim_hit": "You are hidden within the Shadow Fall.",
+    "icon_name": "DarkMiasma_ShadowFall.tga",
+    "type": 2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 40,
+    "time_to_activate": 2.03,
+    "recharge_time": 15,
+    "activate_period": 0.5,
+    "endurance_cost": 0.35,
+    "ents_auto_hit": [
+      16,
+      1
+    ],
+    "ents_affected": [
+      16,
+      1
+    ],
+    "group_membership": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "table": "Ranged_Ones",
+            "scale": 35,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/SHADOWHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "table": "Ranged_Ones",
+            "scale": 389,
+            "duration": 0.75,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 2,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 13,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              104,
+              108
+            ],
+            "table": "Ranged_Buff_Def",
+            "scale": 0.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.7,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192
+            ],
+            "target": 0,
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              16,
+              20,
+              24
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              264
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              264
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -15,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      16,
+      20,
+      24,
+      104,
+      108,
+      188,
+      192,
+      220,
+      224,
+      264,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_SHADOW_FALL.PFX",
+    "activation_bits": [
+      20,
+      255,
+      723
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/SHADOWFALL.FX",
+    "attack_frames": 61
+  },
+  "Fearsome_Stare": {
+    "crcfull_name": 501914496,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Fearsome_Stare",
+    "display_name": "Fearsome Stare",
+    "display_help": "Instills tremendous Fear within a cone area in front of you, causing all affected targets to tremble in Terror uncontrollably. Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Foe Fear, -ACC",
+    "display_target_help": "The Fearsome Stare has terrified you and reduced your Accuracy.",
+    "display_target_short_help": "Fear, -ACC",
+    "icon_name": "DarkMiasma_FearsomeAura.tga",
+    "attack_types": [
+      "NegativeEnergy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 70,
+    "arc": 0.7853982,
+    "range": 70,
+    "time_to_activate": 2.03,
+    "recharge_time": 12,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Ranged_Fear",
+            "scale": 30,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 20
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      100,
+      264
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_FEARSOME_AURA.PFX",
+    "attack_bits": [
+      20,
+      364
+    ],
+    "initial_attack_bits": [
+      20,
+      364
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/FEARSOMEAURA.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/FEARSOMEAURA.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 23
+  },
+  "Lift": {
+    "crcfull_name": 2319829759,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Lift",
+    "display_name": "Lift",
+    "display_help": "Negates the gravity around a single target. Lift violently sends an enemy straight into the air, then slams him to the ground for Smashing damage. This power can bring flying foes to the ground. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Smash)",
+    "icon_name": "GravityControl_Lift.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "range": 80,
+    "time_to_activate": 1.03,
+    "recharge_time": 6,
+    "endurance_cost": 9.24,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.8,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 10,
+            "delay": 2,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      284,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GRAVITY_CONTROL_LIFT.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCLIFT.FX",
+    "hit_fx": "POWERS/GRAVITYCONTROL/GCLIFTHIT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCLIFT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 31,
+    "initial_frames_before_hit": 22
+  },
+  "Gravity_Distortion": {
+    "crcfull_name": 3920290350,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Gravity_Distortion",
+    "display_name": "Gravity Distortion",
+    "display_help": "Causes a single foe to be trapped in a misshapen gravity field, rendering him unable to take action. Gravity Distortion deals Smashing damage to the target. Damage: Moderate(DoT), Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DoT(Smash), Foe Hold, -Fly",
+    "display_target_help": "You have been caught in a Gravity Distortion. You cannot move and cannot fly.",
+    "display_target_short_help": "DoT(Smash), Hold, -Fly",
+    "icon_name": "GravityControl_GravityDistortion.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.83,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "POWERS/GRAVITYCONTROL/GCCRUSHCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.22,
+            "duration": 4.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      188,
+      192,
+      200,
+      204,
+      268,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GRAVITY_CONTROL_GRAVITY_DISTORTION.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTION.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 55,
+    "initial_frames_before_hit": 37
+  },
+  "Propel": {
+    "crcfull_name": 1609271425,
+    "source_file": "DEFS/POWERS/MISSION_PETS_YANAMARI.POWERS",
+    "source_name": "Mission_Pets.Yanamari.Propel",
+    "display_name": "Propel",
+    "display_help": "You can open a gravitational rift and retrieve a heavy object, then Propel it at your foes for Smashing Damage. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Smash), Foe Knockback",
+    "icon_name": "GravityControl_Propel.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "range": 60,
+    "time_to_activate": 2.07,
+    "recharge_time": 8,
+    "endurance_cost": 12.6,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GRAVITY_CONTROL_PROPEL.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+    "hit_fx": "POWERS/GRAVITYCONTROL/GCPROPEL_HIT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 45,
+    "delayed_hit": true,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 45,
+    "projectile_speed": 150
+  }
+}

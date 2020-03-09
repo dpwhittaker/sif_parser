@@ -1,0 +1,105 @@
+{
+  "crcfull_name": 3067063643,
+  "source_file": "DEFS/POWERS/MAGISTERIUM_FLOW_LIGHTNING.POWERS",
+  "source_name": "Magisterium.Flow_Lightning.Initial",
+  "display_name": "Flow Lightning",
+  "display_help": "You call forth a powerful stream of lightning from the highest reaches of the atmosphere. This Flow Lightning causes significant energy damage to all enemies caught in its field, as well as drains endurance and lowers recovery.",
+  "display_short_help": "Targeted AoE, Extreme DMG (Energy), -End (Foe), -Rec (Foe), +DMG(Self, Energy), +DEF(Self, Energy)",
+  "display_target_help": "Your Recovery has been reduced and your Endurance is being drained.",
+  "display_target_short_help": "-End, -Rec",
+  "icon_name": "TalonsOfVengeance_FlowLightning.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "target_requires": [
+    "enttype",
+    "target>",
+    "player",
+    "eq"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 1,
+  "radius": 20,
+  "activate_period": 9999,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.1,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The {PowerName} shocks you for {Damage} points of energy damage and reduces your recovery!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.03,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PowerName} drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.2,
+          "duration": 10,
+          "flags": [
+            192,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 11.1,
+          "delay": 0.9,
+          "flags": [
+            112,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Tyrant_FlowLightning_Ongoing"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/GREG_TYRANT_FLOWLIGHTNING_PET.PFX",
+  "hit_fx": "ENEMYFX/PRAETORIAN/TYRANT/TYRANT_FLOWLIGHTNING.FX"
+}

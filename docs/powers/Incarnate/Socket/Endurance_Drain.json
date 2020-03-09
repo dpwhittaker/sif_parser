@@ -1,0 +1,192 @@
+{
+  "crcfull_name": 1840476345,
+  "source_file": "DEFS/POWERS/INCARNATE_SOCKET.POWERS",
+  "source_name": "Incarnate.Socket.Endurance_Drain",
+  "free": true,
+  "display_name": "Preemptive Socket",
+  "display_help": "Your Endurance and Recovery are drained by a Preemptive Socket proc.",
+  "display_short_help": "-End, -Recovery",
+  "icon_name": "Incarnate_Interface_Preemptive_Common.tga",
+  "type": 5,
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||",
+    "combatlevel",
+    "char>",
+    "45",
+    "<",
+    "&&"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "tag": [
+        "GenesisStatus"
+      ],
+      "chance": 0,
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "@ChanceMods",
+        "<",
+        "&&",
+        "combatlevel",
+        "source>",
+        "45",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 34,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.005,
+          "duration": 4.3,
+          "period": 1,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 4,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} for {Damage} points of Endurance!",
+            "display_victim_hit": "You have been drained by {PowerName} for {Damage} points of Endurance!"
+          },
+          "fx": {
+            "continuing_fx": "INCARNATEPOWERS/INTERFACE/PREEMPTIVE.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "GenesisStatus"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "@ChanceMods",
+        "<",
+        "&&",
+        "combatlevel",
+        "source>",
+        "45",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 34,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -0.025,
+          "duration": 4.3,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 4,
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} reduces the recovery of {PlayerDest}!",
+            "display_victim_hit": "Your recovery has been reduced by {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "GenesisStatus"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "@ChanceMods",
+        "<",
+        "&&",
+        "combatlevel",
+        "source>",
+        "45",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 34,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "scale": -0.25,
+          "duration": 4.3,
+          "period": 1,
+          "tick_chance": 0,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 4,
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} for {Damage} points of Endurance!",
+            "display_victim_hit": "You have been drained by {PowerName} for {Damage} points of Endurance!"
+          }
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    88,
+    236
+  ]
+}

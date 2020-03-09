@@ -1,0 +1,329 @@
+{
+  "crcfull_name": 4212701867,
+  "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+  "source_name": "Pool.Medicine.Stimulant",
+  "display_name": "Injection",
+  "display_help": "You fire a small dart at a target. The dart is set up to release a beneficial serum or deleterious toxin, depending on whether it strikes friend or foe. If striking a friend, the ally is freed from any Immobilization, Sleep, Disorient, Hold, Fear or Confuse effects and is resistant to such effects for a brief time. If striking a foe, the enemy suffers reduced damage potential, attack speed and chance to hit. The serum's effects will improve with multiple applications from you, but the toxin's do not. The toxin's effect is also shorter in duration than the serum's effect. Both serum and toxin improve as you advance in level.",
+  "display_short_help": "Ranged, +Status Protection(Ally, PvE), +Status Resistance(Ally, PvP) OR -DMG(Foe, All), -Rech(Foe), -ToHit(Foe)",
+  "display_target_help": "You have been struck by a dart fired by a Field Medic. If the Medic is you ally, you have gained protections against Status Effects. If the Medic is your enemy, you are suffering reduced damage, attack speed and chance to hit.",
+  "display_target_short_help": "Special (Ally or Foe)",
+  "icon_name": "Medicine_Injection.tga",
+  "range": 40,
+  "time_to_activate": 2.93,
+  "recharge_time": 12,
+  "endurance_cost": 13,
+  "target": 21,
+  "ents_auto_hit": [
+    16
+  ],
+  "ents_affected": [
+    16,
+    19
+  ],
+  "boosts_allowed": [
+    29,
+    23,
+    18,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    117,
+    118,
+    8,
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "isPVPMap?",
+        "!",
+        "target.isFriend?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            256,
+            264,
+            268,
+            272,
+            276,
+            280
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -30,
+          "duration": 45,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You aid {PlayerDest} with an {PowerName} that increases their status effect protections.",
+            "display_victim_hit": "{PlayerSource} aids you with an {PowerName} that boosts your status protections."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "isPVPMap?",
+        "target.isFriend?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            256,
+            264,
+            268,
+            272,
+            276,
+            280
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Boolean",
+          "scale": 3,
+          "duration": 45,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You aid {PlayerDest} with an {PowerName} that increases their status effect resistances.",
+            "display_victim_hit": "{PlayerSource} aids you with an {PowerName} that boosts your status resistances."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "duration": 15,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "You harm {PlayerDest} with an {PowerName} that reduces damage, attack speed and chance to hit.",
+            "display_victim_hit": "{PlayerSource} harms you with an {PowerName} that reduces your damage, attack speed and chance to hit."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.1,
+          "duration": 15,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "duration": 15,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 1.5,
+          "duration": 15,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "You harm {PlayerDest} with an {PowerName} that reduces damage, attack speed and chance to hit.",
+            "display_victim_hit": "{PlayerSource} harms you with an {PowerName} that reduces your damage, attack speed and chance to hit."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.1,
+          "duration": 15,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 1.5,
+          "duration": 15,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    256,
+    264,
+    268,
+    272,
+    276,
+    280,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_STIMULANT.PFX",
+  "attack_bits": [
+    385,
+    367,
+    47
+  ],
+  "wind_up_bits": [
+    385,
+    367,
+    47
+  ],
+  "hit_bits": [
+    49,
+    245
+  ],
+  "initial_attack_bits": [
+    385,
+    367,
+    47
+  ],
+  "attack_fx": "POWERS/MEDICINE/MSTIMULANT.FX",
+  "hit_fx": "POWERS/HEALING/HEALING.FX",
+  "wind_up_fx": "POWERS/MEDICINE/MSTIMULANTWU.FX",
+  "initial_attack_fx": "POWERS/MEDICINE/MSTIMULANT.FX",
+  "frames_before_hit": 1,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 1,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_STIMULANT.PFX",
+      "attack_bits": [
+        385,
+        367,
+        47
+      ],
+      "wind_up_bits": [
+        385,
+        367,
+        47
+      ],
+      "hit_bits": [
+        49,
+        245
+      ],
+      "initial_attack_bits": [
+        385,
+        367,
+        47
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/STIMULANT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+      "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/STIMULANT_WINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/STIMULANT_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 1,
+      "attack_frames": 88,
+      "initial_frames_before_hit": 1,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_STIMULANT.PFX",
+      "attack_bits": [
+        385,
+        367,
+        47
+      ],
+      "wind_up_bits": [
+        385,
+        367,
+        47
+      ],
+      "hit_bits": [
+        49,
+        245
+      ],
+      "initial_attack_bits": [
+        385,
+        367,
+        47
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/STIMULANT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+      "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/STIMULANT_WINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/STIMULANT_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 1,
+      "attack_frames": 88,
+      "initial_frames_before_hit": 1
+    }
+  ]
+}

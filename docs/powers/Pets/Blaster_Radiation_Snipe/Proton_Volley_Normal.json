@@ -1,0 +1,334 @@
+{
+  "crcfull_name": 2601919088,
+  "source_file": "DEFS/POWERS/PETS_BLASTER_RADIATION_SNIPE.POWERS",
+  "source_name": "Pets.Blaster_Radiation_Snipe.Proton_Volley_Normal",
+  "display_name": "Proton Volley",
+  "display_help": "Hurls a volley of alpha particles over an extremely long range. Proton Volley can bypass some of a target's defenses and reduce the target's Defense. This is a sniper attack, and is best fired from a distance as it can be interrupted. Damage: Superior, Recharge: Slow",
+  "display_short_help": "Sniper, Superior DMG(Energy), Foe -DEF",
+  "display_target_help": "The Proton Volley has reduced your Defenses.",
+  "display_target_short_help": "-DEF",
+  "icon_name": "RadiationBurst_ProtonVolley",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 150,
+  "time_to_activate": 3.33,
+  "recharge_time": 12,
+  "endurance_cost": 14.352,
+  "interrupt_time": 2,
+  "target": 19,
+  "boosts_allowed": [
+    32,
+    23,
+    22,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.125,
+          "duration": 1.6,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time [SNIPER SHOT].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time [SNIPER SHOT].",
+            "display_float": "SNIPER SHOT"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 3,
+          "duration": 12,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            348
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.5,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} helps you focus your abilities on your target, increasing your range for a short time!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.6422,
+          "duration": 1.6,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time [SNIPER SHOT].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time [SNIPER SHOT].",
+            "display_float": "SNIPER SHOT"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "magnitude": 0,
+          "duration_expr": [
+            "activatetime",
+            "power.base>",
+            "7.5",
+            "+"
+          ],
+          "magnitude_expr": [
+            ".066",
+            "activatetime",
+            "power.base>",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    184,
+    348
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONVOLLEY.PFX",
+  "attack_bits": [
+    20,
+    258,
+    683
+  ],
+  "wind_up_bits": [
+    371
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258,
+    683
+  ],
+  "attack_fx": "POWERS/RADIATIONCONTROL/PROTONBLAST.FX",
+  "wind_up_fx": "POWERS/RADIATIONCONTROL/PROTONBLASTHANDS.FX",
+  "initial_attack_fx": "POWERS/RADIATIONCONTROL/PROTONBLAST.FX",
+  "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+  "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 10,
+  "delayed_hit": true,
+  "attack_frames": 40,
+  "initial_frames_before_hit": 10,
+  "projectile_speed": 60,
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONVOLLEY.PFX",
+      "attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "wind_up_bits": [
+        371
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLASTHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "frames_before_hit": 10,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 10,
+      "projectile_speed": 60,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONVOLLEY.PFX",
+      "attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "wind_up_bits": [
+        371
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLASTHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "frames_before_hit": 10,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 10,
+      "projectile_speed": 60
+    },
+    {
+      "token": "Bright Radiation Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONVOLLEY.PFX",
+      "display_name": "Bright Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "wind_up_bits": [
+        371,
+        685,
+        692
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLASTHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "frames_before_hit": 10,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 10,
+      "projectile_speed": 60,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONVOLLEY.PFX",
+      "display_name": "Dark Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "wind_up_bits": [
+        371,
+        685,
+        692
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLASTHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "frames_before_hit": 10,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 10,
+      "projectile_speed": 60
+    }
+  ]
+}

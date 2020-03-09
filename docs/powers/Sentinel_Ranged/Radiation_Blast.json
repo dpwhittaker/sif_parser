@@ -1,0 +1,2292 @@
+{
+  "Neutrino_Bolt": {
+    "crcfull_name": 377559696,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Neutrino_Bolt",
+    "display_name": "Neutrino Bolt",
+    "display_help": "A very quick, but low damage attack. Neutrino Bolt can reduce the target's Defense. Damage: Minor, Recharge: Very Fast",
+    "display_short_help": "Ranged, Minor DMG(Energy), Foe -DEF",
+    "display_target_help": "Your Defense has been reduced by the Neutrino Bolt.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "RadiationBurst_NeutrinoBlast",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "range": 60,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 3,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.8984,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Vulnerability"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": -0.2,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "stack_key": 16,
+            "flags": [
+              131728,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Vulnerability!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Opportunity"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Vulnerability"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Offensive Opportunity"
+            }
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 99,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 104,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kDomination",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      465,
+      473,
+      475,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRINOBOLT.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/NEUTRINOBLAST.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/NEUTRINOBLAST.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 17,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 17,
+    "projectile_speed": 105,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRINOBOLT.PFX",
+        "attack_bits": [
+          20,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/NEUTRINOBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/NEUTRINOBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 17,
+        "projectile_speed": 105,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRINOBOLT.PFX",
+        "attack_bits": [
+          20,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/NEUTRINOBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/NEUTRINOBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 17,
+        "projectile_speed": 105
+      },
+      {
+        "token": "Bright Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRINOBOLT.PFX",
+        "display_name": "Bright Radiate",
+        "attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CUSTANIM_NEUTRINOBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CUSTANIM_NEUTRINOBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 17,
+        "projectile_speed": 105,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRINOBOLT.PFX",
+        "display_name": "Dark Radiate",
+        "attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CUSTANIM_NEUTRINOBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CUSTANIM_NEUTRINOBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 17,
+        "projectile_speed": 105
+      }
+    ]
+  },
+  "X-Ray_Beam": {
+    "crcfull_name": 2567030782,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.X-Ray_Beam",
+    "display_name": "X-Ray Beam",
+    "display_help": "You can emit a beam of X-Ray energy from your eyes, dealing moderate Energy damage. This attack can bypass some defenses and can reduce the target's Defense. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Energy), Foe -DEF",
+    "display_target_help": "Your Defense has been reduced by the X-Ray Beam.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "RadiationBurst_XRayBeam",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.1,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 6,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.8464,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Vulnerability"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": -0.2,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "stack_key": 16,
+            "flags": [
+              131728,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Vulnerability!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Opportunity"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Vulnerability"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Defensive Opportunity"
+            }
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 104,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 99,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kDomination",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      465,
+      473,
+      475,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_XRAYBEAM.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/XRAYBEAM.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/XRAYBEAM.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 32,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_XRAYBEAM.PFX",
+        "attack_bits": [
+          20,
+          311
+        ],
+        "initial_attack_bits": [
+          20,
+          311
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/XRAYBEAM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/XRAYBEAM.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_XRAYBEAM.PFX",
+        "attack_bits": [
+          20,
+          311
+        ],
+        "initial_attack_bits": [
+          20,
+          311
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/XRAYBEAM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/XRAYBEAM.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32
+      },
+      {
+        "token": "Bright Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_XRAYBEAM.PFX",
+        "display_name": "Bright Beam Blast",
+        "attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CUST_XRAYBEAM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CUST_XRAYBEAM.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_XRAYBEAM.PFX",
+        "display_name": "Dark Beam Blast",
+        "attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          311,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CUST_XRAYBEAM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CUST_XRAYBEAM.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32
+      }
+    ]
+  },
+  "Irradiate": {
+    "crcfull_name": 1183543721,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Irradiate",
+    "display_name": "Irradiate",
+    "display_help": "You can emit lethal amounts of radiation in all directions, damaging all nearby foes for a short time. Like other Radiation attacks, this power can bypass some of a target's defenses. Irradiate severely reduces the target's Defense. Damage: Moderate(DoT), Recharge: Slow",
+    "display_short_help": "Close (AoE), Moderate DoT(Energy), Foe -DEF",
+    "display_target_help": "You are irradiated and taking damage over time. Your Defense has been reduced.",
+    "display_target_short_help": "DoT(Energy), -DEF",
+    "icon_name": "RadiationBurst_Irradiate",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.1,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "time_to_activate": 1.07,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "boosts_allowed": [
+      23,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 3,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.0429,
+            "duration": 4.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      16,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_IRRADIATE.PFX",
+    "attack_bits": [
+      20,
+      254
+    ],
+    "initial_attack_bits": [
+      20,
+      254
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/IRRADIATE.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/IRRADIATE.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 30,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_IRRADIATE.PFX",
+        "attack_bits": [
+          20,
+          254
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_IRRADIATE.PFX",
+        "attack_bits": [
+          20,
+          254
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 30
+      },
+      {
+        "token": "Bright Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_IRRADIATE.PFX",
+        "display_name": "Bright Irradiation Field",
+        "attack_bits": [
+          20,
+          254,
+          685
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_IRRADIATE.PFX",
+        "display_name": "Dark Irradiation Field",
+        "attack_bits": [
+          20,
+          254,
+          685
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 30
+      }
+    ]
+  },
+  "Cosmic_Burst": {
+    "crcfull_name": 463174016,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Cosmic_Burst",
+    "display_name": "Cosmic Burst",
+    "display_help": "Cosmic Burst smashes the target with cosmic particles. The attack is devastating and can leave most targets Disoriented and with reduced Defense. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Extreme DMG(Energy), Foe Disorient, -DEF",
+    "display_target_help": "You are disoriented and your Defenses are reduced.",
+    "display_target_short_help": "Disorient, -DEF",
+    "icon_name": "RadiationBurst_CosmicBurst",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "range": 60,
+    "time_to_activate": 2.07,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 2.12,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 3.3888,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 3,
+            "duration": 12,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      184,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_COSMICBURST.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/COSMICBLAST.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/COSMICBLAST.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "delayed_hit": true,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 35,
+    "projectile_speed": 75,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_COSMICBURST.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/COSMICBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/COSMICBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 75,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_COSMICBURST.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/COSMICBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/COSMICBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 75
+      },
+      {
+        "token": "Bright Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_COSMICBURST.PFX",
+        "display_name": "Bright Cosmic Assault",
+        "attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CUSTANIM_COSMICBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/CUSTANIM_COSMICBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 75,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_COSMICBURST.PFX",
+        "display_name": "Dark Cosmic Assault",
+        "attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          362,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CUSTANIM_COSMICBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/CUSTANIM_COSMICBLAST.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 75
+      }
+    ]
+  },
+  "Aim": {
+    "crcfull_name": 3761418905,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Aim",
+    "display_name": "Aim",
+    "display_help": "Greatly increases the chance to hit of your attacks for a few seconds. Slightly increases damage and range. Recharge: Long",
+    "display_short_help": "Self +To Hit, +DMG, +Range",
+    "display_attacker_hit": "You activate {PowerName} and increase the power of your next few attacks.",
+    "icon_name": "RadiationBurst_Aim.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You quickly take aim and are more accurate, more deadly and able to shoot a longer distance for a short while.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.333,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_AIM.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/RADIATIONBLASTAIM.FX",
+    "initial_attack_fx": "POWERS/RADIATIONBLASTAIM.FX",
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_AIM.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/RADIATIONBLASTAIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/RADIATIONBLASTAIM.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_AIM.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/RADIATIONBLASTAIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/RADIATIONBLASTAIM.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      },
+      {
+        "token": "Bright Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_AIM.PFX",
+        "display_name": "Bright Aim Charge",
+        "attack_bits": [
+          245,
+          685
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/RADIATIONBLASTAIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/RADIATIONBLASTAIM.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_AIM.PFX",
+        "display_name": "Dark Aim Charge",
+        "attack_bits": [
+          245,
+          685
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/RADIATIONBLASTAIM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/RADIATIONBLASTAIM.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Electron_Haze": {
+    "crcfull_name": 1834989989,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Electron_Haze",
+    "display_name": "Electron Haze",
+    "display_help": "A short range conical blast of free electrons. This attack can bypass some of a target's defenses and reduce the target's Defense. It can also knock some targets down. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Close, Moderate Cone DMG(Energy), Foe -DEF, Knockback",
+    "display_target_help": "The Electron Haze has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "RadiationBurst_ElectronHaze",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.1,
+    "effect_area": 1,
+    "max_targets_hit": 6,
+    "radius": 40,
+    "arc": 0.5235988,
+    "range": 40,
+    "time_to_activate": 2.37,
+    "recharge_time": 16,
+    "endurance_cost": 15.184,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.35,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 8,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.436,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      16,
+      184,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_ELECTRONHAZE.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/ELECTRONHAZE.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/ELECTRONHAZE.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 55,
+    "delayed_hit": true,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 55,
+    "projectile_speed": 45,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "alt_theme": [
+          "Bright Radiation Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_ELECTRONHAZE.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ELECTRONHAZE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ELECTRONHAZE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 55,
+        "delayed_hit": true,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 55,
+        "projectile_speed": 45,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "alt_theme": [
+          "Dark Radiation Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_ELECTRONHAZE.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ELECTRONHAZE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ELECTRONHAZE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 55,
+        "delayed_hit": true,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 55,
+        "projectile_speed": 45
+      }
+    ]
+  },
+  "Proton_Stream": {
+    "crcfull_name": 125852100,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Proton_Stream",
+    "display_name": "Proton Stream",
+    "display_help": "Hurls a volley of alpha particles at your target. Proton Volley is highly accurate and will reduce the target's Defense. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Moderate DMG(Energy), Foe -DEF",
+    "display_target_help": "The Proton Volley has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "RadiationBurst_Heavy",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 12,
+    "endurance_cost": 11.856,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.57,
+            "duration": 0.41,
+            "period": 0.13,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 3,
+            "duration": 12,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.5123,
+            "duration": 0.41,
+            "period": 0.13,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONSTREAM.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/PROTONBLAST2HAND.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/PROTONBLAST2HAND.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 60,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONSTREAM.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST2HAND.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST2HAND.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 60,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_PROTONSTREAM.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST2HAND.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST2HAND.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 60
+      }
+    ]
+  },
+  "Neutron_Bomb": {
+    "crcfull_name": 3293142004,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Neutron_Bomb",
+    "display_name": "Neutron Bomb",
+    "display_help": "This devastating attack lobs an explosive sphere of deadly radiation, damaging the target and all nearby foes. Neutron Bomb can bypass some of a target's defenses and reduce the target's Defense. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Energy), Foe -DEF",
+    "display_target_help": "The Neutron Bomb has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "RadiationBurst_RadiationBlast",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.1,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 15.184,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 16,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.0245,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRONBOMB.PFX",
+    "attack_bits": [
+      20,
+      262
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      262
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/INFECTOTHERS.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/INFECTOTHERS.FX",
+    "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 78,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 78,
+    "projectile_speed": 42,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "alt_theme": [
+          "Bright Radiation Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRONBOMB.PFX",
+        "attack_bits": [
+          20,
+          262
+        ],
+        "initial_attack_bits": [
+          20,
+          262
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/INFECTOTHERS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/INFECTOTHERS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 78,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 78,
+        "projectile_speed": 42,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "alt_theme": [
+          "Dark Radiation Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_NEUTRONBOMB.PFX",
+        "attack_bits": [
+          20,
+          262
+        ],
+        "initial_attack_bits": [
+          20,
+          262
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/INFECTOTHERS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/INFECTOTHERS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+        "frames_before_hit": 78,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 78,
+        "projectile_speed": 42
+      }
+    ]
+  },
+  "Atomic_Blast": {
+    "crcfull_name": 2219043576,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_RADIATION_BLAST.POWERS",
+    "source_name": "Sentinel_Ranged.Radiation_Blast.Atomic_Blast",
+    "display_name": "Atomic Blast",
+    "display_help": "This attack taps most of your stored energy to deal a devastating Atomic Blast which deals Extreme Energy and Smashing damage. Any foes left standing will have their Defense greatly reduced and may be left helplessly choking on toxic vapors. Damage: Extreme, Recharge: Very Long",
+    "display_short_help": "PBAoE, Extreme DMG(Energy/Smash), Foe Hold, -DEF",
+    "display_target_help": "The Atomic Blast has left you held and your defenses are reduced.",
+    "display_target_short_help": "Hold, -DEF",
+    "icon_name": "RadiationBurst_AtomicBlast",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 1.4,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "time_to_activate": 2.93,
+    "recharge_time": 90,
+    "endurance_cost": 15.6,
+    "boosts_allowed": [
+      23,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "radius_inner": 0,
+        "radius_outer": 10,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.928,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 2.253,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.4694,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.9515,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 4,
+            "duration": 20
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 5.86,
+    "attrib_cache": [
+      0,
+      16,
+      184,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_ATOMICBLAST.PFX",
+    "attack_bits": [
+      248
+    ],
+    "initial_attack_bits": [
+      248
+    ],
+    "attack_fx": "POWERS/RADIATIONCONTROL/ATOMICBLAST.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/ATOMICBLAST.FX",
+    "conditional_fx": "POWERS/RADIATIONCONTROL/CHOKINGCLOUDCONTINUING.FX",
+    "conditional_fx1": "POWERS/RADIATIONCONTROL/CHOKINGCLOUDCONTINUING.FX",
+    "frames_before_hit": 62,
+    "delayed_hit": true,
+    "attack_frames": 88,
+    "initial_frames_before_hit": 62,
+    "projectile_speed": 60,
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "alt_theme": [
+          "Bright Radiation Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_ATOMICBLAST.PFX",
+        "attack_bits": [
+          248
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          248
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ATOMICBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ATOMICBLAST.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/CHOKINGCLOUDCONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 62,
+        "delayed_hit": true,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 62,
+        "projectile_speed": 60,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "alt_theme": [
+          "Dark Radiation Cast"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_RADIATIONBLAST_ATOMICBLAST.PFX",
+        "attack_bits": [
+          248
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          248
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ATOMICBLAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ATOMICBLAST.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/CHOKINGCLOUDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/CHOKINGCLOUDCONTINUING.FX",
+        "mode_bits": [],
+        "frames_before_hit": 62,
+        "delayed_hit": true,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 62,
+        "projectile_speed": 60
+      }
+    ]
+  }
+}

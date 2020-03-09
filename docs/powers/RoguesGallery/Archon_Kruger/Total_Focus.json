@@ -1,0 +1,184 @@
+{
+  "crcfull_name": 1596900072,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_ARCHON_KRUGER.POWERS",
+  "source_name": "RoguesGallery.Archon_Kruger.Total_Focus",
+  "display_name": "Total Focus",
+  "display_help": "You strike a single target with an exceptionally powerful burst of energy. This causes the target and all those nearby to suffer smashing and energy damage. Affected targets are also stunned and may be taunted, preventing them from taking action against anyone but you.",
+  "display_short_help": "Melee (Targeted AoE), Extreme DMG(Energy/Smashing), Stun (Foe), Chance to Taunt (Foe)",
+  "display_target_help": "You have been stunned and you may be taunted.",
+  "display_target_short_help": "Stun, Chance for Taunt",
+  "icon_name": "RoguesGallery_ArchonKruger_TotalFocus.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 5,
+  "time_to_activate": 3.3,
+  "recharge_time": 20,
+  "endurance_cost": 12,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 10,
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 10,
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "radius_outer": 17.8,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "You have been taunted by {PlayerSource}'s {PowerName} and cannot attack other targets."
+          }
+        }
+      ]
+    }
+  ],
+  "anim_main_target_only": true,
+  "attrib_cache": [
+    0,
+    16,
+    248,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_ARCHONKRUGER_TOTALFOCUS.PFX",
+  "attack_bits": [
+    20,
+    354
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    354
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSPOWERPUNCH.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSPOWERPUNCH.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 69,
+  "attack_frames": 99,
+  "initial_frames_before_hit": 69,
+  "primary_tint": [
+    20,
+    30,
+    140,
+    255
+  ],
+  "secondary_tint": [
+    160,
+    180,
+    240,
+    255
+  ]
+}

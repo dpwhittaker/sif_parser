@@ -1,0 +1,2193 @@
+{
+  "Penumbral_Grasp": {
+    "crcfull_name": 3805748453,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Penumbral_Grasp",
+    "display_name": "Penumbral Grasp",
+    "display_help": "Penumbral Grasp deals moderate Negative Energy damage, reduces their chance to hit and may leave the targeted foe Immobilized for a brief time. Immobilized foes cannot move but can still attack. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DOT(Negative), Foe Immobilize, -To Hit",
+    "display_target_help": "You have been entangled by Penumbral Grasp and have been left immobilized.",
+    "display_target_short_help": "Immobilize",
+    "icon_name": "DarknessManipulation_PenumbralGrasp.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "cast_through_hold": true,
+    "cast_through_sleep": true,
+    "cast_through_stun": true,
+    "cast_through_terrorize": true,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 4,
+    "endurance_cost": 7.8,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.3458,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.11,
+            "duration": 9.17,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_TENEBROUSTENTACLES.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/TENDRILS.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/TENDRILS.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "conditional_fx": "POWERS/DARKNESSCONTROL/DARKNESSTENDRILSHITCONTINUING.FX",
+    "conditional_fx1": "POWERS/DARKNESSCONTROL/DARKNESSTENDRILSHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 42,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_TENEBROUSTENTACLES.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/TENDRILS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/TENDRILS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/DARKNESSTENDRILSHITCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/DARKNESSTENDRILSHITCONTINUING.FX",
+        "frames_before_hit": 25,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 25,
+        "projectile_speed": 42
+      },
+      {
+        "token": "Dark Glow",
+        "alt_theme": [
+          "Dark Glow Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_TENEBROUSTENTACLES.PFX",
+        "attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          258
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/LIVINGSHADOWS_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/LIVINGSHADOWS_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/SHADOWYBINDS_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/SHADOWYBINDS_CONTINUING.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30
+      }
+    ]
+  },
+  "Smite": {
+    "crcfull_name": 3822032572,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Smite",
+    "display_name": "Smite",
+    "display_help": "You wrap your fists with Negative Energy channeled from the Netherworlds, then perform a Smite that deals High negative energy damage. Smite clouds the target's vision, lowering its chance to hit for a short time. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee, High DMG (Smash/Negative), Foe -To Hit",
+    "display_target_help": "The Smite has reduced your Accuracy.",
+    "display_target_short_help": "-To Hit",
+    "icon_name": "DarknessManipulation_Smite.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "NegativeEnergy"
+    ],
+    "range": 7,
+    "time_to_activate": 0.97,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.49,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.47,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3697,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1091,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.064,
+            "duration": 8.47,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SMITE.PFX",
+    "attack_bits": [
+      20,
+      154,
+      265
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      265
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/SHADOWPUNCH.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MARTIALARTSHITSDARKNESS2.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/SHADOWPUNCH.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 29,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SMITE.PFX",
+        "attack_bits": [
+          20,
+          154,
+          265
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          265
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SHADOWPUNCH_SUBTRACTIVE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/MARTIALARTSHITSDARKNESS2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SHADOWPUNCH_SUBTRACTIVE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "attack_frames": 29
+      },
+      {
+        "token": "Dark Glow",
+        "alt_theme": [
+          "Dark Glow Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SMITE.PFX",
+        "attack_bits": [
+          20,
+          154,
+          265
+        ],
+        "initial_attack_bits": [
+          20,
+          154,
+          265
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SHADOWPUNCH_DARKGLOW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_HITS2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SHADOWPUNCH_DARKGLOW.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "attack_frames": 29
+      }
+    ]
+  },
+  "Death_Shroud": {
+    "crcfull_name": 443051169,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Death_Shroud",
+    "display_name": "Death Shroud",
+    "display_help": "You become a focus point for the Netherworld, allowing its Negative Energy to seep from your body. This will continuously damage all foes in melee range. Damage: Minor(DoT), Recharge: Fast",
+    "display_short_help": "Toggle: PBAoE Minor DoT(Negative)",
+    "display_target_help": "You are taking damage from the Death Shroud.",
+    "display_target_short_help": "DoT(Negative)",
+    "icon_name": "DarknessManipulation_DeathShroud.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 3.47,
+    "recharge_time": 4,
+    "activate_period": 2,
+    "endurance_cost": 1.04,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_DEATHSHROUD.PFX",
+    "activation_bits": [
+      20,
+      250
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DEATHSHROUD.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 104,
+    "initial_frames_before_hit": 28,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "DarkArmorNoFade"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_DEATHSHROUD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          250
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKARMOR/DEATHSHROUD_SUBTRACTIVE.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 104,
+        "initial_frames_before_hit": 28
+      },
+      {
+        "token": "MinimalFX",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_DEATHSHROUD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          250
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKARMOR/DEATHSHROUD_MINIMAL.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 104,
+        "initial_frames_before_hit": 28
+      },
+      {
+        "token": "Dark Glow",
+        "alt_theme": [
+          "DarkGlowWE"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_DEATHSHROUD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          250
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKARMOR/SOUL_DEATHSHROUD.FX",
+        "mode_bits": [],
+        "frames_before_hit": 28,
+        "attack_frames": 104,
+        "initial_frames_before_hit": 28
+      }
+    ]
+  },
+  "Shadow_Maul": {
+    "crcfull_name": 2558009104,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Shadow_Maul",
+    "display_name": "Shadow Maul",
+    "display_help": "You wrap your entire arms with Negative Energy channeled from the Netherworlds, then perform a series of blows that deal a lot of damage over a short period of time to multiple targets in front of you. These blows cloud your target's vision, lowering his chance to hit for a short time. Damage: High(DoT), Recharge: Moderate",
+    "display_short_help": "Melee (Cone), Superior DoT(Smash/Negative), Foe -To Hit",
+    "display_target_help": "Your chance to hit has been reduced by the Shadow Maul.",
+    "display_target_short_help": "-To Hit",
+    "icon_name": "DarknessManipulation_ShadowMaul.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "NegativeEnergy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 7,
+    "arc": 0.7853982,
+    "range": 7,
+    "time_to_activate": 3.07,
+    "recharge_time": 14,
+    "endurance_cost": 13.52,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.325,
+            "duration": 2,
+            "period": 0.625,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.325,
+            "duration": 2,
+            "period": 0.625,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3886,
+            "duration": 2,
+            "period": 0.625,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3886,
+            "duration": 2,
+            "period": 0.625,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.163,
+            "duration": 10.57,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SHADOWMAUL.PFX",
+    "attack_bits": [
+      20,
+      256,
+      309
+    ],
+    "hit_bits": [
+      49,
+      309
+    ],
+    "initial_attack_bits": [
+      20,
+      256,
+      309
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/MAULATTACK.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/MAULHITS.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/MAULATTACK.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 92,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SHADOWMAUL.PFX",
+        "attack_bits": [
+          20,
+          256,
+          309
+        ],
+        "hit_bits": [
+          49,
+          309
+        ],
+        "initial_attack_bits": [
+          20,
+          256,
+          309
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/MAULATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/MAULHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/MAULATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "attack_frames": 92
+      },
+      {
+        "token": "Dark Glow",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SHADOWMAUL.PFX",
+        "attack_bits": [
+          20,
+          256,
+          309
+        ],
+        "hit_bits": [
+          49,
+          309
+        ],
+        "initial_attack_bits": [
+          20,
+          256,
+          309
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_MAULATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_MAULHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_MAULATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "attack_frames": 92
+      }
+    ]
+  },
+  "Soul_Drain": {
+    "crcfull_name": 1876806535,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Soul_Drain",
+    "display_name": "Soul Drain",
+    "display_help": "Using this power, you can drain the essence of all nearby foes' souls, thus increasing your own strength. Each affected foe will lose some Hit Points and add to your Damage and chance to hit. Damage: Moderate, Recharge: Very Long",
+    "display_short_help": "PBAoE Moderate DMG(Negative), Self +DMG, +To Hit",
+    "icon_name": "DarknessManipulation_SoulDrain.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "time_to_activate": 2.37,
+    "recharge_time": 120,
+    "endurance_cost": 15.6,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      7,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 0.2,
+            "duration": 30,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 0.8,
+            "duration": 30,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 4,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.063,
+            "duration": 9.87,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SOULDRAIN.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/STEALPOWER.FX",
+    "hit_fx": "POWERS/EMPATHY/DARKNESSABSORBPAINWITHRAYSANDHEAL.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/STEALPOWER.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/STEALPOWERCONTINUING.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/STEALPOWERCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SOULDRAIN.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/STEALPOWER.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/DARKNESSABSORBPAINWITHRAYSANDHEAL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/STEALPOWER.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/STEALPOWERCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKMELEE/STEALPOWERCONTINUING.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 53
+      },
+      {
+        "token": "Dark Glow",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_SOULDRAIN.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_SOULDRAINATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_SOULDRAIN.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_SOULDRAINATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 53
+      }
+    ]
+  },
+  "Touch_of_Fear": {
+    "crcfull_name": 2897715521,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Touch_of_Fear",
+    "display_name": "Touch of the Beyond",
+    "display_help": "The Netherworld is one scary place, and with but a touch, you can give your enemy a glimpse into this dark world. This will cause them to helplessly tremble in Fear. Foes in this state of panic have reduced chance to hit. Additionally, drawing upon this connection to the Netherworld causes you to rapidly regenerate health and recover endurance for a short time. Recharge: Moderate",
+    "display_short_help": "Fear, Foe -To Hit, Self +Regeneration, +Recovery",
+    "display_target_help": "You are terrified and your chance to hit is reduced.",
+    "display_target_short_help": "Fear, -To Hit",
+    "icon_name": "DarknessManipulation_TouchofFear.tga",
+    "attack_types": [
+      "Melee",
+      "NegativeEnergy"
+    ],
+    "accuracy": 1.5,
+    "range": 80,
+    "time_to_activate": 1.17,
+    "recharge_time": 10,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      14,
+      12,
+      11,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_Fear",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_Fear",
+            "scale": 7,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 20
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 1.125,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} causes you to rapidly recover both health and endurance!",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 1.125,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} causes you to rapidly recover both health and endurance!",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 0.5,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              96,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.077,
+            "duration": 8.67,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      232,
+      236,
+      264
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_TOUCHOFFEAR.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/TOUCHOFDEATH_SUBTRACTIVE.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/TOUCHOFDEATH_SUBTRACTIVE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_TOUCHOFFEAR.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/TOUCHOFDEATH_SUBTRACTIVE.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/TOUCHOFDEATH_SUBTRACTIVE.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      },
+      {
+        "token": "Dark Glow",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_TOUCHOFFEAR.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_TOUCHOFDEATH.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_TOUCHOFDEATH.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Dark_Consumption": {
+    "crcfull_name": 2559923621,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Dark_Consumption",
+    "display_name": "Dark Consumption",
+    "display_help": "The dark power of the Netherworld allows you to tap the essence of your foe's soul and transfer it to yourself. This will drain the Hit Points of your enemy and add to your Endurance. Damage: Moderate, Recharge: Very Long",
+    "display_short_help": "PBAoE Moderate DMG(Negative), Self +End",
+    "icon_name": "DarknessManipulation_DarkConsumption.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 1.03,
+    "recharge_time": 180,
+    "endurance_cost": 0.52,
+    "boosts_allowed": [
+      33,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 25,
+            "delay": 0.25,
+            "flags": [
+              96,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.031,
+            "duration": 8.53,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_DARKCONSUMPTION.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/CONSUMPTION.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/CONSUMPTIONHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/CONSUMPTION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 31,
+    "initial_frames_before_hit": 22,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_DARKCONSUMPTION.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/CONSUMPTION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/CONSUMPTIONHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/CONSUMPTION.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 31,
+        "initial_frames_before_hit": 22
+      },
+      {
+        "token": "Dark Glow",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_DARKCONSUMPTION.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_CONSUMPTION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_CONSUMPTIONHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_CONSUMPTION.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 31,
+        "initial_frames_before_hit": 22
+      }
+    ]
+  },
+  "Dark_Pit": {
+    "crcfull_name": 4139239113,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Dark_Pit",
+    "display_name": "Dark Pit",
+    "display_help": "Envelops a targeted foe and any nearby enemies in a pit of Negative Energy. The attack deals no damage, but Disorients all affected foes for a good while. Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Foe Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "DarknessManipulation_DarkPit.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "accuracy": 0.8,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "range": 70,
+    "time_to_activate": 1.07,
+    "recharge_time": 60,
+    "endurance_cost": 13,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 8,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.018,
+            "duration": 8.57,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_DARKPIT.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/THEPIT2.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/THEPIT2.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "delayed_hit": true,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23,
+    "projectile_speed": 42,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Color Tintable No Skull",
+          "Color Tintable With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_DARKPIT.PFX",
+        "attack_bits": [
+          20,
+          320
+        ],
+        "initial_attack_bits": [
+          20,
+          320
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/THEPIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/THEPIT2.FX",
+        "frames_before_hit": 23,
+        "delayed_hit": true,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "projectile_speed": 42
+      },
+      {
+        "token": "Custom Dark Cast",
+        "alt_theme": [
+          "Color Tintable Alt No Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_DARKPIT.PFX",
+        "display_name": "Custom Dark Chasm",
+        "attack_bits": [
+          20,
+          320,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          320,
+          685
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/CUSTANIM_DARKCHASM.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/CUSTANIM_DARKCHASM.FX",
+        "frames_before_hit": 23,
+        "delayed_hit": true,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "projectile_speed": 42
+      },
+      {
+        "token": "Dark Glow",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_DARKPIT.PFX",
+        "attack_bits": [
+          20,
+          320
+        ],
+        "initial_attack_bits": [
+          20,
+          320
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/SOUL_DARKPIT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/TERRIFYINGROAR_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/SOUL_DARKPIT.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/FEARSOMESTARE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/FEARSOMESTARE_CONTINUING.FX",
+        "frames_before_hit": 23,
+        "delayed_hit": true,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "projectile_speed": 42
+      },
+      {
+        "token": "Dark Glow Alt",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_DARKBLAST_DARKPIT.PFX",
+        "attack_bits": [
+          20,
+          320,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          320,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/SOUL_DARKPITALT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/TERRIFYINGROAR_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/SOUL_DARKPITALT.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/FEARSOMESTARE_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/FEARSOMESTARE_CONTINUING.FX",
+        "frames_before_hit": 23,
+        "delayed_hit": true,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "projectile_speed": 42
+      }
+    ]
+  },
+  "Midnight_Grasp": {
+    "crcfull_name": 166186505,
+    "source_file": "DEFS/POWERS/BLASTER_SUPPORT_DARKNESS_MANIPULATION.POWERS",
+    "source_name": "Blaster_Support.Darkness_Manipulation.Midnight_Grasp",
+    "display_name": "Midnight Grasp",
+    "display_help": "Mastery over the forces of the Netherworld allows you to create dark tentacles that can Immobilize a foe and continuously drain his life force. Damage: Superior(DoT), Recharge: Slow",
+    "display_short_help": "Melee, Superior DMG(Negative), Foe Immobilize, -To Hit",
+    "display_target_help": "The dark tentacles of the Midnight Grasp are holding you immobile. Your chance to hit is reduced.",
+    "display_target_short_help": "Immobilize, -To Hit",
+    "icon_name": "DarknessManipulation_MidnightGrasp.tga",
+    "attack_types": [
+      "Melee",
+      "NegativeEnergy"
+    ],
+    "range": 7,
+    "time_to_activate": 2.07,
+    "recharge_time": 18,
+    "endurance_cost": 11.96,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      15,
+      11,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.74,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 0.75,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.1621,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.0813,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 0.75,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 20,
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Defiance"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.137,
+            "duration": 9.57,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_MIDNIGHTGRASP.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/MIDNIGHTGRASP.FX",
+    "hit_fx": "POWERS/EMPATHY/DARKNESSABSORBPAINWITHRAYS2.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/MIDNIGHTGRASP.FX",
+    "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "continuing_fx1": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING.FX",
+    "conditional_fx": "POWERS/DARKNESSCONTROL/DARKNESSTENDRILSHITCONTINUING.FX",
+    "conditional_fx1": "POWERS/DARKNESSCONTROL/DARKNESSTENDRILSHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Custom Dark Cast",
+          "Color Tintable No Skull",
+          "Color Tintable Alt No Skull",
+          "Color Tintable With Skull",
+          "Color Tintable Alt With Skull"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_MIDNIGHTGRASP.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/MIDNIGHTGRASP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/DARKNESSABSORBPAINWITHRAYS2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/MIDNIGHTGRASP.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/DARKNESSTENDRILSHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/DARKNESSTENDRILSHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CHILLOFNIGHTHITCONTNUING.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16
+      },
+      {
+        "token": "Dark Glow",
+        "alt_theme": [
+          "Dark Glow Alt"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_DARKMELEE_MIDNIGHTGRASP.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKNESSCONTROL_TWOHAND_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_MIDNIGHTGRASP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DARKBLAST/SOUL_HIT_ROOT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/SOUL_MIDNIGHTGRASP.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/SHADOWYBINDS_CONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/SHADOWYBINDS_CONTINUING.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16
+      }
+    ]
+  }
+}

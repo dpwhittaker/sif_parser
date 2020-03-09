@@ -1,0 +1,342 @@
+{
+  "crcfull_name": 3143525808,
+  "source_file": "DEFS/POWERS/EPIC_ELECTRICAL_MASTERY.POWERS",
+  "source_name": "Epic.Electrical_Mastery.EM_Pulse",
+  "display_name": "EM Pulse",
+  "display_help": "You can unleash a massive pulse of electromagnetic energy. This EMP will drain the endurance and HP regeneration of all affected targets and leave them incapacitated and Disoriented for a while. Additionally, most machines and robots will take moderate high damage. However, this power uses a lot of endurance and leaves you unable to recover endurance for a while. You must be level 44 and have two other Electrical Mastery Powers before selecting this power. Recharge: Very Long",
+  "display_short_help": "PBAoE, Foe Disorient, -END, -Regen, Special vs. Robots; Self -Recovery",
+  "display_target_help": "You are Disoriented by the EMP Pulse and your Regeneration Rate is reduced.",
+  "display_target_short_help": "Disorient, -Regen",
+  "icon_name": "Electrical_Mastery_EM_Pulse.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "buy_requires": [
+    "Epic.Electrical_Mastery.Static_Discharge",
+    "Epic.Electrical_Mastery.Shocking_Bolt",
+    "&&",
+    "Epic.Electrical_Mastery.Static_Discharge",
+    "Epic.Electrical_Mastery.Charged_Armor",
+    "&&",
+    "||",
+    "Epic.Electrical_Mastery.Shocking_Bolt",
+    "Epic.Electrical_Mastery.Charged_Armor",
+    "&&",
+    "||",
+    "Epic.Electrical_Mastery.Static_Discharge",
+    "Epic.Electrical_Mastery.Shocking_Bolt",
+    "&&",
+    "||",
+    "Epic.Electrical_Mastery.Static_Discharge",
+    "Epic.Electrical_Mastery.Surge_of_Power",
+    "&&",
+    "||",
+    "Epic.Electrical_Mastery.Shocking_Bolt",
+    "Epic.Electrical_Mastery.Surge_of_Power",
+    "&&",
+    "||"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 40,
+  "time_to_activate": 2.93,
+  "recharge_time": 800,
+  "endurance_cost": 26,
+  "boosts_allowed": [
+    33,
+    23,
+    21,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -50,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} of some Endurance.",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 15,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -16.67,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} of some Endurance.",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -30,
+          "duration": 15,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Electronic",
+        "target.HasTag?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 15,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} has left you exhausted!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88,
+    232,
+    236,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_ELECTRICALMASTERY_EMPULSE.PFX",
+  "attack_bits": [
+    248,
+    681
+  ],
+  "hit_bits": [
+    49,
+    283
+  ],
+  "initial_attack_bits": [
+    248,
+    681
+  ],
+  "attack_fx": "WEAPONS/BOW/TRICKARROW/POOLEMPPULSE.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGBOLTHIT.FX",
+  "initial_attack_fx": "WEAPONS/BOW/TRICKARROW/POOLEMPPULSE.FX",
+  "frames_before_hit": 20,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 20,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_ELECTRICALMASTERY_EMPULSE.PFX",
+      "attack_bits": [
+        248,
+        681
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        248,
+        681
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_ELECTRICALMASTERY/EMPULSE_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_ELECTRICALMASTERY/EMPULSE_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 20,
+      "attack_frames": 88,
+      "initial_frames_before_hit": 20,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_ELECTRICALMASTERY_EMPULSE.PFX",
+      "attack_bits": [
+        248,
+        681
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        248,
+        681
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_ELECTRICALMASTERY/SUBTRACTIVE/EMPULSE_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_ELECTRICALMASTERY/SUBTRACTIVE/EMPULSE_ATTACK.FX",
+      "mode_bits": [],
+      "frames_before_hit": 20,
+      "attack_frames": 88,
+      "initial_frames_before_hit": 20
+    }
+  ]
+}

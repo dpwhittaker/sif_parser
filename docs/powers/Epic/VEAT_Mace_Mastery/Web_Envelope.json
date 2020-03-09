@@ -1,0 +1,318 @@
+{
+  "crcfull_name": 3055363712,
+  "source_file": "DEFS/POWERS/EPIC_VEAT_MACE_MASTERY.POWERS",
+  "source_name": "Epic.VEAT_Mace_Mastery.Web_Envelope",
+  "display_name": "Web Envelope",
+  "display_help": "The Executioner's Mace can lob a modified Web Grenade. Upon impact, the Web Grenade expels a strong, tenuous, and very sticky substance that can Immobilize most targets in a wide area. This non-lethal device deals no damage and does not prevent targets from attacking, although their attack rate is Slowed. The Web can bring down flying entities and halts jumping. Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE) Immobilize, -Recharge, -Fly, -Jump",
+  "display_target_help": "You have been caught in a web. You cannot move or fly and your attack speed is reduced.",
+  "display_target_short_help": "Immobilize, -Fly, -Recharge",
+  "icon_name": "Arachnos_Patron_RangedAoEImmobilize.tga",
+  "attack_types": [
+    "AOE"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Arachnos_Soldier",
+    "==",
+    "$archetype",
+    "@Class_Arachnos_Widow",
+    "==",
+    "||",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "accuracy": 1.05,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 2,
+  "recharge_time": 20,
+  "endurance_cost": 12.74,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    15,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            664,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            648,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "table": "Ranged_Ones",
+          "scale": -500,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    188,
+    192,
+    204,
+    272,
+    284,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_WEBENVELOPE.PFX",
+  "attack_bits": [
+    20,
+    130,
+    138,
+    394
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    138,
+    394,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+  "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEWEBGRENADEAOE.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEWEBGRENADEAOE.FX",
+  "conditional_fx": "POWERS/GADGETS/WEBCAGE.FX",
+  "conditional_fx1": "POWERS/GADGETS/WEBCAGE.FX",
+  "mode_bits": [
+    20,
+    130,
+    88
+  ],
+  "frames_before_hit": 41,
+  "delayed_hit": true,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 71,
+  "initial_attack_fxframe_delay": 30,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_WEBENVELOPE.PFX",
+      "attack_bits": [
+        20,
+        130,
+        138,
+        394
+      ],
+      "activation_bits": [
+        20,
+        130,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        138,
+        394,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/WEBENVELOPE_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/WEBENVELOPE_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/TRAPS/WEBCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/TRAPS/WEBCAGE.FX",
+      "mode_bits": [
+        20,
+        130,
+        88
+      ],
+      "frames_before_hit": 41,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 71,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_WEBENVELOPE.PFX",
+      "attack_bits": [
+        20,
+        130,
+        138,
+        394
+      ],
+      "activation_bits": [
+        20,
+        130,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        138,
+        394,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBENVELOPE_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBENVELOPE_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBCOCOON_CONDITIONAL.FX",
+      "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBCOCOON_CONDITIONAL.FX",
+      "mode_bits": [
+        20,
+        130,
+        88
+      ],
+      "frames_before_hit": 41,
+      "delayed_hit": true,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 71,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 90
+    }
+  ]
+}

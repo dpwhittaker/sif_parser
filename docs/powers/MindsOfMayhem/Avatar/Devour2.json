@@ -1,0 +1,197 @@
+{
+  "crcfull_name": 735176821,
+  "source_file": "DEFS/POWERS/MINDSOFMAYHEM_AVATAR.POWERS",
+  "source_name": "MindsOfMayhem.Avatar.Devour2",
+  "display_name": "Devour",
+  "display_help": "Using this power, you can drain the essence of all nearby foes' souls, thus increasing your own strength. Each affected foe will lose some Hit Points and add to your Damage and chance to hit. Damage: Moderate, Recharge: Very Long",
+  "display_short_help": "Foe DMG (Negative), Self +ToHit, +DMG",
+  "display_target_help": "A portion of your life force has been devoured!",
+  "display_target_short_help": "DMG (Negative Energy), DoT (Toxic)",
+  "icon_name": "ShadowFighting_BuildUp.tga",
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "target_near_ground": true,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 40,
+  "range": 100,
+  "time_to_activate": 0.33,
+  "recharge_time": 10,
+  "target": 19,
+  "ai_groups": [
+    "kSecondaryTarget"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.85,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.18,
+          "duration": 4.9,
+          "delay": 0.5,
+          "period": 0.6,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "conditional_fx": "ENEMYFX/V_SEEDHAMIDON/BURR_RESPIRING/TOXIC_CONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.42,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "scale": 0.2,
+          "duration": 10,
+          "flags": [
+            120,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 0.25,
+          "duration": 10,
+          "flags": [
+            120,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANENDGAME_AVATARHAMIDON_DEVOUR_TARGETEDAOE.PFX",
+  "attack_bits": [
+    20,
+    322,
+    602
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    322,
+    602
+  ],
+  "attack_fx": "EVENTS/ENDGAME/UNDERGROUND/DEVOUR_ATTACK_TARGETEDAOE.FX",
+  "hit_fx": "EVENTS/ENDGAME/UNDERGROUND/DEVOUR_HIT.FX",
+  "initial_attack_fx": "EVENTS/ENDGAME/UNDERGROUND/DEVOUR_ATTACK_TARGETEDAOE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 45,
+  "attack_frames": 10,
+  "initial_frames_before_hit": 45,
+  "primary_tint": [
+    70,
+    100,
+    30,
+    255
+  ],
+  "secondary_tint": [
+    130,
+    100,
+    30,
+    255
+  ]
+}

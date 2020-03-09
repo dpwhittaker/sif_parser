@@ -1,0 +1,303 @@
+{
+  "crcfull_name": 2791816722,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_TACTICAL_ARROW.POWERS",
+  "source_name": "Blaster_Support.Tactical_Arrow.EMP_Arrow",
+  "display_name": "ESD Arrow",
+  "display_help": "This arrow can unleash a massive electrostatic discharge on impact. This ESD can affect machines, and is even powerful enough to affect synaptic brain patterns. It will incapacitate all foes in its radius. Additionally, most machines and robots will take moderate high damage. Recharge: Very Long",
+  "display_short_help": "AoE, Foe Hold, Special vs. Robots",
+  "display_target_help": "You are held immobile by the Electrostatic Discharge.",
+  "display_target_short_help": "Hold, -Regen",
+  "icon_name": "TacticalArrow_Stun.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 0.8,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "range": 70,
+  "time_to_activate": 1.83,
+  "recharge_time": 90,
+  "endurance_cost": 20.18,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    30,
+    23,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.55,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} of some Endurance.",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -16.67,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} of some Endurance.",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Electronic",
+        "target.HasTag?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.03,
+          "duration": 9.33,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 6,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    88,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TACTICALARROW_ESDARROW.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    766,
+    683
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    186
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    766,
+    683,
+    186
+  ],
+  "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+  "attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_EMP.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/CHRAGEDBRAWLHIT.FX",
+  "initial_attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_EMP.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    85
+  ],
+  "frames_before_hit": 48,
+  "delayed_hit": true,
+  "attack_frames": 55,
+  "initial_frames_before_hit": 68,
+  "initial_attack_fxframe_delay": 20,
+  "projectile_speed": 210,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TACTICALARROW_ESDARROW.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        135,
+        766,
+        683
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        135,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        135,
+        766,
+        683,
+        188
+      ],
+      "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+      "attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_EMP.FX",
+      "hit_fx": "POWERS/ELECTRICITYCONTROL/CHRAGEDBRAWLHIT.FX",
+      "initial_attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_EMP.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        135,
+        85
+      ],
+      "frames_before_hit": 48,
+      "delayed_hit": true,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 48,
+      "projectile_speed": 210,
+      "palette": ""
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "crcfull_name": 812887259,
+  "source_file": "DEFS/POWERS/NIGHTSTALKERS_SHADOWWOLF.POWERS",
+  "source_name": "Nightstalkers.Shadowwolf.Dire_Howl",
+  "display_name": "Dire Howl",
+  "display_help": "You unleash a dreadful howl that strikes fear into those arrayed against you. Affected targets suffer energy damage, then negative energy damage over time as the howl's influence takes effect. Targets also suffer reduced resistance to all damage types. There is a small chance that a target will be rendered afraid by the howl, but any target so affected cannot be made afraid again for a long while.",
+  "display_short_help": "PBAoE, Moderate DMG (Energy), Minor DoT (Negative Energy), -RES(Foe, All), Chance for Terrorize(Foe)",
+  "display_target_help": "You are suffering negative energy damage over time and your resistance to all damage types has been reduced. There is also a chance that you are terrorized.",
+  "display_target_short_help": "DoT (Negative Energy), -RES(All), Chance for Terrorize",
+  "icon_name": "SpiritStalkers_DireHowl.tga",
+  "attack_types": [
+    "AOE",
+    "Energy",
+    "NegativeEnergy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 5,
+  "radius": 15,
+  "time_to_activate": 2.83,
+  "recharge_time": 10,
+  "endurance_cost": 20,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 2.1,
+          "delay": 0.2,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/DARKNESSCONTROL/HOWLINGTWILIGHTHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "scale": -0.1,
+          "duration": 10,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            264
+          ],
+          "type": 0,
+          "scale": 3,
+          "magnitude": 4,
+          "stack_type": 1,
+          "suppress": [
+            {
+              "event": 23,
+              "seconds": 30,
+              "always": true
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "preference_multiplier": 5,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    264
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/NIGHTSTALKERS_SHADOWWOLF_DIREHOWL.PFX",
+  "attack_bits": [
+    20,
+    870,
+    417,
+    683
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    870,
+    417,
+    683
+  ],
+  "attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/PRIMALROAR_ATTACK.FX",
+  "hit_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/PRIMALROAR_HIT.FX",
+  "initial_attack_fx": "ENEMYFX/PRAETORIAN/SPIRITSTALKERS/PRIMALROAR_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 38,
+  "attack_frames": 85,
+  "initial_frames_before_hit": 38
+}

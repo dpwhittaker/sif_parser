@@ -1,0 +1,168 @@
+{
+  "crcfull_name": 360656076,
+  "source_file": "DEFS/POWERS/BOOSTS_ATTUNED_BLISTERING_COLD_F.POWERS",
+  "source_name": "Boosts.Attuned_Blistering_Cold_F.Attuned_Blistering_Cold_F",
+  "display_name": "Blistering Cold: Recharge/Chance for Hold",
+  "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. Reduces recharge time of a power by {Boost.Attrib.RechargeTime.Scale}% and gives the power a chance to Hold the target. This enhancement's chance to trigger is equal to approximately 3 times per minute.",
+  "display_short_help": "Enhances Recharge, Chance for Hold",
+  "icon_name": "E_ICON_Blistering_Cold.tga",
+  "type": 3,
+  "slot_requires": [
+    "Attuned_Blistering_Cold_F",
+    "BoostsSlotted>",
+    "0",
+    "<=",
+    "Superior_Attuned_Blistering_Cold_F",
+    "BoostsSlotted>",
+    "0",
+    "<=",
+    "&&"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "effects": [
+    {
+      "tag": [
+        "Mez"
+      ],
+      "procs_per_minute": 2.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "scale": 6,
+          "magnitude": 2,
+          "flags": [
+            1300,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "procs_per_minute": 2.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1300,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "rechargetime"
+      ],
+      "procs_per_minute": 2.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Boosts_33",
+          "scale": 0.4375,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            2608,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "boost_ignore_effectiveness": true,
+  "boost_always_count_for_set": true,
+  "boost_combinable": false,
+  "boost_use_player_level": true,
+  "boost_catalyst_conversion": "Boosts.Superior_Attuned_Blistering_Cold_F.Superior_Attuned_Blistering_Cold_F",
+  "min_slot_level": 9,
+  "attrib_cache": [
+    268,
+    356
+  ]
+}

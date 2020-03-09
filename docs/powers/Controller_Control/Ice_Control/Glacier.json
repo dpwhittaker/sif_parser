@@ -1,0 +1,252 @@
+{
+  "crcfull_name": 1134994113,
+  "source_file": "DEFS/POWERS/CONTROLLER_CONTROL_ICE_CONTROL.POWERS",
+  "source_name": "Controller_Control.Ice_Control.Glacier",
+  "display_name": "Glacier",
+  "display_help": "You can freeze all foes around yourself in blocks of Glacial ice. The targets are frozen solid, helpless, and can be attacked. Even after the victims emerge, they remain chilled and their attack and movement speed is Slowed for a while. This power can only be cast near the ground. Recharge: Long",
+  "display_short_help": "PBAoE, Foe Hold, -Recharge, -SPD",
+  "display_target_help": "You are frozen in a Glacier. Once free, your Attack Rate and Running speed will be reduced slightly for a while.",
+  "display_target_short_help": "Hold, -SPD, -Recharge",
+  "icon_name": "IceFormation_Glacier.tga",
+  "attack_types": [
+    "AOE",
+    "Cold"
+  ],
+  "accuracy": 0.8,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 30,
+  "time_to_activate": 2.03,
+  "recharge_time": 240,
+  "endurance_cost": 15.6,
+  "boosts_allowed": [
+    30,
+    29,
+    23,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 6,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 10,
+          "flags": [
+            568,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 10
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    188,
+    192,
+    200,
+    204,
+    268,
+    324,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ICECONTROL_GLACIER.PFX",
+  "attack_bits": [
+    20,
+    255
+  ],
+  "initial_attack_bits": [
+    20,
+    255
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/GLACIER.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/GLACIER.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "conditional_fx1": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ICECONTROL_GLACIER.PFX",
+      "attack_bits": [
+        20,
+        255
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        255
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICECONTROL/GLACIER.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICECONTROL/GLACIER.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEHITCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEHITCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25,
+      "palette": "ice"
+    }
+  ]
+}

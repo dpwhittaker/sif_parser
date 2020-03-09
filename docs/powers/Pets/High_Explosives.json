@@ -1,0 +1,376 @@
+{
+  "High_Explosives": {
+    "crcfull_name": 3141354039,
+    "source_file": "DEFS/POWERS/PETS_HIGH_EXPLOSIVES.POWERS",
+    "source_name": "Pets.High_Explosives.High_Explosives",
+    "display_name": "High Explosives",
+    "display_help": "This is a bundle of high-explosives with a proximity sensor on it. You have 3 explosives. Note that High Explosives is unaffected by Recharge Time changes. Recharge: Extremely Long",
+    "display_short_help": "AoE Lethal/Fire, Knockback",
+    "icon_name": "DarkMiasma_TarPatch.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Fire"
+    ],
+    "accuracy": 1.2,
+    "castable_after_death": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 12,
+    "recharge_time": 1000,
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      4,
+      8,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GADGETS_MINE_PET_EXPLODE.PFX",
+    "attack_fx": "POWERS/FIRECONTROL/MINEEXPLOSION.FX",
+    "hit_fx": "POWERS/FIRECONTROL/FIREBALLTARGET1.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/MINEEXPLOSION.FX"
+  },
+  "Self_Destruct": {
+    "crcfull_name": 3542428218,
+    "source_file": "DEFS/POWERS/PETS_HIGH_EXPLOSIVES.POWERS",
+    "source_name": "Pets.High_Explosives.Self_Destruct",
+    "display_name": "Self Destruct",
+    "display_help": "Self Destruct",
+    "display_short_help": "Self Destruct",
+    "icon_name": "DarkMiasma_TarPatch.tga",
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 16,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "scale": 0,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              463
+            ],
+            "target": 0,
+            "flags": [
+              96,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      463,
+      468
+    ]
+  },
+  "Resistance": {
+    "crcfull_name": 1368292171,
+    "source_file": "DEFS/POWERS/PETS_HIGH_EXPLOSIVES.POWERS",
+    "source_name": "Pets.High_Explosives.Resistance",
+    "display_name": "Resistance",
+    "display_help": "The Trip Mine is fragile, but cannot be affected by secondary effects like Sleep, Disorient, or Fear.",
+    "display_short_help": "Resistance",
+    "icon_name": "Invulnerability_ResToPhysicalDMG.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36,
+              32
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": -5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              28,
+              184,
+              88,
+              100,
+              284,
+              248,
+              260,
+              264,
+              276,
+              356,
+              364
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 100,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              80
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 10,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268,
+              280
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 100,
+            "duration": 10.3,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "target": 0,
+            "scale": -100,
+            "duration": 10.3,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284,
+              248,
+              268,
+              280
+            ],
+            "target": 0,
+            "scale": -100,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              292,
+              260,
+              264
+            ],
+            "target": 0,
+            "scale": -100,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 10.25,
+            "magnitude": 100,
+            "stack_type": 3,
+            "flags": [
+              1072,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "scale": 1000,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      80,
+      88,
+      100,
+      184,
+      224,
+      248,
+      260,
+      264,
+      268,
+      272,
+      276,
+      280,
+      284,
+      292,
+      356,
+      364
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GADGETS_MINE_PET.PFX",
+    "activation_fx": "POWERS/GADGETS/TRIPMINE.FX"
+  }
+}

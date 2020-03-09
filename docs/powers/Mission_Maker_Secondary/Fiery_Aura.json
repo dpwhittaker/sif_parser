@@ -1,0 +1,829 @@
+{
+  "Blazing_Aura": {
+    "crcfull_name": 4141060653,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Blazing_Aura",
+    "display_name": "Blazing Aura",
+    "display_help": "While active, you are surrounded by flames that burn all foes that attempt to enter melee range. Damage: Minor(DoT), Recharge: Fast",
+    "display_short_help": "Toggle: PBAoE, Minor DoT(Fire)",
+    "display_target_help": "You are burning due to being too near the Blazing Aura.",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "FlamingShield_FieryAura.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 2.03,
+    "recharge_time": 4,
+    "activate_period": 2,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.22,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 39,
+    "attrib_cache": [
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_FIERY_AURA.PFX",
+    "activation_bits": [
+      20,
+      364
+    ],
+    "activation_fx": "POWERS/FIRECONTROL/FIRESHIELD.FX",
+    "frames_before_hit": 23,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 23
+  },
+  "Fire_Shield": {
+    "crcfull_name": 3864679211,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Fire_Shield",
+    "display_name": "Fire Shield",
+    "display_help": "While this power is active, Fire Shield gives you good resistance to Lethal, Smashing and Fire damage. Fire Shield also provides minimal resistance to Cold damage as well as protection from Disorient effects. Recharge: Very Fast",
+    "display_short_help": "Toggle: Self +Res(Fire, Lethal, Smash, Cold, Disorient)",
+    "display_attacker_hit": "You are now more resistant to Smashing, Lethal, Fire, and Cold damage.",
+    "icon_name": "FlamingShield_FlamingShield.tga",
+    "type": 1,
+    "time_to_activate": 1.67,
+    "recharge_time": 2,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": -30,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.067,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_FLAMING_SHIELD.PFX",
+    "activation_bits": [
+      248,
+      723,
+      681
+    ],
+    "activation_fx": "POWERS/FIRECONTROL/FIREAURA.FX",
+    "frames_before_hit": 24,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 24
+  },
+  "Healing_Flames": {
+    "crcfull_name": 978318832,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Healing_Flames",
+    "display_name": "Healing Flames",
+    "display_help": "You can concentrate for a few moments to heal yourself. The power of the flames can also protect you from Toxic Damage for a while. Recharge: Long",
+    "display_short_help": "Self Heal, +Res(Toxic)",
+    "icon_name": "FlamingShield_HealingFlames.tga",
+    "time_to_activate": 1.5,
+    "recharge_time": 25,
+    "endurance_cost": 14,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 2.5,
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} heal you for {Damage} hit points and the power of the flames protect you from Toxic damage!",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2,
+            "duration": 60,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      28,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_HEALING_FLAMES.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/HEALINGFLAMES.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/HEALINGFLAMES.FX",
+    "frames_before_hit": 16,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 16
+  },
+  "Temperature_Protection": {
+    "crcfull_name": 4260408379,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Temperature_Protection",
+    "display_name": "Temperature Protection",
+    "display_help": "Temperature Protection gives you strong resistance to Fire damage, and some resistance to Cold damage as well. This power is always on and costs no Endurance.",
+    "display_short_help": "Auto: Self +Res(Fire, Cold)",
+    "icon_name": "FlamingShield_TemperatureProtection.tga",
+    "type": 1,
+    "activate_period": 99999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200,
+              204,
+              356
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "scale": 0.2,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.033,
+    "attrib_cache": [
+      8,
+      12,
+      188,
+      192,
+      200,
+      204,
+      356
+    ]
+  },
+  "Consume": {
+    "crcfull_name": 4180443603,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Consume",
+    "display_name": "Consume",
+    "display_help": "You can drain body heat from all nearby foes in order to replenish your own Endurance. The more foes affected, the more Endurance is gained. Foes suffer minimal Fire damage. Damage: Minor, Recharge: Very Long",
+    "display_short_help": "PBAoE Fire Dam, Self +End",
+    "icon_name": "FlamingShield_Consume.tga",
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "time_to_activate": 2.03,
+    "recharge_time": 180,
+    "endurance_cost": 0.7,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 20,
+            "delay": 0.25,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "point_value": 5,
+    "attrib_cache": [
+      8,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_CONSUME.PFX",
+    "attack_bits": [
+      20,
+      255
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      255
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/CONSUME.FX",
+    "hit_fx": "POWERS/FIRECONTROL/CONSUMEHIT.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/CONSUME.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Plasma_Shield": {
+    "crcfull_name": 1436365413,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Plasma_Shield",
+    "display_name": "Plasma Shield",
+    "display_help": "While this power is active, you are surrounded by pure plasma. The Plasma Shield gives you resistance to Energy, Negative Energy, and Fire damage. Plasma Shield also gives your protection from Sleep and Hold effects. Recharge: Very Fast",
+    "display_short_help": "Toggle: Self +Res(Energy, Negative, Fire, Hold, Sleep)",
+    "display_attacker_hit": "You are now more resistant to Energy, Negative Energy, and Fire damage.",
+    "icon_name": "FlamingShield_PlasmaSheild.tga",
+    "type": 1,
+    "time_to_activate": 3,
+    "recharge_time": 2,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8,
+              16,
+              20
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268,
+              280
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": -30,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.033,
+    "attrib_cache": [
+      8,
+      16,
+      20,
+      268,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_PLASMA_SHIELD.PFX",
+    "activation_bits": [
+      248,
+      723
+    ],
+    "activation_fx": "POWERS/FIRECONTROL/PLASMASHIELD.FX",
+    "frames_before_hit": 64,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 64
+  },
+  "Burn": {
+    "crcfull_name": 2859562718,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Burn",
+    "display_name": "Burn",
+    "display_help": "You can ignite the ground beneath you, freeing yourself from Immobilization effects. Foes that enter the flames you leave behind will take damage. You must be near the ground to activate this power. Damage: Moderate(DoT), Recharge: Slow",
+    "display_short_help": "Location (PBAoE), Moderate DoT(Fire), Self Res(Immobilize)",
+    "display_target_help": "The ground beneath you is on fire and you are burning.",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "FlamingShield_Burn.tga",
+    "near_ground": true,
+    "time_to_activate": 2.03,
+    "recharge_time": 25,
+    "endurance_cost": 7,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Melee_Level",
+            "duration": 10,
+            "flags": [
+              640,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You {PowerName} the ground underneath you, freeing you from Immobilize effects!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Burn"
+              }
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": -30,
+            "duration": 100,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "attrib_cache": [
+      272,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_BURN.PFX",
+    "attack_bits": [
+      20,
+      249
+    ],
+    "initial_attack_bits": [
+      20,
+      249
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/BURN.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/BURN.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 28
+  },
+  "Fiery_Embrace": {
+    "crcfull_name": 4222022257,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Fiery_Embrace",
+    "display_name": "Fiery Embrace",
+    "display_help": "Significantly boosts the damage of all your Fire attacks for quite a while. Also increases the damage of all your other non-fire based attacks for a short while. Recharge: Very Long",
+    "display_short_help": "Self +DMG",
+    "display_attacker_hit": "You tap into your inner fire with your {PowerName} and now all your attacks are significantly more deadly.",
+    "icon_name": "FlamingShield_FieryEmbrace.tga",
+    "time_to_activate": 0.73,
+    "recharge_time": 120,
+    "endurance_cost": 10.5,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 5,
+            "duration": 20,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/FIREHANDSCONT.FX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              12,
+              16,
+              20,
+              24
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 4,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 2,
+    "point_multiplier": 0.5,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_FIERY_EMBRACE.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/FOLLOWUPHIT4.FX",
+    "initial_attack_fx": "POWERS/FOLLOWUPHIT4.FX",
+    "frames_before_hit": 16,
+    "attack_frames": 22,
+    "initial_frames_before_hit": 16
+  },
+  "Rise_of_the_Phoenix": {
+    "crcfull_name": 3299857764,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_FIERY_AURA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Fiery_Aura.Rise_of_the_Phoenix",
+    "display_name": "Rise of the Phoenix",
+    "display_help": "If you are defeated, you can rise from the ashes. The fiery resurrection blasts nearby foes with an explosion and knocks them down and Disorients them. You will revive with about half of your Hit Points and Endurance. Rise of the Phoenix will actually leave you invulnerable for a brief time, and protected from XP Debt for 90 seconds. Recharge: Very Long",
+    "display_short_help": "Self Rez, Special",
+    "display_target_help": "You have risen from the ashes. You are untouchable for 15 seconds and are protected from XP Debt for 90 seconds.",
+    "display_target_short_help": "Invulnerable, +XP Debt Protection",
+    "display_attacker_hit": "You rise from the ashes with the power of the Phoenix.",
+    "icon_name": "FlamingShield_RiseOfThePhoenix.tga",
+    "castable_after_death": 1,
+    "time_to_activate": 1.5,
+    "recharge_time": 9999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 5,
+            "duration": 0.5,
+            "period": 1,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_bits": [
+                323
+              ]
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Melee_Level",
+            "duration": 5,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} brings you back from the brink of defeat!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Phoenix"
+              }
+            }
+          },
+          {
+            "attrib": [
+              296
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 15,
+            "magnitude": 10,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Untouchable"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 50,
+            "delay": 0.125,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 4,
+            "magnitude": 50,
+            "flags": [
+              1072,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              495
+            ],
+            "target": 0,
+            "scale": -0.99,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Behavior": {}
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      28,
+      88,
+      272,
+      296,
+      461,
+      495
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FLAMINGSHIELD_RISE_PHOENIX.PFX",
+    "attack_fx": "POWERS/FIRECONTROL/FIREPHOENIX.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/FIREPHOENIX.FX",
+    "frames_before_hit": 45,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 45
+  }
+}

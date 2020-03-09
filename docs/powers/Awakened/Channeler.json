@@ -1,0 +1,648 @@
+{
+  "Psionic_Lash": {
+    "crcfull_name": 2192535408,
+    "source_file": "DEFS/POWERS/AWAKENED_CHANNELER.POWERS",
+    "source_name": "Awakened.Channeler.Psionic_Lash",
+    "display_name": "Psionic Lash",
+    "display_help": "You channel energy into your whip and lash out at your foe, dealing high energy damage and causing fire damage over time. Lash has longer range than most melee attacks. It will reduce the target's damage resistance and also has a chance to knockdown your target.",
+    "display_short_help": "Melee (Long), Minor DMG (Psionic), Minor DoT (Fire), -Rech (Foe), Chance for Knockdown (Foe)",
+    "display_target_help": "You are on fire and burning. Your attack speed has also been reduced.",
+    "display_target_short_help": "DoT(Fire), -Rech",
+    "icon_name": "Awakened_PsionicLash.tga",
+    "attack_types": [
+      "Melee",
+      "Psionic"
+    ],
+    "range": 20,
+    "time_to_activate": 1.8,
+    "recharge_time": 4,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.35,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 6,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDHANDS.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.15,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.64,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.15,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.64,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      8,
+      24,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_CHANNELER_PSIONICLASH.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 54,
+    "initial_frames_before_hit": 29,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Psionic_Thrash": {
+    "crcfull_name": 4244899010,
+    "source_file": "DEFS/POWERS/AWAKENED_CHANNELER.POWERS",
+    "source_name": "Awakened.Channeler.Psionic_Thrash",
+    "display_name": "Psionic Thrash",
+    "display_help": "You create a whip of pure psionic energy and make an impressive sweep, causing psionic damage to enemies within a wide cone. Affected targets are seared by this attack and suffer additional fire damage over time. They also are unable to fly and suffer both reduced movement and attack speed. There is also a chance that affected targets will be knocked back.",
+    "display_short_help": "Melee (Long Cone), Moderate DMG (Psionic), Minor DoT (Fire), -Speed (Foe, All), Chance for Knockback (Foe)",
+    "display_target_help": "You are on fire and burning. You are also unable to fly and both your movement and attack speeds are reduced.",
+    "display_target_short_help": "DoT(Fire), -Speed(All), -Rech, -Fly",
+    "icon_name": "Awakened_PsionicThrash.tga",
+    "attack_types": [
+      "Melee",
+      "Energy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "arc": 0.5235988,
+    "range": 30,
+    "time_to_activate": 2.33,
+    "recharge_time": 8,
+    "endurance_cost": 16,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.15,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDALL.FX"
+            }
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1.6,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      8,
+      24,
+      188,
+      192,
+      200,
+      204,
+      284,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_CHANNELER_PSIONICTHRASH.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      395
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      395
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 53,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Telekinetic_Lift": {
+    "crcfull_name": 457219214,
+    "source_file": "DEFS/POWERS/AWAKENED_CHANNELER.POWERS",
+    "source_name": "Awakened.Channeler.Telekinetic_Lift",
+    "display_name": "Telekinetic Lift",
+    "display_help": "You channel energy into your whip and make an impressive sweep, causing high energy damage to enemies within a wide cone and also causing some fire damage over time. Coruscating Thrash has a larger range than most melee cones. Targets that are struck will also have their resistance to damage reduced for a short time and may be knocked down.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic/Smashing), Knockup(Foe)",
+    "icon_name": "Awakened_TelekineticLift.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic",
+      "Smashing"
+    ],
+    "range": 80,
+    "time_to_activate": 1.03,
+    "recharge_time": 6,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.25,
+            "delay": 1.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "delay": 1.7,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 2,
+    "attrib_cache": [
+      0,
+      24,
+      284,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_CHANNELER_TELEKINETICLIFT.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFTHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 31,
+    "initial_frames_before_hit": 22,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Psionic_Wounds": {
+    "crcfull_name": 4161828778,
+    "source_file": "DEFS/POWERS/AWAKENED_CHANNELER.POWERS",
+    "source_name": "Awakened.Channeler.Psionic_Wounds",
+    "display_name": "Psionic Wounds",
+    "display_help": "The target is made to believe that they are suffering from real, bleeding wounds, but the effects are initially only in their mind. Only at the end are the wounds made real in a burst of lethal damage.",
+    "display_short_help": "Ranged, High DMG (Psionic/Lethal), DoT (Psionic)",
+    "display_target_help": "You are suffering psionic damage over time.",
+    "display_target_short_help": "DoT (Psionic)",
+    "icon_name": "Awakened_PsionicWounds.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal",
+      "Psionic"
+    ],
+    "accuracy": 1.2,
+    "range": 100,
+    "time_to_activate": 1.07,
+    "recharge_time": 12,
+    "endurance_cost": 9,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 5.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/ILLUSIONS/ILLUSSPECWOUNDSCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7,
+            "delay": 6.2,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      4,
+      24
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_CHANNELER_PSIONICWOUNDS.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/ILLUSIONCONTROL/ILLUSSPECWOUNDS.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ILLUSIONCONTROL/ILLUSSPECWOUNDS.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ILLUSSPECWOUNDSCONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ILLUSSPECWOUNDSCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 19,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 19,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  }
+}

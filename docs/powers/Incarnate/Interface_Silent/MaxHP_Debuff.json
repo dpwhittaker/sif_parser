@@ -1,0 +1,146 @@
+{
+  "crcfull_name": 104844382,
+  "source_file": "DEFS/POWERS/INCARNATE_INTERFACE_SILENT.POWERS",
+  "source_name": "Incarnate.Interface_Silent.MaxHP_Debuff",
+  "free": true,
+  "display_name": "Degenerative Interface",
+  "display_help": "Your Max HP has been reduced by a Degenerative Interface proc.",
+  "display_short_help": "-MaxHP",
+  "icon_name": "Incarnate_Interface_Degenerative_Common.tga",
+  "type": 5,
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "tag": [
+        "InterfaceMaxHP"
+      ],
+      "chance": 0,
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [],
+      "effect": [
+        {
+          "requires": [
+            "enttype",
+            "target>",
+            "player",
+            "eq",
+            "Raid",
+            "target.HasTag?",
+            "!",
+            "||"
+          ],
+          "eval_flags": 4,
+          "attrib_mod": [
+            {
+              "attrib": 80,
+              "aspect": 8,
+              "type": 3,
+              "scale": 0.035,
+              "duration": 8.3,
+              "magnitude_expr": [
+                "@Scale",
+                "@Effectiveness",
+                "*",
+                "Max.kHitPoints",
+                "target>",
+                "*",
+                "negate"
+              ],
+              "caster_stack_type": 1,
+              "stack_type": 5,
+              "stack_limit": 4,
+              "flags": [
+                656,
+                0
+              ],
+              "fx": {
+                "continuing_fx": "INCARNATEPOWERS/INTERFACE/DEGENERATIVE.FX"
+              }
+            }
+          ]
+        },
+        {
+          "requires": [
+            "enttype",
+            "target>",
+            "player",
+            "eq",
+            "!",
+            "Raid",
+            "target.HasTag?",
+            "&&"
+          ],
+          "eval_flags": 4,
+          "attrib_mod": [
+            {
+              "attrib": 80,
+              "aspect": 8,
+              "type": 3,
+              "scale": 0.035,
+              "duration": 8.3,
+              "magnitude_expr": [
+                "@Scale",
+                "@Effectiveness",
+                "*",
+                "Max.kHitPoints",
+                "target>",
+                "*",
+                "0",
+                "1000",
+                "minmax",
+                "negate"
+              ],
+              "caster_stack_type": 1,
+              "stack_type": 6,
+              "flags": [
+                656,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    80
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "crcfull_name": 1339371626,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_RADIATION_MELEE.POWERS",
+  "source_name": "Brute_Melee.Radiation_Melee.Devastating_Blow",
+  "display_name": "Devastating Blow",
+  "display_help": "You hammer your foe with a brutal smashing attack charged with a lethal dose of radiation. Your target will suffer Extreme Energy and Smashing damage, will have its defense reduced and will be disoriented for a short time. Affected enemies will be affected by the Contaminated effect. Hitting Contaminated foes with single target Radiation Melee powers cause a small burst of damage to foes near the target. Damage: Extreme, Recharge: Long",
+  "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe -Def, Disorient, Special",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "-Def, Disoriented",
+  "icon_name": "RadiationMelee_DevastatingBlow.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 7,
+  "time_to_activate": 2.67,
+  "recharge_time": 17,
+  "endurance_cost": 16.016,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    21,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.77,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.31,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.7372,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.2117,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 2,
+          "duration": 10,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Contaminated"
+      ],
+      "chance": 0.5,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated_Imunity",
+        "target.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You contaminate {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} has contaminated you.",
+            "display_float": "Contaminated!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.6,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.6,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.386,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Redirects.Rad_Melee.Radioactive_Smash_AoE"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    8,
+    16,
+    184,
+    276,
+    473,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_DEVASTATINGBLOW.PFX",
+  "attack_bits": [
+    20,
+    652
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    652
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOWHIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 66,
+  "attack_frames": 80,
+  "initial_frames_before_hit": 66,
+  "primary_tint": [
+    77,
+    153,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    255,
+    97,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_DEVASTATINGBLOW.PFX",
+      "attack_bits": [
+        20,
+        652
+      ],
+      "initial_attack_bits": [
+        20,
+        652
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOWHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEDEVASTATINGBLOW.FX",
+      "frames_before_hit": 66,
+      "attack_frames": 80,
+      "initial_frames_before_hit": 66,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_DEVASTATINGBLOW.PFX",
+      "attack_bits": [
+        20,
+        652
+      ],
+      "initial_attack_bits": [
+        20,
+        652
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEDEVASTATINGBLOW.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEBASICPUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEDEVASTATINGBLOW.FX",
+      "frames_before_hit": 66,
+      "attack_frames": 80,
+      "initial_frames_before_hit": 66
+    }
+  ]
+}

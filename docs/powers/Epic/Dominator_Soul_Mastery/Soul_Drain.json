@@ -1,0 +1,296 @@
+{
+  "crcfull_name": 3231054086,
+  "source_file": "DEFS/POWERS/EPIC_DOMINATOR_SOUL_MASTERY.POWERS",
+  "source_name": "Epic.Dominator_Soul_Mastery.Soul_Drain",
+  "display_name": "Soul Drain",
+  "display_help": "Using this power, you can drain the essence of all nearby foes' souls, thus increasing your own strength. Each affected foe will lose some Hit Points and add to your Damage and Accuracy. You must be level 41 and have Dark Consumption or Dark Embrace before selecting this power. Damage: Moderate, Recharge: Very Long",
+  "display_short_help": "PBAoE Moderate DMG(Negative), Self +DMG, +ACC",
+  "icon_name": "Arachnos_Patron_PBAoEBuffDamage.tga",
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "Epic.Dominator_Soul_Mastery.Dark_Consumption",
+    "Epic.Dominator_Soul_Mastery.Dark_Embrace",
+    "||",
+    "&&"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "time_to_activate": 2.37,
+  "recharge_time": 240,
+  "endurance_cost": 19.5,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    7,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "scale": 0.2,
+          "duration": 30,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 0.8,
+          "duration": 30,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 4,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.5192,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_SOULDRAIN.PFX",
+  "attack_bits": [
+    20,
+    324
+  ],
+  "hit_bits": [
+    49,
+    585
+  ],
+  "initial_attack_bits": [
+    20,
+    324
+  ],
+  "attack_fx": "V_COV/POWERS/PATRON/SOULMASTERY/STEALPOWER/STEALPOWER.FX",
+  "hit_fx": "POWERS/EMPATHY/DARKNESSABSORBPAINWITHRAYSANDHEAL.FX",
+  "initial_attack_fx": "V_COV/POWERS/PATRON/SOULMASTERY/STEALPOWER/STEALPOWER.FX",
+  "continuing_fx": "POWERS/DARKNESSCONTROL/STEALPOWERCONTINUING.FX",
+  "continuing_fx1": "POWERS/DARKNESSCONTROL/STEALPOWERCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 53,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 53,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_SOULMASTERY_SOULDRAIN.PFX",
+      "attack_bits": [
+        20,
+        324
+      ],
+      "hit_bits": [
+        49,
+        585
+      ],
+      "initial_attack_bits": [
+        20,
+        324
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULDRAIN_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/DARKNESSABSORBPAINWITHRAYSANDHEAL.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_SOULMASTERY/SOULDRAIN_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKMELEE/STEALPOWERCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/DARKMELEE/STEALPOWERCONTINUING.FX",
+      "frames_before_hit": 53,
+      "attack_frames": 71,
+      "initial_frames_before_hit": 53
+    }
+  ]
+}

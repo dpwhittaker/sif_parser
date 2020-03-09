@@ -1,0 +1,207 @@
+{
+  "crcfull_name": 1581411800,
+  "source_file": "DEFS/POWERS/PRIMAL_GIFTS_PRIMAL_GIFT.POWERS",
+  "source_name": "Primal_Gifts.Primal_Gift.Grace_of_Nature",
+  "display_name": "Grace of Nature",
+  "display_help": "Grace of Nature heals nearby allies for a large amount of health and grants a large amount of defense for a short period of time. The amount of health healed by Grace of Nature will be increased for each point of Primal Energy owned by the user. Grace of Nature consumes all Primal Energy and can be used in all forms. Recharge: Very Long",
+  "display_short_help": "PBAoE, Special Team Heal, +Def(All), -All Primal Energy",
+  "icon_name": "PrimalGifts_GraceofNature.tga",
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "activate_requires": [
+    "cur.kMeter",
+    "char>",
+    ".9",
+    ">"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 255,
+  "radius": 25,
+  "time_to_activate": 1.5,
+  "recharge_time": 360,
+  "endurance_cost": 15.6,
+  "ents_auto_hit": [
+    1,
+    16
+  ],
+  "ents_affected": [
+    1,
+    16
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    14,
+    6
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Heal",
+          "magnitude_expr": [
+            "cur.kMeter",
+            "source>",
+            "4",
+            "*",
+            "4",
+            "+",
+            "@StdResult",
+            "*"
+          ],
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} hit points begin to rapidly recover endurance!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            104,
+            108,
+            112,
+            116,
+            120,
+            124,
+            128,
+            132,
+            136,
+            140,
+            144
+          ],
+          "table": "Melee_Buff_Def",
+          "scale": 2,
+          "duration": 20,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "suppress": [
+            {
+              "event": 2,
+              "seconds": 8,
+              "always": true
+            },
+            {
+              "event": 17,
+              "seconds": 8,
+              "always": true
+            },
+            {
+              "event": 31,
+              "seconds": 8,
+              "always": true
+            }
+          ],
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": -100,
+          "delay": 0.25,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 4,
+  "cancelable": true,
+  "attrib_cache": [
+    28,
+    96,
+    104,
+    108,
+    112,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    140,
+    144
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_HEALINGFLAMES.PFX",
+  "attack_bits": [
+    245
+  ],
+  "initial_attack_bits": [
+    245
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/HEALINGFLAMES.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/HEALINGFLAMES.FX",
+  "frames_before_hit": 16,
+  "attack_frames": 45,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "alt_theme": [
+        "Bright Flames"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_HEALINGFLAMES.PFX",
+      "attack_bits": [
+        245
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        245
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/HEALINGFLAMES.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/HEALINGFLAMES.FX",
+      "mode_bits": [],
+      "frames_before_hit": 16,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 16,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "alt_theme": [
+        "Dark Flames"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_HEALINGFLAMES.PFX",
+      "attack_bits": [
+        245
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        245
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/HEALINGFLAMES.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/HEALINGFLAMES.FX",
+      "mode_bits": [],
+      "frames_before_hit": 16,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 16
+    }
+  ]
+}

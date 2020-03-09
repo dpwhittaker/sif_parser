@@ -1,0 +1,337 @@
+{
+  "crcfull_name": 560274551,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Martial_Manipulation.Inner_Will",
+  "display_name": "Inner Will",
+  "display_help": "When pushed to your limit, you can tap into an inner reserve of power, allowing you to overcome impossible odds. When you are below half health, below half endurance, or the victim of any status effect, you may activate Inner Will. Inner Will cancels any status effects currently affecting you, increases your resistance to status effects by 100%, and increases the power of your own status effect-inducing powers. Inner Will also heals you for a moderate amount when activated. Recharge: Very Long",
+  "display_short_help": "Self Heal, Special",
+  "icon_name": "MartialManipulation_InnerWill.tga",
+  "target_requires": [
+    "kHitPoints%",
+    "source>",
+    "50",
+    "<",
+    "kEndurance%",
+    "source>",
+    "50",
+    "<",
+    "||",
+    "cur.kHeld",
+    "source>",
+    "0",
+    ">",
+    "||",
+    "cur.kImmobilize",
+    "source>",
+    "0",
+    ">",
+    "||",
+    "cur.kStun",
+    "source>",
+    "0",
+    ">",
+    "||",
+    "cur.kTerrorized",
+    "source>",
+    "0",
+    ">",
+    "||",
+    "cur.kConfused",
+    "source>",
+    "0",
+    ">",
+    "||",
+    "cur.kSleep",
+    "source>",
+    "0",
+    ">",
+    "||"
+  ],
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "time_to_activate": 1.03,
+  "recharge_time": 180,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    18,
+    14
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 30,
+          "magnitude_expr": [
+            "mod.kStun",
+            "source>",
+            "1",
+            "+",
+            "2",
+            "30",
+            "minmax",
+            "negate"
+          ],
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You tap into your {PowerName} and break out of any status effects that were on you.",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            280
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 30,
+          "magnitude_expr": [
+            "mod.kSleep",
+            "source>",
+            "1",
+            "+",
+            "2",
+            "30",
+            "minmax",
+            "negate"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 30,
+          "magnitude_expr": [
+            "mod.kImmobilize",
+            "source>",
+            "1",
+            "+",
+            "2",
+            "30",
+            "minmax",
+            "negate"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            268
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 30,
+          "magnitude_expr": [
+            "mod.kHeld",
+            "source>",
+            "1",
+            "+",
+            "2",
+            "30",
+            "minmax",
+            "negate"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            256
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 30,
+          "magnitude_expr": [
+            "mod.kConfused",
+            "source>",
+            "1",
+            "+",
+            "2",
+            "30",
+            "minmax",
+            "negate"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            264
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 30,
+          "magnitude_expr": [
+            "mod.kTerrorized",
+            "source>",
+            "1",
+            "+",
+            "2",
+            "30",
+            "minmax",
+            "negate"
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            256,
+            264,
+            268,
+            272,
+            276,
+            280
+          ],
+          "aspect": 24,
+          "target": 0,
+          "duration": 30,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            256,
+            264,
+            268,
+            272,
+            276,
+            280
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.5,
+          "duration": 30,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "target": 0,
+          "scale": 0.075,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "target": 0,
+          "scale": 0.075,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    28,
+    256,
+    264,
+    268,
+    272,
+    276,
+    280
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_INNERWILL.PFX",
+  "attack_bits": [
+    635,
+    719
+  ],
+  "initial_attack_bits": [
+    635,
+    719
+  ],
+  "attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+  "initial_attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_INNERWILL.PFX",
+      "attack_bits": [
+        635,
+        719
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        635,
+        719
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_INNERWILL.PFX",
+      "attack_bits": [
+        635,
+        719
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        635,
+        719
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

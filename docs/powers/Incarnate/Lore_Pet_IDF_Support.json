@@ -1,0 +1,287 @@
+{
+  "Shield_Generator": {
+    "crcfull_name": 1315142226,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_IDF_SUPPORT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_IDF_Support.Shield_Generator",
+    "free": true,
+    "display_name": "Shield Generator",
+    "display_help": "Creates a large bubble which protects all allies inside. While active, the Shield Generator gives all allies within increase defense to all attacks. The Force Field Generator also protects allies inside from Immobilization, and Disorient effects.",
+    "display_short_help": "Team AoE Toggle, +Def(All), +Res(Immobilize, Disorient)",
+    "display_target_help": "Creates a large bubble which protects all allies inside. While active, the Shield Generator gives all allies within increase defense to all attacks. The Force Field Generator also protects allies inside from Immobilization, and Disorient effects.",
+    "display_target_short_help": "Team AoE Toggle, +Def(All), +Res(Immobilize, Disorient)",
+    "display_attacker_hit": "{PlayerSource} protects from most damage types with a {PowerName}.",
+    "display_victim_hit": "{PlayerSource} protects you from most damage types with a {PowerName}.",
+    "icon_name": "ForceField_DispersionBubble.tga",
+    "type": 2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "time_to_activate": 2.03,
+    "recharge_time": 20,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      16,
+      1
+    ],
+    "ents_affected": [
+      16,
+      1
+    ],
+    "boosts_allowed": [
+      39
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              124,
+              128,
+              132,
+              136,
+              140
+            ],
+            "table": "Ranged_Buff_Def",
+            "scale": 0.5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/FORCEFIELD/DEFLECTIONSHIELD.FX"
+            }
+          },
+          {
+            "attrib": [
+              120
+            ],
+            "table": "Ranged_Buff_Def",
+            "scale": 0.5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/FORCEFIELD"
+            }
+          },
+          {
+            "attrib": [
+              272,
+              276
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -3,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      272,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_IDF_MARK_DRONE_SHIELD_GENERATOR.PFX",
+    "activation_fx": "ENEMYFX/V_PRAETORIANPOLICE/BATTLEORBS/SHIELDGENERATOR_ACTIVATION.FX",
+    "continuing_fx": "ENEMYFX/V_PRAETORIANPOLICE/BATTLEORBS/SHIELDGENERATOR_CONTINUING.FX",
+    "continuing_fx1": "ENEMYFX/V_PRAETORIANPOLICE/BATTLEORBS/SHIELDGENERATOR_CONTINUING.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 28
+  },
+  "Deploy_Stimulant": {
+    "crcfull_name": 2744507076,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_IDF_SUPPORT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_IDF_Support.Deploy_Stimulant",
+    "free": true,
+    "display_name": "Deploy Stimulant",
+    "display_help": "Heals a single targeted ally of some Hit Points and frees an ally from any status effects and leaves them resistant to such effects for a brief time.",
+    "display_short_help": "Ally Heal, Res Effects",
+    "display_target_help": "Heals a single targeted ally of some Hit Points and frees an ally from any status effects and leaves them resistant to such effects for a brief time.",
+    "display_target_short_help": "Ally Heal, Res Effects",
+    "icon_name": "Medicine_Aid.tga",
+    "range": 15,
+    "time_to_activate": 2.93,
+    "recharge_time": 8,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "boosts_allowed": [
+      39
+    ],
+    "ai_groups": [
+      "kHealAlly"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Melee_Heal",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} heals {PlayerDest} with {PowerName} for {Damage} points.",
+              "display_victim_hit": "{PlayerSource} heals you with {PowerName} for {Damage} points of damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "scale": -10,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              256,
+              260,
+              264
+            ],
+            "scale": -5,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_Boolean",
+            "scale": -1,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              256,
+              260,
+              264
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_Boolean",
+            "scale": -0.5,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      28,
+      256,
+      260,
+      264,
+      268,
+      272,
+      276,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_IDF_MARK_DRONE_DEPLOY_STIMULANT.PFX",
+    "hit_bits": [
+      49,
+      245
+    ],
+    "attack_fx": "ENEMYFX/V_PRAETORIANPOLICE/BATTLEORBS/DEPLOYSTIMULANT_ATTACK.FX",
+    "hit_fx": "ENEMYFX/V_PRAETORIANPOLICE/BATTLEORBS/DEPLOYSTIMULANT_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/V_PRAETORIANPOLICE/BATTLEORBS/DEPLOYSTIMULANT_ATTACK.FX"
+  }
+}

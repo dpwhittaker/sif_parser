@@ -1,0 +1,274 @@
+{
+  "crcfull_name": 1627327716,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_NINJA_TRAINING.POWERS",
+  "source_name": "Blaster_Support.Ninja_Training.Immobilizing_Dart",
+  "display_name": "Immobilizing Dart",
+  "display_help": "Immobilizing Darts do minor toxic damage over time and weakens your foe's legs. They will either be entirely unable to move, or severely slowed down. Damage: Minor(DoT). Recharge: Fast",
+  "display_short_help": "Ranged, Minor DoT(Toxic), Foe Immobilize",
+  "display_target_help": "You have been hit by an Immobilizing Dart. You are either slowed down or entirely immobilized.",
+  "display_target_short_help": "DoT(Toxic), Immobilize, -Speed",
+  "icon_name": "NinjaTools_Immob",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "accuracy": 1.05,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "range": 50,
+  "time_to_activate": 1.5,
+  "recharge_time": 4,
+  "endurance_cost": 5.2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 18,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 18
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 18,
+          "flags": [
+            664,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 5,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.2882,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.099,
+          "duration": 9,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    188,
+    192,
+    200,
+    204,
+    272,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/NINJA_KATANA_POISONDART.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    258,
+    719,
+    178,
+    48
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    258,
+    719,
+    178,
+    48
+  ],
+  "attack_fx": "V_COV/POWERS/BLOODWIDOW/CLAWS/BLOODWIDOW_POISONDART.FX",
+  "hit_fx": "V_COV/POWERS/BLOODWIDOW/CLAWS/BLOODWIDOW_POISONDART_HIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/BLOODWIDOW/CLAWS/BLOODWIDOW_POISONDART.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    139,
+    87
+  ],
+  "frames_before_hit": 30,
+  "delayed_hit": true,
+  "attack_frames": 45,
+  "initial_frames_before_hit": 30,
+  "projectile_speed": 210
+}

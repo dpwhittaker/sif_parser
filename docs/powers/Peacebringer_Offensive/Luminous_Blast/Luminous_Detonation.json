@@ -1,0 +1,213 @@
+{
+  "crcfull_name": 2875868307,
+  "source_file": "DEFS/POWERS/PEACEBRINGER_OFFENSIVE_LUMINOUS_BLAST.POWERS",
+  "source_name": "Peacebringer_Offensive.Luminous_Blast.Luminous_Detonation",
+  "display_name": "Luminous Detonation",
+  "display_help": "You hurl a large blast of Kheldian energy that violently explodes on impact, damaging all foes near the target, and reducing their Defense. Some affected targets may get knocked back. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Energy), Foe -DEF, Knockback",
+  "display_target_help": "The Luminous Detonation has reduced your Defense.",
+  "display_target_short_help": "-DEF",
+  "icon_name": "LuminousBlast_LuminousDetonation.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 16,
+  "endurance_cost": 15.184,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    1,
+    2,
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.9,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "duration": 10,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.6797,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    184,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_RANGEDAOE.PFX",
+  "attack_bits": [
+    20,
+    154,
+    258
+  ],
+  "wind_up_bits": [
+    367
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    154,
+    258
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACEMEGABLAST.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACEMEGABLAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 23,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "TintableTail"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_RANGEDAOE.PFX",
+      "attack_bits": [
+        20,
+        154,
+        258
+      ],
+      "wind_up_bits": [
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        154,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACEMEGABLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACEMEGABLAST.FX",
+      "frames_before_hit": 23,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 23,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    }
+  ]
+}

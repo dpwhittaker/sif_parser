@@ -1,0 +1,550 @@
+{
+  "crcfull_name": 3267731525,
+  "source_file": "DEFS/POWERS/SENTINEL_RANGED_DUAL_PISTOLS.POWERS",
+  "source_name": "Sentinel_Ranged.Dual_Pistols.Executioners_Shot",
+  "display_name": "Executioner's Shot",
+  "display_help": "Executioner's Shot is a deadly ranged attack. Foes struck by this attack will suffer lethal damage and will likely be knocked back by the impact of this attack. Targets struck by Executioner's Shot while no special ammunition is equipped will have their defenses reduced for a short time. NOTE: Changing your ammo type with the 'Swap Ammo' power will change your secondary damage from lethal to cold, fire or toxic. Additionally, changing your ammunition type will also change the secondary effect of this attack from Knockback to a minor attack speed and movement speed debuff if 'Cryo Ammo' is loaded, a minor damage over time effect if 'Incendiary Ammo' is loaded, or a -damage effect if 'Chemical Ammo' is loaded. Damage: High, Recharge: Moderate",
+  "display_short_help": "High DMG(Lethal/Special), Foe -Defense, Knockback/Special",
+  "display_target_help": "The secondary effect placed on you by a Dual Pistols attack varies depending on the type of ammo used. If you were struck with Cryo Rounds, you will suffer from a minor slow effect. If you were struck with Incendiary Rounds you will suffer some damage over time. If you were struck with Chemical Rounds you will have your damage output slightly decreased.",
+  "display_target_short_help": "Special",
+  "icon_name": "DualPistols_ExecutionersShot.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "accuracy": 1.25,
+  "range": 60,
+  "time_to_activate": 1.67,
+  "recharge_time": 10,
+  "endurance_cost": 10.19,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.372,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.3783,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Lethal"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 1.25,
+          "duration": 8,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "LethalKB70"
+      ],
+      "chance": 0.7,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "LethalKB70"
+      ],
+      "chance": 0.7,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FireDamage"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.588,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FireDamage"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5907,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FireDamageDoT"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.169,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ColdDamage"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.588,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ColdDamage"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5907,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ColdDamage"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.15,
+          "duration": 10
+        },
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.15,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ToxicDamage"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.588,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ToxicDamage"
+      ],
+      "chance": 0,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5907,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ToxicDamage"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "duration": 8,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Lethal"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.588,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Lethal"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.5907,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    184,
+    188,
+    192,
+    200,
+    204,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DUALPISTOLS_EXECUTIONERSSHOT.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    137,
+    835
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    137,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    137,
+    835,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_PISTOLS.FX",
+  "attack_fx": "WEAPONS/DUALPISTOLS/EXECUTIONERSSHOT_ATTACK.FX",
+  "hit_fx": "WEAPONFX/PISTOLHIT2.FX",
+  "initial_attack_fx": "WEAPONS/DUALPISTOLS/EXECUTIONERSSHOT_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    137,
+    87
+  ],
+  "frames_before_hit": 39,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 65,
+  "initial_attack_fxframe_delay": 26,
+  "projectile_speed": 150,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/DUALPISTOLS_EXECUTIONERSSHOT.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        137,
+        835
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        137,
+        835
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_PISTOLS.FX",
+      "attack_fx": "WEAPONS/DUALPISTOLS/EXECUTIONERSSHOT_ATTACK.FX",
+      "hit_fx": "WEAPONFX/PISTOLHIT2.FX",
+      "initial_attack_fx": "WEAPONS/DUALPISTOLS/EXECUTIONERSSHOT_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        137,
+        87
+      ],
+      "frames_before_hit": 39,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 39,
+      "projectile_speed": 150,
+      "palette": "Additive"
+    }
+  ]
+}

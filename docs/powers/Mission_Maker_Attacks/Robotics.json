@@ -1,0 +1,1144 @@
+{
+  "Pulse_Rifle_Blast": {
+    "crcfull_name": 1957181149,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Pulse_Rifle_Blast",
+    "display_name": "Pulse Rifle Blast",
+    "display_help": "This Pulse Rifle can fire a long range laser pulse. Deals moderate Smashing/Energy damage. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Energy/Smash)",
+    "icon_name": "Robotics_LaserRifleBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "dont_set_stance": true,
+    "point_value": 100,
+    "attrib_cache": [
+      0,
+      16
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_LAZERRIFLE_SMALL_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187,
+      86
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "V_COV/WEAPONS/CUSTOMWEAPON_PULSERIFLE.FX",
+    "attack_fx": "V_COV/POWERS/ROBOTICS/ROBOTLAZERBURSTS.FX",
+    "hit_fx": "V_COV/POWERS/ROBOTICS/ROBOTICSLAZERHIT_RED.FX",
+    "initial_attack_fx": "V_COV/POWERS/ROBOTICS/ROBOTLAZERBURSTS.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 7,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 37,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 360,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ROBOTICS_LAZERRIFLE_SMALL_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_fx": "V_COV/WEAPONS/CUSTOMWEAPON_PULSERIFLE.FX",
+        "attack_fx": "V_COV/POWERS/ROBOTICS/ROBOTLAZERBURSTS.FX",
+        "hit_fx": "V_COV/POWERS/ROBOTICS/ROBOTICSLAZERHIT_RED.FX",
+        "initial_attack_fx": "V_COV/POWERS/ROBOTICS/ROBOTLAZERBURSTS.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 7,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 7,
+        "projectile_speed": 360,
+        "palette": ""
+      }
+    ]
+  },
+  "Battle_Drones": {
+    "crcfull_name": 1406804496,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Battle_Drones",
+    "display_name": "Battle Drones",
+    "display_help": "Construct one to three Battle Drones (depending on your level) to do your bidding. Drones start out with only basic weaponry, but can be upgraded with heavier energy weapons. Drones can Super Leap. You may only have 3 Drones under your control at any given time. If you attempt to construct more Drones, you can only replace the ones you have lost in battle. If you already have three, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Battle Drones",
+    "icon_name": "Robotics_BuildRobotArmy.tga",
+    "time_to_activate": 2.03,
+    "recharge_time": 60,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Minion_Grunt",
+          "eq",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Droid",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Lt_Grunt",
+          "eq",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Droid",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">",
+          "arch",
+          "source>",
+          "Class_Lt_Grunt",
+          "eq",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 4,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Droid",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Droid",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Droid",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "17",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 4,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Droid",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 20,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_DROIDARMY_SUMMON.PFX",
+    "attack_bits": [
+      474
+    ],
+    "initial_attack_bits": [
+      474
+    ],
+    "attack_fx": "GENERIC/WRISTBAND_ACTIVATION.FX",
+    "initial_attack_fx": "GENERIC/WRISTBAND_ACTIVATION.FX",
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Pulse_Rifle_Burst": {
+    "crcfull_name": 742519623,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Pulse_Rifle_Burst",
+    "display_name": "Pulse Rifle Burst",
+    "display_help": "This high powered laser pulse from your Pulse Rifle takes more energy to fire, but causes much more damage than a standard pulse and has a very good chance to send your foes flying. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, High (Energy), Foe Knockback",
+    "icon_name": "Robotics_LaserRifleBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 1.5,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "dont_set_stance": true,
+    "point_value": 100,
+    "attrib_cache": [
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_LAZERRIFLE_HEAVY_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187,
+      86
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "V_COV/WEAPONS/CUSTOMWEAPON_PULSERIFLE.FX",
+    "attack_fx": "V_COV/POWERS/ROBOTICS/LARGELAZERRIFLEBURST.FX",
+    "hit_fx": "V_COV/POWERS/ROBOTICS/ROBOTICSLAZERHIT_RED.FX",
+    "initial_attack_fx": "V_COV/POWERS/ROBOTICS/LARGELAZERRIFLEBURST.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 7,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 37,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 360,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ROBOTICS_LAZERRIFLE_HEAVY_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_fx": "V_COV/WEAPONS/CUSTOMWEAPON_PULSERIFLE.FX",
+        "attack_fx": "V_COV/POWERS/ROBOTICS/LARGELAZERRIFLEBURST.FX",
+        "hit_fx": "V_COV/POWERS/ROBOTICS/ROBOTICSLAZERHIT_RED.FX",
+        "initial_attack_fx": "V_COV/POWERS/ROBOTICS/LARGELAZERRIFLEBURST.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 7,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 7,
+        "projectile_speed": 360,
+        "palette": ""
+      }
+    ]
+  },
+  "Photon_Grenade": {
+    "crcfull_name": 3868593803,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Photon_Grenade",
+    "display_name": "Photon Grenade",
+    "display_help": "Launches an Energy Grenade at long range from your Pulse Rifle. The energy from this explosion can Disorient some targets in the affected area. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Energy/Smash), Disorient",
+    "display_target_help": "The Photon Grenade has Disoriented you.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "Robotics_LaserRifleStunGrenade.tga",
+    "attack_types": [
+      "AOE",
+      "Energy",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 16,
+    "endurance_cost": 20.44,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 4,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 3,
+    "dont_set_stance": true,
+    "point_value": 45,
+    "attrib_cache": [
+      0,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_LAZERRIFLE_AOE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187,
+      86
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "V_COV/WEAPONS/CUSTOMWEAPON_PULSERIFLE.FX",
+    "attack_fx": "V_COV/POWERS/ROBOTICS/PULSARBLAST.FX",
+    "hit_fx": "V_COV/POWERS/ROBOTICS/PULSARHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/ROBOTICS/PULSARBLAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 7,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 37,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 72,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ROBOTICS_LAZERRIFLE_AOE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_fx": "V_COV/WEAPONS/CUSTOMWEAPON_PULSERIFLE.FX",
+        "attack_fx": "V_COV/POWERS/ROBOTICS/PULSARBLAST.FX",
+        "hit_fx": "V_COV/POWERS/ROBOTICS/PULSARHIT.FX",
+        "initial_attack_fx": "V_COV/POWERS/ROBOTICS/PULSARBLAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 7,
+        "delayed_hit": true,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 7,
+        "projectile_speed": 72,
+        "palette": ""
+      }
+    ]
+  },
+  "Protector_Bots": {
+    "crcfull_name": 3596683895,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Protector_Bots",
+    "display_name": "Protector Bots",
+    "display_help": "You can summon one to two powerful Protector Bots (depending on your level). Protector Bots can defend your army by placing Force Fields on you and your allies. They can even be equipped to repair your other Robot Henchmen. Make no mistake though, the best defense is a good offense, and Protector Bots are well equipped with energy weapons. You may only have 2 Protector Bots under your control at any given time. If you attempt to summon more Protector Bots, you can only replace the ones you have lost in battle. If you already have two, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Protector Bot",
+    "icon_name": "Robotics_ConstructProtectorBot.tga",
+    "time_to_activate": 2.03,
+    "recharge_time": 90,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Protector_Bot",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "23",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 4,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Protector_Bot",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 22,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_PROTECTORBOT_SUMMON.PFX",
+    "attack_bits": [
+      474
+    ],
+    "initial_attack_bits": [
+      474
+    ],
+    "attack_fx": "GENERIC/WRISTBAND_ACTIVATION.FX",
+    "initial_attack_fx": "GENERIC/WRISTBAND_ACTIVATION.FX",
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Repair": {
+    "crcfull_name": 32517456,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Repair",
+    "display_name": "Repair",
+    "display_help": "You can release a small swarm of nanites that can Repair one Robot Henchmen to full health and restores some of its Endurance. This power only works on your Robot Henchmen. Recharge: Slow",
+    "display_short_help": "Heal Robot",
+    "icon_name": "Robotics_Repair.tga",
+    "range": 80,
+    "time_to_activate": 2.03,
+    "recharge_time": 120,
+    "endurance_cost": 17.5,
+    "target": 25,
+    "ents_auto_hit": [
+      25
+    ],
+    "ents_affected": [
+      25
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kHealAlly"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "table": "Ranged_Ones",
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+              "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.25,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.033,
+    "attrib_cache": [
+      28,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_REPAIR.PFX",
+    "attack_bits": [
+      474,
+      681
+    ],
+    "initial_attack_bits": [
+      474,
+      681
+    ],
+    "attack_fx": "V_COV/POWERS/ROBOTICS/ROBOTICS_UPGRADE2.FX",
+    "hit_fx": "V_COV/POWERS/ROBOTICS/ROBOTICS_SPARKSHEAL.FX",
+    "initial_attack_fx": "V_COV/POWERS/ROBOTICS/ROBOTICS_UPGRADE2.FX",
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 60
+  },
+  "Assault_Bot": {
+    "crcfull_name": 3707665934,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_ROBOTICS.POWERS",
+    "source_name": "Mission_Maker_Attacks.Robotics.Assault_Bot",
+    "display_name": "Assault Bot",
+    "display_help": "Builds one massive Assault Bot. Simply put, the Assault Bot is a killing machine. There is nothing subtle about its weaponry. You may only have 1 Assault Bot under your control at any given time. If you attempt to summon another Assault Bot, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Assault Bot",
+    "icon_name": "Robotics_AssembleAssaultMech.tga",
+    "time_to_activate": 2.03,
+    "recharge_time": 120,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Assault_Bot",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 24,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ROBOTICS_ASSAULTMECH_SUMMON.PFX",
+    "attack_bits": [
+      474
+    ],
+    "initial_attack_bits": [
+      474
+    ],
+    "attack_fx": "GENERIC/WRISTBAND_ACTIVATION.FX",
+    "initial_attack_fx": "GENERIC/WRISTBAND_ACTIVATION.FX",
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "crcfull_name": 53018121,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_GADGETS.POWERS",
+  "source_name": "Blaster_Support.Gadgets.Smoke_Grenade",
+  "display_name": "Smoke Grenade",
+  "display_help": "The Smoke Grenade envelops all those in the affected area in a cloud of smoke. Most villains will not be able to see past normal melee range, although some may have better perception. If the villains are attacked, they will be alerted to your presence, but will suffer a penalty to their chance to hit. Recharge: Slow",
+  "display_short_help": "Ranged (Target AoE), Foe -Perception, -To Hit",
+  "display_target_help": "Your visual range and chance to hit have been reduced by the Smoke Grenade.",
+  "display_target_short_help": "-Perception, -To Hit",
+  "display_attacker_hit": "Your {PowerName} hits {PlayerDest} slightly reducing their chance to hit and dramatically reducing their perception!",
+  "display_victim_hit": "{PlayerSource} hits you with a {PowerName} slightly decreasing your chance to hit and dramatically reducing your perception!",
+  "icon_name": "Gadgets_SmokeGrenade.tga",
+  "attack_types": [
+    "AOE"
+  ],
+  "ai_report": 1,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 35,
+  "range": 80,
+  "time_to_activate": 1.37,
+  "recharge_time": 15,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "scale": -0.9,
+          "duration": 60,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.7,
+          "duration": 60,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.7,
+          "duration": 20,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            228
+          ],
+          "scale": -0.9,
+          "duration": 20,
+          "cancel_events": [
+            17
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "magnitude": 0,
+          "duration_expr": [
+            "activatetime",
+            "power.base>",
+            "7.5",
+            "+"
+          ],
+          "magnitude_expr": [
+            ".066",
+            "activatetime",
+            "power.base>",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    228
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_GADGETS_SMOKEGRENADE.PFX",
+  "attack_bits": [
+    20,
+    130,
+    159
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    159
+  ],
+  "attack_fx": "WEAPONFX/GRENADETHROW_SMOKE.FX",
+  "hit_fx": "POWERS/GADGETS/SMOKEGRENADEHIT.FX",
+  "initial_attack_fx": "WEAPONFX/GRENADETHROW_SMOKE.FX",
+  "continuing_fx": "POWERS/GADGETS/SMOKEGRENADECONTINUING.FX",
+  "continuing_fx1": "POWERS/GADGETS/SMOKEGRENADECONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 37,
+  "delayed_hit": true,
+  "attack_frames": 41,
+  "initial_frames_before_hit": 37,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_GADGETS_SMOKEGRENADE.PFX",
+      "attack_bits": [
+        20,
+        130,
+        159
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        159
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/GADGETS/GRENADETHROW_SMOKE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/GADGETS/SMOKEGRENADEHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GADGETS/GRENADETHROW_SMOKE.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/GADGETS/SMOKEGRENADE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/GADGETS/SMOKEGRENADE_CONTINUING.FX",
+      "frames_before_hit": 37,
+      "delayed_hit": true,
+      "attack_frames": 41,
+      "initial_frames_before_hit": 37,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    }
+  ]
+}

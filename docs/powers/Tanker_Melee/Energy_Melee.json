@@ -1,0 +1,2203 @@
+{
+  "Barrage": {
+    "crcfull_name": 159071694,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Barrage",
+    "display_name": "Barrage",
+    "display_help": "You perform a quick punch that deals moderate damage. Coupled with other energy punches, Barrage can Disorient a foe. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Melee, Moderate DMG(Smash/Energy), Foe Disorient,",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "PowerPunch_Quick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 6,
+    "endurance_cost": 6.864,
+    "target": 19,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "duration": 0.3,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.16,
+            "duration": 0.3,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.5891,
+            "duration": 0.3,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1964,
+            "duration": 0.3,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.297,
+            "duration": 0.3,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BARRAGE.PFX",
+    "attack_bits": [
+      20,
+      256,
+      292
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256,
+      292
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHQUICKHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 40,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BARRAGE.PFX",
+        "attack_bits": [
+          20,
+          256,
+          292
+        ],
+        "initial_attack_bits": [
+          20,
+          256,
+          292
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHQUICKHIT.FX",
+        "attack_frames": 40,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BARRAGE.PFX",
+        "attack_bits": [
+          20,
+          256,
+          292
+        ],
+        "initial_attack_bits": [
+          20,
+          256,
+          292
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHQUICKHIT.FX",
+        "attack_frames": 40
+      }
+    ]
+  },
+  "Energy_Punch": {
+    "crcfull_name": 2758160582,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Energy_Punch",
+    "display_name": "Energy Punch",
+    "display_help": "You perform a powerful Energy Punch that deals moderate damage. When used with other Energy Melee attacks, Energy Punch can Disorient your opponent. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Smash/Energy), Foe Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "PowerPunch_EnergyPunch.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 7,
+    "time_to_activate": 0.83,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7987,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3423,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.45,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_ENERGYPUNCH.PFX",
+    "attack_bits": [
+      20,
+      256
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "hit_fx": "POWERS/POWERPUNCH/BASICPOWERPUNCHHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 25,
+    "initial_frames_before_hit": 16,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_ENERGYPUNCH.PFX",
+        "attack_bits": [
+          20,
+          256
+        ],
+        "initial_attack_bits": [
+          20,
+          256
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/BASICPOWERPUNCHHIT.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 25,
+        "initial_frames_before_hit": 16,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_ENERGYPUNCH.PFX",
+        "attack_bits": [
+          20,
+          256
+        ],
+        "initial_attack_bits": [
+          20,
+          256
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/BASICPOWERPUNCHHIT.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 25,
+        "initial_frames_before_hit": 16
+      }
+    ]
+  },
+  "Bone_Smasher": {
+    "crcfull_name": 1917041017,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Bone_Smasher",
+    "display_name": "Bone Smasher",
+    "display_help": "A Bone Smasher attack can be slow, but it compensates by dealing a good amount of damage and having a better chance to Disorient than Energy Punch. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee, High DMG(Smash/Energy), Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "PowerPunch_BoneSmasher.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 7,
+    "time_to_activate": 1.5,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1682,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6018,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.738,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BONESMASHER.PFX",
+    "attack_bits": [
+      20,
+      263
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/SINGLELARGEPOWERPUNCH.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT2.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/SINGLELARGEPOWERPUNCH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BONESMASHER.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SINGLELARGEPOWERPUNCH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SINGLELARGEPOWERPUNCH.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BONESMASHER.PFX",
+        "attack_bits": [
+          20,
+          263
+        ],
+        "initial_attack_bits": [
+          20,
+          263
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/SINGLELARGEPOWERPUNCH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT2.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/SINGLELARGEPOWERPUNCH.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Taunt": {
+    "crcfull_name": 898903027,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Taunt",
+    "display_name": "Taunt",
+    "display_help": "Taunts a foe, and some nearby foes, to attack you. Useful for pulling villains off an ally who find themselves in over their head. Taunted foes tend to ignore other Heroes and focus on you for quite a while, so use this power cautiously. A To Hit check is required to Taunt enemy players, but is not needed against critter targets. Recharge: Moderate",
+    "display_short_help": "Ranged (Targeted AoE), Foe Taunt",
+    "display_target_help": "You have been Taunted.",
+    "display_target_short_help": "Taunt",
+    "display_victim_hit": "{PlayerSource} Taunts you!",
+    "icon_name": "PowerPunch_Taunt.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 5,
+    "radius": 15,
+    "range": 70,
+    "time_to_activate": 1.67,
+    "recharge_time": 10,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      28,
+      22,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 20,
+            "magnitude": 4,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Taunt {PlayerDest} to attack you.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 5,
+            "magnitude": 4,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} hit, and you Taunt {PlayerDest} to attack you.",
+              "display_victim_hit": "{Playersource} hit you with their {Powername}. You have been Taunted!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          ">=",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} partially hit! {PlayerDest} is not taunted but their range is reduced!",
+              "display_victim_hit": "{Playersource} partially hits you with their Taunt! Your range is reduced but the Taunt is not successful!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "scale": -1,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      248,
+      348,
+      468
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_TAUNT.PFX",
+    "attack_bits": [
+      20,
+      358,
+      688
+    ],
+    "initial_attack_bits": [
+      20,
+      358,
+      688
+    ],
+    "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20
+  },
+  "Whirling_Hands": {
+    "crcfull_name": 146138568,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Whirling_Hands",
+    "display_name": "Whirling Hands",
+    "display_help": "By focusing your energy into the muscles in your arms, you can launch a dizzying flurry of attacks against every foe in melee range. Some foes may be hit hard enough to be Disoriented as well. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "PBAoE Melee, Moderate DMG(Smash/Energy)",
+    "icon_name": "PowerPunch_Flurry.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 8,
+    "time_to_activate": 2.5,
+    "recharge_time": 14,
+    "endurance_cost": 13,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9291,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6194,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.45,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_WHIRLINGHANDS.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      200
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      200
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 36,
+    "attack_frames": 75,
+    "initial_frames_before_hit": 36,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_WHIRLINGHANDS.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+        "frames_before_hit": 36,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 36,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_WHIRLINGHANDS.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          200
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHFLURY.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHFLURY.FX",
+        "frames_before_hit": 36,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 36
+      }
+    ]
+  },
+  "Stun": {
+    "crcfull_name": 922885205,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Stun",
+    "display_name": "Stun",
+    "display_help": "By focusing your internal energy on your fists, you can turn them into personal tasers. This Stun attack deals minor damage, but has the best chance to Disorient a target. Damage: Minor, Recharge: Slow",
+    "display_short_help": "Melee Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "PowerPunch_Stun.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 7,
+    "time_to_activate": 1.8,
+    "recharge_time": 20,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4871,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_STUN.PFX",
+    "attack_bits": [
+      20,
+      355
+    ],
+    "initial_attack_bits": [
+      20,
+      355
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 43,
+    "attack_frames": 54,
+    "initial_frames_before_hit": 43,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_STUN.PFX",
+        "attack_bits": [
+          20,
+          355
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          355
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+        "frames_before_hit": 43,
+        "attack_frames": 54,
+        "initial_frames_before_hit": 43,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_STUN.PFX",
+        "attack_bits": [
+          20,
+          355
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          355
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+        "frames_before_hit": 43,
+        "attack_frames": 54,
+        "initial_frames_before_hit": 43
+      }
+    ]
+  },
+  "Build_Up": {
+    "crcfull_name": 1499378532,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Build_Up",
+    "display_name": "Build Up",
+    "display_help": "Greatly increases the amount of damage you deal for a few seconds, as well as slightly increasing your chance to hit. Recharge: Long",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "PowerPunch_BuildUp.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner strength with your {PowerName} and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BUILDUP.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+    "initial_attack_fx": "POWERS/ENERGYMELEE_FOLLOWUPHIT.FX",
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BUILDUP.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_BUILDUP.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYMELEE_FOLLOWUPHIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Energy_Transfer": {
+    "crcfull_name": 2598061460,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Energy_Transfer",
+    "display_name": "Energy Transfer",
+    "display_help": "Mastery of Energy Melee begins with the ability to transfer your own Hit Points into a punch that deals extreme damage. Energy Transfer has a good chance of Disorienting the target. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe Disorient, Self -HP",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "PowerPunch_EnergyTransfer.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 2.67,
+    "recharge_time": 20,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.56,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.0741,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.7834,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              32
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_Damage",
+            "scale": 3.75,
+            "delay": 0.1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.052,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      32,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_ENERGYTRANSFER.PFX",
+    "attack_bits": [
+      20,
+      652
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      652
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/ENERGYTRANSFER.FX",
+    "hit_fx": "POWERS/POWERPUNCH/ENERGYTRANSFER_HIT.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/ENERGYTRANSFER.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 66,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 66,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_ENERGYTRANSFER.PFX",
+        "attack_bits": [
+          20,
+          652
+        ],
+        "initial_attack_bits": [
+          20,
+          652
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYTRANSFER.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYTRANSFER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/ENERGYTRANSFER.FX",
+        "frames_before_hit": 66,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 66,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_ENERGYTRANSFER.PFX",
+        "attack_bits": [
+          20,
+          652
+        ],
+        "initial_attack_bits": [
+          20,
+          652
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYTRANSFER.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYTRANSFER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/ENERGYTRANSFER.FX",
+        "frames_before_hit": 66,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 66
+      }
+    ]
+  },
+  "Total_Focus": {
+    "crcfull_name": 3160320353,
+    "source_file": "DEFS/POWERS/TANKER_MELEE_ENERGY_MELEE.POWERS",
+    "source_name": "Tanker_Melee.Energy_Melee.Total_Focus",
+    "display_name": "Total Focus",
+    "display_help": "Total Focus is complete mastery over Energy Melee. This is a very slow, but incredibly devastating attack that can knock out most opponents, leaving them Disoriented. Due to the exhausting nature of Total Focus, recharge time is very long. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "PowerPunch_TotalFocus.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 3.3,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "target": 19,
+    "boosts_allowed": [
+      28,
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.56,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9828,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.5271,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.602,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_TOTALFOCUS.PFX",
+    "attack_bits": [
+      20,
+      354
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      354
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/TOTALFOCUSPOWERPUNCH.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/TOTALFOCUSPOWERPUNCH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 69,
+    "attack_frames": 99,
+    "initial_frames_before_hit": 69,
+    "custom_fx": [
+      {
+        "token": "Bright Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_TOTALFOCUS.PFX",
+        "attack_bits": [
+          20,
+          354
+        ],
+        "initial_attack_bits": [
+          20,
+          354
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSPOWERPUNCH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/TOTALFOCUSPOWERPUNCH.FX",
+        "frames_before_hit": 69,
+        "attack_frames": 99,
+        "initial_frames_before_hit": 69,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Energy",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ENERGYMELEE_TOTALFOCUS.PFX",
+        "attack_bits": [
+          20,
+          354
+        ],
+        "initial_attack_bits": [
+          20,
+          354
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHATTACHED.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/TOTALFOCUSPOWERPUNCH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/POWERPUNCHHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/SUBTRACTIVE/TOTALFOCUSPOWERPUNCH.FX",
+        "frames_before_hit": 69,
+        "attack_frames": 99,
+        "initial_frames_before_hit": 69
+      }
+    ]
+  }
+}

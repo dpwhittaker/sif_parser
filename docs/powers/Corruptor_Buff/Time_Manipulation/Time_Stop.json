@@ -1,0 +1,328 @@
+{
+  "crcfull_name": 2283340604,
+  "source_file": "DEFS/POWERS/CORRUPTOR_BUFF_TIME_MANIPULATION.POWERS",
+  "source_name": "Corruptor_Buff.Time_Manipulation.Time_Stop",
+  "display_name": "Time Stop",
+  "display_help": "You trap your target within the flow of time causing them to be held helpless. Even those resistant to the effects of Time Stop's hold will still have their regeneration rate and healing effects reduced for a brief period. Targets affected by Time Crawl will suffer from a more powerful hold, however its benefits are brief. Recharge: Long",
+  "display_short_help": "Ranged Hold, Foe -Regen, -Heal",
+  "display_target_help": "You have been held by Time Stop. Your healing effects and regeneration rate have also been reduced.",
+  "display_target_short_help": "Hold, -Heal, -Regen",
+  "icon_name": "TimeManipulation_TimeStop.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 70,
+  "time_to_activate": 2.17,
+  "recharge_time": 16,
+  "endurance_cost": 8.84,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 16,
+          "table": "Ranged_Stun",
+          "scale": -0.25,
+          "duration": 20,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -2,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    28,
+    232,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_TIMEMANIPULATION_TIMESTOP.PFX",
+  "attack_bits": [
+    20,
+    305
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    305
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TEMPORALSELECTION_ATTACK.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TEMPORALSELECTION_ATTACK.FX",
+  "conditional_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESTOP_CONDITIONAL.FX",
+  "conditional_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESTOP_CONDITIONAL.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 29,
+  "attack_frames": 65,
+  "initial_frames_before_hit": 29,
+  "primary_tint": [
+    194,
+    225,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    50,
+    63,
+    103,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_TIMEMANIPULATION_TIMESTOP.PFX",
+      "attack_bits": [
+        20,
+        305
+      ],
+      "initial_attack_bits": [
+        20,
+        305
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TEMPORALSELECTION_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TEMPORALSELECTION_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESTOP_CONDITIONAL.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESTOP_CONDITIONAL.FX",
+      "frames_before_hit": 29,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 29,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_TIMEMANIPULATION_TIMESTOP.PFX",
+      "attack_bits": [
+        20,
+        305
+      ],
+      "initial_attack_bits": [
+        20,
+        305
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TEMPORALSELECTION_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TEMPORALSELECTION_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMESTOP_CONDITIONAL.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMESTOP_CONDITIONAL.FX",
+      "frames_before_hit": 29,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 29
+    }
+  ]
+}

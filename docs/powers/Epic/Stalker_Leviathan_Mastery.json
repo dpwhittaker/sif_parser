@@ -1,0 +1,1035 @@
+{
+  "Spirit_Shark": {
+    "crcfull_name": 963622303,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+    "display_name": "Spirit Shark",
+    "display_help": "You are empowered with the Spirit of the Mako Shark. You can project this spirit to attack and maul your opponent. The Shark Spirit will manifest and attack your foe, quickly dealing moderate lethal damage over time. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Lethal), Foe Knockback",
+    "display_target_help": "You are being mauled by a Spirit Shark.",
+    "display_target_short_help": "DoT(Lethal)",
+    "icon_name": "Arachnos_Patron_TargetedRangedModDmg.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Stalker",
+      "==",
+      "$archetype",
+      "@Class_Scrapper",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 3,
+    "recharge_time": 6,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 3.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.74,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.74,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.74,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARK.PFX",
+    "attack_bits": [
+      20,
+      325
+    ],
+    "hit_bits": [
+      49,
+      283
+    ],
+    "initial_attack_bits": [
+      20,
+      325
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CHARGE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CHARGE.FX",
+    "frames_before_hit": 60,
+    "delayed_hit": true,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 60,
+    "projectile_speed": 42,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARK.PFX",
+        "attack_bits": [
+          20,
+          325
+        ],
+        "hit_bits": [
+          49,
+          283
+        ],
+        "initial_attack_bits": [
+          20,
+          325
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRITSHARK_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 60,
+        "delayed_hit": true,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 60,
+        "projectile_speed": 42,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Water_Spout": {
+    "crcfull_name": 3953271944,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Leviathan_Mastery.Water_Spout",
+    "display_name": "Water Spout",
+    "display_help": "Conjures up a Water Spout at a targeted location. The Water Spout will chase down your foes, tossing them into the air and hurling them great distances. The victims are left Disoriented and with reduced Defense. The Water Spout is a menacing sight, and can even cause panic among your foes. Recharge: Long",
+    "display_short_help": "Summon Water Spout: PBAoE Minor DMG(Smash), Foe Knockback, Fear, Disorient",
+    "icon_name": "Arachnos_Patron_DropKnockback.tga",
+    "buy_requires": [
+      "$archetype",
+      "@Class_Stalker",
+      "==",
+      "$archetype",
+      "@Class_Scrapper",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "accuracy": 1.3,
+    "target_near_ground": true,
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 1.17,
+    "recharge_time": 180,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      17,
+      10,
+      9
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 30,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Water_Spout_Stalker",
+                "priority_list": "PL_Untargetable_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_WATERSPOUT.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "POWERS/STORMSUMMONING/SSTORNADOCLOUDCAST.FX",
+    "initial_attack_fx": "POWERS/STORMSUMMONING/SSTORNADOCLOUDCAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_WATERSPOUT.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/STORMSUMMONING/SSTORNADOCLOUDCAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STORMSUMMONING/SSTORNADOCLOUDCAST.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Hibernate": {
+    "crcfull_name": 2492368536,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Leviathan_Mastery.Hibernate",
+    "display_name": "Hibernate",
+    "display_help": "When you activate this power, you encase yourself in a block of solid ice, making yourself invulnerable, though you are frozen solid and cannot act. While Hibernating within this block of ice, you heal damage and recover endurance at an incredible rate. You can emerge at will by deactivating the power, but you cannot Hibernate for more than 30 seconds. If you activate this power while in the air, you will fall. You must be level 41 and have Spirit Shark or Water Spout before selecting this power. Recharge: Long",
+    "display_short_help": "Toggle: Self +Regeneration, +Recovery, Invulnerable; Self Hold",
+    "display_attacker_hit": "You Hibernate in a block of ice, and are almost completely invulnerable while you heal at an astonishing rate.",
+    "icon_name": "Arachnos_Patron_SelfBuffResistancePhysical.tga",
+    "type": 2,
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Stalker_Leviathan_Mastery.Water_Spout",
+      "||",
+      "&&"
+    ],
+    "time_to_activate": 0.07,
+    "recharge_time": 240,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      14
+    ],
+    "group_membership": [
+      0
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37,
+      29
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272,
+              296,
+              304
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 0.75,
+            "magnitude": 100,
+            "stack_type": 3,
+            "flags": [
+              1072,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 4,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.NoPhase"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      232,
+      236,
+      272,
+      296,
+      304,
+      324,
+      328,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_HIBERNATE.PFX",
+    "continuing_fx": "POWERS/ICEARMOR/HIBERNATE.FX",
+    "continuing_fx1": "POWERS/ICEARMOR/HIBERNATE.FX",
+    "mode_bits": [
+      594
+    ],
+    "frames_before_hit": 1,
+    "attack_frames": 2,
+    "initial_frames_before_hit": 1,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_HIBERNATE.PFX",
+        "hit_bits": [],
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/ICEARMOR/HIBERNATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/ICEARMOR/HIBERNATE_CONTINUING.FX",
+        "mode_bits": [
+          594
+        ],
+        "frames_before_hit": 1,
+        "attack_frames": 2,
+        "initial_frames_before_hit": 1,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Spirit_Shark_Jaws": {
+    "crcfull_name": 640776350,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Leviathan_Mastery.Spirit_Shark_Jaws",
+    "display_name": "Spirit Shark Jaws",
+    "display_help": "You can summon a massive Spirit Shark that will attack your foe from below. The Shark will grip your foe with its massive jaws and attempt to hold the target while it mauls it, dealing lethal Damage over Time. Flying Targets will likely be pulled to the ground. You must be level 41 and have Spirit Shark or Water Spout before selecting this power. Note that you cannot get Critical strikes using this power, though it still enables your other attacks to Critical. Recharge: Slow",
+    "display_short_help": "Ranged, Moderate DoT(Lethal), Foe Hold, -Fly",
+    "display_target_help": "You are being Held by a Spirit Shark Jaws and are taking lethal Damage over Time as you are Mauled.",
+    "display_target_short_help": "Hold, DoT(Lethal)",
+    "icon_name": "Arachnos_Patron_TargetedHold.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Stalker_Leviathan_Mastery.Water_Spout",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 32,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.135,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.5978,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.2657,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1.6,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      268,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARKJAWS.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+    "conditional_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY_BIGHOLD.FX",
+    "conditional_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY_BIGHOLD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 21,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 21,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARKJAWS.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRTSHARKJAWS_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRTSHARKJAWS_CONDITIONAL.FX",
+        "frames_before_hit": 21,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 21,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Summon_Guardian": {
+    "crcfull_name": 952153445,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Leviathan_Mastery.Summon_Guardian",
+    "display_name": "Summon Guardian",
+    "display_help": "Captain Mako has shown you how to summon a Coralax Guardian Warder to do your bidding. These creatures are composed of living coral made from the sea-goddess Merulina. Your access to this Guardian is very limited. You can only summon it once every 15 minutes and it will leave after 4 minutes, or if you exit a zone or mission. You must be level 44 and have two other Leviathan Mastery Powers before selecting this power. Recharge: Extremely Long",
+    "display_short_help": "Summon Warder: Ranged Moderate DMG(Smashing)",
+    "icon_name": "Arachnos_Patron_SummonOnePet.tga",
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Stalker_Leviathan_Mastery.Water_Spout",
+      "&&",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Stalker_Leviathan_Mastery.Hibernate",
+      "&&",
+      "||",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark_Jaws",
+      "&&",
+      "||",
+      "Epic.Stalker_Leviathan_Mastery.Water_Spout",
+      "Epic.Stalker_Leviathan_Mastery.Hibernate",
+      "&&",
+      "||",
+      "Epic.Stalker_Leviathan_Mastery.Water_Spout",
+      "Epic.Stalker_Leviathan_Mastery.Spirit_Shark_Jaws",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 3.2,
+    "recharge_time": 900,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      30,
+      29,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Coral_Guardian_Warder",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SUMMON.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "ENEMYFX/V_CORALAX/CORAL_GUARDIAN/SUMMON_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/V_CORALAX/CORAL_GUARDIAN/SUMMON_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 96,
+    "initial_frames_before_hit": 37,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_ATTACK.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 96,
+        "initial_frames_before_hit": 37,
+        "palette": "Additive"
+      }
+    ]
+  }
+}

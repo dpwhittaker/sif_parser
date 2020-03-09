@@ -1,0 +1,145 @@
+{
+  "Attuned_Blasters_Wrath_F": {
+    "crcfull_name": 3117755377,
+    "source_file": "DEFS/POWERS/BOOSTS_ATTUNED_BLASTERS_WRATH_F.POWERS",
+    "source_name": "Boosts.Attuned_Blasters_Wrath_F.Attuned_Blasters_Wrath_F",
+    "display_name": "Blaster's Wrath: Recharge/Chance for Fire Damage",
+    "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. Gives the slotted power a chance to inflict minor fire damage, and reduces the power's recharge time by {Boost.Attrib.RechargeTime.Scale}%. This enhancement's chance to trigger is equal to approximately 4 times per minute. This enhancement can only be slotted by Blasters and may be slotted into any Blaster damage power.",
+    "display_short_help": "Increases Attack Rate, Chance for Fire Damage",
+    "icon_name": "E_ICON_BlastersWrath.tga",
+    "type": 3,
+    "slot_requires": [
+      "Attuned_Blasters_Wrath_F",
+      "BoostsSlotted>",
+      "0",
+      "<=",
+      "Superior_Attuned_Superior_Blasters_Wrath_F",
+      "BoostsSlotted>",
+      "0",
+      "<=",
+      "&&",
+      "arch",
+      "char>",
+      "Class_Blaster",
+      "eq",
+      "&&"
+    ],
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      9,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "effects": [
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 4,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "target.isFriend?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.67,
+            "flags": [
+              660,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 4,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "target.isFriend?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.67,
+            "flags": [
+              660,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "rechargetime"
+        ],
+        "procs_per_minute": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Boosts_33",
+            "scale": 0.4375,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              2608,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "boost_ignore_effectiveness": true,
+    "boost_always_count_for_set": true,
+    "boost_combinable": false,
+    "boost_use_player_level": true,
+    "boost_catalyst_conversion": "Boosts.Superior_Attuned_Superior_Blasters_Wrath_F.Superior_Attuned_Superior_Blasters_Wrath_F",
+    "min_slot_level": 9,
+    "attrib_cache": [
+      8,
+      356
+    ]
+  }
+}

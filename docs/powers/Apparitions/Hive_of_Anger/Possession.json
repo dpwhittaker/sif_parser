@@ -1,0 +1,173 @@
+{
+  "crcfull_name": 849103951,
+  "source_file": "DEFS/POWERS/APPARITIONS_HIVE_OF_ANGER.POWERS",
+  "source_name": "Apparitions.Hive_of_Anger.Possession",
+  "display_name": "Possession",
+  "display_help": "The focused hatred of an Enraged Spectre can restore and sustain nearby Apparitions.",
+  "display_short_help": "PBAoE Heal",
+  "display_target_help": "The focused hatred of an Enraged Spectre can restore and sustain nearby Apparitions.",
+  "display_target_short_help": "PBAoE Heal",
+  "icon_name": "Apparitions_EnragedRegeneration.tga",
+  "type": 2,
+  "attack_types": [
+    "Ranged",
+    "Psionic"
+  ],
+  "range": 40,
+  "recharge_time": 20,
+  "activate_period": 2,
+  "endurance_cost": 5,
+  "target": 19,
+  "ai_groups": [
+    "kMidBattle"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "kHitPoints%",
+        "source>",
+        ">"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "type": 3,
+          "table": "Ranged_Ones",
+          "magnitude_expr": [
+            "kHitPoints%",
+            "target>",
+            "kHitPoints%",
+            "source>",
+            "-",
+            "negate",
+            "200",
+            "/",
+            "@Scale",
+            "*"
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+            "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+          }
+        },
+        {
+          "attrib": [
+            24
+          ],
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "magnitude_expr": [
+            "kHitPoints%",
+            "target>",
+            "kHitPoints%",
+            "source>",
+            "-",
+            "200",
+            "/",
+            "@Scale",
+            "*"
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+            "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "kHitPoints%",
+        "source>",
+        "<"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "type": 3,
+          "table": "Ranged_Ones",
+          "magnitude_expr": [
+            "kHitPoints%",
+            "source>",
+            "kHitPoints%",
+            "target>",
+            "-",
+            "200",
+            "/",
+            "@Scale",
+            "*"
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+            "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+          }
+        },
+        {
+          "attrib": [
+            24
+          ],
+          "type": 3,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "magnitude_expr": [
+            "kHitPoints%",
+            "source>",
+            "kHitPoints%",
+            "target>",
+            "-",
+            "negate",
+            "200",
+            "/",
+            "@Scale",
+            "*"
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerSource} hits {PlayerDest} for {Damage} points.",
+            "display_victim_hit": "{PlayerSource} heals you for {Damage} points."
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 100,
+  "attrib_cache": [
+    24
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_APPARITIONS_POSSESS_MERGED.PFX",
+  "hit_bits": [
+    49,
+    245
+  ],
+  "attack_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/POSSESS_MERGED_ATTACK.FX",
+  "initial_attack_fx": "ENEMYFX/PRAETORIAN/APPARITIONS/POSSESS_MERGED_ATTACK.FX",
+  "frames_before_hit": 1,
+  "attack_frames": 70,
+  "initial_frames_before_hit": 1,
+  "ignore_attack_time_errors": "c-jhamilton"
+}

@@ -1,0 +1,217 @@
+{
+  "Meteor": {
+    "crcfull_name": 94976328,
+    "source_file": "DEFS/POWERS/TALONSOFVENGEANCE_METEOR.POWERS",
+    "source_name": "TalonsOfVengeance.Meteor.Meteor",
+    "display_name": "Meteor",
+    "display_help": "You call down a meteor strike from the sky at a single target's location. All targets around the main target within 30' are caught in the blast radius. In addition to a knockback in the entire radius, those in the inner 15' of the radius suffer the worst effects, including more damage and a stun, while those in the outer radius suffer less damage and no stun. This power also increases your smashing damage and defense for a brief time.",
+    "display_short_help": "Targeted AoE, Extreme DMG(Smashing), Moderate DoT(Fire), +DMG, +DEF (Smashing), Knockback, Stun",
+    "display_target_help": "You are on fire and burning!",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "TalonsOfVengeance_Meteor.tga",
+    "type": 1,
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "activate_period": 999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              320
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 4,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "ENEMYFX/UNIQUE/SHIVAN/GIANTSHIVAN/V_TUTORIAL_SHIVAN_GIANT_METEOR_BLAST_TELL.FX"
+            }
+          },
+          {
+            "attrib": [
+              320
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 3,
+            "delay": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "ENEMYFX/UNIQUE/SHIVAN/GIANTSHIVAN/V_TUTORIAL_SHIVAN_GIANT_ORBITAL_BLAST.FX"
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 3,
+            "delay": 5,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "TalonsOfVengeance_MeteorHit"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      320,
+      461
+    ]
+  },
+  "MeteorHit": {
+    "crcfull_name": 1299014124,
+    "source_file": "DEFS/POWERS/TALONSOFVENGEANCE_METEOR.POWERS",
+    "source_name": "TalonsOfVengeance.Meteor.MeteorHit",
+    "display_name": "Meteor",
+    "display_help": "You call down a meteor strike from the sky at a single target's location. All targets around the main target within 30' are caught in the blast radius. In addition to a knockback in the entire radius, those in the inner 15' of the radius suffer the worst effects, including more damage and a stun, while those in the outer radius suffer less damage and no stun. This power also increases your smashing damage and defense for a brief time.",
+    "display_short_help": "Targeted AoE, Extreme DMG(Smashing), Moderate DoT(Fire), +DMG, +DEF (Smashing), Knockback, Stun",
+    "display_target_help": "You are on fire and burning!",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "TalonsOfVengeance_Meteor.tga",
+    "type": 1,
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 999,
+    "radius": 30,
+    "activate_period": 999,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "radius_outer": 14.99,
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "duration": 4.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 5,
+            "magnitude": 6,
+            "flags": [
+              1280,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "radius_inner": 15,
+        "radius_outer": 30,
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "duration": 4.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 4,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      8,
+      276,
+      328
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "crcfull_name": 2580521451,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Power_Cell",
+  "free": true,
+  "display_name": "Power Cell",
+  "display_help": "To restore the integrity of the system and override Antimatter's control. Each Containment System Terminal requires three Power Cells to be fully capable of generating the magnetic field needed to assert control over the system. Use of the first Power Cell on a terminal will override Anti-Matter's lockdown of that terminal permanently. If a Power Cell is removed from the vicinity of Keyes Island, it will rapidly decay and become unusable. Recharge: Moderate",
+  "display_short_help": "Magnetic Containment Power Cell",
+  "display_target_help": "This power cell must be installed in the Containment System Terminals scattered around the reactor in order to restore the integrity of the system and override Anti-Matter's control. Each Containment System Terminal requires three Power Cells to be fully capable of generating the magnetic field needed to assert control over the system. Use of the first Power Cell on a terminal will override Anti-Matter's lockdown of that terminal permanently. If a Power Cell is removed from the vicinity of Keyes Island, it will rapidly decay and become unusable.",
+  "display_target_short_help": "Magnetic Containment Power Cell",
+  "icon_name": "Gadgets_TargetingDrone.tga",
+  "num_allowed": 30,
+  "target_requires": [
+    "Objects_Keyes_Island_Terminal",
+    "target.VillainName>",
+    "kThreePowerCell",
+    "target.mode?",
+    "!",
+    "&&",
+    "kEnraged",
+    "target.mode?",
+    "&&"
+  ],
+  "shoot_through_untouchable": true,
+  "ai_report": 1,
+  "range": 10,
+  "recharge_time": 10,
+  "num_charges": 1,
+  "lifetime": 1801,
+  "target": 21,
+  "ents_auto_hit": [
+    21
+  ],
+  "ents_affected": [
+    21
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kOnePowerCell",
+        "target.mode?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 9999,
+          "magnitude": 112,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You have installed a {PowerName} in the Containment System Terminal.",
+            "display_victim_hit": "",
+            "display_float": "Terminal Charged to 33%!"
+          }
+        },
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 9999,
+          "magnitude": 90,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Anti-Matter's control over this terminal is overridden permanently!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.35,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kOnePowerCell",
+        "target.mode?",
+        "kTwoPowerCell",
+        "target.mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 9999,
+          "magnitude": 113,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You have installed a second {PowerName} in the Containment System Terminal.",
+            "display_victim_hit": "",
+            "display_float": "Terminal Charged to 66%!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.35,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kTwoPowerCell",
+        "target.mode?",
+        "kThreePowerCell",
+        "target.mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 9999,
+          "magnitude": 114,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You have installed the last {PowerName} required in the Containment System Terminal.",
+            "display_victim_hit": "",
+            "display_float": "Terminal Fully Charged!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.35,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 10,
+          "flags": [
+            112,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Objects_Keyes_Island_Marker"
+            }
+          }
+        },
+        {
+          "attrib": [
+            463
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "delay": 4,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Deactivating Terminal!"
+          }
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "deletable": true,
+  "tradeable": true,
+  "max_boosts": 0,
+  "do_not_save": true,
+  "instance_locked": true,
+  "server_tray_priority": 10,
+  "attrib_cache": [
+    88,
+    461,
+    463,
+    465
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/REVIVE_POLICE_DRONE.PFX",
+  "attack_bits": [
+    385,
+    602
+  ],
+  "initial_attack_bits": [
+    385,
+    602
+  ],
+  "attack_fx": "POWERS/MEDICINE/MSTIMULANT.FX",
+  "initial_attack_fx": "POWERS/MEDICINE/MSTIMULANT.FX",
+  "frames_before_hit": 1,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 1,
+  "ignore_attack_time_errors": "cbehrens"
+}

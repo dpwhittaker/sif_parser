@@ -1,0 +1,222 @@
+{
+  "crcfull_name": 409791907,
+  "source_file": "DEFS/POWERS/V_ARACHNOS_PROXY_BIO_ARMOR.POWERS",
+  "source_name": "V_Arachnos_Proxy.Bio_Armor.DNA_Siphon",
+  "display_name": "DNA Siphon",
+  "display_help": "You can siphon genetic material from nearby enemies, causing a minor amount of Lethal damage and a minor amount of Toxic damage over time. Living enemies will provide the user with a small boost to health and endurance. These foes will have their regeneration rate reduced for a short period of time. Defeated enemies provide a weaker sample of material and thus will boost recovery and regeneration for a short while. While Efficient Adaptation is active, this power will grant bonus regeneration and recovery per defeated target hit. While Defensive Adaptation is active, this power will grant bonus health per living target hit. While Offensive Adaptation is active this power's regeneration debuff is increased in effectiveness. Damage: Minor, Recharge: Very Long",
+  "display_short_help": "Click, PBAoE Minor DMG(Lethal/Toxic) Foe -Regen, Taunt, Self +HP, +End, +Special",
+  "display_target_help": "Your genetic make up has been weakened by the DNA Siphon thus reducing your regeneration.",
+  "display_target_short_help": "-DoT(Toxic), -Regen",
+  "icon_name": "BioOrganicArmor_DNASiphon.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "time_to_activate": 2.67,
+  "recharge_time": 90,
+  "endurance_cost": 13,
+  "interrupt_time": 1,
+  "ents_auto_hit": [
+    18
+  ],
+  "ents_affected": [
+    19,
+    18
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "Cur.kHitPoints",
+        "target>",
+        "0",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 2,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 1.25,
+          "delay": 0.25,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} siphons {Damage} points of health as well as some endurance!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 5,
+          "delay": 0.25,
+          "flags": [
+            96,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Cur.kHitPoints",
+        "target>",
+        "0",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 0.2,
+          "duration": 30,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.125,
+          "duration": 30,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -1,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    4,
+    28,
+    36,
+    88,
+    232,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_DNASIPHON.PFX",
+  "attack_bits": [
+    20,
+    305
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    305
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/DNASIPHON.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/DNASIPHON_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/DNASIPHON.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 30,
+  "primary_tint": [
+    120,
+    81,
+    82,
+    255
+  ],
+  "secondary_tint": [
+    246,
+    239,
+    80,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SYMBIOTICARMOR_DNASIPHON.PFX",
+      "attack_bits": [
+        20,
+        305
+      ],
+      "initial_attack_bits": [
+        20,
+        305
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/DNASIPHON.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/DNASIPHON_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BIOARMOR/DNASIPHON.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 30,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

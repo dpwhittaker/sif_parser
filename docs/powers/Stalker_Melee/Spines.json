@@ -1,0 +1,4900 @@
+{
+  "Barb_Swipe": {
+    "crcfull_name": 231687446,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Barb_Swipe",
+    "display_name": "Barb Swipe",
+    "display_help": "Shred your opponent with several quick Swipes from your Spines. Barb Swipe deals Light Lethal damage and a minor amount of additional Toxic damage over time and Slows affected foes. Damage: Light, Minor(DoT), Recharge: Very Fast",
+    "display_short_help": "Melee, Light DMG(Lethal), DoT(Toxic), -SPD, -Recharge",
+    "display_target_help": "You are poisoned! Your Attack speed and Running speed are reduced.",
+    "display_target_short_help": "DoT(Toxic), -Recharge, -SPD",
+    "icon_name": "Quills_Swipe.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "Stalker_Defense.Shield_Defense",
+      "!"
+    ],
+    "range": 7,
+    "time_to_activate": 0.83,
+    "recharge_time": 3,
+    "endurance_cost": 4.368,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 8,
+            "magnitude": 0.33,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.101,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 0.33,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.101,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.101,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 4
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 2,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 4,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.65,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      36,
+      188,
+      192,
+      200,
+      204,
+      272,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_QUILLS_BARBSWIPE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      766
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      766,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/POISONCONTROL/BARBSWIPE.FX",
+    "hit_fx": "POWERS/POISONCONTROL/QUILLSHIT2.FX",
+    "initial_attack_fx": "POWERS/POISONCONTROL/BARBSWIPE.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "attack_frames": 25,
+    "initial_frames_before_hit": 34,
+    "initial_attack_fxframe_delay": 19,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_QUILLS_BARBSWIPE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BARBSWIPE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BARBSWIPE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BARBSWIPE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 25,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_QUILLS_BARBSWIPE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/BARBSWIPE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BARBSWIPE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/BARBSWIPE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 25,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_QUILLS_BARBSWIPE.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/BARBSWIPE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/BARBSWIPE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/BARBSWIPE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 25,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_QUILLS_BARBSWIPE.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/BARBSWIPE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/BARBSWIPE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/BARBSWIPE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 25,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_QUILLS_BARBSWIPE.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/BARBSWIPE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/BARBSWIPE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/BARBSWIPE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 25,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Lunge": {
+    "crcfull_name": 2766034084,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Lunge",
+    "display_name": "Lunge",
+    "display_help": "You Lunge forward, stabbing and poisoning a foe with the large Spine on your arm. Lunge deals moderate lethal damage. Spine poison deals additional Toxic damage and Slows affected foes. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Lethal), DoT(Toxic) -SPD, -Recharge",
+    "display_target_help": "You are poisoned! Your Attack speed and Running speed are reduced.",
+    "display_target_short_help": "DoT(Toxic), -Recharge, -SPD",
+    "icon_name": "Quills_Lunge.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "Stalker_Defense.Shield_Defense",
+      "!"
+    ],
+    "range": 7,
+    "time_to_activate": 1.63,
+    "recharge_time": 6,
+    "endurance_cost": 6.864,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 8,
+            "magnitude": 0.33,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7809,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7809,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 0.33,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7809,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 6
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 4,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      36,
+      188,
+      192,
+      200,
+      204,
+      272,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_LUNGE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      766,
+      330
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      766,
+      330,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/POISONCONTROL/SPINESLUNGEATTACK.FX",
+    "hit_fx": "POWERS/POISONCONTROL/QUILLSHIT3.FX",
+    "initial_attack_fx": "POWERS/POISONCONTROL/SPINESLUNGEATTACK.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "attack_frames": 49,
+    "initial_frames_before_hit": 34,
+    "initial_attack_fxframe_delay": 19,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_LUNGE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/LUNGE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/LUNGE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/LUNGE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 49,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_LUNGE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/SKEWER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/LUNGE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/SKEWER_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 49,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_LUNGE.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/LUNGE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/LUNGE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/LUNGE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 49,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_LUNGE.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/LUNGE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/LUNGE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/LUNGE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 49,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_LUNGE.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          766,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/LUNGE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/LUNGE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/LUNGE_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 49,
+        "initial_frames_before_hit": 34,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Spine_Burst": {
+    "crcfull_name": 4181615987,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Spine_Burst",
+    "display_name": "Spine Burst",
+    "display_help": "You can fling dozens of Spines in all directions. These Spines only travel a short distance, but they can deal moderate lethal damage and poison any target close to you. Spine poison deals additional Toxic damage and Slows affected foes. If executed while hidden, all affected targets have a chance to be hit with a Critical Hit for extra damage. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "PBAoE Melee, Moderate DMG(Lethal), DoT(Toxic), -SPD, -Recharge",
+    "display_target_help": "You are poisoned! Your Attack speed and Running speed are reduced.",
+    "display_target_short_help": "DoT(Toxic), -Recharge, -SPD",
+    "icon_name": "Quills_FlingQuills.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "time_to_activate": 3,
+    "recharge_time": 15,
+    "endurance_cost": 15.184,
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 0.33,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.06,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9538,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9538,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 0.33,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9538,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 10
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 8,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      36,
+      188,
+      192,
+      200,
+      204,
+      272,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_SPINEBURST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      330
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      330,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/POISONCONTROL/QUILLBURST.FX",
+    "hit_fx": "POWERS/POISONCONTROL/IMPALEHITQUICK.FX",
+    "initial_attack_fx": "POWERS/POISONCONTROL/QUILLBURST.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 69,
+    "initial_attack_fxframe_delay": 19,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_SPINEBURST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINEBURST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINEBURST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 69,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_SPINEBURST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNBURST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNYDARTS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNBURST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 69,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_SPINEBURST.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINEBURST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINEBURST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 69,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_SPINEBURST.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINEBURST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINEBURST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 69,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_SPINEBURST.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          330,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINEBURST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINEBURST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 69,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Assassins_Impaler": {
+    "crcfull_name": 3151238770,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Assassins_Impaler",
+    "display_name": "Assassin's Impaler",
+    "display_help": "A signature Stalker attack. This attack does superior lethal damage on its own as a frontal attack and cannot be interrupted. However, if it is executed while you are Hidden, this attack will do tremendous damage, as you impale your unsuspecting foe. This attack may be interrupted if you move or are attacked while executing this power and are hidden. Using this power while not hidden has a chance to critically hit equal to 33.3% times the number of stacks of Assassin's Focus. Using Assassin's Strike when not hidden will remove all stacks of Assassin's Focus regardless if you critically hit or not. Damage: Special, Recharge: Slow",
+    "display_short_help": "Melee, Special DMG(Lethal)",
+    "icon_name": "Quills_AssassinStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "accuracy": 1.2,
+    "interrupt_like_sleep": true,
+    "ai_report": 2,
+    "range": 7,
+    "time_to_activate": 3,
+    "recharge_time": 15,
+    "endurance_cost": 14.352,
+    "interrupt_time": 2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "redirect": [
+      {
+        "power": "Villain_Pets.Spines_Assassins_Strike.Assassins_Impaler_Quick",
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<"
+        ]
+      },
+      {
+        "power": "Villain_Pets.Spines_Assassins_Strike.Assassins_Impaler_Stealth"
+      }
+    ],
+    "effects": [],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Assassins_Focus",
+      "ownPowerNum?",
+      "3",
+      "=="
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_ASSASSINSIMPALER.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      204
+    ],
+    "wind_up_bits": [
+      202
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      204
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "hit_fx": "POWERS/POISONCONTROL/POISONHIT3X.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "frames_before_hit": 11,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 11,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_ASSASSINSIMPALER.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "wind_up_bits": [
+          202
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/ASSASSINSIMPALER_HIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 11,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 11,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_ASSASSINSIMPALER.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "wind_up_bits": [
+          202
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/ASSASSINSIMPALER_HIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 11,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 11,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_ASSASSINSIMPALER.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "wind_up_bits": [
+          202
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/ASSASSINSIMPALER_HIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 11,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 11,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_ASSASSINSIMPALER.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "wind_up_bits": [
+          202
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/ASSASSINSIMPALER_HIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 11,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 11,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_ASSASSINSIMPALER.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "wind_up_bits": [
+          202
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          204
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/ASSASSINSIMPALER_HIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 11,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 11,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Build_Up": {
+    "crcfull_name": 1254584171,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Build_Up",
+    "display_name": "Build Up",
+    "display_help": "Greatly increases the amount of damage you deal for a few seconds, as well as slightly increasing your chance to hit. Recharge: Long",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "Quills_Bristle.tga",
+    "time_to_activate": 0.73,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner strength with your {PowerName} and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_BUILDUP.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      245
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      245,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/FOLLOWUPHIT2.FX",
+    "initial_attack_fx": "POWERS/FOLLOWUPHIT2.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_BUILDUP.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BUILDUP_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 35,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_BUILDUP.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/BUILDUP_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 35,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_BUILDUP.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/BUILDUP_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 35,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_BUILDUP.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/BUILDUP_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 35,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_BUILDUP.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          245,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/BUILDUP_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/BUILDUP_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 35,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Placate": {
+    "crcfull_name": 1238938160,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Placate",
+    "display_name": "Placate",
+    "display_help": "Allows you to trick a foe to no longer attack you. A Successful Placate will also Hide you. This Hide is very brief, and offers no Defense bonus, but it will allow you to deliver a Critical Hit or an Assassins Impaler. However, if you attack a Placated Foe, he will be able to attack you back. Recharge: Long",
+    "display_short_help": "Ranged, Foe Placate, Self Stealth/Hide",
+    "display_target_help": "You have been Placated.",
+    "display_target_short_help": "Placate",
+    "icon_name": "Quills_Placate.tga",
+    "ai_report": 1,
+    "range": 50,
+    "time_to_activate": 1.5,
+    "recharge_time": 60,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 10,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Placate {PlayerDest}.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 6,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Placate {PlayerDest}.",
+              "display_victim_hit": "You have been Placated and cannot target {PlayerSource}."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "scale": 150,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "scale": 380,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              372
+            ],
+            "target": 0,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4.5,
+    "attrib_cache": [
+      220,
+      224,
+      252,
+      372,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_PLACATE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      441
+    ],
+    "hit_bits": [
+      49,
+      442
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      441,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+    "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX",
+    "continuing_fx1": "V_COV/POWERS/NINJITSU/HIDE.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "attack_frames": 45,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_PLACATE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441
+        ],
+        "hit_bits": [
+          49,
+          442
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+        "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "continuing_fx1": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 45,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_PLACATE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441
+        ],
+        "hit_bits": [
+          49,
+          442
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+        "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "continuing_fx1": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 45,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_PLACATE.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441
+        ],
+        "hit_bits": [
+          49,
+          442
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+        "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "continuing_fx1": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 45,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_PLACATE.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441
+        ],
+        "hit_bits": [
+          49,
+          442
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+        "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "continuing_fx1": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 45,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_PLACATE.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441
+        ],
+        "hit_bits": [
+          49,
+          442
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          441,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+        "continuing_fx": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "continuing_fx1": "V_COV/POWERS/NINJITSU/HIDE.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "attack_frames": 45,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Impale": {
+    "crcfull_name": 2728403150,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Impale",
+    "display_name": "Impale",
+    "display_help": "You can throw a single large Spine at a targeted foe. This Spine does only moderate lethal damage, but carries a large amount of the Spine toxin. A successful attack can completely Immobilize most foes, as well as Slowing them and dealing Toxic poison damage. Impale can also bring down flying entities. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Lethal), DoT(Toxic), Immobilize, -Recharge, -Fly",
+    "display_target_help": "You are poisoned! Your Running speed is reduced and you may be immobilized and unable to fly.",
+    "display_target_short_help": "DoT(Toxic), Immobilize, -SPD, -Fly",
+    "icon_name": "Quills_Impale.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "range": 40,
+    "time_to_activate": 2.43,
+    "recharge_time": 8,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.4209,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.4209,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.4209,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1.6,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 8,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.9,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      4,
+      36,
+      188,
+      192,
+      200,
+      204,
+      272,
+      284,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_IMPALE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      355
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      355,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/POISONCONTROL/QUILLTOSS.FX",
+    "hit_fx": "POWERS/POISONCONTROL/IMPALEHITQUICK.FX",
+    "initial_attack_fx": "POWERS/POISONCONTROL/QUILLTOSS.FX",
+    "continuing_fx": "POWERS/POISONCONTROL/IMPALEHIT.FX",
+    "continuing_fx1": "POWERS/POISONCONTROL/IMPALEHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "frames_before_hit": 43,
+    "delayed_hit": true,
+    "attack_frames": 73,
+    "initial_frames_before_hit": 62,
+    "initial_attack_fxframe_delay": 19,
+    "projectile_speed": 114,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_IMPALE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/IMPALE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/IMPALE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 43,
+        "delayed_hit": true,
+        "attack_frames": 73,
+        "initial_frames_before_hit": 62,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 114,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_IMPALE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/IMPALE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/IMPALE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 43,
+        "delayed_hit": true,
+        "attack_frames": 73,
+        "initial_frames_before_hit": 62,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 114,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_IMPALE.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/IMPALE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/IMPALE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 43,
+        "delayed_hit": true,
+        "attack_frames": 73,
+        "initial_frames_before_hit": 62,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 114,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_IMPALE.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/IMPALE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/IMPALE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 43,
+        "delayed_hit": true,
+        "attack_frames": 73,
+        "initial_frames_before_hit": 62,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 114,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_IMPALE.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          355,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/IMPALE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/IMPALE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/IMPALE_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 43,
+        "delayed_hit": true,
+        "attack_frames": 73,
+        "initial_frames_before_hit": 62,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 114,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Ripper": {
+    "crcfull_name": 1234332218,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Ripper",
+    "display_name": "Ripper",
+    "display_help": "You can unleash a spectacular slashing maneuver that attacks all foes in a wide arc in front of you. Ripper deals massive lethal damage and poisons multiple targets. It can even knock foes down. Spine poison Slows affected targets and deals additional Toxic damage. If executed while hidden, all affected targets have a chance to be hit with a Critical Hit for extra damage. Damage: High, Recharge: Slow",
+    "display_short_help": "Melee (Cone), High DMG(Lethal), DoT(Toxic), Knockback, -SPD, -Recharge",
+    "display_target_help": "You are poisoned! Your Attack speed and Running speed are reduced.",
+    "display_target_short_help": "DoT(Toxic), -Recharge, -SPD",
+    "icon_name": "Quills_BoneSword.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 7,
+    "arc": 1.5707964,
+    "range": 7,
+    "time_to_activate": 2.17,
+    "recharge_time": 11,
+    "endurance_cost": 11.024,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "duration": 4.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.8871,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.8871,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.8871,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.7,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 15,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 0.67,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 0.67,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      36,
+      188,
+      192,
+      200,
+      204,
+      272,
+      328,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_RIPPER.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      205
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      205,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/POISONCONTROL/CLAWSEVISCERATEB.FX",
+    "hit_fx": "POWERS/POISONCONTROL/QUILLSRIPPERHIT.FX",
+    "initial_attack_fx": "POWERS/POISONCONTROL/CLAWSEVISCERATEB.FX",
+    "continuing_fx": "POWERS/POISONCONTROL/IMPALEHIT.FX",
+    "continuing_fx1": "POWERS/POISONCONTROL/IMPALEHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "frames_before_hit": 51,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 70,
+    "initial_attack_fxframe_delay": 19,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_RIPPER.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/RIPPER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/RIPPER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/RIPPER_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 51,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_RIPPER.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/RIPPER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/RIPPER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/RIPPER_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 51,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_RIPPER.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/RIPPER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/RIPPER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/RIPPER_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 51,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_RIPPER.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/RIPPER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/RIPPER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/RIPPER_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 51,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_RIPPER.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          205,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/RIPPER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/RIPPER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/RIPPER_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 51,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 70,
+        "initial_attack_fxframe_delay": 19,
+        "palette": "Earth"
+      }
+    ]
+  },
+  "Throw_Spines": {
+    "crcfull_name": 3274368490,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_SPINES.POWERS",
+    "source_name": "Stalker_Melee.Spines.Throw_Spines",
+    "display_name": "Throw Spines",
+    "display_help": "You can throw dozens of Spines in a wide cone in front of you, impaling foes caught within the range. Spine throwing deals moderate lethal damage, and poisons any targets it hits. Spine poison deals additional Toxic damage and Slows affected foes. If executed while hidden, all affected targets have a chance to be hit with a Critical Hit for extra damage. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Lethal), DoT(Toxic), -SPD, -Recharge",
+    "display_target_help": "You are poisoned! Your Attack speed and Running speed are reduced.",
+    "display_target_short_help": "DoT(Toxic), -Recharge, -SPD",
+    "icon_name": "Quills_QuillThrowing.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 30,
+    "arc": 1.5707964,
+    "range": 30,
+    "time_to_activate": 1.63,
+    "recharge_time": 12,
+    "endurance_cost": 13,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.09,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 4.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7988,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7988,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7988,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.09,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.09,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 15,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 0.67,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 0.67,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      4,
+      36,
+      188,
+      192,
+      200,
+      204,
+      272,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_THROWSPINES.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      320
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      139,
+      188
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      320,
+      188
+    ],
+    "activation_fx": "POWERS/POISONCONTROL/POISONHTHDAMAGENOSPIKES.FX",
+    "attack_fx": "POWERS/POISONCONTROL/QUILLCONE.FX",
+    "hit_fx": "POWERS/POISONCONTROL/QUILLCONEHIT.FX",
+    "initial_attack_fx": "POWERS/POISONCONTROL/QUILLCONE.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      139
+    ],
+    "frames_before_hit": 17,
+    "delayed_hit": true,
+    "attack_frames": 49,
+    "initial_frames_before_hit": 36,
+    "initial_attack_fxframe_delay": 19,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_THROWSPINES.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THROWSPINES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THROWSPINES_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THROWSPINES_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 17,
+        "delayed_hit": true,
+        "attack_frames": 49,
+        "initial_frames_before_hit": 36,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 90,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "Thorns",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_THROWSPINES.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/FLINGTHORNS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/FLINGTHORNS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/FLINGTHORNS_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 49,
+        "initial_frames_before_hit": 25,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 90,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "MetalSpikes",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_THROWSPINES.PFX",
+        "display_name": "Metal Spikes",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THROWSPINES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THROWSPINES_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THROWSPINES_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 49,
+        "initial_frames_before_hit": 25,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 90,
+        "palette": "CustomPowerDefault"
+      },
+      {
+        "token": "CrystalSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_THROWSPINES.PFX",
+        "display_name": "Crystalline Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THROWSPINES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THROWSPINES_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THROWSPINES_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 49,
+        "initial_frames_before_hit": 25,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 90,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "SlateSpines",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_SPINES_THROWSPINES.PFX",
+        "display_name": "Slate Spines",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320
+        ],
+        "activation_bits": [
+          20,
+          130,
+          133,
+          139,
+          188
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          139,
+          320,
+          188
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THROWSPINES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THROWSPINES_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THROWSPINES_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          139
+        ],
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 49,
+        "initial_frames_before_hit": 25,
+        "initial_attack_fxframe_delay": 19,
+        "projectile_speed": 90,
+        "palette": "Earth"
+      }
+    ]
+  }
+}

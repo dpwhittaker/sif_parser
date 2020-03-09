@@ -1,0 +1,281 @@
+{
+  "crcfull_name": 708378459,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_MIND_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Mind_Control.Total_Domination",
+  "display_name": "Total Domination",
+  "display_help": "Tears at the mind of a target foe and those near him. Total Domination renders all affected foes helpless, lost in their own minds and unable to defend themselves. Recharge: Long",
+  "display_short_help": "Ranged (Targeted AoE), Foe Hold",
+  "display_target_help": "You have been Dominated.",
+  "display_target_short_help": "Hold",
+  "display_attacker_hit": "Your {PowerName} leaves {PlayerDest} held and unable to act.",
+  "display_victim_hit": "{PlayerSource} uses {PowerName} leaving you held and unable to act!",
+  "icon_name": "MentalControl_Freeze.tga",
+  "attack_types": [
+    "Psionic"
+  ],
+  "accuracy": 0.8,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "range": 80,
+  "time_to_activate": 2.03,
+  "recharge_time": 240,
+  "endurance_cost": 15.6,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              376
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              376
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 12,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_bits": [
+              376
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1056,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_bits": [
+              376
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_MINDCONTROL_TOTALDOMINATION.PFX",
+  "attack_bits": [
+    20,
+    255
+  ],
+  "initial_attack_bits": [
+    20,
+    255
+  ],
+  "attack_fx": "POWERS/MENTALPOWERS/FREEZE.FX",
+  "hit_fx": "POWERS/MENTALPOWERS/MINDCONTROLHIT.FX",
+  "initial_attack_fx": "POWERS/MENTALPOWERS/FREEZE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Bright Mind Control",
+      "alt_theme": [
+        "Bright Mental Alt"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_MINDCONTROL_TOTALDOMINATION.PFX",
+      "attack_bits": [
+        20,
+        255
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        255
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MINDCONTROL/FREEZE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MINDCONTROL/MINDCONTROLHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MINDCONTROL/FREEZE.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Mind Control",
+      "alt_theme": [
+        "Dark Mental Alt"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_MINDCONTROL_TOTALDOMINATION.PFX",
+      "attack_bits": [
+        20,
+        255
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        255
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MINDCONTROL/SUBTRACTIVE/FREEZE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MINDCONTROL/SUBTRACTIVE/MINDCONTROLHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MINDCONTROL/SUBTRACTIVE/FREEZE.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

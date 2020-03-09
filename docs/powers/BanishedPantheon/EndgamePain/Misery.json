@@ -1,0 +1,222 @@
+{
+  "crcfull_name": 423978170,
+  "source_file": "DEFS/POWERS/BANISHEDPANTHEON_ENDGAMEPAIN.POWERS",
+  "source_name": "BanishedPantheon.EndgamePain.Misery",
+  "display_name": "Misery",
+  "display_help": "You channel energy through your body and into a targeted foe. Through transference from the target, some of your health and that of your allies is restored. Additionally, your personal recovery and regeneration are boosted briefly. The targeted foe's regeneration, chance to hit and damage are reduced.",
+  "display_short_help": "Ranged, Moderate DoT(Energy), Heal(Ally,Self), +Regen(Self), +Rec(Self), -DMG(Foe, All), -ToHit(Foe), -Regen(Foe)",
+  "display_target_help": "Your regeneration, damage potential and chance to hit have been reduced. You are also taking energy damage over time.",
+  "display_target_short_help": "DoT(Energy), -DMG(All), -ToHit, -Regen",
+  "icon_name": "BanishedPantheon_Pain_Misery.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "range": 100,
+  "time_to_activate": 2.37,
+  "recharge_time": 25,
+  "endurance_cost": 11,
+  "target": 19,
+  "ai_groups": [
+    "kHealSelf"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "group",
+        "source>",
+        "BanishedPantheon",
+        "eq",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            112,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "BanishedPantheonEndgame_Misery"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "group",
+        "source>",
+        "BanishedPantheon",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            112,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "BanishedPantheon_Misery"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            232,
+            236
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "duration": 6,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "duration": 4.1,
+          "period": 1,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The {PowerName} caused by {PlayerSource} also reduces your damage, chance to hit and regeneration rate!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.15,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            208,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 1.4,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            208,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 7,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    232,
+    236,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_BANISHEDPANTHEON_MISERY.PFX",
+  "attack_bits": [
+    20,
+    140,
+    766,
+    324
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    140,
+    766,
+    324
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/RADIATIONEMISSION.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYAURA/ENERGYDRAIN.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/RADIATIONEMISSION.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 53,
+  "attack_frames": 71,
+  "initial_frames_before_hit": 53,
+  "primary_tint": [
+    96,
+    16,
+    16,
+    255
+  ],
+  "secondary_tint": [
+    48,
+    8,
+    8,
+    255
+  ]
+}

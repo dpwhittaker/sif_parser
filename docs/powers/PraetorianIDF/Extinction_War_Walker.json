@@ -1,0 +1,1028 @@
+{
+  "Targeting_Reticule": {
+    "crcfull_name": 2585449383,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Targeting_Reticule",
+    "display_name": "Targeting Reticule",
+    "display_help": "Designates a valid target.",
+    "display_short_help": "Targeted AoE, Special",
+    "display_target_help": "You have been targeted by the War Walker, and are now susceptible to more of its attacks.",
+    "display_target_short_help": "Targeted",
+    "display_attacker_attack_floater": "Targets Acquired!",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "accuracy": 2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 120,
+    "time_to_activate": 1.67,
+    "recharge_time": 15,
+    "endurance_cost": 20,
+    "target_visibility": 1,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "duration": 20,
+            "magnitude": 91,
+            "stack_type": 3,
+            "flags": [
+              1584,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "duration": 20,
+            "stack_type": 2,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Targeted!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 1000,
+    "attrib_cache": [
+      465,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_BAF_TARGETINGRETICULE.PFX",
+    "attack_fx": "EVENTS/ENDGAME/BAF/TARGETINGRETICLE.FX",
+    "initial_attack_fx": "EVENTS/ENDGAME/BAF/TARGETINGRETICLE.FX"
+  },
+  "Combat_Helper": {
+    "crcfull_name": 3203567662,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Combat_Helper",
+    "display_name": "Combat Helper",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "duration": 10.25,
+            "magnitude": 92,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 8,
+                "seconds": 30,
+                "always": true
+              }
+            ],
+            "flags": [
+              1584,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "PraetorianIDF.Extinction_War_Walker.Grant_Specials",
+          "target.ownPower?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "delay": 5,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Grant_Specials"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      465,
+      473
+    ]
+  },
+  "Grant_Specials": {
+    "crcfull_name": 295156171,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Grant_Specials",
+    "display_name": "Grant Specials",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "activate_period": 9999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      92
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Targeting_Reticule"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "delay": 10,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Execute_Special"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Extinction"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Extinction2"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      473
+    ]
+  },
+  "Execute_Special": {
+    "crcfull_name": 3282554055,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Execute_Special",
+    "display_name": "Execute Special",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "activate_period": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      92
+    ],
+    "effects": [
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.00",
+          ">=",
+          "@ToHitRoll",
+          "0.33",
+          "<",
+          "&&",
+          "PraetorianIDF.Extinction_War_Walker.Arrest_Mode",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Arrest_Mode"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.33",
+          ">=",
+          "@ToHitRoll",
+          "0.66",
+          "<",
+          "&&",
+          "PraetorianIDF.Extinction_War_Walker.Lethal_Force_Authorized",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Lethal_Force_Authorized"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.66",
+          ">=",
+          "PraetorianIDF.Extinction_War_Walker.Crowd_Dispersal",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Crowd_Dispersal"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.00",
+          ">=",
+          "@ToHitRoll",
+          "0.33",
+          "<",
+          "&&",
+          "PraetorianIDF.Extinction_War_Walker.Arrest_Mode",
+          "target.ownPower?",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              485
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Arrest_Mode"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.33",
+          ">=",
+          "@ToHitRoll",
+          "0.66",
+          "<",
+          "&&",
+          "PraetorianIDF.Extinction_War_Walker.Lethal_Force_Authorized",
+          "target.ownPower?",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              485
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Lethal_Force_Authorized"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "0.66",
+          ">=",
+          "PraetorianIDF.Extinction_War_Walker.Crowd_Dispersal",
+          "target.ownPower?",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              485
+            ],
+            "type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Crowd_Dispersal"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      473,
+      485
+    ]
+  },
+  "Extinction": {
+    "crcfull_name": 1135071293,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Extinction",
+    "display_name": "Extinction",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "display_target_help": "Once engaged in combat, the Extinction War Walker must continue to be engaged in combat or it will eliminate all resistance instantly.",
+    "display_target_short_help": "Instant Death",
+    "display_attacker_attack_floater": "You have failed to defeat the War Walker",
+    "display_victim_hit": "You have been defeated! Once engaged in combat, the Extinction War Walker must continue to be engaged in combat or it will eliminate all resistance instantly.",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "accuracy": 2,
+    "shoot_through_untouchable": true,
+    "effect_area": 7,
+    "max_targets_hit": 999,
+    "time_to_activate": 1.93,
+    "activate_period": 60,
+    "target_visibility": 1,
+    "target": 2,
+    "ents_auto_hit": [
+      2
+    ],
+    "ents_affected": [
+      2
+    ],
+    "modes_required": [
+      92
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 200,
+            "duration": 1,
+            "period": 0.1,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              320
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "duration": 60,
+            "flags": [
+              1584,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 35,
+            "magnitude": 92,
+            "flags": [
+              1584,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      320,
+      465
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_GOLIATH_WARWALKER_LETHAL_FORCE.PFX",
+    "attack_bits": [
+      20,
+      320,
+      602,
+      48
+    ],
+    "initial_attack_bits": [
+      20,
+      320,
+      602,
+      48
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_ATTACK.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_CONTINUING.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 90,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 90
+  },
+  "Extinction2": {
+    "crcfull_name": 1582341108,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Extinction2",
+    "display_name": "Extinction2",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "icon_name": "Extinction_War_Walker_Extinction2_pow.tga",
+    "type": 1,
+    "accuracy": 2,
+    "activate_period": 60,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_required": [
+      92
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Grant_Specials"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Targeting_Reticule"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Execute_Special"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "delay": 5,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Extinction"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "delay": 5,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Extinction2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Arrest_Mode"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Lethal_Force_Authorized"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Crowd_Dispersal"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "PraetorianIDF.Extinction_War_Walker.Delay_Combat"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      473,
+      474
+    ]
+  },
+  "Delay_Combat": {
+    "crcfull_name": 4279806916,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Delay_Combat",
+    "display_name": "Delay Combat",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "accuracy": 2,
+    "activate_period": 60,
+    "lifetime": 35,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 35,
+            "magnitude": 92,
+            "flags": [
+              1584,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      465
+    ]
+  },
+  "Arrest_Mode": {
+    "crcfull_name": 102567314,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Arrest_Mode",
+    "display_name": "Arrest Mode",
+    "display_help": "Causes a PBAoE Hold to emit from everyone who has a Targeting Reticle.",
+    "display_short_help": "Targeted AoE, Causes PBAoE Hold",
+    "display_target_help": "The WarWalker has you held.",
+    "display_target_short_help": "Held",
+    "display_attacker_attack_floater": "Arrest Mode",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "accuracy": 2,
+    "effect_area": 2,
+    "max_targets_hit": 255,
+    "radius": 300,
+    "time_to_activate": 2.03,
+    "recharge_time": 9999,
+    "endurance_cost": 20,
+    "target_visibility": 1,
+    "effects": [
+      {
+        "requires": [
+          "kTargetingReticule",
+          "target.mode?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "PraetorianWarworksEndGame_Extinction_War_Walker_Arrest_Mode"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 1000,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_GOLIATH_WARWALKER_ARREST_MODE.PFX",
+    "activation_bits": [
+      20,
+      255,
+      602
+    ],
+    "activation_fx": "ENEMYFX/PRAETORIAN/WARWORKS/ARRESTMODE_ACTIVATE.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/WARWORKS/ARRESTMODE_CONTINUING.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/WARWORKS/ARRESTMODE_CONTINUING.FX",
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Lethal_Force_Authorized": {
+    "crcfull_name": 1617943250,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Lethal_Force_Authorized",
+    "display_name": "Lethal Force Authorized",
+    "display_help": "Causes a PBAoE DoT to emit from everyone who has a Targeting Reticle.",
+    "display_short_help": "Targeted AoE, Causes PBAoE DoT",
+    "display_target_help": "The WarWalker has sprayed you with burning plasma.",
+    "display_target_short_help": "Energy DoT",
+    "display_attacker_attack_floater": "Lethal Force Authorized",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "accuracy": 2,
+    "effect_area": 2,
+    "max_targets_hit": 255,
+    "radius": 300,
+    "time_to_activate": 1.93,
+    "recharge_time": 9999,
+    "endurance_cost": 20,
+    "target_visibility": 1,
+    "effects": [
+      {
+        "requires": [
+          "kTargetingReticule",
+          "target.mode?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "PraetorianWarworksEndGame_Extinction_War_Walker_Lethal_Force_Authorized"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 1000,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_GOLIATH_WARWALKER_LETHAL_FORCE.PFX",
+    "attack_bits": [
+      20,
+      320,
+      602,
+      48
+    ],
+    "initial_attack_bits": [
+      20,
+      320,
+      602,
+      48
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_ATTACK.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_CONTINUING.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/WARWORKS/LETHALFORCE_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 90,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 90
+  },
+  "Crowd_Dispersal": {
+    "crcfull_name": 2643221854,
+    "source_file": "DEFS/POWERS/PRAETORIANIDF_EXTINCTION_WAR_WALKER.POWERS",
+    "source_name": "PraetorianIDF.Extinction_War_Walker.Crowd_Dispersal",
+    "display_name": "Crowd Dispersal",
+    "display_help": "Causes a PBAoE Terrorize to emit from everyone who has a Targeting Reticle.",
+    "display_short_help": "Targeted AoE, Causes PBAoE Terrorize",
+    "display_target_help": "The WarWalker has you terrorized.",
+    "display_target_short_help": "Terrorized",
+    "display_attacker_attack_floater": "Crowd Dispersal",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "accuracy": 2,
+    "effect_area": 2,
+    "max_targets_hit": 255,
+    "radius": 300,
+    "time_to_activate": 1.07,
+    "recharge_time": 9999,
+    "endurance_cost": 20,
+    "target_visibility": 1,
+    "effects": [
+      {
+        "requires": [
+          "kTargetingReticule",
+          "target.mode?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 4,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "PraetorianWarworksEndGame_Extinction_War_Walker_Crowd_Dispersal"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 1000,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANWARWORKS_GOLIATH_WARWALKER_CROWD_DISPERSAL.PFX",
+    "attack_bits": [
+      20,
+      396,
+      602,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      396,
+      602,
+      48
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/CROWDDISPERSAL_ACTIVATE.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/WARWORKS/CROWDDISPERSAL_ACTIVATE.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/WARWORKS/CROWDDISPERSAL_CONTINUING.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/WARWORKS/CROWDDISPERSAL_CONTINUING.FX",
+    "frames_before_hit": 50,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 50
+  }
+}

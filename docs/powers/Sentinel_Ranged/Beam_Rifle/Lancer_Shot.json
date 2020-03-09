@@ -1,0 +1,433 @@
+{
+  "crcfull_name": 2394243721,
+  "source_file": "DEFS/POWERS/SENTINEL_RANGED_BEAM_RIFLE.POWERS",
+  "source_name": "Sentinel_Ranged.Beam_Rifle.Lancer_Shot",
+  "display_name": "Lancer Shot",
+  "display_help": "You charge up your Beam Rifle and deliver an incredibly focused ray of energy at a nearby foe that deals Superior Energy damage and will briefly stun the target. Lancer Shot will cause additional damage if the target is suffering from the Disintegrating effect. In addition, targets already affected by the Disintegrating effect have a chance to spread to 3 nearby targets. This Disintegrate Spread effect can only hit targets that aren't already affected by the Disintegration effect. Disintegrate Spread causes Minor Energy damage over time. Damage: Superior, Recharge: Slow",
+  "display_short_help": "Superior DMG(Energy), Foe Stun, Special",
+  "display_target_help": "You have disoriented by the Lancer Shot's impact.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "BeamRifle_LancerShot.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "accuracy": 1.05,
+  "range": 60,
+  "time_to_activate": 1.9,
+  "recharge_time": 11,
+  "endurance_cost": 11.024,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 2.12,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 3.2694,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Disintegrate Bonus"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.424,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_float": "Disintegrate"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Disintegrate Bonus"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.6537,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_float": "Disintegrate"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Disintegrate"
+      ],
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+        "target.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Pets.DisintegrateSpread.Disintegrate_Spread"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    276,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+  "attack_bits": [
+    20,
+    130,
+    142,
+    691
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    142,
+    86,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    142,
+    691,
+    187
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+  "mode_bits": [
+    20,
+    130,
+    142,
+    131,
+    86
+  ],
+  "frames_before_hit": 23,
+  "attack_frames": 57,
+  "initial_frames_before_hit": 53,
+  "initial_attack_fxframe_delay": 30,
+  "primary_tint": [
+    0,
+    0,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "NoRedrawBright",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        691
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 23,
+      "attack_frames": 57,
+      "initial_frames_before_hit": 23,
+      "palette": ""
+    },
+    {
+      "token": "NoRedrawDark",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        691
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 23,
+      "attack_frames": 57,
+      "initial_frames_before_hit": 23,
+      "palette": ""
+    },
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        691
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        691,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_LIGHT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_LANCERSHOT.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 23,
+      "attack_frames": 57,
+      "initial_frames_before_hit": 53,
+      "initial_attack_fxframe_delay": 30,
+      "palette": ""
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_LANCERSHOT.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        691
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        691,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_LIGHT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_LANCERSHOT.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 23,
+      "attack_frames": 57,
+      "initial_frames_before_hit": 53,
+      "initial_attack_fxframe_delay": 30,
+      "palette": ""
+    }
+  ]
+}

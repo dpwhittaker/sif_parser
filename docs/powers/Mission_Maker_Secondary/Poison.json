@@ -1,0 +1,778 @@
+{
+  "Alkaloid": {
+    "crcfull_name": 3955986447,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+    "source_name": "Mission_Maker_Secondary.Poison.Alkaloid",
+    "display_name": "Alkaloid",
+    "display_help": "When used correctly, poisons can be used to heal, as well as harm. Alkaloid consists of just the right amount of amino acids to safely heal a single targeted ally. The healed target is also left with some resistance to Toxic Damage (This Toxic Damage Resistance cannot be Enhanced). You cannot use this power to heal yourself. Recharge: Fast",
+    "display_short_help": "Ally Heal, +Res(Toxic)",
+    "icon_name": "Poison_Alkaloid.tga",
+    "range": 80,
+    "time_to_activate": 1.53,
+    "recharge_time": 4,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "ai_groups": [
+      "kHealAlly"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Ranged_Heal",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} {Damage} points of damage and improve their resistance to Toxic Damage.",
+              "display_victim_hit": "{PlayerSource} heals you for {Damage} points of damage and improves you resistance to Toxic Damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "V_COV/POWERS/POISON/ALCALOID_SUBLTE_CONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      28,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_ALKALOID.PFX",
+    "attack_bits": [
+      20,
+      499
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      499
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/ALCALOIDPOISONPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/ALCALOIDEHEAL.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/ALCALOIDPOISONPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "delayed_hit": true,
+    "attack_frames": 46,
+    "initial_frames_before_hit": 35,
+    "projectile_speed": 60
+  },
+  "Envenom": {
+    "crcfull_name": 3421604001,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+    "source_name": "Mission_Maker_Secondary.Poison.Envenom",
+    "display_name": "Envenom",
+    "display_help": "You Envenom your foe with a nasty poison. The toxin directly attacks the immune system, reducing the affected targets Defense, Damage Resistance and Hit Point Regeneration Rate. The poison is so potent, that the target actually responds less to Healing while affected by the poison. Recharge: Slow",
+    "display_short_help": "Ranged Foe -RES, -DEF, -Regen, -Heal",
+    "display_target_help": "Your Defense, Damage Resistances and Regeneration have been reduced. You also Heal less from Heal powers.",
+    "display_target_short_help": "-RES, -DEF, -Regen, -Heal",
+    "display_attacker_hit": "You Envenom {PlayerDest} and reduced their Defense and Damage Resistance and Regeneration.",
+    "display_victim_hit": "{PlayerSource} reduces your Defense, Damage Resistance and Regeneration with their {PowerName}!",
+    "icon_name": "Poison_Envenom.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 70,
+    "time_to_activate": 1.33,
+    "recharge_time": 12,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -4,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 30,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 30
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -11.5,
+            "duration": 30,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      36,
+      184,
+      232
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_ENVENOM.PFX",
+    "attack_bits": [
+      20,
+      327,
+      258,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327,
+      258,
+      681
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/POISONLIQUIDPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/POISONLIQUIDPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 24,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 24,
+    "projectile_speed": 66
+  },
+  "Weaken": {
+    "crcfull_name": 2265305274,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+    "source_name": "Mission_Maker_Secondary.Poison.Weaken",
+    "display_name": "Weaken",
+    "display_help": "You poison a single foe with a venom that significantly Weakens their strength. The affected target's chance to hit and Damage output is severely reduced. Additionally, the affected targets secondary power effects are all weakened. The targets power effects like Heals, Defense Buffs, Endurance Drains, Disorients, Holds, Immobilizes, Knockbacks and more, are all weakened. Recharge: Long",
+    "display_short_help": "Ranged Foe -DMG -To Hit, -Special",
+    "display_target_help": "Your chance to hit and Damage potential and power effects have all been reduced.",
+    "display_target_short_help": "-To Hit, -DMG, -Special",
+    "display_attacker_hit": "You Weaken {PlayerDest} and reduce their chance to hit, damage and power effects.",
+    "display_victim_hit": "{PlayerSource} reduces your chance to hit, Damage and power effects with their {PowerName}!",
+    "icon_name": "Poison_Weaken.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 70,
+    "time_to_activate": 2.07,
+    "recharge_time": 16,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 30,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144,
+              184,
+              88,
+              100,
+              188,
+              192,
+              256,
+              264,
+              268,
+              272,
+              276,
+              280,
+              324,
+              328,
+              332
+            ],
+            "aspect": 16,
+            "table": "Ranged_Stun",
+            "scale": -0.5,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 16,
+            "table": "Ranged_Stun",
+            "scale": -0.5,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      36,
+      88,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      184,
+      188,
+      192,
+      256,
+      264,
+      268,
+      272,
+      276,
+      280,
+      324,
+      328,
+      332
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_WEAKEN.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/PALMPOISONLIQUIDPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/PALMPOISONLIQUIDPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "delayed_hit": true,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16,
+    "projectile_speed": 60
+  },
+  "Neurotoxic_Breath": {
+    "crcfull_name": 36970055,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+    "source_name": "Mission_Maker_Secondary.Poison.Neurotoxic_Breath",
+    "display_name": "Neurotoxic Breath",
+    "display_help": "You can breath a cone of Neurotoxin gas that quickly start to anesthetize any nearby foes. Affected targets may choke on the gas as their movement and attack rate are severely reduced. Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Foe -SPD, -Recharge",
+    "display_target_help": "You are choking on Neurotoxic gas. Your attack rate and movement speed are reduced.",
+    "display_target_short_help": "-SPD, -Recharge",
+    "display_attacker_hit": "Your {PowerName} dramatically Slows the attack speed and movement of {PlayerDest}",
+    "display_victim_hit": "{PlayerSource} Slows you with their {PowerName}.",
+    "icon_name": "Poison_NeurotoxicBreath.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 60,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 2.67,
+    "recharge_time": 30,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.65,
+            "duration": 20,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDALL.FX"
+            }
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.65,
+            "duration": 20,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 3,
+            "magnitude": 2,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 5,
+    "point_value": 3,
+    "point_multiplier": 0.033,
+    "attrib_cache": [
+      188,
+      192,
+      200,
+      204,
+      268,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_PARALYTICPOISON.PFX",
+    "attack_bits": [
+      20,
+      327
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/POISONCONEGASSES.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/POISONCONEGASSES.FX",
+    "conditional_fx": "V_COV/POWERS/POISON/WEEKENCONTINUING.FX",
+    "conditional_fx1": "V_COV/POWERS/POISON/WEEKENCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 35
+  },
+  "Antidote": {
+    "crcfull_name": 591347189,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+    "source_name": "Mission_Maker_Secondary.Poison.Antidote",
+    "display_name": "Antidote",
+    "display_help": "This Antidote can free an ally from any Disorient, Hold, Sleep, Slow, Confuse, Fear and Immobilize effects and leaves them resistant to such effects for a good while. The Antidote also grants the target some resistance to Cold and Toxic damage. Some of the effects of this power will improve with Multiple applications and as you advance in level. Recharge: Fast",
+    "display_short_help": "Ally +Res(Disorient, Hold, Sleep, Immobilize, Confuse, Fear, Slow, Cold, Toxic)",
+    "display_target_help": "The Antidote has granted you temporary resistance to Disorient, Hold, Sleep, Confuse and Fear and Immobilize effects and your resistance to Toxic and Cold Damage is improved.",
+    "display_target_short_help": "+Res(Disorient, Hold, Sleep, Immobilize, Confuse, Fear, Slow, Cold, Toxic)",
+    "display_attacker_hit": "You protect {PlayerDest} from Slow, Disorient, Hold, Sleep, Confuse, Fear and Immobilize effects as well as Toxic and Cold Damage with your {PowerName}.",
+    "display_victim_hit": "{PlayerSource} protects you from Slow, Disorient, Hold, Sleep, Confuse, Fear and Immobilize effects and improves your resistance to Toxic and Cold Damage.",
+    "icon_name": "Poison_Antidote.tga",
+    "range": 70,
+    "time_to_activate": 1.53,
+    "recharge_time": 4,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -30,
+            "duration": 90,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              280
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 5,
+            "duration": 90,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "V_COV/POWERS/POISON/ANTIDOTECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "duration": 90,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              356
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 0.5,
+            "duration": 90,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 90,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.1,
+    "attrib_cache": [
+      12,
+      36,
+      188,
+      268,
+      272,
+      276,
+      280,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_ANTIDOTE.PFX",
+    "attack_bits": [
+      20,
+      499
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      499
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/ALCALOIDPOISONPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/ALCALOIDPOISONPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 35,
+    "delayed_hit": true,
+    "attack_frames": 46,
+    "initial_frames_before_hit": 35,
+    "projectile_speed": 60
+  },
+  "Paralytic_Poison": {
+    "crcfull_name": 2084897779,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+    "source_name": "Mission_Maker_Secondary.Poison.Paralytic_Poison",
+    "display_name": "Paralytic Poison",
+    "display_help": "This Paralytic Poison viciously attacks a foe's nervous system and can leave an affected target completely Held and defenseless. Recharge: Slow",
+    "display_short_help": "Ranged Hold",
+    "display_target_help": "The Paralytic Poison has left you completely Held and defenseless!",
+    "display_target_short_help": "Hold",
+    "display_attacker_hit": "Your {Powername} Holds {PlayerDest}.",
+    "display_victim_hit": "{PlayerSource} attempts to Hold you with a Paralytic Poison.",
+    "icon_name": "Poison_Paralytic.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 70,
+    "time_to_activate": 2,
+    "recharge_time": 16,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "V_COV/POWERS/POISON/WEEKENCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_NEUROTOXIN.PFX",
+    "attack_bits": [
+      20,
+      258,
+      719,
+      178,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258,
+      719,
+      178,
+      48
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/PALMPOISONPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/PALMPOISONPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 60
+  }
+}

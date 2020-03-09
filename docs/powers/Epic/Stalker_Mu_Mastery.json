@@ -1,0 +1,1318 @@
+{
+  "Mu_Bolts": {
+    "crcfull_name": 4292019289,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_MU_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Mu_Mastery.Mu_Bolts",
+    "display_name": "Mu Bolts",
+    "display_help": "You can quickly hurl small bolts of Mu electricity at foes, dealing some damage and draining some Endurance. Some of this Endurance may transfer back to you. Mu Bolts deals light damage but recharges quickly. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Energy), Foe -End",
+    "icon_name": "Arachnos_Patron_TargetedRangedModDmg.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Stalker",
+      "==",
+      "$archetype",
+      "@Class_Scrapper",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 1.17,
+    "recharge_time": 6,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.07
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.459,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -0.125
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 2
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.459,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.459,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 3.25,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You recover some of the Endurance you drained.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      88,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_MUBOLTS.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_HANDLIGHTNINGFX/MU_SENTINEL_BOLT.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_LIGHTNINGBOLTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_HANDLIGHTNINGFX/MU_SENTINEL_BOLT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_MUBOLTS.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/MUBOLTS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/MUBOLTS_ATTACK.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_MUBOLTS.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/MUBOLTS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/MUBOLTS_ATTACK.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Zapp": {
+    "crcfull_name": 1475729246,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_MU_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Mu_Mastery.Zapp",
+    "display_name": "Zapp",
+    "display_help": "A focused blast of Mu electrical energy that can travel great distances with high Accuracy. Zapp drains Endurance, some of which may transfer back to you. This is a sniper attack, and is best fired from a distance as it can be interrupted. If you are engaged in battle this attack becomes instant-cast. If you are not engaged, it will do bonus damage. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Sniper, Extreme DMG(Energy), Foe -End",
+    "icon_name": "Arachnos_Patron_TargetedRangedSnipe.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Stalker",
+      "==",
+      "$archetype",
+      "@Class_Scrapper",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "range": 150,
+    "time_to_activate": 1.33,
+    "recharge_time": 24,
+    "endurance_cost": 17.94,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      32,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "redirect": [
+      {
+        "power": "Villain_Pets.Stalker_EpicMuMastery_Snipe.Zapp_Quick",
+        "requires": [
+          "kEngaged",
+          "Source.Mode?",
+          "Set_Bonus.Set_Bonus.Experienced_Marksman",
+          "source.ownPower?",
+          "||"
+        ]
+      },
+      {
+        "power": "Villain_Pets.Stalker_EpicMuMastery_Snipe.Zapp_Normal"
+      }
+    ],
+    "effects": [],
+    "highlight_eval": [
+      "kEngaged",
+      "Mode?",
+      "Set_Bonus.Set_Bonus.Experienced_Marksman",
+      "ownPower?",
+      "||"
+    ],
+    "highlight_ring": [
+      255,
+      255,
+      0,
+      255
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP_QUICK.PFX",
+    "attack_bits": [
+      20,
+      681,
+      381,
+      684
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      681,
+      381,
+      684
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPP_QUICK.FX",
+    "hit_fx": "POWERS/ELECTRICITYCONTROL/RED_CHRAGEDBRAWLHIT.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ZAPP_QUICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 28,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 28,
+    "projectile_speed": 60,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP_QUICK.PFX",
+        "attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/CHARGEDBRAWL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ZAPP_QUICK.FX",
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 60,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ZAPP_QUICK.PFX",
+        "attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "initial_attack_bits": [
+          20,
+          681,
+          381,
+          684
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_QUICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/CHARGEDBRAWL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ZAPP_QUICK.FX",
+        "frames_before_hit": 28,
+        "delayed_hit": true,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 28,
+        "projectile_speed": 60
+      }
+    ]
+  },
+  "Ball_Lightning": {
+    "crcfull_name": 2982717411,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_MU_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Mu_Mastery.Ball_Lightning",
+    "display_name": "Ball Lightning",
+    "display_help": "Hurls a highly charged ball of Mu lightning that explodes on contact. Ball Lightning deals good damage in an area of effect, and drains some Endurance from each target it hits. You must be level 41 and have Mu Bolts or Zapp before selecting this power. Damage: Moderate(DoT), Recharge: Long",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DoT(Energy), Foe -End",
+    "display_target_help": "The Ball Lightning is continuing to electrocute you.",
+    "display_target_short_help": "DoT(Energy)",
+    "icon_name": "Arachnos_Patron_RangedAoEModerateDmg.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Stalker_Mu_Mastery.Mu_Bolts",
+      "Epic.Stalker_Mu_Mastery.Zapp",
+      "||",
+      "&&"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.07,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.18,
+            "duration": 3.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.07
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.2242,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1046,
+            "duration": 3.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -1.25
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7474,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.7474,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.02,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.02,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 4
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      88,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_BALLLIGHTNING.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_POWERSINK.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_LIGHTNINGBLASTHIT.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_POWERSINK.FX",
+    "continuing_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYBOLTHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYBOLTHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "delayed_hit": true,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 20,
+    "projectile_speed": 42,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_BALLLIGHTNING.PFX",
+        "attack_bits": [
+          20,
+          320
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          320
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_CONTINUING.FX",
+        "frames_before_hit": 20,
+        "delayed_hit": true,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 20,
+        "projectile_speed": 42,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_BALLLIGHTNING.PFX",
+        "attack_bits": [
+          20,
+          320
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          320
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_CONTINUING.FX",
+        "frames_before_hit": 20,
+        "delayed_hit": true,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 20,
+        "projectile_speed": 42
+      }
+    ]
+  },
+  "Electric_Shackles": {
+    "crcfull_name": 1599354374,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_MU_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Mu_Mastery.Electric_Shackles",
+    "display_name": "Electric Shackles",
+    "display_help": "Electric Shackles binds a foes limbs, leaving the target held and helpless. The target is drained of some Endurance and some of that Endurance may be transferred back to you. You must be level 41 and have Mu Bolts or Zapp before selecting this power. Note that you cannot get Critical strikes using this power, though it still enables your other attacks to Critical. Damage: Minor, Recharge: Moderate",
+    "display_short_help": "Ranged, Minor DMG(Energy), Foe Hold, -End",
+    "display_target_help": "The Electric Shackles are holding you helpless.",
+    "display_target_short_help": "Hold",
+    "icon_name": "Arachnos_Patron_TargetedHold.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Stalker_Mu_Mastery.Mu_Bolts",
+      "Epic.Stalker_Mu_Mastery.Zapp",
+      "||",
+      "&&"
+    ],
+    "range": 60,
+    "time_to_activate": 2.17,
+    "recharge_time": 32,
+    "endurance_cost": 8.58,
+    "target": 19,
+    "boosts_allowed": [
+      33,
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.15,
+            "duration": 6.3,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.07
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3999,
+            "duration": 6.3,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -1.25
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 8
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 4.29,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You recover some of the Endurance you drained.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      16,
+      88,
+      236,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICSHACKLES.PFX",
+    "attack_bits": [
+      20,
+      365
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      365
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_HANDLIGHTNINGFX/REDMU_CAGEBOLTS.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_LIGHTNINGBOLTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_HANDLIGHTNINGFX/REDMU_CAGEBOLTS.FX",
+    "conditional_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_SHOCKING_HOLD.FX",
+    "conditional_fx1": "V_COV/ENEMYPOWERS/ARACHNOS/MU_SHOCKING_HOLD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 29,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICSHACKLES.PFX",
+        "attack_bits": [
+          20,
+          365
+        ],
+        "initial_attack_bits": [
+          20,
+          365
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICSHACKLES_CONDITIONAL.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 29,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICSHACKLES.PFX",
+        "attack_bits": [
+          20,
+          365
+        ],
+        "initial_attack_bits": [
+          20,
+          365
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICSHACKLES_CONDITIONAL.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 29
+      }
+    ]
+  },
+  "Summon_Adept": {
+    "crcfull_name": 4153733627,
+    "source_file": "DEFS/POWERS/EPIC_STALKER_MU_MASTERY.POWERS",
+    "source_name": "Epic.Stalker_Mu_Mastery.Summon_Adept",
+    "display_name": "Summon Adept",
+    "display_help": "Scirocco has shown you how to call upon a mystical Mu Adept to assist you. The Mu pulse with the blood of their slaughtered ancestors in their veins, and are well practiced in the dark arts. Your access to this Adept is very limited. You can only summon him once every 15 minutes and he will leave after 4 minutes, or if you exit a zone or mission. You must be level 44 and have two other Mu Mastery Powers before selecting this power. Recharge: Extremely Long",
+    "display_short_help": "Summon Mu Adept: Ranged Moderate DMG(Energy)",
+    "icon_name": "Arachnos_Patron_SummonOnePet.tga",
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Stalker_Mu_Mastery.Mu_Bolts",
+      "Epic.Stalker_Mu_Mastery.Zapp",
+      "&&",
+      "Epic.Stalker_Mu_Mastery.Mu_Bolts",
+      "Epic.Stalker_Mu_Mastery.Ball_Lightning",
+      "&&",
+      "||",
+      "Epic.Stalker_Mu_Mastery.Mu_Bolts",
+      "Epic.Stalker_Mu_Mastery.Electric_Shackles",
+      "&&",
+      "||",
+      "Epic.Stalker_Mu_Mastery.Zapp",
+      "Epic.Stalker_Mu_Mastery.Ball_Lightning",
+      "&&",
+      "||",
+      "Epic.Stalker_Mu_Mastery.Zapp",
+      "Epic.Stalker_Mu_Mastery.Electric_Shackles",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 1.17,
+    "recharge_time": 900,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      30,
+      23,
+      20,
+      18,
+      14,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Mu_Adept",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_SUMMON.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_LIGHTNINGROD.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_LIGHTNINGROD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUMMON_ATTACK.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/SUMMON_ATTACK.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  }
+}

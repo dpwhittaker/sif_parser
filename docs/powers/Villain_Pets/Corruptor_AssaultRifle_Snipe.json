@@ -1,0 +1,623 @@
+{
+  "Sniper_Rifle_Quick": {
+    "crcfull_name": 2350519077,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORRUPTOR_ASSAULTRIFLE_SNIPE.POWERS",
+    "source_name": "Villain_Pets.Corruptor_AssaultRifle_Snipe.Sniper_Rifle_Quick",
+    "display_name": "Sniper Rifle",
+    "display_help": "Sniper Rifle is a powerful piece of hardware. It is very accurate and has a very long range. The impressive round can knock down its target. This is a sniper attack, but due to your high chance to hit, it is not interruptible. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Sniper, Extreme DMG(Lethal), Foe Knockback",
+    "icon_name": "AssaultWeapons_SniperRifle.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "range": 150,
+    "time_to_activate": 1.5,
+    "recharge_time": 12,
+    "endurance_cost": 14.352,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Ranged_Damage",
+            "scale": 2.28,
+            "magnitude_expr": [
+              "cur.kToHit",
+              "source>",
+              "0.75",
+              "-",
+              "0.22",
+              "/",
+              "-1.0",
+              "1.0",
+              "minmax",
+              "0.210526316",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.93,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Ranged_Damage",
+            "scale": 2.28,
+            "magnitude_expr": [
+              "cur.kToHit",
+              "source>",
+              "0.75",
+              "-",
+              "0.22",
+              "/",
+              "-1.0",
+              "1.0",
+              "minmax",
+              "0.210526316",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.93,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_SNIPER_RIFLE_QUICK.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      681,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      681,
+      394
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE.FX",
+    "hit_fx": "WEAPONFX/PISTOLHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 90,
+    "initial_attack_fxframe_delay": 36,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_SNIPER_RIFLE_QUICK.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          681,
+          394
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          681,
+          394
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE.FX",
+        "hit_fx": "WEAPONFX/PISTOLHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 50,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 50,
+        "palette": ""
+      }
+    ]
+  },
+  "Sniper_Rifle_Normal": {
+    "crcfull_name": 198368659,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORRUPTOR_ASSAULTRIFLE_SNIPE.POWERS",
+    "source_name": "Villain_Pets.Corruptor_AssaultRifle_Snipe.Sniper_Rifle_Normal",
+    "display_name": "Sniper Rifle",
+    "display_help": "Sniper Rifle is a powerful piece of hardware. It is very accurate and has a very long range. The impressive round can knock down its target. Like most sniper attacks, you must take your time to aim, so this attack can be interrupted. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Sniper, Extreme DMG(Lethal), Foe Knockback",
+    "icon_name": "AssaultWeapons_SniperRifle.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.25,
+    "range": 150,
+    "time_to_activate": 2.67,
+    "recharge_time": 12,
+    "endurance_cost": 14.352,
+    "interrupt_time": 2,
+    "target": 19,
+    "boosts_allowed": [
+      32,
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 4.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+              "display_float": "SNIPER SHOT"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.749,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+              "display_float": "SNIPER SHOT"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 4.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.749,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_SNIPER_RIFLE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      394
+    ],
+    "wind_up_bits": [
+      20,
+      130,
+      131,
+      220
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      394
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE_LONG.FX",
+    "hit_fx": "WEAPONFX/PISTOLHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE_LONG.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 1,
+    "attack_frames": 20,
+    "initial_frames_before_hit": 35,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_SNIPER_RIFLE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          394
+        ],
+        "wind_up_bits": [
+          20,
+          130,
+          131,
+          220
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          394
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE_LONG.FX",
+        "hit_fx": "WEAPONFX/PISTOLHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SNIPERRIFLE_LONG.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 1,
+        "attack_frames": 20,
+        "initial_frames_before_hit": 1,
+        "palette": ""
+      }
+    ]
+  }
+}

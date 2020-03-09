@@ -1,0 +1,326 @@
+{
+  "Lightning_Field": {
+    "crcfull_name": 449141131,
+    "source_file": "DEFS/POWERS/OUTCASTS_OUTCAST_BOSS_AIR.POWERS",
+    "source_name": "Outcasts.Outcast_Boss_Air.Lightning_Field",
+    "display_name": "Lightning Field",
+    "display_help": "While active, the Outcast emits a storm of electricity around himself that constantly damages all nearby foes.",
+    "display_short_help": "Toggle AoE Energy, -End",
+    "display_target_help": "While active, the Outcast emits a storm of electricity around himself that constantly damages all nearby foes.",
+    "display_target_short_help": "Toggle AoE Energy, -End",
+    "icon_name": "ElectricalBolt_LightningStorm.tga",
+    "type": 2,
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 20,
+    "time_to_activate": 2.03,
+    "recharge_time": 10,
+    "activate_period": 2,
+    "endurance_cost": 2.8,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -2,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ELECTRICAL_BOLT_LIGHTNINGSTORM.PFX",
+    "activation_bits": [
+      20,
+      255
+    ],
+    "activation_fx": "POWERS/ELECTRICITYCONTROL/CHAINLIGHTNING.FX",
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Havoc_Punch": {
+    "crcfull_name": 2881360748,
+    "source_file": "DEFS/POWERS/OUTCASTS_OUTCAST_BOSS_AIR.POWERS",
+    "source_name": "Outcasts.Outcast_Boss_Air.Havoc_Punch",
+    "display_name": "Havoc Punch",
+    "display_help": "The Outcast has electrocuted you and temporarily halted your Endurance Recovery with his Charged Brawl.",
+    "display_short_help": "Sleep, -Recovery",
+    "display_target_help": "The Outcast has electrocuted you and temporarily halted your Endurance Recovery with his Charged Brawl.",
+    "display_target_short_help": "Sleep, -Recovery",
+    "icon_name": "ElectricityManipulation_HavokPunch.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 5,
+    "time_to_activate": 1.5,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Melee_EndDrain",
+            "scale": -8,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Melee_Sleep",
+            "scale": 15,
+            "magnitude": 3,
+            "delay": 0.25,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                380
+              ],
+              "conditional_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -1,
+            "duration": 4
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      16,
+      88,
+      236,
+      280,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ELECTRICALMELEE_LIGHTINGPUNCH.PFX",
+    "attack_bits": [
+      20,
+      263
+    ],
+    "block_bits": [
+      53
+    ],
+    "wind_up_bits": [
+      367
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYCONTROL.FX",
+    "hit_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHIT3.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYCONTROL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25
+  },
+  "Ball_Lightning": {
+    "crcfull_name": 2631128552,
+    "source_file": "DEFS/POWERS/OUTCASTS_OUTCAST_BOSS_AIR.POWERS",
+    "source_name": "Outcasts.Outcast_Boss_Air.Ball_Lightning",
+    "display_name": "Ball Lightning",
+    "display_help": "Hurls a highly charged ball of lightning that explodes on contact. Ball Lightning deals good damage in an area and also drains some Endurance from each target it hits.",
+    "display_short_help": "Targeted AoE Energy, -End",
+    "display_target_help": "Hurls a highly charged ball of lightning that explodes on contact. Ball Lightning deals good damage in an area and also drains some Endurance from each target it hits.",
+    "display_target_short_help": "Targeted AoE Energy, -End",
+    "icon_name": "ElectricalBolt_BallLightning.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.07,
+    "recharge_time": 16,
+    "endurance_cost": 20.44,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.18,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "table": "Ranged_EndDrain",
+            "scale": -5,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ELECTRICAL_BOLT_BALL_LIGHTNING.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "hit_bits": [
+      49,
+      283
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBALL.FX",
+    "hit_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHIT.FX",
+    "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBALL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 18,
+    "delayed_hit": true,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 18,
+    "projectile_speed": 45
+  }
+}

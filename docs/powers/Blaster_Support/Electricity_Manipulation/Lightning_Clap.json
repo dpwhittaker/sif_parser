@@ -1,0 +1,364 @@
+{
+  "crcfull_name": 635355460,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_ELECTRICITY_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Electricity_Manipulation.Lightning_Clap",
+  "display_name": "Force of Thunder",
+  "display_help": "You can channel the raw force of a thunderbolt through you knocking enemies back and potentially disorienting them. This electrical energy also causes you to regenerate health and recover endurance very quickly for a short time. Recharge: Long",
+  "display_short_help": "PBAoE, Foe Disorient, Knockback, Self +Regeneration, +Recovery",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "ElectricityManipulation_LightningClap.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 11,
+  "radius": 15,
+  "time_to_activate": 1.23,
+  "recharge_time": 30,
+  "endurance_cost": 5.2,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    19,
+    1
+  ],
+  "boosts_allowed": [
+    33,
+    23,
+    21,
+    18,
+    17,
+    14,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 8,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 1.125,
+          "duration": 60,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} causes you to recover health and endurance at an increased rate!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 1.125,
+          "duration": 60,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} causes you to recover health and endurance at an increased rate!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.5,
+          "duration": 60,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.025,
+          "duration": 8.73,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    232,
+    236,
+    276,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGCLAP.PFX",
+  "attack_bits": [
+    20,
+    303
+  ],
+  "initial_attack_bits": [
+    20,
+    303
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGCLAP.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGCLAPHIT.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/LIGHTNINGCLAP.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "attack_frames": 37,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "alt_theme": [
+        "Bright Electric Cast"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGCLAP.PFX",
+      "attack_bits": [
+        20,
+        303
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        303
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/LIGHTNINGCLAP_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/LIGHTNINGCLAP_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/LIGHTNINGCLAP_ATTACK.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 37,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "alt_theme": [
+        "Dark Electric Cast"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_LIGHTNINGCLAP.PFX",
+      "attack_bits": [
+        20,
+        303
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        303
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/LIGHTNINGCLAP_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/LIGHTNINGCLAP_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/LIGHTNINGCLAP_ATTACK.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 37,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

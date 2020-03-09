@@ -1,0 +1,270 @@
+{
+  "crcfull_name": 2074776407,
+  "source_file": "DEFS/POWERS/CONTROLLER_CONTROL_ILLUSION_CONTROL.POWERS",
+  "source_name": "Controller_Control.Illusion_Control.Spectral_Wounds",
+  "display_name": "Spectral Wounds",
+  "display_help": "Spectral Wounds convinces the target that they have taken severe damage. The illusion is so convincing that the victim can fall from the Spectral Wounds. However, the damage is not real, and if the victim survives long enough, the illusion will fade and some of the wounds will heal. Damage: High(Illusionary), Recharge: Moderate",
+  "display_short_help": "Ranged, High DMG(Psionic), +Special",
+  "icon_name": "Illusions_spectralWounds.tga",
+  "attack_types": [
+    "Ranged",
+    "Psionic"
+  ],
+  "accuracy": 1.1,
+  "range": 80,
+  "time_to_activate": 1.07,
+  "recharge_time": 6,
+  "endurance_cost": 6.864,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        },
+        {
+          "attrib": [
+            32
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": -0.64,
+          "delay": 10,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.389,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.6945,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "duration": 10,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    24,
+    32,
+    188
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ILLUSIONCONTROL_SPECTRALWOUNDS.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "attack_fx": "POWERS/ILLUSIONS/ILLUSSPECWOUNDS.FX",
+  "initial_attack_fx": "POWERS/ILLUSIONS/ILLUSSPECWOUNDS.FX",
+  "continuing_fx": "POWERS/ILLUSIONS/ILLUSSPECWOUNDSCONTINUING.FX",
+  "continuing_fx1": "POWERS/ILLUSIONS/ILLUSSPECWOUNDSCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 19,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 19,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ILLUSIONCONTROL_SPECTRALWOUNDS.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ILLUSIONCONTROL/ILLUSSPECWOUNDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ILLUSIONCONTROL/ILLUSSPECWOUNDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ILLUSSPECWOUNDSCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ILLUSSPECWOUNDSCONTINUING.FX",
+      "frames_before_hit": 19,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 19,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ILLUSIONCONTROL_SPECTRALWOUNDS.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ILLUSIONCONTROL/SUBTRACTIVE/ILLUSSPECWOUNDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ILLUSIONCONTROL/SUBTRACTIVE/ILLUSSPECWOUNDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ILLUSSPECWOUNDSCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ILLUSSPECWOUNDSCONTINUING.FX",
+      "frames_before_hit": 19,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 19
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "crcfull_name": 2507711914,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_RADIATION_EMISSION.POWERS",
+  "source_name": "Mission_Maker_Secondary.Radiation_Emission.EM_Pulse",
+  "display_name": "EM Pulse",
+  "display_help": "You can unleash a massive pulse of electromagnetic energy. This EMP can affect machines, and is even powerful enough to affect synaptic brain patterns. It will drain the Endurance and HP Regeneration of all affected targets and leave them incapacitated and Held for a long while. Additionally, most machines and robots will take moderate high damage. However, this power uses a lot of Endurance and leaves you unable to recover Endurance for a while. Recharge: Very Long",
+  "display_short_help": "PBAoE, Foe Hold, -END, -Regen, Special vs. Robots; Self -Recovery",
+  "display_target_help": "You are Held by the EMP Pulse and your Regeneration Rate is reduced.",
+  "display_target_short_help": "Hold, -Regen",
+  "icon_name": "RadiationPoisoning_EMPPulse.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 60,
+  "time_to_activate": 2.93,
+  "recharge_time": 300,
+  "endurance_cost": 28,
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 6,
+          "magnitude": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.55,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains {PlayerDest} of some Endurance.",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 15,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} reduces the regeneration rate of {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} reduces your regeneration rate with an {PowerName}"
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -0.5,
+          "duration": 15,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} has left you exhausted!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 6,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Electronic",
+        "target.HasTag?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "point_value": 3,
+  "point_multiplier": 0.083,
+  "attrib_cache": [
+    16,
+    88,
+    232,
+    236,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/RADIATION_POISONING_EMP_PULSE.PFX",
+  "attack_bits": [
+    248,
+    681
+  ],
+  "initial_attack_bits": [
+    248,
+    681
+  ],
+  "attack_fx": "POWERS/RADIATIONCONTROL/EMPPULSE.FX",
+  "initial_attack_fx": "POWERS/RADIATIONCONTROL/EMPPULSE.FX",
+  "frames_before_hit": 20,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 20
+}

@@ -1,0 +1,162 @@
+{
+  "crcfull_name": 386465162,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_STONE_ARMOR.POWERS",
+  "source_name": "Mission_Maker_Secondary.Stone_Armor.Mud_Pots",
+  "display_name": "Mud Pots",
+  "display_help": "While this power is active, you draw upon the geothermal power of the Earth to create a bubbling pool of hot mud around yourself. All foes in melee range will become snared and entrapped in the mud, Immobilizing some and slowing others. The boiling heat from Mud Pots may also deals some damage over time to the snared foes. Damage: Minor(DoT), Recharge: Fast",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Foe Immobilize, -SPD",
+  "display_target_help": "The Mud Pots are burning you and reducing your Running speed. You may be immobilized, as well.",
+  "display_target_short_help": "DoT(Fire), Immobilize, -SPD",
+  "display_attacker_hit": "Your {PowerName} Slow all nearby foes.",
+  "icon_name": "StoneArmor_Clay.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "buy_requires": [
+    "Mission_Maker_Attacks.Claws",
+    "!"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 2.03,
+  "recharge_time": 4,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    19
+  ],
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 5,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Melee_SpeedRunning",
+          "scale": -1.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "scale": 2.25,
+          "magnitude": 2,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_TempDamage",
+          "scale": 0.18,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    }
+  ],
+  "point_value": 35,
+  "attrib_cache": [
+    8,
+    188,
+    200,
+    204,
+    272
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/STONEARMOR_CLAY.PFX",
+  "activation_bits": [
+    20,
+    249
+  ],
+  "activation_fx": "POWERS/EARTHCONTROL/CLAYSTONEARMOR.FX",
+  "frames_before_hit": 28,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 28
+}

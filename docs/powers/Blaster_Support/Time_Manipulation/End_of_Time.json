@@ -1,0 +1,304 @@
+{
+  "crcfull_name": 1990284587,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_TIME_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Time_Manipulation.End_of_Time",
+  "display_name": "End of Time",
+  "display_help": "You open a gate in time that can suck in enemies and send them into a distant unknown future. The affected enemies will be quickly returned to the present time, but not before being temporarily exposed to radiation and the bitter cold of an empty void. Targets affected by the Delayed effect will suffer bonus damage. Damage: High, Recharge: Long",
+  "display_short_help": "PBAoE, High DMG(Cold/Energy)",
+  "icon_name": "TimeManipulation_EndOfTime",
+  "attack_types": [
+    "Melee",
+    "Energy",
+    "Cold"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "range": 7,
+  "time_to_activate": 2.03,
+  "recharge_time": 22,
+  "endurance_cost": 20.176,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.164,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.388,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.388,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [TIME CRAWL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [TIME CRAWL].",
+            "display_float": "Time Crawl"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.8102,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2701,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -4,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Time_Crawl_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2701,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [TIME CRAWL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [TIME CRAWL].",
+            "display_float": "Time Crawl"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.054,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    232
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_ENDOFTIME.PFX",
+  "attack_bits": [
+    20,
+    254,
+    627
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    254,
+    627
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_ENDOFTIME.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_HIT3.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_ENDOFTIME.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 45,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 45,
+  "primary_tint": [
+    126,
+    204,
+    241,
+    255
+  ],
+  "secondary_tint": [
+    50,
+    63,
+    103,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_ENDOFTIME.PFX",
+      "attack_bits": [
+        20,
+        254,
+        627
+      ],
+      "initial_attack_bits": [
+        20,
+        254,
+        627
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_ENDOFTIME.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_HIT3.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/ATTACK_ENDOFTIME.FX",
+      "frames_before_hit": 45,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 45,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TIMEMANIPULATION_ENDOFTIME.PFX",
+      "attack_bits": [
+        20,
+        254,
+        627
+      ],
+      "initial_attack_bits": [
+        20,
+        254,
+        627
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_ENDOFTIME.FX.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_HIT3.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/ATTACK_ENDOFTIME.FX.FX",
+      "frames_before_hit": 45,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 45
+    }
+  ]
+}

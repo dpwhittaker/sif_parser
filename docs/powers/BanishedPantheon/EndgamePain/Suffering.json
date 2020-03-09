@@ -1,0 +1,149 @@
+{
+  "crcfull_name": 1650060337,
+  "source_file": "DEFS/POWERS/BANISHEDPANTHEON_ENDGAMEPAIN.POWERS",
+  "source_name": "BanishedPantheon.EndgamePain.Suffering",
+  "display_name": "Suffering",
+  "display_help": "You unleash a burst of pain in a short radius around you. This deals energy damage to all targets in the burst and drains their endurance. It also has a chance to stun affected targets and reduce their chance to hit.",
+  "display_short_help": "AoE, Moderate DMG(Energy), -End(Foe), Chance for Stun(Foe), -ToHit(Foe)",
+  "display_target_help": "Your endurance is being drained. There is a chance you are also stunned and suffering reduced chance to hit.",
+  "display_target_short_help": "-End, Chance for Stun, -ToHit",
+  "icon_name": "BanishedPantheon_Pain_Suffering.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "time_to_activate": 2.03,
+  "recharge_time": 20,
+  "endurance_cost": 20,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.02,
+          "duration": 6,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.7,
+          "flags": [
+            212,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.4",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.75,
+          "duration": 8,
+          "stack_type": 3,
+          "flags": [
+            192,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 4,
+          "magnitude": 4,
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 6,
+  "attrib_cache": [
+    16,
+    88,
+    100,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_BANISHEDPANTHEON_SUFFERING.PFX",
+  "attack_bits": [
+    20,
+    140,
+    766,
+    245
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    140,
+    766,
+    245
+  ],
+  "attack_fx": "ENEMYFX/CARNIVAL_OF_LIGHT/RADIANCE_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/MEGABLASTHIT.FX",
+  "initial_attack_fx": "ENEMYFX/CARNIVAL_OF_LIGHT/RADIANCE_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 55,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 55,
+  "primary_tint": [
+    48,
+    0,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    48,
+    0,
+    0,
+    255
+  ]
+}

@@ -1,0 +1,791 @@
+{
+  "Feral_Charge": {
+    "crcfull_name": 3394169377,
+    "source_file": "DEFS/POWERS/REDIRECTS_DOMINATOR_ASSAULT.POWERS",
+    "source_name": "Redirects.Dominator_Assault.Feral_Charge",
+    "free": true,
+    "display_name": "Feral Charge",
+    "display_help": "You throw yourself at your distant foes while slashing and tearing wildly dealing moderate lethal damage and causing your foes to suffer from additional minor lethal damage over time. The damage of this power can increase based on how far away you leap from, with up to double damage dealt at its strongest. Savage Leap build 1 stacks of Blood Frenzy for every 20 ft in between your target and you, up to 3 stacks. Damage: Superior, Minor DoT, Recharge: Long",
+    "display_short_help": "PBAoE, Superior DMG(Lethal), Foe Minor DoT(Lethal), +3 Blood Frenzy, Self Teleport",
+    "display_target_help": "You are bleeding!",
+    "display_target_short_help": "Minor DoT(Lethal)",
+    "icon_name": "SavageMelee_SavageLeap.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "range": 80,
+    "recharge_time": 15,
+    "target": 19,
+    "target_secondary": 34,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 1.38,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "0.5",
+              "*",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.11,
+            "duration": 3.1,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "0.5",
+              "*",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.1,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.51,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "0.5",
+              "*",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.04,
+            "duration": 3.1,
+            "magnitude_expr": [
+              "distance",
+              "25",
+              "-",
+              "0",
+              "40",
+              "minmax",
+              "40",
+              "0.5",
+              "*",
+              "/",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_SAVAGELEAPAOE.PFX",
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_HIT.FX",
+    "frames_before_hit": 0,
+    "attack_frames": 0,
+    "initial_frames_before_hit": 0,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_SAVAGELEAPAOE.PFX",
+        "block_bits": 53,
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/SAVAGELEAP_HIT.FX",
+        "mode_bits": [],
+        "frames_before_hit": 0,
+        "attack_frames": 0,
+        "initial_frames_before_hit": 0,
+        "palette": ""
+      }
+    ]
+  },
+  "Rending_Flurry_Normal": {
+    "crcfull_name": 2743165706,
+    "source_file": "DEFS/POWERS/REDIRECTS_DOMINATOR_ASSAULT.POWERS",
+    "source_name": "Redirects.Dominator_Assault.Rending_Flurry_Normal",
+    "free": true,
+    "display_name": "Rending Flurry Normal",
+    "display_help": "You wildly slash at nearby foes to deal moderate lethal damage and cause minor lethal damage over time. This power consumes all Blood Frenzy and will deal additional damage per stack of Blood Frenzy consumed. If you have 5 stacks of Blood Frenzy while activating this power, its radius is greatly increased, but causes you to become Exhausted for a short time. While exhausted you cannot gain Blood Frenzy. Damage: Moderate, Minor DoT, Recharge: Long",
+    "display_short_help": "PBAoE, Moderate DMG(Lethal), Foe Minor DoT(Lethal), -Blood Frenzy",
+    "display_target_help": "You are bleeding!",
+    "display_target_short_help": "Minor DoT(Lethal)",
+    "icon_name": "SavageMelee_RendingFlurry.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 2.17,
+    "recharge_time": 14,
+    "endurance_cost": 13.52,
+    "boosts_allowed": [
+      28,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 1.18,
+            "magnitude_expr": [
+              "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker",
+              "source.ownPowerNum?",
+              ".04",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.09,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.75,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.69,
+            "magnitude_expr": [
+              "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker",
+              "source.ownPowerNum?",
+              ".04",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.06,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.75,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              1
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy",
+      "ownPowerNum?",
+      "5",
+      "=="
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_RENDINGFLURRY.PFX",
+    "attack_bits": [
+      20,
+      596,
+      401,
+      201
+    ],
+    "hit_bits": [
+      49,
+      317
+    ],
+    "initial_attack_bits": [
+      20,
+      596,
+      401,
+      201
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 8,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_RENDINGFLURRY.PFX",
+        "attack_bits": [
+          20,
+          596,
+          401,
+          201
+        ],
+        "hit_bits": [
+          49,
+          317
+        ],
+        "initial_attack_bits": [
+          20,
+          596,
+          401,
+          201
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+        "frames_before_hit": 8,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 8,
+        "palette": ""
+      }
+    ]
+  },
+  "Rending_Flurry_Large": {
+    "crcfull_name": 4040298680,
+    "source_file": "DEFS/POWERS/REDIRECTS_DOMINATOR_ASSAULT.POWERS",
+    "source_name": "Redirects.Dominator_Assault.Rending_Flurry_Large",
+    "free": true,
+    "display_name": "Rending Flurry Large",
+    "display_help": "You wildly slash at nearby foes to deal moderate lethal damage and cause minor lethal damage over time. This power consumes all Blood Frenzy and will deal additional damage per stack of Blood Frenzy consumed. If you have 5 stacks of Blood Frenzy while activating this power, its radius is greatly increased, but causes you to become Exhausted for a short time. While exhausted you cannot gain Blood Frenzy. Damage: Moderate, Minor DoT, Recharge: Long",
+    "display_short_help": "PBAoE, Moderate DMG(Lethal), Foe Minor DoT(Lethal), -Blood Frenzy",
+    "display_target_help": "You are bleeding!",
+    "display_target_short_help": "Minor DoT(Lethal)",
+    "icon_name": "SavageMelee_RendingFlurry.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "time_to_activate": 2.17,
+    "recharge_time": 14,
+    "endurance_cost": 13.52,
+    "boosts_allowed": [
+      28,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 1.18,
+            "magnitude_expr": [
+              "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker",
+              "source.ownPowerNum?",
+              ".04",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.09,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.75,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "eval_flags": 4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "type": 3,
+            "table": "Melee_Damage",
+            "scale": 0.69,
+            "magnitude_expr": [
+              "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy_Stalker",
+              "source.ownPowerNum?",
+              ".04",
+              "*",
+              "1",
+              "+",
+              "@StdResult",
+              "*"
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.06,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.75,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              1
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You are exhausted from using the {PowerName}!",
+              "display_victim_hit": "",
+              "display_float": "Exhausted!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Savage_Melee_Exhausted"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Savage_Melee_Blood_Frenzy",
+      "ownPowerNum?",
+      "5",
+      "=="
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_RENDINGFLURRY.PFX",
+    "attack_bits": [
+      20,
+      596,
+      401,
+      201
+    ],
+    "hit_bits": [
+      49,
+      317
+    ],
+    "initial_attack_bits": [
+      20,
+      596,
+      401,
+      201
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 8,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SAVAGEMELEE_RENDINGFLURRY.PFX",
+        "attack_bits": [
+          20,
+          596,
+          401,
+          201
+        ],
+        "hit_bits": [
+          49,
+          317
+        ],
+        "initial_attack_bits": [
+          20,
+          596,
+          401,
+          201
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SAVAGEMELEE/RENDINGFLURRY_ATTACK.FX",
+        "frames_before_hit": 8,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 8,
+        "palette": ""
+      }
+    ]
+  }
+}

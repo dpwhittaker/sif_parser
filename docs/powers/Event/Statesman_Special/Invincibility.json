@@ -1,0 +1,116 @@
+{
+  "crcfull_name": 2467209081,
+  "source_file": "DEFS/POWERS/EVENT_STATESMAN_SPECIAL.POWERS",
+  "source_name": "Event.Statesman_Special.Invincibility",
+  "display_name": "Invincibility",
+  "display_help": "While this power is active, for each foe in melee range you receive a bonus to Defense against all melee attacks, some Defense to Ranged attacks, and a bonus to your Accuracy. This power is most effective while fighting multiple opponents. Invincibility is ineffective if you are battling foes at a range. Recharge: Slow",
+  "display_short_help": "Toggle: Self +DEF(Melee, Ranged), +ACC",
+  "display_attacker_hit": "You are now practically Invincible.",
+  "icon_name": "Invulnerability_Invincibility.tga",
+  "type": 2,
+  "effect_area": 2,
+  "max_targets_hit": 7,
+  "radius": 10,
+  "time_to_activate": 3,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "endurance_cost": 0.14,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "type": 0,
+          "scale": 0.75,
+          "magnitude": 3,
+          "stack_type": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Taunt {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Taunts you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "scale": 2,
+          "duration": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFTOHITCONT.FX"
+          }
+        },
+        {
+          "attrib": [
+            108
+          ],
+          "target": 0,
+          "table": "Melee_Buff_Def",
+          "duration": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDEFCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            104
+          ],
+          "target": 0,
+          "table": "Melee_Buff_Def",
+          "scale": 0.5,
+          "duration": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    100,
+    104,
+    108,
+    248
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/INVULNERABILITY_INVINCIBILITY.PFX",
+  "activation_bits": [
+    248,
+    723
+  ],
+  "activation_fx": "POWERS/INVULNERABILITY/INVINCIBILITY.FX",
+  "frames_before_hit": 64,
+  "attack_frames": 90,
+  "initial_frames_before_hit": 64
+}

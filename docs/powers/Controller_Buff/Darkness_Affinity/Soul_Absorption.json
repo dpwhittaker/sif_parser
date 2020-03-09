@@ -1,0 +1,120 @@
+{
+  "crcfull_name": 4142281578,
+  "source_file": "DEFS/POWERS/CONTROLLER_BUFF_DARKNESS_AFFINITY.POWERS",
+  "source_name": "Controller_Buff.Darkness_Affinity.Soul_Absorption",
+  "display_name": "Soul Absorption",
+  "display_help": "You drain the essence of both nearby conscious and defeated foes to cause you and your allies to regenerate and recovery much more quickly. The more defeated foes affected, the more powerful the regeneration and recovery effect will be. Recharge: Very Slow.",
+  "display_short_help": "PBAoE Team +Regen, +Recovery, Foe -To Hit",
+  "icon_name": "DarknessAffinity_SoulAbsorption.tga",
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "time_to_activate": 3,
+  "recharge_time": 160,
+  "ents_auto_hit": [
+    18
+  ],
+  "ents_affected": [
+    18,
+    19
+  ],
+  "boosts_allowed": [
+    33,
+    23,
+    18,
+    14,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "flags": [
+            112,
+            4
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} siphons essence from nearby foes to cause you and your team to regenerate health and recover endurance.",
+            "display_victim_hit": ""
+          },
+          "fx": {
+            "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+          },
+          "param": {
+            "EntCreate": {
+              "entity_def": "Pets_SoulAbsorptionBuff"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Cur.kHitPoints",
+        "target>",
+        "0",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "duration": 10,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "Your {powername} reduces the to hit chance of {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} reduces your chance to hit with their {Powername}!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    100,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_DARKNESSAFFINITY_SOULABSORPTION.PFX",
+  "attack_bits": [
+    248,
+    723
+  ],
+  "initial_attack_bits": [
+    248,
+    723
+  ],
+  "attack_fx": "POWERS/DARKNESSCONTROL/SOULABSORPTION_ATTACK.FX",
+  "initial_attack_fx": "POWERS/DARKNESSCONTROL/SOULABSORPTION_ATTACK.FX",
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_DARKNESSAFFINITY_SOULABSORPTION.PFX",
+      "attack_bits": [
+        248,
+        723
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        248,
+        723
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/SOULABSORPTION_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DARKNESSAFFINITY/SOULABSORPTION_ATTACK.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

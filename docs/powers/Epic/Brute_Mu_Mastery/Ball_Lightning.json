@@ -1,0 +1,308 @@
+{
+  "crcfull_name": 1798611730,
+  "source_file": "DEFS/POWERS/EPIC_BRUTE_MU_MASTERY.POWERS",
+  "source_name": "Epic.Brute_Mu_Mastery.Ball_Lightning",
+  "display_name": "Ball Lightning",
+  "display_help": "Hurls a highly charged ball of Mu lightning that explodes on contact. Ball Lightning deals good damage in an area of effect, and drains some Endurance from each target it hits. You must be level 41 and have Mu Lightning or Electrifying Fences before selecting this power. Damage: Moderate(DoT), Recharge: Long",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DoT(Energy), Foe -End",
+  "display_target_help": "The Ball Lightning is continuing to electrocute you.",
+  "display_target_short_help": "DoT(Energy)",
+  "icon_name": "Arachnos_Patron_RangedAoEModerateDmg.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "buy_requires": [
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "Epic.Brute_Mu_Mastery.Mu_Lightning",
+    "Epic.Brute_Mu_Mastery.Electrifying_Fences",
+    "||",
+    "&&"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 1.07,
+  "recharge_time": 32,
+  "endurance_cost": 18.98,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.18,
+          "duration": 3.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.07
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2242,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.1046,
+          "duration": 3.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -1.25
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.7474,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.135,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.081,
+          "duration": 3.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    8,
+    16,
+    88,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_BALLLIGHTNING.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_POWERSINK.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_LIGHTNINGBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_POWERSINK.FX",
+  "continuing_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYBOLTHITCONTINUING.FX",
+  "continuing_fx1": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYBOLTHITCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 20,
+  "delayed_hit": true,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 20,
+  "projectile_speed": 42,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_BALLLIGHTNING.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_CONTINUING.FX",
+      "frames_before_hit": 20,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 20,
+      "projectile_speed": 42,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_BALLLIGHTNING.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_CONTINUING.FX",
+      "frames_before_hit": 20,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 20,
+      "projectile_speed": 42
+    }
+  ]
+}

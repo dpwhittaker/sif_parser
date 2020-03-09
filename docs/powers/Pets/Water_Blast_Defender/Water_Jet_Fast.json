@@ -1,0 +1,335 @@
+{
+  "crcfull_name": 523679082,
+  "source_file": "DEFS/POWERS/PETS_WATER_BLAST_DEFENDER.POWERS",
+  "source_name": "Pets.Water_Blast_Defender.Water_Jet_Fast",
+  "display_name": "Enhanced Water Jet",
+  "display_help": "You spray a concentrated torrent of water toward your target that causes High Cold and Smashing damage as well as reducing your target's movement speed. If you have 2 or less Tidal Power, you will gain a stack of Tidal Power. If you have 3 Tidal Power and you activate this power, it will have an enhanced effect causing Water Jet to cast slightly faster and immediately reset the recharge of Water Jet. Water Jet's enhanced effect can be used once every 15 seconds. Damage: High, Recharge: Moderate",
+  "display_short_help": "Ranged, High DMG(Cold/Smash), Foe -Speed, Self +/-Tidal Power",
+  "display_target_help": "Your speed is reduced by the Water Jet.",
+  "display_target_short_help": "-Speed",
+  "icon_name": "WaterBlast_WaterJet.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Cold"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 1,
+  "recharge_time": 10,
+  "endurance_cost": 5.096,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.49,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.47,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5852,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.7557,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 8,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 8
+        },
+        {
+          "attrib": [
+            485
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "delay": 1.1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Enhanced Water Jet!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Sentinel_Ranged.Water_Blast.Water_Jet"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            485
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "delay": 1.1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Enhanced Water Jet!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Defender_Ranged.Water_Blast.Water_Jet"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "temporary_powers.temporary_powers.enhanced_water_jet_lock"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "3",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            1
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Tidal_Power"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "Temporary_Powers.Temporary_Powers.Tidal_Power",
+    "ownPowerNum?",
+    "2",
+    ">=",
+    "temporary_powers.temporary_powers.enhanced_water_jet_lock",
+    "ownPower?",
+    "!",
+    "&&"
+  ],
+  "highlight_ring": [
+    255,
+    127,
+    0,
+    255
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    12,
+    188,
+    192,
+    200,
+    204,
+    473,
+    474,
+    485
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WATERJET.PFX",
+  "attack_bits": [
+    20,
+    631,
+    396
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    631,
+    396
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERJET_FAST.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERJET_FAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 9,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 9,
+  "projectile_speed": 900,
+  "primary_tint": [
+    100,
+    140,
+    215,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    140,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WATERJET.PFX",
+      "attack_bits": [
+        20,
+        631,
+        396
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        396
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERJET_FAST.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/WATERJET_FAST.FX",
+      "frames_before_hit": 9,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 9,
+      "palette": ""
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_WATERJET.PFX",
+      "attack_bits": [
+        20,
+        631,
+        396
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        396
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/WATERJET_FAST.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/WATERJET_FAST.FX",
+      "frames_before_hit": 9,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 9,
+      "palette": ""
+    }
+  ]
+}

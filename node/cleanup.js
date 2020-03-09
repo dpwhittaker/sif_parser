@@ -4,25 +4,43 @@ let messages = JSON.parse(fs.readFileSync(`piggs/clientmessages.json`));
 
 cleanupFile('powers');
 cleanupFile('powersets');
-cleanupFile('powercats', true);
-cleanupFile('classes', true);
+cleanupFile('powercats');
+cleanupFile('classes');
 
-function cleanupFile(file, skipCats) {
+function cleanupFile(file) {
     let things = JSON.parse(fs.readFileSync(`piggs/${file}.json`));
     let dflt = removeDefaults(things);
-    fs.writeFileSync(`docs/${file}.json`, JSON.stringify(things));
-    fs.writeFileSync(`docs/${file}.default.json`, JSON.stringify(dflt, null, 2));
-    if (skipCats) return;
     let categories = {};
+    let depth = 0;
     for (let thing of things) {
-        let category = thing.full_name.split('.')[0];
-        if (!categories[category])
-            categories[category] = [];
-        categories[category].push(thing);
+        let cats = (thing.full_name || thing.name).split('.');
+        depth = cats.length;
+        delete thing.full_name;
+        delete thing.name;
+        c = categories;
+        for (let i = 0; i < cats.length - 1; i++) {
+            if (!c[cats[i]]) c[cats[i]] = {};
+            c = c[cats[i]];
+        }
+        c[cats[cats.length - 1]] = thing;
     }
+    fs.writeFileSync(`docs/${file}.json`, JSON.stringify(categories, null, 2));
+    fs.writeFileSync(`docs/${file}.default.json`, JSON.stringify(dflt, null, 2));
     for (let category in categories) {
         console.log(category);
         fs.writeFileSync(`docs/${file}/${category}.json`, JSON.stringify(categories[category], null, 2));
+        if (depth === 1) continue;
+        for (let powerset in categories[category]) {
+            //console.log(`${category}/${powerset}`);
+            if (!fs.existsSync(`docs/${file}/${category}`)) fs.mkdirSync(`docs/${file}/${category}`);
+            fs.writeFileSync(`docs/${file}/${category}/${powerset}.json`, JSON.stringify(categories[category][powerset], null, 2));
+            if (depth === 2) continue;
+            for (let power in categories[category][powerset]) {
+                //console.log(`${category}/${powerset}/${power}`);
+                if (!fs.existsSync(`docs/${file}/${category}/${powerset}`)) fs.mkdirSync(`docs/${file}/${category}/${powerset}`);
+                fs.writeFileSync(`docs/${file}/${category}/${powerset}/${power}.json`, JSON.stringify(categories[category][powerset][power], null, 2));
+            }
+        }
     }
 }
 

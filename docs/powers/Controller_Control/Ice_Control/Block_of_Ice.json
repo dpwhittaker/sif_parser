@@ -1,0 +1,377 @@
+{
+  "crcfull_name": 865772765,
+  "source_file": "DEFS/POWERS/CONTROLLER_CONTROL_ICE_CONTROL.POWERS",
+  "source_name": "Controller_Control.Ice_Control.Block_of_Ice",
+  "display_name": "Block of Ice",
+  "display_help": "You can freeze a single foe in a Block of Ice. The target is frozen solid, helpless, and can be attacked. More powerful foes may not be held, but all affected targets will be Slowed and take some Cold damage. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DMG(Cold), Foe Hold, -SPD, -Recharge",
+  "display_target_help": "You are frozen in a Block of Ice. Once free, your Attack Rate and Running speed will be reduced slightly for a while.",
+  "display_target_short_help": "Hold, -SPD, -Recharge",
+  "icon_name": "IceFormation_BlockOfIce.tga",
+  "attack_types": [
+    "Ranged",
+    "Cold"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 1.87,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    29,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 12,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 9,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.0291,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.0145,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 12
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 12,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 12,
+          "flags": [
+            664,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 12,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    12,
+    188,
+    192,
+    200,
+    204,
+    268,
+    324,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ICECONTROL_BLOCKOFICE.PFX",
+  "attack_bits": [
+    20,
+    302
+  ],
+  "initial_attack_bits": [
+    20,
+    302
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/CHILLINGHANDS.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/CHILLINGHANDS.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "conditional_fx1": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 21,
+  "attack_frames": 56,
+  "initial_frames_before_hit": 21,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ICECONTROL_BLOCKOFICE.PFX",
+      "attack_bits": [
+        20,
+        302
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        302
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICECONTROL/CHILLINGHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICECONTROL/CHILLINGHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "frames_before_hit": 21,
+      "attack_frames": 56,
+      "initial_frames_before_hit": 21,
+      "palette": "ice"
+    }
+  ]
+}

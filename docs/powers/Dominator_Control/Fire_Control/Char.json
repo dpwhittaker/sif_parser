@@ -1,0 +1,313 @@
+{
+  "crcfull_name": 3133933588,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_FIRE_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Fire_Control.Char",
+  "display_name": "Char",
+  "display_help": "Incapacitates a distant foe by Charring him with smoldering soot and cinders. The target is left helpless, choking on the soot. Damage: Moderate(DoT), Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DoT(Fire), Foe Hold",
+  "display_target_help": "The Soot is causing damage to you and preventing you from acting.",
+  "display_target_short_help": "Hold, DoT(Fire)",
+  "icon_name": "FireTrap_Soot.tga",
+  "attack_types": [
+    "Ranged",
+    "Fire"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 1.07,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 12,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.22,
+          "duration": 4.2,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.2938,
+          "duration": 4.2,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 18,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1056,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    8,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_CHAR.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/SOOT.FX",
+  "hit_fx": "POWERS/FIRECONTROL/EMBERSHITSOOTANDCINDERS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/SOOT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "delayed_hit": true,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 23,
+  "projectile_speed": 51,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_CHAR.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SOOT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/EMBERSHITSOOTANDCINDERS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SOOT.FX",
+      "frames_before_hit": 23,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23,
+      "projectile_speed": 51,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_FIRECONTROL_CHAR.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/SOOT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/EMBERSHITSOOTANDCINDERS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/SOOT.FX",
+      "frames_before_hit": 23,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23,
+      "projectile_speed": 51
+    }
+  ]
+}

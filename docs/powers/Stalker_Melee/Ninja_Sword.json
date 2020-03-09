@@ -1,0 +1,2821 @@
+{
+  "Hack": {
+    "crcfull_name": 727184966,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Hack",
+    "display_name": "Sting of the Wasp",
+    "display_help": "You perform a standard attack with your Ninja Blade. This attack is slower than Gambler's Cut, but deals more lethal damage. Sting of the Wasp can reduce a target's Defense, making them easier to hit. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Lethal), Foe -Def",
+    "display_target_help": "The Ninja Blade has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Katana_Hack.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "Stalker_Defense.Shield_Defense",
+      "!"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.17,
+    "recharge_time": 5,
+    "endurance_cost": 6.032,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.16,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 10,
+            "tick_chance": 0.998,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.419,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.419,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.419,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.16,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.16,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      184,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_DOWN_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      267
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      267,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "frames_before_hit": 20,
+    "initial_frames_before_hit": 50,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_DOWN_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          267
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          267
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "frames_before_hit": 20,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 20,
+        "palette": ""
+      }
+    ]
+  },
+  "Slash": {
+    "crcfull_name": 855974944,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Slash",
+    "display_name": "Gambler's Cut",
+    "display_help": "You perform a quick slash with your Ninja Blade. This attack is very fast, but deals only minor lethal damage. This attack can reduce a target's Defense, making them easier to hit. Damage: Minor, Recharge: Very Fast",
+    "display_short_help": "Melee, Minor DMG(Lethal), Foe -Def",
+    "display_target_help": "The Ninja Blade has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Katana_Slash.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "Stalker_Defense.Shield_Defense",
+      "!"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 0.67,
+    "recharge_time": 3,
+    "endurance_cost": 4.368,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.42,
+            "duration": 0.3,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 6,
+            "tick_chance": 0.998,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4945,
+            "duration": 0.3,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.989,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.989,
+            "delay": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "delay": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.65,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      184,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_HORIZONTIALSLASH_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      266
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      266,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/2SWORDHITS.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "frames_before_hit": 10,
+    "attack_frames": 20,
+    "initial_frames_before_hit": 40,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_HORIZONTIALSLASH_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          266
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          266
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/2SWORDHITS.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "frames_before_hit": 10,
+        "attack_frames": 20,
+        "initial_frames_before_hit": 10,
+        "palette": ""
+      }
+    ]
+  },
+  "Slice": {
+    "crcfull_name": 2344200119,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Slice",
+    "display_name": "Flashing Steel",
+    "display_help": "You swing your Ninja Blade in a wide arc in front of you, slicing multiple foes with lethal damage. This attack can reduce a target's Defense, making them easier to hit. If executed while hidden, all affected targets have a chance to be hit with a Critical for extra damage. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee (Cone), Moderate DMG(Lethal), Foe -Def",
+    "display_target_help": "The Ninja Blade has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Katana_Slice.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 7,
+    "arc": 2.268928,
+    "range": 7,
+    "time_to_activate": 1.17,
+    "recharge_time": 6,
+    "endurance_cost": 6.032,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.99,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 10,
+            "tick_chance": 0.998,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.459,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.459,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.459,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.99,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.99,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      184,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_BACKHAND_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      395
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      395,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "frames_before_hit": 18,
+    "initial_frames_before_hit": 48,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_BACKHAND_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          395
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          395
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "frames_before_hit": 18,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 18,
+        "palette": ""
+      }
+    ]
+  },
+  "Assassins_Blade": {
+    "crcfull_name": 1813775686,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Assassins_Blade",
+    "display_name": "Assassin's Blade",
+    "display_help": "A signature Stalker attack. This attack does superior lethal damage on its own as a frontal attack and cannot be interrupted. However, if it is executed while you are Hidden, this attack will do tremendous damage, as you impale your unsuspecting foe. This attack may be interrupted if you move or are attacked while executing this power and are hidden. Using this power while not hidden has a chance to critically hit equal to 33.3% times the number of stacks of Assassin's Focus. Using Assassin's Strike when not hidden will remove all stacks of Assassin's Focus regardless if you critically hit or not. Damage: Special, Recharge: Slow",
+    "display_short_help": "Melee, Special DMG(Lethal)",
+    "icon_name": "Katana_AssassinBlade.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "accuracy": 1.2,
+    "interrupt_like_sleep": true,
+    "ai_report": 2,
+    "range": 7,
+    "time_to_activate": 3.67,
+    "recharge_time": 15,
+    "endurance_cost": 14.352,
+    "interrupt_time": 2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "redirect": [
+      {
+        "power": "Villain_Pets.Ninja_Blade_Assassins_Strike.Assassins_Blade_Quick",
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<"
+        ]
+      },
+      {
+        "power": "Villain_Pets.Ninja_Blade_Assassins_Strike.Assassins_Blade_Stealth"
+      }
+    ],
+    "effects": [],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Assassins_Focus",
+      "ownPowerNum?",
+      "3",
+      "=="
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_BACKSTAB_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      207
+    ],
+    "wind_up_bits": [
+      206
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      207,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT3.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "attack_frames": 50,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_BACKSTAB_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          207
+        ],
+        "wind_up_bits": [
+          206
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          207
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT3.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "attack_frames": 50,
+        "palette": ""
+      }
+    ]
+  },
+  "Build_Up": {
+    "crcfull_name": 4116169369,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Build_Up",
+    "display_name": "Build Up",
+    "display_help": "Greatly increases the amount of damage you deal for a few seconds, as well as slightly increasing your chance to hit. Recharge: Long",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "Katana_BuildUp.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner strength with your {PowerName} and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_BUILDUP_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      245
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      245
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "attack_fx": "POWERS/FOLLOWUPKATANAHIT.FX",
+    "initial_attack_fx": "POWERS/FOLLOWUPKATANAHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_BUILDUP_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          245
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "attack_fx": "POWERS/FOLLOWUPKATANAHIT.FX",
+        "initial_attack_fx": "POWERS/FOLLOWUPKATANAHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "Placate": {
+    "crcfull_name": 4047082301,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Placate",
+    "display_name": "Placate",
+    "display_help": "Allows you to trick a foe to no longer attack you. A Successful Placate will also Hide you. This Hide is very brief, and offers no Defense bonus, but it will allow you to deliver a Critical Hit or an Assassins Blade. However, if you attack a Placated Foe, he will be able to attack you back. Recharge: Slow",
+    "display_short_help": "Ranged, Foe Placate, Self Stealth/Hide",
+    "display_target_help": "You have been Placated.",
+    "display_target_short_help": "Placate",
+    "icon_name": "Katana_Placate.tga",
+    "ai_report": 1,
+    "range": 50,
+    "time_to_activate": 1.5,
+    "recharge_time": 60,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 10,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Placate {PlayerDest}.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 6,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Placate {PlayerDest}.",
+              "display_victim_hit": "You have been Placated and cannot target {PlayerSource}."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "scale": 150,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "scale": 380,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              372
+            ],
+            "target": 0,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4.5,
+    "attrib_cache": [
+      220,
+      224,
+      252,
+      372,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_PLACATE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      441
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      442
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      441,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "attack_frames": 45,
+    "initial_frames_before_hit": 45,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_PLACATE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          441
+        ],
+        "block_bits": 53,
+        "hit_bits": [
+          49,
+          442
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          441
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "attack_frames": 45,
+        "palette": ""
+      }
+    ]
+  },
+  "Parry": {
+    "crcfull_name": 1074662811,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Parry",
+    "display_name": "Divine Avalanche",
+    "display_help": "You can use your Ninja Blade to parry incoming melee attacks and then quickly return the favor. Divine Avalanche does minor damage, but every successful hit will increase your Defense against melee and lethal attacks for a short while. Damage: Minor, Recharge: Very Fast",
+    "display_short_help": "Melee, Minor DMG(Lethal), Self +DEF (Melee, Lethal)",
+    "icon_name": "Katana_Parry.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 3,
+    "endurance_cost": 4.368,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      6,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              108,
+              120
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.451,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.451,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.451,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.65,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      108,
+      120,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_PARRY_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      185
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      185,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/PARRYHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "frames_before_hit": 27,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 57,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_PARRY_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          185
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          185
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/PARRYHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "frames_before_hit": 27,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 27,
+        "palette": ""
+      }
+    ]
+  },
+  "Disembowel": {
+    "crcfull_name": 2593057292,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Disembowel",
+    "display_name": "Soaring Dragon",
+    "display_help": "You perform a powerful Soaring Dragon maneuver that deals a great amount of lethal damage, and can knock a target up into the air. This attack can reduce a target's Defense, making them easier to hit. Damage: Superior, Recharge: Moderate",
+    "display_short_help": "Melee, Superior DMG(Lethal), Foe Knockup, -DEF",
+    "display_target_help": "The Ninja Blade has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Katana_Disembowel.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 9,
+    "endurance_cost": 9.36,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.691,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.691,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 10,
+            "tick_chance": 0.998,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.691,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.8,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.95,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      184,
+      324,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_BIGUP_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      238
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      238,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "frames_before_hit": 18,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 48,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_BIGUP_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          238
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          238
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "frames_before_hit": 18,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 18,
+        "palette": ""
+      }
+    ]
+  },
+  "Head_Splitter": {
+    "crcfull_name": 2768030996,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_NINJA_SWORD.POWERS",
+    "source_name": "Stalker_Melee.Ninja_Sword.Head_Splitter",
+    "display_name": "Golden Dragonfly",
+    "display_help": "You perform a devastating Golden Dragonfly attack that deals a massive amount of lethal damage and can even knock a foe down to the ground and reduce their Defense. The power of this attack can actually extend a short distance through multiple foes. If executed while hidden, only some affected targets may be hit with a Critical, however, there is a chance you may land a Critical hit with Golden Dragonfly even if you are not Hidden. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG(Lethal), Foe Knockback, -DEF",
+    "display_target_help": "The Ninja Blade has reduced your Defenses.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Katana_HeadSplitter.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 10,
+    "arc": 0.34906587,
+    "range": 10,
+    "time_to_activate": 1.83,
+    "recharge_time": 12,
+    "endurance_cost": 11.856,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.28,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.1609,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.1609,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 10,
+            "tick_chance": 0.998,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.28,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.28,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.28,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      4,
+      184,
+      328,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NINJA_KATANA_CLOBBER_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      267,
+      684
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      186
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      267,
+      684,
+      186
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+    "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHITGRAND.FX",
+    "mode_bits": [
+      20,
+      130,
+      133,
+      134,
+      170,
+      208,
+      85
+    ],
+    "frames_before_hit": 27,
+    "attack_frames": 55,
+    "initial_frames_before_hit": 57,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/NINJA_KATANA_CLOBBER_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          267,
+          684
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          267,
+          684
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_KATANA.FX",
+        "hit_fx": "POWERS/MEDIEVALWEAPONS/SWORDHITGRAND.FX",
+        "mode_bits": [
+          20,
+          130,
+          133,
+          134,
+          170,
+          208,
+          85
+        ],
+        "frames_before_hit": 27,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 27,
+        "palette": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "Heal_Other": {
+    "crcfull_name": 1116443455,
+    "source_file": "DEFS/POWERS/ANIMUSARCANA_BALL_OF_LIGHT.POWERS",
+    "source_name": "AnimusArcana.Ball_of_Light.Heal_Other",
+    "display_name": "Surge of Light",
+    "display_help": "With a surge of positive energy, you heal a single target.",
+    "display_short_help": "PBAoE (Single Target), Heal (Any)",
+    "icon_name": "Empathy_HealOther.tga",
+    "target_requires": [
+      "entref",
+      "target>",
+      "entref",
+      "source>",
+      "eq",
+      "!"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 1,
+    "radius": 100,
+    "range": 80,
+    "time_to_activate": 2.27,
+    "recharge_time": 6,
+    "endurance_cost": 7,
+    "ents_auto_hit": [
+      21
+    ],
+    "ents_affected": [
+      21
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Ranged_Heal",
+            "scale": 1.96,
+            "delay": 0.25,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} heals you with a {PowerName} for {Damage} points."
+            }
+          },
+          {
+            "attrib": [
+              32
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+            }
+          }
+        ]
+      }
+    ],
+    "shuffle_targets": true,
+    "attrib_cache": [
+      28,
+      32
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/EMPATHY_HEAL.PFX",
+    "attack_bits": [
+      20,
+      306
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      306
+    ],
+    "attack_fx": "POWERS/ABILITY/HEALINGHANDS.FX",
+    "hit_fx": "POWERS/HEALING/HEALING.FX",
+    "initial_attack_fx": "POWERS/ABILITY/HEALINGHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 68,
+    "initial_frames_before_hit": 25
+  },
+  "Blind": {
+    "crcfull_name": 915821544,
+    "source_file": "DEFS/POWERS/ANIMUSARCANA_BALL_OF_LIGHT.POWERS",
+    "source_name": "AnimusArcana.Ball_of_Light.Blind",
+    "display_name": "Flash",
+    "display_help": "You create a brilliant flash which temporarily blinds your opponents, causing energy damage and freezing them in place. There is a chance that this flash will also briefly blind other opponents near to the main target.",
+    "display_short_help": "Targeted AoE, High DMG(Energy), Hold",
+    "display_target_help": "You are held in place and unable to move.",
+    "display_target_short_help": "Hold",
+    "icon_name": "AnimusArcana_Flash.tga",
+    "attack_types": [
+      "Ranged",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 7,
+    "endurance_cost": 9,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 4,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 21,
+                "always": true
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ],
+              "conditional_fx": "POWERS/ILLUSIONS/ILLUSBLINDCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Blind"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      16,
+      268,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ILLUSIONS_BLIND.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "POWERS/ILLUSIONS/ILLUSBLIND.FX",
+    "initial_attack_fx": "POWERS/ILLUSIONS/ILLUSBLIND.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20
+  },
+  "Absorb_Pain": {
+    "crcfull_name": 2726572245,
+    "source_file": "DEFS/POWERS/ANIMUSARCANA_BALL_OF_LIGHT.POWERS",
+    "source_name": "AnimusArcana.Ball_of_Light.Absorb_Pain",
+    "display_name": "Burst of Light",
+    "display_help": "You unleash a burst of light which dramatically heals the wounds of a nearby entity. This entity may be friend or foe. The power of the heal dims you slightly, causing you damage and preventing any healing or regeneration on yourself for a while.",
+    "display_short_help": "PBAoE (Single Target), Heal (Any), Moderate DMG (Self), -Regen(Self), +RES(Self, Heal)",
+    "icon_name": "Empathy_AbsorbPain.tga",
+    "target_requires": [
+      "kHitPoints%",
+      "target>",
+      "70",
+      "<",
+      "entref",
+      "target>",
+      "entref",
+      "source>",
+      "eq",
+      "!",
+      "&&"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 1,
+    "radius": 40,
+    "range": 80,
+    "time_to_activate": 2.27,
+    "recharge_time": 9,
+    "endurance_cost": 0.52,
+    "ents_auto_hit": [
+      21
+    ],
+    "ents_affected": [
+      21
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Ranged_Heal",
+            "scale": 5,
+            "delay": 0.5,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} heals you with a {PowerName} for {Damage} points."
+            }
+          },
+          {
+            "attrib": [
+              32
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Damage",
+            "scale": 2,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 20,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 20,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              32
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+            }
+          }
+        ]
+      }
+    ],
+    "shuffle_targets": true,
+    "attrib_cache": [
+      28,
+      32,
+      232
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_EMPATHY_ABSORBPAIN.PFX",
+    "attack_bits": [
+      20,
+      306
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      306
+    ],
+    "attack_fx": "POWERS/EMPATHY/ABSORBPAIN.FX",
+    "hit_fx": "POWERS/HEALING/HEALINGDRAINBALL.FX",
+    "initial_attack_fx": "POWERS/EMPATHY/ABSORBPAIN.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 68,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_EMPATHY_ABSORBPAIN.PFX",
+        "attack_bits": [
+          20,
+          306
+        ],
+        "hit_bits": [
+          49,
+          245
+        ],
+        "initial_attack_bits": [
+          20,
+          306
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/ABSORBPAIN.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALINGDRAINBALL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/ABSORBPAIN.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 68,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      }
+    ]
+  }
+}

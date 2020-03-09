@@ -1,0 +1,207 @@
+{
+  "crcfull_name": 3440352237,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_PSIONIC_MELEE.POWERS",
+  "source_name": "Brute_Melee.Psionic_Melee.Boggle",
+  "display_name": "Boggle",
+  "display_help": "You flood your foe's mind with doubt causing them to become confused for a brief time. Confused foes will attack their allies. Boggle will also place the \"Boggled\" effect on your target for a short time. Attacking a Boggled target will increase your chance of gaining Insight. Recharge: Long",
+  "display_short_help": "Short Ranged, Target Confuse, +Special",
+  "display_target_help": "You have been confused and may attack an incorrect target.",
+  "display_target_short_help": "Confuse",
+  "icon_name": "PsionicMelee_Boggle.tga",
+  "attack_types": [
+    "Psionic"
+  ],
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "ai_report": 1,
+  "range": 40,
+  "time_to_activate": 2,
+  "recharge_time": 20,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    8,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boggle your foe causing your Psionic Melee attacks on your target to be more likely to grant you Insight.",
+            "display_victim_hit": "You've become Boggled!",
+            "display_float": "Boggled!"
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Boggled"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 24
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    256,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_BOGGLE.PFX",
+  "attack_bits": [
+    20,
+    366
+  ],
+  "initial_attack_bits": [
+    20,
+    366
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSICONFUSE_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "attack_frames": 60,
+  "initial_frames_before_hit": 30,
+  "primary_tint": [
+    72,
+    32,
+    244,
+    255
+  ],
+  "secondary_tint": [
+    194,
+    28,
+    133,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_BOGGLE.PFX",
+      "attack_bits": [
+        20,
+        366
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        366
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSICONFUSE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_BOGGLE.PFX",
+      "attack_bits": [
+        20,
+        366
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        366
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/BOGGLE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSICONFUSE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/BOGGLE.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 60,
+      "initial_frames_before_hit": 30
+    }
+  ]
+}

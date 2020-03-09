@@ -1,0 +1,520 @@
+{
+  "Assassins_Frost_Stealth": {
+    "crcfull_name": 1248098253,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_ICE_MELEE_ASSASSINS_FROST.POWERS",
+    "source_name": "Villain_Pets.Ice_Melee_Assassins_Frost.Assassins_Frost_Stealth",
+    "display_name": "Assassin's Blades",
+    "display_help": "A signature Stalker attack. This attack does superior lethal damage on its own as a frontal attack and cannot be interrupted. However, if it is executed while you are Hidden, this attack will do tremendous lethal damage, as you impale your unsuspecting foe. This attack may be interrupted if you move or are attacked while executing this power and are hidden. Using this power while not hidden has a chance to critically hit equal to 33.3% times the number of stacks of Assassin's Focus. This power is needed for the Empower and Sweep combination attacks. Using Assassin's Strike when not hidden will remove all stacks of Assassin's Focus regardless if you critically hit or not. Damage: Special",
+    "display_short_help": "Melee, Special DMG(Lethal)",
+    "icon_name": "IcyOnslaught_Assassin.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal",
+      "Cold"
+    ],
+    "accuracy": 1.2,
+    "interrupt_like_sleep": true,
+    "ai_report": 2,
+    "range": 7,
+    "time_to_activate": 3.67,
+    "recharge_time": 15,
+    "endurance_cost": 14.352,
+    "interrupt_time": 2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [ASSASSIN STRIKE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [ASSASSIN STRIKE].",
+              "display_float": "ASSASSIN STRIKE"
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 4.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Demoralized"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              220,
+              224
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": -1,
+            "duration": 8,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "kDD_StatusMode_1",
+      "Mode?",
+      "kDD_BonusAoEMode_1",
+      "Mode?",
+      "||",
+      "Temporary_Powers.Temporary_Powers.Assassins_Focus",
+      "ownPowerNum?",
+      "3",
+      "==",
+      "||"
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      12,
+      220,
+      224,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_ASSASSINSSTRIKE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      237
+    ],
+    "wind_up_bits": [
+      236
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      237
+    ],
+    "activation_fx": "POWERS/COLDCONTROL/GREATERICESWORD.FX",
+    "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      84
+    ],
+    "frames_before_hit": 7,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 7,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_ASSASSINSSTRIKE.PFX",
+        "display_name": "Greater Ice Sword",
+        "attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "wind_up_bits": [
+          236
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/GREATERICESWORD.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEBOLTHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          84
+        ],
+        "frames_before_hit": 7,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 7,
+        "palette": "ice"
+      },
+      {
+        "token": "Color Tintable 2",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_ASSASSINSSTRIKE.PFX",
+        "display_name": "Ice Sword",
+        "attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "wind_up_bits": [
+          236
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEWEAPON.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEBOLTHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          84
+        ],
+        "frames_before_hit": 7,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 7,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Assassins_Frost_Quick": {
+    "crcfull_name": 360265936,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_ICE_MELEE_ASSASSINS_FROST.POWERS",
+    "source_name": "Villain_Pets.Ice_Melee_Assassins_Frost.Assassins_Frost_Quick",
+    "display_name": "Assassin's Blades",
+    "display_help": "A signature Stalker attack. This attack does superior lethal damage on its own as a frontal attack and cannot be interrupted. However, if it is executed while you are Hidden, this attack will do tremendous lethal damage, as you impale your unsuspecting foe. This attack may be interrupted if you move or are attacked while executing this power and are hidden. Using this power while not hidden has a chance to critically hit equal to 33.3% times the number of stacks of Assassin's Focus. This power is needed for the Empower and Sweep combination attacks. Using Assassin's Strike when not hidden will remove all stacks of Assassin's Focus regardless if you critically hit or not. Damage: Special",
+    "display_short_help": "Melee, Special DMG(Lethal)",
+    "icon_name": "IcyOnslaught_Assassin.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal",
+      "Cold"
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 1.67,
+    "recharge_time": 15,
+    "endurance_cost": 14.352,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.76,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASCrit"
+        ],
+        "chance": 0,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.76,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8801,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.3201,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASCrit"
+        ],
+        "chance": 0,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.2002,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "flags": [
+              560,
+              1
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "kDD_StatusMode_1",
+      "Mode?",
+      "kDD_BonusAoEMode_1",
+      "Mode?",
+      "||",
+      "Temporary_Powers.Temporary_Powers.Assassins_Focus",
+      "ownPowerNum?",
+      "3",
+      "==",
+      "||"
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      12,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_ASSASSINSSTRIKE_QUICK.PFX",
+    "attack_bits": [
+      20,
+      130,
+      237
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      237
+    ],
+    "activation_fx": "POWERS/COLDCONTROL/GREATERICESWORD.FX",
+    "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      84
+    ],
+    "frames_before_hit": 7,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 7,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_ASSASSINSSTRIKE_QUICK.PFX",
+        "display_name": "Greater Ice Sword",
+        "attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/GREATERICESWORD.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEBOLTHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          84
+        ],
+        "frames_before_hit": 7,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 7,
+        "palette": "ice"
+      },
+      {
+        "token": "Color Tintable 2",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_ASSASSINSSTRIKE_QUICK.PFX",
+        "display_name": "Ice Sword",
+        "attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          237
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEWEAPON.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEBOLTHIT.FX",
+        "mode_bits": [
+          20,
+          130,
+          84
+        ],
+        "frames_before_hit": 7,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 7,
+        "palette": "ice"
+      }
+    ]
+  }
+}

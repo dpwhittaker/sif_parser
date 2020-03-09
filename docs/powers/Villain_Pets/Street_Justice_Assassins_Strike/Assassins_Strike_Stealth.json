@@ -1,0 +1,435 @@
+{
+  "crcfull_name": 1557821102,
+  "source_file": "DEFS/POWERS/VILLAIN_PETS_STREET_JUSTICE_ASSASSINS_STRIKE.POWERS",
+  "source_name": "Villain_Pets.Street_Justice_Assassins_Strike.Assassins_Strike_Stealth",
+  "display_name": "Assassin's Strike",
+  "display_help": "A signature Stalker attack. This attack does superior smashing damage on its own as a frontal attack and cannot be interrupted. However, if it is executed while you are Hidden, this attack will do tremendous damage, as you waylay your unsuspecting foe. This attack may be interrupted if you move or are attacked while executing this power and are hidden. Using this power while not hidden has a chance to critically hit equal to 33.3% times the number of stacks of Assassin's Focus. Assassin's Strike builds 2 Combo Levels. Using Assassin's Strike when not hidden will remove all stacks of Assassin's Focus regardless if you critically hit or not. Damage: Special, Recharge: Slow",
+  "display_short_help": "Melee, Special DMG (Smash), Combo Builder",
+  "icon_name": "Brawling_AssassinsStrike.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "accuracy": 1.2,
+  "interrupt_like_sleep": true,
+  "ai_report": 2,
+  "range": 7,
+  "time_to_activate": 3.17,
+  "recharge_time": 15,
+  "endurance_cost": 14.352,
+  "interrupt_time": 2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            220,
+            224
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": -1,
+          "duration": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 4.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [ASSASSIN STRIKE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [ASSASSIN STRIKE].",
+            "display_float": "ASSASSIN STRIKE"
+          }
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Demoralized"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.5,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [ASSASSIN STRIKE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [ASSASSIN STRIKE].",
+            "display_float": "ASSASSIN STRIKE"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 4.5,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [ASSASSIN STRIKE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [ASSASSIN STRIKE].",
+            "display_float": "ASSASSIN STRIKE"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 2!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+        "source.ownPower?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    220,
+    224,
+    473,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_BRAWLING_ASSASSINSSTRIKE.PFX",
+  "attack_bits": [
+    20,
+    624,
+    277
+  ],
+  "block_bits": [
+    53
+  ],
+  "wind_up_bits": [
+    20,
+    624,
+    367
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    624,
+    277
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_HIT.FX",
+  "wind_up_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_WINDUP.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "primary_tint": [
+    255,
+    126,
+    48,
+    255
+  ],
+  "secondary_tint": [
+    89,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_BRAWLING_ASSASSINSSTRIKE.PFX",
+      "attack_bits": [
+        20,
+        624,
+        277
+      ],
+      "block_bits": 53,
+      "wind_up_bits": [
+        20,
+        624,
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        624,
+        277
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_HIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_WINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/ASSASSINSSTRIKE_ATTACK.FX",
+      "attack_frames": 35,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_BRAWLING_ASSASSINSSTRIKE.PFX",
+      "attack_bits": [
+        20,
+        624,
+        277
+      ],
+      "block_bits": 53,
+      "wind_up_bits": [
+        20,
+        624,
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        624,
+        277
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/ASSASSINSSTRIKE_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/ASSASSINSSTRIKE_HIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/ASSASSINSSTRIKE_WINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/ASSASSINSSTRIKE_ATTACK.FX",
+      "attack_frames": 35
+    }
+  ]
+}

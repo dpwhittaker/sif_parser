@@ -1,0 +1,164 @@
+{
+  "crcfull_name": 4223523449,
+  "source_file": "DEFS/POWERS/BOOSTS_SUPERIOR_ATTUNED_FROZEN_BLAST_F.POWERS",
+  "source_name": "Boosts.Superior_Attuned_Frozen_Blast_F.Superior_Attuned_Frozen_Blast_F",
+  "display_name": "Superior Frozen Blast: Recharge/Chance for Immobilize",
+  "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. Gives the slotted power a chance to immobilize targets of this power, and reduces the power's recharge time by {Boost.Attrib.RechargeTime.Scale}%. This enhancement's chance to trigger is equal to approximately 3.5 times per minute.",
+  "display_short_help": "Increases Recharge, Chance for Immobilize",
+  "icon_name": "E_ICON_Frozen_Blast.tga",
+  "type": 3,
+  "slot_requires": [
+    "Attuned_Frozen_Blast_F",
+    "BoostsSlotted>",
+    "0",
+    "<=",
+    "Superior_Attuned_Frozen_Blast_F",
+    "BoostsSlotted>",
+    "0",
+    "<=",
+    "&&",
+    "level",
+    "char>",
+    "50",
+    "==",
+    "&&"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "effects": [
+    {
+      "tag": [
+        "rechargetime"
+      ],
+      "procs_per_minute": 3.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Boosts_33",
+          "scale": 0.5469,
+          "duration": 10.25,
+          "stack_type": 3,
+          "flags": [
+            2608,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Mez"
+      ],
+      "procs_per_minute": 3.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1300,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+            "conditional_fx": "POWERS/COLDCONTROL/DEEPFREEZE.FX"
+          }
+        }
+      ]
+    },
+    {
+      "procs_per_minute": 3.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1300,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+            "conditional_fx": "POWERS/COLDCONTROL/DEEPFREEZE.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "boost_ignore_effectiveness": true,
+  "boost_always_count_for_set": true,
+  "boost_combinable": false,
+  "boost_use_player_level": true,
+  "min_slot_level": 49,
+  "attrib_cache": [
+    272,
+    356
+  ]
+}

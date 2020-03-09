@@ -1,0 +1,164 @@
+{
+  "crcfull_name": 140471795,
+  "source_file": "DEFS/POWERS/INCARNATE_SOCKET.POWERS",
+  "source_name": "Incarnate.Socket.Immobilize",
+  "free": true,
+  "display_name": "Spectral Socket",
+  "display_help": "You are Immobilized by a Spectral Socket proc.",
+  "display_short_help": "Immobilized",
+  "icon_name": "Incarnate_Interface_Spectral_Common.tga",
+  "type": 5,
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||",
+    "combatlevel",
+    "char>",
+    "45",
+    "<",
+    "&&"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "tag": [
+        "GenesisStatus"
+      ],
+      "chance": 0,
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "@ChanceMods",
+        "<",
+        "&&",
+        "combatlevel",
+        "source>",
+        "45",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 34,
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "scale": 4.3,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 4,
+          "flags": [
+            1300,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "INCARNATEPOWERS/INTERFACE/SPECTRAL.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "GenesisStatus"
+      ],
+      "chance": 0,
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "@ChanceMods",
+        "<",
+        "&&",
+        "combatlevel",
+        "source>",
+        "45",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 34,
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1300,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          }
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    272
+  ]
+}

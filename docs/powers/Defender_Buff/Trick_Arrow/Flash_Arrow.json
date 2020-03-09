@@ -1,0 +1,241 @@
+{
+  "crcfull_name": 3057535454,
+  "source_file": "DEFS/POWERS/DEFENDER_BUFF_TRICK_ARROW.POWERS",
+  "source_name": "Defender_Buff.Trick_Arrow.Flash_Arrow",
+  "display_name": "Flash Arrow",
+  "display_help": "This arrow explodes in a dazzling flash of light and sound. The targets are so blinded that they can hardly see a thing. Most villains will not be able to see past normal melee range, although some may have better perception. If the villains are attacked, they will be alerted to your presence, but will suffer a penalty to their chance to hit. Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Foe -Visibility, -To Hit",
+  "display_target_help": "The flash of light has left you dazzled. Your chance to hit and range of sight are greatly diminished.",
+  "display_target_short_help": "-Visibility, -To Hit",
+  "icon_name": "TrickArrow_Blind.tga",
+  "attack_types": [
+    "AOE"
+  ],
+  "ai_report": 1,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 35,
+  "range": 80,
+  "time_to_activate": 1,
+  "recharge_time": 15,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.9,
+          "duration": 60,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You blind {PlayerDest} with your {PowerName}, reducing their perception and chance to hit!",
+            "display_victim_hit": "{PlayerSource} blinds you with a {PowerName}, reducing your perception and chance to hit!"
+          },
+          "fx": {
+            "continuing_fx": "WEAPONS/BOW/TRICKARROW/FLASHHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 60,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You blind {PlayerDest} with your {PowerName}, reducing their perception and chance to hit!",
+            "display_victim_hit": "{PlayerSource} blinds you with a {PowerName}, reducing your perception and chance to hit!"
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            228
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.9,
+          "duration": 20,
+          "stack_type": 3,
+          "cancel_events": [
+            17
+          ],
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "WEAPONS/BOW/TRICKARROW/FLASHHITCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    100,
+    228
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/TRICKARROW_FLASH_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    186
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    681,
+    186
+  ],
+  "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+  "attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_FLASH.FX",
+  "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+  "initial_attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_FLASH.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    85
+  ],
+  "frames_before_hit": 22,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 42,
+  "initial_attack_fxframe_delay": 20,
+  "projectile_speed": 300,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/TRICKARROW_FLASH_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        134,
+        135,
+        681
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        134,
+        135,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        134,
+        135,
+        681,
+        188
+      ],
+      "activation_fx": "WEAPONS/BOW/CUSTOMWEAPON_BOW.FX",
+      "attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_FLASH.FX",
+      "hit_fx": "WEAPONS/BOW/ARCHERY/ARROWSHIT.FX",
+      "initial_attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_FLASH.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        134,
+        135,
+        85
+      ],
+      "frames_before_hit": 22,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 22,
+      "projectile_speed": 300,
+      "palette": ""
+    }
+  ]
+}

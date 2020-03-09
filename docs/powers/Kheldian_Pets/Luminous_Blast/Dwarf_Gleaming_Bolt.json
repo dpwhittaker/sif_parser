@@ -1,0 +1,241 @@
+{
+  "crcfull_name": 4079869203,
+  "source_file": "DEFS/POWERS/KHELDIAN_PETS_LUMINOUS_BLAST.POWERS",
+  "source_name": "Kheldian_Pets.Luminous_Blast.Dwarf_Gleaming_Bolt",
+  "display_name": "Dwarf Gleaming Bolt",
+  "display_help": "A very quick, but low damage bolt of Kheldian energy that can reduce a target's Defense. Damage: Minor, Recharge: Very Fast",
+  "display_short_help": "Ranged, Minor DMG(Energy), Foe -DEF",
+  "display_target_help": "The Gleaming Bolt has reduced your Defenses.",
+  "display_target_short_help": "-DEF",
+  "icon_name": "LuminousBlast_GleamingBolt.tga",
+  "attack_types": [
+    "Melee",
+    "Energy"
+  ],
+  "range": 20,
+  "time_to_activate": 1,
+  "recharge_time": 1.5,
+  "endurance_cost": 3.12,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    1,
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 0.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 1.5,
+          "duration": 3,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_SSDamage",
+          "scale": 1.392,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "@ToHitRoll",
+        "0.2",
+        "+",
+        "@ToHit",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "duration": 4,
+          "flags": [
+            3332,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Raid",
+        "target.HasTag?",
+        "!",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Melee_InherentTaunt",
+          "duration": 4,
+          "flags": [
+            3332,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            248
+          ],
+          "aspect": 32,
+          "type": 0,
+          "scale": 6,
+          "duration": 4,
+          "flags": [
+            1280,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    16,
+    184,
+    248
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_LIGHTBOLT.PFX",
+  "attack_bits": [
+    20,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACESMALLBLAST.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PEACEQUICKBLAST/PEACESMALLBLAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 16,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "TintableTail"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_LIGHTBOLT.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACESMALLBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACEQUICKBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PEACEQUICKBLAST/PEACESMALLBLAST.FX",
+      "frames_before_hit": 16,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 16,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    }
+  ]
+}

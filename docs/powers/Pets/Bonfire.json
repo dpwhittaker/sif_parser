@@ -1,0 +1,135 @@
+{
+  "Bonfire": {
+    "crcfull_name": 1083947693,
+    "source_file": "DEFS/POWERS/PETS_BONFIRE.POWERS",
+    "source_name": "Pets.Bonfire.Bonfire",
+    "display_name": "Bonfire",
+    "display_help": "All foes that pass through this Bonfire will be burned and knocked back.",
+    "display_short_help": "Fire DoT, Knockback",
+    "display_target_help": "You are burning in the Bonfire.",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "FireTrap_Bonfire.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "activate_period": 2,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      17,
+      9
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ReduceIfKD"
+        ],
+        "chance": 1.4,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "flags": [
+              200,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              200,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      8,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_BONFIRE_BONFIRE.PFX",
+    "activation_fx": "POWERS/FIRECONTROL/BONFIRE.FX",
+    "hit_fx": "POWERS/FIRECONTROL/CINDERSHIT_LIFESPAN.FX",
+    "custom_fx": [
+      {
+        "token": "Bright Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_BONFIRE_BONFIRE.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/BONFIRE/BONFIRE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING_LIFESPAN.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_BONFIRE_BONFIRE.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/BONFIRE/SUBTRACTIVE/BONFIRE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_HIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  }
+}

@@ -1,0 +1,531 @@
+{
+  "crcfull_name": 3498987145,
+  "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+  "source_name": "Stalker_Melee.Martial_Arts.Crippling_Axe_Kick",
+  "display_name": "Crippling Axe Kick",
+  "display_help": "You can perform a Crippling Axe Kick that deals moderate smashing damage, reduces the targets defense, may Immobilize, and Slowing their run speed. Crippling Axe Kick may also knock some flying entities out of the sky. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Melee, Moderate DMG(Smashing), Foe Immobilize, -SPD, -Fly, -DEF",
+  "display_target_help": "The Crippling Axe Kick has crippled you, reducing your defense. You are immobilized and your Running speed will be reduced once you can move again.",
+  "display_target_short_help": "Immobilize, -SPD, -DEF",
+  "icon_name": "MartialArts_CripplingHookKick.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "accuracy": 1.05,
+  "range": 7,
+  "time_to_activate": 1.6,
+  "recharge_time": 11,
+  "endurance_cost": 11.024,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    18,
+    15,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.12,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 10,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.9599,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.9599,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 10,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 8
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "scale": -1.6,
+          "duration": 8,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 8,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "duration": 10,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.9599,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.12,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.12,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    184,
+    188,
+    200,
+    204,
+    272,
+    284,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+  "attack_bits": [
+    20,
+    111,
+    257,
+    48,
+    720
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    111,
+    257,
+    48,
+    720
+  ],
+  "attack_fx": "POWERS/MARTIALARTS/HOOKKICK.FX",
+  "hit_fx": "POWERS/MARTIALARTS/HOOKKICKHITS.FX",
+  "initial_attack_fx": "POWERS/MARTIALARTS/HOOKKICK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 31,
+  "attack_frames": 48,
+  "initial_frames_before_hit": 31,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+      "attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICKHITS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICK.FX",
+      "frames_before_hit": 31,
+      "attack_frames": 48,
+      "initial_frames_before_hit": 31,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+      "attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/HOOKKICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/HOOKKICKHITS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/HOOKKICK.FX",
+      "frames_before_hit": 31,
+      "attack_frames": 48,
+      "initial_frames_before_hit": 31
+    },
+    {
+      "token": "Bright Punches",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+      "display_name": "Bright Haymaker",
+      "attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720,
+        685,
+        691
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/HOOKKICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICKHITS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/HOOKKICK.FX",
+      "frames_before_hit": 20,
+      "attack_frames": 48,
+      "initial_frames_before_hit": 20,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Punches",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+      "display_name": "Dark Haymaker",
+      "attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720,
+        685,
+        691
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        111,
+        257,
+        48,
+        720,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/HOOKKICK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/HOOKKICKHITS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/HOOKKICK.FX",
+      "frames_before_hit": 20,
+      "attack_frames": 48,
+      "initial_frames_before_hit": 20
+    }
+  ]
+}

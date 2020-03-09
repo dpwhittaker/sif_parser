@@ -1,0 +1,255 @@
+{
+  "crcfull_name": 4145852716,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_DIGIWENCH.POWERS",
+  "source_name": "RoguesGallery.Digiwench.Chain_Fences",
+  "display_name": "Chain Fences",
+  "display_help": "You immobilize multiple foes in a chain of electricity, dealing minor energy damage and draining the endurance of affected foes. These foes also suffer from reduced recovery rates.",
+  "display_short_help": "Ranged (Targeted AoE), Minor DMG (Energy), Immobilize (Foe), EndDrain (Foe), -Rec (Foe), -Fly (Foe)",
+  "display_target_help": "You are immobilized. Additionally, you are losing endurance and suffer a lowered recovery rate.",
+  "display_target_short_help": "Immobilize, EndDrain, -Rec",
+  "icon_name": "ElectricControl_ChainFences.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 30,
+  "range": 80,
+  "time_to_activate": 1.17,
+  "recharge_time": 8,
+  "endurance_cost": 16,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.4,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.01,
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "You lose {Damage} points of endurance due to {PlayerSource}'s {PowerName}."
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.2,
+          "duration": 4
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 15,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 6,
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 0,
+              "always": true
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    272,
+    284,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+  "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+  "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23,
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    20,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/CHAINFENCES_ACTIVATION.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_ELECTRICCONTROL_CHAINFENCES.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/CHAINFENCES_ACTIVATION.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/CHAINFENCES_ACTIVATION.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

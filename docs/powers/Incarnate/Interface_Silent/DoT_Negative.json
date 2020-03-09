@@ -1,0 +1,88 @@
+{
+  "crcfull_name": 480935460,
+  "source_file": "DEFS/POWERS/INCARNATE_INTERFACE_SILENT.POWERS",
+  "source_name": "Incarnate.Interface_Silent.DoT_Negative",
+  "free": true,
+  "display_name": "Spectral Interface",
+  "display_help": "You are taking ongoing Negative damage from a Spectral Interface proc.",
+  "display_short_help": "Moderate DoT(Negative)",
+  "icon_name": "Incarnate_Interface_Spectral_Common.tga",
+  "type": 5,
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "tag": [
+        "InterfaceDoT"
+      ],
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_TempDamage",
+          "scale": 0.125,
+          "duration": 4.3,
+          "period": 1,
+          "tick_chance": 0,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 8,
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          },
+          "fx": {
+            "continuing_fx": "INCARNATEPOWERS/INTERFACE/SPECTRAL.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    20
+  ]
+}

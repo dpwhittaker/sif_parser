@@ -1,0 +1,202 @@
+{
+  "crcfull_name": 300832780,
+  "source_file": "DEFS/POWERS/TANKER_DEFENSE_RADIATION_ARMOR.POWERS",
+  "source_name": "Tanker_Defense.Radiation_Armor.Ground_Zero",
+  "display_name": "Ground Zero",
+  "display_help": "You release a mixture of radiation into the area. Nearby foes will be barraged with harmful radiation and will suffer Moderate Energy damage immediately, followed by moderate toxic damage over time. Affected foes will also have their defense reduced. Nearby allies will be healed for a moderate amount and will recover health over time. This power can affect a total of 30 targets. This includes both friends and foes. Ground Zero has no effect on the caster, only nearby allies and enemies. Damage: Moderate, Moderate DoT, Recharge: Long",
+  "display_short_help": "PBAoE, Foe Moderate DMG(Energy), Moderate DoT(Toxic), -DEF(All), Ally +HP, +Heal over time",
+  "display_target_help": "Radiation has left you weakened. You are suffering damage over time and have reduced defenses!",
+  "display_target_short_help": "Moderate DoT(Toxic), -Def",
+  "icon_name": "RadiationArmor_GroundZero.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 30,
+  "radius": 15,
+  "time_to_activate": 3,
+  "recharge_time": 90,
+  "endurance_cost": 13,
+  "ents_auto_hit": [
+    16
+  ],
+  "ents_affected": [
+    16,
+    19
+  ],
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    14,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 9.1,
+          "delay": 1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 2,
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "target.isFriend?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "table": "Melee_HealSelf",
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage."
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "table": "Melee_HealSelf",
+          "scale": 0.05,
+          "duration": 9.1,
+          "delay": 1,
+          "period": 1,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage over time.",
+            "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage over time."
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    16,
+    28,
+    36,
+    184
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_GROUNDZERO.PFX",
+  "attack_bits": [
+    248,
+    681
+  ],
+  "initial_attack_bits": [
+    248,
+    681
+  ],
+  "attack_fx": "POWERS/RADIATIONCONTROL/EMPPULSE.FX",
+  "initial_attack_fx": "POWERS/RADIATIONCONTROL/EMPPULSE.FX",
+  "frames_before_hit": 20,
+  "attack_frames": 90,
+  "initial_frames_before_hit": 20,
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_GROUNDZERO.PFX",
+      "attack_bits": [
+        248,
+        681
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        248,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/EMPPULSE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/EMPPULSE.FX",
+      "mode_bits": [],
+      "frames_before_hit": 20,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 20,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONARMOR_GROUNDZERO.PFX",
+      "attack_bits": [
+        248,
+        681
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        248,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/EMPPULSE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONEMISSION/SUBTRACTIVE/EMPPULSE.FX",
+      "mode_bits": [],
+      "frames_before_hit": 20,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 20
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "crcfull_name": 3436349254,
+  "source_file": "DEFS/POWERS/NEWPRAETORIANS_GRANT_CRESTON.POWERS",
+  "source_name": "NewPraetorians.Grant_Creston.Plasma_Vortex",
+  "display_name": "Plasma Vortex",
+  "display_help": "You charge up your plasma gauntlets and whirl around, swinging your fists in a wide arc, hitting multiple targets. Affected targets suffer energy and smashing damage and may be briefly stunned.",
+  "display_short_help": "PBAoE, Moderate DMG(Smashing/Energy), Chance for Stun (Foe)",
+  "display_target_help": "You have been stunned.",
+  "display_target_short_help": "Stun",
+  "icon_name": "NewPraetorians_GrantCreston_PlasmaVortex.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 8,
+  "time_to_activate": 2.5,
+  "recharge_time": 14,
+  "endurance_cost": 17.5,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.35,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.45,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 4,
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    0,
+    16,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_GRANTCRESTON_PLASMAVORTEX.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    200
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    200
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHHIT2.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYMELEE/POWERPUNCHFLURY.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 36,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 36,
+  "primary_tint": [
+    16,
+    48,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    32,
+    96,
+    255,
+    255
+  ]
+}

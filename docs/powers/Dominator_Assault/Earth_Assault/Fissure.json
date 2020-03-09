@@ -1,0 +1,386 @@
+{
+  "crcfull_name": 2865038525,
+  "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_EARTH_ASSAULT.POWERS",
+  "source_name": "Dominator_Assault.Earth_Assault.Fissure",
+  "display_name": "Fissure",
+  "display_help": "This powerful stomp can crack the earth itself, damaging a nearby targeted foe and any foes around it. This Fissure can only affect foes on the ground, dealing moderate smashing damage and possibly throwing them into the air or disorienting them. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Close (Targeted AoE), Moderate DMG(Smash), Foe Knockback, Disorient",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "EarthAssault_Fissure.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing"
+  ],
+  "near_ground": true,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "range": 20,
+  "time_to_activate": 2.1,
+  "recharge_time": 16,
+  "endurance_cost": 15.184,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    21,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.17,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 8,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 12,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.8606,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    0,
+    96,
+    276,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_EARTHASSAULT_FISSURE.PFX",
+  "attack_bits": [
+    20,
+    322
+  ],
+  "initial_attack_bits": [
+    20,
+    322
+  ],
+  "attack_fx": "POWERS/EARTHCONTROL/FAULT.FX",
+  "hit_fx": "POWERS/EARTHCONTROL/EARTHWEAPONHITROOT.FX",
+  "initial_attack_fx": "POWERS/EARTHCONTROL/FAULT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 19,
+  "delayed_hit": true,
+  "attack_frames": 63,
+  "initial_frames_before_hit": 19,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_EARTHASSAULT_FISSURE.PFX",
+      "attack_bits": [
+        20,
+        322
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        322
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/FAULT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/FAULT_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/FAULT_ATTACK.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 90,
+      "palette": "Earth"
+    },
+    {
+      "token": "Lava",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_EARTHASSAULT_FISSURE.PFX",
+      "display_name": "Lava",
+      "attack_bits": [
+        20,
+        322
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        322
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/LAVA/FAULT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/LAVA/FAULT_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/LAVA/FAULT_ATTACK.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 90,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "Crystal",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_EARTHASSAULT_FISSURE.PFX",
+      "attack_bits": [
+        20,
+        322
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        322
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/CRYSTAL/FAULT_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/CRYSTAL/FAULT_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STONEMELEE/CRYSTAL/FAULT_ATTACK.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 90,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

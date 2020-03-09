@@ -1,0 +1,997 @@
+{
+  "Frigid_Smash": {
+    "crcfull_name": 1217408509,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+    "source_name": "BanishedPantheon.Sentinel.Frigid_Smash",
+    "display_name": "Frigid Smash",
+    "display_help": "You wind up a massive smash, striking the ground with tremendous force. This unleashes a shock wave of death energy in a cone which causes cold damage, with the lingering effect of death also dealing negative energy damage over time. Additionally, the target's defense against and resistance to cold and negative energy attacks are reduced. Finally, the longer the Sentinel remains alive, the more likely his presence will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "Ranged (Cone), Minor DMG (Cold), Minor DoT (Negative Energy), -DEF(Foe, Cold/Negative Energy), -RES(Foe, Cold/Negative Energy), Knockup(Foe), Chance for +EndCost(Foe)",
+    "display_target_help": "You are suffering negative energy damage over time. Additionally, your resistance against cold and negative energy attacks has been reduced, and there is the potential for your powers to cost more endurance to execute.",
+    "display_target_short_help": "DoT (Negative Energy), -RES (Cold & Negative Energy), Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Sentinel_FrigidSmash.tga",
+    "attack_types": [
+      "Cold",
+      "NegativeEnergy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 999,
+    "radius": 60,
+    "arc": 0.5235988,
+    "time_to_activate": 4.83,
+    "recharge_time": 4,
+    "endurance_cost": 4,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.08,
+            "duration": 1.5,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              12,
+              20
+            ],
+            "aspect": 24,
+            "scale": -0.25,
+            "duration": 8,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              128,
+              136
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 8,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 600,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "SentinelEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "SentinelEnd"
+        ],
+        "chance": -2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "scale": -0.08,
+            "duration": 8,
+            "caster_stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource}'s {PowerName} has increased the endurance cost of your powers!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      128,
+      136,
+      324,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_FRIGID_SMASH.PFX",
+    "attack_bits": [
+      20,
+      263,
+      602
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263,
+      602
+    ],
+    "attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDSMASH_ATTACK.FX",
+    "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_HIT.FX",
+    "initial_attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDSMASH_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 84,
+    "attack_frames": 145,
+    "initial_frames_before_hit": 84
+  },
+  "Frigid_Stomp": {
+    "crcfull_name": 848060903,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+    "source_name": "BanishedPantheon.Sentinel.Frigid_Stomp",
+    "display_name": "Frigid Stomp",
+    "display_help": "You stomp the ground with tremendous force, unleashing a shockwave of death energy that strikes nearby targets for cold and negative energy damage. Additionally, the affected targets suffer from endurance drain and reduced regeneration and recovery. Finally, the longer the Sentinel remains alive, the more likely his presence will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "PBAoE, Moderate DMG (Cold, Negative Energy), EndDrain(Foe), Knockup(Foe), -Regen(Foe), -Rec(Foe), Chance for +EndCost(Foe)",
+    "display_target_help": "You are suffering from endurance drain and from reduced regeneration and recovery. There is also the potential for your powers to cost more endurance to execute.",
+    "display_target_short_help": "-End, -Regen, -Rec, Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Sentinel_FrigidStomp.tga",
+    "attack_types": [
+      "AOE",
+      "Cold",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 999,
+    "radius": 15,
+    "range": 20,
+    "time_to_activate": 2.1,
+    "recharge_time": 6,
+    "endurance_cost": 10,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "scale": -0.02,
+            "duration": 4,
+            "period": 1,
+            "tick_chance": 0.6,
+            "flags": [
+              212,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 600,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "SentinelEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "scale": -0.1,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "scale": -0.1,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "SentinelEnd"
+        ],
+        "chance": -1.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "scale": -0.08,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource}'s {PowerName} has increased the endurance cost of your powers!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      88,
+      232,
+      236,
+      324,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_FRIGID_STOMP.PFX",
+    "attack_bits": [
+      20,
+      322,
+      602,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      322,
+      602,
+      48
+    ],
+    "attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDSTOMP_ATTACK.FX",
+    "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_HIT.FX",
+    "initial_attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDSTOMP_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 63,
+    "initial_frames_before_hit": 22
+  },
+  "Reapers_Bolt": {
+    "crcfull_name": 3073231654,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+    "source_name": "BanishedPantheon.Sentinel.Reapers_Bolt",
+    "display_name": "Reaper's Bolt",
+    "display_help": "You unleash a bolt of death energy at a single target. The affected target suffers from negative energy damage over time, endurance drain and reduced recovery. Additionally, the longer the Sentinel remains alive, the more likely his presence will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "Ranged (Secondary Target), Moderate DMG(Negative Energy), Minor DoT(Negative Energy), EndDrain(Foe), -Rec(Foe), Chance for +EndCost(Foe)",
+    "display_target_help": "You are suffering from negative energy damage over time, endurance drain and reduced recovery. There is also the potential for your powers to cost more endurance to execute.",
+    "display_target_short_help": "DoT(Negative Energy), -End, -Rec, Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Sentinel_ReapersBolt.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 150,
+    "time_to_activate": 2.67,
+    "recharge_time": 2.83,
+    "endurance_cost": 10,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 4,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.02,
+            "duration": 4,
+            "period": 1,
+            "tick_chance": 0.6,
+            "flags": [
+              212,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.15,
+            "duration": 6,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.2,
+            "duration": 600,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "SentinelEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "SentinelEnd"
+        ],
+        "chance": -1,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "table": "Ranged_Ones",
+            "scale": -0.08,
+            "duration": 8,
+            "caster_stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource}'s {PowerName} has increased the endurance cost of your powers!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      20,
+      88,
+      236,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_REAPERS_BOLT.PFX",
+    "attack_bits": [
+      20,
+      686,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      686,
+      154,
+      258
+    ],
+    "attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_REAPERSBOLT_ATTACK.FX",
+    "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_HIT.FX",
+    "initial_attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_REAPERSBOLT_ATTACK.FX",
+    "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 45,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 45
+  },
+  "Frenzied_Slash": {
+    "crcfull_name": 1855377622,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+    "source_name": "BanishedPantheon.Sentinel.Frenzied_Slash",
+    "display_name": "Frenzied Slash",
+    "display_help": "You slash violently at your target, causing several quick bursts of cold and lethal damage.",
+    "display_short_help": "Melee (Cone), Minor DoT(Cold, Lethal)",
+    "display_target_help": "You have been affected by the Sentinel's touch and suffer cold and lethal damage over time.",
+    "display_target_short_help": "DoT(Cold, Lethal)",
+    "icon_name": "BanishedPantheon_Sentinel_FrenziedSlash.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal",
+      "Cold"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "arc": 1.5707964,
+    "range": 30,
+    "time_to_activate": 3.33,
+    "recharge_time": 15,
+    "endurance_cost": 10,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.05,
+            "duration": 2.1,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      4,
+      12
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_ENERVATING_STRIKE.PFX",
+    "attack_bits": [
+      20,
+      686,
+      154,
+      309
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      309
+    ],
+    "initial_attack_bits": [
+      20,
+      686,
+      154,
+      309
+    ],
+    "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/ENERVATINGSTRIKE_HIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 100,
+    "initial_frames_before_hit": 32
+  },
+  "Frigid_Grasp": {
+    "crcfull_name": 3142584111,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+    "source_name": "BanishedPantheon.Sentinel.Frigid_Grasp",
+    "display_name": "Frigid Grasp",
+    "display_help": "You freeze a single target in a mass of death energy. The target is held and suffers cold damage, as well as negative energy damage over time. Some of the drained health is returned to you, healing you. The target also suffers lingering reductions in their movement and recharge speeds after the hold ends. Finally, the longer the Sentinel remains alive, the more likely his presence will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+    "display_short_help": "Ranged (Secondary Target), Moderate DMG(Cold), Minor DoT(Negative Energy), Grounded(Foe), -Speed(Foe,All), -Rech(Foe), Chance for +EndCost(Foe), Heal(Self)",
+    "display_target_help": "You have been caught in a mass of frozen death energy, causing you to be held and suffer negative energy damage over time. When the hold ends, you will suffer reduced movement and attack speeds. There is also the potential for your powers to cost more endurance to execute.",
+    "display_target_short_help": "DoT(Negative Energy), Hold, -Speed(All), -Rech, Chance for +EndCost",
+    "icon_name": "BanishedPantheon_Sentinel_FrigidGrasp.tga",
+    "attack_types": [
+      "Ranged",
+      "Cold"
+    ],
+    "range": 80,
+    "time_to_activate": 2.67,
+    "recharge_time": 18,
+    "endurance_cost": 15,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 6,
+            "magnitude": 4,
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DARKGRASP_CONDITIONAL.FX"
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.7,
+            "delay": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -2,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "stack_type": 3,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You suffer from the reduction in movement and slowed recharge aftereffects of {PlayerSource}'s {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "stack_type": 3,
+            "flags": [
+              208,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.2,
+            "duration": 600,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "SentinelEnd"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "attrib_mod": [
+          {
+            "attrib": [
+              80
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.1,
+            "delay": 1,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "SentinelEnd"
+        ],
+        "chance": -0.5,
+        "attrib_mod": [
+          {
+            "attrib": [
+              364
+            ],
+            "aspect": 16,
+            "table": "Ranged_Ones",
+            "scale": -0.08,
+            "duration": 12,
+            "caster_stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource}'s {PowerName} has increased the endurance cost of your powers!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      12,
+      20,
+      80,
+      188,
+      192,
+      200,
+      204,
+      268,
+      284,
+      324,
+      328,
+      356,
+      364,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_FRIGID_GRASP.PFX",
+    "attack_bits": [
+      20,
+      686,
+      154,
+      258
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      686,
+      154,
+      258
+    ],
+    "conditional_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDGRASP_CONDITIONAL.FX",
+    "conditional_fx1": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/FRIGIDGRASP_CONDITIONAL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 32
+  },
+  "Impale": {
+    "crcfull_name": 370460525,
+    "source_file": "DEFS/POWERS/BANISHEDPANTHEON_SENTINEL.POWERS",
+    "source_name": "BanishedPantheon.Sentinel.Impale",
+    "display_name": "Impale",
+    "display_help": "You coalesce a mass of death energy in the ground under the location of a single target. After a few moments, this energy erupts from the ground in crystalline death energy form, which then bursts, causing all enemies still within the area to suffer knockdown and damage.",
+    "display_short_help": "TAoE (Secondary Target), Special",
+    "icon_name": "BanishedPantheon_Sentinel_Impale.tga",
+    "target_requires": [
+      "enttype",
+      "target>",
+      "player",
+      "eq"
+    ],
+    "accuracy": 2,
+    "target_near_ground": true,
+    "range": 150,
+    "time_to_activate": 2.03,
+    "recharge_time": 24,
+    "endurance_cost": 22,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "type": 2,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 11,
+            "flags": [
+              112,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} creates a powerful concentration of death energy at your location and prepares to {PowerName} you!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "BanishedPantheonEndgame_SentinelPets_ImpaleMaster"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 900,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_IMPALE.PFX",
+    "attack_bits": [
+      20,
+      686,
+      154,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      686,
+      154,
+      252
+    ],
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  }
+}

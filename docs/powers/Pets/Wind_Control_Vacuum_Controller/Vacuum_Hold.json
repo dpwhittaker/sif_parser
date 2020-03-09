@@ -1,0 +1,151 @@
+{
+  "crcfull_name": 337341360,
+  "source_file": "DEFS/POWERS/PETS_WIND_CONTROL_VACUUM_CONTROLLER.POWERS",
+  "source_name": "Pets.Wind_Control_Vacuum_Controller.Vacuum_Hold",
+  "display_name": "Vacuum",
+  "display_help": "You envelop the area around you in a vacuum, staggering all those caught in the initial burst.",
+  "display_short_help": "PBAoE, Hold (Foe)",
+  "display_target_help": "You have been caught in the initial burst creating a vacuum near your location. This staggers you, effectively holding you in place for a short time.",
+  "display_target_short_help": "Hold",
+  "icon_name": "WindControl_Vacuum.tga",
+  "type": 1,
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "activate_period": 16.1,
+  "boosts_allowed": [
+    30,
+    5
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerDest} has been held within your {PowerName} field.",
+            "display_victim_hit": "You are staggered by {PowerName} and held in place."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 6,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerDest} has been strongly staggered by the overpowering nature of your {PowerName} field.",
+            "display_victim_hit": "You are exceptionally staggered by {PowerName} and held in place more strongly.",
+            "display_float": "Overpower"
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 4,
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "{PlayerDest} has been held within your {PowerName} field.",
+            "display_victim_hit": "You are staggered by {PowerName} and held in place."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    268
+  ]
+}

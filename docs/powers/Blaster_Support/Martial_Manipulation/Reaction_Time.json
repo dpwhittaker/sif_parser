@@ -1,0 +1,350 @@
+{
+  "crcfull_name": 1372339862,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_MARTIAL_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Martial_Manipulation.Reaction_Time",
+  "display_name": "Reaction Time",
+  "display_help": "You attune yourself to the world around you, moving with preternatural speed. All enemies nearby move slowly and have reduced recharge, and you can absorb small amounts of damage every 2 seconds. When Reaction Time is deactivated, you gain a burst of speed for a short duration, increasing your own recharge and move speed.",
+  "display_short_help": "Toggle (PBAoE), Self Absorb over Time, +Recovery, Foe –Rech, - Move, Special",
+  "display_target_help": "Your Attack speed, Running speed and damage are reduced by the Chilling Embrace.",
+  "display_target_short_help": "-Recharge, -SPD, -DMG",
+  "display_attacker_hit": "Your {PowerName} Slows all nearby foes.",
+  "icon_name": "MartialManipulation_ReactionTime.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "toggle_ignore_hold": true,
+  "toggle_ignore_sleep": true,
+  "toggle_ignore_stun": true,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 30,
+  "time_to_activate": 1.83,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "ents_auto_hit": [
+    19,
+    1
+  ],
+  "ents_affected": [
+    19,
+    1
+  ],
+  "boosts_allowed": [
+    33,
+    29,
+    18,
+    14
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "cur.kHeld",
+        "source>",
+        "0",
+        ">",
+        "cur.kStun",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kSleep",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kTerrorized",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.7,
+          "duration": 5,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.4,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.7,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "&&",
+        "cur.kHeld",
+        "source>",
+        "0",
+        ">",
+        "cur.kStun",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kSleep",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kTerrorized",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Melee_SpeedRunning",
+          "scale": -1,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "application_type": 2,
+          "target": 0,
+          "table": "Melee_Slow",
+          "scale": -0.7,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "application_type": 2,
+          "target": 0,
+          "table": "Melee_Slow",
+          "scale": -0.4,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "application_type": 2,
+          "target": 0,
+          "table": "Melee_SpeedRunning",
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "application_type": 2,
+          "target": 0,
+          "table": "Melee_Slow",
+          "scale": -0.7,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            84
+          ],
+          "aspect": 8,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 0.5,
+          "duration": 3,
+          "stack_type": 1,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "scale": 0.5,
+          "duration": 3,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    84,
+    188,
+    192,
+    200,
+    204,
+    236,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACTIONTIME.PFX",
+  "activation_bits": [
+    472
+  ],
+  "activation_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/REACTIONTIME.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+  "frames_before_hit": 28,
+  "attack_frames": 55,
+  "initial_frames_before_hit": 28,
+  "primary_tint": [
+    60,
+    20,
+    200,
+    255
+  ],
+  "secondary_tint": [
+    0,
+    20,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACTIONTIME.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        472
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/REACTIONTIME.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/TIMESJUNCTURE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 28,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 28,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MARTIALMANIPULATION_REACTIONTIME.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        472
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/MARTIALMANIPULATION/SUBTRACTIVE/REACTIONTIME.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMESJUNCTURE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/TIMEMANIPULATION/SUBTRACTIVE/TIMESJUNCTURE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 28,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 28
+    }
+  ]
+}

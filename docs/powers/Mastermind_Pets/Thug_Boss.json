@@ -1,0 +1,745 @@
+{
+  "Resistance": {
+    "crcfull_name": 888493333,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Resistance",
+    "display_name": "Resistance",
+    "display_help": "The Bruiser is a Brute. He has good resistance to Lethal and Smashing Damage and some resistance to Fire and Cold Damage. He is street wise and Their training makes them resistant to Confuse, Fear and Placate. His experience in the elements makes him slightly resistant to Fire, Cold and Toxic Damage. He can fire a Burst or a single heavy Slug from his Assault Rifle.",
+    "display_short_help": "Auto Res(Smashing, Lethal, Fire, Cold, Fear, Confuse, Placate)",
+    "icon_name": "Invulnerability_TemporaryInvulnerabilty.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "scale": 0.105,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              8,
+              12,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "scale": 0.0263,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              252,
+              264
+            ],
+            "target": 0,
+            "scale": -4,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              256,
+              264
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 0.5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              256
+            ],
+            "target": 0,
+            "scale": -2,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      36,
+      252,
+      256,
+      264
+    ]
+  },
+  "Jab": {
+    "crcfull_name": 1026800686,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Jab",
+    "display_name": "Jab",
+    "display_help": "A quick jab that deals minor damage, but has a chance of Disorienting the target, especially if coupled with other attacks. Damage: Minor, Recharge: Very Fast",
+    "display_short_help": "Melee, Minor DMG(Smash), Minor Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "SuperStrength_Jab.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.07,
+    "recharge_time": 2,
+    "endurance_cost": 3.536,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.68,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SUPERSTRENGTH_MELEE_QUICK.PFX",
+    "attack_bits": [
+      20,
+      353
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      353
+    ],
+    "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSQUICK.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_JAB_HIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSQUICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 32
+  },
+  "Punch": {
+    "crcfull_name": 634132635,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Punch",
+    "display_name": "Punch",
+    "display_help": "Your Super Strength Punch can deal a moderate amount of damage, but most of all can knock your opponent off his feet, unable to attack again until he stands up. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Smash), Knockback",
+    "icon_name": "SuperStrength_Punch.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.2,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SUPERSTRENGTH_MELEE_NORMAL.PFX",
+    "attack_bits": [
+      20,
+      263,
+      256
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263,
+      256
+    ],
+    "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKS.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_PUNCH_HIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 24,
+    "attack_frames": 36,
+    "initial_frames_before_hit": 24
+  },
+  "Fury": {
+    "crcfull_name": 3641571200,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Fury",
+    "display_name": "Fury",
+    "display_help": "As a Brute engages in combat, it unleashes his Fury. The longer he remains in combat, attacking and being attacked, the more damage he deals.",
+    "display_short_help": "Self +DMG, Special",
+    "icon_name": "Inherent_BlasterDesperation.tga",
+    "type": 1,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "requires": [
+          "AttackedByOtherClick",
+          "target.EventCount>",
+          "0",
+          ">"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "type": 3,
+            "target": 0,
+            "scale": 0,
+            "magnitude_expr": [
+              "AttackedByOtherClick",
+              "target.EventCount>",
+              "2.5",
+              "*",
+              "0.0",
+              "5.0",
+              "minmax",
+              "100.0",
+              "kMeter",
+              "source>",
+              "100",
+              "*",
+              "-",
+              "20.0",
+              "/",
+              "dup",
+              "*",
+              "0.0",
+              "1.0",
+              "minmax",
+              "*"
+            ],
+            "flags": [
+              96,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "ActivateAttackClick",
+          "target.EventCount>",
+          "0",
+          ">"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "type": 3,
+            "target": 0,
+            "scale": 0,
+            "magnitude_expr": [
+              "ActivateAttackClick",
+              "target.EventCount>",
+              "5",
+              "*",
+              "0.0",
+              "10.0",
+              "minmax",
+              "100.0",
+              "kMeter",
+              "source>",
+              "100",
+              "*",
+              "-",
+              "20.0",
+              "/",
+              "dup",
+              "*",
+              "0.0",
+              "1.0",
+              "minmax",
+              "*"
+            ],
+            "flags": [
+              96,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_in_manage": false,
+    "max_boosts": 0,
+    "attrib_cache": [
+      96
+    ]
+  },
+  "Fury_Buff": {
+    "crcfull_name": 3542259250,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Fury_Buff",
+    "display_name": "Fury",
+    "display_help": "As a Brute engages in combat, it unleashes his Fury. The longer he remains in combat, attacking and being attacked, the more damage he deals.",
+    "display_short_help": "Self +DMG, Special",
+    "icon_name": "Inherent_BlasterDesperation.tga",
+    "type": 1,
+    "activate_period": 1,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "type": 3,
+            "target": 0,
+            "scale": 0,
+            "duration": 3,
+            "magnitude_expr": [
+              "kRage",
+              "source>",
+              ".01",
+              "*"
+            ],
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              372
+            ],
+            "type": 3,
+            "target": 0,
+            "scale": 0,
+            "duration": 3,
+            "magnitude_expr": [
+              "kRage",
+              "source>",
+              ".01",
+              "*"
+            ],
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "max_boosts": 0,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      372
+    ]
+  },
+  "Rage_Dampen": {
+    "crcfull_name": 3986560894,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Rage_Dampen",
+    "display_name": "Fury",
+    "display_help": "As a Brute engages in combat, it unleashes his Fury. The longer he remains in combat, attacking and being attacked, the more damage he deals.",
+    "display_short_help": "Self +DMG, Special",
+    "icon_name": "Inherent_BlasterDesperation.tga",
+    "type": 1,
+    "activate_period": 1,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": -2,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "max_boosts": 0,
+    "attrib_cache": [
+      96
+    ]
+  },
+  "Super_Leap": {
+    "crcfull_name": 1130070569,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss.Super_Leap",
+    "display_name": "Super Leap",
+    "display_help": "Thugs can Super Leap",
+    "display_short_help": "Self Leap",
+    "icon_name": "Jump_LongJump.tga",
+    "type": 1,
+    "recharge_time": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kJump"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "target": 0,
+            "table": "Melee_Leap",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              200
+            ],
+            "target": 0,
+            "table": "Melee_SpeedJumping",
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "target": 0,
+            "table": "Melee_SpeedRunning",
+            "scale": 0.1,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              208
+            ],
+            "target": 0,
+            "table": "Melee_Control",
+            "scale": 10,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              212
+            ],
+            "target": 0,
+            "table": "Melee_Friction",
+            "scale": 10,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      188,
+      200,
+      204,
+      208,
+      212
+    ]
+  }
+}

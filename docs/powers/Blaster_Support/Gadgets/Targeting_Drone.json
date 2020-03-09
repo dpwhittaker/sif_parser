@@ -1,0 +1,242 @@
+{
+  "crcfull_name": 2422279150,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_GADGETS.POWERS",
+  "source_name": "Blaster_Support.Gadgets.Targeting_Drone",
+  "display_name": "Targeting Drone",
+  "display_help": "When this device is activated, the small Targeting Drone hovers around your head and emits targeting laser sights. The lasers can dramatically improve your chance to hit, slightly increase the damage you deal, and increase your perception, allowing you to better see stealthy foes. If not engaged in combat, this power will give a large damage buff to your opening attack. Targeting Drone also grants you resistance to powers that debuff your chance to hit. Recharge: Moderate",
+  "display_short_help": "Toggle: Self +To Hit, +Damage, +Recharge, +Perception, Res(DeBuff To Hit)",
+  "display_attacker_hit": "Your {PowerName} increases your chance to hit.",
+  "icon_name": "Gadgets_TargetingDrone.tga",
+  "type": 2,
+  "toggle_ignore_hold": true,
+  "toggle_ignore_sleep": true,
+  "toggle_ignore_stun": true,
+  "time_to_activate": 1.17,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "endurance_cost": 0.156,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    7
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 1.6,
+          "duration": 0.6,
+          "magnitude": 0,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_Buff_ToHit",
+          "scale": 1.85,
+          "duration": 0.75,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "aspect": 24,
+          "table": "Melee_Res_Boolean",
+          "scale": 2,
+          "duration": 0.75,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            228
+          ],
+          "aspect": 24,
+          "target": 0,
+          "scale": 0.6,
+          "duration": 0.75,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            228
+          ],
+          "target": 0,
+          "scale": 0.6,
+          "duration": 0.75,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kEngaged",
+        "Source.Mode?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 4.8,
+          "duration": 0.75,
+          "stack_type": 3,
+          "cancel_events": [
+            2,
+            8,
+            19,
+            21,
+            22,
+            31
+          ],
+          "suppress": [
+            {
+              "event": 2,
+              "seconds": 8
+            },
+            {
+              "event": 8,
+              "seconds": 8
+            },
+            {
+              "event": 31,
+              "seconds": 8
+            }
+          ],
+          "flags": [
+            112,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "kEngaged",
+    "Mode?",
+    "!"
+  ],
+  "highlight_ring": [
+    255,
+    128,
+    0,
+    255
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    228
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_GADGETS_TARGETINGDRONE.PFX",
+  "activation_bits": [
+    474,
+    681,
+    723
+  ],
+  "activation_fx": "POWERS/GADGETS/DRONE.FX",
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_GADGETS_TARGETINGDRONE.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        474,
+        681,
+        723
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/GADGETS/DRONE.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": "Additive"
+    }
+  ]
+}

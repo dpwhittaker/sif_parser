@@ -1,0 +1,364 @@
+{
+  "O2_Boost": {
+    "crcfull_name": 944658032,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_ELEMENTALS_SUPPORT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Elementals_Support.O2_Boost",
+    "free": true,
+    "display_name": "O2 Boost",
+    "display_help": "Saturates the air around a targeted ally with rich oxygen, healing their wounds. The O2 Boost can protect a targeted ally from Sleep, Stun and Endurance Drain effects as well as increase perception. You cannot use this power on yourself. Recharge: Fast",
+    "display_short_help": "Ally Heal, +Res(Disorient, Sleep, End Drain), +Perception",
+    "display_target_help": "The O2 Boost has improved your resistance to Sleep, Stun and Endurance Drain effects.",
+    "display_target_short_help": "Res(Disorient, Sleep, End Drain)",
+    "icon_name": "StormSummoning_O2Boost.tga",
+    "range": 80,
+    "time_to_activate": 2.27,
+    "recharge_time": 4,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "boosts_allowed": [
+      39
+    ],
+    "ai_groups": [
+      "kHealAlly"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "table": "Ranged_Heal",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} heals {PlayerDest} with {PowerName} for {Damage} points of damage and protects them from Sleep and Disorientation.",
+              "display_victim_hit": "{PlayerSource} heals you with {PowerName} for {Damage} points of damage and protect you from Sleep and Disorientation."
+            }
+          },
+          {
+            "attrib": [
+              88,
+              236
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 2,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              280
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 4,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              228
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 2.5,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              228
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": 2.5,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276,
+              280
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -20,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276,
+              280
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 2,
+            "duration": 60,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      28,
+      88,
+      228,
+      236,
+      276,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/STORMSUMMONING_O2_BOOST.PFX",
+    "attack_bits": [
+      20,
+      306
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      306
+    ],
+    "attack_fx": "POWERS/STORMSUMMONING/SSO2BOOST.FX",
+    "hit_fx": "POWERS/STORMSUMMONING/SSO2BOOSTHIT.FX",
+    "initial_attack_fx": "POWERS/STORMSUMMONING/SSO2BOOST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 68,
+    "initial_frames_before_hit": 25
+  },
+  "Hurricane": {
+    "crcfull_name": 3681494125,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_ELEMENTALS_SUPPORT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Elementals_Support.Hurricane",
+    "free": true,
+    "display_name": "Hurricane",
+    "display_help": "You can summon a Hurricane. The wind and rain from this massive storm reduce the range and chance to hit of nearby foes. The massive winds of this storm continuously force foes away from you. Recharge: Slow",
+    "display_short_help": "Toggle: PBAoE, Foe -Range, -To-hit, Repel, Knockback",
+    "display_target_help": "Hurricane Force winds are reducing the visual range and chance to hit of all enemies around the Storm Summoner!",
+    "display_target_short_help": "-Range, -To-hit",
+    "display_attacker_hit": "{PlayerSource} reduces the range and chance to hit of all nearby foes with their {PowerName}.",
+    "display_victim_hit": "{PlayerSource} reduces your range and chance to hit with their {PowerName}!",
+    "icon_name": "StormSummoning_Hurricane.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "recharge_time": 10,
+    "activate_period": 0.25,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStunned",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "table": "Ranged_Ones",
+            "scale": -0.6,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 3,
+            "duration": 10,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStunned",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 4,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.05,
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStunned",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 4,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      100,
+      328,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/STORMSUMMONING_HURRICANE.PFX",
+    "activation_bits": [
+      20,
+      255
+    ],
+    "activation_fx": "POWERS/STORMSUMMONING/SSHURRICANE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  }
+}

@@ -1,0 +1,375 @@
+{
+  "crcfull_name": 4189141839,
+  "source_file": "DEFS/POWERS/VILLAIN_PETS_DOMINATOR_KINETICASSAULT_SNIPE.POWERS",
+  "source_name": "Villain_Pets.Dominator_KineticAssault_Snipe.Kinetic_Lance_Normal",
+  "display_name": "Kinetic Lance",
+  "display_help": "You form the potential energies around you into a lance of energy that you fire at a single target. This lance pierces the target, causing an initial burst of lethal damage that then becomes a smaller lethal damage over time effect. This attack will also build Impulse. When you have at least one stack of Impulse, this power will also reduce the target's damage potential and smashing/energy resistance. This is a sniper attack, and is best fired from a distance, as it can be interrupted. If you are engaged in battle this attack becomes instant-cast. If you are not engaged, it will do bonus damage. When used against players in PvP situations, this power will grant additional contribution toward your Domination. Damage: Extreme, Recharge: Very Slow",
+  "display_short_help": "Sniper, Extreme DMG (Lethal, Energy), Special (Power Amplified)",
+  "display_target_help": "You are suffering lethal damage over time.",
+  "display_target_short_help": "DoT (Lethal)",
+  "icon_name": "KineticAssault_KineticLance.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 175,
+  "time_to_activate": 4,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "interrupt_time": 3,
+  "target": 19,
+  "boosts_allowed": [
+    32,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.958,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+            "display_float": "SNIPER SHOT"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.89,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SNIPER SHOT].",
+            "display_float": "SNIPER SHOT"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Kinetic_Assault_Impulse",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 1.6,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You reduce {PlayerDest}'s damage potential and resistance to smashing and energy damage with your Impulse empowered {PowerName}.",
+            "display_victim_hit": "Your damage potential and resistance to smashing and energy damage have been reduced by {PlayerSource}'s Impulse empowered {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            16
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -1.896,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Kinetic_Assault_Impulse",
+        "source.ownPowerNum?",
+        "5",
+        "<"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Kinetic_Assault_Impulse"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    96,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_PSIONICASSAULT_PSIONICLANCE.PFX",
+  "attack_bits": [
+    20,
+    312,
+    681
+  ],
+  "wind_up_bits": [
+    20,
+    370
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    312,
+    681
+  ],
+  "attack_fx": "POWERS/PSIONICS/PSIONICLANCEBLAST.FX",
+  "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+  "wind_up_fx": "POWERS/PSIONICS/PSIONICLANCEBLASTWINDUP.FX",
+  "initial_attack_fx": "POWERS/PSIONICS/PSIONICLANCEBLAST.FX",
+  "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+  "continuing_fx1": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 0,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 0,
+  "projectile_speed": 105,
+  "custom_fx": [
+    {
+      "token": "Bright Psionic Assault",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_PSIONICASSAULT_PSIONICLANCE.PFX",
+      "attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "wind_up_bits": [
+        20,
+        370
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICLANCEBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICLANCEBLASTWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICLANCEBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 0,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 0,
+      "projectile_speed": 105,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Psionic Assault",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_PSIONICASSAULT_PSIONICLANCE.PFX",
+      "attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "wind_up_bits": [
+        20,
+        370
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/PSIONICLANCEBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/INFUSETHOUGHTSHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/PSIONICLANCEBLASTWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/PSIONICLANCEBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 0,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 0,
+      "projectile_speed": 105
+    },
+    {
+      "token": "Bright Psychic Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_PSIONICASSAULT_PSIONICLANCE.PFX",
+      "display_name": "Bright Psionic Crush",
+      "attack_bits": [
+        20,
+        312,
+        681,
+        685
+      ],
+      "wind_up_bits": [
+        20,
+        370,
+        685,
+        691
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        681,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_PSIONICLANCEBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_PSIONICLANCEBLASTWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_PSIONICLANCEBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 0,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 0,
+      "projectile_speed": 105,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Psychic Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_PSIONICASSAULT_PSIONICLANCE.PFX",
+      "display_name": "Dark Psionic Crush",
+      "attack_bits": [
+        20,
+        312,
+        681,
+        685
+      ],
+      "wind_up_bits": [
+        20,
+        370,
+        685,
+        691
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        681,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_PSIONICLANCEBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/INFUSETHOUGHTSHIT.FX",
+      "wind_up_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_PSIONICLANCEBLASTWINDUP.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_PSIONICLANCEBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 0,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 0,
+      "projectile_speed": 105
+    }
+  ]
+}

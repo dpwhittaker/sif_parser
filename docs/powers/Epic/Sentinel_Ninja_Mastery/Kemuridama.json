@@ -1,0 +1,275 @@
+{
+  "crcfull_name": 3479001097,
+  "source_file": "DEFS/POWERS/EPIC_SENTINEL_NINJA_MASTERY.POWERS",
+  "source_name": "Epic.Sentinel_Ninja_Mastery.Kemuridama",
+  "display_name": "Kemuridama",
+  "display_help": "You activate a kemuridama smoke bomb at your feet. The resulting flash of light and smoke can briefly distract your foes and Placate them so they can no longer find or target you. A mixture of toxins in the smoke also weaken your foes, reducing how much damage they inflict in addition to lowering their chance to hit. Recharge: Very Long",
+  "display_short_help": "PBAoE, Foe Placate -DMG -To Hit",
+  "display_target_help": "You have been Placated and your chance to hit and Damage potential have been reduced.",
+  "display_target_short_help": "Placate, -To Hit, -DMG",
+  "icon_name": "NinjaTools_Placate",
+  "buy_requires": [
+    "Epic.Sentinel_Ninja_Mastery.Caltrops",
+    "Epic.Sentinel_Ninja_Mastery.Sting_of_the_Wasp",
+    "&&",
+    "Epic.Sentinel_Ninja_Mastery.Caltrops",
+    "Epic.Sentinel_Ninja_Mastery.Paralizing_Dart",
+    "&&",
+    "||",
+    "Epic.Sentinel_Ninja_Mastery.Caltrops",
+    "Epic.Sentinel_Ninja_Mastery.The_Lotus_Drops",
+    "&&",
+    "||",
+    "Epic.Sentinel_Ninja_Mastery.Sting_of_the_Wasp",
+    "Epic.Sentinel_Ninja_Mastery.Paralizing_Dart",
+    "&&",
+    "||",
+    "Epic.Sentinel_Ninja_Mastery.Sting_of_the_Wasp",
+    "Epic.Sentinel_Ninja_Mastery.The_Lotus_Drops",
+    "&&",
+    "||"
+  ],
+  "accuracy": 1.4,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 20,
+  "time_to_activate": 1.83,
+  "recharge_time": 120,
+  "endurance_cost": 19.5,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            252
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Ranged_Taunt",
+          "scale": 15,
+          "magnitude": 4,
+          "delay": 0.2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Placate {PlayerDest}.",
+            "display_victim_hit": ""
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/PLACATEHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 3,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Ranged_DeBuff_ToHit",
+          "scale": 1.5,
+          "duration": 30,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "You lower the damage potential and accuracy of {PlayerDest}.",
+            "display_victim_hit": "Your damage potential and accuracy have been lowered by {PowerName}'s {PlayerSource}."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            252
+          ],
+          "aspect": 32,
+          "type": 0,
+          "table": "Ranged_Taunt",
+          "scale": 6,
+          "magnitude": 3,
+          "delay": 0.2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Placate {PlayerDest}.",
+            "display_victim_hit": "The {PowerName} Placates you and you cannot target {PlayerSource}."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/PLACATEHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 4,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    252
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERDEFENSE_NINJITSU_SMOKEFLASH.PFX",
+  "attack_bits": [
+    20,
+    258,
+    45,
+    766,
+    111
+  ],
+  "initial_attack_bits": [
+    20,
+    258,
+    45,
+    766,
+    111
+  ],
+  "attack_fx": "V_COV/POWERS/NINJITSU/AOEWHITESMOKE.FX",
+  "initial_attack_fx": "V_COV/POWERS/NINJITSU/AOEWHITESMOKE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 46,
+  "attack_frames": 55,
+  "initial_frames_before_hit": 46,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "alt_theme": [
+        "Minimal FX"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERDEFENSE_NINJITSU_SMOKEFLASH.PFX",
+      "attack_bits": [
+        20,
+        258,
+        45,
+        766,
+        111
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        258,
+        45,
+        766,
+        111
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/NINJITSU/AOEWHITESMOKE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/NINJITSU/AOEWHITESMOKE.FX",
+      "frames_before_hit": 46,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 46,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERDEFENSE_NINJITSU_SMOKEFLASH.PFX",
+      "attack_bits": [
+        20,
+        258,
+        45,
+        766,
+        111
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        258,
+        45,
+        766,
+        111
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/NINJITSU/SUBTRACTIVE/AOEWHITESMOKE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/NINJITSU/SUBTRACTIVE/AOEWHITESMOKE.FX",
+      "frames_before_hit": 46,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 46
+    }
+  ]
+}

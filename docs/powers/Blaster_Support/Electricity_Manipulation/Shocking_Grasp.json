@@ -1,0 +1,350 @@
+{
+  "crcfull_name": 727964790,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_ELECTRICITY_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Electricity_Manipulation.Shocking_Grasp",
+  "display_name": "Shocking Grasp",
+  "display_help": "Shocking Grasp causes the target to be overcome with a violent electrical charge. The seized target is left writhing in agony and is unable to defend themselves. Shocking Grasp also drains a significant amount of Endurance from the target and may return a portion of it to you. Damage: High(DoT), Recharge: Slow",
+  "display_short_help": "Melee, High DoT(Energy), Target Hold, -End",
+  "display_target_help": "You are being Held by the Shocking Grasp.",
+  "display_target_short_help": "Hold",
+  "icon_name": "ElectricityManipulation_ShockingGrasp.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 7,
+  "time_to_activate": 1,
+  "recharge_time": 15,
+  "endurance_cost": 18.2,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    30,
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.3,
+          "duration": 5.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.07,
+          "duration": 8.1,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2833,
+          "duration": 5.1,
+          "period": 5.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              380
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Melee_EndDrain",
+          "scale": -2.5,
+          "duration": 8.1,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -1,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 9.1,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You recover some of the Endurance you drained.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Defiance"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "scale": 0.066,
+          "duration": 8.5,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    88,
+    236,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_SHOCKINGGRASP.PFX",
+  "attack_bits": [
+    20,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    258
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYCONTROL.FX",
+  "hit_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHIT.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYCONTROL.FX",
+  "conditional_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYSHAKLESHIT.FX",
+  "conditional_fx1": "POWERS/ELECTRICITYCONTROL/ELECTRICITYSHAKLESHIT.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 30,
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_SHOCKINGGRASP.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SHOCKINGGRASP_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SHOCKINGGRASP_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SHOCKINGGRASP_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+      "attack_frames": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_SHOCKINGGRASP.PFX",
+      "attack_bits": [
+        20,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/SHOCKINGGRASP_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/SHOCKINGGRASP_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/SHOCKINGGRASP_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+      "attack_frames": 30
+    },
+    {
+      "token": "Bright Electric Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_SHOCKINGGRASP.PFX",
+      "display_name": "Bright Electric Cast",
+      "attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SHOCKINGGRASP_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SHOCKINGGRASP_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SHOCKINGGRASP_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ELECTRICITY_CONTINUING.FX",
+      "attack_frames": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electric Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_ELECTRICITYMANIPULATION_SHOCKINGGRASP.PFX",
+      "display_name": "Dark Electric Cast",
+      "attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/SHOCKINGGRASP_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/SHOCKINGGRASP_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/SHOCKINGGRASP_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/ELECTRICITY_CONTINUING.FX",
+      "attack_frames": 30
+    }
+  ]
+}

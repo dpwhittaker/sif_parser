@@ -1,0 +1,366 @@
+{
+  "crcfull_name": 3322438504,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_PSYCHIC_BLAST.POWERS",
+  "source_name": "Corruptor_Ranged.Psychic_Blast.Subdue",
+  "display_name": "Subdue",
+  "display_help": "Subdue deals moderate Psionic damage and may leave the targeted foe Immobilized for a brief time. Immobilized foes cannot move but can still attack. Damage: Moderate, Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DMG(Psionic), Foe Immobilize",
+  "display_target_help": "You have been Subdued and are being held immobile.",
+  "display_target_short_help": "Immobilize",
+  "icon_name": "PsychicBlast_Subdue.tga",
+  "attack_types": [
+    "Ranged",
+    "Psionic"
+  ],
+  "range": 100,
+  "time_to_activate": 1.67,
+  "recharge_time": 6,
+  "endurance_cost": 6.864,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 6,
+          "magnitude": 3,
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1284,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.8089,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.8089,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 4,
+  "attrib_cache": [
+    24,
+    272
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_SUBDUE.PFX",
+  "attack_bits": [
+    20,
+    311
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    311
+  ],
+  "attack_fx": "POWERS/PSIONICS/SUBDUEPSIONICBLAST.FX",
+  "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+  "initial_attack_fx": "POWERS/PSIONICS/SUBDUEPSIONICBLAST.FX",
+  "conditional_fx": "POWERS/PSIONICS/TEALHITWITHRINGSCONTNUING.FX",
+  "conditional_fx1": "POWERS/PSIONICS/TEALHITWITHRINGSCONTNUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 20,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 20,
+  "projectile_speed": 51,
+  "custom_fx": [
+    {
+      "token": "Bright Psychic Blast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_SUBDUE.PFX",
+      "attack_bits": [
+        20,
+        311
+      ],
+      "initial_attack_bits": [
+        20,
+        311
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBDUEPSIONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBDUEPSIONICBLAST.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+      "frames_before_hit": 20,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 20,
+      "projectile_speed": 51,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Psychic Blast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_SUBDUE.PFX",
+      "attack_bits": [
+        20,
+        311
+      ],
+      "initial_attack_bits": [
+        20,
+        311
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/SUBDUEPSIONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/SUBDUEPSIONICBLAST.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+      "frames_before_hit": 20,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 20,
+      "projectile_speed": 51
+    },
+    {
+      "token": "Bright Psychic Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_SUBDUE.PFX",
+      "display_name": "Bright Fist Cast",
+      "attack_bits": [
+        20,
+        311,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        311,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_SUBDUEPSIONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_SUBDUEPSIONICBLAST.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/CONDITIONAL_IMMOBILIZE.FX",
+      "frames_before_hit": 20,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 20,
+      "projectile_speed": 51,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Psychic Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_SUBDUE.PFX",
+      "display_name": "Dark Fist Cast",
+      "attack_bits": [
+        20,
+        311,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        311,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_SUBDUEPSIONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_SUBDUEPSIONICBLAST.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/CONDITIONAL_IMMOBILIZE.FX",
+      "frames_before_hit": 20,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 20,
+      "projectile_speed": 51
+    }
+  ]
+}

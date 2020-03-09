@@ -1,0 +1,241 @@
+{
+  "crcfull_name": 715546673,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_STEVE_MUTOMBO.POWERS",
+  "source_name": "RoguesGallery.Steve_Mutombo.Barrage",
+  "display_name": "Barrage",
+  "display_help": "You fire armor-piercing rounds in a barrage of rapid fire bullets. These strike multiple targets in a cone in front of you, dealing lethal damage and lowering damage resistances. There is also a chance for affected targets to be knocked down.",
+  "display_short_help": "Ranged (Cone), High DoT (Lethal), -RES (Foe, All), Chance for Knockdown (Foe)",
+  "display_target_help": "You are suffering lethal damage over time and your resistances have been reduced.",
+  "display_target_short_help": "DoT (Lethal), -RES (All)",
+  "icon_name": "KnivesOfVengeance_Barrage.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 16,
+  "radius": 60,
+  "arc": 0.5235988,
+  "range": 60,
+  "time_to_activate": 1.67,
+  "recharge_time": 10,
+  "endurance_cost": 14,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.25,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.25,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/NATKNIFECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "duration": 6,
+          "delay": 0.5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 5
+            }
+          ],
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 10,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DUALPISTOLS_EMPTYCLIPS.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    137,
+    394,
+    395
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    199
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    137,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    137,
+    394,
+    395,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_PISTOLS.FX",
+  "attack_fx": "WEAPONS/DUALPISTOLS/EMPTYCLIPS_ATTACK.FX",
+  "initial_attack_fx": "WEAPONS/DUALPISTOLS/EMPTYCLIPS_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    137,
+    87
+  ],
+  "frames_before_hit": 18,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 44,
+  "initial_attack_fxframe_delay": 26,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/DUALPISTOLS_EMPTYCLIPS.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        137,
+        394,
+        395
+      ],
+      "block_bits": 53,
+      "hit_bits": [
+        49,
+        199
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        137,
+        394,
+        395
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_PISTOLS.FX",
+      "attack_fx": "WEAPONS/DUALPISTOLS/EMPTYCLIPS_ATTACK.FX",
+      "initial_attack_fx": "WEAPONS/DUALPISTOLS/EMPTYCLIPS_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        137,
+        87
+      ],
+      "frames_before_hit": 18,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 18,
+      "palette": "Additive"
+    }
+  ]
+}

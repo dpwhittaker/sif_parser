@@ -1,0 +1,352 @@
+{
+  "crcfull_name": 1000468693,
+  "source_file": "DEFS/POWERS/INCARNATE_ION_JUDGEMENT.POWERS",
+  "source_name": "Incarnate.Ion_Judgement.Ion_Radial_Final_Judgement_Jump1",
+  "free": true,
+  "display_name": "Ion Radial Final Judgement",
+  "display_help": "Chain Ranged AoE, Extreme DMG(Energy). Recharge: Very Long. Drains endurance and debuffs the recovery of affected targets. Has a chance to hold targets in an electrical field. This ability can hit up to 15 targets.",
+  "display_short_help": "Chain Ranged AoE, Extreme DMG(Energy), Foe -End, -Recovery, Chance for Hold",
+  "display_target_help": "The Ion Judgement can drain its targets of endurance or even trap them in an electrostatic field.",
+  "display_target_short_help": "-Recovery, Chance for Hold",
+  "icon_name": "Incarnate_Judgement_Ion_VeryRare.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "target_requires": [
+    "kChain_Induction",
+    "target.mode?",
+    "!"
+  ],
+  "accuracy": 2,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "effect_area": 2,
+  "max_targets_hit": 3,
+  "radius": 40,
+  "recharge_time": 20,
+  "activate_period": 20,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    38,
+    33,
+    30,
+    23,
+    22,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 4,
+          "delay": 1,
+          "caster_stack_type": 1,
+          "stack_type": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 10,
+          "caster_stack_type": 1,
+          "stack_type": 1
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 4,
+          "magnitude": 55,
+          "caster_stack_type": 1,
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            468
+          ],
+          "table": "Ranged_Ones",
+          "duration": 2,
+          "caster_stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "ION JUDGEMENT JUMP"
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 1,
+          "caster_stack_type": 1,
+          "flags": [
+            8752,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "IncarnatePets_Ion_Radial_Final_Judgement_Jump2",
+              "priority_list": "PL_Untargetable_FightPreferRanged"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.35,
+          "caster_stack_type": 1,
+          "stack_type": 1
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "caster_stack_type": 1,
+          "stack_type": 1
+        }
+      ]
+    },
+    {
+      "chance": 0.25,
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 12,
+          "magnitude": 4,
+          "caster_stack_type": 1,
+          "stack_type": 1,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} holds {PlayerDest}, paralyzing them!",
+            "display_victim_hit": "{PlayerSource} holds you in place with their {PowerName} attack!"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.25,
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 4,
+          "magnitude": 4,
+          "caster_stack_type": 1,
+          "stack_type": 1,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} holds {PlayerDest}, paralyzing them!",
+            "display_victim_hit": "{PlayerSource} holds you in place with their {PowerName} attack!"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "ignore_strength": true,
+  "strengths_disallowed": [
+    356,
+    348,
+    340,
+    344
+  ],
+  "shuffle_targets": true,
+  "attrib_cache": [
+    16,
+    88,
+    236,
+    268,
+    461,
+    465,
+    468
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_INCARNATE_JUDGMENT_ION.PFX",
+  "hit_bits": [
+    49,
+    585
+  ],
+  "hit_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION_PET.FX",
+  "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+  "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+  "primary_tint": [
+    255,
+    0,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    200,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_INCARNATE_JUDGMENT_ION.PFX",
+      "hit_bits": [
+        49,
+        585
+      ],
+      "hit_fx": "INCARNATEPOWERS/JUDGMENT/JUDGMENT_ION_PET.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/ELECTRICITYCAGE.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_INCARNATE_JUDGMENT_ION.PFX",
+      "hit_bits": [
+        49,
+        585
+      ],
+      "hit_fx": "INCARNATEPOWERS/JUDGMENT/SUBTRACTIVE/JUDGMENT_ION_PET.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGE.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/ELECTRICITYCAGE.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

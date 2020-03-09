@@ -1,0 +1,225 @@
+{
+  "crcfull_name": 2619823941,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Vanguard_Psi-Bomb",
+  "free": true,
+  "display_name": "Vanguard Psi-Bomb",
+  "display_help": "The Vanguard Psi-Bomb cause an extreme amount of psionic damage in a 25' radius from it's point of impact. The Psi-Bomb will disorient most targets. It is particularly effective against Rikti, however, as the psionic shriek overloads their psi receptors, which can cause a great deal of confusion in their ranks. You initially are given three Bombs. Recharge: Very Long",
+  "display_short_help": "Ranged Extreme AoE (Psionic), Stun, Special",
+  "display_target_help": "You are stunned and possibly confused.",
+  "display_target_short_help": "Confused, Stunned",
+  "icon_name": "Temporary_RangeHeavyDamage.tga",
+  "attack_types": [
+    "AOE",
+    "Psionic"
+  ],
+  "accuracy": 1.5,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "range": 80,
+  "time_to_activate": 1.37,
+  "recharge_time": 360,
+  "endurance_cost": 26,
+  "num_charges": 3,
+  "target": 19,
+  "modes_disallowed": [
+    9,
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 5,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.33,
+      "requires": [
+        "group",
+        "target>",
+        "Rikti",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1296,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "travel_suppression": 3,
+  "attrib_cache": [
+    24,
+    256,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/TEMPORARY_POWER_PSIBOMB.PFX",
+  "attack_bits": [
+    20,
+    130,
+    159
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    159
+  ],
+  "attack_fx": "V_COV/ENEMYPOWERS/VANGUARD/RIFLE/PSIBOMB.FX",
+  "hit_fx": "V_COV/POWERS/PSYCHICENERGYBLAST/PSYCHICMEGABLASTHIT.FX",
+  "initial_attack_fx": "V_COV/ENEMYPOWERS/VANGUARD/RIFLE/PSIBOMB_INITIAL.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 34,
+  "delayed_hit": true,
+  "attack_frames": 41,
+  "initial_frames_before_hit": 34,
+  "projectile_speed": 60
+}

@@ -1,0 +1,244 @@
+{
+  "crcfull_name": 3749025826,
+  "source_file": "DEFS/POWERS/WARSHADE_OFFENSIVE_UMBRAL_BLAST.POWERS",
+  "source_name": "Warshade_Offensive.Umbral_Blast.Dark_Nova_Detonation",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "Dark Nova Detonation",
+  "display_help": "You hurl a blast of Dark Matter that violently explodes on impact, damaging all foes near the target. All affected targets' attack and movement speed are slowed. Some foes may be knocked down. This power is only available while in Dark Nova Form. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Negative), Foe Knockback, -Recharge, -SPD",
+  "display_target_help": "Your Attack speed and movement speed have been reduced by the Dark Nova Detonation.",
+  "display_target_short_help": "-SPD, -Recharge",
+  "icon_name": "UmbralBlast_DarkMatterDetonation.tga",
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "buy_requires": [
+    "Warshade_Offensive.Umbral_Blast.Dark_Nova",
+    "Inherent.Inherent.Dark_Nova_Detonation",
+    "!",
+    "&&"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 100,
+  "time_to_activate": 2.5,
+  "recharge_time": 16,
+  "endurance_cost": 15.184,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_required": [
+    4
+  ],
+  "modes_disallowed": [
+    1,
+    2,
+    5,
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_SSDamage",
+          "scale": 0.9,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SSDamage"
+      ],
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_SSDamage",
+          "scale": 1.0302,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 10
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 4,
+  "server_tray_priority": 1007,
+  "server_tray_requires": [
+    "Temporary_Powers.Temporary_Powers.Hide_Kheldian_Server_Tray",
+    "ownPower?",
+    "!"
+  ],
+  "attrib_cache": [
+    20,
+    188,
+    192,
+    200,
+    204,
+    328,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/WARSHADOW_BLASTER_RANGEDAOE.PFX",
+  "attack_bits": [
+    20,
+    327
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    327
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/NICTUS/NICTUSQUICKBLAST/BLASTERFORMNICTUSQUICKBLASTAOE.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/NICTUS/NICTUSQUICKBLAST/DARKNOVADETONATIONHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/NICTUS/NICTUSQUICKBLAST/BLASTERFORMNICTUSQUICKBLASTAOE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 28,
+  "delayed_hit": true,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 28,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "TintableTail"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/WARSHADOW_BLASTER_RANGEDAOE.PFX",
+      "attack_bits": [
+        20,
+        327
+      ],
+      "initial_attack_bits": [
+        20,
+        327
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/NICTUSQUICKBLAST/BLASTERFORMNICTUSQUICKBLASTAOE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/NICTUSQUICKBLAST/DARKNOVADETONATIONHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_WARSHADE/NICTUSQUICKBLAST/BLASTERFORMNICTUSQUICKBLASTAOE.FX",
+      "frames_before_hit": 28,
+      "delayed_hit": true,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 28,
+      "projectile_speed": 90
+    }
+  ]
+}

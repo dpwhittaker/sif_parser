@@ -1,0 +1,250 @@
+{
+  "crcfull_name": 408773125,
+  "source_file": "DEFS/POWERS/BLASTER_SUPPORT_FIRE_MANIPULATION.POWERS",
+  "source_name": "Blaster_Support.Fire_Manipulation.Blazing_Aura",
+  "display_name": "Cauterizing Aura",
+  "display_help": "While active, you are surrounded by flames that continuously burn all foes that attempt to enter melee range. In addition, you recover a small amount of health every few seconds. Damage: Minor(DoT), Recharge: Very Fast",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Self +Heal Over Time, +Recovery",
+  "display_target_help": "The Blazing Aura is burning you.",
+  "display_target_short_help": "DoT(Fire)",
+  "icon_name": "FireManipulation_BlazingAura.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "toggle_ignore_hold": true,
+  "toggle_ignore_sleep": true,
+  "toggle_ignore_stun": true,
+  "effect_area": 2,
+  "max_targets_hit": 11,
+  "radius": 8,
+  "time_to_activate": 2.03,
+  "recharge_time": 10,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    19,
+    1
+  ],
+  "boosts_allowed": [
+    33,
+    18,
+    14,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq",
+        "!",
+        "&&",
+        "cur.kHeld",
+        "source>",
+        "0",
+        ">",
+        "cur.kStun",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kSleep",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kTerrorized",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq",
+        "!",
+        "&&",
+        "cur.kHeld",
+        "source>",
+        "0",
+        ">",
+        "cur.kStun",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kSleep",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "cur.kTerrorized",
+        "source>",
+        "0",
+        ">",
+        "||",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.1626,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "entref",
+        "source>",
+        "entref",
+        "target>",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "table": "Melee_HealSelf",
+          "scale": 0.15,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} causes you to heal for {Damage} points of health.",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "scale": 0.5,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} causes you to heal for {Damage} points of health.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    28,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_FIREMANIPULATION_BLAZINGAURA.PFX",
+  "activation_bits": [
+    20,
+    364
+  ],
+  "activation_fx": "POWERS/FIRECONTROL/FIRESHIELD.FX",
+  "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+  "continuing_fx1": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+  "frames_before_hit": 23,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "alt_theme": [
+        "Bright Fire 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_FIREMANIPULATION_BLAZINGAURA.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        364
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/BLAZINGAURA.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "alt_theme": [
+        "Dark Fire 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_FIREMANIPULATION_BLAZINGAURA.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        364
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/BLAZINGAURA.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

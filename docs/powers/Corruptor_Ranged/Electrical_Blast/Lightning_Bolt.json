@@ -1,0 +1,336 @@
+{
+  "crcfull_name": 1209871047,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_ELECTRICAL_BLAST.POWERS",
+  "source_name": "Corruptor_Ranged.Electrical_Blast.Lightning_Bolt",
+  "display_name": "Lightning Bolt",
+  "display_help": "You can send a large blast of electrical energy at a foe, dealing heavy damage and draining some Endurance. Some of this Endurance may transfer back to you. Lightning Bolt deals more damage than Charged Bolts, but recharges more slowly. Damage: High, Recharge: Moderate",
+  "display_short_help": "Ranged, High DMG(Energy), Foe -End",
+  "icon_name": "ElectricalBolt_LightningBolt.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.1,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.8889,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -2,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.8889,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 4
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 4.265,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You recover some of the Endurance you drained.",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    16,
+    88,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_LIGHTNINGBOLT.PFX",
+  "attack_bits": [
+    20,
+    329
+  ],
+  "hit_bits": [
+    49,
+    283
+  ],
+  "initial_attack_bits": [
+    20,
+    329
+  ],
+  "attack_fx": "V_COV/POWERS/ELECTRICALBLAST/LIGHTNINGBOLT.FX",
+  "hit_fx": "V_COV/POWERS/ELECTRICALBLAST/THUNDERBOLTHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/ELECTRICALBLAST/LIGHTNINGBOLT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 26,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 26,
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_LIGHTNINGBOLT.PFX",
+      "attack_bits": [
+        20,
+        329
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        329
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/LIGHTNINGBOLT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/LIGHTNINGBOLT.FX",
+      "frames_before_hit": 26,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_LIGHTNINGBOLT.PFX",
+      "attack_bits": [
+        20,
+        329
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        329
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/LIGHTNINGBOLT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/LIGHTNINGBOLT.FX",
+      "frames_before_hit": 26,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26
+    },
+    {
+      "token": "Bright Electric Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_LIGHTNINGBOLT.PFX",
+      "display_name": "Bright Lightning Assault",
+      "attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/CUSTANIM_LIGHTNINGASSAULT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/CUSTANIM_LIGHTNINGASSAULT.FX",
+      "frames_before_hit": 26,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electric Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ELECTRICALBLAST_LIGHTNINGBOLT.PFX",
+      "display_name": "Dark Lightning Assault",
+      "attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "hit_bits": [
+        49,
+        283
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/CUSTANIM_LIGHTNINGASSAULT.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/LIGHTNINGBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALBLAST/SUBTRACTIVE/CUSTANIM_LIGHTNINGASSAULT.FX",
+      "frames_before_hit": 26,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 26
+    }
+  ]
+}

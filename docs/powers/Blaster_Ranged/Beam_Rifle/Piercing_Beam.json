@@ -1,0 +1,398 @@
+{
+  "crcfull_name": 1784705372,
+  "source_file": "DEFS/POWERS/BLASTER_RANGED_BEAM_RIFLE.POWERS",
+  "source_name": "Blaster_Ranged.Beam_Rifle.Piercing_Beam",
+  "display_name": "Piercing Beam",
+  "display_help": "You release a supercharged beam in a narrow cone of energy that pierces through up to 3 enemies. Piercing Beam deals High Energy damage and briefly reduces their damage resistance. If a target struck by Piercing Beam is suffering from the Disintegrating effect it will immediately suffer additional damage. Damage: High, Recharge: Long",
+  "display_short_help": "Narrow Ranged (Cone), High DMG(Energy), Foes -Res, Special",
+  "display_target_help": "Your damage resistance has been reduced by the Piercing Beam.",
+  "display_target_short_help": "-Res",
+  "icon_name": "BeamRifle_PiercingBeam.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 1.05,
+  "effect_area": 1,
+  "max_targets_hit": 3,
+  "radius": 80,
+  "arc": 0.08726647,
+  "range": 80,
+  "time_to_activate": 2.33,
+  "recharge_time": 14,
+  "endurance_cost": 13.52,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 2.17,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.4402,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.7161,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_float": "Disintegrate"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "Temporary_Powers.Temporary_Powers.Beam_Rifle_Debuff",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.4753,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [DISINTEGRATE].",
+            "display_float": "Disintegrate"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.128,
+          "duration": 9.83,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -2,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+  "attack_bits": [
+    20,
+    130,
+    142,
+    693
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    142,
+    86,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    142,
+    693,
+    187
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_HEAVY.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+  "mode_bits": [
+    20,
+    130,
+    142,
+    131,
+    86
+  ],
+  "frames_before_hit": 50,
+  "attack_frames": 70,
+  "initial_frames_before_hit": 80,
+  "initial_attack_fxframe_delay": 30,
+  "primary_tint": [
+    0,
+    0,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "NoRedrawBright",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        693
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        693
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_HEAVY.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 50,
+      "attack_frames": 70,
+      "initial_frames_before_hit": 50,
+      "palette": ""
+    },
+    {
+      "token": "NoRedrawDark",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        693
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        693
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_HEAVY.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 50,
+      "attack_frames": 70,
+      "initial_frames_before_hit": 50,
+      "palette": ""
+    },
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        693
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        693,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_HIT_HEAVY.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 50,
+      "attack_frames": 70,
+      "initial_frames_before_hit": 80,
+      "initial_attack_fxframe_delay": 30,
+      "palette": ""
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/BEAMRIFLE_PIERCINGBEAM.PFX",
+      "attack_bits": [
+        20,
+        130,
+        142,
+        693
+      ],
+      "activation_bits": [
+        20,
+        130,
+        142,
+        86,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        142,
+        693,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_HIT_HEAVY.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BEAMRIFLE/SUBTRACTIVE/BEAMRIFLE_PIERCINGBEAM.FX",
+      "mode_bits": [
+        20,
+        130,
+        142,
+        131,
+        86
+      ],
+      "frames_before_hit": 50,
+      "attack_frames": 70,
+      "initial_frames_before_hit": 80,
+      "initial_attack_fxframe_delay": 30,
+      "palette": ""
+    }
+  ]
+}

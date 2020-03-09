@@ -1,0 +1,242 @@
+{
+  "crcfull_name": 2238191053,
+  "source_file": "DEFS/POWERS/BRUTE_DEFENSE_STONE_ARMOR.POWERS",
+  "source_name": "Brute_Defense.Stone_Armor.Mud_Pots",
+  "display_name": "Mud Pots",
+  "display_help": "While this power is active, you draw upon the geothermal power of the Earth to create a bubbling pool of hot mud around yourself. All foes in melee range will become snared and entrapped in the mud, Immobilizing some and slowing others. The boiling heat from Mud Pots may also deal some damage over time to the snared foes. Damage: Minor(DoT), Recharge: Fast",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Foe Immobilize, -SPD",
+  "display_target_help": "The Mud Pots are burning you and reducing your Running speed. You may be immobilized, as well.",
+  "display_target_short_help": "DoT(Fire), Immobilize, -SPD",
+  "display_attacker_hit": "Your {PowerName} Slow all nearby foes.",
+  "icon_name": "StoneArmor_Clay.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 2.03,
+  "recharge_time": 4,
+  "activate_period": 2,
+  "endurance_cost": 1.56,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    29,
+    28,
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 5,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Melee_SpeedRunning",
+          "scale": -1,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "scale": 2.25,
+          "magnitude": 2,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.18,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "InherentTaunt"
+      ],
+      "flags": 16,
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Redirects.Inherents.Fury_Proc_Aura"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    188,
+    200,
+    204,
+    272,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_STONEARMOR_MUDPOTS.PFX",
+  "activation_bits": [
+    20,
+    249
+  ],
+  "activation_fx": "POWERS/EARTHCONTROL/CLAYSTONEARMOR.FX",
+  "frames_before_hit": 28,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 28,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "LavaTheme",
+        "Crystal"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_STONEARMOR_MUDPOTS.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        249
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/STONEARMOR/CLAYSTONEARMOR.FX",
+      "mode_bits": [],
+      "frames_before_hit": 28,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 28,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

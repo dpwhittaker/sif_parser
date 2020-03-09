@@ -1,0 +1,133 @@
+{
+  "crcfull_name": 398351864,
+  "source_file": "DEFS/POWERS/VILLAIN_PETS_TRAPS_TIMEBOMB.POWERS",
+  "source_name": "Villain_Pets.Traps_TimeBomb.Time_Bomb",
+  "display_name": "Time Bomb",
+  "display_help": "All foes that pass near this Trip Mine will get blown to smithereens. Note that Time Bomb is unaffected by Recharge Time changes. Recharge: Extremely Long",
+  "display_short_help": "AoE Lethal/Fire, Knockback",
+  "icon_name": "Gadgets_Timebomb.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal",
+    "Fire"
+  ],
+  "accuracy": 1.2,
+  "castable_after_death": 1,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "recharge_time": 1000,
+  "boosts_allowed": [
+    17,
+    9,
+    5
+  ],
+  "ai_groups": [
+    "kPostDeath"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 4,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 4,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    356
+  ],
+  "attrib_cache": [
+    4,
+    8,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TIMEBOMB_TIMEBOMB.PFX",
+  "attack_fx": "POWERS/FIRECONTROL/TIMEBOMBEXPLOSION.FX",
+  "hit_fx": "POWERS/FIRECONTROL/FIREBALLTARGET1.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/TIMEBOMBEXPLOSION.FX",
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TIMEBOMB_TIMEBOMB.PFX",
+      "hit_bits": [],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PETS/TIMEBOMB/TIMEBOMBEXPLOSION.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PETS/TIMEBOMB/FIREBALLTARGET1.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PETS/TIMEBOMB/TIMEBOMBEXPLOSION.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": ""
+    }
+  ]
+}

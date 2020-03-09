@@ -1,0 +1,167 @@
+{
+  "Oil_Slick": {
+    "crcfull_name": 967203992,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_OILSLICKOIL_CORRUPTOR.POWERS",
+    "source_name": "Villain_Pets.OilSlickOil_Corruptor.Oil_Slick",
+    "display_name": "Oil Slick",
+    "display_help": "All foes that pass through this Oil Slick will have their running speed reduced and slip and fall. The Oil Slick is very flammable and may burst into flames if fire is used near it.",
+    "display_short_help": "Knockback, -Speed",
+    "display_target_help": "The Oil Slick has reduced your running speed and your Defense.",
+    "display_target_short_help": "-SPD, -DEF",
+    "display_victim_hit": "Oil is splashed on the ground around you, your movement speed has been reduced!",
+    "icon_name": "TrickArrow_Knockdown.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "activate_period": 0.2,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      29,
+      10
+    ],
+    "effects": [
+      {
+        "chance": 0.04,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Pets_OilSlickTarget_Corruptor",
+          "target.VillainName>",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.5,
+            "flags": [
+              216,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.5,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              216,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Pets_OilSlickTarget_Corruptor",
+          "target.VillainName>",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              188
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.9,
+            "duration": 0.45,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "scale": 2.5,
+            "duration": 0.45,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "scale": -500,
+            "duration": 0.45,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "scale": 0,
+            "duration": 0.45,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              188
+            ],
+            "aspect": 8,
+            "table": "Melee_SpeedRunning",
+            "scale": -1,
+            "duration": 0.45,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      184,
+      188,
+      204,
+      328,
+      468
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/TRICKARROW_OILARROW_PET.PFX",
+    "activation_fx": "WEAPONS/BOW/TRICKARROW/OILARROWSLICK.FX"
+  }
+}

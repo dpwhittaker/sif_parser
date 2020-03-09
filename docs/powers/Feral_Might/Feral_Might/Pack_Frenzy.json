@@ -1,0 +1,199 @@
+{
+  "crcfull_name": 2322591709,
+  "source_file": "DEFS/POWERS/FERAL_MIGHT_FERAL_MIGHT.POWERS",
+  "source_name": "Feral_Might.Feral_Might.Pack_Frenzy",
+  "display_name": "Pack Frenzy",
+  "display_help": "You let out a primal howl driving your team mates into a frenzy boosting their damage moderately for a short time. If in primal form you'll also boost your team's chance to hit. However, if you're in Hunter or Prowler form you'll instead boost their recharge rate. This power requires 10 Primal Energy to be used. Recharge: Very Long",
+  "display_short_help": "PBAoE, Allies +DMG, +To Hit, -10 Primal Energy",
+  "icon_name": "FeralMight_PackFrenzy.tga",
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "activate_requires": [
+    "cur.kMeter",
+    "char>",
+    ".09",
+    ">"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 255,
+  "radius": 25,
+  "time_to_activate": 1.17,
+  "recharge_time": 120,
+  "endurance_cost": 10.4,
+  "ents_auto_hit": [
+    16,
+    1
+  ],
+  "ents_affected": [
+    16,
+    1
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    7
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kHunterMode",
+        "Source.Mode?",
+        "!",
+        "kProwlerMode",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "scale": 0.1,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You inspire your nearby allies boosting their damage and to hit chance!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "scale": 0.5,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHunterMode",
+        "Source.Mode?",
+        "kProwlerMode",
+        "Source.Mode?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "scale": 0.25,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": -100,
+          "delay": 0.25,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    96,
+    100,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ELECTRICALMELEE_BUILDUP.PFX",
+  "attack_bits": [
+    245
+  ],
+  "initial_attack_bits": [
+    245
+  ],
+  "attack_fx": "POWERS/FOLLOWUPHIT_REDELECTRICITY.FX",
+  "initial_attack_fx": "POWERS/FOLLOWUPHIT_REDELECTRICITY.FX",
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ELECTRICALMELEE_BUILDUP.PFX",
+      "attack_bits": [
+        245
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        245
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/BUILDUP_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/BUILDUP_ATTACK.FX",
+      "mode_bits": [],
+      "attack_frames": 35,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_ELECTRICALMELEE_BUILDUP.PFX",
+      "attack_bits": [
+        245
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        245
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/BUILDUP_ATTACK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICALMELEE/SUBTRACTIVE/BUILDUP_ATTACK.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

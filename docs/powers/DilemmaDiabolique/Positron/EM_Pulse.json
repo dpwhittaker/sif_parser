@@ -1,0 +1,140 @@
+{
+  "crcfull_name": 3567368960,
+  "source_file": "DEFS/POWERS/DILEMMADIABOLIQUE_POSITRON.POWERS",
+  "source_name": "DilemmaDiabolique.Positron.EM_Pulse",
+  "display_name": "Fusion Pulse",
+  "display_help": "You are Held by the EM Pulse and your Regeneration Rate is reduced.",
+  "display_short_help": "Hold, -Regen",
+  "icon_name": "RadiationPoisoning_EMPPulse.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 1.1,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 80,
+  "time_to_activate": 2.93,
+  "recharge_time": 24,
+  "endurance_cost": 11.48,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 4,
+          "magnitude": 3,
+          "flags": [
+            340,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -50,
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88,
+    232,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/RADIATION_POISONING_EMP_PULSE.PFX",
+  "attack_bits": [
+    248,
+    681
+  ],
+  "initial_attack_bits": [
+    248,
+    681
+  ],
+  "attack_fx": "POWERS/RADIATIONCONTROL/EMPPULSE.FX",
+  "initial_attack_fx": "POWERS/RADIATIONCONTROL/EMPPULSE.FX",
+  "frames_before_hit": 20,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 20
+}

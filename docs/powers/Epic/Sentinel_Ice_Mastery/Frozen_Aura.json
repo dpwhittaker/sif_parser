@@ -1,0 +1,198 @@
+{
+  "crcfull_name": 1291440952,
+  "source_file": "DEFS/POWERS/EPIC_SENTINEL_ICE_MASTERY.POWERS",
+  "source_name": "Epic.Sentinel_Ice_Mastery.Frozen_Aura",
+  "display_name": "Frozen Aura",
+  "display_help": "Your mastery of cold enables you to dramatically lower the temperature immediately around you. When you perform a Frozen Aura, nearby foes will be frozen within a fragile casing of ice and suffer a moderate amount of cold damage. These frozen foes will break free if attacked. Frozen Aura deals moderate damage. Damage: Moderate Recharge: Slow",
+  "display_short_help": "PBAoE, Moderate DMG(Cold), Foe Sleep",
+  "display_target_help": "You have been chilled and cannot act until awakened.",
+  "display_target_short_help": "Sleep",
+  "display_attacker_hit": "Your {PowerName} freezes {PlayerDest} in his tracks!",
+  "icon_name": "IcyFormation_Sleep",
+  "attack_types": [
+    "AOE",
+    "Cold"
+  ],
+  "buy_requires": [
+    "Epic.Sentinel_Ice_Mastery.Frostbite",
+    "Epic.Sentinel_Ice_Mastery.Ice_Sword",
+    "||"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "time_to_activate": 2.1,
+  "recharge_time": 40,
+  "endurance_cost": 23.14,
+  "boosts_allowed": [
+    23,
+    20,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_Sleep",
+          "scale": 10,
+          "magnitude": 2,
+          "delay": 0.33,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.42,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.388,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            280
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    12,
+    280
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_FROZENAURA.PFX",
+  "attack_bits": [
+    20,
+    322
+  ],
+  "initial_attack_bits": [
+    20,
+    322
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/ICEAURASHOCKWAVE.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/ICEAURASHOCKWAVE.FX",
+  "conditional_fx": "POWERS/COLDCONTROL/FLASHFREEZECONTINUING.FX",
+  "conditional_fx1": "POWERS/COLDCONTROL/FLASHFREEZECONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 63,
+  "initial_frames_before_hit": 22,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "Color Tintable 2"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERMELEE_ICEMELEE_FROZENAURA.PFX",
+      "attack_bits": [
+        20,
+        322
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        322
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEAURASHOCKWAVE.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEMELEE/ICEAURASHOCKWAVE.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FLASHFREEZECONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FLASHFREEZECONTINUING.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 22,
+      "palette": "ice"
+    }
+  ]
+}

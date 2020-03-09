@@ -1,0 +1,254 @@
+{
+  "crcfull_name": 4161508226,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_SUPER_STRENGTH.POWERS",
+  "source_name": "Brute_Melee.Super_Strength.Hurl",
+  "display_name": "Hurl",
+  "display_help": "You are able to tear up a chunk of ground beneath your feet and Hurl it at an enemy. This attack deals high damage, and can knock foes back and even drop them out of the air if they are flying. Damage: High, Recharge: Moderate",
+  "display_short_help": "Ranged, High DMG(Smashing), Knockback, -Fly",
+  "display_target_help": "You have been hit by a piece of concrete and cannot fly.",
+  "display_target_short_help": "-Fly",
+  "icon_name": "SuperStrength_Hurl.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing"
+  ],
+  "near_ground": true,
+  "range": 80,
+  "time_to_activate": 2.5,
+  "recharge_time": 8,
+  "endurance_cost": 9.36,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 3,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.9759,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 3,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            284
+          ],
+          "scale": -1,
+          "duration": 15
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.738,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    8,
+    284,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_HURL.PFX",
+  "attack_bits": [
+    20,
+    356
+  ],
+  "block_bits": [
+    53
+  ],
+  "wind_up_bits": [
+    367
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    356
+  ],
+  "attack_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL.FX",
+  "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL_HIT.FX",
+  "initial_attack_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 57,
+  "delayed_hit": true,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 57,
+  "projectile_speed": 87,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_HURL.PFX",
+      "attack_bits": [
+        20,
+        356
+      ],
+      "block_bits": 53,
+      "wind_up_bits": [
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        356
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL.FX",
+      "frames_before_hit": 57,
+      "delayed_hit": true,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 57,
+      "projectile_speed": 87,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "alt_theme": [
+        "Dark Heroic"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_HURL.PFX",
+      "attack_bits": [
+        20,
+        356
+      ],
+      "block_bits": 53,
+      "wind_up_bits": [
+        367
+      ],
+      "initial_attack_bits": [
+        20,
+        356
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/SUPERSTRENGTH_HURL.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/SUPERSTRENGTH_HURL_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/SUPERSTRENGTH_HURL.FX",
+      "frames_before_hit": 57,
+      "delayed_hit": true,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 57,
+      "projectile_speed": 87
+    }
+  ]
+}

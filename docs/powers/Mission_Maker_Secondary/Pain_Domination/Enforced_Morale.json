@@ -1,0 +1,317 @@
+{
+  "crcfull_name": 3963526426,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_PAIN_DOMINATION.POWERS",
+  "source_name": "Mission_Maker_Secondary.Pain_Domination.Enforced_Morale",
+  "display_name": "Enforced Morale",
+  "display_help": "Enforced Morale frees an ally from any Disorient, Hold, Sleep, Fear, Confuse and Immobilize effects and leaves them resistant to such effects for a good while. Also, Enforced Morale grants the target clearer Perception to see hidden foes, and a minor recharge and movement speed boost. The Protection and Movement boosts will improve with multiple applications and as you advance in level, although the Recharge and Movement boosts will only apply for the first few applications. If the ally is not damaged, Enforced Morale will cause them some pain before granting its benefits. Recharge: Fast",
+  "display_short_help": "Ally +Res(Disorient, Hold, Sleep, Immobilize, Fear, Confuse), +Perception, +Recharge, +Speed, Minor Damage",
+  "display_target_help": "Your mind has been cleared of negative effects, and you are granted temporary resistance to Disorient, Hold, Sleep, Fear, Confuse and Immobilize effects and your Perception is improved.",
+  "display_target_short_help": "+Res(Disorient, Hold, Sleep, Immobilize, Fear, Confuse), +Perception, +Recharge, +Movement",
+  "display_attacker_hit": "You protect {PlayerDest} from Disorient, Hold, Sleep, Fear, Confuse and Immobilize effects with your {PowerName} power.",
+  "display_victim_hit": "{PlayerSource} protects you from Disorient, Hold, Sleep, Fear, Confuse and Immobilize effects.",
+  "icon_name": "PainDomination_EnforcedMorale.tga",
+  "range": 70,
+  "time_to_activate": 3.1,
+  "recharge_time": 4,
+  "endurance_cost": 7,
+  "target": 16,
+  "ents_auto_hit": [
+    16
+  ],
+  "ents_affected": [
+    16
+  ],
+  "ai_groups": [
+    "kBuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            256,
+            264,
+            268,
+            272,
+            276,
+            280
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -30,
+          "duration": 90,
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            280
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Boolean",
+          "scale": 5,
+          "duration": 90,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<",
+        "Cur.kHitPoints",
+        "target>",
+        "Max.kHitPoints",
+        "target>",
+        "0.9",
+        "*",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            32
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Ones",
+          "magnitude_expr": [
+            "Max.kHitPoints",
+            "target>",
+            "0.9",
+            "*",
+            "Cur.kHitPoints",
+            "target>",
+            "-"
+          ],
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<",
+        "Str.kRechargeTime",
+        "target>",
+        "1.21",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Ones",
+          "scale": 0.05,
+          "duration": 90,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<",
+        "Cur.kRunSpeed",
+        "target>",
+        "1.25",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            188
+          ],
+          "table": "Ranged_SpeedRunning",
+          "scale": 0.05,
+          "duration": 90,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<",
+        "Cur.kFlySpeed",
+        "target>",
+        "1.25",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            192
+          ],
+          "table": "Ranged_SpeedFlying",
+          "scale": 0.05,
+          "duration": 90,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<",
+        "Cur.kSpeedJumping",
+        "target>",
+        "1.25",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            200
+          ],
+          "table": "Ranged_SpeedJumping",
+          "scale": 0.05,
+          "duration": 90,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "target>",
+        "0.9",
+        "<",
+        "Cur.kJumpHeight",
+        "target>",
+        "1.12",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            204
+          ],
+          "table": "Ranged_Leap",
+          "scale": 0.05,
+          "duration": 90,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            228
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Boolean",
+          "scale": 2.5,
+          "duration": 90,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            228
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": 2.5,
+          "duration": 90,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "point_value": 3,
+  "point_multiplier": 0.167,
+  "attrib_cache": [
+    32,
+    188,
+    192,
+    200,
+    204,
+    228,
+    256,
+    264,
+    268,
+    272,
+    276,
+    280,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYER_PAINDOMINATION_ENFORCEDMORALE.PFX",
+  "attack_bits": [
+    20,
+    300,
+    766
+  ],
+  "initial_attack_bits": [
+    20,
+    300,
+    766
+  ],
+  "attack_fx": "V_COV/POWERS/PAINDOMINATION/ENFORCEDMORALE_ATTACK.FX",
+  "hit_fx": "V_COV/POWERS/PAINDOMINATION/ENFORCEDMORALE_HIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/PAINDOMINATION/ENFORCEDMORALE_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 32,
+  "attack_frames": 93,
+  "initial_frames_before_hit": 32
+}

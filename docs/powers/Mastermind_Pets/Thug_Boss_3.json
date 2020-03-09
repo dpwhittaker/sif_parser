@@ -1,0 +1,816 @@
+{
+  "Knockout_Blow": {
+    "crcfull_name": 3901741216,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Knockout_Blow",
+    "display_name": "Knockout Blow",
+    "display_help": "You can perform a Knockout Blow on your opponent. This punch does Superior damage, and has a great chance of Holding your target. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG(Smash), Foe Hold",
+    "display_target_help": "You have been knocked out!",
+    "display_target_short_help": "Hold",
+    "icon_name": "SuperStrength_KnockoutBlow.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.2,
+    "range": 13.2,
+    "time_to_activate": 2.23,
+    "recharge_time": 25,
+    "endurance_cost": 18.512,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.56,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      268,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SUPERSTRENGTH_KO.PFX",
+    "attack_bits": [
+      20,
+      357
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      357
+    ],
+    "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSKO.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_KOBLOW_HIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSKO.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 48,
+    "attack_frames": 67,
+    "initial_frames_before_hit": 48
+  },
+  "Hurl": {
+    "crcfull_name": 2070425150,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Hurl",
+    "display_name": "Hurl",
+    "display_help": "You are able to tear up a chunk of ground beneath your feet and Hurl it at an enemy. This attack deals moderate damage, and can knock foes back and even drop them out of the air if they are flying. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Smash), Knockback, -Fly",
+    "display_target_help": "You have been hit by a piece of concrete and cannot fly.",
+    "display_target_short_help": "-Fly",
+    "icon_name": "SuperStrength_Hurl.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "near_ground": true,
+    "range": 80,
+    "time_to_activate": 3.83,
+    "recharge_time": 8,
+    "endurance_cost": 9.36,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1,
+            "duration": 15
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      0,
+      284,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SUPERSTRENGTH_TOSS.PFX",
+    "attack_bits": [
+      20,
+      356
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      356
+    ],
+    "attack_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL_HIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_HURL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 89,
+    "delayed_hit": true,
+    "attack_frames": 115,
+    "initial_frames_before_hit": 89,
+    "projectile_speed": 87
+  },
+  "Foot_Stomp": {
+    "crcfull_name": 3502430181,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Foot_Stomp",
+    "display_name": "Foot Stomp",
+    "display_help": "Using your superior leg strength, you can Stomp your foot to the ground, quaking the earth itself. This is a localized attack against everything in melee range. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "PBAoE Melee, Moderate DMG(Smash), Knockback",
+    "icon_name": "SuperStrength_FootStomp.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing"
+    ],
+    "near_ground": true,
+    "target_near_ground": true,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "time_to_activate": 2.1,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "boosts_allowed": [
+      23,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.42,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SUPERSTRENGTH_KNOCKBACK.PFX",
+    "attack_bits": [
+      20,
+      322
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      322
+    ],
+    "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 63,
+    "initial_frames_before_hit": 22
+  },
+  "Upgraded": {
+    "crcfull_name": 3083363448,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgraded",
+    "display_name": "Upgrade Equipment",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "magnitude": 31,
+            "stack_type": 3,
+            "flags": [
+              1584,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      465
+    ]
+  },
+  "Upgrade_Equipment_1_3": {
+    "crcfull_name": 3404740984,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgrade_Equipment_1_3",
+    "display_name": "Upgrade Equipment 1",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment 1",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              466
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "period": 12,
+            "stack_type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Costume": {
+                "costume": "Mastermind_Thug_Boss_01_03",
+                "priority": 7
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      466
+    ]
+  },
+  "Upgrade_Equipment_1_4": {
+    "crcfull_name": 507141523,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgrade_Equipment_1_4",
+    "display_name": "Upgrade Equipment 1",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment 1",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              466
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "period": 12,
+            "stack_type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Costume": {
+                "costume": "Mastermind_Thug_Boss_01_04",
+                "priority": 9
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      466
+    ]
+  },
+  "Upgrade_Equipment_2_3": {
+    "crcfull_name": 551483659,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgrade_Equipment_2_3",
+    "display_name": "Upgrade Equipment 1",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment 1",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              466
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "period": 12,
+            "stack_type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Costume": {
+                "costume": "Mastermind_Thug_Boss_02_03",
+                "priority": 7
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      466
+    ]
+  },
+  "Upgrade_Equipment_2_4": {
+    "crcfull_name": 4094991840,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgrade_Equipment_2_4",
+    "display_name": "Upgrade Equipment 1",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment 1",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              466
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "period": 12,
+            "stack_type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Costume": {
+                "costume": "Mastermind_Thug_Boss_02_04",
+                "priority": 9
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      466
+    ]
+  },
+  "Upgrade_Equipment_3_3": {
+    "crcfull_name": 2241817461,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgrade_Equipment_3_3",
+    "display_name": "Upgrade Equipment 1",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment 1",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              466
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "period": 12,
+            "stack_type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Costume": {
+                "costume": "Mastermind_Thug_Boss_03_03",
+                "priority": 7
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      466
+    ]
+  },
+  "Upgrade_Equipment_3_4": {
+    "crcfull_name": 1364529054,
+    "source_file": "DEFS/POWERS/MASTERMIND_PETS_THUG_BOSS_3.POWERS",
+    "source_name": "Mastermind_Pets.Thug_Boss_3.Upgrade_Equipment_3_4",
+    "display_name": "Upgrade Equipment 1",
+    "display_help": "This Bruiser has been Upgraded. He now has Knockout Blow, Hurl, and Foot Stomp.",
+    "display_short_help": "Upgrade Equipment 1",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              466
+            ],
+            "type": 2,
+            "target": 0,
+            "duration": 11,
+            "period": 12,
+            "stack_type": 2,
+            "flags": [
+              1584,
+              0
+            ],
+            "param": {
+              "Costume": {
+                "costume": "Mastermind_Thug_Boss_03_04",
+                "priority": 9
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      466
+    ]
+  }
+}

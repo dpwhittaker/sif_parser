@@ -1,0 +1,285 @@
+{
+  "crcfull_name": 2544169724,
+  "source_file": "DEFS/POWERS/TANKER_MELEE_RADIATION_MELEE.POWERS",
+  "source_name": "Tanker_Melee.Radiation_Melee.Proton_Sweep",
+  "display_name": "Proton Sweep",
+  "display_help": "You release a cloud of deadly radioactive particles in front of you inflicting Moderate Energy and Toxic damage over a short time as well as reducing the targets' defense. Affected enemies have a moderate chance to be affected by the Contaminated effect. Hitting Contaminated foes with single target Radiation Melee powers cause a small burst of damage to foes near the target. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Melee Cone, Moderate DoT(Energy/Toxic), Foe -Def, Special",
+  "display_target_help": "Your defense has been reduced by Proton Sweep!",
+  "display_target_short_help": "-Def",
+  "icon_name": "RadiationMelee_ProtonSweep.tga",
+  "attack_types": [
+    "Melee",
+    "Energy"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 7,
+  "arc": 1.3089969,
+  "range": 7,
+  "time_to_activate": 1.67,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.0894,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2681,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.1029,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.3088,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 1.2,
+          "duration": 10,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Contaminated"
+      ],
+      "chance": 0.21,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated_Imunity",
+        "target.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You contaminate {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} has contaminated you.",
+            "display_float": "Contaminated!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1609,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    8,
+    16,
+    36,
+    184,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_PROTONSWEEP.PFX",
+  "attack_bits": [
+    20,
+    568
+  ],
+  "initial_attack_bits": [
+    20,
+    568
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEPROTONSWEEP.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORGROUNDZEROHIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEPROTONSWEEP.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 40,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 40,
+  "primary_tint": [
+    77,
+    153,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    255,
+    97,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_PROTONSWEEP.PFX",
+      "attack_bits": [
+        20,
+        568
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        568
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEPROTONSWEEP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/ARMORGROUNDZEROHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEEPROTONSWEEP.FX",
+      "frames_before_hit": 40,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 40,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_PROTONSWEEP.PFX",
+      "attack_bits": [
+        20,
+        568
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        568
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEPROTONSWEEP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/ARMORGROUNDZEROHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEEPROTONSWEEP.FX",
+      "frames_before_hit": 40,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 40
+    }
+  ]
+}

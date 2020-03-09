@@ -1,0 +1,788 @@
+{
+  "Fallout": {
+    "crcfull_name": 1532835540,
+    "source_file": "DEFS/POWERS/PETS_FALLOUT.POWERS",
+    "source_name": "Pets.Fallout.Fallout",
+    "display_name": "Fallout",
+    "display_help": "After an ally falls in battle, you can activate this power to extract the energy from their body to deal a massive amount of Energy damage to any nearby foes. All affected foes are extremely weakened by the Fallout, and their chance to hit, Defense, Damage and Damage Resistance is severely reduced. Damage: Extreme, Recharge: Very Long",
+    "display_short_help": "Post-Defeat: PBAoE, Extreme DMG(Energy), Debuff",
+    "display_target_help": "You are extremely weakened by the Fallout. Your chance to hit, Defense, Damage and Damage Resistance is severely reduced.",
+    "icon_name": "RadiationPoisoning_Fallout.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "recharge_time": 300,
+    "activate_period": 300,
+    "boosts_allowed": [
+      11,
+      10,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Defender",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -5,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 4.23,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 4.23,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 5.77,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 5.77,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 4.23,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.8,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 1.8,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 1.8,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 2.4,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2.4,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 2.4,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 3,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 4,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 5,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 6,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 7,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 8,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 9,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Controller",
+          "eq",
+          "arch",
+          "source.owner>",
+          "Class_Corruptor",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 2,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 3,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 4,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 5,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 6,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 7,
+        "requires": [
+          "arch",
+          "source.owner>",
+          "Class_Mastermind",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -3.75,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_FALLOUT_FALLOUT.PFX",
+    "activation_fx": "POWERS/RADIATIONCONTROL/ATOMICBLAST.FX",
+    "attack_fx": "POWERS/RADIATIONCONTROL/ATOMICBLASTAFTERDEATH.FX",
+    "hit_fx": "POWERS/RADIATIONCONTROL/FALLOUTCONTINUING.FX",
+    "initial_attack_fx": "POWERS/RADIATIONCONTROL/ATOMICBLASTAFTERDEATH.FX",
+    "custom_fx": [
+      {
+        "token": "Bright Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_FALLOUT_FALLOUT.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/ATOMICBLAST.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/ATOMICBLASTAFTERDEATH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/FALLOUTCONTINUING.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/ATOMICBLASTAFTERDEATH.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Radiation",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_FALLOUT_FALLOUT.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/SUBTRACTIVE/ATOMICBLAST.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/SUBTRACTIVE/ATOMICBLASTAFTERDEATH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/SUBTRACTIVE/FALLOUTCONTINUING.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PETS/FALLOUT/SUBTRACTIVE/ATOMICBLASTAFTERDEATH.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  }
+}

@@ -1,0 +1,924 @@
+{
+  "Aid_Other": {
+    "crcfull_name": 3880899768,
+    "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+    "source_name": "Pool.Medicine.Aid_Other",
+    "display_name": "Aid Other",
+    "display_help": "You heal a single targeted ally. This power is interruptible unless you have also trained Field Medic, in which case it is not interruptible.",
+    "display_short_help": "Close, Heal(Ally)",
+    "icon_name": "Medicine_Aid.tga",
+    "interrupt_like_sleep": true,
+    "range": 25,
+    "time_to_activate": 3.93,
+    "recharge_time": 10,
+    "endurance_cost": 6.5,
+    "interrupt_time": 1,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "boosts_allowed": [
+      32,
+      23,
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      8,
+      12
+    ],
+    "redirect": [
+      {
+        "power": "Pets.Pool_Medicine_AidOther.AidOther_NoInterrupt",
+        "requires": [
+          "Pool.Medicine.Field_Medic",
+          "source.ownPower?"
+        ]
+      },
+      {
+        "power": "Pets.Pool_Medicine_AidOther.AidOther_Interrupt"
+      }
+    ],
+    "effects": [],
+    "travel_suppression": 4,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDOTHER.PFX",
+    "attack_bits": [
+      385,
+      367,
+      47
+    ],
+    "wind_up_bits": [
+      385,
+      367,
+      47
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      385,
+      367,
+      47
+    ],
+    "attack_fx": "POWERS/MEDICINE/MAID.FX",
+    "hit_fx": "POWERS/HEALING/HEALING.FX",
+    "initial_attack_fx": "POWERS/MEDICINE/MAID.FX",
+    "frames_before_hit": 40,
+    "attack_frames": 88,
+    "initial_frames_before_hit": 40,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDOTHER.PFX",
+        "attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "wind_up_bits": [
+          385,
+          367,
+          47
+        ],
+        "hit_bits": [
+          49,
+          245
+        ],
+        "initial_attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/AIDOTHER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/AIDOTHER_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 1,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDOTHER.PFX",
+        "attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "wind_up_bits": [
+          385,
+          367,
+          47
+        ],
+        "hit_bits": [
+          49,
+          245
+        ],
+        "initial_attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/AIDOTHER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/AIDOTHER_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 1
+      }
+    ]
+  },
+  "Stimulant": {
+    "crcfull_name": 4212701867,
+    "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+    "source_name": "Pool.Medicine.Stimulant",
+    "display_name": "Injection",
+    "display_help": "You fire a small dart at a target. The dart is set up to release a beneficial serum or deleterious toxin, depending on whether it strikes friend or foe. If striking a friend, the ally is freed from any Immobilization, Sleep, Disorient, Hold, Fear or Confuse effects and is resistant to such effects for a brief time. If striking a foe, the enemy suffers reduced damage potential, attack speed and chance to hit. The serum's effects will improve with multiple applications from you, but the toxin's do not. The toxin's effect is also shorter in duration than the serum's effect. Both serum and toxin improve as you advance in level.",
+    "display_short_help": "Ranged, +Status Protection(Ally, PvE), +Status Resistance(Ally, PvP) OR -DMG(Foe, All), -Rech(Foe), -ToHit(Foe)",
+    "display_target_help": "You have been struck by a dart fired by a Field Medic. If the Medic is you ally, you have gained protections against Status Effects. If the Medic is your enemy, you are suffering reduced damage, attack speed and chance to hit.",
+    "display_target_short_help": "Special (Ally or Foe)",
+    "icon_name": "Medicine_Injection.tga",
+    "range": 40,
+    "time_to_activate": 2.93,
+    "recharge_time": 12,
+    "endurance_cost": 13,
+    "target": 21,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16,
+      19
+    ],
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      11,
+      5
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!",
+          "target.isFriend?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256,
+              264,
+              268,
+              272,
+              276,
+              280
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -30,
+            "duration": 45,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You aid {PlayerDest} with an {PowerName} that increases their status effect protections.",
+              "display_victim_hit": "{PlayerSource} aids you with an {PowerName} that boosts your status protections."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?",
+          "target.isFriend?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256,
+              264,
+              268,
+              272,
+              276,
+              280
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Boolean",
+            "scale": 3,
+            "duration": 45,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You aid {PlayerDest} with an {PowerName} that increases their status effect resistances.",
+              "display_victim_hit": "{PlayerSource} aids you with an {PowerName} that boosts your status resistances."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "target.isFriend?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "duration": 15,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "You harm {PlayerDest} with an {PowerName} that reduces damage, attack speed and chance to hit.",
+              "display_victim_hit": "{PlayerSource} harms you with an {PowerName} that reduces your damage, attack speed and chance to hit."
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.1,
+            "duration": 15,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "duration": 15,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "target.isFriend?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 1.5,
+            "duration": 15,
+            "stack_type": 3,
+            "messages": {
+              "display_attacker_hit": "You harm {PlayerDest} with an {PowerName} that reduces damage, attack speed and chance to hit.",
+              "display_victim_hit": "{PlayerSource} harms you with an {PowerName} that reduces your damage, attack speed and chance to hit."
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.1,
+            "duration": 15,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 15,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      256,
+      264,
+      268,
+      272,
+      276,
+      280,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_STIMULANT.PFX",
+    "attack_bits": [
+      385,
+      367,
+      47
+    ],
+    "wind_up_bits": [
+      385,
+      367,
+      47
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      385,
+      367,
+      47
+    ],
+    "attack_fx": "POWERS/MEDICINE/MSTIMULANT.FX",
+    "hit_fx": "POWERS/HEALING/HEALING.FX",
+    "wind_up_fx": "POWERS/MEDICINE/MSTIMULANTWU.FX",
+    "initial_attack_fx": "POWERS/MEDICINE/MSTIMULANT.FX",
+    "frames_before_hit": 1,
+    "attack_frames": 88,
+    "initial_frames_before_hit": 1,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_STIMULANT.PFX",
+        "attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "wind_up_bits": [
+          385,
+          367,
+          47
+        ],
+        "hit_bits": [
+          49,
+          245
+        ],
+        "initial_attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/STIMULANT_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+        "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/STIMULANT_WINDUP.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/STIMULANT_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 1,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_STIMULANT.PFX",
+        "attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "wind_up_bits": [
+          385,
+          367,
+          47
+        ],
+        "hit_bits": [
+          49,
+          245
+        ],
+        "initial_attack_bits": [
+          385,
+          367,
+          47
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/STIMULANT_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+        "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/STIMULANT_WINDUP.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/STIMULANT_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 88,
+        "initial_frames_before_hit": 1
+      }
+    ]
+  },
+  "Aid_Self": {
+    "crcfull_name": 2599872418,
+    "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+    "source_name": "Pool.Medicine.Aid_Self",
+    "display_name": "Aid Self",
+    "display_help": "You are able to heal yourself. This hypo also leaves you wide awake and resistant to stun effects. If you have also trained Field Medic, this power will also grant you an unenhanceable, long duration endurance over time effect. Purchasing Aid Self requires the user to be level 14 and possess either Aid Other or Injection.",
+    "display_short_help": "Self, Heal, +Res(Stun), +EndGain(Synergy)",
+    "display_target_help": "Due to your Field Medic training, you are gaining a constant stream of endurance over time due from Aid Self.",
+    "display_target_short_help": "+EndGain",
+    "icon_name": "Medicine_SelfAdministration.tga",
+    "buy_requires": [
+      "Pool.Medicine.Aid_Other",
+      "Pool.Medicine.Stimulant",
+      "||"
+    ],
+    "time_to_activate": 4.33,
+    "recharge_time": 20,
+    "endurance_cost": 13,
+    "interrupt_time": 1,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      32,
+      23,
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Heal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Heal damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_Boolean",
+            "scale": 1.75,
+            "duration": 45,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/ABILITY/STRENGTHCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Pool.Medicine.Field_Medic",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "target": 0,
+            "scale": 0.05,
+            "duration": 8.1,
+            "period": 2,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained {Damage} points of endurance due to lingering effects of your improved {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFENDCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      28,
+      88,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDSELF.PFX",
+    "wind_up_bits": [
+      384,
+      692
+    ],
+    "attack_fx": "POWERS/MEDICINE/MSELF.FX",
+    "hit_fx": "POWERS/HEALING/HEALING.FX",
+    "initial_attack_fx": "POWERS/MEDICINE/MSELF.FX",
+    "frames_before_hit": 1,
+    "attack_frames": 100,
+    "initial_frames_before_hit": 1,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDSELF.PFX",
+        "wind_up_bits": [
+          384,
+          692
+        ],
+        "hit_bits": [],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/AIDSELF_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/AIDSELF_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 100,
+        "initial_frames_before_hit": 1,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_AIDSELF.PFX",
+        "wind_up_bits": [
+          384,
+          692
+        ],
+        "hit_bits": [],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/AIDSELF_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/AIDSELF_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 100,
+        "initial_frames_before_hit": 1
+      }
+    ]
+  },
+  "Resuscitate": {
+    "crcfull_name": 3677013247,
+    "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+    "source_name": "Pool.Medicine.Resuscitate",
+    "display_name": "Resuscitate",
+    "display_help": "You revive a fallen ally, restoring health, but not endurance, completely. The target will also be protected from incurring any XP Debt for 15 seconds. This power is interruptible. You must be at least level 14 and have two other Medicine Powers before selecting Resuscitate.",
+    "display_short_help": "Close, Resurrect(Ally)",
+    "display_target_help": "You have been resuscitated and are are protected from XP Debt for 15 seconds.",
+    "display_target_short_help": "+XP Debt Protection",
+    "display_attacker_hit": "You revive {PlayerDest} from the brink of death. He is very weak and needs to rest.",
+    "display_victim_hit": "{PlayerSource} returns you from the brink of death. However, you are very weak, and must rest for a while to regain your strength.",
+    "display_confirm": "{PlayerSource} would like to Resuscitate you. You will be fully Healed, but have no Endurance for a 30 seconds. Do you Accept?",
+    "icon_name": "Medicine_SmellingSalts.tga",
+    "buy_requires": [
+      "Pool.Medicine.Aid_Other",
+      "Pool.Medicine.Stimulant",
+      "&&",
+      "Pool.Medicine.Aid_Other",
+      "Pool.Medicine.Aid_Self",
+      "&&",
+      "||",
+      "Pool.Medicine.Stimulant",
+      "Pool.Medicine.Aid_Self",
+      "&&",
+      "||"
+    ],
+    "range": 15,
+    "time_to_activate": 7.33,
+    "recharge_time": 180,
+    "endurance_cost": 32.5,
+    "time_to_confirm": 15,
+    "interrupt_time": 4,
+    "target": 6,
+    "ents_auto_hit": [
+      6
+    ],
+    "ents_affected": [
+      6
+    ],
+    "boosts_allowed": [
+      32,
+      23,
+      18,
+      14
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "table": "Ranged_Ones",
+            "duration": 0.5,
+            "period": 1,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage over time.",
+              "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage over time."
+            },
+            "fx": {
+              "continuing_bits": [
+                387,
+                49
+              ]
+            }
+          },
+          {
+            "attrib": [
+              464
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      28,
+      464
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_RESUSCITATE.PFX",
+    "attack_bits": [
+      386,
+      367,
+      48
+    ],
+    "wind_up_bits": [
+      386,
+      367,
+      48
+    ],
+    "initial_attack_bits": [
+      386,
+      367,
+      48
+    ],
+    "attack_fx": "POWERS/MEDICINE/MREVIVE.FX",
+    "hit_fx": "POWERS/MEDICINE/MREVIVEHEALING.FX",
+    "wind_up_fx": "POWERS/MEDICINE/MREVIVEWINDUP.FX",
+    "initial_attack_fx": "POWERS/MEDICINE/MREVIVE.FX",
+    "frames_before_hit": 1,
+    "attack_frames": 100,
+    "initial_frames_before_hit": 1,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_RESUSCITATE.PFX",
+        "attack_bits": [
+          386,
+          367,
+          48
+        ],
+        "wind_up_bits": [
+          386,
+          367,
+          48
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          386,
+          367,
+          48
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/RESUSCITATE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+        "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/RESUSCITATE_WINDUP.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/RESUSCITATE_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 100,
+        "initial_frames_before_hit": 1,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_RESUSCITATE.PFX",
+        "attack_bits": [
+          386,
+          367,
+          48
+        ],
+        "wind_up_bits": [
+          386,
+          367,
+          48
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          386,
+          367,
+          48
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/RESUSCITATE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+        "wind_up_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/RESUSCITATE_WINDUP.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/MEDICINE/SUBTRACTIVE/RESUSCITATE_ATTACK.FX",
+        "mode_bits": [],
+        "frames_before_hit": 1,
+        "attack_frames": 100,
+        "initial_frames_before_hit": 1
+      }
+    ]
+  },
+  "Field_Medic": {
+    "crcfull_name": 1545655010,
+    "source_file": "DEFS/POWERS/POOL_MEDICINE.POWERS",
+    "source_name": "Pool.Medicine.Field_Medic",
+    "display_name": "Field Medic",
+    "display_help": "Your skill as a Field Medic is unparalleled. In addition to permanently removing the interrupt time Aid Other and adding Endurance recovery to Aid Self, using this power will grant a powerful boost in the effectiveness of your healing powers and reduce your resistance to healing debuffs. This effect increases with level. You must be at least level 14 and have trained any two other Medicine powers before you can train as a Field Medic. Recharge: Very Long",
+    "display_short_help": "Self, +Heal, -Res(Heal), Special",
+    "display_target_help": "The effectiveness of your healing powers has been increased and you are less resistant to healing debuffs.",
+    "display_target_short_help": "+Str(Heal), -Res(Heal)",
+    "icon_name": "Medicine_FieldMedic.tga",
+    "buy_requires": [
+      "Pool.Medicine.Aid_Other",
+      "Pool.Medicine.Stimulant",
+      "&&",
+      "Pool.Medicine.Aid_Other",
+      "Pool.Medicine.Aid_Self",
+      "&&",
+      "||",
+      "Pool.Medicine.Aid_Other",
+      "Pool.Medicine.Resuscitate",
+      "&&",
+      "||",
+      "Pool.Medicine.Stimulant",
+      "Pool.Medicine.Aid_Self",
+      "&&",
+      "||",
+      "Pool.Medicine.Stimulant",
+      "Pool.Medicine.Resuscitate",
+      "&&",
+      "||",
+      "Pool.Medicine.Aid_Self",
+      "Pool.Medicine.Resuscitate",
+      "&&",
+      "||"
+    ],
+    "time_to_activate": 3.33,
+    "recharge_time": 300,
+    "endurance_cost": 19.5,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18
+    ],
+    "modes_disallowed": [
+      117,
+      118,
+      8,
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.25,
+            "duration": 60,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have channeled your knowledge as a {PowerName} to become a more effective healer."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": -0.25,
+            "duration": 60,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      28
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_FIELDMEDIC.PFX",
+    "hit_bits": [
+      245
+    ],
+    "hit_fx": "POWERS/HEALING/HEALING.FX",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_FIELDMEDIC.PFX",
+        "hit_bits": [
+          245
+        ],
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EMPATHY/HEALING.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_MEDICINE_FIELDMEDIC.PFX",
+        "hit_bits": [
+          245
+        ],
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PAINDOMINATION/SHAREPAIN_HIT.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  }
+}

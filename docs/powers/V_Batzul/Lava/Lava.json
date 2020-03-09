@@ -1,0 +1,96 @@
+{
+  "crcfull_name": 2917087669,
+  "source_file": "DEFS/POWERS/V_BATZUL_LAVA.POWERS",
+  "source_name": "V_Batzul.Lava.Lava",
+  "display_name": "Lava",
+  "display_help": "The Lava continues to burn you and slow your movement. You cannot fly.",
+  "display_short_help": "DoT(Fire ), -SPD, -Fly, -Jump",
+  "display_target_help": "The Lava continues to burn you and slow your movement. You cannot fly.",
+  "display_target_short_help": "DoT(Fire ), -SPD, -Fly, -Jump",
+  "icon_name": "FlamingShield_FieryAura.tga",
+  "type": 1,
+  "effect_area": 5,
+  "activate_period": 0.5,
+  "target_visibility": 1,
+  "ents_auto_hit": [
+    19,
+    16
+  ],
+  "ents_affected": [
+    19,
+    16
+  ],
+  "effects": [
+    {
+      "requires": [
+        "group",
+        "target>",
+        "Batzul",
+        "eq",
+        "!",
+        "group",
+        "target>",
+        "Objects",
+        "eq",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.4,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.5,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    188,
+    192,
+    200,
+    284
+  ]
+}

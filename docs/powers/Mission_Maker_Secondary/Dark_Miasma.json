@@ -1,0 +1,751 @@
+{
+  "Twilight_Grasp": {
+    "crcfull_name": 2611635205,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Twilight_Grasp",
+    "display_name": "Twilight Grasp",
+    "display_help": "You channel Negative Energy from the Netherworld through yourself to a targeted foe. Twilight Grasp drains the power from that target and slowly transfers it to you and all nearby allies. The targeted foe's chance to hit and damage are reduced, while you and your nearby allies are healed. Recharge: Moderate",
+    "display_short_help": "Ranged, Foe -To-hit -DMG, Team Heal",
+    "display_target_help": "The Twilight Grasp has reduced your chance to hit and Damage potential.",
+    "display_target_short_help": "-To-hit, -DMG",
+    "icon_name": "DarkMiasma_TwilightGrasp.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 2.37,
+    "recharge_time": 8,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Twilight"
+              }
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.5,
+            "duration": 20,
+            "messages": {
+              "display_attacker_hit": "You capture {PlayerDest} in your {PowerName}, reducing their damage, to-hit and regeneration rate!",
+              "display_victim_hit": "{PlayerSource} captures you in their {PowerName}, reducing your damage, to-hit and regeneration rate!"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.167,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      232,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_TWILIGHT_GRASP.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHEALATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 53
+  },
+  "Tar_Patch": {
+    "crcfull_name": 2292483895,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Tar_Patch",
+    "display_name": "Tar Patch",
+    "display_help": "Drops a large patch of viscous Negative Energy which dramatically slows down enemies that run through it and reduces their damage resistance. Affected targets stuck in the Tar Patch cannot jump or fly. Recharge: Slow",
+    "display_short_help": "Ranged (Location AoE), Target -Speed, -Res, -Fly",
+    "display_target_help": "Your Running speed and damage resistance is reduced by the Tar Patch. You cannot jump or fly away while in the Tar Patch",
+    "display_target_short_help": "-SPD, -Res, -Fly",
+    "icon_name": "DarkMiasma_TarPatch.tga",
+    "target_near_ground": true,
+    "range": 90,
+    "time_to_activate": 3.1,
+    "recharge_time": 90,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 45,
+            "flags": [
+              640,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You turn the ground into a sticky {PowerName}, reducing your foes movement rate and resistance to damage!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_TarPatch"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.167,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_TARPATCHCAST.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/TARPATCHCAST.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/TARPATCHCAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 93,
+    "initial_frames_before_hit": 32
+  },
+  "Darkest_Night": {
+    "crcfull_name": 1232262528,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Darkest_Night",
+    "display_name": "Darkest Night",
+    "display_help": "While active, you channel Negative Energy onto a targeted foe. Darkest Night decreases the damage potential and chance to hit of the target, and all foes nearby, as long as you keep the power active. Recharge: Moderate",
+    "display_short_help": "Toggle: Ranged (Targeted AoE), Foe -DMG -To-hit",
+    "display_target_help": "Your chance to hit and Damage potential are reduced by the darkness.",
+    "display_target_short_help": "-To-hit, -DMG",
+    "display_attacker_hit": "Your {PowerName} reduced the damage and chance to hit of {PlayerDest} and all foes nearby.",
+    "display_victim_hit": "{PlayerSource} reduces your damage and chance to hit with their {PowerName}.",
+    "icon_name": "DarkMiasma_DarkestNight.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "range": 70,
+    "time_to_activate": 3.17,
+    "recharge_time": 10,
+    "endurance_cost": 0.35,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 20,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/DARKESTNIGHTHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 20,
+            "stack_type": 3
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.167,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_CHILL_OF_THE_NIGHT.PFX",
+    "activation_bits": [
+      20,
+      272
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKNESSHANDS3.FX",
+    "attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHT.FX",
+    "attack_frames": 95
+  },
+  "Shadow_Fall": {
+    "crcfull_name": 3283436162,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Shadow_Fall",
+    "display_name": "Shadow Fall",
+    "display_help": "Envelops you and your nearby teammates in a shroud of darkness. Shadow Fall does not grant Invisibility, but it does make you harder to detect. Even if you are discovered, Shadow Fall grants a bonus to Defense bonus to all attacks and Resistance to Fear, while reducing Energy, Negative Energy, and Psionic Damage. You cannot use any other Concealment type power while using Shadow Fall. Recharge: Slow",
+    "display_short_help": "Toggle: PBAoE, Team Stealth, +DEF(All), +Res(Energy, Negative, Psionics, Fear)",
+    "display_target_help": "Shadow Fall has made you difficult to detect, which increases your Defense. Shadowfall also partially absorbs and deflects Energy, Negative Energy and Psionic damage. You are also less fearful.",
+    "display_target_short_help": "Stealth, +DEF(All), +Res(Energy, Negative, Psionics, Fear))",
+    "display_attacker_hit": "You hide {PlayerDest} within your {PowerName}.",
+    "display_victim_hit": "You are hidden within the Shadow Fall.",
+    "display_power_defense_float": "Avoided",
+    "icon_name": "DarkMiasma_ShadowFall.tga",
+    "type": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 40,
+    "time_to_activate": 2.03,
+    "recharge_time": 15,
+    "activate_period": 0.5,
+    "ents_auto_hit": [
+      16,
+      1
+    ],
+    "ents_affected": [
+      16,
+      1
+    ],
+    "group_membership": [
+      12
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 35,
+            "duration": 0.75,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 31,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/SHADOWHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 350,
+            "duration": 0.75,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 2,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 13,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 31,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144
+            ],
+            "table": "Ranged_Buff_Def",
+            "scale": 0.5,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.7,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              16,
+              20,
+              24
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.1,
+    "attrib_cache": [
+      16,
+      20,
+      24,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      220,
+      224,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_SHADOW_FALL.PFX",
+    "activation_bits": [
+      20,
+      255,
+      723
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/SHADOWFALL.FX",
+    "attack_frames": 61
+  },
+  "Fearsome_Stare": {
+    "crcfull_name": 3773374235,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Fearsome_Stare",
+    "display_name": "Fearsome Stare",
+    "display_help": "Instills tremendous Fear within a cone area in front of you, causing all affected targets to tremble in Terror uncontrollably. Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Foe Fear, -To-hit",
+    "display_target_help": "The Fearsome Stare has terrified you and reduced your chance to hit.",
+    "display_target_short_help": "Fear, -To-hit",
+    "icon_name": "DarkMiasma_FearsomeAura.tga",
+    "attack_types": [
+      "NegativeEnergy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 70,
+    "arc": 0.7853982,
+    "range": 70,
+    "time_to_activate": 2.03,
+    "recharge_time": 40,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Ranged_Fear",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 20
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Ranged_Fear",
+            "scale": 10,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "point_value": 3,
+    "point_multiplier": 0.167,
+    "attrib_cache": [
+      100,
+      264
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_FEARSOME_AURA.PFX",
+    "attack_bits": [
+      20,
+      364
+    ],
+    "initial_attack_bits": [
+      20,
+      364
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/FEARSOMEAURA.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/FEARSOMEAURA.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 23
+  },
+  "Petrifying_Gaze": {
+    "crcfull_name": 696079935,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Petrifying_Gaze",
+    "display_name": "Petrifying Gaze",
+    "display_help": "Petrifies a single targeted foe with a terrifying gaze. The victim is Held and defenseless. Recharge: Slow",
+    "display_short_help": "Ranged Hold",
+    "display_target_help": "The Petrifying Gaze has stopped you in your tracks!",
+    "display_target_short_help": "Hold",
+    "icon_name": "DarkMiasma_PetrifyingGaze.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 70,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZEHITCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_PETRIFYING_GAZE.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZE.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/PETRIFYINGGAZE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 45
+  },
+  "Dark_Servant": {
+    "crcfull_name": 2732823190,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_MIASMA.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Miasma.Dark_Servant",
+    "display_name": "Dark Servant",
+    "display_help": "Summons a Dark Servant to your aid. The Dark Servant possesses an assortment of dark powers to weaken your foes. The summoned entity is not a willing servant, and it is only your power that binds it in this realm. The Dark Servant can be buffed and healed. Recharge: Very Long",
+    "display_short_help": "Summon Dark Servant: Ranged Debuff Special",
+    "icon_name": "DarkMiasma_DarkServant.tga",
+    "accuracy": 2,
+    "time_to_activate": 3.17,
+    "recharge_time": 120,
+    "endurance_cost": 35,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You conjure a Dark Servant from another realm!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_DarkServant",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_MIASMA_DARK_SERVANT.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_frames": 95
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "crcfull_name": 1738479995,
+  "source_file": "DEFS/POWERS/BRUTE_DEFENSE_WILLPOWER.POWERS",
+  "source_name": "Brute_Defense.Willpower.Rise_to_the_Challenge",
+  "display_name": "Rise to the Challenge",
+  "display_help": "The more the odds are against you, the more determined you become. When surrounded by foes, your ability to regenerate health increases greatly. Additionally, your resolve and the look in your eye is enough to leave most foes shaken, so their attacks are less accurate. The first foe you engage in melee grants the highest regeneration bonus, and up to 10 foes can contribute to this effect. Recharge: Moderate",
+  "display_short_help": "Toggle: Self +Regen, Foe -To Hit",
+  "icon_name": "Willpower_RiseToTheChallenge.tga",
+  "type": 2,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 3,
+  "recharge_time": 10,
+  "activate_period": 1,
+  "endurance_cost": 0.208,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    14,
+    11
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 0.5,
+          "duration": 1,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "isPVPMap?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 0.25,
+          "duration": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "duration": 1.125,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX2"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "isPVPMap?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "scale": 0.25,
+          "duration": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX3"
+          }
+        },
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "duration": 1.125,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX4"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Taunt"
+      ],
+      "attrib_mod": [],
+      "effect": [
+        {
+          "requires": [
+            "Raid",
+            "target.HasTag?",
+            "!",
+            "enttype",
+            "target>",
+            "critter",
+            "eq",
+            "&&"
+          ],
+          "attrib_mod": [
+            {
+              "scale": 1.25,
+              "magnitude": 3
+            }
+          ]
+        },
+        {
+          "requires": [
+            "Raid",
+            "target.HasTag?",
+            "@ToHitRoll",
+            "0.2",
+            "+",
+            "@ToHit",
+            "<",
+            "&&"
+          ],
+          "eval_flags": 2,
+          "attrib_mod": [
+            {
+              "scale": 1.25,
+              "magnitude": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "InherentTaunt"
+      ],
+      "flags": 16,
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Redirects.Inherents.Fury_Proc_Aura"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    100,
+    232,
+    248,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_WILLPOWER_RISETOTHECHALLENGE.PFX",
+  "activation_bits": [
+    248
+  ],
+  "activation_fx": "POWERS/WILLPOWER/RISETOTHECHALLENGE_ACTIVATION.FX",
+  "continuing_fx": "POWERS/WILLPOWER/WILLPOWER_CONTINUING.FX",
+  "continuing_fx1": "POWERS/WILLPOWER/WILLPOWER_CONTINUING.FX",
+  "continuing_fx2": "POWERS/WILLPOWER/RISETOTHECHALLENGE_CONTINUING.FX",
+  "frames_before_hit": 64,
+  "attack_frames": 90,
+  "initial_frames_before_hit": 64,
+  "custom_fx": [
+    {
+      "token": "Bright Willpower",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_WILLPOWER_RISETOTHECHALLENGE.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        248
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/WILLPOWER/RISETOTHECHALLENGE_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/WILLPOWER_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/WILLPOWER_CONTINUING.FX",
+      "continuing_fx2": "CUSTOMIZEABLEPOWERS/WILLPOWER/RISETOTHECHALLENGE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 64,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 64,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Willpower",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_WILLPOWER_RISETOTHECHALLENGE.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        248
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/WILLPOWER/SUBTRACTIVE/RISETOTHECHALLENGE_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/WILLPOWER_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/WILLPOWER_CONTINUING.FX",
+      "continuing_fx2": "CUSTOMIZEABLEPOWERS/WILLPOWER/SUBTRACTIVE/RISETOTHECHALLENGE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 64,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 64
+    },
+    {
+      "token": "Minimal FX",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEDEFENSE_WILLPOWER_RISETOTHECHALLENGE.PFX",
+      "display_name": "No FX",
+      "hit_bits": [],
+      "activation_bits": [
+        248
+      ],
+      "continuing_fx3": "POWERS/WILLPOWER/WILLPOWER_CONTINUING.FX",
+      "continuing_fx4": "POWERS/WILLPOWER/RISETOTHECHALLENGE_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 64,
+      "attack_frames": 90,
+      "initial_frames_before_hit": 64,
+      "palette": "Additive"
+    }
+  ]
+}

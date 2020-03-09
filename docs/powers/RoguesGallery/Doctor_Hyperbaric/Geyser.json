@@ -1,0 +1,290 @@
+{
+  "crcfull_name": 1990154592,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_DOCTOR_HYPERBARIC.POWERS",
+  "source_name": "RoguesGallery.Doctor_Hyperbaric.Geyser",
+  "display_name": "Geyser",
+  "display_help": "You cause a powerful geyser of scalding hot water to erupt from within the earth, burning your foes and tossing them into the air. Affected targets suffer fire damage and are knocked into the air, while also suffering smashing damage and reduced movement speeds upon falling back to the ground. There is a chance that the fall could also leave affected targets stunned.",
+  "display_short_help": "Ranged (Targeted AoE), Extreme DMG(Fire/Smashing), -Speed (Foe, All), Knockup (Foe), Chance for Stun (Foe)",
+  "display_target_help": "Your movement speed has been reduced and you may be stunned.",
+  "display_target_short_help": "-Speed (All), Chance for Stun",
+  "icon_name": "WaterBlast_Geyser.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing",
+    "Fire"
+  ],
+  "accuracy": 1.4,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "range": 80,
+  "time_to_activate": 2.93,
+  "recharge_time": 16,
+  "endurance_cost": 21,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        },
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.6,
+          "delay": 1.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.33,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.33,
+          "duration": 10,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Ranged_Ones",
+          "scale": 1.5,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Ranged_Ones",
+          "scale": 1.5,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 5
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.67,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 5,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.67,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 5,
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    8,
+    188,
+    192,
+    200,
+    204,
+    276,
+    324
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_GEYSER.PFX",
+  "attack_bits": [
+    20,
+    631,
+    683,
+    221
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    631,
+    683,
+    221
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/GEYSER.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/GEYSER.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 55,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 55,
+  "primary_tint": [
+    100,
+    140,
+    215,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    140,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_GEYSER.PFX",
+      "attack_bits": [
+        20,
+        631,
+        683,
+        221
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        683,
+        221
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/GEYSER.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/GEYSER.FX",
+      "frames_before_hit": 55,
+      "attack_frames": 88,
+      "initial_frames_before_hit": 55,
+      "palette": ""
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_GEYSER.PFX",
+      "attack_bits": [
+        20,
+        631,
+        683,
+        221
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        683,
+        221
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/GEYSER.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/GEYSER.FX",
+      "frames_before_hit": 55,
+      "attack_frames": 88,
+      "initial_frames_before_hit": 55,
+      "palette": ""
+    }
+  ]
+}

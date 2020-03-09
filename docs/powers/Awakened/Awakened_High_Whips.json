@@ -1,0 +1,374 @@
+{
+  "Psionic_Lash": {
+    "crcfull_name": 1362500062,
+    "source_file": "DEFS/POWERS/AWAKENED_AWAKENED_HIGH_WHIPS.POWERS",
+    "source_name": "Awakened.Awakened_High_Whips.Psionic_Lash",
+    "display_name": "Psionic Lash",
+    "display_help": "You channel energy into your whip and lash out at your foe, dealing high energy damage and causing fire damage over time. Lash has longer range than most melee attacks. It will reduce the target's damage resistance and also has a chance to knockdown your target.",
+    "display_short_help": "Melee (Long), Moderate DMG (Psionic), Minor DoT (Fire), -Rech (Foe), Chance for Knockdown (Foe)",
+    "display_target_help": "You are on fire and burning. Your attack speed has also been reduced.",
+    "display_target_short_help": "DoT(Fire), -Rech",
+    "icon_name": "Awakened_PsionicLash.tga",
+    "attack_types": [
+      "Melee",
+      "Psionic"
+    ],
+    "range": 20,
+    "time_to_activate": 1.8,
+    "recharge_time": 4,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.125,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 6,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDHANDS.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.15,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.64,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.15,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.64,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      8,
+      24,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_CHANNELER_PSIONICLASH.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 54,
+    "initial_frames_before_hit": 29,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Psionic_Siphon": {
+    "crcfull_name": 2356889593,
+    "source_file": "DEFS/POWERS/AWAKENED_AWAKENED_HIGH_WHIPS.POWERS",
+    "source_name": "Awakened.Awakened_High_Whips.Psionic_Siphon",
+    "display_name": "Psionic Siphon",
+    "display_help": "You hold your target with your psionic whip, preventing them from moving. While they helplessly tremble under your gaze, you are healed while they suffer psionic and fire damage over time. The affected target is also made highly resistant to healing.",
+    "display_short_help": "Ranged, High DoT (Psionic), Heal (Self), -Heal(Foe)",
+    "display_target_help": "You are resistant to healing.",
+    "display_target_short_help": "-Heal",
+    "icon_name": "Awakened_PsionicSiphon.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "accuracy": 2.4,
+    "range": 80,
+    "time_to_activate": 2.8,
+    "recharge_time": 18,
+    "endurance_cost": 11,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "delay": 0.5,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.05,
+            "duration": 4.1,
+            "delay": 0.75,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              80
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.02,
+            "duration": 4.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} is healed for {Damage} points of damage due to her {PowerName}."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 0.5,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 5.1,
+            "magnitude": 3,
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      8,
+      24,
+      28,
+      80,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_MINDSOFMAYHEM_JUDGEMENT.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      508
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      508
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      508
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_HELLONEARTH.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_HELLONEARTH.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/AURA_HELLONEARTH.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/AURA_HELLONEARTH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 84,
+    "initial_frames_before_hit": 38,
+    "primary_tint": [
+      120,
+      0,
+      180,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      255,
+      255
+    ]
+  }
+}

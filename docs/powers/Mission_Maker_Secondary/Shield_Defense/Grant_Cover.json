@@ -1,0 +1,179 @@
+{
+  "crcfull_name": 499024821,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_SHIELD_DEFENSE.POWERS",
+  "source_name": "Mission_Maker_Secondary.Shield_Defense.Grant_Cover",
+  "display_name": "Grant Cover",
+  "display_help": "You are able to use your shield to defend nearby allies. Any teammates who remain nearby gain a bonus to their defense. (NOTE: The defense bonus from this power is only applied to nearby team mates, but not yourself.) Additionally, while this power is active, the user and his team mates will gain some resistance to defense and recharge rate debuffs. Recharge: Slow",
+  "display_short_help": "PBAoE, Team (but not self) +DEF(All but Psionic), Team +RES(Defense Debuff, Recharge Debuff)",
+  "display_target_help": "Your shield bearing ally has improved your defense!",
+  "display_target_short_help": "+DEF(All)",
+  "display_attacker_hit": "You grant your allies cover and improve their defense.",
+  "display_victim_hit": "{PlayerSource} increases your team's Defense with their {PowerName}!",
+  "display_power_defense_float": "Blocked",
+  "icon_name": "ShieldDefense_GrantCover.tga",
+  "type": 1,
+  "buy_requires": [
+    "Mission_Maker_Attacks.Dual_Blades",
+    "Mission_Maker_Attacks.Claws",
+    "||",
+    "Mission_Maker_Attacks.Katana",
+    "||",
+    "Mission_Maker_Attacks.Spines",
+    "||",
+    "Mission_Maker_Attacks.Archery",
+    "||",
+    "Mission_Maker_Attacks.Assault_Rifle",
+    "||",
+    "Mission_Maker_Attacks.Mercenaries",
+    "||",
+    "Mission_Maker_Attacks.Ninjas",
+    "||",
+    "Mission_Maker_Attacks.Thugs",
+    "||",
+    "Mission_Maker_Attacks.Robotics",
+    "||",
+    "Mission_Maker_Attacks.Thorny_Assault",
+    "||",
+    "Mission_Maker_Attacks.Demon_Summoning",
+    "||",
+    "Mission_Maker_Attacks.Staff_Fighting",
+    "||",
+    "Mission_Maker_Attacks.Beam_Rifle",
+    "||",
+    "Mission_Maker_Attacks.Titan_Weapons",
+    "||",
+    "!"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "time_to_activate": 2.5,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "ents_auto_hit": [
+    8,
+    1
+  ],
+  "ents_affected": [
+    8,
+    1
+  ],
+  "ai_groups": [
+    "kBuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "entref",
+        "target>",
+        "entref",
+        "source>",
+        "eq",
+        "!",
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            104,
+            108,
+            112,
+            116,
+            120,
+            124,
+            128,
+            132,
+            136
+          ],
+          "table": "Melee_Buff_Def",
+          "scale": 1.125,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/SHIELDS/GRANTCOVER_CONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "aspect": 24,
+          "table": "Melee_Res_Boolean",
+          "scale": 0.4,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 24,
+          "scale": 0.3,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "point_value": 3,
+  "point_multiplier": 0.083,
+  "attrib_cache": [
+    104,
+    108,
+    112,
+    116,
+    120,
+    124,
+    128,
+    132,
+    136,
+    184,
+    356
+  ]
+}

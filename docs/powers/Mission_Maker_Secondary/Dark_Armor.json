@@ -1,0 +1,869 @@
+{
+  "Death_Shroud": {
+    "crcfull_name": 3300356414,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Death_Shroud",
+    "display_name": "Death Shroud",
+    "display_help": "You become a focus point for the Netherworld, allowing its Negative Energy to seep from your body. This will continuously damage all foes in melee range. Damage: Minor(DoT), Recharge: Fast",
+    "display_short_help": "Toggle: PBAoE Minor DoT(Negative)",
+    "display_target_help": "You are taking damage from the Death Shroud.",
+    "display_target_short_help": "DoT(Negative)",
+    "display_attacker_hit": "Your {PowerName} protects you from lethal, smashing, and negative energy..",
+    "icon_name": "DarkArmor_TouchOfDeath.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 3.47,
+    "recharge_time": 4,
+    "activate_period": 2,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 36,
+    "attrib_cache": [
+      20
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_TOUCH_OF_DEATH.PFX",
+    "activation_bits": [
+      20,
+      250
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DEATHSHROUD.FX",
+    "frames_before_hit": 28,
+    "attack_frames": 104,
+    "initial_frames_before_hit": 28
+  },
+  "Dark_Embrace": {
+    "crcfull_name": 815854663,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Dark_Embrace",
+    "display_name": "Dark Embrace",
+    "display_help": "You tap into the energy of the Netherworld to protect yourself from damage. This Dark Embrace shrouds you and grants resistance to Lethal, Smashing, Negative Energy and Toxic damage. Recharge: Fast",
+    "display_short_help": "Toggle: Self +Res(Smash, Lethal, Negative, Toxic)",
+    "display_attacker_hit": "Your {PowerName} protects you from lethal, smashing, toxic and negative energy damage.",
+    "icon_name": "DarkArmor_DarkEmbrace.tga",
+    "type": 1,
+    "time_to_activate": 0.67,
+    "recharge_time": 4,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/AVITARDARKNESSCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              20,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.067,
+    "attrib_cache": [
+      0,
+      4,
+      20,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_TERRIFING_EMBRACE.PFX",
+    "activation_bits": [
+      245
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKARMORNORING.FX",
+    "frames_before_hit": 17,
+    "attack_frames": 20,
+    "initial_frames_before_hit": 17
+  },
+  "Murky_Cloud": {
+    "crcfull_name": 3507346464,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Murky_Cloud",
+    "display_name": "Murky Cloud",
+    "display_help": "You create a Murky Cloud enshrouding you. This cloud can absorb all forms of energy, making you more resistant to Fire, Cold, Energy, and Negative Energy attacks, as well as Endurance Drain effects. Recharge: Fast",
+    "display_short_help": "Toggle: Self +Res(Fire, Cold, Energy, Negative, End Drain)",
+    "display_attacker_hit": "You protect yourself from fire, cold, energy and negative energy damage with your {PowerName}.",
+    "icon_name": "DarkArmor_DefractingCloud.tga",
+    "type": 1,
+    "time_to_activate": 1.17,
+    "recharge_time": 4,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8,
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/AVITARDARKNESSCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              16,
+              20
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              88,
+              236
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_Boolean",
+            "scale": 2,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.067,
+    "attrib_cache": [
+      8,
+      12,
+      16,
+      20,
+      88,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_DEFRACTING_CLOUD.PFX",
+    "activation_bits": [
+      248,
+      723,
+      681
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKARMORNORING2.FX"
+  },
+  "Obsidian_Shield": {
+    "crcfull_name": 4097688000,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Obsidian_Shield",
+    "display_name": "Obsidian Shield",
+    "display_help": "You can create a special Obsidian Shield that grants good resistance to Psionic damage. With your mind enshrouded in darkness you are protected from Sleep, Fear, Hold and Disorient attacks. Recharge: Fast",
+    "display_short_help": "Toggle: Self +Res(Psionic, Sleep, Hold, Disorient, Fear)",
+    "display_attacker_hit": "You protect yourself from Psionic damage, Sleep, Fear and Disorient with your {PowerName}.",
+    "icon_name": "DarkArmor_ObsidianShield.tga",
+    "type": 1,
+    "time_to_activate": 1.17,
+    "recharge_time": 4,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 5,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/AVITARDARKNESSCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              264,
+              268,
+              276,
+              280
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": -30,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              228
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 0.6,
+            "duration": 10.25,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "point_value": 3,
+    "point_multiplier": 0.033,
+    "attrib_cache": [
+      24,
+      228,
+      264,
+      268,
+      276,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_OBSIDIAN_SHIELD.PFX",
+    "activation_bits": [
+      248,
+      723,
+      681
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/OBSIDIONARMOR.FX"
+  },
+  "Dark_Regeneration": {
+    "crcfull_name": 284935224,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Dark_Regeneration",
+    "display_name": "Dark Regeneration",
+    "display_help": "You can tap the dark essence of the Netherworld to drain a small amount of life from all enemies nearby, thus healing yourself. The more foes affected, the more you will be healed. Damage: Minor, Recharge: Slow",
+    "display_short_help": "PBAoE Minor DMG(Negative), Self +HP",
+    "icon_name": "DarkArmor_DarkRegeneration.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "time_to_activate": 1.17,
+    "recharge_time": 30,
+    "endurance_cost": 45.5,
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 3,
+            "delay": 0.25,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} regenerates {Damage} points of damage!",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "point_value": 30,
+    "attrib_cache": [
+      20,
+      28
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_REGENERATION.PFX",
+    "attack_bits": [
+      248
+    ],
+    "initial_attack_bits": [
+      248
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/DARKARMORREGENERATION.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/DARKREGENERATIONHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKARMORREGENERATION.FX"
+  },
+  "Cloak_of_Darkness": {
+    "crcfull_name": 324553930,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Cloak_of_Darkness",
+    "display_name": "Cloak of Darkness",
+    "display_help": "A shroud of Netherworld darkness envelops you, making you difficult to spot at a distance. You can be seen only at close range, or if you attack a target. Even if seen, the Cloak of Darkness grants you a bonus to Defense to all attacks and some protection from Immobilization. This Netherworld Cloak also allows you to see things in a new light, allowing you to better see stealthy foes. Unlike some stealth powers, Cloak of Darkness has no movement penalty. Cloak of Darkness will not work with any other form of Concealment power such as Shadow Fall or Steamy Mist. Recharge: Slow",
+    "display_short_help": "Toggle: Self Stealth, +DEF(All), +Perception, Res (Immobilize)",
+    "display_attacker_hit": "You are concealed by your {PowerName}.",
+    "display_power_defense_float": "Avoided",
+    "icon_name": "DarkArmor_CloakOfDarkness.tga",
+    "type": 1,
+    "time_to_activate": 1.17,
+    "recharge_time": 20,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "scale": 35,
+            "duration": 10.25,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 31,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "scale": 350,
+            "duration": 10.25,
+            "stack_type": 3,
+            "suppress": [
+              {
+                "event": 2,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 13,
+                "seconds": 10,
+                "always": true
+              },
+              {
+                "event": 31,
+                "seconds": 10,
+                "always": true
+              }
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 0.5,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": 0,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Melee_Res_Boolean",
+            "scale": -30,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.067,
+    "attrib_cache": [
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      220,
+      224,
+      272,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_CLOAK_OF_DARKNESS.PFX",
+    "activation_bits": [
+      248,
+      723
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKARMORCLOAK.FX"
+  },
+  "Oppressive_Gloom": {
+    "crcfull_name": 3096142796,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Oppressive_Gloom",
+    "display_name": "Oppressive Gloom",
+    "display_help": "The Netherworld has many mutable properties, such as the Oppressive Gloom. This power allows you to use your own Hit Points to keep enemies near you Disoriented and unable to use any powers. Endurance cost for this is minimal, but the power can be dangerous to use. Recharge: Moderate",
+    "display_short_help": "Toggle: PBAoE, Foe Disorient, Self -HP",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "DarkArmor_OppressiveGloom.tga",
+    "type": 1,
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 8,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "activate_period": 2,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 2,
+            "magnitude": 2,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerDest} reels as your {PowerName} overwhelms them.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.017,
+    "attrib_cache": [
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_OPPRESSIVE_GLOOM.PFX",
+    "activation_bits": [
+      20,
+      255
+    ],
+    "activation_fx": "POWERS/DARKNESSCONTROL/DARKARMORGLOOM.FX"
+  },
+  "Soul_Transfer": {
+    "crcfull_name": 3719220514,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_DARK_ARMOR.POWERS",
+    "source_name": "Mission_Maker_Secondary.Dark_Armor.Soul_Transfer",
+    "display_name": "Soul Transfer",
+    "display_help": "Should you fall in battle, you can perform a Soul Transfer, sucking the life force of all foes around you to bring yourself back from the brink of death. The more foes nearby, the more life is restored to you. Drained foes are left Disoriented. The dark effects of this Soul Transfer will actually leave you invulnerable for a brief time, and protected from XP Debt for 90 seconds. There must be at least one foe nearby to fuel the Transfer and revive yourself. Damage: Moderate, Recharge: Very Long",
+    "display_short_help": "Self Rez, Special",
+    "icon_name": "DarkArmor_SoulTransfer.tga",
+    "attack_types": [
+      "AOE",
+      "NegativeEnergy"
+    ],
+    "castable_after_death": 1,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 25,
+    "time_to_activate": 1.17,
+    "recharge_time": 300,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 10,
+            "magnitude": 30,
+            "flags": [
+              525568,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_Heal",
+            "scale": 3,
+            "duration": 0.5,
+            "period": 1,
+            "flags": [
+              96,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Your {PowerName} steals {Damage} hit points and brings you back from the brink of death!"
+            },
+            "fx": {
+              "continuing_bits": [
+                323
+              ]
+            }
+          },
+          {
+            "attrib": [
+              296
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Untouchable"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 30,
+            "delay": 0.25,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 4,
+            "magnitude": 50,
+            "flags": [
+              1072,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              495
+            ],
+            "target": 0,
+            "scale": -0.99,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Behavior": {}
+            }
+          }
+        ]
+      }
+    ],
+    "point_value": 55,
+    "attrib_cache": [
+      20,
+      28,
+      88,
+      272,
+      276,
+      296,
+      495
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_SHADOW_MAW.PFX",
+    "hit_bits": [
+      49,
+      585
+    ],
+    "hit_fx": "POWERS/EMPATHY/SOULTRANSFERABSORBPAIN.FX",
+    "frames_before_hit": 45,
+    "initial_frames_before_hit": 45
+  }
+}

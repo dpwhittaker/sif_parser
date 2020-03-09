@@ -1,0 +1,349 @@
+{
+  "crcfull_name": 3322706059,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_SONIC_ATTACK.POWERS",
+  "source_name": "Corruptor_Ranged.Sonic_Attack.Shout",
+  "display_name": "Shout",
+  "display_help": "You blast your foe with a tremendous Shout, damaging them and reducing their Damage Resistance. Damage: High, Recharge: Moderate",
+  "display_short_help": "Ranged, Heavy DMG(Smashing/Energy), Foe -Res(All)",
+  "display_target_help": "The sonic Shout has reduced your Damage Resistance.",
+  "display_target_short_help": "-Resist",
+  "icon_name": "SonicBlast_Heavy.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 2.67,
+  "recharge_time": 10,
+  "endurance_cost": 11.856,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.06,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.06,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.3344,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.3344,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 2.12,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.6689,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -2,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHOUT.PFX",
+  "attack_bits": [
+    20,
+    327,
+    383
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    327,
+    383
+  ],
+  "attack_fx": "POWERS/SONICCONTROL/BLASTS/MASSIVESONICBLAST.FX",
+  "hit_fx": "POWERS/SONICCONTROL/BLASTS/STANDARDBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/SONICCONTROL/BLASTS/MASSIVESONICBLAST.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 45,
+  "delayed_hit": true,
+  "attack_frames": 80,
+  "initial_frames_before_hit": 45,
+  "projectile_speed": 84,
+  "custom_fx": [
+    {
+      "token": "Bright Sonic Attack",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHOUT.PFX",
+      "attack_bits": [
+        20,
+        327,
+        383
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        383
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/MASSIVESONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/MASSIVESONICBLAST.FX",
+      "frames_before_hit": 45,
+      "delayed_hit": true,
+      "attack_frames": 80,
+      "initial_frames_before_hit": 45,
+      "projectile_speed": 84,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Sonic Attack",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHOUT.PFX",
+      "attack_bits": [
+        20,
+        327,
+        383
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        383
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/MASSIVESONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/MASSIVESONICBLAST.FX",
+      "frames_before_hit": 45,
+      "delayed_hit": true,
+      "attack_frames": 80,
+      "initial_frames_before_hit": 45,
+      "projectile_speed": 84
+    },
+    {
+      "token": "Bright Sonic Alternate",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHOUT.PFX",
+      "display_name": "Bright Bellow",
+      "attack_bits": [
+        20,
+        327,
+        383,
+        685,
+        691
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        383,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_MASSIVESONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_MASSIVESONICBLAST.FX",
+      "frames_before_hit": 45,
+      "delayed_hit": true,
+      "attack_frames": 80,
+      "initial_frames_before_hit": 45,
+      "projectile_speed": 84,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Sonic Alternate",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SHOUT.PFX",
+      "display_name": "Dark Bellow",
+      "attack_bits": [
+        20,
+        327,
+        383,
+        685,
+        691
+      ],
+      "initial_attack_bits": [
+        20,
+        327,
+        383,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_MASSIVESONICBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_MASSIVESONICBLAST.FX",
+      "frames_before_hit": 45,
+      "delayed_hit": true,
+      "attack_frames": 80,
+      "initial_frames_before_hit": 45,
+      "projectile_speed": 84
+    }
+  ]
+}

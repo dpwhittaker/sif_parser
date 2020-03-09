@@ -1,0 +1,204 @@
+{
+  "crcfull_name": 3448807579,
+  "source_file": "DEFS/POWERS/BANISHEDPANTHEON_RAVAGER.POWERS",
+  "source_name": "BanishedPantheon.Ravager.Frigid_Stomp",
+  "display_name": "Frigid Crush",
+  "display_help": "You crush your opponents with a forceful blow from your foot. The death energy shockwave from this attack causes cold damage and negative energy damage over time. Additionally, affected targets suffer reduced damage output and may be knocked into the air. Finally, the longer you remain in combat, the more likely you will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+  "display_short_help": "PBAoE, Moderate DMG (Cold), Minor DoT(Negative Energy), -DMG(Foe, All), Chance for +EndCost(Foe), Knockup(Foe), Chance for +EndCost(Foe)",
+  "display_target_help": "You are suffering negative energy damage over time and your damage output has been reduced. You may suffer increased endurance costs.",
+  "display_target_short_help": "DoT(Negative Energy), -DMG(All), Chance for +EndCost",
+  "icon_name": "BanishedPantheon_Ravager_FrigidStomp.tga",
+  "attack_types": [
+    "Ranged",
+    "Cold",
+    "NegativeEnergy",
+    "Lethal"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 999,
+  "radius": 15,
+  "range": 20,
+  "time_to_activate": 2.1,
+  "recharge_time": 6,
+  "endurance_cost": 10,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.6,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.22,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 1,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 1.33,
+          "duration": 8,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            476
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.2,
+          "duration": 600,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "EffectFilter": {
+              "tag": "RavagerEnd"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.7,
+      "attrib_mod": [
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "RavagerEnd"
+      ],
+      "chance": -1.5,
+      "attrib_mod": [
+        {
+          "attrib": [
+            364
+          ],
+          "aspect": 16,
+          "table": "Ranged_Ones",
+          "scale": -0.08,
+          "duration": 8,
+          "caster_stack_type": 1,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    324,
+    364,
+    476
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/BANISHEDPANTHEON_RAVAGER_FRIGIDSTOMP.PFX",
+  "attack_bits": [
+    20,
+    322,
+    602,
+    48
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    322,
+    602,
+    48
+  ],
+  "attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDSTOMP_ATTACK.FX",
+  "hit_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDSLICE_HIT.FX",
+  "initial_attack_fx": "ENEMYFX/BANISHEDPANTHEON/BANISHEDPANTHEON_REVAMPED/FRIGIDSTOMP_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 63,
+  "initial_frames_before_hit": 22,
+  "primary_tint": [
+    50,
+    200,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    50,
+    75,
+    100,
+    255
+  ]
+}

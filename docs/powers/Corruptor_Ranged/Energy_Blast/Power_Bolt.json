@@ -1,0 +1,361 @@
+{
+  "crcfull_name": 4244974133,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_ENERGY_BLAST.POWERS",
+  "source_name": "Corruptor_Ranged.Energy_Blast.Power_Bolt",
+  "display_name": "Power Bolt",
+  "display_help": "A quick attack that rapidly hurls small bolts of energy at foes, sometimes knocking them down. Fast, but little damage. Damage: Minor, Recharge: Fast",
+  "display_short_help": "Ranged, Minor DMG(Energy/Smash), Foe Knockback",
+  "icon_name": "PowerBlast_PowerBolts.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 1,
+  "recharge_time": 4,
+  "endurance_cost": 5.2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.252,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.008,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 0.7,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 0.7,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 1.2599,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    16,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ENERGYBLAST_POWERBOLT.PFX",
+  "attack_bits": [
+    20,
+    329,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    329,
+    681
+  ],
+  "attack_fx": "POWERS/ENERGYBLAST/RAPID.FX",
+  "hit_fx": "POWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/ENERGYBLAST/RAPID.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 25,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Bright Energy Blast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ENERGYBLAST_POWERBOLT.PFX",
+      "attack_bits": [
+        20,
+        329,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/RAPID.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/RAPID.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy Blast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ENERGYBLAST_POWERBOLT.PFX",
+      "attack_bits": [
+        20,
+        329,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/RAPID.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/RAPID.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 90
+    },
+    {
+      "token": "Bright Energy Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ENERGYBLAST_POWERBOLT.PFX",
+      "display_name": "Bright Power Bolt",
+      "attack_bits": [
+        20,
+        329,
+        681,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        681,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_RAPID.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/ENERGYBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/CUSTANIM_RAPID.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 90,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Energy Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_ENERGYBLAST_POWERBOLT.PFX",
+      "display_name": "Dark Power Bolt",
+      "attack_bits": [
+        20,
+        329,
+        681,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        329,
+        681,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_RAPID.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/ENERGYBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ENERGYBLAST/SUBTRACTIVE/CUSTANIM_RAPID.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 30,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 90
+    }
+  ]
+}

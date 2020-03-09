@@ -1,0 +1,153 @@
+{
+  "crcfull_name": 3730691277,
+  "source_file": "DEFS/POWERS/INCARNATE_INTERFACE_SILENT.POWERS",
+  "source_name": "Incarnate.Interface_Silent.Endurance_Drain",
+  "free": true,
+  "display_name": "Preemptive Interface",
+  "display_help": "Your Endurance and Recovery are drained by a Preemptive Interface proc.",
+  "display_short_help": "-End, -Recovery",
+  "icon_name": "Incarnate_Interface_Preemptive_Common.tga",
+  "type": 5,
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "tag": [
+        "InterfaceStatus"
+      ],
+      "chance": 0,
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||",
+        "target.isFriend?",
+        "!",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -0.05,
+          "duration": 4.3,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 4,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} reduces the recovery of {PlayerDest}!",
+            "display_victim_hit": "Your recovery has been reduced by {PowerName}!"
+          },
+          "fx": {
+            "continuing_fx": "INCARNATEPOWERS/INTERFACE/PREEMPTIVE.FX"
+          }
+        }
+      ],
+      "effect": [
+        {
+          "tag": "InterfaceStatus",
+          "requires": [
+            "enttype",
+            "target>",
+            "player",
+            "eq"
+          ],
+          "attrib_mod": [
+            {
+              "attrib": 88,
+              "type": 1,
+              "scale": -0.5,
+              "duration": 4.3,
+              "period": 1,
+              "caster_stack_type": 1,
+              "stack_type": 5,
+              "stack_limit": 4,
+              "flags": [
+                656,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of their endurance over time.",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} draining {Damage} points of your endurance over time."
+              },
+              "fx": {
+                "continuing_fx": "INCARNATEPOWERS/INTERFACE/PREEMPTIVE.FX"
+              }
+            }
+          ]
+        },
+        {
+          "tag": "InterfaceStatus",
+          "requires": [
+            "enttype",
+            "target>",
+            "critter",
+            "eq"
+          ],
+          "attrib_mod": [
+            {
+              "attrib": 88,
+              "aspect": 0,
+              "type": 1,
+              "scale": -0.01,
+              "duration": 4.3,
+              "period": 1,
+              "caster_stack_type": 1,
+              "stack_type": 5,
+              "stack_limit": 4,
+              "flags": [
+                656,
+                0
+              ],
+              "messages": {
+                "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of their endurance over time.",
+                "display_victim_hit": "{PlayerSource} hits you with their {PowerName} draining {Damage} points of your endurance over time."
+              },
+              "fx": {
+                "continuing_fx": "INCARNATEPOWERS/INTERFACE/PREEMPTIVE.FX"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    88,
+    236
+  ]
+}

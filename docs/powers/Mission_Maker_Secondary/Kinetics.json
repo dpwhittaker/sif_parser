@@ -1,0 +1,706 @@
+{
+  "Transfusion": {
+    "crcfull_name": 4138990518,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_KINETICS.POWERS",
+    "source_name": "Mission_Maker_Secondary.Kinetics.Transfusion",
+    "display_name": "Transfusion",
+    "display_help": "Transfusion drains an enemy of some Endurance and reduces the target's Regeneration rate, and transfers that energy, in the form of Hit Points, to all allies near the affected foe. You can use Transfusion to heal yourself as well as your allies. Recharge: Moderate",
+    "display_short_help": "Ranged, Foe -End, -Regen, Team Heal",
+    "display_target_help": "Your Regeneration rate has been reduced.",
+    "display_target_short_help": "-Regeneration",
+    "icon_name": "KineticBoost_Transfusion.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "accuracy": 1.2,
+    "range": 60,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kHealSelf"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} siphons the endurance and regeneration rate of {PlayerDest}",
+              "display_victim_hit": "{PlayerSource} siphons off your endurance and regeneration rate!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Transfusion"
+              }
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.12
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.167,
+    "attrib_cache": [
+      88,
+      232,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/KINETICS_TRANSFUSION.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "POWERS/KINETICS/KINTRANSFUSION.FX",
+    "hit_fx": "POWERS/KINETICS/KINTRANSFUSIONHIT.FX",
+    "initial_attack_fx": "POWERS/KINETICS/KINTRANSFUSION.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23
+  },
+  "Siphon_Power": {
+    "crcfull_name": 1353481125,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_KINETICS.POWERS",
+    "source_name": "Mission_Maker_Secondary.Kinetics.Siphon_Power",
+    "display_name": "Siphon Power",
+    "display_help": "You can Siphon the Power from a targeted foe, reducing their damage potential. The power is transferred back to you, increasing your own damage potential and that of all nearby allies. Recharge: Slow",
+    "display_short_help": "Ranged, Foe -DMG, Team +DMG",
+    "display_target_help": "Your damage potential has been reduced.",
+    "display_target_short_help": "-DMG",
+    "display_attacker_hit": "You reduced the damage potential of {PlayerDest} with your {PowerName} to increase your own!",
+    "display_victim_hit": "{PlayerSource} reduces your damage potential with {PowerName} to increase their own!",
+    "icon_name": "KineticBoost_SiphonPower.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 80,
+    "time_to_activate": 1.93,
+    "recharge_time": 20,
+    "endurance_cost": 14,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 2,
+            "duration": 30,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_SiphonPower"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/KINETICS_SIPHIONPOWER.PFX",
+    "attack_bits": [
+      20,
+      305
+    ],
+    "hit_bits": [
+      49,
+      247
+    ],
+    "initial_attack_bits": [
+      20,
+      305
+    ],
+    "attack_fx": "POWERS/KINETICS/KINSIPHONPOWER.FX",
+    "hit_fx": "POWERS/KINETICS/KINSIPHONPOWERHIT.FX",
+    "initial_attack_fx": "POWERS/KINETICS/KINSIPHONPOWER.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 25
+  },
+  "Siphon_Speed": {
+    "crcfull_name": 395161152,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_KINETICS.POWERS",
+    "source_name": "Mission_Maker_Secondary.Kinetics.Siphon_Speed",
+    "display_name": "Siphon Speed",
+    "display_help": "You can Siphon the speed from a targeted foe, Slowing their movement and attack rate while boosting your own. Recharge: Long",
+    "display_short_help": "Ranged, Foe -Speed, Self +Speed, +Recharge",
+    "display_target_help": "Your Running Speed potential has been altered. If this is a friendly power, your Running Speed is increased. If you were attacked with this power, though, your Running Speed is reduced.",
+    "display_target_short_help": "-SPD, -Recharge",
+    "icon_name": "KineticBoost_SiphonSpeed.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 80,
+    "time_to_activate": 1.93,
+    "recharge_time": 60,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 60,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You {PowerName} from {PlayerDest} to increase your own!",
+              "display_victim_hit": "{PlayerSource} slows you with {PowerName} to increase their own!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDALL.FX"
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 60,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "scale": -0.2,
+            "duration": 60,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "aspect": 8,
+            "table": "Melee_SpeedRunning",
+            "scale": -1,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "target": 0,
+            "table": "Melee_SpeedRunning",
+            "scale": 0.85,
+            "duration": 60,
+            "flags": [
+              96,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/KINETICS/KINSPEEDCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              192
+            ],
+            "target": 0,
+            "table": "Melee_SpeedFlying",
+            "scale": 0.85,
+            "duration": 60,
+            "flags": [
+              96,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.2,
+            "duration": 60,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      188,
+      192,
+      200,
+      204,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/KINETICS_SIPHIONSPEED.PFX",
+    "attack_bits": [
+      20,
+      305
+    ],
+    "hit_bits": [
+      49,
+      247
+    ],
+    "initial_attack_bits": [
+      20,
+      305
+    ],
+    "attack_fx": "POWERS/KINETICS/KINSIPHONSPEED.FX",
+    "hit_fx": "POWERS/KINETICS/KINSIPHONSPEEDHIT.FX",
+    "initial_attack_fx": "POWERS/KINETICS/KINSIPHONSPEED.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 25
+  },
+  "Speed_Boost": {
+    "crcfull_name": 2253569625,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_KINETICS.POWERS",
+    "source_name": "Mission_Maker_Secondary.Kinetics.Speed_Boost",
+    "display_name": "Speed Boost",
+    "display_help": "You can hasten a single targeted ally. The target's movement speed, attack rate, and Endurance recovery are all greatly increased and the target gains resistance to Slow effects. You cannot use this power on yourself. Recharge: Very Fast",
+    "display_short_help": "Ranged, Ally +SPD, +Recharge, +Recovery, Res Slow",
+    "display_target_help": "You've been granted a Speed Boost. Your Attack speed, Endurance recovery and Running speed are all increased and you are resistant to Slow effects.",
+    "display_target_short_help": "+SPD, +Recharge, +Recovery, Res Slow",
+    "display_attacker_hit": "You {PowerName} {PlayerDest}, greatly increasing their movement rate, attack rate and endurance recovery!",
+    "display_victim_hit": "{PlayerSource} improves your movement rate, attack rate and endurance recovery with an extra {PowerName}!",
+    "icon_name": "KineticBoost_SpeedBoost.tga",
+    "range": 50,
+    "time_to_activate": 1,
+    "recharge_time": 2,
+    "endurance_cost": 10.5,
+    "target": 16,
+    "ents_auto_hit": [
+      16
+    ],
+    "ents_affected": [
+      16
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "table": "Melee_SpeedRunning",
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/KINETICS/KINSPEEDCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              192
+            ],
+            "table": "Melee_SpeedFlying",
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 24,
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188
+            ],
+            "aspect": 24,
+            "table": "Melee_SpeedRunning",
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              192
+            ],
+            "aspect": 24,
+            "table": "Melee_SpeedFlying",
+            "scale": 0.5,
+            "duration": 120,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "point_value": 3,
+    "point_multiplier": 0.067,
+    "attrib_cache": [
+      188,
+      192,
+      236,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/KINETICS_SPEEDBOOST.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "POWERS/KINETICS/KINSPEEDBOOST.FX",
+    "hit_fx": "POWERS/KINETICS/KINSPEEDBOOSTHIT.FX",
+    "initial_attack_fx": "POWERS/KINETICS/KINSPEEDBOOST.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 30
+  },
+  "Transference": {
+    "crcfull_name": 3497198670,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_KINETICS.POWERS",
+    "source_name": "Mission_Maker_Secondary.Kinetics.Transference",
+    "display_name": "Transference",
+    "display_help": "Transference drains an enemy of some of their Endurance and transfers that Endurance to all allies near the affected foe. You can use Transference to recover Endurance for yourself as well as your allies. Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Target -End, Team +Recovery, Special",
+    "display_target_help": "Your Endurance has been drained.",
+    "display_target_short_help": "-Endurance",
+    "icon_name": "KineticBoost_Transferance.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "accuracy": 1.1,
+    "range": 60,
+    "time_to_activate": 2.27,
+    "recharge_time": 30,
+    "endurance_cost": 3.5,
+    "target": 19,
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You Siphon the endurance of {PlayerDest} to add to the endurance of everyone near them!",
+              "display_victim_hit": "{PlayerSource} siphons off your endurance to increase the endurance of all their allies near you!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Transference"
+              }
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.55
+          }
+        ]
+      }
+    ],
+    "point_value": 3,
+    "point_multiplier": 0.083,
+    "attrib_cache": [
+      88,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/KINETICS_TRANSFERANCE.PFX",
+    "attack_bits": [
+      20,
+      306
+    ],
+    "hit_bits": [
+      49,
+      245
+    ],
+    "initial_attack_bits": [
+      20,
+      306
+    ],
+    "attack_fx": "POWERS/KINETICS/KINTRANSFERENCE.FX",
+    "hit_fx": "POWERS/KINETICS/KINTRANSFERENCEHIT.FX",
+    "initial_attack_fx": "POWERS/KINETICS/KINTRANSFERENCE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 68,
+    "initial_frames_before_hit": 25
+  },
+  "Fulcrum_Shift": {
+    "crcfull_name": 2840147825,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_KINETICS.POWERS",
+    "source_name": "Mission_Maker_Secondary.Kinetics.Fulcrum_Shift",
+    "display_name": "Fulcrum Shift",
+    "display_help": "Fulcrum Shift drains the power of a targeted foe and all foes nearby, transferring it to all adjacent allies, the caster, and those near the caster. Affected foes will deal less damage, while your affected allies will deal more. The more foes that are affected, the more power your allies receive. Fulcrum Shift can dramatically turn the tide of a melee battle. Recharge: Long",
+    "display_short_help": "Ranged (Foe AoE), Foe -DMG, Team +DMG",
+    "display_target_help": "Your damage potential has been reduced.",
+    "display_target_short_help": "-DMG",
+    "icon_name": "KineticBoost_KineticTransfer.tga",
+    "range": 20,
+    "time_to_activate": 2.17,
+    "recharge_time": 60,
+    "endurance_cost": 21,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} reduces the damage capability of {PlayerDest}!",
+              "display_victim_hit": "{PlayerSource} reduces your damage capability with their {PowerName}!"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_KineticTransferDebuff"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_KineticTransferBuffSelf"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 12,
+    "point_value": 3,
+    "point_multiplier": 0.167,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/KINETICS_KINETICTRANSFER_ATTACK.PFX",
+    "attack_bits": [
+      20,
+      365
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      365
+    ],
+    "attack_fx": "POWERS/KINETICS/KINTRANSFER.FX",
+    "initial_attack_fx": "POWERS/KINETICS/KINTRANSFER.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 29
+  }
+}

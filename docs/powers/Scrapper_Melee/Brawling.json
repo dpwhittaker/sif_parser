@@ -1,0 +1,5514 @@
+{
+  "Initial_Strike": {
+    "crcfull_name": 1364646831,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Initial_Strike",
+    "display_name": "Initial Strike",
+    "display_help": "You deliver a pair of lightning fast blows to your opponent in an effort to throw them off balance. Initial Strike deals Light Smashing damage and has a small chance to disorient your target. Initial Strike is a Combo Builder and adds 1 Combo Level. Damage: Light, Recharge: Very Fast",
+    "display_short_help": "Melee, Light DMG (Smash), Foe Disorient, Combo Builder",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "Brawling_InitialStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 0.8,
+    "recharge_time": 3,
+    "endurance_cost": 4.368,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.42,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.42,
+            "delay": 0.33,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4887,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4887,
+            "delay": 0.33,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9774,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6624,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.378,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 1!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 2!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 3!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      276,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_INITIALSTRIKE.PFX",
+    "attack_bits": [
+      20,
+      624,
+      681
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      624,
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      681
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/INITIALSTRIKE_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/INITIALSTRIKE_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/INITIALSTRIKE_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 6,
+    "attack_frames": 24,
+    "initial_frames_before_hit": 6,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_INITIALSTRIKE.PFX",
+        "attack_bits": [
+          20,
+          624,
+          681
+        ],
+        "block_bits": 53,
+        "hit_bits": [
+          624,
+          49,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          624,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/INITIALSTRIKE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/INITIALSTRIKE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/INITIALSTRIKE_ATTACK.FX",
+        "frames_before_hit": 6,
+        "attack_frames": 24,
+        "initial_frames_before_hit": 6,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_INITIALSTRIKE.PFX",
+        "attack_bits": [
+          20,
+          624,
+          681
+        ],
+        "block_bits": 53,
+        "hit_bits": [
+          624,
+          49,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          624,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/INITIALSTRIKE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/INITIALSTRIKE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/INITIALSTRIKE_ATTACK.FX",
+        "frames_before_hit": 6,
+        "attack_frames": 24,
+        "initial_frames_before_hit": 6
+      }
+    ]
+  },
+  "Heavy_Blow": {
+    "crcfull_name": 1766337185,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Heavy_Blow",
+    "display_name": "Heavy Blow",
+    "display_help": "You strike your foe with a powerful punch dealing Moderate Smashing damage. Heavy Blow has a fair chance to knock the target off its feet. Heavy Blow is a Combo Builder and adds 1 Combo Level. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG (Smash), Foe Knockdown, Combo Builder",
+    "icon_name": "Brawling_HeavyBlow.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.07,
+    "recharge_time": 5,
+    "endurance_cost": 6.032,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.16,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2209,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2209,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.16,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.9148,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.522,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 1!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 2!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 3!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      328,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_HEAVYBLOW.PFX",
+    "attack_bits": [
+      20,
+      624,
+      683,
+      266
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      683,
+      266
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/HEAVYBLOW_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/HEAVYBLOW_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/HEAVYBLOW_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 14,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 14,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_HEAVYBLOW.PFX",
+        "attack_bits": [
+          20,
+          624,
+          683,
+          266
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          683,
+          266
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/HEAVYBLOW_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/HEAVYBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/HEAVYBLOW_ATTACK.FX",
+        "frames_before_hit": 14,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 14,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_HEAVYBLOW.PFX",
+        "attack_bits": [
+          20,
+          624,
+          683,
+          266
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          683,
+          266
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/HEAVYBLOW_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/HEAVYBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/HEAVYBLOW_ATTACK.FX",
+        "frames_before_hit": 14,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 14
+      }
+    ]
+  },
+  "Sweeping_Cross": {
+    "crcfull_name": 3250449087,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Sweeping_Cross",
+    "display_name": "Sweeping Cross",
+    "display_help": "You execute a sweeping right hook that can strike multiple targets in your frontal arc. Sweeping Cross deals High Smashing damage and can disorient foes. Sweeping Cross is a Finisher and sets your current Combo Level to 0. It will deal additional damage and have a greater chance to disorient dependent upon the current Combo Level. At Combo Level 3, Sweeping Cross will also have a chance to knock down the affected targets. Critical damage is unaffected by your Combo Level. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee (Cone), High DMG (Smash), Foe Disorient, Finisher",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "Brawling_SweepingCross.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 7,
+    "arc": 0.87266463,
+    "range": 7,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.575,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.68,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.875,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1829,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.3676,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.436,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.5318,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7096,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.3676,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.23,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.26,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.23,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.26,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.675,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      276,
+      328,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SWEEPCROSS.PFX",
+    "attack_bits": [
+      20,
+      624,
+      238
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      238
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 25,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SWEEPCROSS.PFX",
+        "attack_bits": [
+          20,
+          624,
+          238
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          238
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SWEEPINGCROSS_ATTACK.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SWEEPCROSS.PFX",
+        "attack_bits": [
+          20,
+          624,
+          238
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          238
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SWEEPINGCROSS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SWEEPINGCROSS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SWEEPINGCROSS_ATTACK.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  },
+  "Combat_Readiness": {
+    "crcfull_name": 4078699959,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Combat_Readiness",
+    "display_name": "Combat Readiness",
+    "display_help": "Activating this power will increase your chance to hit and the amount of damage you deal for a short amount of time as well as setting your current Combo Level to 3. Recharge: Long",
+    "display_short_help": "Self, +Dmg, +To Hit, Special",
+    "icon_name": "Brawling_CombatReadiness.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You prepare yourself to unleash a devastating attack on your foes.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 3!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_COMBATREADINESS.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/BUILDUP_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/BUILDUP_ACTIVATION.FX",
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_COMBATREADINESS.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/BUILDUP_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/BUILDUP_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_COMBATREADINESS.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/BUILDUP_ACTIVATION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/BUILDUP_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Throat_Strike": {
+    "crcfull_name": 646555113,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Throat_Strike",
+    "display_name": "Rib Cracker",
+    "display_help": "You deftly strike your foe in a very vulnerable location. Rib Cracker deals Moderate Damage but reduces your foe's Damage and Resistance moderately for a short time. Rib Cracker is a Combo Builder and adds 1 Combo Level. Damage: Moderate, Recharge: Fast.",
+    "display_short_help": "Melee, Moderate DMG (Smash), Foe -Res (All), -Dmg, Combo Builder",
+    "icon_name": "Brawling_ThroatStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 6,
+    "endurance_cost": 6.864,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Melee_Debuff_Dam",
+            "scale": 1.5,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Debuff_Res_Dmg",
+            "scale": -1,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.4218,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Melee_Debuff_Dam",
+            "scale": 2,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Debuff_Res_Dmg",
+            "scale": -1,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.4218,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.041,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.594,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 1!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 2!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 3!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_RIBCRACKER.PFX",
+    "attack_bits": [
+      20,
+      624,
+      680,
+      684
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      680,
+      684
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 40,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_RIBCRACKER.PFX",
+        "attack_bits": [
+          20,
+          624,
+          680,
+          684
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          680,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+        "attack_frames": 40,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_RIBCRACKER.PFX",
+        "attack_bits": [
+          20,
+          624,
+          680,
+          684
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          680,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/RIBCRACKER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/RIBCRACKER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/RIBCRACKER_ATTACK.FX",
+        "attack_frames": 40
+      }
+    ]
+  },
+  "Confront": {
+    "crcfull_name": 3176485192,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Confront",
+    "display_name": "Confront",
+    "display_help": "Challenges a foe to attack you. Useful to pull a foe off an ally who finds themselves in over their head. A To Hit check is required to Taunt enemy players, but is not needed against critter targets. Recharge: Fast",
+    "display_short_help": "Ranged, Foe Taunt",
+    "display_target_help": "The Confront has taunted you!",
+    "display_target_short_help": "+Taunt",
+    "display_victim_hit": "{PlayerSource} taunts and challenges you!",
+    "icon_name": "Brawling_Confront.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 70,
+    "time_to_activate": 1.67,
+    "recharge_time": 3,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      28,
+      22,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 15,
+            "magnitude": 4,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Challenge {PlayerDest} to attack you.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 4,
+            "magnitude": 4,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} hit, and you Taunt {PlayerDest} to attack you.",
+              "display_victim_hit": "{Playersource} hit you with their {Powername}. You have been Taunted!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "scale": -0.75,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          ">=",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} partially hit! {PlayerDest} is not taunted but their range is reduced!",
+              "display_victim_hit": "{Playersource} partially hits you with their Taunt! Your range is reduced but the Taunt is not successful!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      248,
+      348,
+      468
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_TAUNT.PFX",
+    "attack_bits": [
+      20,
+      358,
+      688
+    ],
+    "initial_attack_bits": [
+      20,
+      358,
+      688
+    ],
+    "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20
+  },
+  "Spinning_Strike": {
+    "crcfull_name": 1276256059,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Spinning_Strike",
+    "display_name": "Spinning Strike",
+    "display_help": "You execute a spinning attack that first strikes with your fist and finally your heel hitting your foe and all enemies immediately nearby. Spinning Strike deals Heavy Smashing damage and has a high chance to knockdown foes. Spinning Strike is a Finisher and sets your current Combo Level to 0. It will deal additional damage and have a greater chance to knockdown dependent upon the current Combo Level. At Combo Level 3, Spinning Strike also has a moderate chance to briefly inflict Terrorize in nearby foes. Critical damage is unaffected by your Combo Level. Damage: High, Recharge: Slow",
+    "display_short_help": "Melee (Targeted AoE), Heavy DMG (Smash), Foe Knockdown, Finisher",
+    "icon_name": "Brawling_SpinningStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 6,
+    "range": 7,
+    "time_to_activate": 1.8,
+    "recharge_time": 16,
+    "endurance_cost": 15.184,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.77,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.77,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8085,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8085,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8624,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8624,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9625,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9625,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.575,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.65,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.575,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.65,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.67,
+            "delay": 0.4,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.5478,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.5478,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.5752,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.5752,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6135,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6135,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6847,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6847,
+            "delay": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.0955,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.1905,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.54,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2145,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "radius_outer": 10,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_Fear",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "radius_outer": 10,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.693,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      264,
+      328,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SPINNINGSTRIKE.PFX",
+    "attack_bits": [
+      20,
+      624,
+      264,
+      692
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      624,
+      49,
+      264
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      264,
+      692
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SPINNINGSTRIKE_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SPINNINGSTRIKE_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SPINNINGSTRIKE_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 11,
+    "attack_frames": 54,
+    "initial_frames_before_hit": 11,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SPINNINGSTRIKE.PFX",
+        "attack_bits": [
+          20,
+          624,
+          264,
+          692
+        ],
+        "block_bits": 53,
+        "hit_bits": [
+          624,
+          49,
+          264
+        ],
+        "initial_attack_bits": [
+          20,
+          624,
+          264,
+          692
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SPINNINGSTRIKE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SPINNINGSTRIKE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SPINNINGSTRIKE_ATTACK.FX",
+        "frames_before_hit": 11,
+        "attack_frames": 54,
+        "initial_frames_before_hit": 11,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SPINNINGSTRIKE.PFX",
+        "attack_bits": [
+          20,
+          624,
+          264,
+          692
+        ],
+        "block_bits": 53,
+        "hit_bits": [
+          624,
+          49,
+          264
+        ],
+        "initial_attack_bits": [
+          20,
+          624,
+          264,
+          692
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SPINNINGSTRIKE_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SPINNINGSTRIKE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SPINNINGSTRIKE_ATTACK.FX",
+        "frames_before_hit": 11,
+        "attack_frames": 54,
+        "initial_frames_before_hit": 11
+      }
+    ]
+  },
+  "Low_Kick": {
+    "crcfull_name": 3193236539,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Low_Kick",
+    "display_name": "Shin Breaker",
+    "display_help": "You execute a quick but powerful kick targeting your foe's leg in an attempt to cripple their movement. Shin Breaker deals Superior Smashing damage and moderately reduces your target's movement speed and defense for a short time. Shin Breaker is a Combo Builder and adds 1 Combo Level. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Melee, Superior DMG (Smash), Foe -Speed, -Defense, Combo Builder",
+    "display_target_help": "The Shin Breaker has reduced your movement speed as well as your defense.",
+    "display_target_short_help": "-SPD, -DEF",
+    "icon_name": "Brawling_LowKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 8
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1.6,
+            "duration": 8
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 8,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 10,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.4942,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.4942,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2933,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.738,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 1!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 2!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boost your combo level to 3!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      184,
+      188,
+      200,
+      204,
+      284,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SHINBREAKER.PFX",
+    "attack_bits": [
+      20,
+      624,
+      48,
+      257
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      48,
+      257
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 18,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 18,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SHINBREAKER.PFX",
+        "attack_bits": [
+          20,
+          624,
+          48,
+          257
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          48,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SHINBREAKER_ATTACK.FX",
+        "frames_before_hit": 18,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 18,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_SHINBREAKER.PFX",
+        "attack_bits": [
+          20,
+          624,
+          48,
+          257
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          48,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SHINBREAKER_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SHINBREAKER_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/SHINBREAKER_ATTACK.FX",
+        "frames_before_hit": 18,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 18
+      }
+    ]
+  },
+  "Crushing_Uppercut": {
+    "crcfull_name": 2455391687,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_BRAWLING.POWERS",
+    "source_name": "Scrapper_Melee.Brawling.Crushing_Uppercut",
+    "display_name": "Crushing Uppercut",
+    "display_help": "You perform a jaw breaking Crushing Uppercut on your target inflicting Extreme Smashing damage and knocking them into the air. Crushing Uppercut will leave the target disoriented for a short time. Crushing Uppercut is a Finisher and will set your Combo Level to 0. It will deal additional damage and have a longer disorient duration dependent upon the current Combo level. At Combo Level 3, Crushing Uppercut will have its disorient effect upgraded to a Hold effect. Critical damage is unaffected by your Combo Level. Damage: Extreme, Recharge: Slow",
+    "display_short_help": "Melee, Extreme DMG (Smash), Foe Knock Up, Disorient, Finisher",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "Brawling_CrushingUppercut.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.2,
+    "range": 13,
+    "time_to_activate": 2.17,
+    "recharge_time": 25,
+    "endurance_cost": 14.352,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      21,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.18,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.339,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.5616,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.975,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.6417,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.7738,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.9587,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 3.3021,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.6417,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.18,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.5078,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 7.5,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 7.875,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8.625,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 9.75,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.431,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      0,
+      8,
+      268,
+      276,
+      324,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_CRUSHINGUPPERCUT.PFX",
+    "attack_bits": [
+      20,
+      624,
+      269,
+      684
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      624,
+      269,
+      684
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/CRUSHINGUPPERCUT_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/CRUSHINGUPPERCUT_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/CRUSHINGUPPERCUT_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 27,
+    "attack_frames": 65,
+    "initial_frames_before_hit": 27,
+    "primary_tint": [
+      255,
+      126,
+      48,
+      255
+    ],
+    "secondary_tint": [
+      89,
+      0,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_CRUSHINGUPPERCUT.PFX",
+        "attack_bits": [
+          20,
+          624,
+          269,
+          684
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          269,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/CRUSHINGUPPERCUT_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/CRUSHINGUPPERCUT_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/CRUSHINGUPPERCUT_ATTACK.FX",
+        "frames_before_hit": 27,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 27,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_CRUSHINGUPPERCUT.PFX",
+        "attack_bits": [
+          20,
+          624,
+          269,
+          684
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          624,
+          269,
+          684
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/CRUSHINGUPPERCUT_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/CRUSHINGUPPERCUT_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/CRUSHINGUPPERCUT_ATTACK.FX",
+        "frames_before_hit": 27,
+        "attack_frames": 65,
+        "initial_frames_before_hit": 27
+      }
+    ]
+  }
+}

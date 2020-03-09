@@ -1,0 +1,2079 @@
+{
+  "Burst": {
+    "crcfull_name": 1742450567,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Burst",
+    "display_name": "Burst",
+    "display_help": "Quickly fires a Burst of rounds at a single target at very long range. Damage is average, but the fire rate is fast. Can also reduce the target's defense. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Lethal), Foe -DEF",
+    "display_target_help": "Your Defense has been reduced by the Assault Rifle.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "AssaultWeapons_ARBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 60,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 5.2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.27,
+            "duration": 0.91,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 8,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.627,
+            "duration": 0.61,
+            "delay": 0.3,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Vulnerability"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": -0.2,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "stack_key": 16,
+            "flags": [
+              131728,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Vulnerability!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Opportunity"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Vulnerability"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Offensive Opportunity"
+            }
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 99,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 101,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kDomination",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      184,
+      465,
+      473,
+      475,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_BURST_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      174
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      174,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BURST.FX",
+    "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BURST.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_BURST_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          174
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          174
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BURST.FX",
+        "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BURST.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 8,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 8,
+        "palette": ""
+      }
+    ]
+  },
+  "Beanbag": {
+    "crcfull_name": 1150137353,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Beanbag",
+    "display_name": "Disorienting Shot",
+    "display_help": "Fires a single non lethal rubber bullet that can seriously Disorient a target. Deals little damage and takes a long time to reload, but renders most targets unable to attack for a good while. Damage: Minor, Recharge: Slow",
+    "display_short_help": "Ranged, Minor DMG(Smash), Foe Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "AssaultWeapons_ShotgunBeanbag.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 60,
+    "time_to_activate": 0.9,
+    "recharge_time": 5,
+    "endurance_cost": 6.03,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.16,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 2.5,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Vulnerability"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": -0.2,
+            "duration": 15,
+            "caster_stack_type": 1,
+            "stack_type": 3,
+            "stack_key": 16,
+            "flags": [
+              131728,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Vulnerability!"
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Opportunity"
+        ],
+        "requires": [
+          "kRage",
+          "source>",
+          "90",
+          ">",
+          "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Vulnerability"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              491
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Defensive Opportunity"
+            }
+          },
+          {
+            "attrib": [
+              475
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 104,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "duration": 15,
+            "magnitude": 99,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "highlight_eval": [
+      "kDomination",
+      "Mode?"
+    ],
+    "highlight_ring": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      276,
+      465,
+      473,
+      475,
+      491
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_BEANBAG_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BEANBAG.FX",
+    "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BEANBAG.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 7,
+    "delayed_hit": true,
+    "attack_frames": 27,
+    "initial_frames_before_hit": 37,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 120,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_BEANBAG_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BEANBAG.FX",
+        "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BEANBAG.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 7,
+        "delayed_hit": true,
+        "attack_frames": 27,
+        "initial_frames_before_hit": 7,
+        "projectile_speed": 120,
+        "palette": ""
+      }
+    ]
+  },
+  "Buckshot": {
+    "crcfull_name": 1699900053,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Buckshot",
+    "display_name": "Buckshot",
+    "display_help": "Good at close range. Fires a cone of Buckshot pellets and can knock some foes down. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Lethal), Foe Knockback",
+    "icon_name": "AssaultWeapons_ShotgunBuckShot.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 1,
+    "max_targets_hit": 6,
+    "radius": 40,
+    "arc": 0.5235988,
+    "range": 40,
+    "time_to_activate": 0.9,
+    "recharge_time": 8,
+    "endurance_cost": 8.53,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.91,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.9422,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_BUCKSHOT_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BUCKSHOT.FX",
+    "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BUCKSHOT.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 7,
+    "delayed_hit": true,
+    "attack_frames": 27,
+    "initial_frames_before_hit": 37,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 120,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_BUCKSHOT_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          48
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BUCKSHOT.FX",
+        "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_BUCKSHOT.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 7,
+        "delayed_hit": true,
+        "attack_frames": 27,
+        "initial_frames_before_hit": 7,
+        "projectile_speed": 120,
+        "palette": ""
+      }
+    ]
+  },
+  "Slug": {
+    "crcfull_name": 1970241715,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Slug",
+    "display_name": "Slug",
+    "display_help": "Fires a single Slug at a targeted foe. Firing a single Slug is slower than firing a Burst, but deals more damage, is longer range, and can knock down foes. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Lethal), Foe Knockback",
+    "icon_name": "AssaultWeapons_ShotgunSlug.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 60,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 8.53,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.8464,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_SLUG_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SLUG.FX",
+    "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SLUG.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 35,
+    "initial_attack_fxframe_delay": 3,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_SLUG_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SLUG.FX",
+        "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_SLUG.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32,
+        "palette": ""
+      }
+    ]
+  },
+  "Aim": {
+    "crcfull_name": 403123295,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Aim",
+    "display_name": "Aim",
+    "display_help": "Greatly increases the chance to hit of your attacks for a few seconds. Slightly increases damage and range. Recharge: Long",
+    "display_short_help": "Self +To Hit, +DMG, +Range",
+    "display_attacker_hit": "You activate {PowerName} and increase the power of your next few attacks.",
+    "icon_name": "AssaultWeapons_Aim.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You quickly take aim and are more accurate, more deadly and able to shoot a longer distance for a short while.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.333,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 5,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_AIM_NOGEO.PFX",
+    "attack_bits": [
+      245
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "POWERS/BUILDUPAIM.FX",
+    "initial_attack_fx": "POWERS/BUILDUPAIM.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "initial_attack_fxframe_delay": 30,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_AIM_NOGEO.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "POWERS/BUILDUPAIM.FX",
+        "initial_attack_fx": "POWERS/BUILDUPAIM.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "M30_Grenade": {
+    "crcfull_name": 3670526112,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.M30_Grenade",
+    "display_name": "M30 Grenade",
+    "display_help": "Launches a Grenade at long range from beneath the barrel of your Assault Rifle. This explosion affects all within the blast radius, and can knock them back. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal/Smash), Knockback",
+    "icon_name": "AssaultWeapons_ARM30grenade.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 40,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 15.18,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.3384,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.6757,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      0,
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_GRENADE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+    "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 35,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 3,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_GRENADE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+        "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 35,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 35,
+        "projectile_speed": 90,
+        "palette": ""
+      }
+    ]
+  },
+  "Flamethrower": {
+    "crcfull_name": 1444067035,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Flamethrower",
+    "display_name": "Flamethrower",
+    "display_help": "Spews forth a cone of flames from underneath the barrel of your assault rifle, setting foes on fire. Very accurate and very deadly at medium range. Damage: Extreme(DoT) Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Extreme DoT(Fire)",
+    "display_target_help": "The Flamethrower has set you on fire and you are burning.",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "AssaultWeapons_ARFlamethrower.tga",
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "accuracy": 1.3,
+    "effect_area": 1,
+    "max_targets_hit": 6,
+    "radius": 40,
+    "arc": 0.7853982,
+    "range": 40,
+    "time_to_activate": 2.33,
+    "recharge_time": 20,
+    "endurance_cost": 18.51,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.242,
+            "duration": 7.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2237,
+            "duration": 7.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_FLAMETHROWER_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      161,
+      680
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      161,
+      680,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FLAMETHROWER.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FLAMETHROWER.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 7,
+    "delayed_hit": true,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 37,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 22.5,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_FLAMETHROWER_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          161,
+          680
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          161,
+          680
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FLAMETHROWER.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FLAMETHROWER.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 7,
+        "delayed_hit": true,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 7,
+        "projectile_speed": 22.5,
+        "palette": ""
+      }
+    ]
+  },
+  "Incinerator": {
+    "crcfull_name": 2614617193,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Incinerator",
+    "display_name": "Incinerator",
+    "display_help": "Sprays a target with accelerant from your flamethrower, igniting it and causing extreme damage over time. Damage: Extreme(DoT), Recharge: Slow",
+    "display_short_help": "Ranged, Extreme DoT(Fire)",
+    "display_target_help": "You have been ignited! You are burning.",
+    "display_target_short_help": "DoT(Fire)",
+    "icon_name": "AssaultWeapons_DOT",
+    "accuracy": 1.15,
+    "range": 40,
+    "time_to_activate": 2,
+    "recharge_time": 12,
+    "endurance_cost": 11.86,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.207,
+            "duration": 2.5,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.131,
+            "duration": 2.5,
+            "period": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_FLAME_INCINERATOR_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      161,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      161,
+      681,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_IGNITE.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_IGNITE.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 12,
+    "projectile_speed": 22.5,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_FLAME_INCINERATOR_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          161,
+          681
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          161,
+          681
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_IGNITE.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_IGNITE.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 12,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 12,
+        "projectile_speed": 22.5,
+        "palette": ""
+      }
+    ]
+  },
+  "Full_Auto": {
+    "crcfull_name": 2175843849,
+    "source_file": "DEFS/POWERS/SENTINEL_RANGED_ASSAULT_RIFLE.POWERS",
+    "source_name": "Sentinel_Ranged.Assault_Rifle.Full_Auto",
+    "display_name": "Full Auto",
+    "display_help": "Opens up your assault rifle on Full Auto to lay down a massive spray of bullets at your target. Although very slow to reload, damage from this attack is massive, shredding all targets within the narrow cone of effect. There's a chance you may land a lucky shot for extra damage. Damage: Superior(DoT), Recharge: Slow",
+    "display_short_help": "Ranged (Cone), Superior DMG(Lethal), +Special",
+    "icon_name": "AssaultWeapons_ARFullAuto.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "accuracy": 1.35,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 40,
+    "arc": 1.5707964,
+    "range": 40,
+    "time_to_activate": 4,
+    "recharge_time": 90,
+    "endurance_cost": 15.6,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.133,
+            "duration": 3.3,
+            "period": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.16,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.055,
+            "duration": 3.3,
+            "period": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.131,
+            "duration": 3.3,
+            "period": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 6,
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_FULLAUTO_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      174,
+      175,
+      681
+    ],
+    "hit_bits": [
+      49,
+      283,
+      683
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      174,
+      175,
+      681,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FULLAUTO.FX",
+    "hit_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FULLAUTO_HIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FULLAUTO.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 9,
+    "attack_frames": 120,
+    "initial_frames_before_hit": 39,
+    "initial_attack_fxframe_delay": 30,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_FULLAUTO_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          174,
+          175,
+          681
+        ],
+        "hit_bits": [
+          49,
+          283,
+          683
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          174,
+          175,
+          681
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FULLAUTO.FX",
+        "hit_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FULLAUTO_HIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_FULLAUTO.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 9,
+        "attack_frames": 120,
+        "initial_frames_before_hit": 9,
+        "palette": ""
+      }
+    ]
+  }
+}

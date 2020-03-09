@@ -1,0 +1,134 @@
+{
+  "crcfull_name": 2774911168,
+  "source_file": "DEFS/POWERS/BANISHEDPANTHEON_ENDGAMESTORMS.POWERS",
+  "source_name": "BanishedPantheon.EndgameStorms.Hurricane",
+  "display_name": "Hurricane",
+  "display_help": "You create a localized hurricane around yourself. The storm reduces the ability of targets to hit you with their attacks, reducing the effective range of ranged attacks and the to hit chance for all attacks. Additionally, the force of the storm is enough to knockback targets who approach too close.",
+  "display_short_help": "PBAoE (Toggle), -Range(Non-Melee Foes), -ToHit(Foe), Chance for Knockback(Foe)",
+  "display_target_help": "Your chance to hit has been reduced. If you are a ranged attacker, the effective range of your attacks has also been reduced.",
+  "display_target_short_help": "-Range(Non-Melee), -ToHit",
+  "icon_name": "BanishedPantheon_Storms_Hurricane.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "time_to_activate": 2.03,
+  "recharge_time": 10,
+  "activate_period": 0.5,
+  "endurance_cost": 0.4,
+  "ents_auto_hit": [
+    19
+  ],
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Scrapper",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Tanker",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Stalker",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Brute",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            348
+          ],
+          "aspect": 16,
+          "scale": -0.6,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The range of your attacks has been reduced by {PlayerSource}'s {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "table": "Melee_DeBuff_ToHit",
+          "scale": 4,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Your chance to hit has been reduced by {PlayerSource}'s {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 4,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    100,
+    328,
+    348
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/STORMSUMMONING_HURRICANE.PFX",
+  "activation_bits": [
+    20,
+    255
+  ],
+  "activation_fx": "POWERS/STORMSUMMONING/SSHURRICANE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25
+}

@@ -1,0 +1,542 @@
+{
+  "crcfull_name": 326782222,
+  "source_file": "DEFS/POWERS/PRIMALIST_MISC_PROWLER_FORM_POWERS.POWERS",
+  "source_name": "Primalist_Misc.Prowler_Form_Powers.Upheaval_Prowler",
+  "display_name": "Upheaval",
+  "display_help": "You channel the forces of nature and release them shattering the earth beneath you sending shards of stone and debris out at nearby foes causing high damage and potentially knocking them down. In primal (human) form you will deal smashing damage and will heal yourself and up to 3 nearby allies for a large amount of health. In Hunter form you'll deal lethal damage and reduce the targets' resistance slightly. In Prowler form you'll deal lethal damage, cause minor lethal damage over time and have a high chance to stun. Upheaval will deal high damage if the user has no Primal Energy, however it will deal additional damage for each charge of Primal Energies the user owns. Upheaval consumes all Primal Energies. Damage: Special, Recharge: Long",
+  "display_short_help": "PBAoE, Special DMG, Foe Knockdown, -All Primal Energy",
+  "display_target_help": "You've been stunned by the Prowler's Upheaval and are suffering damage over time!",
+  "display_target_short_help": "Disorient, Minor DoT(Lethal)",
+  "icon_name": "FeralMight_Upheaval.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "near_ground": true,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "time_to_activate": 2.1,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "boosts_allowed": [
+    23,
+    21,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "magnitude_expr": [
+            "cur.kMeter",
+            "source>",
+            "1",
+            "*",
+            "1.3",
+            "+",
+            "@StdResult",
+            "*"
+          ],
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "NBProwlerCloakCritActive"
+      ],
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kProwlerCloakMode",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.65,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_float": "CRITICAL!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": -100,
+          "delay": 0.25,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "target": 0,
+          "scale": 0.1,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "NBProwlerCritActive"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kProwlerCloakMode",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.65,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_float": "CRITICAL!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "magnitude_expr": [
+            "cur.kMeter",
+            "source>",
+            "1",
+            "*",
+            "1.3",
+            "+",
+            "@StdResult",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kProwlerMode",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.65,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_float": "CRITICAL!"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "NBProwlerCritActive"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kProwlerCloakMode",
+        "Source.Mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.65,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL!].",
+            "display_float": "CRITICAL!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kProwlerCloakMode",
+        "Source.Mode?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 3.1,
+          "period": 1,
+          "tick_chance": 0.85,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.85,
+      "requires": [
+        "kProwlerCloakMode",
+        "Source.Mode?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "duration": 3.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "NBProwlerPrimalStrikeStun"
+      ],
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 5,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "NBProwlerPrimalStrikeStun"
+      ],
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 2,
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    4,
+    96,
+    276,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_FOOTSTOMP.PFX",
+  "attack_bits": [
+    20,
+    322
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    322
+  ],
+  "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+  "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+  "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 22,
+  "attack_frames": 63,
+  "initial_frames_before_hit": 22,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_FOOTSTOMP.PFX",
+      "attack_bits": [
+        20,
+        322
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        322
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 22,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_FOOTSTOMP.PFX",
+      "attack_bits": [
+        20,
+        322
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        322
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/STRENGTHFOOTSTOMP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/SUBTRACTIVE/STRENGTHFOOTSTOMP.FX",
+      "frames_before_hit": 22,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 22
+    },
+    {
+      "token": "Bright Heroic",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_FOOTSTOMP.PFX",
+      "display_name": "Bright Ground Punch",
+      "attack_bits": [
+        20,
+        322,
+        685,
+        691
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        322,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/STRENGTHFOOTSTOMP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/STRENGTHFOOTSTOMP.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Heroic",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BRUTEMELEE_SUPERSTRENGTH_FOOTSTOMP.PFX",
+      "display_name": "Dark Ground Punch",
+      "attack_bits": [
+        20,
+        322,
+        685,
+        691
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        322,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUBTRACTIVE/STRENGTHFOOTSTOMP.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUBTRACTIVE/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SUPERSTRENGTH/ALTERNATE1/SUBTRACTIVE/STRENGTHFOOTSTOMP.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 63,
+      "initial_frames_before_hit": 30
+    }
+  ]
+}

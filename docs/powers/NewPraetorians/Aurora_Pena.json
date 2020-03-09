@@ -1,0 +1,1485 @@
+{
+  "Psionic_Lash": {
+    "crcfull_name": 3294247461,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Lash",
+    "display_name": "Psionic Lash",
+    "display_help": "You channel energy into your whip and lash out at your foe, dealing high energy damage and causing fire damage over time. Lash has longer range than most melee attacks. It will reduce the target's damage resistance and also has a chance to knockdown your target.",
+    "display_short_help": "Ranged (Close), Moderate DMG (Psionic), Minor DoT (Fire), -Rech (Foe), Chance for Knockdown (Foe)",
+    "display_target_help": "You are on fire and burning. Your attack speed has also been reduced.",
+    "display_target_short_help": "DoT(Fire), -Rech",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicLash.tga",
+    "attack_types": [
+      "Melee",
+      "Psionic"
+    ],
+    "range": 20,
+    "time_to_activate": 1.8,
+    "recharge_time": 4,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.125,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 6,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDHANDS.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.15,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.64,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.15,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.64,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      8,
+      24,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AURORAPENA_PSIONICLASH.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 54,
+    "initial_frames_before_hit": 29,
+    "primary_tint": [
+      120,
+      0,
+      180,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      255,
+      255
+    ]
+  },
+  "Psionic_Thrash": {
+    "crcfull_name": 69878486,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Thrash",
+    "display_name": "Psionic Thrash",
+    "display_help": "You create a whip of pure psionic energy and make an impressive sweep, causing psionic damage to enemies within a wide cone. Affected targets are seared by this attack and suffer additional fire damage over time. They also are unable to fly and suffer both reduced movement and attack speed. There is also a chance that affected targets will be knocked back.",
+    "display_short_help": "Ranged (Short Cone), High DMG(Psionic), High DoT (Fire), -Speed (Foe, All), Chance for Knockback",
+    "display_target_help": "You are on fire and burning. You are also unable to fly and both your movement and attack speeds are reduced.",
+    "display_target_short_help": "DoT(Fire), -Speed(All), -Rech, -Fly",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicThrash.tga",
+    "attack_types": [
+      "Melee",
+      "Energy"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "arc": 0.5235988,
+    "range": 30,
+    "time_to_activate": 2.33,
+    "recharge_time": 10,
+    "endurance_cost": 16,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.85,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.15,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDALL.FX"
+            }
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1.6,
+            "duration": 12,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      8,
+      24,
+      188,
+      192,
+      200,
+      204,
+      284,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AURORAPENA_PSIONICTHRASH.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      395
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      395
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 53,
+    "primary_tint": [
+      120,
+      0,
+      180,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      255,
+      255
+    ]
+  },
+  "Psionic_Shot": {
+    "crcfull_name": 3995903957,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Shot",
+    "display_name": "Psionic Shot",
+    "display_help": "You fire a psionic burst at the target, causing damage and increasing recharge time.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic), -Rech(Foe)",
+    "display_target_help": "Your attack speed has been reduced.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicShot.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "accuracy": 1.2,
+    "range": 100,
+    "time_to_activate": 2.67,
+    "recharge_time": 8,
+    "endurance_cost": 14,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.15,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 5,
+    "attrib_cache": [
+      24,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_OPPRESSOR_PSIONICBLAST.PFX",
+    "attack_bits": [
+      20,
+      301,
+      327,
+      383
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      301,
+      327,
+      383
+    ],
+    "attack_fx": "ENEMYFX/AWAKENED/PSIONICBLAST_OPPRESSOR_ATTACK.FX",
+    "hit_fx": "ENEMYFX/AWAKENED/PSIONICBLAST_OPPRESSOR_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/AWAKENED/PSIONICBLAST_OPPRESSOR_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 45,
+    "delayed_hit": true,
+    "attack_frames": 80,
+    "initial_frames_before_hit": 45,
+    "projectile_speed": 84,
+    "custom_fx": [
+      {
+        "token": "Bright Sonic Alternate",
+        "source_file": "MENU/POWERS/ANIMFX/V_AWAKENED_OPPRESSOR_PSIONICBLAST.PFX",
+        "display_name": "Bright Bellow",
+        "attack_bits": [
+          20,
+          327,
+          383,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          327,
+          383,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_MASSIVESONICBLAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_MASSIVESONICBLAST.FX",
+        "frames_before_hit": 45,
+        "delayed_hit": true,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 45,
+        "projectile_speed": 84,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Sonic Alternate",
+        "source_file": "MENU/POWERS/ANIMFX/V_AWAKENED_OPPRESSOR_PSIONICBLAST.PFX",
+        "display_name": "Dark Bellow",
+        "attack_bits": [
+          20,
+          327,
+          383,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          327,
+          383,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_MASSIVESONICBLAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_MASSIVESONICBLAST.FX",
+        "frames_before_hit": 45,
+        "delayed_hit": true,
+        "attack_frames": 80,
+        "initial_frames_before_hit": 45,
+        "projectile_speed": 84
+      }
+    ]
+  },
+  "Psionic_Slow": {
+    "crcfull_name": 1671622715,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Slow",
+    "display_name": "Psionic Slow",
+    "display_help": "You ensnare your target in a field of collapsing psionic energy. They are immobilized and suffer continuous damage and endurance loss.",
+    "display_short_help": "Ranged, Moderate DoT (Psionic), -End (Foe), Immobilize (Foe)",
+    "display_target_help": "You are immobilized. Additionally, you are suffering psionic damage and endurance loss over time.",
+    "display_target_short_help": "Immobilize, DoT (Psionic), -End",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicSlow.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "target_requires": [
+      "enttype",
+      "target>",
+      "player",
+      "eq"
+    ],
+    "accuracy": 1.2,
+    "range": 100,
+    "time_to_activate": 1,
+    "recharge_time": 20,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "duration": 6.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "delay": 6.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.04,
+            "duration": 6.1,
+            "period": 1
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "table": "Ranged_Immobilize",
+            "scale": 7,
+            "duration": 6,
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have been immobilized by {PlayerSource}'s {PowerName}."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "table": "Ranged_Ones",
+            "scale": 7,
+            "duration": 6,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have been immobilized by {PlayerSource}'s {PowerName}."
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 11,
+    "attrib_cache": [
+      24,
+      88,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_MINDSOFMAYHEM_PSIONICCRUSH.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/TALONS/LIGHTNINGBOLT_ATTACK.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/MOM/PSIONICCRUSH.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/TALONS/LIGHTNINGBOLT_ATTACK.FX",
+    "conditional_fx": "ENEMYFX/PRAETORIAN/MOM/PSIONICCRUSH_FLASH.FX",
+    "conditional_fx1": "ENEMYFX/PRAETORIAN/MOM/PSIONICCRUSH_FLASH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 33,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 33,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Psionic_Pulse": {
+    "crcfull_name": 3553406524,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Pulse",
+    "display_name": "Psionic Pulse",
+    "display_help": "You unleash a powerful pulse of psionic energy that strikes all targets around you. This pulse is of variable strength, but always deals a significant amount of psionic damage and reduces the attack speed of affected targets. There is also a high chance that affected targets will be stunned.",
+    "display_short_help": "PBAoE, High to Superior DMG (Psionic), -Rech (Foe), Chance for Stun (Foe)",
+    "display_target_help": "Your attack speed has been reduced. You may also be stunned.",
+    "display_target_short_help": "-Rech, Chance for Stun",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicPulse.tga",
+    "attack_types": [
+      "AOE",
+      "Psionic"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 3,
+    "recharge_time": 16,
+    "endurance_cost": 28,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.7,
+            "duration": 20,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.6",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.2",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 6,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 6,
+            "magnitude": 6,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 9,
+    "attrib_cache": [
+      24,
+      276,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_OPPRESSOR_PSIONICSHOCKWAVE.PFX",
+    "attack_bits": [
+      20,
+      245
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      245
+    ],
+    "attack_fx": "ENEMYFX/AWAKENED/PSIONICSHOCKWAVE_ATTACK.FX",
+    "hit_fx": "ENEMYFX/AWAKENED/PSIONICSHOCKWAVE_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/AWAKENED/PSIONICSHOCKWAVE_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 48,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 48
+  },
+  "Psionic_Vortex": {
+    "crcfull_name": 2058993763,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Vortex",
+    "display_name": "Psionic Vortex",
+    "display_help": "You unleash a whirling vortex of psionic energy at your target, causing the target and those near them to be afflicted with psionic damage over time. Additionally, all affected targets are knocked into the air and suffer reduced attack speed.",
+    "display_short_help": "Ranged (Targeted AoE), High DoT (Psionic), Knockup (Foe), -Rech (Foe)",
+    "display_target_help": "You are suffering psionic damage over time and reduced attack speed.",
+    "display_target_short_help": "-DoT (Psionic), -Rech",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicVortex.tga",
+    "attack_types": [
+      "AOE",
+      "Psionic"
+    ],
+    "target_requires": [
+      "enttype",
+      "target>",
+      "player",
+      "eq"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "range": 150,
+    "time_to_activate": 2.37,
+    "recharge_time": 14,
+    "endurance_cost": 7,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 3.1,
+            "delay": 0.9,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      24,
+      324,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_MINDSTORM_PSIONICTORNADO2.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICTORNADO.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICTORNADO.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 50,
+    "delayed_hit": true,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 50,
+    "projectile_speed": 51,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Psionic_Break": {
+    "crcfull_name": 472152718,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Break",
+    "display_name": "Psionic Break",
+    "display_help": "You channel psionic energy into the body of your target, creating a false injury within their mind. The target takes psionic damage and experiences reduced regeneration. Their mind makes the pain of the injury real, causing the target to also suffer lethal damage over time.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic), Minor DoT (Lethal), -Regen (Foe)",
+    "display_target_help": "You are suffering lethal damage over time and reduced regeneration.",
+    "display_target_short_help": "-DoT (Lethal), -Regen",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicBreak.tga",
+    "attack_types": [
+      "Melee",
+      "Psionic"
+    ],
+    "range": 30,
+    "time_to_activate": 0.87,
+    "recharge_time": 12,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "scale": -0.25,
+            "duration": 10,
+            "period": 67,
+            "tick_chance": 0.6,
+            "stack_type": 3,
+            "flags": [
+              660,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 7,
+    "attrib_cache": [
+      4,
+      24,
+      232
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_AWAKENED_PSYCHOTIC_PSIONICSNAP.PFX",
+    "attack_bits": [
+      20,
+      301,
+      266
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      301,
+      266
+    ],
+    "attack_fx": "ENEMYFX/SEERS/PSIONICSLASH_ATTACK.FX",
+    "hit_fx": "ENEMYFX/SEERS/PSIONICSLASH_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/SEERS/PSIONICSLASH_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 26,
+    "initial_frames_before_hit": 16
+  },
+  "Psionic_Lightning": {
+    "crcfull_name": 853531548,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Lightning",
+    "display_name": "Psionic Lightning",
+    "display_help": "You cause a bolt of psionic energy to strike your foe, dealing heavy damage. These bolts also have a chance to drain the enemy's endurance.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic), -End (Foe)",
+    "display_target_help": "You are losing endurance.",
+    "display_target_short_help": "-End",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicLightning.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "range": 100,
+    "time_to_activate": 2.07,
+    "recharge_time": 6,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.5,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.025,
+            "duration": 3.1,
+            "period": 1,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You suffer {Damage} points of endurance loss due to {PlayerSource}'s {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      24,
+      88
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_MINDSOFMAYHEM_PSIONICLIGHTNING.PFX",
+    "attack_bits": [
+      20,
+      301,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      301,
+      362
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/TALONS/LIGHTNINGBOLT_ATTACK.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/TALONS/LIGHTNINGBOLT_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/TALONS/LIGHTNINGBOLT_ATTACK.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 33,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 33,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ]
+  },
+  "Psionic_Sear": {
+    "crcfull_name": 1066981910,
+    "source_file": "DEFS/POWERS/NEWPRAETORIANS_AURORA_PENA.POWERS",
+    "source_name": "NewPraetorians.Aurora_Pena.Psionic_Sear",
+    "display_name": "Psionic Sear",
+    "display_help": "You hold your target with your psionic whip, preventing them from moving. While they helplessly tremble under your gaze, you are healed while they suffer psionic and fire damage over time. The affected target is also made highly resistant to healing.",
+    "display_short_help": "Ranged, Moderate DoT (Psionic), Heal Self, -Heal(Foe)",
+    "display_target_help": "You are resistant to healing.",
+    "display_target_short_help": "-Heal",
+    "icon_name": "NewPraetorians_AuroraPena_PsionicSear.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "target_requires": [
+      "enttype",
+      "target>",
+      "player",
+      "eq"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 2.8,
+    "recharge_time": 18,
+    "endurance_cost": 11,
+    "target": 19,
+    "ai_groups": [
+      "kSecondaryTarget"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "delay": 0.5,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.05,
+            "duration": 4.1,
+            "delay": 0.75,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          },
+          {
+            "attrib": [
+              80
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.02,
+            "duration": 4.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} is healed for {Damage} points of damage due to her {PowerName}."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 0.5,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 5.1,
+            "magnitude": 6,
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      8,
+      24,
+      28,
+      80,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_MINDSOFMAYHEM_JUDGEMENT.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      508
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      508
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      508
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_HELLONEARTH.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_HELLONEARTH.FX",
+    "conditional_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/AURA_HELLONEARTH.FX",
+    "conditional_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/AURA_HELLONEARTH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 84,
+    "initial_frames_before_hit": 38,
+    "primary_tint": [
+      120,
+      0,
+      180,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      255,
+      255,
+      255
+    ]
+  }
+}

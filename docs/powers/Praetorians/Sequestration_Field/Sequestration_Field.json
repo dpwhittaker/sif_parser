@@ -1,0 +1,211 @@
+{
+  "crcfull_name": 502984951,
+  "source_file": "DEFS/POWERS/PRAETORIANS_SEQUESTRATION_FIELD.POWERS",
+  "source_name": "Praetorians.Sequestration_Field.Sequestration_Field",
+  "display_name": "Sequestration Field",
+  "display_help": "If you are hit by Sequestration Field 3 times within a 30 second period, you and nearby allies will be imprisoned temporarily. Recharge 10 seconds.",
+  "display_short_help": "Special",
+  "display_target_help": "If you are hit by Sequestration Field 3 times within a 30 second period, you and nearby allies will be imprisoned temporarily. Recharge 10 seconds.",
+  "display_target_short_help": "Special",
+  "icon_name": "PowerBlast_Explosion.tga",
+  "range": 80,
+  "time_to_activate": 2.07,
+  "recharge_time": 10,
+  "target": 19,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kSequestor_1",
+        "target.mode?",
+        "!",
+        "kSequestor_2",
+        "target.mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 30,
+          "magnitude": 59,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource} hits you with a {PowerName}.",
+            "display_float": "First warning, {PlayerDest}"
+          },
+          "fx": {
+            "continuing_fx": "EVENTS/ENDGAME/BAF/SEQUESTRATIONFIELD_TOKEN1.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kSequestor_1",
+        "target.mode?",
+        "kSequestor_2",
+        "target.mode?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "duration": 30,
+          "magnitude": 60,
+          "delay": 0.25,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource} hits you with a {PowerName}.",
+            "display_float": "Second warning, {PlayerDest}"
+          },
+          "fx": {
+            "continuing_fx": "EVENTS/ENDGAME/BAF/SEQUESTRATIONFIELD_TOKEN2.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kSequestor_1",
+        "target.mode?",
+        "kSequestor_2",
+        "target.mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "delay": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource} hits you with a {PowerName}.",
+            "display_float": "{PlayerDest} has been Sequestered!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.SilentPowers.Sequestored"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "type": 2,
+          "table": "Ranged_Ones",
+          "delay": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.SilentPowers.Ignored"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 9001,
+  "attrib_cache": [
+    465,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANENDGAME_SIEGE_SEQUESTRATION_FIELD.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "POWERS/FORCEFIELD/FORCEBUBBLEHANDS.FX",
+  "initial_attack_fx": "POWERS/FORCEFIELD/FORCEBUBBLEHANDS.FX",
+  "conditional_fx": "POWERS/FORCEFIELD/DETENTIONFIELD.FX",
+  "conditional_fx1": "POWERS/FORCEFIELD/DETENTIONFIELD.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/V_PRAETORIANENDGAME_SIEGE_SEQUESTRATION_FIELD.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/FORCEBUBBLEHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/FORCEBUBBLEHANDS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/DETENTIONFIELD.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/FORCEFIELD/DETENTIONFIELD.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/V_PRAETORIANENDGAME_SIEGE_SEQUESTRATION_FIELD.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/FORCEBUBBLEHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/FORCEBUBBLEHANDS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/DETENTIONFIELD.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/DETENTIONFIELD.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16
+    }
+  ]
+}

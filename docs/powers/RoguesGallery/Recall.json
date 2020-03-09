@@ -1,0 +1,874 @@
+{
+  "Levitate": {
+    "crcfull_name": 289036124,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Levitate",
+    "display_name": "Levitate",
+    "display_help": "You send a single target violently into the air before slamming them to the ground for smashing damage. The target is also rendered unable to fly for a short while.",
+    "display_short_help": "Ranged, Moderate DMG (Smashing), Knockup (Foe), -Fly (Foe)",
+    "display_target_help": "You are unable to fly.",
+    "display_target_short_help": "-Fly",
+    "icon_name": "MentalControl_Levitate.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 10,
+    "endurance_cost": 9,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.4,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "delay": 2,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      0,
+      284,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MENTALPOWERS_LEVITATE.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "attack_fx": "POWERS/MENTALPOWERS/HEADCASTMENTALPOWERS.FX",
+    "hit_fx": "POWERS/MENTALPOWERS/MENTALCONTROL_LEVITATE.FX",
+    "initial_attack_fx": "POWERS/MENTALPOWERS/HEADCASTMENTALPOWERS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 20
+  },
+  "Dominate": {
+    "crcfull_name": 4191938020,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Dominate",
+    "display_name": "Dominate",
+    "display_help": "You painfully tear at the mind of a single foe, causing psionic damage and rendering the target helpless, lost in their own mind and unable to defend themselves.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic), Hold (Foe)",
+    "display_target_help": "You have been held.",
+    "display_target_short_help": "Hold",
+    "icon_name": "MentalControl_Command.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.1,
+    "recharge_time": 18,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 9,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 21,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                376
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      24,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MENTALPOWERS_COMMAND.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/MENTALPOWERS/COMMAND2.FX",
+    "hit_fx": "POWERS/MENTALPOWERS/MINDCONTROLHIT.FX",
+    "initial_attack_fx": "POWERS/MENTALPOWERS/COMMAND2.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 33,
+    "initial_frames_before_hit": 20
+  },
+  "Confuse": {
+    "crcfull_name": 1942689425,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Confuse",
+    "display_name": "Confuse",
+    "display_help": "You invoke confusion in a single target, causing them to be unable to reliably distinguish friend and foe for a short time.",
+    "display_short_help": "Ranged, Confuse (Foe)",
+    "display_target_help": "You have been confused.",
+    "display_target_short_help": "Confuse",
+    "icon_name": "MentalControl_MindControl.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "accuracy": 1.2,
+    "ai_report": 1,
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 20,
+    "endurance_cost": 12,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 6,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 24,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      256
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MENTALPOWERS_MINDCONTROL.PFX",
+    "attack_bits": [
+      20,
+      366
+    ],
+    "initial_attack_bits": [
+      20,
+      366
+    ],
+    "attack_fx": "POWERS/MENTALPOWERS/HYPNOTIZE.FX",
+    "hit_fx": "POWERS/MENTALPOWERS/MINDCONTROLHIT.FX",
+    "initial_attack_fx": "POWERS/MENTALPOWERS/HYPNOTIZE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 30
+  },
+  "Terrify": {
+    "crcfull_name": 2556712862,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Terrify",
+    "display_name": "Terrify",
+    "display_help": "This power Terrifies foes within a cone area in front of you, causing them to tremble in Fear uncontrollably. The affect is so frightening and overwhelming, that the target takes real damage from the physiological response to this Psionic attack. Damage: Minor, Recharge: Slow",
+    "display_short_help": "Ranged (Cone), High DMG (Psionic), Terrorize (Foe)",
+    "display_target_help": "You have been terrified.",
+    "display_target_short_help": "Terrorize",
+    "icon_name": "MentalControl_Terrify.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "accuracy": 0.9,
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 60,
+    "arc": 1.5707964,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 40,
+    "endurance_cost": 28,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Ranged_Fear",
+            "scale": 10,
+            "magnitude": 3,
+            "delay": 0.25,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              264
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 10,
+            "magnitude": 3,
+            "delay": 0.25,
+            "suppress": [
+              {
+                "event": 23,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      24,
+      264
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MENTALPOWERS_TERRIFY.PFX",
+    "attack_bits": [
+      20,
+      364
+    ],
+    "initial_attack_bits": [
+      20,
+      364
+    ],
+    "attack_fx": "POWERS/MENTALPOWERS/TERRIFY.FX",
+    "hit_fx": "POWERS/MENTALPOWERS/MINDCONTROLHIT.FX",
+    "initial_attack_fx": "POWERS/MENTALPOWERS/TERRIFY.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 23
+  },
+  "Psionic_Dart": {
+    "crcfull_name": 850530609,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Psionic_Dart",
+    "display_name": "Psionic Dart",
+    "display_help": "You fire a concentrated bolt of psionic energy at your target, causing psionic damage and lowering attack speed.",
+    "display_short_help": "Ranged, Minor DMG(Psionic), -Rech (Foe)",
+    "display_target_help": "Your attack speed has been reduced.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "PsionicAssault_MentalDart.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "range": 100,
+    "time_to_activate": 1.33,
+    "recharge_time": 4,
+    "endurance_cost": 4,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 1.5,
+    "attrib_cache": [
+      24,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PSIONICASSAULT_RANGED.PFX",
+    "attack_bits": [
+      20,
+      327,
+      258,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327,
+      258,
+      681
+    ],
+    "attack_fx": "V_COV/POWERS/PSIONICS/MINORDAMAGEPROJECTILE.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PSIONICS/MINORDAMAGEPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 51
+  },
+  "Telekinetic_Thrust": {
+    "crcfull_name": 2387255844,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Telekinetic_Thrust",
+    "display_name": "Telekinetic Thrust",
+    "display_help": "You unleash a focused attack of intense mental power that violently sends a nearby foe flying. This causes psionic and smashing damage and knocks affected targets back.",
+    "display_short_help": "Melee, Minor DMG (Psionic/Smashing), Knockback (Foe)",
+    "icon_name": "PsionicAssault_TelekineticThrust.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Psionic"
+    ],
+    "range": 5,
+    "time_to_activate": 2.07,
+    "recharge_time": 8,
+    "endurance_cost": 10,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 8,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      0,
+      24,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PSIONICASSAULT_MELEE_KNOCKBACK.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "V_COV/POWERS/PSIONICS/MELEESHOVE.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PSIONICS/MELEESHOVE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16
+  },
+  "Mental_Blast": {
+    "crcfull_name": 1354136099,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Mental_Blast",
+    "display_name": "Mental Blast",
+    "display_help": "You fire a concentrated blast of psionic energy at your target, causing psionic damage and lowering attack speed.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic), -Rech (Foe)",
+    "display_target_help": "Your attack speed has been reduced.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "PsionicAssault_MentalBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "range": 100,
+    "time_to_activate": 1.67,
+    "recharge_time": 6,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      24,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PSIONIC_BLAST_MENTAL_BLAST.PFX",
+    "attack_bits": [
+      20,
+      312,
+      47
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      312,
+      47
+    ],
+    "attack_fx": "POWERS/PSIONICS/PSIONICBLAST_SLOWCAST.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONICS/PSIONICBLAST_SLOWCAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 51
+  },
+  "Subdue": {
+    "crcfull_name": 1443353676,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_RECALL.POWERS",
+    "source_name": "RoguesGallery.Recall.Subdue",
+    "display_name": "Subdue",
+    "display_help": "You mentally manipulate your target's mind, subduing them. This causes psionic damage and may briefly immobilize the target.",
+    "display_short_help": "Ranged, Moderate DMG (Psionic), Chance for Immobilize (Foe)",
+    "display_target_help": "You have been immobilized.",
+    "display_target_short_help": "Immobilize",
+    "icon_name": "PsionicAssault_Subdue.tga",
+    "attack_types": [
+      "Ranged",
+      "Psionic"
+    ],
+    "range": 100,
+    "time_to_activate": 1.67,
+    "recharge_time": 14,
+    "endurance_cost": 12,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 6,
+            "magnitude": 3,
+            "flags": [
+              1284,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "POWERS/PSIONICS/TEALHITWITHRINGSCONTNUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 6,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 20,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              340,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "POWERS/PSIONICS/TEALHITWITHRINGSCONTNUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      24,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PSIONIC_BLAST_SUBDUE.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "POWERS/PSIONICS/SUBDUEPSIONICBLAST.FX",
+    "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+    "initial_attack_fx": "POWERS/PSIONICS/SUBDUEPSIONICBLAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20,
+    "projectile_speed": 51
+  }
+}

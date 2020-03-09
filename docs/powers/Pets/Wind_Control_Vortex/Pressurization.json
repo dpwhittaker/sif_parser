@@ -1,0 +1,80 @@
+{
+  "crcfull_name": 804439898,
+  "source_file": "DEFS/POWERS/PETS_WIND_CONTROL_VORTEX.POWERS",
+  "source_name": "Pets.Wind_Control_Vortex.Pressurization",
+  "display_name": "Pressurization",
+  "display_help": "As your creator manipulates pressure, this has an effect on you. The more pressure has been manipulated, the greater your chance of striking with critical damage. The trade-off, however, is that once pressure manipulation exceeds a certain point, you will be unable to use Hail of Debris.",
+  "display_short_help": "Pressurization",
+  "icon_name": "WindControl_Pressure.tga",
+  "type": 1,
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "activate_period": 1,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "effects": [
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+        "source.ownPowerNum?",
+        "3",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            465
+          ],
+          "target": 0,
+          "duration": 1.1,
+          "magnitude": 125,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            476
+          ],
+          "type": 3,
+          "target": 0,
+          "duration": 1.1,
+          "magnitude_expr": [
+            "Temporary_Powers.Temporary_Powers.Wind_Control_Pressure",
+            "source.ownPowerNum?",
+            "0.05",
+            "*"
+          ],
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "EffectFilter": {
+              "tag": "VortexCritical"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    465,
+    476
+  ]
+}

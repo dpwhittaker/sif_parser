@@ -1,0 +1,180 @@
+{
+  "crcfull_name": 4157651711,
+  "source_file": "DEFS/POWERS/KNIVESOFVENGEANCE_DUALBLADE_MN.POWERS",
+  "source_name": "KnivesOfVengeance.DualBlade_MN.Shockwave_Slice",
+  "display_name": "Shockwave Slice",
+  "display_help": "You slice your blades through the air with such power that a shockwave is generated. This shockwave travels quite some distance, cutting down those in its path. Enemies struck by the shockwave suffer lethal damage and bleeding wounds. Additionally, there is a chance they will be knocked back and winded, which reduces their recharge time and speed briefly.",
+  "display_short_help": "Ranged (Cone), High DMG(Lethal), Moderate DoT (Lethal), Chance for -Speed(All), -Recharge on Foes",
+  "display_target_help": "You are bleeding. There is also a chance you may be winded, which movement speed and attack speed.",
+  "display_target_short_help": "DoT(Lethal), Chance for -Speed(All) and -Recharge",
+  "icon_name": "KnivesOfVengeance_ShockwaveSlice.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 16,
+  "radius": 80,
+  "arc": 1.0471976,
+  "range": 80,
+  "time_to_activate": 2.33,
+  "recharge_time": 16,
+  "endurance_cost": 23,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 1.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.60",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.05,
+          "duration": 8,
+          "delay": 0.5,
+          "stack_type": 3,
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The force of {PlayerSource}'s {PowerName} knocks you back and leaves you winded, reducing your movement speed and attack speed."
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDALL.FX"
+          }
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.15,
+          "duration": 8,
+          "delay": 0.5,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.15,
+          "duration": 8,
+          "delay": 0.5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.15,
+          "duration": 8,
+          "delay": 0.5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 12,
+  "attrib_cache": [
+    4,
+    188,
+    192,
+    200,
+    204,
+    236,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_KNIVESOFVENGEANCE_SHOCKWAVESLICE.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    395
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    395,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+  "attack_fx": "ENEMYFX/V_KNIVESOFVENGEANCE/SHOCKWAVESLICE_ATTACK.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_SPECIAL2_HIT.FX",
+  "initial_attack_fx": "ENEMYFX/V_KNIVESOFVENGEANCE/SHOCKWAVESLICE_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    87
+  ],
+  "frames_before_hit": 37,
+  "attack_frames": 70,
+  "initial_frames_before_hit": 67,
+  "initial_attack_fxframe_delay": 20
+}

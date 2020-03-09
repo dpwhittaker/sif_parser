@@ -1,0 +1,1046 @@
+{
+  "Ring_of_Fire": {
+    "crcfull_name": 807183735,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Ring_of_Fire",
+    "display_name": "Ring of Fire",
+    "display_help": "You immobilize your foe in a ring of fire, causing fire damage over time. Affected targets cannot move and are unable to fly. Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Fire), Immobilize (Foe), -Fly (Foe)",
+    "display_target_help": "You are suffering fire damage over time and are immobilized.",
+    "display_target_short_help": "DoT (Fire), Immobilize",
+    "icon_name": "FireTrap_RingOfFire.tga",
+    "attack_types": [
+      "Ranged",
+      "Fire"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.17,
+    "recharge_time": 4,
+    "endurance_cost": 10.5,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "duration": 7.2,
+            "delay": 2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 15,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "POWERS/FIRECONTROL/BURNINGRING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 10,
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 0,
+                "always": true
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "POWERS/FIRECONTROL/BURNINGRING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      8,
+      272,
+      284,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_FLAME_RING.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23
+  },
+  "Char": {
+    "crcfull_name": 2150291469,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Char",
+    "display_name": "Char",
+    "display_help": "You surround your target with charred soot and ash, choking them. This momentarily incapacitates them, holding them in place. The target also suffers fire damage over time due to the smoldering debris. Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DoT (Fire), Hold (Foe)",
+    "display_target_help": "You are suffering fire damage over time and are held.",
+    "display_target_short_help": "DoT (Fire), Hold",
+    "icon_name": "FireTrap_Soot.tga",
+    "attack_types": [
+      "Ranged",
+      "Fire"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.07,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "duration": 3.2,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 21,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      8,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_SOOT.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/SOOT.FX",
+    "hit_fx": "POWERS/FIRECONTROL/EMBERSHITSOOTANDCINDERS.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/SOOT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "delayed_hit": true,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23,
+    "projectile_speed": 51
+  },
+  "Cinders": {
+    "crcfull_name": 2801689529,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Cinders",
+    "display_name": "Cinders",
+    "display_help": "You create a whirling field of cinders around yourself, causing nearby targets to choke. This causes all affected targets to become incapacitated and held in place. Recharge: Slow",
+    "display_short_help": "PBAoE, Hold (Foe)",
+    "display_target_help": "You are held.",
+    "display_target_short_help": "Hold",
+    "icon_name": "FireTrap_Cinders.tga",
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "accuracy": 0.8,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "time_to_activate": 1.07,
+    "recharge_time": 45,
+    "endurance_cost": 21,
+    "ai_groups": [
+      "kMidBattle",
+      "kEndBattle"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 8,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 21,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                375
+              ],
+              "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_CINDERS.PFX",
+    "attack_bits": [
+      20,
+      254
+    ],
+    "initial_attack_bits": [
+      20,
+      254
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/CINDERS.FX",
+    "hit_fx": "POWERS/FIRECONTROL/EMBERSHITSOOTANDCINDERS.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/CINDERS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23
+  },
+  "Bonfire": {
+    "crcfull_name": 2291351836,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Bonfire",
+    "display_name": "Bonfire",
+    "display_help": "You can create a bonfire at the feet of a distant target. This causes any foes who try to pass through it to suffer fire damage and be knocked back. Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Minor DMG (Fire), Knockback (Foe)",
+    "icon_name": "FireTrap_Bonfire.tga",
+    "accuracy": 2,
+    "target_near_ground": true,
+    "range": 70,
+    "time_to_activate": 3.07,
+    "recharge_time": 30,
+    "endurance_cost": 17.5,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 45,
+            "flags": [
+              640,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} creates a raging {PowerName} at your location."
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Bonfire"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_BONFIRECAST.PFX",
+    "attack_bits": [
+      20,
+      262
+    ],
+    "initial_attack_bits": [
+      20,
+      262
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/BONFIRECAST.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/BONFIRECAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 66,
+    "delayed_hit": true,
+    "attack_frames": 92,
+    "initial_frames_before_hit": 66,
+    "projectile_speed": 42
+  },
+  "Fire_Imps": {
+    "crcfull_name": 3991164178,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Fire_Imps",
+    "display_name": "Fire Imps",
+    "display_help": "You create 3 small Imps out of pure flame. Fire Imps will viciously attack any nearby foes, but they only possess the most basic instincts and cannot be controlled. Recharge: Slow",
+    "display_short_help": "Summon Imps",
+    "icon_name": "FireTrap_FireImps.tga",
+    "accuracy": 2,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 60,
+    "endurance_cost": 35,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kSummon",
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "GenericVillains_FireImp",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "GenericVillains_FireImp",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 3,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "GenericVillains_FireImp",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_FIRE_SALAMANDERS.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/FIRECONTROLFIREHANDS.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/FIRECONTROLFIREHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Power_Bolt": {
+    "crcfull_name": 2521609473,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Power_Bolt",
+    "display_name": "Power Bolt",
+    "display_help": "You rapidly hurl a bolt of energy at a single foe, causing energy and smashing damage. There is a chance that the target will also be knocked down. Recharge: Fast",
+    "display_short_help": "Ranged, High DMG (Energy/Smashing), Chance for Knockdown (Foe)",
+    "icon_name": "EnergyAssault_PowerBolt.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ENERGY_ASSAULT_FAST_ENERGY_BLAST.PFX",
+    "attack_bits": [
+      20,
+      329,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      329,
+      681
+    ],
+    "attack_fx": "POWERS/ENERGYBLAST/REDRAPID.FX",
+    "hit_fx": "POWERS/ENERGYBLAST/REDENERGYBLASTHIT.FX",
+    "initial_attack_fx": "POWERS/ENERGYBLAST/REDRAPID.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 90
+  },
+  "Power_Blast": {
+    "crcfull_name": 1602110585,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Power_Blast",
+    "display_name": "Power Blast",
+    "display_help": "You launch a more powerful blast of energy at a single foe, causing energy and smashing damage. There is a chance that the target will also be knocked back. Recharge: Fast",
+    "display_short_help": "Ranged, Superior DMG (Energy/Smashing), Chance for Knockback (Foe)",
+    "icon_name": "EnergyAssault_PowerBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 6,
+    "endurance_cost": 9.24,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ENERGY_ASSAULT_BASIC_ENERGY_BLAST.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "POWERS/ENERGYBLAST/REDENERGYBLAST.FX",
+    "hit_fx": "POWERS/ENERGYBLAST/REDENERGYBLASTHIT.FX",
+    "initial_attack_fx": "POWERS/ENERGYBLAST/REDENERGYBLAST.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 30,
+    "projectile_speed": 90
+  },
+  "Power_Burst": {
+    "crcfull_name": 127369699,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+    "source_name": "RoguesGallery.Colleague.Power_Burst",
+    "display_name": "Power Burst",
+    "display_help": "You launch a very powerful burst of energy at a single foe, causing energy and smashing damage. There is a chance that the target will also be knocked back. Recharge: Slow",
+    "display_short_help": "Ranged (Close), Extreme DMG (Energy/Smashing), Chance for Knockback (Foe)",
+    "icon_name": "EnergyAssault_PowerBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 40,
+    "time_to_activate": 2,
+    "recharge_time": 12,
+    "endurance_cost": 14,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 11,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ENERGY_ASSAULT_POWERBURST.PFX",
+    "attack_bits": [
+      20,
+      329,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      329,
+      682
+    ],
+    "attack_fx": "POWERS/ENERGYBLAST/REDMEGA.FX",
+    "hit_fx": "POWERS/ENERGYBLAST/REDMEGABLASTHIT.FX",
+    "initial_attack_fx": "POWERS/ENERGYBLAST/REDMEGA.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 33,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 33,
+    "projectile_speed": 90
+  }
+}

@@ -1,0 +1,2330 @@
+{
+  "Fury_Display": {
+    "crcfull_name": 3311191189,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Fury_Display",
+    "display_name": "Fury Display",
+    "display_help": "Special",
+    "display_short_help": "Special",
+    "display_target_help": "Special",
+    "display_target_short_help": "Special",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "activate_period": 1,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              494
+            ],
+            "type": 3,
+            "magnitude_expr": [
+              "cur.kRage",
+              "source>",
+              "8",
+              "/"
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "SZEValue": {
+                "script_id": [
+                  "50plusMagisterium.GetID.dummy",
+                  "ZoneEvent>"
+                ],
+                "script_value": [
+                  "PendragonRage",
+                  "@Magnitude"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              494
+            ],
+            "type": 3,
+            "magnitude_expr": [
+              "cur.kabsorb",
+              "source>"
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "SZEValue": {
+                "script_id": [
+                  "50plusMagisterium.GetID.dummy",
+                  "ZoneEvent>"
+                ],
+                "script_value": [
+                  "PendragonAbsorb",
+                  "@Magnitude"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "cur.kabsorb",
+          "source>",
+          "1",
+          ">="
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              465
+            ],
+            "aspect": 32,
+            "type": 2,
+            "target": 0,
+            "duration": 1.25,
+            "magnitude": 108,
+            "stack_type": 3,
+            "flags": [
+              1584,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      465,
+      494
+    ]
+  },
+  "Tectonic_Assault": {
+    "crcfull_name": 2808140452,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Tectonic_Assault",
+    "display_name": "Tectonic Assault",
+    "display_help": "Pendragon's attacks become so strong, the ground underneath him trembles with every strike.",
+    "display_short_help": "Special",
+    "display_target_help": "Special",
+    "display_target_short_help": "Special",
+    "icon_name": "Invulnerability_ToughHide.tga",
+    "type": 1,
+    "activate_period": 5,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "requires": [
+          "Cur.kHitPoints",
+          "source>",
+          "Max.kHitPoints",
+          "source>",
+          "/",
+          ".5",
+          "<="
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              476
+            ],
+            "target": 0,
+            "duration": 5.25,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "EffectFilter": {
+                "tag": "PendragonEnrage"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      476
+    ]
+  },
+  "Defensive_Sweep": {
+    "crcfull_name": 713340445,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Defensive_Sweep",
+    "display_name": "Defensive Sweep",
+    "display_help": "You quickly strike your opponent from a defensive position, causing smashing damage. The force of the blow also has a chance to slow their response time. Additionally, your chance to hit and your defense against melee and smashing attacks is increased for a short time.",
+    "display_short_help": "Melee, Minor DMG(Smashing), +DEF(Self, Melee, Smashing), +ToHit(Self), Chance for -Rech(Foe)",
+    "display_target_help": "Your attack speed has been reduced.",
+    "display_target_short_help": "-Recharge",
+    "icon_name": "KnivesOfVengeance_AgileSweep.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 10,
+    "arc": 2.0943952,
+    "range": 10,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 5.4,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              108,
+              116
+            ],
+            "target": 0,
+            "table": "Melee_Buff_Def",
+            "scale": 1.5,
+            "duration": 8,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 0.5,
+            "duration": 8,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 80,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.60",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.15,
+            "duration": 8,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Your attack speed has been reduced by {PlayerSource}'s {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PendragonEnrage"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "duration": 10,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Blackknights_Tectonic_Assault"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348,
+      356
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      0,
+      96,
+      100,
+      108,
+      116,
+      356,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_DEFENSIVESWEEP_FAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      268,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      268,
+      681,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/DEFENSIVESWEEP_FAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/DEFENSIVESWEEP_FAST_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/DEFENSIVESWEEP_FAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 26,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 61,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_DEFENSIVESWEEP_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          268,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          268,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/DEFENSIVESWEEP_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/DEFENSIVESWEEP_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/DEFENSIVESWEEP_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 26,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 61,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_DEFENSIVESWEEP_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          268,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          268,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/DEFENSIVESWEEP_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/DEFENSIVESWEEP_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/DEFENSIVESWEEP_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 26,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 61
+      }
+    ]
+  },
+  "Crushing_Blow": {
+    "crcfull_name": 1425807494,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Crushing_Blow",
+    "display_name": "Crushing Blow",
+    "display_help": "You swing your weapon at your target with tremendous force. The blow causes smashing damage and internal trauma, which causes lethal damage over time. The target also suffers a reduction in movement speed and ability to fly.",
+    "display_short_help": "Melee, Moderate DMG(Smashing), Minor DoT (Lethal), -Speed(Foe,All), -Fly(Foe)",
+    "display_target_help": "You are bleeding internally. Your movement speed and your ability to fly have been reduced.",
+    "display_target_short_help": "DoT(Lethal), -Speed(All), -Fly",
+    "icon_name": "KnivesOfVengeance_CrushingBlow.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 10,
+    "time_to_activate": 1.2,
+    "recharge_time": 5,
+    "endurance_cost": 8.1,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.08,
+            "duration": 1.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 8,
+            "delay": 0.5,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.3,
+            "duration": 8,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -5,
+            "duration": 5,
+            "delay": 0.5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You are temporarily unable to fly due to {PlayerSource}'s {PowerName}."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 80,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PendragonEnrage"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Level",
+            "duration": 10,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Blackknights_Tectonic_Assault"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348,
+      356
+    ],
+    "preference_multiplier": 6,
+    "attrib_cache": [
+      0,
+      4,
+      96,
+      188,
+      192,
+      200,
+      204,
+      284,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_CRUSHINGBLOW_FAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      267,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      267,
+      681,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/CRUSHINGBLOW_FAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/CRUSHINGBLOW_FAST_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/CRUSHINGBLOW_FAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 35,
+    "attack_frames": 36,
+    "initial_frames_before_hit": 70,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_CRUSHINGBLOW_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          267,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          267,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/CRUSHINGBLOW_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/CRUSHINGBLOW_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/CRUSHINGBLOW_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 35,
+        "attack_frames": 36,
+        "initial_frames_before_hit": 70,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_CRUSHINGBLOW_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          267,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          267,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/CRUSHINGBLOW_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/CRUSHINGBLOW_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/CRUSHINGBLOW_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 35,
+        "attack_frames": 36,
+        "initial_frames_before_hit": 70
+      }
+    ]
+  },
+  "Shockwave_Strike": {
+    "crcfull_name": 3342796690,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Shockwave_Strike",
+    "display_name": "Shockwave Strike",
+    "display_help": "You swing your weapon in a wide arc and create a shockwave which travels in the direction of your target. Opponents hit by the shockwave suffer smashing damage. Targets may also be knocked back and suffer a brief reduction in their regeneration and recovery.",
+    "display_short_help": "Melee, High DMG (Smashing), Knockback(Foe), -Regen(Foe), -Rec(Foe)",
+    "display_target_help": "You have been knocked back and suffer exhaustion, reducing your regeneration and recovery.",
+    "display_target_short_help": "Knockback, -Regen, -Rec",
+    "icon_name": "KnivesOfVengeance_ShockwaveStrike.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 80,
+    "arc": 2.0943952,
+    "range": 80,
+    "time_to_activate": 2.33,
+    "recharge_time": 10,
+    "endurance_cost": 10,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 80,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.60",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              232,
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 5,
+            "delay": 0.5,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PendragonEnrage"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 10,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Blackknights_Tectonic_Assault"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      0,
+      96,
+      232,
+      236,
+      328,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_KNIVESOFVENGEANCE_SHOCKWAVESTRIKE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      256,
+      681
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      256,
+      681,
+      187
+    ],
+    "attack_fx": "ENEMYFX/V_KNIVESOFVENGEANCE/SHOCKWAVESLICE_ATTACK.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/TITAN_HIT_MEDIUM.FX",
+    "initial_attack_fx": "ENEMYFX/V_KNIVESOFVENGEANCE/SHOCKWAVESLICE_ATTACK.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 67,
+    "initial_attack_fxframe_delay": 20,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ]
+  },
+  "Taunt": {
+    "crcfull_name": 3955756042,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Taunt",
+    "display_name": "Taunt",
+    "display_help": "Taunts a foe, and some nearby foes, to attack you. Useful for pulling villains off an ally who find themselves in over their head. Taunted foes tend to ignore other Heroes and focus on you for quite a while, so use this power cautiously. A To Hit check is required to Taunt enemy players, but is not needed against critter targets. Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Foe Taunt",
+    "display_target_help": "You have been Taunted.",
+    "display_target_short_help": "Taunt",
+    "display_attacker_attack": "Have at you!",
+    "display_victim_hit": "{PlayerSource} Taunts you!",
+    "icon_name": "TitanWeapons_Taunt.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 8,
+    "radius": 15,
+    "range": 120,
+    "time_to_activate": 1.93,
+    "recharge_time": 15,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "scale": -0.75,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "scale": 12,
+            "magnitude": 4,
+            "flags": [
+              1296,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} hit, and you Taunt {PlayerDest} to attack you.",
+              "display_victim_hit": "{Playersource} hit you with their {Powername}. You have been Taunted!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "preference_multiplier": 3.5,
+    "attrib_cache": [
+      248,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_TAUNT.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      358,
+      687
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      358,
+      687,
+      187
+    ],
+    "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 55,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_TAUNT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          358,
+          687
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          358,
+          687,
+          187
+        ],
+        "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 20,
+        "attack_frames": 58,
+        "initial_frames_before_hit": 55,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_TAUNT.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          358,
+          687
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          358,
+          687,
+          187
+        ],
+        "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 20,
+        "attack_frames": 58,
+        "initial_frames_before_hit": 55
+      }
+    ]
+  },
+  "Follow_Through": {
+    "crcfull_name": 4149086466,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Follow_Through",
+    "display_name": "Follow Through",
+    "display_help": "You channel your energy into an especially powerful swing. This swing does significant smashing damage and causes sufficient trauma to induce lethal damage due to internal bleeding.",
+    "display_short_help": "Melee, Superior DMG (Smashing), Moderate DoT (Lethal), Chance for Knockup(Foe), -Fly(Foe)",
+    "display_target_help": "You have been knocked back and suffer exhaustion, reducing your regeneration and recovery.",
+    "display_target_short_help": "DoT(Lethal), Chance for Knockup, -Fly",
+    "icon_name": "KnivesOfVengeance_Overpower.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 5,
+    "radius": 10,
+    "range": 10,
+    "time_to_activate": 1,
+    "recharge_time": 10,
+    "endurance_cost": 10,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.125,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 80,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.40",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "scale": 1.4,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -5,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PendragonEnrage"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Level",
+            "duration": 10,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Blackknights_Tectonic_Assault"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348,
+      356
+    ],
+    "preference_multiplier": 10,
+    "attrib_cache": [
+      0,
+      4,
+      96,
+      284,
+      324,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_FOLLOWTHROUGH_FAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      269,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      269,
+      681,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 27,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 62,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_FOLLOWTHROUGH_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          269,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          269,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/FOLLOWTHROUGH_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 27,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 62,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_FOLLOWTHROUGH_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          269,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          269,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/FOLLOWTHROUGH_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/FOLLOWTHROUGH_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/FOLLOWTHROUGH_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 27,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 62
+      }
+    ]
+  },
+  "Shatter_Armor": {
+    "crcfull_name": 1209070135,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Shatter_Armor",
+    "display_name": "Shatter Armor",
+    "display_help": "You batter your enemy with your weapon, causing significant smashing damage and temporarily debilitating their defenses and resistances.",
+    "display_short_help": "TAoE, Extreme DMG(Smashing), -DEF(Foe,All), -RES(Foe,All)",
+    "display_target_help": "Your defenses and resistances have been decreased.",
+    "display_target_short_help": "-DEF(All), -RES(All)",
+    "icon_name": "KnivesOfVengeance_ShatterArmor.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 5,
+    "radius": 15,
+    "range": 10,
+    "time_to_activate": 1.3,
+    "recharge_time": 16,
+    "endurance_cost": 16,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 8,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -1,
+            "duration": 8,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 80,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PendragonEnrage"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Level",
+            "duration": 10,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Blackknights_Tectonic_Assault"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348,
+      356
+    ],
+    "preference_multiplier": 16,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      96,
+      184,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_SHATTERARMOR_FAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      266,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      266,
+      681,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SHATTERARMOR_FAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SHATTERARMOR_FAST_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SHATTERARMOR_FAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 36,
+    "attack_frames": 39,
+    "initial_frames_before_hit": 71,
+    "initial_attack_fxframe_delay": 35,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_SHATTERARMOR_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          266,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          266,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SHATTERARMOR_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SHATTERARMOR_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SHATTERARMOR_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 36,
+        "attack_frames": 39,
+        "initial_frames_before_hit": 71,
+        "initial_attack_fxframe_delay": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_SHATTERARMOR_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          266,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          266,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/SHATTERARMOR_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/SHATTERARMOR_FAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/SHATTERARMOR_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 36,
+        "attack_frames": 39,
+        "initial_frames_before_hit": 71,
+        "initial_attack_fxframe_delay": 35
+      }
+    ]
+  },
+  "Arc_of_Devastation": {
+    "crcfull_name": 719221707,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Arc_of_Devastation",
+    "display_name": "Arc of Devastation",
+    "display_help": "You swing your weapon in a powerful arc which deals smashing damage to all in the way. There is also a chance that the target may be knocked down and stunned. If stunned, the opponent will also suffer reductions in attack speed and recharge rate.",
+    "display_short_help": "Melee (Cone), High DMG(Smashing), Chance for Knockback(Foe), Stun(Foe), -Rech(Foe), -ToHit(Foe)",
+    "display_target_help": "Your attack speed and chance to hit have been reduced.",
+    "display_target_short_help": "-Rech, -ToHit",
+    "icon_name": "KnivesOfVengeance_ArcOfDevastation.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 10,
+    "arc": 2.0943952,
+    "range": 10,
+    "time_to_activate": 1.5,
+    "recharge_time": 20,
+    "endurance_cost": 19,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 80,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.75",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.67,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "/",
+          "0.35",
+          "<="
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 3,
+            "magnitude": 4,
+            "delay": 3,
+            "flags": [
+              1296,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.15,
+            "duration": 9,
+            "delay": 3,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Melee_DeBuff_ToHit",
+            "scale": 0.5,
+            "duration": 9,
+            "delay": 3,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PendragonEnrage"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Level",
+            "duration": 10,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Blackknights_Tectonic_Assault"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 16,
+    "attrib_cache": [
+      0,
+      96,
+      100,
+      276,
+      328,
+      356,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_WAVEOFDESTRUCTION_FAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      258,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      258,
+      681,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/ARCOFDESTRUCTION_HIT_FAST.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 39,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 74,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_WAVEOFDESTRUCTION_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          258,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          258,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/ARCOFDESTRUCTION_HIT_FAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/WAVEOFDESTRUCTION_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 39,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 74,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_TITANWEAPON_WAVEOFDESTRUCTION_FAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          258,
+          681
+        ],
+        "activation_bits": [
+          20,
+          130,
+          141,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          141,
+          766,
+          258,
+          681,
+          187
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/WAVEOFDESTRUCTION_FAST.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/ARCOFDESTRUCTION_HIT_FAST.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/SUBTRACTIVE/WAVEOFDESTRUCTION_FAST.FX",
+        "mode_bits": [
+          20,
+          130,
+          141
+        ],
+        "frames_before_hit": 39,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 74
+      }
+    ]
+  },
+  "Power_of_the_Fae": {
+    "crcfull_name": 1313453240,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Power_of_the_Fae",
+    "display_name": "Power of the Fae",
+    "display_help": "When Pendragon reaches 100 Rage, he taps into the power of the Fae realm, granting him protection from damage and empowering his sword with Mystic energies.",
+    "display_short_help": "Self +Absorb, Special",
+    "display_attacker_attack_floater": "Pendragon calls on the power of the Fae!",
+    "icon_name": "Sword_BuildUp.tga",
+    "target_requires": [
+      "cur.kRage",
+      "source>",
+      "800",
+      ">="
+    ],
+    "accuracy": 1.05,
+    "time_to_activate": 1,
+    "recharge_time": 20,
+    "endurance_cost": 7,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              84
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 4,
+            "delay": 0.1,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner strength with your {PowerName} and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            },
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFTOHITCONT.FX"
+            }
+          },
+          {
+            "attrib": [
+              84
+            ],
+            "aspect": 8,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 4,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "target": 0,
+            "delay": 10,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Magisterium.Pendragon.Mystic_Destruction"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              96
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": -800,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            }
+          },
+          {
+            "attrib": [
+              476
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": -1,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You have gained 1 Rage!"
+            },
+            "param": {
+              "EffectFilter": {
+                "tag": "Rage"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "preference_multiplier": 1000,
+    "attrib_cache": [
+      84,
+      96,
+      473,
+      476
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_MAG_PENDRAGON_BUILDUP.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      198,
+      47
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      198,
+      47,
+      187
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/BUILDUP_ACTIVATION.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/TITANWEAPON/BUILDUP_ACTIVATION.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "attack_frames": 30,
+    "initial_attack_fxframe_delay": 30,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ]
+  },
+  "Mystic_Destruction": {
+    "crcfull_name": 46709655,
+    "source_file": "DEFS/POWERS/MAGISTERIUM_PENDRAGON.POWERS",
+    "source_name": "Magisterium.Pendragon.Mystic_Destruction",
+    "display_name": "Mystic Destruction",
+    "display_help": "You swing your weapon in a powerful arc which deals smashing damage to all in the way. There is also a chance that the target may be knocked down and stunned. If stunned, the opponent will also suffer reductions in attack speed and recharge rate.",
+    "display_short_help": "Melee (Cone), High DMG(Smashing), Chance for Knockback(Foe), Stun(Foe), -Rech(Foe), -ToHit(Foe)",
+    "display_target_help": "Your attack speed and chance to hit have been reduced.",
+    "display_target_short_help": "-Rech, -ToHit",
+    "display_attacker_attack_floater": "Pendragon releases the power of his Fae shield!",
+    "icon_name": "KnivesOfVengeance_ArcOfDevastation.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing"
+    ],
+    "target_requires": [
+      "cur.kabsorb",
+      "source>",
+      "1",
+      ">="
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 8,
+    "radius": 50,
+    "range": 10,
+    "time_to_activate": 1.5,
+    "recharge_time": 30,
+    "endurance_cost": 19,
+    "lifetime_in_game": 10,
+    "ents_auto_hit": [
+      19
+    ],
+    "modes_required": [
+      108
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              48
+            ],
+            "scale": -0.5,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} strikes you with {PowerName} for {Damage} points of Mystic damage!"
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.67,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 3,
+            "magnitude": 4,
+            "delay": 3,
+            "flags": [
+              1296,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "target": 0,
+            "delay": 20,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Magisterium.Pendragon.Mystic_Destruction"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348,
+      356
+    ],
+    "preference_multiplier": 16,
+    "attrib_cache": [
+      48,
+      276,
+      324,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/GREG_MAG_PENDRAGON_MYSTICDESTRUCTION.PFX",
+    "attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      258,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      141,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      141,
+      766,
+      258,
+      681,
+      187
+    ],
+    "attack_fx": "ENEMYFX/PRAETORIAN/TALONS/EARTHSIBYL_UPTHRUST_ATTACK.FX",
+    "hit_fx": "ENEMYFX/PRAETORIAN/TALONS/EARTHSIBYL_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/PRAETORIAN/TALONS/EARTHSIBYL_UPTHRUST_ATTACK.FX",
+    "mode_bits": [
+      20,
+      130,
+      141
+    ],
+    "frames_before_hit": 39,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 74,
+    "primary_tint": [
+      100,
+      100,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      200,
+      150,
+      100,
+      255
+    ]
+  }
+}

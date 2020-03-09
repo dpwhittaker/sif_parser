@@ -1,0 +1,291 @@
+{
+  "Pushback": {
+    "crcfull_name": 4000034682,
+    "source_file": "DEFS/POWERS/INCARNATE_I20_FUSION_SPECIAL.POWERS",
+    "source_name": "Incarnate_I20.Fusion_Special.Pushback",
+    "display_name": "Pushback",
+    "display_help": "Fusion has knocked you back! Merely standing around Fusion reduces your protection to Knockback attacks. If he is thrown off balance by Jane Temblor, his power will be temporarily suppressed.",
+    "display_short_help": "Knockback",
+    "display_attacker_attack_floater": "Fusion Pushes Everyone Back!",
+    "icon_name": "PowerBlast_PowerBurst.tga",
+    "attack_types": [
+      "AOE",
+      "Energy"
+    ],
+    "accuracy": 2,
+    "effect_area": 2,
+    "max_targets_hit": 255,
+    "radius": 90,
+    "time_to_activate": 2.1,
+    "ents_auto_hit": [
+      21
+    ],
+    "ents_affected": [
+      21
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kEnraged",
+          "Source.Mode?",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kEnraged",
+          "Source.Mode?",
+          "!",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "type": 3,
+            "table": "Melee_Knockback",
+            "scale": 10,
+            "magnitude_expr": [
+              "Mod.kKnockback",
+              "target>",
+              "negate",
+              "10",
+              "+"
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "radius_outer": 15,
+        "requires": [
+          "PraetorianIDF_Jane_Temblor",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 124,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              465
+            ],
+            "type": 2,
+            "duration": 10.3,
+            "magnitude": 90,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "duration": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Incarnate_I20.Temblor_Special.Ow"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": -1,
+    "attrib_cache": [
+      328,
+      465,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SIGNATURE_FUSION_PULSE.PFX",
+    "attack_bits": [
+      20,
+      322
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      322
+    ],
+    "attack_fx": "ENEMYFX/SIGNATURE/FUSION/FUSIONPULSE_ATTACK.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+    "initial_attack_fx": "ENEMYFX/SIGNATURE/FUSION/FUSIONPULSE_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 63,
+    "initial_frames_before_hit": 22
+  },
+  "Pushback_Tell": {
+    "crcfull_name": 1578891014,
+    "source_file": "DEFS/POWERS/INCARNATE_I20_FUSION_SPECIAL.POWERS",
+    "source_name": "Incarnate_I20.Fusion_Special.Pushback_Tell",
+    "display_name": "Pushback",
+    "display_help": "Fusion has knocked you back! Merely standing around Fusion reduces your protection to Knockback attacks. If he is thrown off balance by Jane Temblor, his power will be temporarily suppressed. Recharge: Slow",
+    "display_short_help": "Knockback",
+    "display_attacker_attack_floater": "Fusion begins to pulse!",
+    "icon_name": "PowerBlast_PowerBurst.tga",
+    "time_to_activate": 3,
+    "recharge_time": 15,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerSource} powers up their {PowerName}!",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      }
+    ],
+    "chain_into_power": "Incarnate_I20.Fusion_Special.Pushback",
+    "attrib_cache": [
+      468
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/SIGNATURE_TEMBLOR_RUMBLE_TELL.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "ENEMYFX/SIGNATURE/TEMBLOR/WARMUP.FX",
+    "initial_attack_fx": "ENEMYFX/SIGNATURE/TEMBLOR/WARMUP.FX",
+    "frames_before_hit": 0,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 0
+  },
+  "Ow": {
+    "crcfull_name": 1195469835,
+    "source_file": "DEFS/POWERS/INCARNATE_I20_FUSION_SPECIAL.POWERS",
+    "source_name": "Incarnate_I20.Fusion_Special.Ow",
+    "display_name": "Ow",
+    "display_help": "Fusion has knocked you back! Merely standing around Fusion reduces your protection to Knockback attacks. If he is thrown off balance by Jane Temblor, his power will be temporarily suppressed. Recharge: Fast",
+    "display_short_help": "Knockback",
+    "display_attacker_attack": "Be more careful with your powers!",
+    "icon_name": "PowerBlast_PowerBurst.tga",
+    "recharge_time": 4,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "target": 0,
+            "duration": 1,
+            "delay": 1,
+            "flags": [
+              112,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Incarnate_I20.Fusion_Special.Ow"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      474
+    ]
+  }
+}

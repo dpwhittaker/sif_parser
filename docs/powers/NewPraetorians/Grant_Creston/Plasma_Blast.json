@@ -1,0 +1,140 @@
+{
+  "crcfull_name": 1725305709,
+  "source_file": "DEFS/POWERS/NEWPRAETORIANS_GRANT_CRESTON.POWERS",
+  "source_name": "NewPraetorians.Grant_Creston.Plasma_Blast",
+  "display_name": "Plasma Blast",
+  "display_help": "You charge up your plasma gauntlets, firing a small blast of plasma at a single target. The target suffers energy damage and is set ablaze, suffering additional fire damage over time. The target may also be knocked down by the attack.",
+  "display_short_help": "Ranged, Moderate DMG(Energy), Minor DoT(Fire), Chance for Knockdown (Foe)",
+  "display_target_help": "You are on fire and burning.",
+  "display_target_short_help": "DoT(Fire)",
+  "icon_name": "NewPraetorians_GrantCreston_PlasmaBlast.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 80,
+  "time_to_activate": 2.07,
+  "recharge_time": 4,
+  "endurance_cost": 7,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 2.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 5
+            }
+          ],
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    16,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_PRAETORIANIDF_TROOPER_PLASMA_BLAST.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "ENEMYFX/V_PRAETORIANPOLICE/PLASMAGLOVE/PLASMABLAST_ATTACK.FX",
+  "hit_fx": "ENEMYFX/V_PRAETORIANPOLICE/FORCEGLOVE/FORCEBLAST_HIT.FX",
+  "initial_attack_fx": "ENEMYFX/V_PRAETORIANPOLICE/PLASMAGLOVE/PLASMABLAST_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "delayed_hit": true,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 30,
+  "projectile_speed": 180
+}

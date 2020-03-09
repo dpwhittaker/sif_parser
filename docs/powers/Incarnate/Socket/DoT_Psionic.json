@@ -1,0 +1,98 @@
+{
+  "crcfull_name": 3400059465,
+  "source_file": "DEFS/POWERS/INCARNATE_SOCKET.POWERS",
+  "source_name": "Incarnate.Socket.DoT_Psionic",
+  "free": true,
+  "display_name": "Cognitive Socket",
+  "display_help": "You are taking ongoing Psionic damage from a Cognitive Socket proc.",
+  "display_short_help": "Minor DoT(Psionic)",
+  "icon_name": "Incarnate_Interface_Cognitive_Common.tga",
+  "type": 5,
+  "activate_requires": [
+    "isVIP?",
+    "isAccountInventoryLoaded?",
+    "!",
+    "||",
+    "combatlevel",
+    "char>",
+    "45",
+    "<",
+    "&&"
+  ],
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12,
+    37
+  ],
+  "effects": [
+    {
+      "tag": [
+        "GenesisDoT"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "@ChanceMods",
+        "<",
+        "&&",
+        "combatlevel",
+        "source>",
+        "45",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 34,
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Melee_TempDamage",
+          "scale": 0.05,
+          "duration": 4.3,
+          "period": 1,
+          "tick_chance": 0,
+          "caster_stack_type": 1,
+          "stack_type": 5,
+          "stack_limit": 8,
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "INCARNATEPOWERS/INTERFACE/COGNITIVE.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    24
+  ]
+}

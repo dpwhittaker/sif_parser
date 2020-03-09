@@ -1,0 +1,435 @@
+{
+  "crcfull_name": 2495050537,
+  "source_file": "DEFS/POWERS/BRUTE_MELEE_BRAWLING.POWERS",
+  "source_name": "Brute_Melee.Brawling.Throat_Strike",
+  "display_name": "Rib Cracker",
+  "display_help": "You deftly strike your foe in a very vulnerable location. Rib Cracker deals Moderate Damage but reduces your foe's Damage and Resistance moderately for a short time. Rib Cracker is a Combo Builder and adds 1 Combo Level. Damage: Moderate, Recharge: Fast.",
+  "display_short_help": "Melee, Moderate DMG (Smash), Foe -Res (All), -Dmg, Combo Builder",
+  "icon_name": "Brawling_ThroatStrike.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "range": 7,
+  "time_to_activate": 1.33,
+  "recharge_time": 6,
+  "endurance_cost": 6.864,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.32,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 1.5,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Melee_Debuff_Res_Dmg",
+          "scale": -1,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.571,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 2,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Melee_Debuff_Res_Dmg",
+          "scale": -1,
+          "duration": 5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.594,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 1!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_1",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 2!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?",
+        "Temporary_Powers.Temporary_Powers.Combo_Level_3",
+        "source.ownPower?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your combo level to 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Combo_Level_2",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Combo_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    473,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_RIBCRACKER.PFX",
+  "attack_bits": [
+    20,
+    624,
+    680,
+    684
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    624,
+    680,
+    684
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 40,
+  "primary_tint": [
+    255,
+    126,
+    48,
+    255
+  ],
+  "secondary_tint": [
+    89,
+    0,
+    0,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_RIBCRACKER.PFX",
+      "attack_bits": [
+        20,
+        624,
+        680,
+        684
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        624,
+        680,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/RIBCRACKER_ATTACK.FX",
+      "attack_frames": 40,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_BRAWLING_RIBCRACKER.PFX",
+      "attack_bits": [
+        20,
+        624,
+        680,
+        684
+      ],
+      "block_bits": 53,
+      "initial_attack_bits": [
+        20,
+        624,
+        680,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/RIBCRACKER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/RIBCRACKER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/BRAWLING/SUBTRACTIVE/RIBCRACKER_ATTACK.FX",
+      "attack_frames": 40
+    }
+  ]
+}

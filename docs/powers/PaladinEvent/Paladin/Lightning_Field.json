@@ -1,0 +1,87 @@
+{
+  "crcfull_name": 3918914040,
+  "source_file": "DEFS/POWERS/PALADINEVENT_PALADIN.POWERS",
+  "source_name": "PaladinEvent.Paladin.Lightning_Field",
+  "display_name": "Lightning Field",
+  "display_help": "You have been trapped by Paladin's Lightning Field. You are taking minor damage over time and being drained of endurance.",
+  "display_short_help": "Toggle AoE Energy, -End",
+  "display_target_help": "You have been trapped by Paladin's Lightning Field. You are taking minor damage over time and being drained of endurance.",
+  "display_target_short_help": "Toggle AoE Energy, -End",
+  "icon_name": "ElectricalBolt_LightningStorm.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "activate_period": 2,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.01,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Melee_EndDrain",
+          "scale": -2,
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "group",
+        "target>",
+        "Objects",
+        "eq",
+        "Clockwork_Paladin_New",
+        "source.VillainName>",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "table": "Melee_Damage"
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ELECTRICAL_BOLT_LIGHTNINGSTORM.PFX",
+  "activation_bits": [
+    20,
+    255
+  ],
+  "activation_fx": "POWERS/ELECTRICITYCONTROL/CHAINLIGHTNING.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25,
+  "ignore_attack_time_errors": "jhamilton"
+}

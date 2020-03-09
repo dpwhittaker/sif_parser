@@ -1,0 +1,270 @@
+{
+  "crcfull_name": 48729122,
+  "source_file": "DEFS/POWERS/EPIC_MUNITIONS_MASTERY.POWERS",
+  "source_name": "Epic.Munitions_Mastery.Cryo_Freeze_Ray",
+  "display_name": "Cryo Freeze Ray",
+  "display_help": "Although this weapon deals very little damage, the Cryo Freeze Ray encases your foe in a block of ice, holding him helpless in place for a while. Damage: Minor, Recharge: Moderate",
+  "display_short_help": "Ranged, Minor DMG(Cold), Foe Hold",
+  "display_target_help": "You are frozen in place!",
+  "display_target_short_help": "Hold",
+  "icon_name": "MunitionsMastery_CryoFreezeRay.tga",
+  "attack_types": [
+    "Ranged",
+    "Cold"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Blaster",
+    "=="
+  ],
+  "range": 60,
+  "time_to_activate": 1.87,
+  "recharge_time": 16,
+  "endurance_cost": 8.58,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 10,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 10,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "continuing_fx": "PFX",
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    12,
+    268,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_FREEZERAY.PFX",
+  "attack_bits": [
+    20,
+    130,
+    131,
+    173,
+    48
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    131,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    131,
+    173,
+    48,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+  "attack_fx": "POWERS/COLDCONTROL/PLAYER_EPIC_ASSAULTWEP_FREEZERAY.FX",
+  "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/PLAYER_EPIC_ASSAULTWEP_FREEZERAY.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+  "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "conditional_fx1": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX",
+  "mode_bits": [
+    20,
+    130,
+    131,
+    86
+  ],
+  "frames_before_hit": 12,
+  "delayed_hit": true,
+  "attack_frames": 56,
+  "initial_frames_before_hit": 42,
+  "initial_attack_fxframe_delay": 30,
+  "projectile_speed": 150,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_MUNITIONSMASTERY_FREEZERAY.PFX",
+      "attack_bits": [
+        20,
+        130,
+        131,
+        173,
+        48
+      ],
+      "activation_bits": [
+        20,
+        130,
+        131,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        131,
+        173,
+        48,
+        187
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/CRYOFREEZERAY_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_MUNITIONSMASTERY/CRYOFREEZERAY_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/COLDMISTCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/ICEROOTCONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        131,
+        86
+      ],
+      "frames_before_hit": 12,
+      "delayed_hit": true,
+      "attack_frames": 56,
+      "initial_frames_before_hit": 42,
+      "initial_attack_fxframe_delay": 30,
+      "projectile_speed": 150,
+      "palette": "ice"
+    }
+  ]
+}

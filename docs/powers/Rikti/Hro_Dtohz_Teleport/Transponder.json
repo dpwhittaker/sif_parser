@@ -1,0 +1,103 @@
+{
+  "crcfull_name": 2530600149,
+  "source_file": "DEFS/POWERS/RIKTI_HRO_DTOHZ_TELEPORT.POWERS",
+  "source_name": "Rikti.Hro_Dtohz_Teleport.Transponder",
+  "display_name": "Transponder",
+  "display_help": "The Rikti Commander can create an inter-dimensional Transponder. Other Rikti soldiers can teleport in through this Transponder to join their allies. The Transponder can be destroyed.",
+  "display_short_help": "Build Transponder",
+  "display_target_help": "The Rikti Commander can create an inter-dimensional Transponder. Other Rikti soldiers can teleport in through this Transponder to join their allies. The Transponder can be destroyed.",
+  "display_target_short_help": "Build Transponder",
+  "icon_name": "ElectricalBolt_VoltaicSentinal.tga",
+  "target_near_ground": true,
+  "effect_area": 3,
+  "range": 10,
+  "time_to_activate": 4.93,
+  "recharge_time": 5,
+  "endurance_cost": 21,
+  "interrupt_time": 2,
+  "target": 20,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "ai_groups": [
+    "kPlant"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Level",
+          "duration": 360,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Rikti_RiktPortal",
+              "priority_list": "PL_FightPreferMelee"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "group",
+        "target>",
+        "Pets",
+        "eq",
+        "group",
+        "target>",
+        "MastermindPets",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            461
+          ],
+          "table": "Ranged_Level",
+          "duration": 360,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Rikti_RiktPortal",
+              "priority_list": "PL_FightPreferMelee"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_RIKTI_COMMUNICATOR.PFX",
+  "wind_up_bits": [
+    474
+  ],
+  "wind_up_fx": "ENEMYFX/RIKTI/WINDUP_PORTALSUMMON.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 60,
+  "attack_frames": 88,
+  "initial_frames_before_hit": 60
+}

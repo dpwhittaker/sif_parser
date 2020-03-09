@@ -1,0 +1,258 @@
+{
+  "crcfull_name": 2231387652,
+  "source_file": "DEFS/POWERS/EPIC_PSIONIC_MASTERY.POWERS",
+  "source_name": "Epic.Psionic_Mastery.World_of_Confusion",
+  "display_name": "World of Confusion",
+  "display_help": "This toggle power allows you to cause psionic damage and cause confusion within a group of foes, creating chaos. The chance of confusing an enemy is lower than then chance of damaging them, and it may take multiple hits to affect stronger opponents. All affected foes within the area will turn and attack each other, ignoring all heroes. You will not receive any Experience Points for foes defeated by Confused enemies. You must be level 41 and have Mental Blast or Indomitable Will before selecting this power. Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Psionic), Foe Confuse",
+  "display_target_help": "You are confused and may attack an incorrect target.",
+  "display_target_short_help": "Confuse",
+  "icon_name": "PsionicMastery_WorldOfConfusion.tga",
+  "type": 2,
+  "attack_types": [
+    "Psionic"
+  ],
+  "buy_requires": [
+    "Epic.Psionic_Mastery.Mental_Blast",
+    "Epic.Psionic_Mastery.Indomitable_Will",
+    "||"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 1.67,
+  "recharge_time": 15,
+  "activate_period": 4,
+  "endurance_cost": 0.65,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    8,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "@ToHitRoll",
+        "0.25",
+        "+",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 24
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "0.25",
+        "+",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 1.5,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "@ToHitRoll",
+        "0.25",
+        "+",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 24
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.12,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "@ToHitRoll",
+        "0.25",
+        "+",
+        "@ToHit",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            256
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    24,
+    256
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_WORLDOFCONFUSION.PFX",
+  "activation_bits": [
+    20,
+    255
+  ],
+  "activation_fx": "POWERS/PSIONICS/MENTALMANIPULATION_WORLDOFCONFUSION.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 28,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 28,
+  "custom_fx": [
+    {
+      "token": "Bright Mental Manipulation",
+      "alt_theme": [
+        "Bright Mental Alt"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_WORLDOFCONFUSION.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        255
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/WORLDOFCONFUSION_ACTIVATION.FX",
+      "frames_before_hit": 28,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 28,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Mental Manipulation",
+      "alt_theme": [
+        "Dark Mental Alt"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERSUPPORT_MENTALMANIPULATION_WORLDOFCONFUSION.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        255
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/MENTALMANIPULATION/SUBTRACTIVE/WORLDOFCONFUSION_ACTIVATION.FX",
+      "frames_before_hit": 28,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 28
+    }
+  ]
+}

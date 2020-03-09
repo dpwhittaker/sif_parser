@@ -1,0 +1,404 @@
+{
+  "Burst": {
+    "crcfull_name": 4226038284,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_LONGBOW_LT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Longbow_LT.Burst",
+    "free": true,
+    "display_name": "Burst",
+    "display_help": "Quickly fires a Burst of rounds at a single target at very long range. Damage is average, but the fire rate is fast. Can also reduce the target's defense. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Lethal), Foe -DEF",
+    "display_target_help": "Your Defense has been reduced by the Assault Rifle.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "AssaultWeapons_ARBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 85,
+    "time_to_activate": 2.2,
+    "recharge_time": 3,
+    "target": 19,
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.33,
+            "duration": 0.91,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 8,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      4,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_BURST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      174
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      174,
+      187
+    ],
+    "activation_fx": "WEAPONS/ASSAULT_RIFLE2.FX",
+    "attack_fx": "WEAPONFX/GUNFIRE_ASSAULTRIFLE02.FX",
+    "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/GUNFIRE_ASSAULTRIFLE02.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 66,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30
+  },
+  "Slug": {
+    "crcfull_name": 3507264909,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_LONGBOW_LT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Longbow_LT.Slug",
+    "free": true,
+    "display_name": "Slug",
+    "display_help": "Fires a single Slug at a targeted foe. Firing a single Slug is slower than firing a Burst, but deals more damage, is longer range, and can knock down foes. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Lethal), Foe Knockback",
+    "display_target_help": "Fires a large slug at a single target at very long range. This very accurate weapon hits hard, and can knock down foes.",
+    "display_target_short_help": "Ranged Lethal, +KB",
+    "icon_name": "AssaultWeapons_ShotgunSlug.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 180,
+    "time_to_activate": 1.87,
+    "recharge_time": 8,
+    "target": 19,
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_SHOTGUN_SLUG.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/ASSAULT_RIFLE2.FX",
+    "attack_fx": "WEAPONFX/GUNFIRE_SHOTGUN.FX",
+    "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/GUNFIRE_SHOTGUN.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30
+  },
+  "M30_Grenade": {
+    "crcfull_name": 665724844,
+    "source_file": "DEFS/POWERS/INCARNATE_LORE_PET_LONGBOW_LT.POWERS",
+    "source_name": "Incarnate.Lore_Pet_Longbow_LT.M30_Grenade",
+    "free": true,
+    "display_name": "M30 Grenade",
+    "display_help": "Launches a Grenade at long range from beneath the barrel of your Assault Rifle. This explosion affects all within the blast radius, and can knock them back. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal/Smash), Knockback",
+    "display_target_help": "The explosion from this M30 Grenade affects all within the blast and can knock them back.",
+    "display_target_short_help": "Targeted AoE Lethal/Smashing, Knockback",
+    "icon_name": "AssaultWeapons_ARM30grenade.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 16,
+    "target": 19,
+    "boosts_allowed": [
+      39,
+      23,
+      9,
+      5
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_GRENADE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/ASSAULT_RIFLE2.FX",
+    "attack_fx": "WEAPONFX/GUNFIRE_GRENADELAUNCHER_FRAG.FX",
+    "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+    "initial_attack_fx": "WEAPONFX/GUNFIRE_GRENADELAUNCHER_FRAG.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 42,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 90
+  }
+}

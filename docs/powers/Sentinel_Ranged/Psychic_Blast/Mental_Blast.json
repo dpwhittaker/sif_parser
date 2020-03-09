@@ -1,0 +1,408 @@
+{
+  "crcfull_name": 2904653238,
+  "source_file": "DEFS/POWERS/SENTINEL_RANGED_PSYCHIC_BLAST.POWERS",
+  "source_name": "Sentinel_Ranged.Psychic_Blast.Mental_Blast",
+  "display_name": "Mental Blast",
+  "display_help": "This basic attack does moderate Psionic damage, and can slightly reduce a target's attack speed. Damage: Moderate, Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DMG(Psionic), Target -Recharge",
+  "display_target_help": "The Mental Blast has slowed your Attack rate.",
+  "display_target_short_help": "-Recharge",
+  "icon_name": "PsychicBlast_MentalBlast.tga",
+  "attack_types": [
+    "Ranged",
+    "Psionic"
+  ],
+  "range": 60,
+  "time_to_activate": 1.67,
+  "recharge_time": 4,
+  "endurance_cost": 5.2,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.3,
+          "duration": 6,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.6053,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Vulnerability"
+      ],
+      "requires": [
+        "kRage",
+        "source>",
+        "90",
+        ">",
+        "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": -0.2,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "stack_key": 16,
+          "flags": [
+            131728,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Vulnerability!"
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Opportunity"
+      ],
+      "requires": [
+        "kRage",
+        "source>",
+        "90",
+        ">",
+        "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Vulnerability"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            491
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Offensive Opportunity"
+          }
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "duration": 15,
+          "magnitude": 99,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "duration": 15,
+          "magnitude": 107,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "kDomination",
+    "Mode?"
+  ],
+  "highlight_ring": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    356,
+    465,
+    473,
+    475,
+    491
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_MENTALBLAST.PFX",
+  "attack_bits": [
+    20,
+    312,
+    47
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    312,
+    47
+  ],
+  "attack_fx": "POWERS/PSIONICS/PSIONICBLAST_SLOWCAST.FX",
+  "hit_fx": "POWERS/PSIONICS/INFUSETHOUGHTSHIT.FX",
+  "initial_attack_fx": "POWERS/PSIONICS/PSIONICBLAST_SLOWCAST.FX",
+  "continuing_fx": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+  "continuing_fx1": "POWERS/PSIONICS/TEALHITCONTNUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 25,
+  "projectile_speed": 51,
+  "custom_fx": [
+    {
+      "token": "Bright Psychic Blast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_MENTALBLAST.PFX",
+      "attack_bits": [
+        20,
+        312,
+        47
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        47
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICBLAST_SLOWCAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/PSIONICBLAST_SLOWCAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 51,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Psychic Blast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_MENTALBLAST.PFX",
+      "attack_bits": [
+        20,
+        312,
+        47
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        47
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/PSIONICBLAST_SLOWCAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/PSIONICBLAST_SLOWCAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 51
+    },
+    {
+      "token": "Bright Psychic Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_MENTALBLAST.PFX",
+      "display_name": "Bright Mind Crusher",
+      "attack_bits": [
+        20,
+        312,
+        47,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        47,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_PSIONICBLAST_SLOWCAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/CUSTANIM_PSIONICBLAST_SLOWCAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 51,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Psychic Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_PSYCHICBLAST_MENTALBLAST.PFX",
+      "display_name": "Dark Mind Crusher",
+      "attack_bits": [
+        20,
+        312,
+        47,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        312,
+        47,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_PSIONICBLAST_SLOWCAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/INFUSETHOUGHTSHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSYCHICBLAST/SUBTRACTIVE/CUSTANIM_PSIONICBLAST_SLOWCAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/PSIONIC_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 51
+    }
+  ]
+}

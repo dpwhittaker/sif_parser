@@ -1,0 +1,112 @@
+{
+  "crcfull_name": 3984460914,
+  "source_file": "DEFS/POWERS/DILEMMADIABOLIQUE_CAPTURED_HERO_PROCS.POWERS",
+  "source_name": "DilemmaDiabolique.Captured_Hero_Procs.Proc_D_Field",
+  "display_name": "Aura of Decay",
+  "display_help": "You create a field around yourself. This field causes damage to all opponents within it and heals you. The damage and healing effects end when the target leaves the field.",
+  "display_short_help": "PBAoE, Moderate DoT(Cold/Negative), Heal(Self)",
+  "display_target_help": "Mot's residual energy enables Diabolique to drain energy from the captured Heroes and channel it to herself and her enforcer, the Sentinel.",
+  "display_target_short_help": "DoT(Cold/Negative)",
+  "icon_name": "Incarnate_StoryArc.tga",
+  "type": 1,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "effect_area": 2,
+  "max_targets_hit": 999,
+  "radius": 35,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    21
+  ],
+  "ents_affected": [
+    21
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "scale": -0.03,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "You are caught within the Sentinel's {PowerName} and suffer {Damage} points of cold damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "scale": -0.02,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "You are caught within the Sentinel's {PowerName} and suffer {Damage} points of negative energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "BanishedPantheonEndgame_Sentinel_of_Mot",
+        "target.VillainName>",
+        "Diabolique_P_Diabolique_Final",
+        "target.VillainName>",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            80
+          ],
+          "scale": 0.01,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            320
+          ],
+          "type": 2,
+          "target": 0,
+          "duration": 20,
+          "flags": [
+            112,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "ENEMYFX/PRAETORIAN/DD/SENTINELPROC_AURAOFDECAY.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    12,
+    20,
+    80,
+    320
+  ]
+}

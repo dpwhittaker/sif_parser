@@ -1,0 +1,74 @@
+{
+  "crcfull_name": 3022305762,
+  "source_file": "DEFS/POWERS/PRAETORIANPOLICE_RIPTIDE.POWERS",
+  "source_name": "PraetorianPolice.Riptide.Lightning_Field",
+  "display_name": "Lightning Field",
+  "display_help": "While active, you emit a storm of electricity that constantly damages all nearby foes. Damage: Minor(DoT), Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Energy), Foe -End",
+  "display_target_help": "You are taking damage from the Lightning Field.",
+  "display_target_short_help": "DoT(Energy)",
+  "icon_name": "ElectricArmor_PBAoEMinorDamage.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 2.03,
+  "recharge_time": 10,
+  "activate_period": 2,
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/ELECTRICITYCONTROL/ELECTRICITYBOLTHITCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_ELECTRICSHIELDS_LIGHTNINGFIELD.PFX",
+  "activation_bits": [
+    20,
+    255
+  ],
+  "activation_fx": "POWERS/ELECTRICITYCONTROL/RED_LIGHTNINGFIELD.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25
+}

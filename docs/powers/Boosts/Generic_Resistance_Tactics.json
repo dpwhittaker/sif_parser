@@ -1,0 +1,177 @@
+{
+  "Generic_Resistance_Tactics": {
+    "crcfull_name": 2648723092,
+    "source_file": "DEFS/POWERS/BOOSTS_GENERIC_RESISTANCE_TACTICS.POWERS",
+    "source_name": "Boosts.Generic_Resistance_Tactics.Generic_Resistance_Tactics",
+    "display_name": "Resistance Tactics: Damage/Recharge/Chance for Smashing damage",
+    "display_help": "UNIQUE -- No more than 1 enhancement of this type may be slotted by a character. The Resistance Tactics enhancement fills the user with a strong sense of purpose thus increasing a power's damage by {Boost.Attrib.Damage.Scale}% and recharge by {Boost.Attrib.RechargeTime.Scale}%. Additionally, the power that the Resistance Tactics enhancement is slotted into will have a minor chance to inflict minor Smashing damage, however this effect will cease to trigger once the player reaches level 21. This effect will trigger roughly 2 times per minute.",
+    "display_short_help": "Enhances Damage, Recharge and has a chance to deal minor Smashing damage",
+    "icon_name": "GRPreOrder_ResistanceTactics.tga",
+    "type": 3,
+    "slot_requires": [
+      "Generic_Resistance_Tactics",
+      "BoostsSlotted>",
+      "0",
+      "<="
+    ],
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      9,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "effects": [
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.1666,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              2608,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "rechargetime"
+        ],
+        "procs_per_minute": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "target": 0,
+            "scale": 0.1666,
+            "duration": 10.25,
+            "stack_type": 3,
+            "flags": [
+              2608,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "target.isFriend?",
+          "!",
+          "&&",
+          "level",
+          "source>",
+          "20",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.5,
+            "flags": [
+              660,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "target.isFriend?",
+          "!",
+          "&&",
+          "level",
+          "source>",
+          "20",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_TempDamage",
+            "scale": 0.5,
+            "flags": [
+              564,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      }
+    ],
+    "boost_ignore_effectiveness": true,
+    "boost_tradeable": false,
+    "boost_combinable": false,
+    "min_slot_level": 0,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      356
+    ]
+  }
+}

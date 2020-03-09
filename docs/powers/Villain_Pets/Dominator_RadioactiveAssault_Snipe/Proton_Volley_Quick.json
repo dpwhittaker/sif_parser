@@ -1,0 +1,335 @@
+{
+  "crcfull_name": 2413303405,
+  "source_file": "DEFS/POWERS/VILLAIN_PETS_DOMINATOR_RADIOACTIVEASSAULT_SNIPE.POWERS",
+  "source_name": "Villain_Pets.Dominator_RadioactiveAssault_Snipe.Proton_Volley_Quick",
+  "display_name": "Proton Volley",
+  "display_help": "Hurls a volley of alpha particles over an extremely long range. Proton Volley can bypass some of a target's defenses and reduce the target's Defense. This is a sniper attack, and is best fired from a distance as it can be interrupted. If you are engaged in battle this attack becomes instant-cast. If you are not engaged, it will do bonus damage. Affected enemies have a small chance to be affected by the Contaminated effect. Hitting Contaminated foes with single target Radioactive Assault powers cause a small burst of damage to foes near the target. Damage: Superior, Recharge: Slow",
+  "display_short_help": "Sniper, Superior DMG(Energy), Foe -DEF",
+  "display_target_help": "The Proton Volley has reduced your Defenses.",
+  "display_target_short_help": "-DEF",
+  "icon_name": "RadioactiveAssault_ProtonVolley",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 150,
+  "time_to_activate": 1.33,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "target": 19,
+  "boosts_allowed": [
+    32,
+    23,
+    22,
+    18,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "scale": 0.89,
+          "duration": 1.6,
+          "magnitude_expr": [
+            "cur.kToHit",
+            "source>",
+            "0.75",
+            "-",
+            "0.22",
+            "/",
+            "-1.0",
+            "1.0",
+            "minmax",
+            "0.25",
+            "*",
+            ".75",
+            "+",
+            "@StdResult",
+            "*"
+          ],
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 3,
+          "duration": 12,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.4262,
+          "duration": 1.6,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Contaminated"
+      ],
+      "chance": 0.3,
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You contaminate {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} has contaminated you.",
+            "display_float": "Contaminated!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Villain_Pets.Dominator_RadioactiveAssault_Snipe.Proton_Volley_Quick_Contamination"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    16,
+    184,
+    473,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_RADIATIONBLAST_PROTONVOLLEY_QUICK.PFX",
+  "attack_bits": [
+    20,
+    681,
+    381,
+    684
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    681,
+    381,
+    684
+  ],
+  "attack_fx": "POWERS/RADIATIONCONTROL/PROTONBLAST_QUICK.FX",
+  "initial_attack_fx": "POWERS/RADIATIONCONTROL/PROTONBLAST_QUICK.FX",
+  "continuing_fx": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+  "continuing_fx1": "POWERS/RADIATIONCONTROL/IRRADIATECONTINUINGFX.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "delayed_hit": true,
+  "attack_frames": 40,
+  "initial_frames_before_hit": 25,
+  "projectile_speed": 60,
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_RADIATIONBLAST_PROTONVOLLEY_QUICK.PFX",
+      "attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST_QUICK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 60,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_RADIATIONBLAST_PROTONVOLLEY_QUICK.PFX",
+      "attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        681,
+        381,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST_QUICK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 60
+    },
+    {
+      "token": "Bright Radiation Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_RADIATIONBLAST_PROTONVOLLEY_QUICK.PFX",
+      "display_name": "Bright Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/PROTONBLAST_QUICK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/IRRADIATECONTINUINGFX.FX",
+      "mode_bits": [
+        20,
+        685,
+        692
+      ],
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 60,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Radiation Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERRANGED_RADIATIONBLAST_PROTONVOLLEY_QUICK.PFX",
+      "display_name": "Dark Sniper Alternate",
+      "attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "initial_attack_bits": [
+        20,
+        258,
+        683,
+        685,
+        684
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST_QUICK.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/PROTONBLAST_QUICK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/IRRADIATECONTINUINGFX.FX",
+      "mode_bits": [
+        20,
+        685,
+        692
+      ],
+      "frames_before_hit": 25,
+      "delayed_hit": true,
+      "attack_frames": 40,
+      "initial_frames_before_hit": 25,
+      "projectile_speed": 60
+    }
+  ]
+}

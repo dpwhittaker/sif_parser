@@ -1,0 +1,820 @@
+{
+  "crcfull_name": 996065756,
+  "source_file": "DEFS/POWERS/TANKER_MELEE_STAFF_FIGHTING.POWERS",
+  "source_name": "Tanker_Melee.Staff_Fighting.Guarded_Spin",
+  "display_name": "Guarded Spin",
+  "display_help": "You spin your staff like a propeller in front of you dealing Light Smashing damage to enemies in your frontal arc and deflecting any incoming attacks, thus boosting your Melee and Lethal defense briefly. While a form is active, this power will build one level of Perfection. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Melee (Cone), Moderate DMG (Smash), Self +Def(Melee, Lethal)",
+  "display_target_help": "Your Guarded Spin has increased your defense moderately.",
+  "display_target_short_help": "+Def",
+  "icon_name": "StaffFighting_GuardedSpin.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "accuracy": 1.05,
+  "effect_area": 1,
+  "max_targets_hit": 10,
+  "radius": 9,
+  "arc": 1.5707964,
+  "range": 9,
+  "time_to_activate": 1.83,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    9,
+    6,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2317,
+          "duration": 1.5,
+          "period": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.2458,
+          "duration": 1.5,
+          "period": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1043,
+          "duration": 1.5,
+          "period": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            108,
+            120
+          ],
+          "target": 0,
+          "table": "Melee_Buff_Def",
+          "scale": 1.5,
+          "duration": 10,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofBody"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_1",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_2",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_3",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Body to level 1!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofBody"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_1",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Body to level 2!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_2"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofBody"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_2",
+        "source.ownPower?",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_3",
+        "source.ownPower?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Body to level 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofBody"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_2",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Body_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofMind"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_1",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_2",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_3",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Mind to level 1!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofMind"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_1",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Mind to level 2!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_2"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofMind"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_2",
+        "source.ownPower?",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_3",
+        "source.ownPower?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Mind to level 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofMind"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_2",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Mind_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofSoul"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_1",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_2",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_3",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Soul to level 1!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofSoul"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_1",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Soul to level 2!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_2"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofSoul"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_2",
+        "source.ownPower?",
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_3",
+        "source.ownPower?",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You boost your Perfection of Soul to level 3!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PerfectionofSoul"
+      ],
+      "chance": 0,
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_2",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Perfection_of_Soul_Level_2"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "highlight_eval": [
+    "Temporary_Powers.Temporary_Powers.Combo_Level_3"
+  ],
+  "highlight_ring": [
+    255,
+    127,
+    0,
+    255
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    8,
+    108,
+    120,
+    473,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_LONGSTAFF_GUARDSPIN.PFX",
+  "attack_bits": [
+    20,
+    130,
+    141,
+    171,
+    264
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    199
+  ],
+  "activation_bits": [
+    20,
+    130,
+    141,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    141,
+    171,
+    264,
+    187
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/GUARDEDSPIN_ATTACK.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/GUARDEDSPIN_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/GUARDEDSPIN_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    141
+  ],
+  "frames_before_hit": 6,
+  "attack_frames": 55,
+  "initial_frames_before_hit": 34,
+  "initial_attack_fxframe_delay": 28,
+  "primary_tint": [
+    34,
+    26,
+    80,
+    255
+  ],
+  "secondary_tint": [
+    214,
+    188,
+    168,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_LONGSTAFF_GUARDSPIN.PFX",
+      "attack_bits": [
+        20,
+        130,
+        141,
+        171,
+        264
+      ],
+      "block_bits": 53,
+      "hit_bits": [
+        49,
+        199
+      ],
+      "activation_bits": [
+        20,
+        130,
+        141,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        141,
+        171,
+        264,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/GUARDEDSPIN_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/GUARDEDSPIN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/GUARDEDSPIN_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        141
+      ],
+      "frames_before_hit": 6,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 34,
+      "initial_attack_fxframe_delay": 28,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERMELEE_LONGSTAFF_GUARDSPIN.PFX",
+      "attack_bits": [
+        20,
+        130,
+        141,
+        171,
+        264
+      ],
+      "block_bits": 53,
+      "hit_bits": [
+        49,
+        199
+      ],
+      "activation_bits": [
+        20,
+        130,
+        141,
+        187
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        141,
+        171,
+        264,
+        187
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/SUBTRACTIVE/GUARDEDSPIN_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/SUBTRACTIVE/GUARDEDSPIN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/STAFFFIGHTING/SUBTRACTIVE/GUARDEDSPIN_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        141
+      ],
+      "frames_before_hit": 6,
+      "attack_frames": 55,
+      "initial_frames_before_hit": 34,
+      "initial_attack_fxframe_delay": 28
+    }
+  ]
+}

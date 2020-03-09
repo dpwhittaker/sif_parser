@@ -1,0 +1,3663 @@
+{
+  "Mental_Strike": {
+    "crcfull_name": 4217650757,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Mental_Strike",
+    "display_name": "Mental Strike",
+    "display_help": "You project psionic energy around your fist and strike at your foe dealing light Psionic and Smashing damage. Affected foes will have their recharge rate reduced. Mental Strike has a small chance to grant you Insight. While you have Insight, Mental Strike will deal additional minor psionic damage over time. Damage: Light, Recharge: Very Fast",
+    "display_short_help": "Melee, Light DMG(Psionic/Smash), Foe -Rech; Self +Insight",
+    "display_target_help": "The Mental Strike has reduced your recharge rate.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "PsionicMelee_MentalStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Psionic"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "range": 7,
+    "time_to_activate": 1,
+    "recharge_time": 3,
+    "endurance_cost": 4.368,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "chance": 0.0889,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1778,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.21,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.63,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.305,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.915,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.1,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.084,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.2199,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6624,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.378,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      24,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MENTALSTRIKE.PFX",
+    "attack_bits": [
+      20,
+      632,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      632,
+      681
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MENTALSTRIKE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIONICMELEE_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MENTALSTRIKE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 13,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 13,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MENTALSTRIKE.PFX",
+        "attack_bits": [
+          20,
+          632,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MENTALSTRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIONICMELEE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MENTALSTRIKE.FX",
+        "frames_before_hit": 13,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 13,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MENTALSTRIKE.PFX",
+        "attack_bits": [
+          20,
+          632,
+          681
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          681
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MENTALSTRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIONICMELEE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MENTALSTRIKE.FX",
+        "frames_before_hit": 13,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 13
+      }
+    ]
+  },
+  "Psi_Blade": {
+    "crcfull_name": 1487818942,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Psi_Blade",
+    "display_name": "Psi Blade",
+    "display_help": "You lash at your foe's mind with a mentally projected blade of psychic energy to deal moderate Psionic and Lethal damage. Affected foes will have their recharge rate reduced. Psi Blade has a moderate chance to grant you Insight. While you have Insight, Psi Blade will deal additional minor psionic damage over time. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Melee, Moderate DMG(Psionic/Lethal), Foe -Rech, Self +Insight",
+    "display_target_help": "The Psi Blade has reduced your recharge rate.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "PsionicMelee_PsiBlade.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal",
+      "Psionic"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "range": 7,
+    "time_to_activate": 1.33,
+    "recharge_time": 5,
+    "endurance_cost": 5.928,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "chance": 0.1407,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2813,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.285,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.855,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3827,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1482,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.12,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2285,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.5309,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.14,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.899,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.513,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      8,
+      24,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADE.PFX",
+    "attack_bits": [
+      20,
+      632,
+      266
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      632,
+      266
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 20,
+    "primary_tint": [
+      210,
+      10,
+      255,
+      255
+    ],
+    "secondary_tint": [
+      255,
+      0,
+      200,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADE.PFX",
+        "attack_bits": [
+          20,
+          632,
+          266
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          632,
+          266
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADE.PFX",
+        "attack_bits": [
+          20,
+          632,
+          266
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          632,
+          266
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADE.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Telekinetic_Blow": {
+    "crcfull_name": 3586529205,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Telekinetic_Blow",
+    "display_name": "Telekinetic Blow",
+    "display_help": "You project telekinetic energy around your fist before delivering a shattering uppercut to your foe dealing high Psionic and Smashing damage and sending them flying into the air. Telekinetic Blow has a high chance of granting you Insight. While you have Insight, Telekinetic Blow will deal additional minor psionic damage over time. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee, High DMG(Psionic/Smash), Foe Knock Up, Self +Insight",
+    "icon_name": "PsionicMelee_TelekineticBlow.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Psionic"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "range": 7,
+    "time_to_activate": 1.47,
+    "recharge_time": 9,
+    "endurance_cost": 9.36,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "chance": 0.2327,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4653,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.45,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.35,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4472,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.3417,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.18,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.7889,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.4195,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.81,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      24,
+      324,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_TELEKINETICBLOW.PFX",
+    "attack_bits": [
+      20,
+      632,
+      683
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      632,
+      683
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/TELEKINETICBLOW.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/TELEKINETICBLOW_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/TELEKINETICBLOW.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 44,
+    "initial_frames_before_hit": 20,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_TELEKINETICBLOW.PFX",
+        "attack_bits": [
+          20,
+          632,
+          683
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/TELEKINETICBLOW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/TELEKINETICBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/TELEKINETICBLOW.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 44,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_TELEKINETICBLOW.PFX",
+        "attack_bits": [
+          20,
+          632,
+          683
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/TELEKINETICBLOW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/TELEKINETICBLOW_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/TELEKINETICBLOW.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 44,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Concentration": {
+    "crcfull_name": 3967683806,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Concentration",
+    "display_name": "Concentration",
+    "display_help": "Greatly boosts your attacks for a few seconds. Slightly increases chance to hit. Recharge: Long",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "PsionicMelee_Concentration.tga",
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You concentrate for a moment and become more accurate and deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_CONCENTRATION.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBUFF.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBUFF.FX",
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_CONCENTRATION.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBUFF.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBUFF.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_CONCENTRATION.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBUFF.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBUFF.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Psi_Blade_Sweep": {
+    "crcfull_name": 775191598,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Psi_Blade_Sweep",
+    "display_name": "Psi Blade Sweep",
+    "display_help": "You project a Psi Blade and swing it in a broad arc hitting all foes within a wide cone in front of you for high Psionic and Lethal damage. Foes struck by this power have their recharge reduced and have chance to become disoriented for a short time. Psi Blade Sweep has a high chance of granting you Insight. While you have Insight, Psi Blade Sweep will deal additional minor psionic damage over time and has a greater chance to disorient foes. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee (Cone), High DMG(Psionic/Lethal), Foe Disorient, -Rech; Self +Insight",
+    "display_target_help": "The Psi Blade Sweep has reduced your recharge rate.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "PsionicMelee_PsiBladeSweep.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal",
+      "Psionic"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 5,
+    "radius": 7,
+    "arc": 1.2217305,
+    "range": 7,
+    "time_to_activate": 1.77,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "chance": 0.1904,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3809,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.36,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.08,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3918,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1753,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.15,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.236,
+            "duration": 3.1,
+            "delay": 1,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.5671,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.44,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1356,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.33,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.33,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.648,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      8,
+      24,
+      276,
+      356,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADESWEEP.PFX",
+    "attack_bits": [
+      20,
+      632,
+      265
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      632,
+      265
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADESWEEP.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADESWEEP_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADESWEEP.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 28,
+    "attack_frames": 53,
+    "initial_frames_before_hit": 28,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADESWEEP.PFX",
+        "attack_bits": [
+          20,
+          632,
+          265
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          265
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADESWEEP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADESWEEP_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADESWEEP.FX",
+        "frames_before_hit": 28,
+        "attack_frames": 53,
+        "initial_frames_before_hit": 28,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADESWEEP.PFX",
+        "attack_bits": [
+          20,
+          632,
+          265
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          632,
+          265
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADESWEEP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADESWEEP_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADESWEEP.FX",
+        "frames_before_hit": 28,
+        "attack_frames": 53,
+        "initial_frames_before_hit": 28
+      }
+    ]
+  },
+  "Confront": {
+    "crcfull_name": 2457407613,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Confront",
+    "display_name": "Confront",
+    "display_help": "Challenges a foe to attack you. Useful to pull a foe off an ally who finds themselves in over their head. A To Hit check is required to Taunt enemy players, but is not needed against critter targets. Recharge: Fast",
+    "display_short_help": "Ranged, Foe Taunt",
+    "display_target_help": "The Confront has taunted you!",
+    "display_target_short_help": "+Taunt",
+    "display_victim_hit": "{PlayerSource} taunts and challenges you!",
+    "icon_name": "PsionicMelee_Confront.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "range": 70,
+    "time_to_activate": 1.67,
+    "recharge_time": 3,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      28,
+      22,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 15,
+            "magnitude": 4,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Challenge {PlayerDest} to attack you.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 4,
+            "magnitude": 4,
+            "stack_type": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} hit, and you Taunt {PlayerDest} to attack you.",
+              "display_victim_hit": "{Playersource} hit you with their {Powername}. You have been Taunted!"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "scale": -0.75,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          ">=",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "messages": {
+              "display_attacker_hit": "Your {PowerName} partially hit! {PlayerDest} is not taunted but their range is reduced!",
+              "display_victim_hit": "{Playersource} partially hits you with their Taunt! Your range is reduced but the Taunt is not successful!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      248,
+      348,
+      468
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_CONFRONT.PFX",
+    "attack_bits": [
+      20,
+      311
+    ],
+    "initial_attack_bits": [
+      20,
+      311
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSITAUNT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSITAUNT_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSITAUNT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_CONFRONT.PFX",
+        "attack_bits": [
+          20,
+          311
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          311
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSITAUNT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSITAUNT_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSITAUNT.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20,
+        "palette": ""
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_CONFRONT.PFX",
+        "attack_bits": [
+          20,
+          311
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          311
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSITAUNT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSITAUNT_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSITAUNT.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Boggle": {
+    "crcfull_name": 4125088086,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Boggle",
+    "display_name": "Boggle",
+    "display_help": "You flood your foe's mind with doubt causing them to become confused for a brief time. Confused foes will attack their allies. Boggle will also place the \"Boggled\" effect on your target for a short time. Attacking a Boggled target will increase your chance of gaining Insight. Recharge: Long",
+    "display_short_help": "Short Ranged, Target Confuse, +Special",
+    "display_target_help": "You have been confused and may attack an incorrect target.",
+    "display_target_short_help": "Confuse",
+    "icon_name": "PsionicMelee_Boggle.tga",
+    "attack_types": [
+      "Psionic"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "ai_report": 1,
+    "range": 40,
+    "time_to_activate": 2,
+    "recharge_time": 20,
+    "endurance_cost": 7.8,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      8,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You boggle your foe causing your Psionic Melee attacks on your target to be more likely to grant you Insight.",
+              "display_victim_hit": "You've become Boggled!",
+              "display_float": "Boggled!"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Boggled"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              256
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 24
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Confuse {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Confuses you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/CONFUSECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 2,
+    "attrib_cache": [
+      256,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_BOGGLE.PFX",
+    "attack_bits": [
+      20,
+      366
+    ],
+    "initial_attack_bits": [
+      20,
+      366
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSICONFUSE_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 30,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 30,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_BOGGLE.PFX",
+        "attack_bits": [
+          20,
+          366
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          366
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSICONFUSE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/BOGGLE.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_BOGGLE.PFX",
+        "attack_bits": [
+          20,
+          366
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          366
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/BOGGLE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSICONFUSE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/BOGGLE.FX",
+        "frames_before_hit": 30,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 30
+      }
+    ]
+  },
+  "Greater_Psi_Blade": {
+    "crcfull_name": 1378248933,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Greater_Psi_Blade",
+    "display_name": "Greater Psi Blade",
+    "display_help": "You focus and create a more powerful Psi Blade projection before slashing at your foe to deal superior Psionic and Lethal damage. The affected foe will have their recharge reduced moderately and be left held for a short time. Greater Psi Blade will cause additional damage and cause this power's hold to last for a longer duration if you have Insight. Using this power removes Insight. Damage: Superior, Recharge: Long",
+    "display_short_help": "Melee, Superior DMG(Psionic/Lethal), Foe -Rech, Hold; Self -Insight",
+    "display_target_help": "The Greater Psi Blade has reduced your recharge rate.",
+    "display_target_short_help": "-Rech",
+    "icon_name": "PsionicMelee_GreaterPsiBlade.tga",
+    "attack_types": [
+      "Melee",
+      "Lethal",
+      "Psionic"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "accuracy": 1.2,
+    "range": 7,
+    "time_to_activate": 2.5,
+    "recharge_time": 15,
+    "endurance_cost": 14.352,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "Your Insight is removed by Greater Psi Blade.",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.69,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.07,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.6875,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.0624,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.2,
+            "duration": 6,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.38,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [INSIGHT STRIKE!].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [INSIGHT STRIKE!].",
+              "display_float": "Insight Strike!"
+            }
+          },
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.3749,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [INSIGHT STRIKE!].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [INSIGHT STRIKE!].",
+              "display_float": "Insight Strike!"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.7499,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.76,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.1766,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                21
+              ],
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.242,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      4,
+      8,
+      24,
+      268,
+      356,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADEGREAT.PFX",
+    "attack_bits": [
+      20,
+      632,
+      267
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      632,
+      267
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADEGREAT.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE_HIT_MAJOR.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADEGREAT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 75,
+    "initial_frames_before_hit": 50,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADEGREAT.PFX",
+        "attack_bits": [
+          20,
+          632,
+          267
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          632,
+          267
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADEGREAT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADE_HIT_MAJOR.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/PSIBLADEGREAT.FX",
+        "frames_before_hit": 50,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 50,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_PSIBLADEGREAT.PFX",
+        "attack_bits": [
+          20,
+          632,
+          267
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          632,
+          267
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADEGREAT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADE_HIT_MAJOR.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/PSIBLADEGREAT.FX",
+        "frames_before_hit": 50,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 50
+      }
+    ]
+  },
+  "Mass_Levitate": {
+    "crcfull_name": 3044953881,
+    "source_file": "DEFS/POWERS/SCRAPPER_MELEE_PSIONIC_MELEE.POWERS",
+    "source_name": "Scrapper_Melee.Psionic_Melee.Mass_Levitate",
+    "display_name": "Mass Levitate",
+    "display_help": "You build up a large amount of telekinetic energy and release it causing nearby foes to be flung into the air. Affected foes will suffer high Smashing damage. If the caster has Insight when this power is used Mass Levitate will also cause a moderate amount of Psionic damage over time. Damage: High, Recharge: Long",
+    "display_short_help": "PBAoE, High DMG(Smash), Foe Knock Up, +Insight",
+    "icon_name": "PsionicMelee_MassLevitate.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 10,
+    "time_to_activate": 2.5,
+    "recharge_time": 20,
+    "endurance_cost": 18.512,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "chance": 0.2,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?",
+          "!",
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+          "source.ownPower?",
+          "!",
+          "&&",
+          "Temporary_Powers.Temporary_Powers.Boggled",
+          "target.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+              "display_victim_hit": "",
+              "display_float": "Insight!"
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.42,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.0999,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+          "source.ownPower?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              24
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.142,
+            "duration": 3.1,
+            "delay": 3.25,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "PlayerCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.0999,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "MLCrit"
+        ],
+        "chance": 0.05,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.42,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "BossCrit"
+        ],
+        "chance": 0.1,
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Small",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Pets",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Minion_Swarm",
+          "eq",
+          "||",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "||",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.1198,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.639,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      8,
+      24,
+      324,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MASSLEVITATE.PFX",
+    "attack_bits": [
+      20,
+      632,
+      272
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      632,
+      272
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE_HIT.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 42,
+    "attack_frames": 75,
+    "initial_frames_before_hit": 42,
+    "primary_tint": [
+      72,
+      32,
+      244,
+      255
+    ],
+    "secondary_tint": [
+      194,
+      28,
+      133,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MASSLEVITATE.PFX",
+        "attack_bits": [
+          20,
+          632,
+          272
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+        "frames_before_hit": 42,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 42,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MASSLEVITATE.PFX",
+        "attack_bits": [
+          20,
+          632,
+          272
+        ],
+        "initial_attack_bits": [
+          20,
+          632,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MASSLEVITATE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MASSLEVITATE_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MASSLEVITATE.FX",
+        "frames_before_hit": 42,
+        "attack_frames": 75,
+        "initial_frames_before_hit": 42
+      }
+    ]
+  }
+}

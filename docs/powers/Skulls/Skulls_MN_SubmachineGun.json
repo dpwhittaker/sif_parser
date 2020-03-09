@@ -1,0 +1,244 @@
+{
+  "Submachine_Gun": {
+    "crcfull_name": 571343414,
+    "source_file": "DEFS/POWERS/SKULLS_SKULLS_MN_SUBMACHINEGUN.POWERS",
+    "source_name": "Skulls.Skulls_MN_SubmachineGun.Submachine_Gun",
+    "display_name": "Submachine Gun",
+    "display_help": "You fire your submachine gun at a single target, causing lethal damage over time and reducing the target's defenses.",
+    "display_short_help": "Ranged, Moderate DoT (Lethal), -DEF (Foe, All)",
+    "display_target_help": "Your defenses have been reduced.",
+    "display_target_short_help": "-DEF (All)",
+    "icon_name": "AssaultWeapons_ARBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "range": 80,
+    "time_to_activate": 2.2,
+    "recharge_time": 3,
+    "endurance_cost": 5.88,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.4,
+            "duration": 0.4,
+            "delay": 0.3,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 5,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      4,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_SUBMACHINEGUN.PFX",
+    "attack_bits": [
+      174
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      174,
+      187
+    ],
+    "activation_fx": "WEAPONS/SUBMACHINEGUN.FX",
+    "attack_fx": "WEAPONFX/GUNFIRE_ASSAULTRIFLE01.FX",
+    "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/GUNFIRE_ASSAULTRIFLE01.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 66,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30
+  },
+  "Focused_Burst": {
+    "crcfull_name": 2687823904,
+    "source_file": "DEFS/POWERS/SKULLS_SKULLS_MN_SUBMACHINEGUN.POWERS",
+    "source_name": "Skulls.Skulls_MN_SubmachineGun.Focused_Burst",
+    "display_name": "Focused Burst",
+    "display_help": "You fire a focused burst from your submachine gun, causing lethal damage over time and potentially knocking the target down.",
+    "display_short_help": "Ranged, Moderate DoT (Lethal), Chance for Knockdown (Foe)",
+    "icon_name": "AssaultWeapons_ARBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "range": 80,
+    "time_to_activate": 2.2,
+    "recharge_time": 5,
+    "endurance_cost": 5.88,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.35,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.35,
+            "duration": 0.5,
+            "delay": 0.15,
+            "period": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              208,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_SUBMACHINEGUN.PFX",
+    "attack_bits": [
+      174
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      174,
+      187
+    ],
+    "activation_fx": "WEAPONS/SUBMACHINEGUN.FX",
+    "attack_fx": "WEAPONFX/GUNFIRE_ASSAULTRIFLE01.FX",
+    "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/GUNFIRE_ASSAULTRIFLE01.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 66,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30
+  }
+}

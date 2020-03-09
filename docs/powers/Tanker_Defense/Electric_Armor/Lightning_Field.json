@@ -1,0 +1,195 @@
+{
+  "crcfull_name": 1670561414,
+  "source_file": "DEFS/POWERS/TANKER_DEFENSE_ELECTRIC_ARMOR.POWERS",
+  "source_name": "Tanker_Defense.Electric_Armor.Lightning_Field",
+  "display_name": "Lightning Field",
+  "display_help": "While active, you emit a storm of electricity that constantly damages all nearby foes. Damage: Minor(DoT), Recharge: Moderate",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Energy), Foe -End",
+  "display_target_help": "You are taking damage from the Lightning Field.",
+  "display_target_short_help": "DoT(Energy)",
+  "icon_name": "ElectricArmor_PBAoEMinorDamage.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 2.03,
+  "recharge_time": 10,
+  "activate_period": 2,
+  "endurance_cost": 1.04,
+  "boosts_allowed": [
+    33,
+    28,
+    23,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.03,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of endurance.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} draining {Damage} points of endurance."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Melee_EndDrain",
+          "scale": -0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of endurance.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} draining {Damage} points of endurance."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "InherentTaunt"
+      ],
+      "flags": 16,
+      "attrib_mod": [
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Redirects.Inherents.Gauntlet_Proc_Aura"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    16,
+    88,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ELECTRICARMOR_LIGHTNINGFIELD.PFX",
+  "hit_bits": [
+    49
+  ],
+  "activation_bits": [
+    20,
+    255
+  ],
+  "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/LIGHTNINGFIELD_ACTIVATION.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/LIGHTNINGFIELD_CONTINUING.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/LIGHTNINGFIELD_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25,
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    87,
+    48,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ELECTRICARMOR_LIGHTNINGFIELD.PFX",
+      "hit_bits": [
+        49
+      ],
+      "activation_bits": [
+        20,
+        255
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/LIGHTNINGFIELD_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/LIGHTNINGFIELD_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/LIGHTNINGFIELD_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_ELECTRICARMOR_LIGHTNINGFIELD.PFX",
+      "hit_bits": [
+        49
+      ],
+      "activation_bits": [
+        20,
+        255
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/SUBTRACTIVE/LIGHTNINGFIELD_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/SUBTRACTIVE/LIGHTNINGFIELD_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICARMOR/SUBTRACTIVE/LIGHTNINGFIELD_CONTINUING.FX",
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

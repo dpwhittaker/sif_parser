@@ -1,0 +1,3001 @@
+{
+  "Thunder_Kick": {
+    "crcfull_name": 36287501,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Thunder_Kick",
+    "display_name": "Thunder Kick",
+    "display_help": "You can perform a strong Thunder Kick that hits so hard it can Disorient your target. Damage: Minor, Recharge: Fast",
+    "display_short_help": "Melee, Minor DMG(Smashing), Minor Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "MartialArts_ThunderKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 0.83,
+    "recharge_time": 3,
+    "endurance_cost": 4.368,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.101,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.101,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.101,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.84,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.65,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      276,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_THUNDERKICK.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/THUNDERKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/THUNDERKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/THUNDERKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 25,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "alt_theme": [
+          "Bright Punches"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_THUNDERKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/THUNDERKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/THUNDERKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/THUNDERKICK.FX",
+        "attack_frames": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "alt_theme": [
+          "Dark Punches"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_THUNDERKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/THUNDERKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/THUNDERKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/THUNDERKICK.FX",
+        "attack_frames": 25
+      }
+    ]
+  },
+  "Storm_Kick": {
+    "crcfull_name": 3242027945,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Storm_Kick",
+    "display_name": "Storm Kick",
+    "display_help": "You can unleash a roundhouse kick that pummels your foe for moderate damage. Storm Kick has a greater then average chance to score a critical hit. Damage: Moderate, Recharge: Medium",
+    "display_short_help": "Melee, Moderate DMG(Smashing)",
+    "icon_name": "MartialArts_StormKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 0.83,
+    "recharge_time": 6,
+    "endurance_cost": 7.0044,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.221,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.221,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.221,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.12,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.8,
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_STORMKICK.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257,
+      683
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257,
+      683
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/STORMKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MAHITSLRG.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/STORMKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 25,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_STORMKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          683
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/STORMKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/STORMKICK.FX",
+        "attack_frames": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_STORMKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          683
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/STORMKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/STORMKICK.FX",
+        "attack_frames": 25
+      },
+      {
+        "token": "Bright Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_STORMKICK.PFX",
+        "display_name": "Bright Gut Punch",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          683,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          683,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/STORMKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/STORMKICK.FX",
+        "frames_before_hit": 10,
+        "attack_frames": 25,
+        "initial_frames_before_hit": 10,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_STORMKICK.PFX",
+        "display_name": "Dark Gut Punch",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          683,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          683,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/STORMKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/STORMKICK.FX",
+        "frames_before_hit": 10,
+        "attack_frames": 25,
+        "initial_frames_before_hit": 10
+      }
+    ]
+  },
+  "Crippling_Axe_Kick": {
+    "crcfull_name": 3498987145,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Crippling_Axe_Kick",
+    "display_name": "Crippling Axe Kick",
+    "display_help": "You can perform a Crippling Axe Kick that deals moderate smashing damage, reduces the targets defense, may Immobilize, and Slowing their run speed. Crippling Axe Kick may also knock some flying entities out of the sky. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Melee, Moderate DMG(Smashing), Foe Immobilize, -SPD, -Fly, -DEF",
+    "display_target_help": "The Crippling Axe Kick has crippled you, reducing your defense. You are immobilized and your Running speed will be reduced once you can move again.",
+    "display_target_short_help": "Immobilize, -SPD, -DEF",
+    "icon_name": "MartialArts_CripplingHookKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.6,
+    "recharge_time": 11,
+    "endurance_cost": 11.024,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      18,
+      15,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.12,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9599,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9599,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_Immobilize",
+            "scale": 10,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              200
+            ],
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 8
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "scale": -1.6,
+            "duration": 8,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Melee_Slow",
+            "scale": 0.5,
+            "duration": 8,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Melee_Debuff_Def",
+            "duration": 10,
+            "flags": [
+              644,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9599,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.12,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.12,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      184,
+      188,
+      200,
+      204,
+      272,
+      284,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257,
+      48,
+      720
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257,
+      48,
+      720
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/HOOKKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/HOOKKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/HOOKKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 31,
+    "attack_frames": 48,
+    "initial_frames_before_hit": 31,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICK.FX",
+        "frames_before_hit": 31,
+        "attack_frames": 48,
+        "initial_frames_before_hit": 31,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/HOOKKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/HOOKKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/HOOKKICK.FX",
+        "frames_before_hit": 31,
+        "attack_frames": 48,
+        "initial_frames_before_hit": 31
+      },
+      {
+        "token": "Bright Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+        "display_name": "Bright Haymaker",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/HOOKKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/HOOKKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/HOOKKICK.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 48,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRIPPLINGAXEKICK.PFX",
+        "display_name": "Dark Haymaker",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          48,
+          720,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/HOOKKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/HOOKKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/HOOKKICK.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 48,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Assassins_Blow": {
+    "crcfull_name": 2105422406,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Assassins_Blow",
+    "display_name": "Assassin's Blow",
+    "display_help": "A signature Stalker attack. This attack does superior smashing damage on its own as a frontal attack and cannot be interrupted. However, if it is executed while you are Hidden, this attack will do tremendous damage, as you waylay your unsuspecting foe. This attack may be interrupted if you move or are attacked while executing this power and are hidden. Using this power while not hidden has a chance to critically hit equal to 33.3% times the number of stacks of Assassin's Focus. Using Assassin's Strike when not hidden will remove all stacks of Assassin's Focus regardless if you critically hit or not. Damage: Special, Recharge: Slow",
+    "display_short_help": "Melee, Special DMG(Smashing)",
+    "icon_name": "MartialArts_AssassinStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.2,
+    "interrupt_like_sleep": true,
+    "ai_report": 2,
+    "range": 7,
+    "time_to_activate": 3,
+    "recharge_time": 15,
+    "endurance_cost": 14.352,
+    "interrupt_time": 2,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "redirect": [
+      {
+        "power": "Villain_Pets.Martial_Arts_Assassins_Strike.Assassins_Blow_Quick",
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<"
+        ]
+      },
+      {
+        "power": "Villain_Pets.Martial_Arts_Assassins_Strike.Assassins_Blow_Stealth"
+      }
+    ],
+    "effects": [],
+    "strengths_disallowed": [
+      348
+    ],
+    "highlight_eval": [
+      "Temporary_Powers.Temporary_Powers.Assassins_Focus",
+      "ownPowerNum?",
+      "3",
+      "=="
+    ],
+    "highlight_ring": [
+      255,
+      127,
+      0,
+      255
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_ASSASSINSBLOW.PFX",
+    "attack_bits": [
+      20,
+      438
+    ],
+    "wind_up_bits": [
+      437
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      438
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/BACKSTABHANDS.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MARTIALARTSHITSBIG2.FX",
+    "wind_up_fx": "POWERS/MARTIALARTS/BACKSTABHANDSINITIAL.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/BACKSTABHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 13,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 13,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_ASSASSINSBLOW.PFX",
+        "attack_bits": [
+          20,
+          438
+        ],
+        "wind_up_bits": [
+          437
+        ],
+        "initial_attack_bits": [
+          20,
+          438
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/BACKSTABHANDS.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MARTIALARTSHITSBIG2.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/BACKSTABHANDSINITIAL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/BACKSTABHANDS.FX",
+        "frames_before_hit": 13,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 13,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_ASSASSINSBLOW.PFX",
+        "attack_bits": [
+          20,
+          438
+        ],
+        "wind_up_bits": [
+          437
+        ],
+        "initial_attack_bits": [
+          20,
+          438
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/BACKSTABHANDS.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MARTIALARTSHITSBIG2.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/BACKSTABHANDSINITIAL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/BACKSTABHANDS.FX",
+        "frames_before_hit": 13,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 13,
+        "palette": "Additive"
+      },
+      {
+        "token": "Bright Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_ASSASSINSBLOW.PFX",
+        "display_name": "Bright Fist of Annihilation",
+        "attack_bits": [
+          20,
+          438,
+          685,
+          691
+        ],
+        "wind_up_bits": [
+          437,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          438,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/BACKSTABHANDS.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/MARTIALARTSHITSBIG2.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/BACKSTABHANDSINITIAL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/BACKSTABHANDS.FX",
+        "frames_before_hit": 7,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 7,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_ASSASSINSBLOW.PFX",
+        "display_name": "Dark Fist of Annihilation",
+        "attack_bits": [
+          20,
+          438,
+          685,
+          691
+        ],
+        "wind_up_bits": [
+          437,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          438,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/BACKSTABHANDS.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/MARTIALARTSHITSBIG2.FX",
+        "wind_up_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/BACKSTABHANDSINITIAL.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/BACKSTABHANDS.FX",
+        "frames_before_hit": 7,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 7
+      }
+    ]
+  },
+  "Focus_Chi": {
+    "crcfull_name": 248630501,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Focus_Chi",
+    "display_name": "Focus Chi",
+    "display_help": "Tapping into your inner Chi greatly increases the amount of damage you deal for a few seconds, as well as slightly increasing your chance to hit. Recharge: Long",
+    "display_short_help": "Self +DMG, +To Hit",
+    "icon_name": "MartialArts_FocusChi.tga",
+    "time_to_activate": 1.17,
+    "recharge_time": 90,
+    "endurance_cost": 5.2,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "target": 0,
+            "table": "Melee_Buff_ToHit",
+            "scale": 2,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You tap into your inner chi with your {PowerName} and are more accurate and more deadly for a short while.",
+              "display_victim_hit": ""
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "target": 0,
+            "table": "Melee_Buff_Dmg",
+            "scale": 8,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "cancelable": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_FOCUSCHI.PFX",
+    "attack_bits": [
+      245
+    ],
+    "initial_attack_bits": [
+      245
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/FOCUSCHI.FX",
+    "hit_fx": "POWERS/FOLLOWUPHIT.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/FOCUSCHI.FX",
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "alt_theme": [
+          "Bright Punches"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_FOCUSCHI.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/FOCUSCHI.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/FOCUSCHI.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "alt_theme": [
+          "Dark Punches"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_FOCUSCHI.PFX",
+        "attack_bits": [
+          245
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          245
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/FOCUSCHI.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/FOLLOWUPHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/FOCUSCHI.FX",
+        "mode_bits": [],
+        "attack_frames": 35
+      }
+    ]
+  },
+  "Placate": {
+    "crcfull_name": 3157670431,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Placate",
+    "display_name": "Placate",
+    "display_help": "Allows you to trick a foe to no longer attack you. A Successful Placate will also Hide you. This Hide is very brief, and offers no Defense bonus, but it will allow you to deliver a Critical Hit or an Assassins Blow. However, if you attack a Placated Foe, he will be able to attack you back. Recharge: Long",
+    "display_short_help": "Ranged, Foe Placate, Self Stealth/Hide",
+    "display_target_help": "You have been Placated.",
+    "display_target_short_help": "Placate",
+    "icon_name": "MartialArts_Placate.tga",
+    "ai_report": 1,
+    "range": 50,
+    "time_to_activate": 1.5,
+    "recharge_time": 60,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 10,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Placate {PlayerDest}.",
+              "display_victim_hit": ""
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              252
+            ],
+            "aspect": 32,
+            "type": 0,
+            "table": "Melee_Taunt",
+            "scale": 6,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Placate {PlayerDest}.",
+              "display_victim_hit": "You have been Placated and cannot target {PlayerSource}."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              220
+            ],
+            "target": 0,
+            "scale": 150,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              224
+            ],
+            "target": 0,
+            "scale": 380,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              372
+            ],
+            "target": 0,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              460
+            ],
+            "target": 0,
+            "scale": 0.2,
+            "duration": 10,
+            "delay": 0.25,
+            "stack_type": 3,
+            "cancel_events": [
+              2,
+              17,
+              31
+            ],
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4.5,
+    "attrib_cache": [
+      220,
+      224,
+      252,
+      372,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_PLACATE.PFX",
+    "attack_bits": [
+      20,
+      441
+    ],
+    "hit_bits": [
+      49,
+      442
+    ],
+    "initial_attack_bits": [
+      20,
+      441
+    ],
+    "hit_fx": "GENERICCONTINUING/PLACATEHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 45
+  },
+  "Cobra_Strike": {
+    "crcfull_name": 1602397537,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Cobra_Strike",
+    "display_name": "Cobra Strike",
+    "display_help": "Using intense martial arts focus, you can perform a Cobra Strike that deals minor damage, but has a great chance of Disorienting your target. Damage: Medium, Recharge: Medium",
+    "display_short_help": "Melee, Medium DMG(Smashing), Foe Disorient",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "MartialArts_CobraStrike.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.67,
+    "recharge_time": 10,
+    "endurance_cost": 10.192,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.75,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9321,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.96,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      276,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_COBRASTRIKE.PFX",
+    "attack_bits": [
+      20,
+      111,
+      319,
+      256
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      319,
+      256
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/COBRASTRIKE.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MAHITSLRG.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/COBRASTRIKE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 18,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 18,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_COBRASTRIKE.PFX",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          256
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          256
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/COBRASTRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/COBRASTRIKE.FX",
+        "frames_before_hit": 18,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 18,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_COBRASTRIKE.PFX",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          256
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          256
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/COBRASTRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/COBRASTRIKE.FX",
+        "frames_before_hit": 18,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 18
+      },
+      {
+        "token": "Bright Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_COBRASTRIKE.PFX",
+        "display_name": "Bright Uppercut Blow",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          256,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          256,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/COBRASTRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/COBRASTRIKE.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_COBRASTRIKE.PFX",
+        "display_name": "Dark Uppercut Blow",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          256,
+          685,
+          691
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          256,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/COBRASTRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/MAHITSLRG.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/COBRASTRIKE.FX",
+        "frames_before_hit": 20,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 20
+      }
+    ]
+  },
+  "Crane_Kick": {
+    "crcfull_name": 2568487717,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Crane_Kick",
+    "display_name": "Crane Kick",
+    "display_help": "You can perform a slow, high smashing damage kick that will likely knock your target back. Damage: High, Recharge: Moderate",
+    "display_short_help": "Melee, High DMG(Smashing), Knockback",
+    "icon_name": "MartialArts_CraneKick.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 1.67,
+    "recharge_time": 10,
+    "endurance_cost": 11.856,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9689,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9689,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.6,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 3,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.9689,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.96,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      328,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRANEKICK.PFX",
+    "attack_bits": [
+      20,
+      111,
+      257,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      257,
+      47
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/CRANEKICK.FX",
+    "hit_fx": "POWERS/MARTIALARTS/MACRANEKICKHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/CRANEKICK.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 50,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "alt_theme": [
+          "Bright Punches"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRANEKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          47
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/CRANEKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/MACRANEKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/CRANEKICK.FX",
+        "attack_frames": 50,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "alt_theme": [
+          "Dark Punches"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_CRANEKICK.PFX",
+        "attack_bits": [
+          20,
+          111,
+          257,
+          47
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          111,
+          257,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/CRANEKICK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/MACRANEKICKHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/CRANEKICK.FX",
+        "attack_frames": 50
+      }
+    ]
+  },
+  "Eagles_Claw": {
+    "crcfull_name": 621374944,
+    "source_file": "DEFS/POWERS/STALKER_MELEE_MARTIAL_ARTS.POWERS",
+    "source_name": "Stalker_Melee.Martial_Arts.Eagles_Claw",
+    "display_name": "Eagles Claw",
+    "display_help": "You can perform a devastating smashing damage kick that can severely Disorient most opponents. Eagle's Claw has an exceptionally good critical hit capability. In addition to the normal Critical from attacking while Hidden, there is also a small chance you may land a Critical hit even if you are not Hidden. Damage: Superior, Recharge: Slow",
+    "display_short_help": "Melee, Superior DMG(Smashing), Foe Minor Disorient, +Special",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "icon_name": "MartialArts_EaglesClaw.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 2.53,
+    "recharge_time": 16,
+    "endurance_cost": 15.184,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.92,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.8109,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 2.8109,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0,
+        "requires": [
+          "kMeter",
+          "source>",
+          ".9",
+          "<"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.92,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "ASTeamCrit"
+        ],
+        "chance": 0.07,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kMeter",
+          "source>",
+          ".9",
+          "<",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.92,
+            "flags": [
+              4736,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0",
+          ">",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.92,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+              "display_float": "CRITICAL"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You gain 1 stack of Assassin's Focus!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.Assassins_Focus"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      276,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_EAGLESCLAW.PFX",
+    "attack_bits": [
+      20,
+      111,
+      319,
+      257
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      111,
+      319,
+      257
+    ],
+    "attack_fx": "POWERS/MARTIALARTS/EAGLESCLAW.FX",
+    "hit_fx": "POWERS/MARTIALARTS/EAGLESCLAWHITS.FX",
+    "initial_attack_fx": "POWERS/MARTIALARTS/EAGLESCLAW.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 39,
+    "attack_frames": 76,
+    "initial_frames_before_hit": 39,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_EAGLESCLAW.PFX",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/EAGLESCLAW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/EAGLESCLAWHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/EAGLESCLAW.FX",
+        "frames_before_hit": 39,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 39,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_EAGLESCLAW.PFX",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          257
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/EAGLESCLAW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/EAGLESCLAWHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/SUBTRACTIVE/EAGLESCLAW.FX",
+        "frames_before_hit": 39,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 39
+      },
+      {
+        "token": "Bright Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_EAGLESCLAW.PFX",
+        "display_name": "Bright Face Smasher",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          257,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          257,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/EAGLESCLAW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/EAGLESCLAWHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/EAGLESCLAW.FX",
+        "frames_before_hit": 45,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 45,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Punches",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/STALKERMELEE_MARTIALARTS_EAGLESCLAW.PFX",
+        "display_name": "Dark Face Smasher",
+        "attack_bits": [
+          20,
+          111,
+          319,
+          257,
+          685,
+          691
+        ],
+        "initial_attack_bits": [
+          20,
+          111,
+          319,
+          257,
+          685,
+          691
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/EAGLESCLAW.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/EAGLESCLAWHITS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/MARTIALARTS/ALTERNATE1/SUBTRACTIVE/EAGLESCLAW.FX",
+        "frames_before_hit": 45,
+        "attack_frames": 76,
+        "initial_frames_before_hit": 45
+      }
+    ]
+  }
+}

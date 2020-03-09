@@ -1,0 +1,295 @@
+{
+  "crcfull_name": 3820202318,
+  "source_file": "DEFS/POWERS/PEACEBRINGER_OFFENSIVE_LUMINOUS_BLAST.POWERS",
+  "source_name": "Peacebringer_Offensive.Luminous_Blast.Incandescent_Strike",
+  "display_name": "Incandescent Strike",
+  "display_help": "Incandescent Strike is an absolutely devastating melee attack that focuses all of the Kheldian's energy and strength into a single massive blow. This slow but incredibly devastating attack can knock out most opponents, leaving them Held. Incandescent Strike can also bring down fliers, Knock Down foes, and reduce their Defense. Damage: Extreme, Recharge: Long",
+  "display_short_help": "Melee, Extreme DMG(Energy/Smash), Foe -DEF, -Fly, Hold",
+  "display_target_help": "The Incandescent Strike has locked you in position. You cannot move and your Defense is reduced.",
+  "display_target_short_help": "Hold, -DEF, -Fly",
+  "icon_name": "LuminousBlast_IncandescentStrike.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 7,
+  "time_to_activate": 3.3,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "target": 19,
+  "boosts_allowed": [
+    30,
+    23,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    1,
+    2,
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.56,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Melee_Immobilize",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.5445,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.9657,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              21
+            ],
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.8,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            284
+          ],
+          "scale": -1,
+          "duration": 30,
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "duration": 10,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    16,
+    184,
+    268,
+    284,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_HEAVYPUNCH.PFX",
+  "attack_bits": [
+    20,
+    354
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    354
+  ],
+  "attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PUNCH/HEAVYPEACEPUNCH.FX",
+  "hit_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PUNCH/HEAVYPEACEPUNCHHIT.FX",
+  "initial_attack_fx": "POWERS/COSMICPOWERS/PEACEBRINGER/PUNCH/HEAVYPEACEPUNCH.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 69,
+  "attack_frames": 99,
+  "initial_frames_before_hit": 69,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "TintableTail"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PEACEBRINGER_HEAVYPUNCH.PFX",
+      "attack_bits": [
+        20,
+        354
+      ],
+      "initial_attack_bits": [
+        20,
+        354
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PUNCH/HEAVYPEACEPUNCH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PUNCH/HEAVYPEACEPUNCHHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/KHELDIAN_PEACEBRINGER/PUNCH/HEAVYPEACEPUNCH.FX",
+      "frames_before_hit": 69,
+      "attack_frames": 99,
+      "initial_frames_before_hit": 69,
+      "palette": "Additive"
+    }
+  ]
+}

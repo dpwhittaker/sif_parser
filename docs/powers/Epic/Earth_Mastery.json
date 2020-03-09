@@ -1,0 +1,1328 @@
+{
+  "Stone_Prison": {
+    "crcfull_name": 1985951380,
+    "source_file": "DEFS/POWERS/EPIC_EARTH_MASTERY.POWERS",
+    "source_name": "Epic.Earth_Mastery.Stone_Prison",
+    "display_name": "Stone Prison",
+    "display_help": "Immobilizes a single target within an earthy formation and deals some Smashing damage over time. Some more resilient foes may require multiple attacks to Immobilize. Stone Prison can also reduce a target's Defense. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Smash), Foe Immobilize, -DEF, -Fly",
+    "display_target_help": "The Stone Prison is crushing you. You are immobilized and your Defense is reduced.",
+    "display_target_short_help": "Dot(Smash), Immobilize, -Fly, -DEF",
+    "icon_name": "EarthGrasp_StonePrison.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Brute",
+      "==",
+      "$archetype",
+      "@Class_Tanker",
+      "==",
+      "||"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.93,
+    "recharge_time": 10,
+    "endurance_cost": 9.75,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 9.2,
+            "period": 2,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 4,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.3585,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 15,
+            "flags": [
+              568,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 15,
+            "flags": [
+              552,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 15,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.09,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      8,
+      184,
+      272,
+      284,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STONEPRISON.PFX",
+    "attack_bits": [
+      20,
+      305
+    ],
+    "initial_attack_bits": [
+      20,
+      305
+    ],
+    "attack_fx": "POWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+    "continuing_fx": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+    "conditional_fx": "POWERS/EARTHCONTROL/GRASPINGEARTHHITLARGE.FX",
+    "conditional_fx1": "POWERS/EARTHCONTROL/GRASPINGEARTHHITLARGE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STONEPRISON.PFX",
+        "attack_bits": [
+          20,
+          305
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          305
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHITLARGE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHITLARGE.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 58,
+        "initial_frames_before_hit": 25,
+        "palette": "Earth"
+      },
+      {
+        "token": "Lava",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STONEPRISON.PFX",
+        "display_name": "Lava",
+        "attack_bits": [
+          20,
+          305
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          305
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/GRASPINGEARTHHITLARGE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/GRASPINGEARTHHITLARGE.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 58,
+        "initial_frames_before_hit": 25,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "Crystal",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STONEPRISON.PFX",
+        "attack_bits": [
+          20,
+          305
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          305
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/GRASPINGEARTHHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/GRASPINGEARTHHITLARGE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/GRASPINGEARTHHITLARGE.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 58,
+        "initial_frames_before_hit": 25,
+        "palette": "ExtendedEarth"
+      }
+    ]
+  },
+  "Salt_Crystals": {
+    "crcfull_name": 2006062219,
+    "source_file": "DEFS/POWERS/EPIC_EARTH_MASTERY.POWERS",
+    "source_name": "Epic.Earth_Mastery.Salt_Crystals",
+    "display_name": "Salt Crystals",
+    "display_help": "Attempts to encrust all nearby foes in a Pillar of Salt. The victims will remain encased within the salt for quite a while, but will automatically break free if attacked. Affected targets have reduced defense for a while, even if they break free. Recharge: Slow",
+    "display_short_help": "PBAoE, Foe Sleep, -DEF",
+    "display_target_help": "The Salt Crystals have rendered you Unconscious and reduced your Defense.",
+    "display_target_short_help": "Sleep, -DEF",
+    "icon_name": "EarthGrasp_SaltPillars.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Brute",
+      "==",
+      "$archetype",
+      "@Class_Tanker",
+      "==",
+      "||"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 30,
+    "time_to_activate": 1.07,
+    "recharge_time": 90,
+    "endurance_cost": 19.5,
+    "boosts_allowed": [
+      23,
+      20,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Ranged_Sleep",
+            "scale": 20,
+            "magnitude": 3,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Ranged_Sleep",
+            "scale": 15,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              280
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Sleep {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Sleeps you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 15,
+            "stack_type": 3
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      184,
+      280
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_SALTCRYSTALS.PFX",
+    "attack_bits": [
+      20,
+      254
+    ],
+    "initial_attack_bits": [
+      20,
+      254
+    ],
+    "attack_fx": "POWERS/EARTHCONTROL/SALTHANDS.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/SALTHANDS.FX",
+    "continuing_fx": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+    "conditional_fx": "POWERS/EARTHCONTROL/SALTPILEHIT.FX",
+    "conditional_fx1": "POWERS/EARTHCONTROL/SALTPILEHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Lava",
+          "Crystal"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_SALTCRYSTALS.PFX",
+        "attack_bits": [
+          20,
+          254
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          254
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/SALTHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/SALTHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/SALTPILEHIT.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/SALTPILEHIT.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 32,
+        "initial_frames_before_hit": 23,
+        "palette": "ExtendedEarth"
+      }
+    ]
+  },
+  "Fossilize": {
+    "crcfull_name": 2700688437,
+    "source_file": "DEFS/POWERS/EPIC_EARTH_MASTERY.POWERS",
+    "source_name": "Epic.Earth_Mastery.Fossilize",
+    "display_name": "Fossilize",
+    "display_help": "Encases a single target within solid stone. The stone slowly crushes the victim, dealing Smashing damage. The Fossilized victim is held helpless and unable to defend himself. You must be level 41 and have one other Earth Mastery power to select this power. Damage, Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Smash), Foe Hold, -DEF",
+    "display_target_help": "You have been Fossilized. You cannot move and your Defense is reduced.",
+    "display_target_short_help": "Hold, -DEF",
+    "icon_name": "EarthGrasp_Fossilize.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "buy_requires": [
+      "Epic.Earth_Mastery.Stone_Prison",
+      "Epic.Earth_Mastery.Salt_Crystals",
+      "||"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 2.07,
+    "recharge_time": 32,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "PFX",
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 3.129,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 12,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.45,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      8,
+      184,
+      268
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+    "continuing_fx": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+    "continuing_fx1": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+    "conditional_fx": "POWERS/EARTHCONTROL/FOSSILHIT.FX",
+    "conditional_fx1": "POWERS/EARTHCONTROL/FOSSILHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILHIT.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILHIT.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16,
+        "palette": "Earth"
+      },
+      {
+        "token": "Lava",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+        "display_name": "Lava",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/FOSSILHIT.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/FOSSILHIT.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "Crystal",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_FOSSILIZE.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/FOSSILHIT.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/FOSSILHIT.FX",
+        "frames_before_hit": 16,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 16,
+        "palette": "ExtendedEarth"
+      }
+    ]
+  },
+  "Quick_Sand": {
+    "crcfull_name": 301699634,
+    "source_file": "DEFS/POWERS/EPIC_EARTH_MASTERY.POWERS",
+    "source_name": "Epic.Earth_Mastery.Quick_Sand",
+    "display_name": "Quick Sand",
+    "display_help": "You can cause the ground to liquefy like Quicksand at a targeted location. Any foes that pass through the Quicksand will become snared, their movement will be dramatically Slowed, and their Defense reduced. Foes trapped in the Quicksand cannot jump or Fly. You must be level 41 and have one other Earth Mastery power to select this power. Recharge: Slow",
+    "display_short_help": "Ranged (Location AoE), Foe -Speed, -Jump, -Fly, -DEF",
+    "display_target_help": "Your Running speed, Jump height and Defense are reduced by the Quicksand.",
+    "display_target_short_help": "-Speed, -Jump, -Fly, -DEF",
+    "icon_name": "EarthGrasp_Quicksand.tga",
+    "buy_requires": [
+      "Epic.Earth_Mastery.Stone_Prison",
+      "Epic.Earth_Mastery.Salt_Crystals",
+      "||"
+    ],
+    "target_near_ground": true,
+    "effect_area": 3,
+    "range": 90,
+    "time_to_activate": 3.1,
+    "recharge_time": 30,
+    "endurance_cost": 7.8,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 45,
+            "flags": [
+              560,
+              4
+            ],
+            "messages": {
+              "display_attacker_hit": "You turn the ground into {PowerName}!",
+              "display_victim_hit": ""
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Epic_Quicksand"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Level",
+            "duration": 15,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Embraced_Quicksand"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 3.5,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_QUICKSAND.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "POWERS/EARTHCONTROL/QUICKSANDHANDS.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/QUICKSANDHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 93,
+    "initial_frames_before_hit": 32,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "alt_theme": [
+          "Lava",
+          "Crystal"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_QUICKSAND.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/QUICKSANDHANDS.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/QUICKSANDHANDS.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 93,
+        "initial_frames_before_hit": 32,
+        "palette": "ExtendedEarth"
+      }
+    ]
+  },
+  "Stalagmites": {
+    "crcfull_name": 3502509988,
+    "source_file": "DEFS/POWERS/EPIC_EARTH_MASTERY.POWERS",
+    "source_name": "Epic.Earth_Mastery.Stalagmites",
+    "display_name": "Stalagmites",
+    "display_help": "You can cause Stalagmites to erupt all around an enemy, slicing all nearby foes. The Stalagmites deal Lethal damage, and reduce the affected targets Defense. Some affected foes may be Disorient for a short while. You must be on the ground to activate this power. You must be level 44 and have two other Earth Mastery Powers before selecting this power. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal), Foe -DEF, Minor Disorient",
+    "display_target_help": "You have been Disoriented and your Defenses have been reduced.",
+    "display_target_short_help": "Disorient, -DEF",
+    "icon_name": "EarthGrasp_Stalagmites.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "Epic.Earth_Mastery.Stone_Prison",
+      "Epic.Earth_Mastery.Salt_Crystals",
+      "&&",
+      "Epic.Earth_Mastery.Stone_Prison",
+      "Epic.Earth_Mastery.Fossilize",
+      "&&",
+      "||",
+      "Epic.Earth_Mastery.Salt_Crystals",
+      "Epic.Earth_Mastery.Fossilize",
+      "&&",
+      "||",
+      "Epic.Earth_Mastery.Stone_Prison",
+      "Epic.Earth_Mastery.Quick_Sand",
+      "&&",
+      "||",
+      "Epic.Earth_Mastery.Salt_Crystals",
+      "Epic.Earth_Mastery.Quick_Sand",
+      "&&",
+      "||"
+    ],
+    "accuracy": 0.8,
+    "near_ground": true,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 70,
+    "time_to_activate": 2.1,
+    "recharge_time": 64,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.3631,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.9,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 12,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "tag": [
+          "FieryEmbrace"
+        ],
+        "chance": 0,
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.405,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      8,
+      184,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STALAGMITES.PFX",
+    "attack_bits": [
+      20,
+      322
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      322
+    ],
+    "attack_fx": "POWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+    "hit_fx": "POWERS/EARTHCONTROL/STALAGMITEATTACKHIT.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 63,
+    "initial_frames_before_hit": 22,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STALAGMITES.PFX",
+        "attack_bits": [
+          20,
+          322
+        ],
+        "initial_attack_bits": [
+          20,
+          322
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITEATTACKHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 63,
+        "initial_frames_before_hit": 22,
+        "palette": "Earth"
+      },
+      {
+        "token": "Lava",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STALAGMITES.PFX",
+        "display_name": "Lava",
+        "attack_bits": [
+          20,
+          322
+        ],
+        "initial_attack_bits": [
+          20,
+          322
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/LAVA/STALAGMITEATTACKHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 63,
+        "initial_frames_before_hit": 22,
+        "palette": "ExtendedEarth"
+      },
+      {
+        "token": "Crystal",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_EARTHCONTROL_STALAGMITES.PFX",
+        "attack_bits": [
+          20,
+          322
+        ],
+        "initial_attack_bits": [
+          20,
+          322
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/CRYSTAL/STALAGMITEATTACKHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/EARTHCONTROL/STALAGMITESTOMP.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 63,
+        "initial_frames_before_hit": 22,
+        "palette": "ExtendedEarth"
+      }
+    ]
+  }
+}

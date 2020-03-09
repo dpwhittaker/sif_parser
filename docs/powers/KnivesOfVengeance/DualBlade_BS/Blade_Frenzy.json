@@ -1,0 +1,275 @@
+{
+  "crcfull_name": 1302385849,
+  "source_file": "DEFS/POWERS/KNIVESOFVENGEANCE_DUALBLADE_BS.POWERS",
+  "source_name": "KnivesOfVengeance.DualBlade_BS.Blade_Frenzy",
+  "display_name": "Blade Frenzy",
+  "display_help": "You unleash a frenzied attack, swinging your blades in a deadly dance of steel. This attack slashes all of those in a cone in front of you, dealing continuous lethal damage before delivering a final blow which can knock targets off their feet and reduce their resistances. There is a chance that a target will be stunned after this attack.",
+  "display_short_help": "Melee (Cone), Superior DMG(Lethal), Moderate DoT (Lethal), Knockup(Foe), Chance to Stun(Foe), -RES(Foe,All), +DMG(Self), +ToHit(Self)",
+  "display_target_help": "You are bleeding and your resistances have been reduced.",
+  "display_target_short_help": "DoT(Lethal), -RES(All)",
+  "icon_name": "KnivesOfVengeance_BladeFrenzy.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 16,
+  "radius": 10,
+  "arc": 1.5707964,
+  "range": 10,
+  "time_to_activate": 3.3,
+  "recharge_time": 15,
+  "endurance_cost": 19,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.05,
+          "duration": 2.05,
+          "delay": 0.1,
+          "period": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.4,
+          "delay": 2.1,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            324
+          ],
+          "scale": 1.4,
+          "delay": 2.2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Melee_Res_DMG",
+          "scale": -1,
+          "duration": 8,
+          "delay": 2,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 1.5,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "scale": 0.5,
+          "duration": 8,
+          "delay": 2,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.35",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 4,
+          "magnitude": 4,
+          "delay": 3,
+          "flags": [
+            1296,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "preference_multiplier": 16,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    276,
+    324
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DUALBLADES_HIGHLOW_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    684
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    199
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    684,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+  "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_HIGHLOW_ATTACK.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_HIGHLOW_HIT.FX",
+  "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_HIGHLOW_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    87
+  ],
+  "frames_before_hit": 14,
+  "attack_frames": 99,
+  "initial_frames_before_hit": 34,
+  "initial_attack_fxframe_delay": 20,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/DUALBLADES_HIGHLOW_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        766,
+        684
+      ],
+      "block_bits": 53,
+      "hit_bits": [
+        49,
+        199
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        766,
+        684
+      ],
+      "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+      "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_HIGHLOW_ATTACK.FX",
+      "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_HIGHLOW_HIT.FX",
+      "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_HIGHLOW_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        87
+      ],
+      "frames_before_hit": 14,
+      "attack_frames": 99,
+      "initial_frames_before_hit": 14,
+      "palette": ""
+    }
+  ]
+}

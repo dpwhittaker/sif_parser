@@ -1,0 +1,158 @@
+{
+  "crcfull_name": 3421604001,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_SECONDARY_POISON.POWERS",
+  "source_name": "Mission_Maker_Secondary.Poison.Envenom",
+  "display_name": "Envenom",
+  "display_help": "You Envenom your foe with a nasty poison. The toxin directly attacks the immune system, reducing the affected targets Defense, Damage Resistance and Hit Point Regeneration Rate. The poison is so potent, that the target actually responds less to Healing while affected by the poison. Recharge: Slow",
+  "display_short_help": "Ranged Foe -RES, -DEF, -Regen, -Heal",
+  "display_target_help": "Your Defense, Damage Resistances and Regeneration have been reduced. You also Heal less from Heal powers.",
+  "display_target_short_help": "-RES, -DEF, -Regen, -Heal",
+  "display_attacker_hit": "You Envenom {PlayerDest} and reduced their Defense and Damage Resistance and Regeneration.",
+  "display_victim_hit": "{PlayerSource} reduces your Defense, Damage Resistance and Regeneration with their {PowerName}!",
+  "icon_name": "Poison_Envenom.tga",
+  "attack_types": [
+    "Ranged"
+  ],
+  "range": 70,
+  "time_to_activate": 1.33,
+  "recharge_time": 12,
+  "target": 19,
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 3,
+          "duration": 30,
+          "stack_type": 3,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -4,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": 2,
+          "duration": 30,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.5,
+          "duration": 30
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -11.5,
+          "duration": 30,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "point_value": 3,
+  "point_multiplier": 0.083,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    36,
+    184,
+    232
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_ENVENOM.PFX",
+  "attack_bits": [
+    20,
+    327,
+    258,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    327,
+    258,
+    681
+  ],
+  "attack_fx": "V_COV/POWERS/POISON/POISONLIQUIDPROJECTILE.FX",
+  "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+  "initial_attack_fx": "V_COV/POWERS/POISON/POISONLIQUIDPROJECTILE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 24,
+  "delayed_hit": true,
+  "attack_frames": 40,
+  "initial_frames_before_hit": 24,
+  "projectile_speed": 66
+}

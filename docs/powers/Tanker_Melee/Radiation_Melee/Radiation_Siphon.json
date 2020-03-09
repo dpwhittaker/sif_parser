@@ -1,0 +1,388 @@
+{
+  "crcfull_name": 3561513317,
+  "source_file": "DEFS/POWERS/TANKER_MELEE_RADIATION_MELEE.POWERS",
+  "source_name": "Tanker_Melee.Radiation_Melee.Radiation_Siphon",
+  "display_name": "Radiation Siphon",
+  "display_help": "You pummel your foe with a deadly smashing attack dealing High Energy and Smashing damage and reducing their defense. Hitting Contaminated targets will also heal you for a large amount of health over 3 seconds and remove the Contaminated effect from the target. However, uncontaminated targets have a moderate chance to be affected by the Contaminated effect. Hitting Contaminated foes with single target Radiation Melee powers cause a small burst of damage to foes near the target. Damage: High Moderate, Recharge: Moderate",
+  "display_short_help": "Melee, High DMG(Energy/Smash), Foe, -Def, -Contaminated, Special",
+  "display_target_help": "Your defense has been reduced by Radiation Siphon!",
+  "display_target_short_help": "-Def",
+  "icon_name": "RadiationMelee_RadiationSiphon.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing",
+    "Energy"
+  ],
+  "arc": 0.08726647,
+  "range": 7,
+  "time_to_activate": 2.23,
+  "recharge_time": 10,
+  "endurance_cost": 10.192,
+  "target": 19,
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    14,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.49,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.47,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.5902,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.7707,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 1.5,
+          "duration": 10,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Contaminated"
+      ],
+      "chance": 0.32,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated_Imunity",
+        "target.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "delay": 0.3,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You contaminate {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} has contaminated you.",
+            "display_float": "Contaminated!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated",
+        "target.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "delay": 0.1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your absorb the radioactive contamination from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} draws the radioactive contamination from you to heal themselves."
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Radiation_Melee_Contaminated"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 0.6667,
+          "duration": 2.1,
+          "period": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} points of health.",
+            "display_victim_hit": ""
+          },
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            504
+          ],
+          "aspect": 16,
+          "scale": 0,
+          "magnitude": 0,
+          "flags": [
+            640,
+            4
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Redirects.Rad_Melee.Radiation_Siphon_AoE"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.882,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "anim_main_target_only": true,
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    8,
+    16,
+    28,
+    184,
+    473,
+    474,
+    504
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_RADIATIONSIPHON.PFX",
+  "attack_bits": [
+    20,
+    357,
+    685,
+    691
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    357,
+    685,
+    691
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE.FX",
+  "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE_HITHEAL.FX",
+  "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE_HITHEAL.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 39,
+  "attack_frames": 67,
+  "initial_frames_before_hit": 39,
+  "primary_tint": [
+    77,
+    153,
+    0,
+    255
+  ],
+  "secondary_tint": [
+    255,
+    255,
+    97,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_RADIATIONSIPHON.PFX",
+      "attack_bits": [
+        20,
+        357,
+        685,
+        691
+      ],
+      "initial_attack_bits": [
+        20,
+        357,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE_HITHEAL.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/MELEESIPHONLIFE_HITHEAL.FX",
+      "frames_before_hit": 39,
+      "attack_frames": 67,
+      "initial_frames_before_hit": 39,
+      "primary_tint": [
+        255,
+        178,
+        48,
+        255
+      ],
+      "secondary_tint": [
+        255,
+        255,
+        194,
+        255
+      ]
+    },
+    {
+      "token": "Dark Radiation",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/RADIATIONMELEE_RADIATIONSIPHON.PFX",
+      "attack_bits": [
+        20,
+        357,
+        685,
+        691
+      ],
+      "initial_attack_bits": [
+        20,
+        357,
+        685,
+        691
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEESIPHONLIFE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEESIPHONLIFE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEESIPHONLIFE.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEESIPHONLIFE_HITHEAL.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/RADIATIONBLAST/SUBTRACTIVE/MELEESIPHONLIFE_HITHEAL.FX",
+      "frames_before_hit": 39,
+      "attack_frames": 67,
+      "initial_frames_before_hit": 39,
+      "primary_tint": [
+        0,
+        179,
+        0,
+        255
+      ],
+      "secondary_tint": [
+        255,
+        255,
+        128,
+        255
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "crcfull_name": 3437262754,
+  "source_file": "DEFS/POWERS/AWAKENED_PSIONICFLOW.POWERS",
+  "source_name": "Awakened.PsionicFlow.Initial",
+  "display_name": "Flow Lightning",
+  "display_help": "You call forth a powerful stream of lightning from the highest reaches of the atmosphere. This Flow Lightning causes significant energy damage to all enemies caught in its field, as well as drains endurance and lowers recovery.",
+  "display_short_help": "Targeted AoE, Extreme DMG (Energy), -End (Foe), -Rec (Foe), +DMG(Self, Energy), +DEF(Self, Energy)",
+  "display_target_help": "Your Recovery has been reduced and your Endurance is being drained.",
+  "display_target_short_help": "-End, -Rec",
+  "icon_name": "Awakened_PsionicFlow.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Psionic"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "activate_period": 9999,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage."
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.03,
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PowerName} drains some of your Endurance!"
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.2,
+          "duration": 10
+        },
+        {
+          "attrib": [
+            461
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 3.1,
+          "delay": 0.9,
+          "flags": [
+            560,
+            4
+          ],
+          "param": {
+            "EntCreate": {
+              "entity_def": "Awakened_PsionicFlow_Ongoing"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    24,
+    88,
+    236,
+    461
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_TALONSOFVENGEANCE_SIBYL_FLOWLIGHTNING_PET.PFX",
+  "hit_fx": "ENEMYFX/PRAETORIAN/TALONS/LIGHTNINGSIBYL_FLOWLIGHTNING.FX"
+}

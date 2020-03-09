@@ -1,0 +1,279 @@
+{
+  "crcfull_name": 5921073,
+  "source_file": "DEFS/POWERS/CONTROLLER_CONTROL_ELECTRIC_CONTROL.POWERS",
+  "source_name": "Controller_Control.Electric_Control.Paralyzing_Blast",
+  "display_name": "Paralyzing Blast",
+  "display_help": "Summoning a large amount of energy, you can completely paralyze a group of foes in cages of electricity for a short time. These foes may be drained of some endurance as well. Recharge: Very Long",
+  "display_short_help": "Ranged AoE, Foe Hold, -End",
+  "display_target_help": "You have been caged by the Paralyzing Blast.",
+  "display_target_short_help": "Hold, -End",
+  "icon_name": "ElectricControl_ParalyzingBlast.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "accuracy": 0.8,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 30,
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 240,
+  "endurance_cost": 15.6,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    30,
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 8,
+          "magnitude": 3,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.07,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 6,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 4,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              379,
+              683
+            ],
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -1.25,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with their {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 8
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    88,
+    236,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_PARALYZINGBLAST.PFX",
+  "attack_bits": [
+    20,
+    154,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    154,
+    258
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+  "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+  "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 30,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 30,
+  "primary_tint": [
+    188,
+    88,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    20,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_PARALYZINGBLAST.PFX",
+      "attack_bits": [
+        20,
+        154,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        154,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_ACTIVATION.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/PARALYZINGBLAST_CONTINUING.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 30,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Electricity",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_ELECTRICCONTROL_PARALYZINGBLAST.PFX",
+      "attack_bits": [
+        20,
+        154,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        154,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_ACTIVATION.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_ACTIVATION.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/PARALYZINGBLAST_CONTINUING.FX",
+      "frames_before_hit": 30,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 30
+    }
+  ]
+}

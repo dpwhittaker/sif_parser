@@ -1,0 +1,151 @@
+{
+  "crcfull_name": 1640536139,
+  "source_file": "DEFS/POWERS/PRESTIGE_PRESTIGE_ATTACKS.POWERS",
+  "source_name": "Prestige.Prestige_Attacks.Brawl_Charm",
+  "free": true,
+  "display_name": "Apprentice Charm",
+  "display_help": "You have learned a simple magic spell: the Apprentice Charm. This cantrip has a very short range, and deals minor Energy damage to your target, as well as lowering their resistance to further damage. This power receives a damage bonus that decreases as you level up. At around level 15 you stop benefiting from this power's damage bonus altogether. Damage: Minor, Recharge: Fast",
+  "display_short_help": "Ranged Minor DMG(Energy), Foe -Res",
+  "display_target_help": "Your damage resistance has been reduced by the Magic Charm",
+  "display_target_short_help": "-Res",
+  "icon_name": "Temporary_TargetedDebuffDefense.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "accuracy": 1.2,
+  "range": 45,
+  "time_to_activate": 1,
+  "recharge_time": 4,
+  "endurance_cost": 2.08,
+  "target": 19,
+  "modes_disallowed": [
+    9,
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "level",
+        "source>",
+        "15",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "level",
+        "source>",
+        "16",
+        "<"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "magnitude_expr": [
+            "15",
+            "level",
+            "source>",
+            "-",
+            ".07",
+            "*",
+            ".3",
+            "+",
+            "@StdResult",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -0.5,
+          "duration": 8,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "show_in_manage": false,
+  "max_boosts": 0,
+  "travel_suppression": 3,
+  "force_level_bought": 0,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/BRAWL_MAGIC.PFX",
+  "attack_bits": [
+    20,
+    298
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    298
+  ],
+  "attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/MAGICCHARMTHROW.FX",
+  "hit_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/MAGICCHARMHIT.FX",
+  "initial_attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/MAGICCHARMTHROW.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 16,
+  "projectile_speed": 60
+}

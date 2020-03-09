@@ -1,0 +1,2523 @@
+{
+  "Crush": {
+    "crcfull_name": 3645622000,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Crush",
+    "display_name": "Crush",
+    "display_help": "Creates a localized gravitational field strong enough to Immobilize a single foe. Crush can also bring down flying entities. This power deals Smashing damage over time and can Slow the movement of targets that escape its grasp. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DoT(Smash), Foe Immobilize, -Fly",
+    "display_target_help": "You are being Crushed. You cannot move or fly.",
+    "display_target_short_help": "DoT(Smash), Immobilize, -Fly",
+    "icon_name": "GravityControl_Crush.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.33,
+    "recharge_time": 4,
+    "endurance_cost": 7.8,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.2,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2982,
+            "duration": 9.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 5,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 22.5,
+            "magnitude": 4,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 15,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      188,
+      192,
+      200,
+      204,
+      272,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_CRUSH.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELDCONTINUING.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELDCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 32,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_CRUSH.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCCRUSH_SINGULARITY.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONFIELDCONTINUING.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 32,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_CRUSH.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCCRUSH_SINGULARITY.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCCRUSH_SINGULARITY.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONFIELDCONTINUING.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 32
+      }
+    ]
+  },
+  "Lift": {
+    "crcfull_name": 787309617,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Lift",
+    "display_name": "Lift",
+    "display_help": "Negates the gravity around a single target. Lift violently sends an enemy straight into the air, then slams them to the ground for Smashing damage. This power can bring flying foes to the ground, and can deal bonus damage when used against targets held by Gravity Distortion. Damage: Moderate, Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DMG(Smash), Foe Knock Up",
+    "icon_name": "GravityControl_Lift.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "range": 80,
+    "time_to_activate": 1.03,
+    "recharge_time": 6,
+    "endurance_cost": 6.864,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.32,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              324
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 6,
+            "delay": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.361,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "delay": 2,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "now",
+          "GravityDistortion",
+          "target.TokenTime>",
+          "-",
+          "12",
+          "<"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.33,
+            "delay": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+              "display_float": "Impact!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      284,
+      324
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_LIFT.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCLIFT.FX",
+    "hit_fx": "POWERS/GRAVITYCONTROL/GCLIFTHIT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCLIFT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 31,
+    "initial_frames_before_hit": 22,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_LIFT.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCLIFT.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 31,
+        "initial_frames_before_hit": 22,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_LIFT.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCLIFT.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCLIFTHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCLIFT.FX",
+        "frames_before_hit": 22,
+        "attack_frames": 31,
+        "initial_frames_before_hit": 22
+      }
+    ]
+  },
+  "Gravity_Distortion": {
+    "crcfull_name": 679249214,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Gravity_Distortion",
+    "display_name": "Gravity Distortion",
+    "display_help": "Causes a single foe to be trapped in a misshapen gravity field, rendering him unable to take action. Gravity Distortion deals Smashing damage to the target. Damage: Moderate(DoT), Recharge: Moderate",
+    "display_short_help": "Ranged, Moderate DoT(Smash), Foe Hold, -Fly",
+    "display_target_help": "You have been caught in a Gravity Distortion. You cannot move and cannot fly.",
+    "display_target_short_help": "DoT(Smash), Hold, -Fly",
+    "icon_name": "GravityControl_GravityDistortion.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "accuracy": 1.2,
+    "range": 80,
+    "time_to_activate": 1.83,
+    "recharge_time": 8,
+    "endurance_cost": 8.528,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      29,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.22,
+            "duration": 4.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.4002,
+            "duration": 4.2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 18,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              497
+            ],
+            "aspect": 32,
+            "type": 2,
+            "table": "Ranged_Ones",
+            "flags": [
+              1920,
+              0
+            ],
+            "param": {}
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 10,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      188,
+      192,
+      200,
+      204,
+      268,
+      284,
+      324,
+      328,
+      497
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_GRAVITYDISTORTION.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTION.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTION.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCCRUSHCONTINUING.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCCRUSHCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 55,
+    "initial_frames_before_hit": 37,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_GRAVITYDISTORTION.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDISTORTION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDISTORTION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCCRUSHCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCCRUSHCONTINUING.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 37,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_GRAVITYDISTORTION.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDISTORTION.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDISTORTION.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCCRUSHCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCCRUSHCONTINUING.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 37
+      }
+    ]
+  },
+  "Propel": {
+    "crcfull_name": 2715257055,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Propel",
+    "display_name": "Propel",
+    "display_help": "You can open a gravitational rift and retrieve a heavy object, then Propel it at your foes for Smashing Damage. This power can deal bonus damage when used against targets held by Gravity Distortion. This attack's force is so strong that it can knockback additional nearby enemies. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Smash), Foe Knockback",
+    "icon_name": "GravityControl_Propel.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 4,
+    "radius": 15,
+    "range": 60,
+    "time_to_activate": 2.07,
+    "recharge_time": 8,
+    "endurance_cost": 9.36,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.96,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 15,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "flags": [
+              2704,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.769,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 15,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              2704,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "radius_inner": 0,
+        "radius_outer": 0,
+        "requires": [
+          "now",
+          "GravityDistortion",
+          "target.TokenTime>",
+          "-",
+          "12",
+          "<"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.49,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [IMPACT!].",
+              "display_float": "Impact!"
+            }
+          }
+        ]
+      }
+    ],
+    "proc_main_target_only": true,
+    "anim_main_target_only": true,
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_PROPEL.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+    "hit_fx": "POWERS/GRAVITYCONTROL/GCPROPEL_HIT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 45,
+    "delayed_hit": true,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 45,
+    "projectile_speed": 150,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_PROPEL.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCPROPEL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCPROPEL1.FX",
+        "frames_before_hit": 45,
+        "delayed_hit": true,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 45,
+        "projectile_speed": 150,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_PROPEL.PFX",
+        "attack_bits": [
+          20,
+          362
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          362
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCPROPEL1.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCPROPEL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCPROPEL1.FX",
+        "frames_before_hit": 45,
+        "delayed_hit": true,
+        "attack_frames": 62,
+        "initial_frames_before_hit": 45,
+        "projectile_speed": 150
+      }
+    ]
+  },
+  "Crushing_Field": {
+    "crcfull_name": 1141844996,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Crushing_Field",
+    "display_name": "Crushing Field",
+    "display_help": "Creates a large gravitational field strong enough to Immobilize multiple foes. Crushing Field can also bring down flying entities. Slower and less damaging than Crush, but can capture multiple targets. Crushing Field deals Smashing damage over time and can Slow the movement of targets that escape its grasp. Damage: Minor(DoT), Recharge: Moderate",
+    "display_short_help": "Ranged (Targeted AoE), Minor DoT(Smash), Foe Immobilize, -Fly",
+    "display_target_help": "You are being Crushed. You cannot move or fly.",
+    "display_target_short_help": "DoT(Smash), Immobilize, -Fly",
+    "icon_name": "GravityControl_CrushingField.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing"
+    ],
+    "accuracy": 0.9,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 80,
+    "time_to_activate": 1.33,
+    "recharge_time": 8,
+    "endurance_cost": 15.6,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 5.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.0991,
+            "duration": 5.2,
+            "period": 2,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 5,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 22.5,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 15,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 15
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 10,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      188,
+      192,
+      200,
+      204,
+      272,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_CRUSHINGFIELD.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCCRUSHINGFIELD.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCCRUSHINGFIELD.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELDCONTINUING.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELDCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 32,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_CRUSHINGFIELD.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCCRUSHINGFIELD.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCCRUSHINGFIELD.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONFIELDCONTINUING.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 32,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_CRUSHINGFIELD.PFX",
+        "attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "initial_attack_bits": [
+          20,
+          300,
+          766
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCCRUSHINGFIELD.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCCRUSHINGFIELD.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONFIELDCONTINUING.FX",
+        "frames_before_hit": 32,
+        "attack_frames": 40,
+        "initial_frames_before_hit": 32
+      }
+    ]
+  },
+  "Dimension_Shift": {
+    "crcfull_name": 2886435092,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Dimension_Shift",
+    "display_name": "Dimension Shift",
+    "display_help": "Location-targeted AoE toggle. This power folds space in an area, immobilizing and phasing all targets within the sphere. Enemies who enter the area become immobilized and phased for the duration of the effect. Allies who enter the sphere's area of effect will enter the phase as well, allowing them to combat phased enemies. Detoggling this power ends the effect, bringing the phased creatures back into the physical world. Maintaining this dimensional distortion is taxing on the user, and cannot be done for more than 20 seconds. Recharge: Slow",
+    "display_short_help": "Toggle, Ranged (Location AoE), Foe Intangible",
+    "display_target_help": "You have been shifted into an alternate dimension. You powers cannot effect anyone but yourself, but you cannot be harmed.",
+    "display_target_short_help": "Intangible",
+    "icon_name": "GravityControl_DimensionShift2.tga",
+    "type": 2,
+    "effect_area": 3,
+    "range": 80,
+    "time_to_activate": 1.17,
+    "recharge_time": 60,
+    "activate_period": 35,
+    "endurance_cost": 15.6,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 20,
+            "delay": 0.5,
+            "stack_type": 1,
+            "flags": [
+              640,
+              4
+            ],
+            "fx": {
+              "conditional_fx": "PFX"
+            },
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Dimension_Shift"
+              }
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "application_type": 1,
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 20,
+            "delay": 0.5,
+            "stack_type": 1,
+            "flags": [
+              640,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Dimension_Shift_Phased"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "ignore_toggle_max_distance": true,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_GRAVITYCONTROL_DIMENSIONSHIFT.PFX",
+    "attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "initial_attack_bits": [
+      20,
+      289,
+      258
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCDIMENSIONSHIFT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCDIMENSIONSHIFT.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCDIMENSIONSHIFTCONTINUING_WITHFADE.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCDIMENSIONSHIFTCONTINUING_WITHFADE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 23,
+    "initial_frames_before_hit": 23,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_GRAVITYCONTROL_DIMENSIONSHIFT.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDIMENSIONSHIFT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDIMENSIONSHIFT.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDIMENSIONSHIFTCONTINUING_WITHFADE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDIMENSIONSHIFTCONTINUING_WITHFADE.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_GRAVITYCONTROL_DIMENSIONSHIFT.PFX",
+        "attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          289,
+          258
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDIMENSIONSHIFT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDIMENSIONSHIFT.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDIMENSIONSHIFTCONTINUING_WITHFADE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDIMENSIONSHIFTCONTINUING_WITHFADE.FX",
+        "frames_before_hit": 23,
+        "attack_frames": 35,
+        "initial_frames_before_hit": 23
+      }
+    ]
+  },
+  "Gravity_Distortion_Field": {
+    "crcfull_name": 274644287,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Gravity_Distortion_Field",
+    "display_name": "Gravity Distortion Field",
+    "display_help": "Creates a large, intensely misshapen Gravity Distortion Field that encompasses several foes, rendering them unable to take any action. Recharge: Very Long",
+    "display_short_help": "Ranged (Targeted AoE), Foe Hold",
+    "display_target_help": "You are being held in a Gravity Distortion Field.",
+    "display_target_short_help": "Hold",
+    "display_attacker_hit": "You contain {PlayerDest} within your {PowerName} holding them!",
+    "display_victim_hit": "{PlayerSource} contains you within their {PowerName} holding you!",
+    "icon_name": "GravityControl_GravityDistortionField.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "accuracy": 0.8,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 20,
+    "range": 80,
+    "time_to_activate": 1.83,
+    "recharge_time": 240,
+    "endurance_cost": 15.6,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      29,
+      23,
+      22,
+      18,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_bits": [
+                393
+              ],
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.5,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 8,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "duration": 8,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      188,
+      192,
+      200,
+      204,
+      268,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_GRAVITYDISTORTIONFIELD.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+    "continuing_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONCONTINUING.FX",
+    "continuing_fx1": "POWERS/GRAVITYCONTROL/GCDISTORTIONCONTINUING.FX",
+    "conditional_fx": "POWERS/GRAVITYCONTROL/GCCRUSHFIELDCONTINUING.FX",
+    "conditional_fx1": "POWERS/GRAVITYCONTROL/GCCRUSHFIELDCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 55,
+    "initial_frames_before_hit": 37,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_GRAVITYDISTORTIONFIELD.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCDISTORTIONCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCCRUSHFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/GCCRUSHFIELDCONTINUING.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 37,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_GRAVITYDISTORTIONFIELD.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDISTORTIONFIELD.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDISTORTIONFIELD.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCDISTORTIONCONTINUING.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCCRUSHFIELDCONTINUING.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/GCCRUSHFIELDCONTINUING.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 55,
+        "initial_frames_before_hit": 37
+      }
+    ]
+  },
+  "Wormhole": {
+    "crcfull_name": 3815578074,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Wormhole",
+    "display_name": "Wormhole",
+    "display_help": "You can open a gravitational Wormhole behind a targeted foe and violently push him, and all nearby foes, through it. The victims are sent flying out the other end of the Wormhole and are left Disoriented. You determine the location of the Wormhole's end, and can place it high in the air if desired. More powerful foes may be resistant to the Wormhole effects. Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Foe Teleport, Disorient, Knockback",
+    "display_target_help": "You have been Disoriented.",
+    "display_target_short_help": "Disorient",
+    "display_attacker_hit": "You teleport {PlayerDest} with your {PowerName} disorienting them.",
+    "display_victim_hit": "{PlayerSource} teleports you with their {PowerName} disorienting you!",
+    "icon_name": "GravityControl_Wormhole.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "ai_report": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 20,
+    "range": 80,
+    "range_secondary": 200,
+    "time_to_activate": 3,
+    "recharge_time": 90,
+    "endurance_cost": 15.6,
+    "target_visibility": 1,
+    "target": 19,
+    "target_secondary": 22,
+    "boosts_allowed": [
+      23,
+      22,
+      21,
+      18,
+      17,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              460
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0,
+            "duration": 1.5,
+            "delay": 1.4,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              292
+            ],
+            "table": "Ranged_Ones",
+            "scale": 4.1,
+            "magnitude": 3,
+            "delay": 2.6
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 7,
+            "delay": 2.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "delay": 2.7,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 7,
+            "delay": 2.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 10,
+            "magnitude": 3,
+            "delay": 2.7,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_Stun",
+            "scale": 15,
+            "magnitude": 3,
+            "delay": 2.7,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kStealth",
+          "source>",
+          "0.5",
+          ">",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "delay": 2.7,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1056,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName} [DOMINATION].",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName} [DOMINATION].",
+              "display_float": "DOMINATION"
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      276,
+      292,
+      328,
+      460
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_WORMHOLE.PFX",
+    "attack_bits": [
+      20,
+      272,
+      683
+    ],
+    "initial_attack_bits": [
+      20,
+      272,
+      683
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCWORMHOLE.FX",
+    "hit_fx": "POWERS/GRAVITYCONTROL/GCWORMHOLEHIT.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCWORMHOLE.FX",
+    "continuing_fx": "POWERS/INVISIBILITY/INVISIBILITYPHASESHIFTCONTINUING.FX",
+    "continuing_fx1": "POWERS/INVISIBILITY/INVISIBILITYPHASESHIFTCONTINUING.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 34,
+    "attack_frames": 90,
+    "initial_frames_before_hit": 34,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_WORMHOLE.PFX",
+        "attack_bits": [
+          20,
+          272,
+          683
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCWORMHOLE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCWORMHOLEHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCWORMHOLE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/INVISIBILITYPHASESHIFTCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/INVISIBILITYPHASESHIFTCONTINUING.FX",
+        "frames_before_hit": 34,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 34,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_WORMHOLE.PFX",
+        "attack_bits": [
+          20,
+          272,
+          683
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272,
+          683
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCWORMHOLE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCWORMHOLEHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCWORMHOLE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/INVISIBILITYPHASESHIFTCONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/INVISIBILITYPHASESHIFTCONTINUING.FX",
+        "frames_before_hit": 34,
+        "attack_frames": 90,
+        "initial_frames_before_hit": 34
+      }
+    ]
+  },
+  "Singularity": {
+    "crcfull_name": 2217939793,
+    "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_GRAVITY_CONTROL.POWERS",
+    "source_name": "Dominator_Control.Gravity_Control.Singularity",
+    "display_name": "Singularity",
+    "display_help": "You can create a very powerful Gravitational Singularity. The Singularity will engage your foes, assaulting them with various gravity powers. Any foes that attempt to approach the Singularity will be violently hurled away. The Singularity cannot be healed, but is highly resistant to all forms of damage and nearly impervious to Controlling type powers. Recharge: Very Long",
+    "display_short_help": "Summon Singularity: Ranged Control Special",
+    "icon_name": "GravityControl_Singularity.tga",
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 240,
+    "endurance_cost": 20.8,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      17,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 99999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Singularity",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_SINGULARITY.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+    "initial_attack_fx": "POWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_SINGULARITY.PFX",
+        "attack_bits": [
+          20,
+          252
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          252
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/GCDISTORTIONFIELD.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_GRAVITYCONTROL_SINGULARITY.PFX",
+        "attack_bits": [
+          20,
+          252
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          252
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDISTORTIONFIELD.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/GRAVITYCONTROL/SUBTRACTIVE/GCDISTORTIONFIELD.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  }
+}

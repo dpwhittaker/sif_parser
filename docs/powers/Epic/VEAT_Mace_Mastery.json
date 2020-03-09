@@ -1,0 +1,1383 @@
+{
+  "Mace_Blast": {
+    "crcfull_name": 3387342460,
+    "source_file": "DEFS/POWERS/EPIC_VEAT_MACE_MASTERY.POWERS",
+    "source_name": "Epic.VEAT_Mace_Mastery.Mace_Blast",
+    "display_name": "Mace Blast",
+    "display_help": "The Executioner's Mace is capable of firing a powerful bolt of kinetic energy. The blast is powerful enough that it may knock some foes back. Arachnos Bane Spider Troopers call this the Power Blast. The Arbiters who invented it scoff at this simple term. Damage: Heavy, Recharge: Fast",
+    "display_short_help": "Ranged, Heavy DMG(Energy/Smash), Foe Knockback",
+    "icon_name": "Arachnos_Patron_TargetedRangedHighDmg.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing",
+      "Energy"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Arachnos_Soldier",
+      "==",
+      "$archetype",
+      "@Class_Arachnos_Widow",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "accuracy": 1.05,
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 9,
+    "endurance_cost": 8.58,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.66,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.66,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.08,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 1.08,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.7,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "scale": 0.7,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_MACEBLAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLAST.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLAST.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 36,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 66,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 105,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_MACEBLAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          394
+        ],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          394,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/MACEBEAM_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/MACEBEAM_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 36,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 66,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 105,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_MACEBLAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          394
+        ],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          394,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/MACEBEAM_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/MACEBEAM_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 36,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 66,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 105
+      }
+    ]
+  },
+  "Web_Envelope": {
+    "crcfull_name": 3055363712,
+    "source_file": "DEFS/POWERS/EPIC_VEAT_MACE_MASTERY.POWERS",
+    "source_name": "Epic.VEAT_Mace_Mastery.Web_Envelope",
+    "display_name": "Web Envelope",
+    "display_help": "The Executioner's Mace can lob a modified Web Grenade. Upon impact, the Web Grenade expels a strong, tenuous, and very sticky substance that can Immobilize most targets in a wide area. This non-lethal device deals no damage and does not prevent targets from attacking, although their attack rate is Slowed. The Web can bring down flying entities and halts jumping. Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE) Immobilize, -Recharge, -Fly, -Jump",
+    "display_target_help": "You have been caught in a web. You cannot move or fly and your attack speed is reduced.",
+    "display_target_short_help": "Immobilize, -Fly, -Recharge",
+    "icon_name": "Arachnos_Patron_RangedAoEImmobilize.tga",
+    "attack_types": [
+      "AOE"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Arachnos_Soldier",
+      "==",
+      "$archetype",
+      "@Class_Arachnos_Widow",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 20,
+    "endurance_cost": 12.74,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      18,
+      15,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              664,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.2,
+            "duration": 15,
+            "stack_type": 3,
+            "flags": [
+              648,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              204
+            ],
+            "table": "Ranged_Ones",
+            "scale": -500,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -10,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      188,
+      192,
+      204,
+      272,
+      284,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_WEBENVELOPE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEWEBGRENADEAOE.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEWEBGRENADEAOE.FX",
+    "conditional_fx": "POWERS/GADGETS/WEBCAGE.FX",
+    "conditional_fx1": "POWERS/GADGETS/WEBCAGE.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 41,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 71,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_WEBENVELOPE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          394
+        ],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          394,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/WEBENVELOPE_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/WEBENVELOPE_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZEABLEPOWERS/TRAPS/WEBCAGE.FX",
+        "conditional_fx1": "CUSTOMIZEABLEPOWERS/TRAPS/WEBCAGE.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 41,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 71,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_WEBENVELOPE.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          394
+        ],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          394,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBENVELOPE_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBENVELOPE_ATTACK.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBCOCOON_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/WEBCOCOON_CONDITIONAL.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 41,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 71,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Disruptor_Blast": {
+    "crcfull_name": 3907305769,
+    "source_file": "DEFS/POWERS/EPIC_VEAT_MACE_MASTERY.POWERS",
+    "source_name": "Epic.VEAT_Mace_Mastery.Disruptor_Blast",
+    "display_name": "Disruptor Blast",
+    "display_help": "Fires a tremendous charge of kinetic energy from your Executioner's Mace. This charge is so powerful it will explode on impact, blasting all nearby foes. Some affected foes may be knocked back by the force of the blast. You must be level 41 and have Mace Blast or Web Envelope before selecting this power. Damage: Moderate, Recharge: Long",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Smashing/Energy), Foe Knockback",
+    "icon_name": "Arachnos_Patron_RangedAoEModerateDmg.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing",
+      "Energy"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.VEAT_Mace_Mastery.Mace_Blast",
+      "Epic.VEAT_Mace_Mastery.Web_Envelope",
+      "||",
+      "&&"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 2,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4738,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4738,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      16,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_DISRUPTORBLAST.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      394
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      394,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLASTAOE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/POLICEBOTBLAST/POLICEBOTBLASTHIT/POLICEBOTBLASTHIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEBLASTAOE.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 38,
+    "delayed_hit": true,
+    "attack_frames": 60,
+    "initial_frames_before_hit": 68,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 105,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_DISRUPTORBLAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          394
+        ],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          394,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/DISRUPTORBLAST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 38,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 68,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 105,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_DISRUPTORBLAST.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          394
+        ],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          394,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/DISRUPTORBLAST_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 38,
+        "delayed_hit": true,
+        "attack_frames": 60,
+        "initial_frames_before_hit": 68,
+        "initial_attack_fxframe_delay": 30,
+        "projectile_speed": 105
+      }
+    ]
+  },
+  "Focused_Accuracy": {
+    "crcfull_name": 1949177825,
+    "source_file": "DEFS/POWERS/EPIC_VEAT_MACE_MASTERY.POWERS",
+    "source_name": "Epic.VEAT_Mace_Mastery.Focused_Accuracy",
+    "display_name": "Shatter Armor",
+    "display_help": "You deliver a punishing blow with your Arachnos Mace dealing superior damage and reducing the target's resistance to damage for a short time. You must be level 41 and have Mace Blast or Web Envelope before selecting this power. Damage: Superior Recharge: Slow",
+    "display_short_help": "Melee, Superior DMG(Smash), Foe -Res",
+    "display_target_help": "Your damage resistance has been reduced by the lingering toxins of the Arachnos mace.",
+    "display_target_short_help": "-Res",
+    "icon_name": "Arachnos_Patron_TargetedDeBuffDefense.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.VEAT_Mace_Mastery.Mace_Blast",
+      "Epic.VEAT_Mace_Mastery.Web_Envelope",
+      "||",
+      "&&"
+    ],
+    "accuracy": 1.05,
+    "range": 7,
+    "time_to_activate": 2.33,
+    "recharge_time": 30,
+    "endurance_cost": 17.94,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.76,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 3.231,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -2,
+            "duration": 20,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -2,
+            "duration": 20,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_SHATTERARMOR.PFX",
+    "attack_bits": [
+      20,
+      130,
+      138,
+      263
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      138,
+      263,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "POWERS/MEDIEVALWEAPONS/WARMACESWING.FX",
+    "hit_fx": "V_COV/POWERS/PATRON/MACEMASTERY/MACEMASTERY_SHATTERARMOR.FX",
+    "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/WARMACESWING.FX",
+    "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/TARANTULA_VENOMBOLTHIT.FX",
+    "continuing_fx1": "V_COV/ENEMYPOWERS/ARACHNOS/TARANTULA_VENOMBOLTHIT.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 67,
+    "initial_attack_fxframe_delay": 30,
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_SHATTERARMOR.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          263
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          263,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SHATTERARMOR_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SHATTERARMOR_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SHATTERARMOR_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/POISONOUSRAY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/POISONOUSRAY_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 37,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 67,
+        "initial_attack_fxframe_delay": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_SHATTERARMOR.PFX",
+        "attack_bits": [
+          20,
+          130,
+          138,
+          263
+        ],
+        "block_bits": 53,
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          138,
+          263,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SHATTERARMOR_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SHATTERARMOR_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SHATTERARMOR_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/POISONOUSRAY_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/POISONOUSRAY_CONTINUING.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 37,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 67,
+        "initial_attack_fxframe_delay": 30
+      }
+    ]
+  },
+  "Summon_Blaster": {
+    "crcfull_name": 522095850,
+    "source_file": "DEFS/POWERS/EPIC_VEAT_MACE_MASTERY.POWERS",
+    "source_name": "Epic.VEAT_Mace_Mastery.Summon_Blaster",
+    "display_name": "Summon Blaster",
+    "display_help": "Black Scorpion has granted you an Arachnobot Blaster for you to command. Arachnobot Blasters were created by Arachnos Orb Weavers to take down particularly powerful super-powered threats. Your access to this Arachnobot is very limited. You can only summon it once every 15 minutes and it will leave after 4 minutes, or if you exit a zone or mission. You must be level 44 and have two other Mace Mastery Powers before selecting this power. Recharge: Extremely Long",
+    "display_short_help": "Summon Arachnobot: Ranged Moderate DMG(Energy)",
+    "icon_name": "Arachnos_Patron_SummonOnePet.tga",
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.VEAT_Mace_Mastery.Mace_Blast",
+      "Epic.VEAT_Mace_Mastery.Web_Envelope",
+      "&&",
+      "Epic.VEAT_Mace_Mastery.Mace_Blast",
+      "Epic.VEAT_Mace_Mastery.Focused_Accuracy",
+      "&&",
+      "||",
+      "Epic.VEAT_Mace_Mastery.Mace_Blast",
+      "Epic.VEAT_Mace_Mastery.Disruptor_Blast",
+      "&&",
+      "||",
+      "Epic.VEAT_Mace_Mastery.Web_Envelope",
+      "Epic.VEAT_Mace_Mastery.Focused_Accuracy",
+      "&&",
+      "||",
+      "Epic.VEAT_Mace_Mastery.Web_Envelope",
+      "Epic.VEAT_Mace_Mastery.Disruptor_Blast",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 3.03,
+    "recharge_time": 900,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Arachnobot_Blaster",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_SUMMON.PFX",
+    "attack_bits": [
+      20,
+      130,
+      226
+    ],
+    "activation_bits": [
+      20,
+      130,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      226,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+    "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SUMMON_ATTACK.FX",
+    "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SUMMON_ATTACK.FX",
+    "mode_bits": [
+      20,
+      130,
+      88
+    ],
+    "frames_before_hit": 0,
+    "attack_frames": 91,
+    "initial_frames_before_hit": 0,
+    "initial_attack_fxframe_delay": 30,
+    "primary_tint": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          130,
+          226
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          226,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUMMON_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 0,
+        "attack_frames": 91,
+        "initial_frames_before_hit": 0,
+        "initial_attack_fxframe_delay": 30,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MACEMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          130,
+          226
+        ],
+        "hit_bits": [],
+        "activation_bits": [
+          20,
+          130,
+          187
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          226,
+          187
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MACEMASTERY/SUBTRACTIVE/SUMMON_ATTACK.FX",
+        "mode_bits": [
+          20,
+          130,
+          88
+        ],
+        "frames_before_hit": 0,
+        "attack_frames": 91,
+        "initial_frames_before_hit": 0,
+        "initial_attack_fxframe_delay": 30
+      }
+    ]
+  }
+}

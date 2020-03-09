@@ -1,0 +1,1452 @@
+{
+  "Fire_Blast": {
+    "crcfull_name": 1648940697,
+    "source_file": "DEFS/POWERS/EPIC_FIRE_MASTERY.POWERS",
+    "source_name": "Epic.Fire_Mastery.Fire_Blast",
+    "display_name": "Fire Blast",
+    "display_help": "Sends a Blast of Fire at a targeted foe and sets the target on fire for a short period of time. Slower recharge rate than Flares, but more damage. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Fire)",
+    "icon_name": "FireBlast_FireBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "Fire"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Controller",
+      "=="
+    ],
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.889,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.889,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBLAST.PFX",
+    "attack_bits": [
+      20,
+      183,
+      722
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      183,
+      722
+    ],
+    "activation_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+    "attack_fx": "POWERS/FIRECONTROL/FIREBOLT.FX",
+    "hit_fx": "POWERS/FIRECONTROL/FIREBALLTARGET.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/FIREBOLT.FX",
+    "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+    "continuing_fx1": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 16,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "Bright Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBLAST.PFX",
+        "attack_bits": [
+          20,
+          183,
+          722
+        ],
+        "initial_attack_bits": [
+          20,
+          183,
+          722
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBLAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBLAST_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 16,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBLAST.PFX",
+        "attack_bits": [
+          20,
+          183,
+          722
+        ],
+        "initial_attack_bits": [
+          20,
+          183,
+          722
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBLAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBLAST_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 16,
+        "projectile_speed": 90
+      },
+      {
+        "token": "Bright Fire Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBLAST.PFX",
+        "display_name": "Bright Rapid Blast",
+        "attack_bits": [
+          20,
+          183,
+          722,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          183,
+          722,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/CUSTANIM_FIREBLAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/CUSTANIM_FIREBLAST_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 16,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBLAST.PFX",
+        "display_name": "Dark Rapid Blast",
+        "attack_bits": [
+          20,
+          183,
+          722,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          183,
+          722,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/CUSTANIM_FIREBLAST_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBLAST_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/CUSTANIM_FIREBLAST_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "frames_before_hit": 16,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 16,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Fire_Ball": {
+    "crcfull_name": 231647742,
+    "source_file": "DEFS/POWERS/EPIC_FIRE_MASTERY.POWERS",
+    "source_name": "Epic.Fire_Mastery.Fire_Ball",
+    "display_name": "Fire Ball",
+    "display_help": "Hurls an exploding Fireball that consumes a targeted foe, and all nearby enemies. Anyone in that explosion is burned and set ablaze. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Fire/Smash)",
+    "icon_name": "FireBlast_FireBall.tga",
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Controller",
+      "=="
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 32,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.15,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.9,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.0732,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.6591,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.05,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.0732,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.6591,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 2.1,
+            "delay": 0.5,
+            "period": 1,
+            "tick_chance": 0.8,
+            "flags": [
+              644,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      8
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "activation_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+    "attack_fx": "POWERS/FIRECONTROL/XXLARGEFIREBALL.FX",
+    "hit_fx": "POWERS/FIRECONTROL/FIREBALLHIT.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/XXLARGEFIREBALL.FX",
+    "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+    "continuing_fx1": "POWERS/FIRECONTROL/CINDERSHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 18,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 18,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "Bright Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+        "attack_bits": [
+          20,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          258
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "frames_before_hit": 18,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 18,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+        "attack_bits": [
+          20,
+          258
+        ],
+        "initial_attack_bits": [
+          20,
+          258
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "frames_before_hit": 18,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 18,
+        "projectile_speed": 90
+      },
+      {
+        "token": "Bright Fire Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+        "display_name": "Bright Fire Crush",
+        "attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/CUSTANIM_FIREBALL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/FIREBALL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/CUSTANIM_FIREBALL_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/FIRE_CONTINUING.FX",
+        "frames_before_hit": 18,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 18,
+        "projectile_speed": 90,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire Cast",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_FIREBLAST_FIREBALL.PFX",
+        "display_name": "Dark Fire Crush",
+        "attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "initial_attack_bits": [
+          20,
+          258,
+          685
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREHANDS.FX",
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/CUSTANIM_FIREBALL_ATTACK.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/FIREBALL_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIREBLAST/SUBTRACTIVE/CUSTANIM_FIREBALL_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/SUBTRACTIVE/FIRE_CONTINUING.FX",
+        "frames_before_hit": 18,
+        "delayed_hit": true,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 18,
+        "projectile_speed": 90
+      }
+    ]
+  },
+  "Fire_Shield": {
+    "crcfull_name": 1994085541,
+    "source_file": "DEFS/POWERS/EPIC_FIRE_MASTERY.POWERS",
+    "source_name": "Epic.Fire_Mastery.Fire_Shield",
+    "display_name": "Fire Shield",
+    "display_help": "While this power is active, you get a good resistance to Lethal, Smashing and Fire damage. Fire Shield also provides minimal resistance to Cold damage. You must be level 41 and have Fire Blast or Fire Ball before selecting this power. Recharge: Very Fast",
+    "display_short_help": "Toggle: Self +Res(Fire, Lethal, Smash, Cold)",
+    "display_attacker_hit": "You are now more resistant to Smashing, Lethal, Fire, and Cold damage.",
+    "icon_name": "FireMastery_FlamingShield.tga",
+    "type": 2,
+    "buy_requires": [
+      "Epic.Fire_Mastery.Fire_Blast",
+      "Epic.Fire_Mastery.Fire_Ball",
+      "||"
+    ],
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "time_to_activate": 1.67,
+    "recharge_time": 2,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      35,
+      23,
+      18
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 3,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_FIRESHIELD.PFX",
+    "activation_bits": [
+      248,
+      723,
+      681
+    ],
+    "activation_fx": "POWERS/FIRECONTROL/FIREAURA.FX",
+    "frames_before_hit": 24,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 24,
+    "custom_fx": [
+      {
+        "token": "Bright Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_FIRESHIELD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          248,
+          723,
+          681
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/FIREAURA.FX",
+        "mode_bits": [],
+        "frames_before_hit": 24,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 24,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_FIRESHIELD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          248,
+          723,
+          681
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/FIREAURA.FX",
+        "mode_bits": [],
+        "frames_before_hit": 24,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 24
+      },
+      {
+        "token": "Bright Flames",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_FIRESHIELD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          248,
+          723,
+          681
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/FIRESHIELD.FX",
+        "mode_bits": [],
+        "frames_before_hit": 24,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 24,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Flames",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_FIRESHIELD.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          248,
+          723,
+          681
+        ],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/SUBTRACTIVE/FIRESHIELD.FX",
+        "mode_bits": [],
+        "frames_before_hit": 24,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 24
+      }
+    ]
+  },
+  "Rise_of_the_Phoenix": {
+    "crcfull_name": 246277936,
+    "source_file": "DEFS/POWERS/EPIC_FIRE_MASTERY.POWERS",
+    "source_name": "Epic.Fire_Mastery.Rise_of_the_Phoenix",
+    "display_name": "Rise of the Phoenix",
+    "display_help": "If you are defeated, you can rise from the ashes. The fiery resurrection blasts nearby foes with an explosion and knocks them down. You will revive with about half of your Hit Points and Endurance. Rise of the Phoenix will actually leave you invulnerable for a brief time and protected from XP Debt for 20 seconds. You must be level 41 and have Fire Blast or Fire Ball before selecting this power. Recharge: Very Long",
+    "display_short_help": "Self Rez, Special",
+    "display_target_help": "You have risen from the ashes. You are untouchable for 15 seconds and are protected from XP Debt for 20 seconds.",
+    "display_target_short_help": "Invulnerable, +XP Debt Protection",
+    "display_attacker_hit": "You rise from the ashes with the power of the Phoenix.",
+    "icon_name": "FireMastery_RiseofthePhoenix.tga",
+    "buy_requires": [
+      "Epic.Fire_Mastery.Fire_Blast",
+      "Epic.Fire_Mastery.Fire_Ball",
+      "||"
+    ],
+    "castable_after_death": 1,
+    "effect_area": 3,
+    "time_to_activate": 1.5,
+    "recharge_time": 300,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      21,
+      18,
+      14,
+      9
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Melee_HealSelf",
+            "scale": 5,
+            "duration": 0.5,
+            "period": 1,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_bits": [
+                323
+              ]
+            }
+          },
+          {
+            "attrib": [
+              461
+            ],
+            "target": 0,
+            "table": "Melee_Level",
+            "duration": 5,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Phoenix"
+              }
+            }
+          },
+          {
+            "attrib": [
+              296
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 15,
+            "magnitude": 10,
+            "stack_type": 3,
+            "flags": [
+              112,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Untouchable"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 50,
+            "delay": 0.125,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 4,
+            "magnitude": 50,
+            "flags": [
+              1072,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              464
+            ],
+            "aspect": 32,
+            "target": 0,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      28,
+      88,
+      272,
+      296,
+      461,
+      464
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_RISEOFTHEPHOENIX.PFX",
+    "attack_fx": "POWERS/FIRECONTROL/FIREPHOENIX.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/FIREPHOENIX.FX",
+    "frames_before_hit": 45,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 45,
+    "custom_fx": [
+      {
+        "token": "Bright Fire",
+        "alt_theme": [
+          "Bright Flames"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_RISEOFTHEPHOENIX.PFX",
+        "hit_bits": [],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/FIREPHOENIX.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/FIREPHOENIX.FX",
+        "mode_bits": [],
+        "frames_before_hit": 45,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 45,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire",
+        "alt_theme": [
+          "Dark Flames"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/TANKERDEFENSE_FIERYAURA_RISEOFTHEPHOENIX.PFX",
+        "hit_bits": [],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/FIREPHOENIX.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/FIREPHOENIX.FX",
+        "mode_bits": [],
+        "frames_before_hit": 45,
+        "attack_frames": 45,
+        "initial_frames_before_hit": 45
+      }
+    ]
+  },
+  "Consume": {
+    "crcfull_name": 1823057842,
+    "source_file": "DEFS/POWERS/EPIC_FIRE_MASTERY.POWERS",
+    "source_name": "Epic.Fire_Mastery.Consume",
+    "display_name": "Consume",
+    "display_help": "You can drain body heat from all nearby foes in order to replenish your own Endurance. The more foes affected, the more Endurance is gained. Foes suffer minimal Fire damage. You must be level 44 and have two other Fire Mastery Powers before selecting this power. Damage: Minor, Recharge: Very Long",
+    "display_short_help": "PBAoE, Minor DMG(Fire), Self +End",
+    "icon_name": "FireMastery_Consume.tga",
+    "attack_types": [
+      "AOE",
+      "Fire"
+    ],
+    "buy_requires": [
+      "Epic.Fire_Mastery.Fire_Blast",
+      "Epic.Fire_Mastery.Fire_Ball",
+      "&&",
+      "Epic.Fire_Mastery.Fire_Blast",
+      "Epic.Fire_Mastery.Fire_Shield",
+      "&&",
+      "||",
+      "Epic.Fire_Mastery.Fire_Blast",
+      "Epic.Fire_Mastery.Rise_of_the_Phoenix",
+      "&&",
+      "||",
+      "Epic.Fire_Mastery.Fire_Ball",
+      "Epic.Fire_Mastery.Fire_Shield",
+      "&&",
+      "||",
+      "Epic.Fire_Mastery.Fire_Ball",
+      "Epic.Fire_Mastery.Rise_of_the_Phoenix",
+      "&&",
+      "||"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 10,
+    "radius": 20,
+    "time_to_activate": 2.03,
+    "recharge_time": 360,
+    "endurance_cost": 0.65,
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 32,
+            "target": 0,
+            "scale": 20,
+            "delay": 0.25,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 0.5,
+            "duration": 120,
+            "delay": 0.25,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 0.05,
+            "duration": 15,
+            "delay": 0.25,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Controller",
+          "==",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_PvPDamage",
+            "scale": 0.4,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 1,
+    "attrib_cache": [
+      8,
+      88,
+      236
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_FIERYAURA_CONSUME.PFX",
+    "attack_bits": [
+      20,
+      255
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      255
+    ],
+    "attack_fx": "POWERS/FIRECONTROL/CONSUME.FX",
+    "hit_fx": "POWERS/FIRECONTROL/CONSUMEHIT.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/CONSUME.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25,
+    "custom_fx": [
+      {
+        "token": "Bright Fire",
+        "alt_theme": [
+          "Bright Flames"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_FIERYAURA_CONSUME.PFX",
+        "attack_bits": [
+          20,
+          255
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          255
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/CONSUME.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/CONSUMEHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/CONSUME.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark Fire",
+        "alt_theme": [
+          "Dark Flames"
+        ],
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_FIERYAURA_CONSUME.PFX",
+        "attack_bits": [
+          20,
+          255
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          255
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/CONSUME.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/CONSUMEHIT.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIERYAURA/SUBTRACTIVE/CONSUME.FX",
+        "frames_before_hit": 25,
+        "attack_frames": 61,
+        "initial_frames_before_hit": 25
+      }
+    ]
+  }
+}

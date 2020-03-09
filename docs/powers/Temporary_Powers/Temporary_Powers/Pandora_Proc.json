@@ -1,0 +1,121 @@
+{
+  "crcfull_name": 2771163474,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Pandora_Proc",
+  "free": true,
+  "display_name": "Pandora Proc",
+  "display_help": "Your Primordial Energy buff applies a -resistance debuff on your target for a short time. The potency of this debuff scales with the number of stacks of Primordial Energy. If you have 30 stacks of Primordial Energy, you'll also have a chance to unleash a devastating amount of damage.",
+  "display_short_help": "Chance for Extreme DMG(Special), -Res(All)",
+  "display_target_help": "Your Primordial Energy buff applies a -resistance debuff on your target for a short time. The potency of this debuff scales with the number of stacks of Primordial Energy. If you have 30 stacks of Primordial Energy, you'll also have a chance to unleash a devastating amount of damage.",
+  "display_target_short_help": "Chance for Ultimate DMG(Special), -Res(All)",
+  "icon_name": "BaneSpider_PoisonousRay.tga",
+  "type": 5,
+  "activate_period": 10,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "Damage"
+      ],
+      "chance": 0.33,
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Pandora_Buff",
+        "source.ownPowerNum?",
+        "29",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            32
+          ],
+          "aspect": 32,
+          "table": "Melee_TempDamage",
+          "scale": 4,
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Special damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Special damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "target.isFriend?",
+        "!"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "type": 3,
+          "duration": 30,
+          "magnitude_expr": [
+            "Temporary_Powers.Temporary_Powers.Pandora_Buff",
+            "source.ownPowerNum?",
+            "-.03",
+            "*",
+            "@StdResult",
+            "*"
+          ],
+          "flags": [
+            262704,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "ignore_strength": true,
+  "max_boosts": 0,
+  "do_not_save": true,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    36
+  ]
+}

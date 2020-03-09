@@ -1,0 +1,320 @@
+{
+  "crcfull_name": 370026382,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_ASSAULT_RIFLE.POWERS",
+  "source_name": "Corruptor_Ranged.Assault_Rifle.M30_Grenade",
+  "display_name": "M30 Grenade",
+  "display_help": "Launches a Grenade at long range from beneath the barrel of your Assault Rifle. This explosion affects all within the blast radius, and can knock them back. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal/Smash), Knockback",
+  "icon_name": "AssaultWeapons_ARM30grenade.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal",
+    "Smashing"
+  ],
+  "accuracy": 1.05,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 16,
+  "endurance_cost": 15.184,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.6,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.2243,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.4486,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.9,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.6797,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_GRENADE_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    131,
+    173,
+    682
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    131,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    131,
+    173,
+    682,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+  "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+  "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+  "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+  "mode_bits": [
+    20,
+    130,
+    131,
+    86
+  ],
+  "frames_before_hit": 35,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 38,
+  "initial_attack_fxframe_delay": 3,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/ASSAULTWEP_AR_GRENADE_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        131,
+        173,
+        682
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        131,
+        173,
+        682
+      ],
+      "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+      "attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+      "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+      "initial_attack_fx": "WEAPONFX/PLAYER_ASSAULTRIFLE_M30GRENADE.FX",
+      "mode_bits": [
+        20,
+        130,
+        131,
+        86
+      ],
+      "frames_before_hit": 35,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 35,
+      "projectile_speed": 90,
+      "palette": ""
+    }
+  ]
+}

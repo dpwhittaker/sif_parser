@@ -1,0 +1,217 @@
+{
+  "crcfull_name": 1403267422,
+  "source_file": "DEFS/POWERS/POOL_FLIGHT.POWERS",
+  "source_name": "Pool.Flight.Group_Fly",
+  "display_name": "Group Fly",
+  "display_help": "You can endow your nearby teammates with Flight. Be mindful! Your friends will fall if you run out of Endurance or if they travel too far away from you. Group Fly travel speed is slower than Fly. Flying allies suffer from a reduced chance to hit. You must be at least level 14 and have two other Flight Powers before selecting Group Fly.",
+  "display_short_help": "Toggle: Team Fly, -ACC",
+  "display_target_help": "You have been granted the ability to Fly. However, your chance to hit is reduced.",
+  "display_target_short_help": "-ACC, Fly",
+  "display_attacker_hit": "You grant {PlayerDest} the power to fly!",
+  "display_victim_hit": "{PlayerSource} endows you with Flight! Stay close or you will fall!",
+  "icon_name": "Flight_GroupFly.tga",
+  "type": 2,
+  "buy_requires": [
+    "Pool.Flight.Combat_Flight",
+    "Pool.Flight.Air_Superiority",
+    "&&",
+    "Pool.Flight.Combat_Flight",
+    "Pool.Flight.Fly",
+    "&&",
+    "||",
+    "Pool.Flight.Air_Superiority",
+    "Pool.Flight.Fly",
+    "&&",
+    "||"
+  ],
+  "toggle_ignore_hold": true,
+  "toggle_ignore_sleep": true,
+  "toggle_ignore_stun": true,
+  "shoot_through_untouchable": true,
+  "ai_report": 1,
+  "effect_area": 2,
+  "max_targets_hit": 255,
+  "radius": 60,
+  "time_to_activate": 2.03,
+  "activate_period": 2,
+  "endurance_cost": 1.3,
+  "ents_auto_hit": [
+    8,
+    1
+  ],
+  "ents_affected": [
+    8,
+    1
+  ],
+  "boosts_allowed": [
+    23,
+    13
+  ],
+  "group_membership": [
+    0,
+    4
+  ],
+  "modes_disallowed": [
+    8,
+    7,
+    12,
+    117,
+    118
+  ],
+  "effects": [
+    {
+      "requires": [
+        "Power_DisallowGroupFly",
+        "target.TokenOwned?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            284
+          ],
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            208
+          ],
+          "table": "Melee_Control",
+          "scale": 10,
+          "duration": 10,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            192
+          ],
+          "table": "Melee_SpeedFlying",
+          "scale": 0.5,
+          "duration": 10,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            212
+          ],
+          "table": "Melee_Friction",
+          "scale": 10,
+          "duration": 10,
+          "stack_type": 3,
+          "cancel_events": [
+            19,
+            21,
+            22
+          ],
+          "flags": [
+            96,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            476
+          ],
+          "target": 0,
+          "duration": 0.75,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "EffectFilter": {
+              "tag": "FlightActive"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    192,
+    208,
+    212,
+    284,
+    476
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_FLIGHT_GROUPFLY.PFX",
+  "activation_bits": [
+    20,
+    255,
+    723
+  ],
+  "activation_fx": "POWERS/FLIGHT/GROUPFLIGHT.FX",
+  "continuing_fx": "POWERS/FLIGHT/GROUP_FLIGHT_CONTINUING.FX",
+  "continuing_fx1": "POWERS/FLIGHT/GROUP_FLIGHT_CONTINUING.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_FLIGHT_GROUPFLY.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        255,
+        723
+      ],
+      "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/FLIGHT/GROUPFLIGHT_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/FLIGHT/GROUPFLIGHT_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/FLIGHT/GROUPFLIGHT_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_FLIGHT_GROUPFLY.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        255,
+        723
+      ],
+      "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/FLIGHT/SUBTRACTIVE/GROUPFLIGHT_ACTIVATION.FX",
+      "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/FLIGHT/SUBTRACTIVE/GROUPFLIGHT_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/FLIGHT/SUBTRACTIVE/GROUPFLIGHT_CONTINUING.FX",
+      "mode_bits": [],
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

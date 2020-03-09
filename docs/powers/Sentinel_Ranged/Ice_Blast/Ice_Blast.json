@@ -1,0 +1,384 @@
+{
+  "crcfull_name": 698148927,
+  "source_file": "DEFS/POWERS/SENTINEL_RANGED_ICE_BLAST.POWERS",
+  "source_name": "Sentinel_Ranged.Ice_Blast.Ice_Blast",
+  "display_name": "Ice Blast",
+  "display_help": "Ice Blast hurls shards of ice at foes and Slows their attacks and movement for a time. Slower recharge than Ice Bolt, but more damage. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DMG(Cold/Smash), Foe -Recharge, -SPD",
+  "display_target_help": "Your Attack rate and Running speed are reduced by the Ice Blast.",
+  "display_target_short_help": "-Recharge, -SPD",
+  "icon_name": "IceBlast_IceBlast.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Cold"
+  ],
+  "range": 60,
+  "time_to_activate": 1.67,
+  "recharge_time": 6,
+  "endurance_cost": 6.864,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.264,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 1.056,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.7259,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            204,
+            356
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 10,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 10
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Vulnerability"
+      ],
+      "requires": [
+        "kRage",
+        "source>",
+        "90",
+        ">",
+        "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": -0.2,
+          "duration": 15,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "stack_key": 16,
+          "flags": [
+            131728,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Vulnerability!"
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/TARGETLOCK.FX"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Opportunity"
+      ],
+      "requires": [
+        "kRage",
+        "source>",
+        "90",
+        ">",
+        "Temporary_Powers.Temporary_Powers.Opportunity_Lock",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Vulnerability"
+              ]
+            }
+          }
+        },
+        {
+          "attrib": [
+            491
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Defensive Opportunity"
+          }
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "duration": 15,
+          "magnitude": 104,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            465
+          ],
+          "type": 2,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "duration": 15,
+          "magnitude": 99,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Opportunity_Lock"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "kDomination",
+    "Mode?"
+  ],
+  "highlight_ring": [
+    0,
+    255,
+    0,
+    255
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    188,
+    192,
+    200,
+    204,
+    356,
+    465,
+    473,
+    475,
+    491
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_ICEBLAST.PFX",
+  "attack_bits": [
+    20,
+    183,
+    722
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    183,
+    722
+  ],
+  "attack_fx": "POWERS/COLDCONTROL/ICEBLAST.FX",
+  "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+  "initial_attack_fx": "POWERS/COLDCONTROL/ICEBLAST.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 17,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 17,
+  "projectile_speed": 60,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_ICEBLAST.PFX",
+      "attack_bits": [
+        20,
+        183,
+        722
+      ],
+      "initial_attack_bits": [
+        20,
+        183,
+        722
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+      "frames_before_hit": 17,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 17,
+      "projectile_speed": 60,
+      "palette": "ice"
+    },
+    {
+      "token": "Custom Ice Cast",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_ICEBLAST_ICEBLAST.PFX",
+      "display_name": "Custom Ice Cast",
+      "attack_bits": [
+        20,
+        183,
+        722,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        183,
+        722,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_ICEBLAST.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/ICEBOLTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/ICEBLAST/CUSTANIM_ICEBLAST.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/CONTINUING_ICEDAMAGE.FX",
+      "frames_before_hit": 17,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 17,
+      "projectile_speed": 60,
+      "palette": "ice"
+    }
+  ]
+}

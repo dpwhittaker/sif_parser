@@ -1,0 +1,1278 @@
+{
+  "Resistance": {
+    "crcfull_name": 3734651377,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Resistance",
+    "display_name": "Resistance",
+    "display_help": "You are naturally resistant to smashing damage.",
+    "display_short_help": "Self (Auto), +RES (Smashing)",
+    "display_target_help": "You are naturally resistant to smashing damage.",
+    "display_target_short_help": "+RES (Smashing)",
+    "icon_name": "RoguesGallery_JuanHernandez_Resistance.tga",
+    "type": 1,
+    "activate_period": 99999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "scale": 0.4,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_ARCHVILLAIN_MEZRES.PFX",
+    "attack_fx": "GENERICCONTINUING/ARCHMESRES/ARCHMESRESACTIVATE.FX",
+    "initial_attack_fx": "GENERICCONTINUING/ARCHMESRES/ARCHMESRESACTIVATE.FX"
+  },
+  "Barrage": {
+    "crcfull_name": 2551614117,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Barrage",
+    "display_name": "Barrage",
+    "display_help": "You perform a pair of quick punches that deal smashing and energy damage. There is a small chance your target will be stunned by these blows.",
+    "display_short_help": "Melee, High DMG(Smashing/Energy), Chance for Stun (Foe)",
+    "display_target_help": "You have been stunned.",
+    "display_target_short_help": "Stun",
+    "icon_name": "RoguesGallery_JuanHernandez_Barrage.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 5,
+    "time_to_activate": 1.33,
+    "recharge_time": 8,
+    "endurance_cost": 9.24,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "delay": 0.25,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "delay": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.2,
+            "delay": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 6,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 6,
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      0,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/POWERPUNCH_MELEE_QUICK.PFX",
+    "attack_bits": [
+      20,
+      256,
+      292
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256,
+      292
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHQUICKHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "attack_frames": 40
+  },
+  "Energy_Punch": {
+    "crcfull_name": 2187419770,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Energy_Punch",
+    "display_name": "Energy Punch",
+    "display_help": "You channel energy into your fists, unleashing a powerful blow that strikes the target for smashing and energy damage. There is also a small chance the target will be stunned.",
+    "display_short_help": "Melee, High DMG (Energy/Smashing), Chance for Stun (Foe)",
+    "display_target_help": "You have been stunned.",
+    "display_target_short_help": "Stun",
+    "icon_name": "RoguesGallery_JuanHernandez_EnergyPunch.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 5,
+    "time_to_activate": 0.57,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.3,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 5,
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      0,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/POWERPUNCH_MELEE_NORMAL.PFX",
+    "attack_bits": [
+      20,
+      256
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "hit_fx": "POWERS/POWERPUNCH/BASICPOWERPUNCHHIT.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 17,
+    "initial_frames_before_hit": 16
+  },
+  "Whirling_Hands": {
+    "crcfull_name": 830690050,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Whirling_Hands",
+    "display_name": "Whirling Hands",
+    "display_help": "You unleash a powerful roundhouse punch charged with energy, striking multiple nearby targets for smashing and energy damage. There is also a chance that affected targets around you will be stunned.",
+    "display_short_help": "PBAoE, Superior DMG (Smashing/Energy), Chance for Stun (Foe)",
+    "display_target_help": "You have been stunned.",
+    "display_target_short_help": "Stun",
+    "icon_name": "RoguesGallery_JuanHernandez_WhirlingHands.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 8,
+    "time_to_activate": 2.5,
+    "recharge_time": 10,
+    "endurance_cost": 18,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 8,
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      0,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/POWERPUNCH_MELEE_AREA.PFX",
+    "attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      200
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      133,
+      139,
+      200
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/POWERPUNCHFLURY.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 36,
+    "attack_frames": 75,
+    "initial_frames_before_hit": 36
+  },
+  "Taunt": {
+    "crcfull_name": 3895909307,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Taunt",
+    "display_name": "Taunt",
+    "display_help": "You taunt a targeted foe, potentially drawing the attention of that foe and all those around them. All targets will have their effective range reduced, while some will be able to focus on no other attacker but you.",
+    "display_short_help": "Ranged (Targeted AoE), Taunt (Foe), -Range (Foe)",
+    "display_target_help": "Your effective range has been reduced. You may also be taunted and only able to focus on Pendragon.",
+    "display_target_short_help": "-Range, Chance for Taunt",
+    "icon_name": "RoguesGallery_JuanHernandez_Taunt.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 8,
+    "radius": 15,
+    "range": 120,
+    "time_to_activate": 1.67,
+    "recharge_time": 30,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              348
+            ],
+            "aspect": 16,
+            "scale": -0.75,
+            "duration": 12,
+            "flags": [
+              656,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Your effective combat range has been reduced by {PlayerSource}'s {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          "<",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              248
+            ],
+            "aspect": 32,
+            "type": 0,
+            "scale": 8,
+            "magnitude": 4,
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "{PlayerSource} hits you with a {Powername}. You are unable to focus on any other target."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      248,
+      348
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_JUANHERNANDEZ_TAUNT.PFX",
+    "attack_bits": [
+      20,
+      358,
+      688
+    ],
+    "initial_attack_bits": [
+      20,
+      358,
+      688
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "hit_fx": "GENERICCONTINUING/TAUNTGENERIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 20,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 20
+  },
+  "Bone_Smasher": {
+    "crcfull_name": 1413802437,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Bone_Smasher",
+    "display_name": "Bone Smasher",
+    "display_help": "You charge up your fists with energy and then bring them down on the head of a single target. This causes smashing and energy damage. There is also a high chance that the target is stunned.",
+    "display_short_help": "Melee, Extreme DMG (Smashing/Energy), Chance for Stun (Foe)",
+    "display_target_help": "You have been stunned.",
+    "display_target_short_help": "Stun",
+    "icon_name": "RoguesGallery_JuanHernandez_BoneSmasher.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing",
+      "Energy"
+    ],
+    "range": 5,
+    "time_to_activate": 1.5,
+    "recharge_time": 14,
+    "endurance_cost": 11,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              16
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.7,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.7,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          ">=",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 8,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      0,
+      16,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/POWERPUNCH_MELEE_HEAVY.PFX",
+    "attack_bits": [
+      20,
+      263
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      263
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/POWERPUNCH/SINGLELARGEPOWERPUNCH.FX",
+    "hit_fx": "POWERS/POWERPUNCH/POWERPUNCHHIT2.FX",
+    "initial_attack_fx": "POWERS/POWERPUNCH/SINGLELARGEPOWERPUNCH.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 45,
+    "initial_frames_before_hit": 25
+  },
+  "Foot_Stomp": {
+    "crcfull_name": 421684515,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Foot_Stomp",
+    "display_name": "Foot Stomp",
+    "display_help": "You stomp your foot with tremendous force, shaking the very earth. All nearby foes suffer smashing damage and may be knocked back.",
+    "display_short_help": "PBAoE, Superior DMG (Smashing), Chance for Knockback (Foe)",
+    "display_target_help": "Hopkins shakes the very Earth itself with a super Foot Stomp, attacking everything in a nearby area.",
+    "display_target_short_help": "AoE Smash, Knockback",
+    "icon_name": "RoguesGallery_JuanHernandez_FootStomp.tga",
+    "attack_types": [
+      "AOE",
+      "Smashing"
+    ],
+    "near_ground": true,
+    "target_near_ground": true,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "time_to_activate": 2.1,
+    "recharge_time": 12,
+    "endurance_cost": 18,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.3,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "@ToHitRoll",
+          "@ToHit",
+          ">=",
+          "@ForceHit",
+          "||",
+          "&&"
+        ],
+        "eval_flags": 2,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      348
+    ],
+    "preference_multiplier": 3,
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/V_JUANHERNANDEZ_FOOTSTOMP.PFX",
+    "attack_bits": [
+      20,
+      322
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      322
+    ],
+    "activation_fx": "POWERS/POWERPUNCH/POWERPUNCHATTACHED.FX",
+    "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+    "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTHFOOTSTOMPHIT.FX",
+    "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHFOOTSTOMP.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "attack_frames": 63,
+    "initial_frames_before_hit": 22
+  },
+  "Cryo_Rifle_MK2": {
+    "crcfull_name": 2913243630,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.Cryo_Rifle_MK2",
+    "display_name": "Cryo Rifle MK2",
+    "display_help": "You are equipped with the latest upgrade of the Crey Industries Cryo Rifle. Like previous models, your target will suffer cold damage and reductions in both movement and attack speeds. However, instead of putting your target to sleep, this rifle will immobilize your target.",
+    "display_short_help": "Ranged, High DMG (Cold), -Speed (Foe, All), -Rech (Foe), Immobilize (Foe)",
+    "display_target_help": "You are immobilized and suffering from reductions to both your movement and attack speeds.",
+    "display_target_short_help": "Immobilize, -Speed (All), -Rech",
+    "icon_name": "RoguesGallery_JuanHernandez_CryoRifleMk2.tga",
+    "attack_types": [
+      "Ranged",
+      "Cold"
+    ],
+    "range": 200,
+    "time_to_activate": 1.87,
+    "recharge_time": 6,
+    "endurance_cost": 17,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 22,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 22
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 6,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 6,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 2,
+            "delay": 0.25,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+              "conditional_fx": "POWERS/COLDCONTROL/DEEPFREEZE.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 12,
+            "magnitude": 2,
+            "delay": 0.25,
+            "suppress": [
+              {
+                "event": 22,
+                "seconds": 5
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX",
+              "conditional_fx": "POWERS/COLDCONTROL/DEEPFREEZE.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 5,
+    "attrib_cache": [
+      12,
+      188,
+      192,
+      200,
+      204,
+      272,
+      324,
+      328,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_CREY_HOPKINS_CRYO_RIFLE.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      48,
+      187
+    ],
+    "activation_fx": "WEAPONS/LASER_SHOTGUN_1.FX",
+    "attack_fx": "POWERS/COLDCONTROL/ICEWEAPONBLAST2.FX",
+    "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT.FX",
+    "initial_attack_fx": "POWERS/COLDCONTROL/ICEWEAPONBLAST2.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 42,
+    "initial_attack_fxframe_delay": 30,
+    "projectile_speed": 150
+  },
+  "N2_Discharge": {
+    "crcfull_name": 2357313175,
+    "source_file": "DEFS/POWERS/ROGUESGALLERY_JUAN_HERNANDEZ.POWERS",
+    "source_name": "RoguesGallery.Juan_Hernandez.N2_Discharge",
+    "display_name": "N2 Discharge",
+    "display_help": "You release the pressure valves on the liquid nitrogen chambers within your Cryo Rifle, channeling the pressurized liquid nitrogen into a burst that chills multiple targets in an arc in front of you. Affected targets suffer cold damage over time and reductions in both their movement and attack speeds.",
+    "display_short_help": "Ranged (Cone), High DoT (Cold), -Speed (Foe, All), -Rech (Foe)",
+    "display_target_help": "You have been frozen by Hopkin's N2 Cannon. Your Recharge rate and Movement Speed are reduced.",
+    "display_target_short_help": "DoT (Cold), -Speed (All), -Rech",
+    "icon_name": "RoguesGallery_JuanHernandez_N2Discharge.tga",
+    "attack_types": [
+      "Ranged",
+      "Cold"
+    ],
+    "accuracy": 1.2,
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 50,
+    "arc": 0.7853982,
+    "range": 50,
+    "time_to_activate": 6,
+    "recharge_time": 24,
+    "endurance_cost": 20,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "delay": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "duration": 4.1,
+            "delay": 2,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+            }
+          },
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "delay": 1,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING2.FX"
+            }
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 12,
+            "delay": 1
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 5,
+    "attrib_cache": [
+      12,
+      188,
+      192,
+      200,
+      204,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_CREY_N2CANNON.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      161
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      161,
+      187
+    ],
+    "activation_fx": "WEAPONS/LASER_SHOTGUN_1.FX",
+    "attack_fx": "POWERS/COLDCONTROL/ICEWEAPONCOLDTHROWER.FX",
+    "hit_fx": "POWERS/COLDCONTROL/ICEBOLTHIT2.FX",
+    "initial_attack_fx": "POWERS/COLDCONTROL/ICEWEAPONCOLDTHROWERINITIAL.FX",
+    "mode_bits": [
+      20,
+      130,
+      131
+    ],
+    "frames_before_hit": 31,
+    "delayed_hit": true,
+    "attack_frames": 180,
+    "initial_frames_before_hit": 40,
+    "projectile_speed": 60
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "crcfull_name": 1390342259,
+  "source_file": "DEFS/POWERS/MISSION_PETS_RAVENSTORM.POWERS",
+  "source_name": "Mission_Pets.Ravenstorm.Soul_Transfer",
+  "display_name": "Soul Transfer",
+  "display_help": "Should you fall in battle, you can perform a Soul Transfer, sucking the life force of all foes around you to bring yourself back from the brink of death. The more foes nearby, the more life is restored to you. Drained foes are left Disoriented. The dark effects of this Soul Transfer will actually leave you invulnerable for a brief time, and protected from XP Debt for 20 seconds. There must be at least one foe nearby to fuel the Transfer and revive yourself. Damage: Moderate, Recharge: Very Long",
+  "display_short_help": "Self Rez, Special",
+  "icon_name": "DarkArmor_SoulTransfer.tga",
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "castable_after_death": 1,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 25,
+  "time_to_activate": 1.17,
+  "recharge_time": 300,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 10,
+          "magnitude": 30,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Melee_Heal",
+          "scale": 3,
+          "duration": 0.5,
+          "period": 1,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Your {PowerName} steals {Damage} hit points and brings you back from the brink of death!"
+          },
+          "fx": {
+            "continuing_bits": [
+              323
+            ]
+          }
+        },
+        {
+          "attrib": [
+            296
+          ],
+          "target": 0,
+          "scale": 10,
+          "duration": 5,
+          "delay": 0.25,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 30,
+          "delay": 0.25,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "target": 0,
+          "scale": 4,
+          "magnitude": 50,
+          "flags": [
+            1072,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    20,
+    28,
+    88,
+    272,
+    276,
+    296
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DARK_ARMOR_SHADOW_MAW.PFX",
+  "hit_bits": [
+    49,
+    585
+  ],
+  "hit_fx": "POWERS/EMPATHY/SOULTRANSFERABSORBPAIN.FX",
+  "frames_before_hit": 45,
+  "initial_frames_before_hit": 45
+}

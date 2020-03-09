@@ -1,0 +1,529 @@
+{
+  "crcfull_name": 1759296798,
+  "source_file": "DEFS/POWERS/SCRAPPER_MELEE_DUAL_BLADES.POWERS",
+  "source_name": "Scrapper_Melee.Dual_Blades.Follow_Up",
+  "display_name": "Blinding Feint",
+  "display_help": "You perform a feint attack that deals light damage. After this attack hits, it gives you a large bonus to Damage and To Hit for a brief time. This power is the finishing move in the Empower combination attack. Damage: Light, Recharge: Slow",
+  "display_short_help": "Melee, Light DMG(Lethal), Self +DMG +To Hit",
+  "display_attacker_hit": "Your {PowerName} attack has increased your attack and damage for a short duration.",
+  "icon_name": "DualBlades_FollowUp.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "range": 7,
+  "time_to_activate": 1.2,
+  "recharge_time": 12,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    18,
+    9,
+    7,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.7199,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "PlayerCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.7199,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "MLCrit"
+      ],
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "BossCrit"
+      ],
+      "chance": 0.1,
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Minion_Grunt",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Minion_Small",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Pets",
+        "eq",
+        "||",
+        "arch",
+        "target>",
+        "Class_Minion_Swarm",
+        "eq",
+        "||",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "||",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.6309,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "duration": 10,
+          "delay": 0.2,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFTOHITCONT.FX"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 3,
+          "duration": 10,
+          "delay": 0.2,
+          "flags": [
+            112,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFDAMAGECONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "scale": 3,
+          "duration": 10,
+          "delay": 0.2,
+          "flags": [
+            112,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 42,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 43,
+          "delay": 0.25,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 44,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 45,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 46,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 47,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 48,
+          "flags": [
+            1936,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            475
+          ],
+          "type": 2,
+          "target": 0,
+          "magnitude": 49,
+          "flags": [
+            1936,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kDD_StatusMode_2",
+        "Source.Mode?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Melee_Buff_ToHit",
+          "scale": 0.33,
+          "duration": 10,
+          "delay": 0.2,
+          "flags": [
+            96,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "POWER UP!"
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Melee_Buff_Dmg",
+          "duration": 10,
+          "delay": 0.2,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.36,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "highlight_eval": [
+    "kDD_StatusMode_2",
+    "Mode?"
+  ],
+  "highlight_ring": [
+    255,
+    127,
+    0,
+    255
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    100,
+    475
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/DUALBLADES_FOLLOWUP_NOGEO.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    305
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    766,
+    305,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+  "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_HIT.FX",
+  "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    87
+  ],
+  "attack_frames": 36,
+  "initial_frames_before_hit": 35,
+  "initial_attack_fxframe_delay": 20,
+  "custom_fx": [
+    {
+      "token": "NoRedraw",
+      "source_file": "MENU/POWERS/ANIMFX/DUALBLADES_FOLLOWUP_NOGEO.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        766,
+        305
+      ],
+      "block_bits": 53,
+      "activation_bits": [
+        20,
+        130,
+        133,
+        186
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        766,
+        305
+      ],
+      "activation_fx": "WEAPONS/CUSTOM_DUALBLADES/CUSTOMWEAPON_DUALBLADES.FX",
+      "attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+      "hit_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_HIT.FX",
+      "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/DUALBLADES/DUALBLADES_FOLLOWUP_ATTACK.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        87
+      ],
+      "attack_frames": 36,
+      "palette": ""
+    }
+  ]
+}

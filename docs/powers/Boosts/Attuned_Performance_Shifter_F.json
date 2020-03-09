@@ -1,0 +1,99 @@
+{
+  "Attuned_Performance_Shifter_F": {
+    "crcfull_name": 695635477,
+    "source_file": "DEFS/POWERS/BOOSTS_ATTUNED_PERFORMANCE_SHIFTER_F.POWERS",
+    "source_name": "Boosts.Attuned_Performance_Shifter_F.Attuned_Performance_Shifter_F",
+    "display_name": "Performance Shifter: Chance for +Endurance",
+    "display_help": "Gives a chance of granting the powers target a small infusion of endurance. This effect will trigger roughly 1.5 times per minute.",
+    "display_short_help": "Chance for +Endurance",
+    "icon_name": "E_ICON_PerformanceShifter.tga",
+    "type": 3,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "effects": [
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 1.5,
+        "requires": [
+          "target.isFriend?",
+          "enttype",
+          "source>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "scale": 0.1,
+            "flags": [
+              564,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} granting them {Damage} points of endurance.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} granting you {Damage} points of endurance."
+            }
+          }
+        ]
+      },
+      {
+        "tag": [
+          "Damage"
+        ],
+        "procs_per_minute": 1.5,
+        "requires": [
+          "target.isFriend?",
+          "!",
+          "enttype",
+          "source>",
+          "player",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              88
+            ],
+            "target": 0,
+            "scale": 0.1,
+            "stack_type": 3,
+            "flags": [
+              564,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "Your {PowerName} grants you {Damage} points of endurance."
+            }
+          }
+        ]
+      }
+    ],
+    "boost_ignore_effectiveness": true,
+    "boost_combinable": false,
+    "boost_use_player_level": true,
+    "min_slot_level": 16,
+    "attrib_cache": [
+      88
+    ]
+  }
+}

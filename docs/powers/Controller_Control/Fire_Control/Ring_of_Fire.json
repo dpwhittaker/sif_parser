@@ -1,0 +1,367 @@
+{
+  "crcfull_name": 1261886793,
+  "source_file": "DEFS/POWERS/CONTROLLER_CONTROL_FIRE_CONTROL.POWERS",
+  "source_name": "Controller_Control.Fire_Control.Ring_of_Fire",
+  "display_name": "Ring of Fire",
+  "display_help": "Immobilizes your target in a Ring of Fire, dealing Fire damage over time. More resilient foes may require multiple Fire Rings to Immobilize. Damage: Moderate(DoT), Recharge: Fast",
+  "display_short_help": "Ranged, Moderate DoT(Fire), Foe Immobilize",
+  "display_target_help": "The Ring of Fire is burning you and preventing you from moving.",
+  "display_target_short_help": "Immobilize, DoT(Fire)",
+  "icon_name": "FireTrap_RingOfFire.tga",
+  "attack_types": [
+    "Ranged",
+    "Fire"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 1.17,
+  "recharge_time": 4,
+  "endurance_cost": 7.8,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.22,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 4,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.22,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.2758,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 5,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1379,
+          "duration": 9.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [OVERPOWER].",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [OVERPOWER].",
+            "display_float": "Overpower"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 15,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 10,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    8,
+    272,
+    284,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_FIRECONTROL_RINGOFFIRE.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/FIREHANDS.FX",
+  "conditional_fx": "POWERS/FIRECONTROL/BURNINGRING.FX",
+  "conditional_fx1": "POWERS/FIRECONTROL/BURNINGRING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_FIRECONTROL_RINGOFFIRE.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIREHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/FIREHANDS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/BURNINGRING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/BURNINGRING.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERCONTROL_FIRECONTROL_RINGOFFIRE.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIREHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/FIREHANDS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/BURNINGRING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/FIRECONTROL/SUBTRACTIVE/BURNINGRING.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

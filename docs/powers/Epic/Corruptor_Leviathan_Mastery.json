@@ -1,0 +1,1190 @@
+{
+  "School_of_Sharks": {
+    "crcfull_name": 3125521021,
+    "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+    "display_name": "School of Sharks",
+    "display_help": "You can call forth a school of vicious Shark Spirits that will swim out in a cone formation and will encircle your foes, draining their spirit energy. The encircling Shark Spirits will immobilize most foes while they deal negative energy damage over time.",
+    "display_short_help": "Ranged (Cone), Moderate DoT(Negative), Foe Immobilize",
+    "display_target_help": "The School of Sharks has Immobilized you, inflicting negative Damage over Time.",
+    "display_target_short_help": "Immobilize, DoT(Negative)",
+    "icon_name": "Arachnos_Patron_ConeImmobilize.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "$archetype",
+      "@Class_Corruptor",
+      "==",
+      "$archetype",
+      "@Class_Defender",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "target_near_ground": true,
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 50,
+    "arc": 0.5235988,
+    "range": 50,
+    "time_to_activate": 2.37,
+    "recharge_time": 20,
+    "endurance_cost": 12.74,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.135,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 15,
+            "magnitude": 3,
+            "flags": [
+              1064,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.1167,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.1167,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1064,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Corruptor",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Corruptor",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.1669,
+            "flags": [
+              648,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      20,
+      272
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+    "attack_bits": [
+      20,
+      324
+    ],
+    "initial_attack_bits": [
+      20,
+      324
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_IMMOBILIZE.FX",
+    "continuing_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+    "continuing_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 50,
+    "delayed_hit": true,
+    "attack_frames": 71,
+    "initial_frames_before_hit": 50,
+    "projectile_speed": 30,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SCHOOLOFSHARKS.PFX",
+        "attack_bits": [
+          20,
+          324
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          324
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_ATTACK.FX",
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_CONTINUING.FX",
+        "frames_before_hit": 50,
+        "delayed_hit": true,
+        "attack_frames": 71,
+        "initial_frames_before_hit": 50,
+        "projectile_speed": 30,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Shark_Skin": {
+    "crcfull_name": 2413678094,
+    "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Corruptor_Leviathan_Mastery.Shark_Skin",
+    "display_name": "Shark Skin",
+    "display_help": "The power of the Leviathan Mako has shown you seems to have no end. Shark Skin improves your damage resistance to Lethal, Smashing and cold damage. Recharge: Fast",
+    "display_short_help": "Toggle: Self +Res(Smash, Lethal, Cold)",
+    "display_attacker_hit": "Your {PowerName} protects you from lethal, smashing, and cold.",
+    "icon_name": "Arachnos_Patron_ResistBuff.tga",
+    "type": 2,
+    "buy_requires": [
+      "$archetype",
+      "@Class_Corruptor",
+      "==",
+      "$archetype",
+      "@Class_Defender",
+      "==",
+      "||",
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "&&"
+    ],
+    "toggle_ignore_hold": true,
+    "toggle_ignore_sleep": true,
+    "toggle_ignore_stun": true,
+    "time_to_activate": 0.67,
+    "recharge_time": 4,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      35,
+      23,
+      18
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "isPVPMap?",
+          "!"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              12
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "cancel_events": [
+              19,
+              21,
+              22
+            ],
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "requires": [
+          "isPVPMap?"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "target": 0,
+            "table": "Melee_Res_DMG",
+            "scale": 2.75,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SHARKSKIN.PFX",
+    "activation_bits": [
+      245
+    ],
+    "activation_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MAKOSKIN/MAKOSKIN.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SHARKSKIN.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SHARKSKIN_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      },
+      {
+        "token": "Minimal FX",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SHARKSKIN.PFX",
+        "hit_bits": [],
+        "activation_bits": [
+          245
+        ],
+        "activation_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SHARKSKIN_NOSYMBOL_ACTIVATION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Hibernate": {
+    "crcfull_name": 1308808213,
+    "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Corruptor_Leviathan_Mastery.Hibernate",
+    "display_name": "Hibernate",
+    "display_help": "When you activate this power, you encase yourself in a block of solid ice, making yourself invulnerable, though you are frozen solid and cannot act. While Hibernating within this block of ice, you heal damage and recover endurance at an incredible rate. You can emerge at will by deactivating the power, but you cannot Hibernate for more than 30 seconds. You must be level 41 and have School of Sharks or Shark Skin before selecting this power. If you activate this power while in the air, you will fall. Recharge: Long",
+    "display_short_help": "Toggle: Self +Regeneration, +Recovery, Invulnerable; Self Hold",
+    "display_attacker_hit": "You Hibernate in a block of ice, and are almost completely invulnerable while you heal at an astonishing rate.",
+    "icon_name": "Arachnos_Patron_SelfBuffResistancePhysical.tga",
+    "type": 2,
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Corruptor_Leviathan_Mastery.Shark_Skin",
+      "||",
+      "&&"
+    ],
+    "time_to_activate": 0.07,
+    "recharge_time": 240,
+    "activate_period": 0.5,
+    "endurance_cost": 0.1625,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      33,
+      23,
+      18,
+      14
+    ],
+    "group_membership": [
+      0
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37,
+      29
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "target": 0,
+            "scale": -10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272,
+              296,
+              304
+            ],
+            "type": 0,
+            "target": 0,
+            "scale": 0.75,
+            "magnitude": 100,
+            "stack_type": 3,
+            "flags": [
+              1072,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "target": 0,
+            "scale": 10,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "target": 0,
+            "scale": 4,
+            "duration": 0.75,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "target": 0,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Temporary_Powers.Temporary_Powers.NoPhase"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      232,
+      236,
+      272,
+      296,
+      304,
+      324,
+      328,
+      473
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_HIBERNATE.PFX",
+    "continuing_fx": "POWERS/ICEARMOR/HIBERNATE.FX",
+    "continuing_fx1": "POWERS/ICEARMOR/HIBERNATE.FX",
+    "mode_bits": [
+      594
+    ],
+    "frames_before_hit": 1,
+    "attack_frames": 2,
+    "initial_frames_before_hit": 1,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_HIBERNATE.PFX",
+        "hit_bits": [],
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/ICEARMOR/HIBERNATE_CONTINUING.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/ICEARMOR/HIBERNATE_CONTINUING.FX",
+        "mode_bits": [
+          594
+        ],
+        "frames_before_hit": 1,
+        "attack_frames": 2,
+        "initial_frames_before_hit": 1,
+        "palette": "ice"
+      }
+    ]
+  },
+  "Spirit_Shark_Jaws": {
+    "crcfull_name": 2746164080,
+    "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Corruptor_Leviathan_Mastery.Spirit_Shark_Jaws",
+    "display_name": "Spirit Shark Jaws",
+    "display_help": "You can summon a massive Spirit Shark that will attack your foe from below. The Shark will grip your foe with its massive jaws and attempt to hold the target while it mauls it, dealing lethal Damage over Time. Flying Targets will likely be pulled to the ground. You must be level 41 and have School of Sharks or Shark Skin before selecting this power. Recharge: Slow",
+    "display_short_help": "Ranged, Moderate DoT(Lethal), Foe Hold, -Fly",
+    "display_target_help": "You are being Held by a Spirit Shark Jaws and are taking lethal Damage over Time as you are Mauled.",
+    "display_target_short_help": "Hold, DoT(Lethal)",
+    "icon_name": "Arachnos_Patron_TargetedHold.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Corruptor_Leviathan_Mastery.Shark_Skin",
+      "||",
+      "&&"
+    ],
+    "range": 80,
+    "time_to_activate": 1.87,
+    "recharge_time": 32,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      18,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 10,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.135,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_bits": [
+                379
+              ],
+              "conditional_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.5978,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2657,
+            "duration": 7.1,
+            "delay": 1,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Corruptor",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "kHitPoints%",
+          "target>",
+          "10",
+          "-",
+          "100",
+          "*",
+          "50",
+          "10",
+          "-",
+          "/",
+          "0",
+          "100",
+          "minmax",
+          "rand",
+          "100",
+          "*",
+          "<",
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "&&",
+          "arch",
+          "source>",
+          "Class_Corruptor",
+          "eq",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 2.989,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [SCOURGE].",
+              "display_float": "Scourge"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1.6,
+            "duration": 15,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      4,
+      268,
+      284
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARKJAWS.PFX",
+    "attack_bits": [
+      20,
+      302
+    ],
+    "initial_attack_bits": [
+      20,
+      302
+    ],
+    "hit_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_CIRCLE_HIT.FX",
+    "conditional_fx": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY_BIGHOLD.FX",
+    "conditional_fx1": "V_COV/ENEMYPOWERS/ARCHVILLAINS/MAKO/V_MAKO_SPIRITSHARK_FRENZY_BIGHOLD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 21,
+    "attack_frames": 56,
+    "initial_frames_before_hit": 21,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SPIRITSHARKJAWS.PFX",
+        "attack_bits": [
+          20,
+          302
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          302
+        ],
+        "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SCHOOLOFSHARKS_HIT.FX",
+        "conditional_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRTSHARKJAWS_CONDITIONAL.FX",
+        "conditional_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SPIRTSHARKJAWS_CONDITIONAL.FX",
+        "frames_before_hit": 21,
+        "attack_frames": 56,
+        "initial_frames_before_hit": 21,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Summon_Coralax": {
+    "crcfull_name": 1910191908,
+    "source_file": "DEFS/POWERS/EPIC_CORRUPTOR_LEVIATHAN_MASTERY.POWERS",
+    "source_name": "Epic.Corruptor_Leviathan_Mastery.Summon_Coralax",
+    "display_name": "Summon Coralax",
+    "display_help": "Captain Mako has shown you how to summon a Coralax Red Hybrid to do your bidding. The Coralax are humans who have been infected with living coral. Your access to this Hybrid is very limited. You can only summon it once every 15 minutes and it will leave after 4 minutes, or if you exit a zone or mission. You must be level 44 and have two other Leviathan Mastery Powers before selecting this power. Recharge: Extremely Long",
+    "display_short_help": "Summon Hybrid: Ranged Moderate DMG(Psionic)",
+    "icon_name": "Arachnos_Patron_SummonOnePet.tga",
+    "buy_requires": [
+      "SpidersKissPatron",
+      "Owned?",
+      "TheStingerPatron",
+      "Owned?",
+      "||",
+      "BloodInTheWaterPatron",
+      "Owned?",
+      "||",
+      "MiragePatron",
+      "Owned?",
+      "||",
+      "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Corruptor_Leviathan_Mastery.Shark_Skin",
+      "&&",
+      "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Corruptor_Leviathan_Mastery.Hibernate",
+      "&&",
+      "||",
+      "Epic.Corruptor_Leviathan_Mastery.School_of_Sharks",
+      "Epic.Corruptor_Leviathan_Mastery.Spirit_Shark_Jaws",
+      "&&",
+      "||",
+      "Epic.Corruptor_Leviathan_Mastery.Shark_Skin",
+      "Epic.Corruptor_Leviathan_Mastery.Hibernate",
+      "&&",
+      "||",
+      "Epic.Corruptor_Leviathan_Mastery.Shark_Skin",
+      "Epic.Corruptor_Leviathan_Mastery.Spirit_Shark_Jaws",
+      "&&",
+      "||",
+      "&&"
+    ],
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 3.2,
+    "recharge_time": 900,
+    "endurance_cost": 26,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      29,
+      23,
+      22,
+      21,
+      18,
+      17,
+      15,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12,
+      8,
+      37
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 240,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "Pets_Patron_Powers_Red_Corolax",
+                "priority_list": "PL_FightPreferRanged"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SUMMON.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "ENEMYFX/V_CORALAX/CORAL_GUARDIAN/SUMMON_ATTACK.FX",
+    "initial_attack_fx": "ENEMYFX/V_CORALAX/CORAL_GUARDIAN/SUMMON_ATTACK.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 37,
+    "attack_frames": 96,
+    "initial_frames_before_hit": 37,
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_LEVIATHANMASTERY_SUMMON.PFX",
+        "attack_bits": [
+          20,
+          272
+        ],
+        "hit_bits": [],
+        "initial_attack_bits": [
+          20,
+          272
+        ],
+        "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_ATTACK.FX",
+        "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_ATTACK.FX",
+        "frames_before_hit": 37,
+        "attack_frames": 96,
+        "initial_frames_before_hit": 37,
+        "palette": "Additive"
+      }
+    ]
+  }
+}

@@ -1,0 +1,455 @@
+{
+  "crcfull_name": 2903579809,
+  "source_file": "DEFS/POWERS/DOMINATOR_ASSAULT_THORNY_ASSAULT.POWERS",
+  "source_name": "Dominator_Assault.Thorny_Assault.Ripper",
+  "display_name": "Ripper",
+  "display_help": "You can unleash a spectacular slashing maneuver that attacks all foes in a wide arc directly in front of you. Ripper deals massive damage and poisons multiple targets. It can even knock foes down. Thorn poison deals additional Toxic damage and can reduce your foes Defense. Damage: High, Recharge: Slow",
+  "display_short_help": "Melee (Cone), High DMG(Lethal), DoT(Toxic) -DEF, Knockback, -SPD",
+  "display_target_help": "You are poisoned! You are taking Toxic Damage and your Defense is Reduced.",
+  "display_target_short_help": "DoT(Toxic) -DEF",
+  "icon_name": "ThornyAssault_Ripper.tga",
+  "attack_types": [
+    "Melee",
+    "Lethal"
+  ],
+  "effect_area": 1,
+  "max_targets_hit": 5,
+  "radius": 7,
+  "arc": 1.0471976,
+  "range": 7,
+  "time_to_activate": 2.17,
+  "recharge_time": 15,
+  "endurance_cost": 14.352,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    18,
+    17,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 2.3384,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.6,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.0152,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            96
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 8,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.6,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.2,
+          "duration": 4.1,
+          "delay": 0.5,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Melee_Debuff_Def",
+          "scale": 3,
+          "duration": 12,
+          "flags": [
+            644,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    4,
+    36,
+    96,
+    184,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_RIPPER.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    205
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    139,
+    188
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    139,
+    205,
+    188
+  ],
+  "activation_fx": "V_COV/POWERS/QUILLS/QUILLSHTHDAMAGENOSPIKES.FX",
+  "attack_fx": "V_COV/POWERS/QUILLS/QUILLSEVISCERATEB.FX",
+  "hit_fx": "POWERS/POISONCONTROL/QUILLSRIPPERHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/QUILLS/QUILLSEVISCERATEB.FX",
+  "continuing_fx": "V_COV/POWERS/QUILLS/IMPALEHITCONTINUING.FX",
+  "continuing_fx1": "V_COV/POWERS/QUILLS/IMPALEHITCONTINUING.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    139
+  ],
+  "frames_before_hit": 51,
+  "attack_frames": 65,
+  "initial_frames_before_hit": 70,
+  "initial_attack_fxframe_delay": 19,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_RIPPER.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/RIPPER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/RIPPER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/RIPPER_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/THORNS/THORNS_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 51,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 70,
+      "initial_attack_fxframe_delay": 19,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "Spines",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_RIPPER.PFX",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/RIPPER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/RIPPER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/RIPPER_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THORNS_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/SPINES/THORNS_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 51,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 70,
+      "initial_attack_fxframe_delay": 19,
+      "palette": "CustomPowerDefault"
+    },
+    {
+      "token": "MetalSpikes",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_RIPPER.PFX",
+      "display_name": "Metal Spikes",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/RIPPER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/RIPPER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/RIPPER_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THORNS_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/METALSPINES/THORNS_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 51,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 70,
+      "initial_attack_fxframe_delay": 19,
+      "palette": "CustomPowerDefault"
+    },
+    {
+      "token": "CrystalSpines",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_RIPPER.PFX",
+      "display_name": "Crystalline Spines",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/RIPPER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/RIPPER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/RIPPER_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THORNS_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/CRYSTALSPINES/THORNS_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 51,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 70,
+      "initial_attack_fxframe_delay": 19,
+      "palette": "ExtendedEarth"
+    },
+    {
+      "token": "SlateSpines",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORASSAULT_THORNYASSAULT_RIPPER.PFX",
+      "display_name": "Slate Spines",
+      "attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205
+      ],
+      "activation_bits": [
+        20,
+        130,
+        133,
+        139,
+        188
+      ],
+      "initial_attack_bits": [
+        20,
+        130,
+        133,
+        139,
+        205,
+        188
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/SPINES_ACTIVATION.FX",
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/RIPPER_ATTACK.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/RIPPER_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/RIPPER_ATTACK.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THORNS_CONTINUING.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/SPINES/SLATE/THORNS_CONTINUING.FX",
+      "mode_bits": [
+        20,
+        130,
+        133,
+        139
+      ],
+      "frames_before_hit": 51,
+      "attack_frames": 65,
+      "initial_frames_before_hit": 70,
+      "initial_attack_fxframe_delay": 19,
+      "palette": "Earth"
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "crcfull_name": 3727598970,
+  "source_file": "DEFS/POWERS/VANGUARD_FAULTLINE.POWERS",
+  "source_name": "Vanguard.Faultline.Mud_Pots",
+  "display_name": "Mud Pots",
+  "display_help": "While this power is active, you draw upon the geothermal power of the Earth to create a bubbling pool of hot mud around yourself. All foes in melee range will become snared and entrapped in the mud, Immobilizing some and slowing others. The boiling heat from Mud Pots also deals some damage over time to the snared foes. Damage: Minor(DoT), Recharge: Fast",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Foe Immobilize, -SPD",
+  "display_target_help": "The Mud Pots are burning you and reducing your Running speed. You may be immobilized, as well.",
+  "display_target_short_help": "DoT(Fire), Immobilize, -SPD",
+  "display_attacker_hit": "Your {PowerName} Slow all nearby foes.",
+  "icon_name": "StoneArmor_Clay.tga",
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 8,
+  "time_to_activate": 2.03,
+  "recharge_time": 30,
+  "endurance_cost": 2.1,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            200
+          ],
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 40
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "aspect": 8,
+          "table": "Melee_SpeedRunning",
+          "scale": -1.5,
+          "duration": 40,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.5,
+          "duration": 40,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "scale": 2,
+          "duration": 40,
+          "period": 2
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.08,
+          "duration": 40,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    8,
+    188,
+    200,
+    204,
+    272
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/STONEARMOR_CLAY.PFX",
+  "activation_bits": [
+    20,
+    249
+  ],
+  "activation_fx": "POWERS/EARTHCONTROL/CLAYSTONEARMOR.FX",
+  "frames_before_hit": 28,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 28
+}

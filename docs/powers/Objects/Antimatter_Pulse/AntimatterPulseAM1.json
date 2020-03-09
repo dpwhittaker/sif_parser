@@ -1,0 +1,127 @@
+{
+  "crcfull_name": 4225405162,
+  "source_file": "DEFS/POWERS/OBJECTS_ANTIMATTER_PULSE.POWERS",
+  "source_name": "Objects.Antimatter_Pulse.AntimatterPulseAM1",
+  "display_name": "Antimatter Pulse",
+  "display_help": "The Keyes Island reactor is undergoing meltdown, unleashing a deadly barrage of radiation every thirty seconds.",
+  "display_short_help": "Antimatter Pulse",
+  "icon_name": "Temporary_TerraVoltaGlow.tga",
+  "attack_types": [
+    "Energy"
+  ],
+  "target_requires": [
+    "kTower_Protection",
+    "target.mode?",
+    "!"
+  ],
+  "shoot_through_untouchable": true,
+  "ai_report": 1,
+  "effect_area": 7,
+  "target_visibility": 1,
+  "ents_auto_hit": [
+    2
+  ],
+  "ents_affected": [
+    2
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            48
+          ],
+          "scale": -0.2,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The {PowerName} from the reactor irradiates you for {Damage} points of annihilation damage!"
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "type": 3,
+          "magnitude_expr": [
+            "1",
+            "cur.kMeter",
+            "source>",
+            "-",
+            "0.03",
+            "*",
+            "-1",
+            "*"
+          ],
+          "stack_type": 1,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The {PowerName} from the reactor irradiates you for {Damage} points of Energy damage!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "type": 3,
+          "magnitude_expr": [
+            "1",
+            "cur.kMeter",
+            "source>",
+            "-",
+            "0.02",
+            "*",
+            "-1",
+            "*"
+          ],
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "The {PowerName} from the reactor irradiates you for {Damage} points of Energy damage!"
+          }
+        }
+      ]
+    }
+  ],
+  "show_buff_icon": false,
+  "preference_multiplier": -1,
+  "is_environment_hit": true,
+  "attrib_cache": [
+    16,
+    48
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/GREG_KEYESISLAND_ANTIMATTERPULSE.PFX",
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    377
+  ],
+  "hit_fx": "EVENTS/ENDGAME/KEYESISLAND/ANTIMATTERPULSE.FX"
+}

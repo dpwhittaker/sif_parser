@@ -1,0 +1,353 @@
+{
+  "crcfull_name": 205073270,
+  "source_file": "DEFS/POWERS/CORRUPTOR_RANGED_SONIC_ATTACK.POWERS",
+  "source_name": "Corruptor_Ranged.Sonic_Attack.Screech",
+  "display_name": "Screech",
+  "display_help": "By bursting forth with this hypersonic Screech, you can disorient a target. Damage: Minor, Recharge: Slow",
+  "display_short_help": "Ranged, Minor DMG(Smashing/Energy), Foe Disorient, -Res(All)",
+  "display_target_help": "You have been Disoriented and your resistance to damage has been decreased.",
+  "display_target_short_help": "Disorient, -Resist",
+  "icon_name": "SonicBlast_Stun.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Energy"
+  ],
+  "range": 60,
+  "time_to_activate": 1.5,
+  "recharge_time": 20,
+  "endurance_cost": 10.192,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -2,
+          "duration": 12,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kHitPoints%",
+        "target>",
+        "15",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kHitPoints%",
+        "target>",
+        "15",
+        "<",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.1479,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SCREECH.PFX",
+  "attack_bits": [
+    20,
+    417,
+    683,
+    766,
+    383
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    417,
+    683,
+    766,
+    383
+  ],
+  "attack_fx": "POWERS/SONICCONTROL/BLASTS/HEADSONICSCREECH.FX",
+  "hit_fx": "POWERS/SONICCONTROL/BLASTS/STANDARDBLASTHIT.FX",
+  "initial_attack_fx": "POWERS/SONICCONTROL/BLASTS/HEADSONICSCREECH.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 24,
+  "attack_frames": 45,
+  "initial_frames_before_hit": 24,
+  "custom_fx": [
+    {
+      "token": "Bright Sonic Attack",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SCREECH.PFX",
+      "attack_bits": [
+        20,
+        417,
+        683,
+        766,
+        383
+      ],
+      "initial_attack_bits": [
+        20,
+        417,
+        683,
+        766,
+        383
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/HEADSONICSCREECH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/HEADSONICSCREECH.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 24,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Sonic Attack",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SCREECH.PFX",
+      "attack_bits": [
+        20,
+        417,
+        683,
+        766,
+        383
+      ],
+      "initial_attack_bits": [
+        20,
+        417,
+        683,
+        766,
+        383
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/HEADSONICSCREECH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/HEADSONICSCREECH.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 24
+    },
+    {
+      "token": "Bright Sonic Alternate",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SCREECH.PFX",
+      "display_name": "Bright Screech Alternate",
+      "attack_bits": [
+        20,
+        766,
+        383,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        766,
+        383,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_HEADSONICSCREECH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/CUSTANIM_HEADSONICSCREECH.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 24,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Sonic Alternate",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORRANGED_SONICATTACK_SCREECH.PFX",
+      "display_name": "Dark Screech Alternate",
+      "attack_bits": [
+        20,
+        766,
+        383,
+        685
+      ],
+      "initial_attack_bits": [
+        20,
+        766,
+        383,
+        685
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_HEADSONICSCREECH.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/STANDARDBLASTHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/SONICATTACK/SUBTRACTIVE/CUSTANIM_HEADSONICSCREECH.FX",
+      "frames_before_hit": 24,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 24
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "crcfull_name": 688090491,
+  "source_file": "DEFS/POWERS/VILLAIN_PETS_TRAPS_POISON_GAS.POWERS",
+  "source_name": "Villain_Pets.Traps_Poison_Gas.Poison_Gas",
+  "display_name": "Poison Gas",
+  "display_help": "You are caught within a Poison Gas Trap. The poison is a very noxious gas and making you sick, you may start to choke or even vomit. Your Regeneration rate and attack rate has been reduced as well.",
+  "display_short_help": "Choke, Vomit, -Regen, - Recharge",
+  "icon_name": "Traps_DroppedAoEDebuffAttackSpeed.tga",
+  "type": 1,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 25,
+  "activate_period": 1,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    30,
+    29
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "scale": -10,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Melee_Res_Boolean",
+          "scale": -30,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFMAXHPCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "table": "Melee_Slow",
+          "scale": 0.3,
+          "duration": 10,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFSPEEDHANDS.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Melee_Sleep",
+          "scale": 4,
+          "magnitude": 3,
+          "delay": 0.25,
+          "period": 1,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} holds {PlayerDest}!",
+            "display_victim_hit": ""
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.02,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "scale": 2,
+          "magnitude": 3,
+          "delay": 0.25,
+          "period": 1,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} holds {PlayerDest}!",
+            "display_victim_hit": "You have been held by the {PowerName}!"
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Human",
+        "target.HasTag?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            216
+          ],
+          "scale": 1000,
+          "duration": 4,
+          "period": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "conditional_bits": [
+              500,
+              21
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            216
+          ],
+          "scale": 1000,
+          "duration": 4,
+          "period": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "conditional_bits": [
+              500,
+              21
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    216,
+    232,
+    268,
+    356
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_POISONPOISONGAS_INITIALPOISONGAS.PFX",
+  "activation_fx": "WEAPONS/BOW/TRICKARROW/ACIDTRAPCONTINUING.FX",
+  "conditional_fx": "V_COV/POWERS/POISON/POISONTRAPCONTINUING.FX",
+  "conditional_fx1": "V_COV/POWERS/POISON/POISONTRAPCONTINUING.FX",
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_POISONPOISONGAS_INITIALPOISONGAS.PFX",
+      "hit_bits": [],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/POISONPOISONGAS/ACIDTRAPCONTINUING.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/POISONTRAPCONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/CONTINUINGCONDITIONALFX/POISONTRAPCONTINUING.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

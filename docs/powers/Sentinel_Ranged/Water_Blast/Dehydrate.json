@@ -1,0 +1,449 @@
+{
+  "crcfull_name": 1786069429,
+  "source_file": "DEFS/POWERS/SENTINEL_RANGED_WATER_BLAST.POWERS",
+  "source_name": "Sentinel_Ranged.Water_Blast.Dehydrate",
+  "display_name": "Dehydrate",
+  "display_help": "You rapidly dehydrate your target, causing Moderate Cold and Smashing damage, reducing their movement speed and defense as well as causing a measure of Cold damage over time. You are then healed over time for a moderate amount of health. Dehydrate grants 1 stack of Tidal Power if you have 2 or less. Dehydrate will consume all stacks of Tidal Power if you have 3, but the power's heal over time effect is increased by 50%. NOTE: This power will grant a regeneration buff in PvP zones instead of a heal over time. Damage: Moderate, Light DoT, Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DMG(Cold/Smash), Foe -Speed, -Defense, Light DoT(Cold), Self +Heal Over Time, +/- Tidal Power",
+  "display_target_help": "Your movement speed and defense has been reduced by the Dehydrate!",
+  "display_target_short_help": "Foe -Defense and -Speed",
+  "icon_name": "WaterBlast_Dehydrate.tga",
+  "attack_types": [
+    "Ranged",
+    "Smashing",
+    "Cold"
+  ],
+  "range": 60,
+  "time_to_activate": 1.87,
+  "recharge_time": 8,
+  "endurance_cost": 8.528,
+  "target": 19,
+  "boosts_allowed": [
+    29,
+    23,
+    22,
+    18,
+    14,
+    10,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.25,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.75,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.7638,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 2.2924,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.149,
+          "duration": 4.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage over time."
+          }
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 8,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            188,
+            192,
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.2,
+          "duration": 8
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "duration": 8,
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "2",
+        "<=",
+        "isPVPMap?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_HealSelf",
+          "scale": 0.275,
+          "duration": 3.1,
+          "period": 1,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain {Damage} hit points from your {PowerName}!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "3",
+        "==",
+        "isPVPMap?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_HealSelf",
+          "scale": 0.413,
+          "duration": 3.1,
+          "period": 1,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain {Damage} hit points from your {PowerName}!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "2",
+        "<=",
+        "isPVPMap?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.6,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} causes you to regenerate.",
+            "display_victim_hit": ""
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFMAXHPCONT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "3",
+        "==",
+        "isPVPMap?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.9,
+          "duration": 30,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} causes you to regenerate.",
+            "display_victim_hit": ""
+          },
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/BUFFMAXHPCONT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "2",
+        "<="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain Tidal Power!",
+            "display_victim_hit": ""
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Tidal_Power"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Tidal_Power",
+        "source.ownPowerNum?",
+        "3",
+        "=="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            474
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "stack_type": 1,
+          "flags": [
+            560,
+            1
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Tidal_Power"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "highlight_eval": [
+    "Temporary_Powers.Temporary_Powers.Tidal_Power",
+    "ownPowerNum?",
+    "3",
+    "=="
+  ],
+  "highlight_ring": [
+    255,
+    127,
+    0,
+    255
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    12,
+    28,
+    184,
+    188,
+    192,
+    200,
+    204,
+    232,
+    473,
+    474
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_DEHYDRATE.PFX",
+  "attack_bits": [
+    20,
+    631,
+    261
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    631,
+    261
+  ],
+  "hit_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/DEHYDRATE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "attack_frames": 56,
+  "initial_frames_before_hit": 16,
+  "primary_tint": [
+    100,
+    140,
+    215,
+    255
+  ],
+  "secondary_tint": [
+    40,
+    140,
+    255,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_DEHYDRATE.PFX",
+      "attack_bits": [
+        20,
+        631,
+        261
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        261
+      ],
+      "hit_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/DEHYDRATE.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 56,
+      "initial_frames_before_hit": 16,
+      "palette": ""
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/BLASTERRANGED_WATERBLAST_DEHYDRATE.PFX",
+      "attack_bits": [
+        20,
+        631,
+        261
+      ],
+      "initial_attack_bits": [
+        20,
+        631,
+        261
+      ],
+      "hit_fx": "CUSTOMIZEABLEPOWERS/WATERBLAST/SUBTRACTIVE/DEHYDRATE.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 56,
+      "initial_frames_before_hit": 16,
+      "palette": ""
+    }
+  ]
+}

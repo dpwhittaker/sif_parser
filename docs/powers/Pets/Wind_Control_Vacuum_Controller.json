@@ -1,0 +1,395 @@
+{
+  "Vacuum_Over_Time": {
+    "crcfull_name": 2450846047,
+    "source_file": "DEFS/POWERS/PETS_WIND_CONTROL_VACUUM_CONTROLLER.POWERS",
+    "source_name": "Pets.Wind_Control_Vacuum_Controller.Vacuum_Over_Time",
+    "display_name": "Vacuum",
+    "display_help": "You envelop the area around you in a vacuum, causing lethal damage to all those within the field of effect for as long as they remain inside it. Additionally, affected targets cannot fly and suffer reduced movement speed, attack speed and chance to hit.",
+    "display_short_help": "PBAoE, Moderate DoT (Lethal), -Speed(Foe, All), -Rech(Foe), -ToHit(Foe), -Fly(Foe)",
+    "display_target_help": "You are caught in the continuing field of a vacuum created near your location. This causes lethal damage over time and weakens you, preventing flight and reducing movement speed, attack speed and chance to hit.",
+    "display_target_short_help": "DoT (Lethal), -Speed (All), -Rech, -ToHit, -Fly",
+    "icon_name": "WindControl_Vacuum.tga",
+    "type": 1,
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "activate_period": 1,
+    "ents_auto_hit": [
+      19
+    ],
+    "boosts_allowed": [
+      29,
+      11,
+      9
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "IncarnateBoss",
+          "target.HasTag?",
+          "||",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.18,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq",
+          "kImmobilized",
+          "target>",
+          "0",
+          ">",
+          "kHeld",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kSleep",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "kStunned",
+          "target>",
+          "0",
+          ">",
+          "||",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.02,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.03,
+            "duration": 20,
+            "stack_type": 6
+          },
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.03,
+            "duration": 20,
+            "stack_type": 6,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.03,
+            "duration": 20,
+            "stack_type": 6
+          },
+          {
+            "attrib": [
+              284
+            ],
+            "table": "Ranged_Ones",
+            "scale": -2,
+            "duration": 1.1,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      4,
+      100,
+      188,
+      192,
+      200,
+      204,
+      284,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_ICESLICK_ICESLICK.PFX",
+    "activation_fx": "POWERS/COLDCONTROL/ICESLICK.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_ICESLICK_ICESLICK.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/ICESLICK/ICESLICK.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "Vacuum_Hold": {
+    "crcfull_name": 337341360,
+    "source_file": "DEFS/POWERS/PETS_WIND_CONTROL_VACUUM_CONTROLLER.POWERS",
+    "source_name": "Pets.Wind_Control_Vacuum_Controller.Vacuum_Hold",
+    "display_name": "Vacuum",
+    "display_help": "You envelop the area around you in a vacuum, staggering all those caught in the initial burst.",
+    "display_short_help": "PBAoE, Hold (Foe)",
+    "display_target_help": "You have been caught in the initial burst creating a vacuum near your location. This staggers you, effectively holding you in place for a short time.",
+    "display_target_short_help": "Hold",
+    "icon_name": "WindControl_Vacuum.tga",
+    "type": 1,
+    "buy_requires": [
+      "accesslevel",
+      "char>",
+      "0",
+      ">="
+    ],
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 25,
+    "activate_period": 16.1,
+    "boosts_allowed": [
+      30,
+      5
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 8,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerDest} has been held within your {PowerName} field.",
+              "display_victim_hit": "You are staggered by {PowerName} and held in place."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 6,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerDest} has been strongly staggered by the overpowering nature of your {PowerName} field.",
+              "display_victim_hit": "You are exceptionally staggered by {PowerName} and held in place more strongly.",
+              "display_float": "Overpower"
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Ones",
+            "scale": 4,
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "{PlayerDest} has been held within your {PowerName} field.",
+              "display_victim_hit": "You are staggered by {PowerName} and held in place."
+            },
+            "fx": {
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/COLDCONTROL/ICEROOTCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      268
+    ]
+  }
+}

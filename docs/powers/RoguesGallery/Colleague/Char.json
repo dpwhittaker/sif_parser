@@ -1,0 +1,154 @@
+{
+  "crcfull_name": 2150291469,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_COLLEAGUE.POWERS",
+  "source_name": "RoguesGallery.Colleague.Char",
+  "display_name": "Char",
+  "display_help": "You surround your target with charred soot and ash, choking them. This momentarily incapacitates them, holding them in place. The target also suffers fire damage over time due to the smoldering debris. Recharge: Moderate",
+  "display_short_help": "Ranged, Moderate DoT (Fire), Hold (Foe)",
+  "display_target_help": "You are suffering fire damage over time and are held.",
+  "display_target_short_help": "DoT (Fire), Hold",
+  "icon_name": "FireTrap_Soot.tga",
+  "attack_types": [
+    "Ranged",
+    "Fire"
+  ],
+  "accuracy": 1.2,
+  "range": 80,
+  "time_to_activate": 1.07,
+  "recharge_time": 8,
+  "endurance_cost": 11.48,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        },
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "duration": 3.2,
+          "delay": 1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 10,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            268
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 8,
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 21,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_bits": [
+              375
+            ],
+            "conditional_fx": "POWERS/FIRECONTROL/SMOKEHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "preference_multiplier": 10,
+  "attrib_cache": [
+    8,
+    268
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_SOOT.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "attack_fx": "POWERS/FIRECONTROL/SOOT.FX",
+  "hit_fx": "POWERS/FIRECONTROL/EMBERSHITSOOTANDCINDERS.FX",
+  "initial_attack_fx": "POWERS/FIRECONTROL/SOOT.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "delayed_hit": true,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 23,
+  "projectile_speed": 51
+}

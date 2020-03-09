@@ -1,0 +1,361 @@
+{
+  "crcfull_name": 822035548,
+  "source_file": "DEFS/POWERS/EPIC_BRUTE_MU_MASTERY.POWERS",
+  "source_name": "Epic.Brute_Mu_Mastery.Electrifying_Fences",
+  "display_name": "Electrifying Fences",
+  "display_help": "The Electrifying Fences attempts to Immobilize a group of foes in an area. This power deals some energy damage over time as it slowly drains some Endurance. Damage: Moderate(DoT), Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Minor DoT(Energy), Foe Immobilize, -END",
+  "display_target_help": "You are immobilized by the Electrifying Fences. You are taking energy damage over time and are loosing some Endurance.",
+  "display_target_short_help": "Immobilize, DoT(Negative), -END",
+  "icon_name": "Arachnos_Patron_RangedAoEImmobilize.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Brute",
+    "==",
+    "$archetype",
+    "@Class_Tanker",
+    "==",
+    "||",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "range": 40,
+  "time_to_activate": 1.17,
+  "recharge_time": 20,
+  "endurance_cost": 12.74,
+  "target": 19,
+  "boosts_allowed": [
+    33,
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 7.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.04,
+          "duration": 6.2,
+          "period": 2
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.0897,
+          "duration": 7.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -1,
+          "duration": 6.2,
+          "period": 2
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "==",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.8076,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 15,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": -100,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 2
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.045,
+          "duration": 7.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 2,
+  "attrib_cache": [
+    8,
+    16,
+    88,
+    236,
+    272,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICFENCES.PFX",
+  "attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "initial_attack_bits": [
+    20,
+    289,
+    258
+  ],
+  "attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYCONTROL.FX",
+  "hit_fx": "V_COV/ENEMYPOWERS/ARACHNOS/MU_LIGHTNINGBOLTHIT.FX",
+  "initial_attack_fx": "POWERS/ELECTRICITYCONTROL/RED_ELECTRICITYCONTROL.FX",
+  "conditional_fx": "POWERS/ELECTRICITYCONTROL/REDELECTRICITYFENCE.FX",
+  "conditional_fx1": "POWERS/ELECTRICITYCONTROL/REDELECTRICITYFENCE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 23,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICFENCES.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICFENCES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/BALLLIGHTNING_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/ELECTRICFENCES_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/ELECTRICFENCE_CONTINUING.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PATRON_MUMASTERY_ELECTRICFENCES.PFX",
+      "attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "hit_bits": [],
+      "initial_attack_bits": [
+        20,
+        289,
+        258
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICFENCES_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/BALLLIGHTNING_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_MUMASTERY/SUBTRACTIVE/ELECTRICFENCES_ATTACK.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/ELECTRICCONTROL/SUBTRACTIVE/ELECTRICFENCE_CONTINUING.FX",
+      "frames_before_hit": 23,
+      "attack_frames": 35,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

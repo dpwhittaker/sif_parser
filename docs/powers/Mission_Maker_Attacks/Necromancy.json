@@ -1,0 +1,1073 @@
+{
+  "Dark_Blast": {
+    "crcfull_name": 139483016,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Dark_Blast",
+    "display_name": "Dark Blast",
+    "display_help": "A long range blast of dark energy. Deals moderate Negative Energy damage and reduces the target's chance to hit. Damage: Moderate, Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Negative), Foe -To Hit",
+    "display_target_help": "The Dark Blast has reduced your chance to hit.",
+    "display_target_short_help": "-To Hit",
+    "icon_name": "Necromancy_DarkBlast.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 6,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "point_value": 100,
+    "attrib_cache": [
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARKNESS_CONTROL_DARK_BLAST.PFX",
+    "attack_bits": [
+      20,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      258
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLAST2.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLASTHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/DARKNESSBLAST2.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 22,
+    "delayed_hit": true,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 22,
+    "projectile_speed": 51
+  },
+  "Zombie_Horde": {
+    "crcfull_name": 2054609838,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Zombie_Horde",
+    "display_name": "Zombie Horde",
+    "display_help": "Summons one to three Zombies (depending on your level) to do your bidding. Zombies are very tough but can be slow and stupid. They start out with only rudimentary melee attacks, but can be empowered with range and even life draining powers. You may only have 3 Zombies under your control at any given time. If you attempt to summon more Zombies, you can only replace the ones you have lost in battle. If you already have three, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Zombies",
+    "icon_name": "Necromancy_CallZombieHorde.tga",
+    "time_to_activate": 3.1,
+    "recharge_time": 60,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Minion_Grunt",
+          "eq",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Zombie",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Lt_Grunt",
+          "eq",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Zombie",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">",
+          "arch",
+          "source>",
+          "Class_Lt_Grunt",
+          "eq",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Zombie",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Zombie",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Zombie",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "17",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus2",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Zombie",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 20,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_ZOMBIE.PFX",
+    "attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "initial_attack_bits": [
+      20,
+      300,
+      766
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/DARKNESSHANDS.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/DARKNESSHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 93,
+    "initial_frames_before_hit": 32
+  },
+  "Gloom": {
+    "crcfull_name": 790158444,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Gloom",
+    "display_name": "Gloom",
+    "display_help": "Gloom slowly drains a target of life, while reducing their chance to hit Slower than Dark Blast, but deals more damage over time. Damage: High(DoT), Recharge: Moderate",
+    "display_short_help": "Ranged, High DoT(Negative), Foe -To Hit",
+    "display_target_help": "The Gloom is causing damage to you and reducing your chance to hit.",
+    "display_target_short_help": "DoT(Negative), -To Hit",
+    "icon_name": "Necromancy_Gloom.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 80,
+    "time_to_activate": 1.1,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "scale": 0.22,
+            "duration": 3.6,
+            "period": 0.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "point_value": 110,
+    "attrib_cache": [
+      20,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARKNESS_CONTROL_SOUL_DRAIN.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/SOULDRAIN.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/SOULDRAIN.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "delayed_hit": true,
+    "attack_frames": 33,
+    "initial_frames_before_hit": 25,
+    "projectile_speed": 90
+  },
+  "Skeletal_Warriors": {
+    "crcfull_name": 996088272,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Skeletal_Warriors",
+    "display_name": "Grave Knight",
+    "display_help": "You can summon one to two powerful Grave Knights (depending on your level) to do your bidding. Grave Knights come well equipped with several attack powers and can be empowered with even more. You may only have 2 Grave Knights under your control at any given time. If you attempt to summon more Grave Knights, you can only replace the ones you have lost in battle. If you already have two, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Grave Knight",
+    "icon_name": "Necromancy_SummonSkeletonWarrior.tga",
+    "time_to_activate": 1.07,
+    "recharge_time": 90,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 1,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Skeletal_Warrior",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "23",
+          ">",
+          "arch",
+          "source>",
+          "Class_Boss_Grunt",
+          "eq",
+          "arch",
+          "source>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "source>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||",
+          "&&",
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Melee_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Skeletal_Warrior",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 22,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_SKELETON.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/2NDPETSUMMON.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/2NDPETSUMMON.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 19,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 19
+  },
+  "Life_Drain": {
+    "crcfull_name": 3715360795,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Life_Drain",
+    "display_name": "Life Drain",
+    "display_help": "You can tap the power of the Netherworld to steal some life from a target foe and reduce their chance to hit. Some of that stolen life is transferred to you in the form of Hit Points. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged, Moderate DMG(Negative), Target -To Hit, Self +HP",
+    "display_target_help": "Your chance to hit has been reduced by the Life Drain.",
+    "display_target_short_help": "-To Hit",
+    "icon_name": "Necromancy_LifeDrain.tga",
+    "attack_types": [
+      "Ranged",
+      "NegativeEnergy"
+    ],
+    "range": 60,
+    "time_to_activate": 1.93,
+    "recharge_time": 15,
+    "endurance_cost": 21,
+    "target": 19,
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              20
+            ],
+            "aspect": 32,
+            "table": "Ranged_Tempdamage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 32,
+            "target": 0,
+            "table": "Ranged_HealSelf",
+            "delay": 0.5,
+            "flags": [
+              192,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You gain {Damage} hit points from your {PowerName}!"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 0.75,
+            "duration": 10,
+            "fx": {
+              "continuing_fx": "POWERS/DARKNESSCONTROL/CHILLOFNIGHTHITCONTNUING_SUBTRACTIVE.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 7,
+    "point_value": 40,
+    "attrib_cache": [
+      20,
+      28,
+      100
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/DARKNESS_CONTROL_LIFEDRAIN.PFX",
+    "attack_bits": [
+      20,
+      305
+    ],
+    "hit_bits": [
+      49,
+      247
+    ],
+    "initial_attack_bits": [
+      20,
+      305
+    ],
+    "attack_fx": "POWERS/DARKNESSCONTROL/LIFEDRAIN.FX",
+    "hit_fx": "POWERS/DARKNESSCONTROL/LIFEDRAINHEALHIT.FX",
+    "initial_attack_fx": "POWERS/DARKNESSCONTROL/LIFEDRAIN.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 58,
+    "initial_frames_before_hit": 25
+  },
+  "Soul_Extraction": {
+    "crcfull_name": 2368177822,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Soul_Extraction",
+    "display_name": "Soul Extraction",
+    "display_help": "You can extract the soul from one of your defeated Undead Henchmen and summon its spectral essence to do your bidding. The power of the soul is dependent upon the type of undead Henchman you extract it from, however it will always be one level lower than you. Unlike your other Henchman, the extracted Soul is only loosely bound to your control and will eventually move on to the next world. The Soul cannot gain new powers with Enchanted Undead or Dark Empowerment. Recharge: Very Long",
+    "display_short_help": "Summon Ghost (Special)",
+    "icon_name": "Necromancy_SoulExtraction.tga",
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 60,
+    "endurance_cost": 14,
+    "target": 24,
+    "ents_auto_hit": [
+      24
+    ],
+    "ents_affected": [
+      24
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kBuff"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Minion_Henchman",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Minion_Grunt",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Ghost_Minion",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Lt_Henchman",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Lt_Grunt",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Ghost_Lt",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "arch",
+          "target>",
+          "Class_Boss_Henchman",
+          "eq",
+          "arch",
+          "target>",
+          "Class_Boss_Grunt",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Boss_Elite",
+          "eq",
+          "||",
+          "arch",
+          "target>",
+          "Class_Boss_Archvillain",
+          "eq",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Ghost_Boss",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              28
+            ],
+            "table": "Ranged_Ones",
+            "scale": 0,
+            "duration": 0.5,
+            "period": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You heal {PlayerDest} with {PowerName} for {Damage} points of damage over time.",
+              "display_victim_hit": "{PlayerSource} heals you with their {PowerName} for {Damage} points of damage over time."
+            },
+            "fx": {
+              "continuing_bits": [
+                323,
+                683
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 12,
+    "point_value": 3,
+    "attrib_cache": [
+      28,
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_GHOST.PFX",
+    "attack_bits": [
+      20,
+      252
+    ],
+    "initial_attack_bits": [
+      20,
+      252
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/ENCHANTDEAD.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/ENCHANTDEAD.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 25,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 25
+  },
+  "Lich": {
+    "crcfull_name": 991518502,
+    "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_NECROMANCY.POWERS",
+    "source_name": "Mission_Maker_Attacks.Necromancy.Lich",
+    "display_name": "Lich",
+    "display_help": "Summons a dark and powerful Lich. The lich is an undead entity that, when alive, possessed many dark powers of his own. Perhaps it was a dark wizard, or powerful arch villain. Perhaps it was even a Necromancer. Now it only hungers for the souls of the living, and is quite good at feeding itself. The Lich specializes in dark control and draining powers. You may only have 1 Lich under your control at any given time. If you attempt to summon another Lich, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Lich",
+    "icon_name": "Necromancy_SummonLitch.tga",
+    "time_to_activate": 3.17,
+    "recharge_time": 120,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kHeld",
+          "source>",
+          "0",
+          "<=",
+          "kStun",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kSleep",
+          "source>",
+          "0",
+          "<=",
+          "&&",
+          "kTerrorize",
+          "source>",
+          "0",
+          "<=",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "scale": -1,
+            "duration": 99999,
+            "delay": 0.5,
+            "stack_type": 1,
+            "flags": [
+              560,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "NPC_Pets_MA_Lich",
+                "priority_list": "Combat"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 24,
+    "point_value": 100,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/NECROMANCY_LICH.PFX",
+    "attack_bits": [
+      20,
+      272
+    ],
+    "initial_attack_bits": [
+      20,
+      272
+    ],
+    "attack_fx": "V_COV/POWERS/NECROMACY/SUMMONFINAL.FX",
+    "initial_attack_fx": "V_COV/POWERS/NECROMACY/SUMMONFINAL.FX",
+    "attack_frames": 95
+  }
+}

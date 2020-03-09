@@ -1,0 +1,866 @@
+{
+  "Resistance": {
+    "crcfull_name": 2556437718,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Resistance",
+    "display_name": "Resistance",
+    "display_help": "Coral Guardians are resistant to smashing and lethal damage.",
+    "display_short_help": "Auto: +Res(Smash, Lethal)",
+    "icon_name": "Invulnerability_ResToPhysicalDMG.tga",
+    "type": 1,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4
+            ],
+            "aspect": 24,
+            "target": 0,
+            "scale": 0.2,
+            "duration": 10,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_CORALGUARDIAN_RESISTANCE.PFX",
+    "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_GUARDIAN_RESISTANCE.FX",
+    "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_GUARDIAN_RESISTANCE.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_CORALGUARDIAN_RESISTANCE.PFX",
+        "hit_bits": [],
+        "continuing_fx": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_GUARDIAN_RESISTANCE.FX",
+        "continuing_fx1": "CUSTOMIZABLEPOWERS_POOLS/PATRON_LEVIATHANMASTERY/SUMMON_GUARDIAN_RESISTANCE.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": "Additive"
+      }
+    ]
+  },
+  "Self_Destruct": {
+    "crcfull_name": 1133314782,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Self_Destruct",
+    "display_name": "Self Destruct",
+    "display_help": "Self Destruct",
+    "display_short_help": "Self Destruct",
+    "icon_name": "PowerBlast_NovaBlast.tga",
+    "type": 1,
+    "lifetime_in_game": 240,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              463
+            ],
+            "application_type": 2,
+            "target": 0,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "show_in_inventory": 0,
+    "show_in_manage": false,
+    "show_in_info": false,
+    "attrib_cache": [
+      463
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MASTERMIND_THUGS_GANGWAR.PFX",
+    "death_bits": [
+      50,
+      79
+    ]
+  },
+  "Coral_Hammer": {
+    "crcfull_name": 1001563720,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Coral_Hammer",
+    "display_name": "Coral Hammer",
+    "display_help": "Coral Guardians can summon a Coral Hammer that deals moderate damage and can knockback foes.",
+    "display_short_help": "Melee Smash, Knockback",
+    "icon_name": "StoneMelee_StoneMallet.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.17,
+    "recharge_time": 4,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.67,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.2,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.67,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_CORALAX_CORALMALLETUPPERCUT.PFX",
+    "attack_bits": [
+      20,
+      130,
+      132,
+      269
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      132,
+      269
+    ],
+    "activation_fx": "V_COV/WEAPONS/CORAL_MALLET.FX",
+    "attack_fx": "POWERS/EARTHCONTROL/WEAPONWHOOSH2.FX",
+    "hit_fx": "POWERS/EARTHCONTROL/GREATERSTONEHANDSHIT.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/WEAPONWHOOSH2.FX",
+    "mode_bits": [
+      20,
+      130,
+      132
+    ],
+    "frames_before_hit": 24,
+    "initial_frames_before_hit": 24
+  },
+  "Stunning_Blow": {
+    "crcfull_name": 3705529282,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Stunning_Blow",
+    "display_name": "Stunning Blow",
+    "display_help": "You have been disoriented by a Sunning Blow from the Coral Hammer.",
+    "display_short_help": "Disorient",
+    "icon_name": "StoneMelee_StoneMallet.tga",
+    "attack_types": [
+      "Melee",
+      "Smashing"
+    ],
+    "range": 7,
+    "time_to_activate": 1.17,
+    "recharge_time": 8,
+    "endurance_cost": 8.58,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      21,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 1.32,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 8,
+            "magnitude": 2,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.1,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_PvPMez",
+            "magnitude": 2,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            },
+            "fx": {
+              "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356,
+      348
+    ],
+    "attrib_cache": [
+      0,
+      276
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_CORALAX_CORALMALLET.PFX",
+    "attack_bits": [
+      20,
+      130,
+      132,
+      263
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      132,
+      263
+    ],
+    "activation_fx": "V_COV/WEAPONS/CORAL_MALLET.FX",
+    "attack_fx": "POWERS/EARTHCONTROL/WEAPONWHOOSH.FX",
+    "hit_fx": "POWERS/EARTHCONTROL/STONEHANDSHIT.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/WEAPONWHOOSH.FX",
+    "mode_bits": [
+      20,
+      130,
+      132
+    ],
+    "frames_before_hit": 24,
+    "initial_frames_before_hit": 24
+  },
+  "Coral_Dart": {
+    "crcfull_name": 408622894,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Coral_Dart",
+    "display_name": "Coral Dart",
+    "display_help": "Shoots spiny burs at your foe.",
+    "display_short_help": "Ranged Lethal, Med Dam",
+    "icon_name": "AssaultWeapons_ARBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "range": 80,
+    "time_to_activate": 1.07,
+    "recharge_time": 5,
+    "endurance_cost": 7.54,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.16,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_CORALAX_DART.PFX",
+    "attack_bits": [
+      20,
+      320
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      320
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/CORALAX/GUARDDART.FX",
+    "hit_fx": "ENEMYFX/MAGMITES/PUMICITE/ATTACK_GRAVEL/HIT_FX/GRAVEL_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/CORALAX/GUARDDART.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 19,
+    "delayed_hit": true,
+    "attack_frames": 32,
+    "initial_frames_before_hit": 19,
+    "projectile_speed": 60
+  },
+  "Coral_Spray": {
+    "crcfull_name": 4100954391,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Coral_Spray",
+    "display_name": "Coral Spray",
+    "display_help": "Pumicites can spray a cone of jagged gravel at foes, shredding them.",
+    "display_short_help": "Ranged (Cone), Moderate DMG(Lethal)",
+    "icon_name": "AssaultWeapons_ShotgunBuckShot.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 60,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 1.7,
+    "recharge_time": 32,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.91,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      4
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_PUMICITE_GRAVEL.PFX",
+    "attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      154,
+      258
+    ],
+    "attack_fx": "ENEMYFX/MAGMITES/PUMICITE/ATTACK_GRAVEL/GRAVEL.FX",
+    "hit_fx": "ENEMYFX/MAGMITES/PUMICITE/ATTACK_GRAVEL/HIT_FX/GRAVEL_HIT.FX",
+    "initial_attack_fx": "ENEMYFX/MAGMITES/PUMICITE/ATTACK_GRAVEL/GRAVEL.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 19,
+    "delayed_hit": true,
+    "attack_frames": 51,
+    "initial_frames_before_hit": 19,
+    "projectile_speed": 60
+  },
+  "Water_Spray": {
+    "crcfull_name": 3166963745,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Water_Spray",
+    "display_name": "Water Spray",
+    "display_help": "You are frozen by the Wave of Cold. You are taking damage over time and your attack speed and movement speed are reduced.",
+    "display_short_help": "DoT(Cold), -Recharge, -SPD",
+    "display_target_help": "You are frozen by the Wave of Cold. You are taking damage over time and your attack speed and movement speed are reduced.",
+    "display_target_short_help": "DoT(Cold), -Recharge, -SPD",
+    "icon_name": "IceBlast_FrostBreath.tga",
+    "attack_types": [
+      "AOE",
+      "Cold"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 16,
+    "radius": 40,
+    "arc": 0.5235988,
+    "range": 40,
+    "time_to_activate": 0.9,
+    "recharge_time": 32,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      29,
+      23,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              12
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+            }
+          },
+          {
+            "attrib": [
+              204,
+              356
+            ],
+            "aspect": 16,
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 10,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              188,
+              192,
+              200
+            ],
+            "table": "Ranged_Slow",
+            "scale": 0.3,
+            "duration": 10
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      12,
+      188,
+      192,
+      200,
+      204,
+      356
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/VILLAIN_COROLAX_WAVEOFCOLD.PFX",
+    "attack_bits": [
+      20,
+      256
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      256
+    ],
+    "attack_fx": "V_COV/ENEMYPOWERS/CORALAX/WATERCONE.FX",
+    "hit_fx": "V_COV/ENEMYPOWERS/HORDLING/TONGUE_HIT.FX",
+    "initial_attack_fx": "V_COV/ENEMYPOWERS/CORALAX/WATERCONE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 24,
+    "attack_frames": 27,
+    "initial_frames_before_hit": 24
+  },
+  "Fossilize": {
+    "crcfull_name": 2795147956,
+    "source_file": "DEFS/POWERS/VILLAIN_PETS_CORAL_GUARDIAN_WARDER.POWERS",
+    "source_name": "Villain_Pets.Coral_Guardian_Warder.Fossilize",
+    "display_name": "Fossilize",
+    "display_help": "You have been Fossilized and are held. Your Defenses are reduced.",
+    "display_short_help": "Hold, -DEF",
+    "display_target_help": "You have been Fossilized and are held. Your Defenses are reduced.",
+    "display_target_short_help": "Hold, -DEF",
+    "display_attacker_hit": "{PlayerSource} holds {PlayerDest} with their {PowerName}.",
+    "display_victim_hit": "{PlayerSource} holds you with their {PowerName}.",
+    "icon_name": "EarthGrasp_Fossilize.tga",
+    "attack_types": [
+      "Ranged",
+      "Smashing"
+    ],
+    "range": 80,
+    "time_to_activate": 2.07,
+    "recharge_time": 30,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      30,
+      23,
+      22,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_Immobilize",
+            "scale": 12,
+            "magnitude": 3,
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/EARTHCONTROL/FOSSILHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              268
+            ],
+            "type": 0,
+            "table": "Ranged_PvPMez",
+            "magnitude": 4,
+            "suppress": [
+              {
+                "event": 19
+              },
+              {
+                "event": 20
+              },
+              {
+                "event": 21
+              },
+              {
+                "event": 22
+              },
+              {
+                "event": 23
+              }
+            ],
+            "flags": [
+              1288,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Hold {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Holds you with their {PowerName}."
+            },
+            "fx": {
+              "continuing_fx": "POWERS/EARTHCONTROL/EARTHHITCONTINUING.FX",
+              "conditional_bits": [
+                379,
+                683
+              ],
+              "conditional_fx": "POWERS/EARTHCONTROL/FOSSILHIT.FX"
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 2,
+            "duration": 12,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 12,
+            "flags": [
+              568,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 12,
+            "flags": [
+              552,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          }
+        ]
+      }
+    ],
+    "strengths_disallowed": [
+      356
+    ],
+    "attrib_cache": [
+      0,
+      184,
+      268,
+      324,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/EARTHGRASP_FOSSILIZE.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "POWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+    "initial_attack_fx": "POWERS/EARTHCONTROL/FOSSILIZEHANDS.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16
+  }
+}

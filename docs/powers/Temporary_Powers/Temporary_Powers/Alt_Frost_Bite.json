@@ -1,0 +1,158 @@
+{
+  "crcfull_name": 3838805984,
+  "source_file": "DEFS/POWERS/TEMPORARY_POWERS_TEMPORARY_POWERS.POWERS",
+  "source_name": "Temporary_Powers.Temporary_Powers.Alt_Frost_Bite",
+  "free": true,
+  "display_name": "Frost Bite",
+  "display_help": "While this power is active all of your damaging attacks, that can be slotted for damage enhancements, will deal a small amount of extra cold damage. The damage dealt is based upon the power's recharge time and area of effect size.",
+  "display_short_help": "+Cold Damage",
+  "icon_name": "Tem_Frostbite.tga",
+  "type": 5,
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "activate_period": 1,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    9,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "Damage"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "CategoryName",
+        "power.base>",
+        "Judgement",
+        "eq",
+        "!",
+        "&&",
+        "activateperiod",
+        "power.base>",
+        "0",
+        "==",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "magnitude_expr": [
+            ".8",
+            "rechargetime",
+            "power.base>",
+            "0",
+            "30",
+            "minmax",
+            "*",
+            "1.8",
+            "+",
+            ".2",
+            "*",
+            "@StdResult",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "Damage"
+      ],
+      "requires": [
+        "target.isFriend?",
+        "!",
+        "CategoryName",
+        "power.base>",
+        "Judgement",
+        "eq",
+        "!",
+        "&&",
+        "activateperiod",
+        "power.base>",
+        "0",
+        "==",
+        "!",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            12
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "magnitude_expr": [
+            ".11",
+            "activateperiod",
+            "power.base>",
+            "0",
+            "2",
+            "minmax",
+            "*",
+            "@StdResult",
+            "*",
+            "areafactor",
+            "power.base>",
+            "/"
+          ],
+          "flags": [
+            660,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Cold damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Cold damage."
+          }
+        }
+      ]
+    }
+  ],
+  "ignore_strength": true,
+  "show_in_inventory": 0,
+  "show_in_manage": false,
+  "show_in_info": false,
+  "max_boosts": 0,
+  "boost_ignore_effectiveness": true,
+  "boost_combinable": false,
+  "attrib_cache": [
+    12
+  ]
+}

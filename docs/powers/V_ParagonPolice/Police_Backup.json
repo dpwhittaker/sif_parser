@@ -1,0 +1,120 @@
+{
+  "Call_for_Backup": {
+    "crcfull_name": 3025865623,
+    "source_file": "DEFS/POWERS/V_PARAGONPOLICE_POLICE_BACKUP.POWERS",
+    "source_name": "V_ParagonPolice.Police_Backup.Call_for_Backup",
+    "display_name": "Call for Backup",
+    "display_help": "The Police Captain can call for Backup. They will continue to supply status updates once a maximum of 3 Backup cops are on location.",
+    "display_short_help": "Summon Backup Cops",
+    "icon_name": "e3deflectionshield.tga",
+    "activate_requires": [
+      "kMeter",
+      "char>",
+      "0.3",
+      "<"
+    ],
+    "time_to_activate": 2.03,
+    "recharge_time": 30,
+    "endurance_cost": 7,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "ai_groups": [
+      "kSummon"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "kMeter",
+          "source>",
+          "0.3",
+          "<"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "flags": [
+              112,
+              4
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "ParagonPolice_Backup_Cop",
+                "priority_list": "PL_FightPreferMelee"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Backup_Assigned": {
+    "crcfull_name": 18093562,
+    "source_file": "DEFS/POWERS/V_PARAGONPOLICE_POLICE_BACKUP.POWERS",
+    "source_name": "V_ParagonPolice.Police_Backup.Backup_Assigned",
+    "display_name": "Backup Assigned",
+    "display_help": "The Police Captain checks for existing backup before calling for additional backup.",
+    "display_short_help": "PBAoE, Self Backup Cop Check",
+    "icon_name": "Leadership_Tactics.tga",
+    "type": 1,
+    "effect_area": 7,
+    "max_targets_hit": 4,
+    "activate_period": 10,
+    "ents_auto_hit": [
+      25
+    ],
+    "ents_affected": [
+      25
+    ],
+    "effects": [
+      {
+        "requires": [
+          "type",
+          "target>",
+          "ParagonPolice_Backup_Cop",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              372
+            ],
+            "target": 0,
+            "table": "Ranged_Ones",
+            "scale": 0.1,
+            "duration": 10,
+            "flags": [
+              112,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      372
+    ]
+  }
+}

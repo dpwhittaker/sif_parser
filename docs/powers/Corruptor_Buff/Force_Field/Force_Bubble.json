@@ -1,0 +1,211 @@
+{
+  "crcfull_name": 3537109706,
+  "source_file": "DEFS/POWERS/CORRUPTOR_BUFF_FORCE_FIELD.POWERS",
+  "source_name": "Corruptor_Buff.Force_Field.Force_Bubble",
+  "display_name": "Force Bubble",
+  "display_help": "Creates a large bubble which protects all allies inside. While active, this power keeps all foes at bay, protecting all allies inside from melee or short ranged attacks. More powerful foes may be able to penetrate the Force Bubble, but may slip and get knocked down and forced back if they try. Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE Foe Repel, Knockdown",
+  "display_attacker_hit": "Your {PowerName} keeps your foes at bay.",
+  "icon_name": "ForceField_ForceBubble.tga",
+  "type": 2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 50,
+  "time_to_activate": 1.07,
+  "recharge_time": 15,
+  "activate_period": 0.25,
+  "endurance_cost": 0.1625,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    23,
+    18
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        ".10",
+        "+",
+        "@ToHit",
+        "<",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            332
+          ],
+          "table": "Ranged_Ones",
+          "scale": 10,
+          "duration": 0.25
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            332
+          ],
+          "table": "Ranged_Ones",
+          "scale": 10,
+          "duration": 0.25,
+          "messages": {
+            "display_attacker_hit": "You knocked {PlayerDest} from their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you from your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.1,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.01,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.1,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        ".10",
+        "+",
+        "@ToHit",
+        ">=",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            468
+          ],
+          "table": "Ranged_Ones",
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} partially hit! {PlayerDest} is not repelled by the Force Bubble!",
+            "display_victim_hit": "{Playersource} partially hits you with their Force Bubble! You evaded the Repel!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    328,
+    332,
+    468
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_FORCEFIELD_FORCEBUBBLE.PFX",
+  "activation_bits": [
+    20,
+    254
+  ],
+  "activation_fx": "POWERS/FORCEFIELD/DEFLECTIONBUBBLE.FX",
+  "frames_before_hit": 23,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 23,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_FORCEFIELD_FORCEBUBBLE.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        254
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/DEFLECTIONBUBBLE.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CONTROLLERBUFF_FORCEFIELD_FORCEBUBBLE.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        20,
+        254
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/DEFLECTIONBUBBLE.FX",
+      "mode_bits": [],
+      "frames_before_hit": 23,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 23
+    }
+  ]
+}

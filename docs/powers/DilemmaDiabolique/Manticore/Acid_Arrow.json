@@ -1,0 +1,177 @@
+{
+  "crcfull_name": 3753890636,
+  "source_file": "DEFS/POWERS/DILEMMADIABOLIQUE_MANTICORE.POWERS",
+  "source_name": "DilemmaDiabolique.Manticore.Acid_Arrow",
+  "display_name": "Acid Arrow",
+  "display_help": "This arrow explodes in a small shower of acid on impact. This acid eats through armor, causing damage over time. It reduces the target's Defense as well as his Damage Resistance. Damage: Minor, Recharge: Slow",
+  "display_short_help": "Ranged AoE Minor DoT(Toxic), Foe -Res(All), -DEF",
+  "display_target_help": "Your Resistances and Defense have been weakened by the Acid Arrow.",
+  "display_target_short_help": "-Res(All), -DEF, Minor DoT(Toxic)",
+  "display_attacker_hit": "Your {PowerName} splashes acid on {PlayerDest}.",
+  "display_victim_hit": "{PlayerSource} hits you with an Acid Arrow. The acid is burning you and reducing your damage resistance.",
+  "icon_name": "TrickArrow_DebuffDefense.tga",
+  "attack_types": [
+    "AOE"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 8,
+  "range": 80,
+  "time_to_activate": 3.33,
+  "recharge_time": 20,
+  "endurance_cost": 10.5,
+  "target": 19,
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 20,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "WEAPONS/BOW/TRICKARROW/ACIDARROWHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.05,
+          "duration": 20,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "WEAPONS/BOW/TRICKARROW/ACIDARROWHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 24,
+          "table": "Ranged_Res_Dmg",
+          "scale": -2,
+          "duration": 20,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            184
+          ],
+          "table": "Ranged_Debuff_Def",
+          "scale": 2,
+          "duration": 20,
+          "stack_type": 3
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    184
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/HERO_MANTICORE_ARCHERY_ACIDARROW.PFX",
+  "attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    766,
+    683
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    186
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    766,
+    683,
+    186
+  ],
+  "activation_fx": "V_COV/ENEMYPOWERS/SIGNATUREHEROES/MANTICORE/MANTICORE_BOW.FX",
+  "attack_fx": "WEAPONS/BOW/TRICKARROW/ARROW_ACID.FX",
+  "initial_attack_fx": "WEAPONS/BOW/TRICKARROW/INITIAL_ARROW_ACID.FX",
+  "mode_bits": [
+    20,
+    130,
+    133,
+    134,
+    135,
+    85
+  ],
+  "frames_before_hit": 61,
+  "delayed_hit": true,
+  "attack_frames": 100,
+  "initial_frames_before_hit": 81,
+  "projectile_speed": 60
+}

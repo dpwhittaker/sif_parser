@@ -1,0 +1,2044 @@
+{
+  "Burst": {
+    "crcfull_name": 1347316676,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Burst",
+    "display_name": "Burst",
+    "display_help": "Quickly fires a Burst of rounds at a single target at very long range. Damage is average, but the fire rate is fast. Can also reduce the target's defense. Damage: Moderate(DoT), Recharge: Fast",
+    "display_short_help": "Ranged, Moderate DMG(Lethal), Foe -DEF",
+    "display_target_help": "Your Defense has been reduced by the Assault Rifle.",
+    "display_target_short_help": "-DEF",
+    "icon_name": "Paramilitary_AssaultRifleBurst.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 90,
+    "time_to_activate": 1,
+    "recharge_time": 4,
+    "endurance_cost": 6.5,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.27,
+            "duration": 0.91,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      },
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "duration": 8,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.315,
+            "duration": 0.91,
+            "period": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      4,
+      184
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_BURST_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      174
+    ],
+    "hit_bits": [
+      49,
+      585
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      174,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+    "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 8,
+    "attack_frames": 30,
+    "initial_frames_before_hit": 38,
+    "initial_attack_fxframe_delay": 30,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_BURST_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          174
+        ],
+        "hit_bits": [
+          49,
+          585
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          174
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+        "hit_fx": "WEAPONFX/MACHINEGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_ASSAULTRIFLE02.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 8,
+        "attack_frames": 30,
+        "initial_frames_before_hit": 8,
+        "palette": ""
+      }
+    ]
+  },
+  "Soldiers": {
+    "crcfull_name": 1774191153,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Soldiers",
+    "display_name": "Soldiers",
+    "display_help": "Calls forth one to three Mercenary Soldiers (depending on your level) to do your bidding. The third Soldier you gain will be a Medic. All Soldiers use Sub Machine Guns, but these can be upgraded. You may only have 3 Soldiers under your control at any given time. If you attempt to call more Soldiers, you can only replace the ones you have lost in battle. If you already have three, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Soldier",
+    "icon_name": "Paramilitary_DraftArmy.tga",
+    "target_near_ground": true,
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 60,
+    "endurance_cost": 19.5,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      17,
+      14,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus2",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "MastermindPets_Soldier",
+                "priority_list": "Pet"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "5",
+          ">"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus2",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "MastermindPets_Soldier",
+                "priority_list": "Pet"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "17",
+          ">"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus2",
+            "duration": 99999,
+            "delay": 4,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "MastermindPets_Medic",
+                "priority_list": "Pet"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Slug": {
+    "crcfull_name": 442970708,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Slug",
+    "display_name": "Slug",
+    "display_help": "Fires a single Slug at a targeted foe. Firing a single Slug is slower than firing a Burst, but deals more damage, is longer range, and can knock down foes. Damage: High, Recharge: Moderate",
+    "display_short_help": "Ranged, High DMG(Lethal), Foe Knockback",
+    "icon_name": "Paramilitary_AssaultRifleSlug.tga",
+    "attack_types": [
+      "Ranged",
+      "Lethal"
+    ],
+    "accuracy": 1.05,
+    "range": 100,
+    "time_to_activate": 1.67,
+    "recharge_time": 8,
+    "endurance_cost": 10.66,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 1.64,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 1.889,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 0.75,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 4,
+    "attrib_cache": [
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_SLUG_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+    "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 32,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 35,
+    "initial_attack_fxframe_delay": 3,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_SLUG_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+        "hit_fx": "WEAPONFX/SHOTGUNHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_SHOTGUN.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 32,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 32,
+        "palette": ""
+      }
+    ]
+  },
+  "Equip_Mercenary": {
+    "crcfull_name": 3809681927,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Equip_Mercenary",
+    "display_name": "Equip Mercenary",
+    "display_help": "Equip your Mercenary Henchmen with more advanced munitions and weaponry. This power permanently bestows new weapons and abilities to all Mercenary Henchman. The powers gained are unique and dependent upon the type of Mercenary Henchman. This power only works on your Mercenary Henchmen and you can only Equip your Mercenary Henchmen once with this power. Recharge: Fast",
+    "display_short_help": "Ranged, Equip Mercenary Henchman",
+    "display_attacker_hit": "You Equip {PlayerDest} with advanced weaponry.",
+    "icon_name": "Paramilitary_EquipSoldier.tga",
+    "target_near_ground": true,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 50,
+    "time_to_activate": 1.3,
+    "recharge_time": 6,
+    "endurance_cost": 22.75,
+    "target": 25,
+    "ents_auto_hit": [
+      25
+    ],
+    "ents_affected": [
+      25
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kMastermindUpgrade1"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>",
+          "Mastermind_Summon.Mercenaries.Tactical_Upgrade",
+          "source.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_2.ASMG_Heavy_Burst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>",
+          "Mastermind_Summon.Mercenaries.Tactical_Upgrade",
+          "source.ownPower?",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_2.Assault_Rifle_Heavy_Burst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_2.Equip"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Medic",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Medic.Brawl"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Medic_2.SMG_Heavy_Burst"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Medic_2.Equip"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Spec_Ops",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_2.Rifle_Butt"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_2.Flash_Bang"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_2.Equip"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Commando",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_2.Buckshot"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_2.Full_Auto"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_2.Equip"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0,
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>",
+          "MastermindPets_Medic",
+          "target.VillainName>",
+          "||",
+          "MastermindPets_Spec_Ops",
+          "target.VillainName>",
+          "||",
+          "MastermindPets_Commando",
+          "target.VillainName>",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              320
+            ],
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 3.5,
+            "delay": 0.5,
+            "flags": [
+              112,
+              0
+            ],
+            "fx": {
+              "continuing_bits": [
+                245,
+                513,
+                49
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "anim_main_target_only": true,
+    "attrib_cache": [
+      320,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_BOOSTEQUIP.PFX",
+    "attack_bits": [
+      20,
+      245,
+      512,
+      277
+    ],
+    "hit_bits": [
+      245,
+      513,
+      49
+    ],
+    "initial_attack_bits": [
+      20,
+      245,
+      512,
+      277
+    ],
+    "attack_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTEQUIP.FX",
+    "hit_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTEQUIPHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTEQUIP.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 39,
+    "initial_frames_before_hit": 12,
+    "projectile_speed": 25.5
+  },
+  "M30_Grenade": {
+    "crcfull_name": 2709280877,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.M30_Grenade",
+    "display_name": "M30 Grenade",
+    "display_help": "Launches a Grenade at long range from beneath the barrel of your Assault Rifle. This explosion affects all within the blast radius, and can knock them back. Damage: Moderate, Recharge: Slow",
+    "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal/Smash), Knockback",
+    "icon_name": "Paramilitary_AssaultRifleGrenade.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Smashing"
+    ],
+    "accuracy": 1.05,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 15,
+    "range": 80,
+    "time_to_activate": 1.67,
+    "recharge_time": 16,
+    "endurance_cost": 18.98,
+    "target": 19,
+    "boosts_allowed": [
+      23,
+      22,
+      18,
+      17,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.3,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.2243,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+            }
+          },
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Ranged_PvPDamage",
+            "scale": 0.4554,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.5,
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Ranged_Knockback",
+            "scale": 2,
+            "suppress": [
+              {
+                "event": 29,
+                "seconds": 10
+              }
+            ],
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "travel_suppression": 3,
+    "attrib_cache": [
+      0,
+      4,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_GRENADE_NOGEO.PFX",
+    "attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "activation_bits": [
+      20,
+      130,
+      131,
+      187
+    ],
+    "initial_attack_bits": [
+      20,
+      130,
+      131,
+      173,
+      682,
+      187
+    ],
+    "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+    "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+    "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+    "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+    "mode_bits": [
+      20,
+      130,
+      131,
+      86
+    ],
+    "frames_before_hit": 30,
+    "delayed_hit": true,
+    "attack_frames": 50,
+    "initial_frames_before_hit": 33,
+    "initial_attack_fxframe_delay": 3,
+    "projectile_speed": 90,
+    "custom_fx": [
+      {
+        "token": "NoRedraw",
+        "source_file": "MENU/POWERS/ANIMFX/MM_ASSAULTWEP_GRENADE_NOGEO.PFX",
+        "attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "initial_attack_bits": [
+          20,
+          130,
+          131,
+          173,
+          682
+        ],
+        "activation_fx": "WEAPONS/CUSTOMWEAPON_ASSAULTRIFLE.FX",
+        "attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+        "hit_fx": "WEAPONFX/GUNFIRE_GERNADEHIT.FX",
+        "initial_attack_fx": "WEAPONFX/PLAYER_MERCENARIES_GUNFIRE_GERNADELAUNCHER.FX",
+        "mode_bits": [
+          20,
+          130,
+          131,
+          86
+        ],
+        "frames_before_hit": 30,
+        "delayed_hit": true,
+        "attack_frames": 50,
+        "initial_frames_before_hit": 30,
+        "projectile_speed": 90,
+        "palette": ""
+      }
+    ]
+  },
+  "Spec_Ops": {
+    "crcfull_name": 728507373,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Spec_Ops",
+    "display_name": "Spec Ops",
+    "display_help": "You can enlist one to two highly skilled Spec Ops Mercenary (depending on your level). Spec Ops weapons are highly accurate and long ranged, and they are adept in many different tactical weapons. Like all Henchmen, Spec Ops can be equipped with even deadlier munitions. You may only have 2 Spec Ops under your control at any given time. If you attempt to summon more Spec Ops, you can only replace the ones you have lost in battle. If you already have two, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Spec Ops",
+    "icon_name": "Paramilitary_EnlistSpecialForces.tga",
+    "target_near_ground": true,
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 90,
+    "endurance_cost": 19.5,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      30,
+      23,
+      21,
+      15,
+      11,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "MastermindPets_Spec_Ops",
+                "priority_list": "Pet"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "combatlevel",
+          "source>",
+          "23",
+          ">"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Levelminus",
+            "duration": 99999,
+            "delay": 3,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "MastermindPets_Spec_Ops",
+                "priority_list": "Pet"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Serum": {
+    "crcfull_name": 255498519,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Serum",
+    "display_name": "Serum",
+    "display_help": "You can use a special Serum to turn one Mercenary into a virtually Unstoppable killing machine for a short time. Once the Mercenary is injected with this Serum, his Damage, chance to hit, Endurance Recovery, and Damage Resistance to all damage except Psionics, will be greatly increased. The target Mercenary will also be virtually immune to controlling effects including Disorient, Sleep, Hold, Immobilize and Knockback. After the Serum wears off, the Mercenary will be exhausted and drained of all Endurance and be unable to recover endurance for a short while. Recharge: Very Long",
+    "display_short_help": "Buff Mercenary +DMG, +RES(All except Psionic), +To Hit, +Recovery",
+    "icon_name": "Paramilitary_Serum.tga",
+    "range": 100,
+    "time_to_activate": 1.3,
+    "recharge_time": 1000,
+    "endurance_cost": 13,
+    "target_visibility": 1,
+    "target": 25,
+    "ents_auto_hit": [
+      25
+    ],
+    "ents_affected": [
+      25
+    ],
+    "boosts_allowed": [
+      35,
+      33,
+      23,
+      22,
+      18,
+      7
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>",
+          "MastermindPets_Medic",
+          "target.VillainName>",
+          "||",
+          "MastermindPets_Spec_Ops",
+          "target.VillainName>",
+          "||",
+          "MastermindPets_Commando",
+          "target.VillainName>",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 7,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "POWERS/INVULNERABILITY/MERC_INVULNERABILITY.FX"
+            }
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328
+            ],
+            "table": "Ranged_Ones",
+            "scale": -100,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              324,
+              328,
+              332
+            ],
+            "aspect": 24,
+            "table": "Ranged_Ones",
+            "scale": 10,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              332
+            ],
+            "table": "Ranged_Ones",
+            "scale": -10,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              268,
+              272,
+              276,
+              280
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -50,
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_Buff_ToHit",
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8
+            ],
+            "aspect": 16,
+            "table": "Ranged_Res_Dmg",
+            "duration": 60,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              236
+            ],
+            "table": "Ranged_Ones",
+            "scale": -10,
+            "duration": 20,
+            "delay": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              88
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "delay": 60,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "ignore_strength": true,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      36,
+      88,
+      100,
+      236,
+      268,
+      272,
+      276,
+      280,
+      324,
+      328,
+      332
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_BOOSTSERUM.PFX",
+    "attack_bits": [
+      20,
+      245,
+      512,
+      277
+    ],
+    "hit_bits": [
+      245,
+      512,
+      49
+    ],
+    "initial_attack_bits": [
+      20,
+      245,
+      512,
+      277
+    ],
+    "attack_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTSERUM.FX",
+    "hit_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTSERUMHIT.FX",
+    "initial_attack_fx": "V_COV/POWERS/PARAMILITARY/PARAMILITARY_BOOSTSERUM.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 12,
+    "delayed_hit": true,
+    "attack_frames": 39,
+    "initial_frames_before_hit": 12,
+    "projectile_speed": 25.5
+  },
+  "Commando": {
+    "crcfull_name": 3504091645,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Commando",
+    "display_name": "Commando",
+    "display_help": "Enlists one highly trained Commando. The Commando is a seasoned professional who favors heavy assault weapons. He is simply a one man army that can leave a wake of destruction in his path. In addition to standard Soldier resistance, the Commandos experience also makes him resistant to Fear and his rugged advanced training makes him slightly resistant to Fire, Cold and Toxic Damage. You may only have 1 Commando under your control at any given time. If you attempt to summon another Commando, the power will fail. Recharge: Very Long",
+    "display_short_help": "Summon Commando",
+    "icon_name": "Paramilitary_SuperSoldier.tga",
+    "target_near_ground": true,
+    "effect_area": 3,
+    "range": 60,
+    "time_to_activate": 2.03,
+    "recharge_time": 120,
+    "endurance_cost": 19.5,
+    "target": 20,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "boosts_allowed": [
+      23,
+      17,
+      10,
+      9,
+      5
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              461
+            ],
+            "table": "Ranged_Ones",
+            "scale": -1,
+            "duration": 99999,
+            "delay": 2,
+            "stack_type": 1,
+            "flags": [
+              560,
+              6
+            ],
+            "param": {
+              "EntCreate": {
+                "entity_def": "MastermindPets_Commando",
+                "priority_list": "Pet"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "show_buff_icon": false,
+    "travel_suppression": 4,
+    "attrib_cache": [
+      461
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_SUMMONSOLDIERS.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  },
+  "Tactical_Upgrade": {
+    "crcfull_name": 267288034,
+    "source_file": "DEFS/POWERS/MASTERMIND_SUMMON_MERCENARIES.POWERS",
+    "source_name": "Mastermind_Summon.Mercenaries.Tactical_Upgrade",
+    "display_name": "Tactical Upgrade",
+    "display_help": "Permanently Upgrade the most advanced tactical weapons and gear to all of your Mercenary Henchman. The Tactically Upgraded Mercenaries will gain powers, weapons and munitions. The powers gained are unique and dependent upon the type of Mercenary Henchman that is Upgraded. This power only works on your Mercenary Henchmen and you can only Upgrade your Mercenary Henchmen once with this power. Recharge: Medium",
+    "display_short_help": "Ranged, Upgrade Mercenary Henchman",
+    "display_attacker_hit": "You upgrade {PlayerDest}'s equipment.",
+    "icon_name": "Paramilitary_TacticalUpgrade.tga",
+    "target_near_ground": true,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "range": 30,
+    "time_to_activate": 2.03,
+    "recharge_time": 10,
+    "endurance_cost": 22.75,
+    "target": 25,
+    "ents_auto_hit": [
+      25
+    ],
+    "ents_affected": [
+      25
+    ],
+    "boosts_allowed": [
+      23,
+      22,
+      18
+    ],
+    "modes_disallowed": [
+      12
+    ],
+    "ai_groups": [
+      "kMastermindUpgrade2"
+    ],
+    "effects": [
+      {
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_3.Assault_Rifle_Auto_Fire"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_3.Assault_Rifle_Burst"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_3.Tactical_Upgrade"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier.ASMG_Burst"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              474
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_2.ASMG_Heavy_Burst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>",
+          "Mastermind_Pets.Soldier_2.Assault_Rifle_Heavy_Burst",
+          "target.ownPower?",
+          "!",
+          "&&"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Soldier_3.Assault_Rifle_Heavy_Burst"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Medic",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "delay": 12,
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Medic_3.Stimulant"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Medic_3.Frag_Grenade"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Medic_3.Tactical_Upgrade"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Spec_Ops",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_3.SCAR_Snipe"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_3.Tear_Gas"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_3.Stealth"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Spec_Ops_3.Tactical_Upgrade"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "MastermindPets_Commando",
+          "target.VillainName>"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_3.M30_Grenade"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_3.Flamethrower"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_3.LRM_Rocket"
+                ]
+              }
+            }
+          },
+          {
+            "attrib": [
+              473
+            ],
+            "aspect": 32,
+            "table": "Ranged_Ones",
+            "stack_type": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "param": {
+              "Power": {
+                "power": [
+                  "Mastermind_Pets.Commando_3.Tactical_Upgrade"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0,
+        "requires": [
+          "MastermindPets_Soldier",
+          "target.VillainName>",
+          "MastermindPets_Medic",
+          "target.VillainName>",
+          "||",
+          "MastermindPets_Spec_Ops",
+          "target.VillainName>",
+          "||",
+          "MastermindPets_Commando",
+          "target.VillainName>",
+          "||"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              320
+            ],
+            "table": "Ranged_Ones",
+            "scale": 100,
+            "duration": 11,
+            "flags": [
+              112,
+              0
+            ],
+            "fx": {
+              "continuing_bits": [
+                49,
+                521
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "anim_main_target_only": true,
+    "attrib_cache": [
+      320,
+      473,
+      474
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PARAMILITARY_TACTICAL_UPGRADE.PFX",
+    "attack_bits": [
+      20,
+      519
+    ],
+    "hit_bits": [
+      49,
+      521
+    ],
+    "initial_attack_bits": [
+      20,
+      519
+    ],
+    "frames_before_hit": 50,
+    "attack_frames": 61,
+    "initial_frames_before_hit": 50
+  }
+}

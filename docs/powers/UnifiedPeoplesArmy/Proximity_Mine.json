@@ -1,0 +1,502 @@
+{
+  "Proximity_Mine": {
+    "crcfull_name": 2292070484,
+    "source_file": "DEFS/POWERS/UNIFIEDPEOPLESARMY_PROXIMITY_MINE.POWERS",
+    "source_name": "UnifiedPeoplesArmy.Proximity_Mine.Proximity_Mine",
+    "display_name": "Proximity Mine",
+    "display_help": "You explode, causing lethal and fire damage to nearby foes. Additionally, affected foes are knocked back and stunned.",
+    "display_short_help": "AoE Lethal/Fire, Knockback",
+    "icon_name": "UnifiedPeoplesArmy_CalvinScott_ProximityMine.tga",
+    "attack_types": [
+      "AOE",
+      "Lethal",
+      "Fire"
+    ],
+    "accuracy": 1.1,
+    "castable_after_death": 1,
+    "effect_area": 2,
+    "max_targets_hit": 16,
+    "radius": 30,
+    "ents_auto_hit": [
+      19
+    ],
+    "ai_groups": [
+      "kPostDeath"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              4
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 3.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+            }
+          },
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 2.5,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "table": "Melee_Stun",
+            "scale": 5,
+            "magnitude": 3,
+            "flags": [
+              1280,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            }
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              276
+            ],
+            "type": 0,
+            "scale": 5,
+            "magnitude": 3,
+            "suppress": [
+              {
+                "event": 19,
+                "seconds": 10
+              }
+            ],
+            "flags": [
+              336,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+              "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+            }
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      4,
+      8,
+      276,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TRIPMINE_TRIPMINE.PFX",
+    "attack_fx": "POWERS/FIRECONTROL/MINEEXPLOSION.FX",
+    "hit_fx": "POWERS/FIRECONTROL/FIREBALLTARGET1.FX",
+    "initial_attack_fx": "POWERS/FIRECONTROL/MINEEXPLOSION.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TRIPMINE_TRIPMINE.PFX",
+        "hit_bits": [],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/PETS/TRIPMINE/MINEEXPLOSION.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/PETS/TRIPMINE/FIREBALLTARGET1.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PETS/TRIPMINE/MINEEXPLOSION.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  },
+  "Timer_Triggered": {
+    "crcfull_name": 3804462211,
+    "source_file": "DEFS/POWERS/UNIFIEDPEOPLESARMY_PROXIMITY_MINE.POWERS",
+    "source_name": "UnifiedPeoplesArmy.Proximity_Mine.Timer_Triggered",
+    "display_name": "Timer Triggered",
+    "display_help": "The mine is equipped with an automatic detonator that triggers after the mine has been present for a short while.",
+    "display_short_help": "Self Destruct",
+    "icon_name": "UnifiedPeoplesArmy_CalvinScott_ProximityMine.tga",
+    "type": 1,
+    "ai_report": 1,
+    "activate_period": 30,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "target": 0,
+            "delay": 23,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Auto-Detonation Triggered!"
+            }
+          },
+          {
+            "attrib": [
+              463
+            ],
+            "target": 0,
+            "delay": 24,
+            "flags": [
+              560,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "is_environment_hit": true,
+    "attrib_cache": [
+      463,
+      468
+    ]
+  },
+  "Proximity_Triggered": {
+    "crcfull_name": 986196106,
+    "source_file": "DEFS/POWERS/UNIFIEDPEOPLESARMY_PROXIMITY_MINE.POWERS",
+    "source_name": "UnifiedPeoplesArmy.Proximity_Mine.Proximity_Triggered",
+    "display_name": "Proximity Triggered",
+    "display_help": "The mine is equipped with a proximity trigger that initiates detonation if an enemy target comes too close.",
+    "display_short_help": "Self Destruct",
+    "icon_name": "UnifiedPeoplesArmy_CalvinScott_ProximityMine.tga",
+    "ai_report": 1,
+    "range": 15,
+    "recharge_time": 300,
+    "target": 19,
+    "ents_auto_hit": [
+      19
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              468
+            ],
+            "target": 0,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Three!"
+            }
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "target": 0,
+            "delay": 1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Two!"
+            }
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "target": 0,
+            "delay": 2,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "One!"
+            }
+          },
+          {
+            "attrib": [
+              468
+            ],
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "You've triggered a proximity bomb!",
+              "display_float": "Proximity Triggered!"
+            }
+          },
+          {
+            "attrib": [
+              463
+            ],
+            "target": 0,
+            "delay": 3.1,
+            "flags": [
+              560,
+              0
+            ],
+            "messages": {
+              "display_attacker_hit": "",
+              "display_victim_hit": "",
+              "display_float": "Zero!"
+            }
+          }
+        ]
+      }
+    ],
+    "is_environment_hit": true,
+    "attrib_cache": [
+      463,
+      468
+    ]
+  },
+  "Resistance": {
+    "crcfull_name": 1881738158,
+    "source_file": "DEFS/POWERS/UNIFIEDPEOPLESARMY_PROXIMITY_MINE.POWERS",
+    "source_name": "UnifiedPeoplesArmy.Proximity_Mine.Resistance",
+    "display_name": "Resistance",
+    "display_help": "A proximity mine has been placed. It is strongly resistant to all forms of control and damage.",
+    "display_short_help": "Proximity Mine",
+    "icon_name": "UnifiedPeoplesArmy_CalvinScott_CrusadersFury.tga",
+    "type": 1,
+    "activate_period": 99999,
+    "ents_auto_hit": [
+      1
+    ],
+    "ents_affected": [
+      1
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36,
+              32
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "scale": -5,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              28,
+              184,
+              88,
+              100,
+              284,
+              248,
+              256,
+              260,
+              264,
+              268,
+              276,
+              280,
+              356,
+              364
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "scale": 100,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              80
+            ],
+            "aspect": 24,
+            "application_type": 1,
+            "target": 0,
+            "scale": 10,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              284,
+              248,
+              256,
+              260,
+              264,
+              268,
+              276,
+              280
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": -100,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              272
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": 100,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              560,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              184
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": -0.5,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          },
+          {
+            "attrib": [
+              232
+            ],
+            "application_type": 1,
+            "target": 0,
+            "scale": -1,
+            "duration": 999999,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      80,
+      88,
+      100,
+      184,
+      232,
+      248,
+      256,
+      260,
+      264,
+      268,
+      272,
+      276,
+      280,
+      284,
+      356,
+      364
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TRIPMINE_RESISTANCE.PFX",
+    "activation_fx": "POWERS/GADGETS/TRIPMINE.FX",
+    "custom_fx": [
+      {
+        "token": "Color Tintable",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PETS_TRIPMINE_RESISTANCE.PFX",
+        "hit_bits": [],
+        "activation_fx": "CUSTOMIZEABLEPOWERS/PETS/TRIPMINE/TRIPMINE.FX",
+        "mode_bits": [],
+        "attack_frames": 35,
+        "palette": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "crcfull_name": 3577065067,
+  "source_file": "DEFS/POWERS/SCRAPPER_DEFENSE_DARK_ARMOR.POWERS",
+  "source_name": "Scrapper_Defense.Dark_Armor.Cloak_of_Fear",
+  "display_name": "Cloak of Fear",
+  "display_help": "You can wrap yourself in a nightmarish Cloak of Fear. Foes close to you are treated to visions most horrific, forcing them to tremble in terror, only attacking if attacked, and even then, at a reduced chance to hit. Recharge: Fast",
+  "display_short_help": "Toggle: PBAoE Foe Fear, -To Hit",
+  "display_target_help": "The Cloak of Fear has terrified you.",
+  "display_target_short_help": "Fear",
+  "icon_name": "DarkArmor_FearfulAura.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE",
+    "NegativeEnergy"
+  ],
+  "accuracy": 0.67,
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 8,
+  "time_to_activate": 1.17,
+  "recharge_time": 4,
+  "activate_period": 5,
+  "endurance_cost": 2.6,
+  "boosts_allowed": [
+    23,
+    18,
+    12,
+    11,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            264
+          ],
+          "type": 0,
+          "table": "Melee_Fear",
+          "scale": 5,
+          "magnitude": 2,
+          "stack_type": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "scale": -0.05,
+          "duration": 5,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            264
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Terrorize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Terrorizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/AFRAIDCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    100,
+    264
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_CLOAKOFFEAR.PFX",
+  "activation_bits": [
+    248
+  ],
+  "activation_fx": "POWERS/DARKNESSCONTROL/DARKARMOR2.FX",
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "alt_theme": [
+        "DarkArmorNoFade"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_CLOAKOFFEAR.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        248
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/DARKARMOR/DARKARMOR2.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    },
+    {
+      "token": "Dark Glow",
+      "alt_theme": [
+        "MinimalFX",
+        "DarkGlowWE"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_DARKARMOR_CLOAKOFFEAR.PFX",
+      "hit_bits": [],
+      "activation_bits": [
+        248
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/DARKARMOR/SOUL_CLOAKOFFEAR.FX",
+      "mode_bits": [],
+      "attack_frames": 35
+    }
+  ]
+}

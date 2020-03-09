@@ -1,0 +1,166 @@
+{
+  "crcfull_name": 3216286805,
+  "source_file": "DEFS/POWERS/PRESTIGE_PRESTIGE_ATTACKS.POWERS",
+  "source_name": "Prestige.Prestige_Attacks.Brawl_Knives",
+  "free": true,
+  "display_name": "Throwing Knives",
+  "display_help": "You've acquired these throwing knives as part of your personal arsenal. You can throw these knives at a very short range, and deal minor Lethal damage to your target, but a nasty wound will do additional Damage over Time. This power receives a damage bonus that decreases as you level up. At around level 15 you stop benefiting from this power's damage bonus altogether. Damage: Minor (DoT), Recharge: Fast",
+  "display_short_help": "Ranged Minor DMG(Lethal), +Minor DoT(Lethal)",
+  "display_target_help": "You are taking additional Damage over Time from the wound left by the Throwing Knife.",
+  "display_target_short_help": "DoT(Lethal)",
+  "icon_name": "Temporary_TargetedDoT.tga",
+  "attack_types": [
+    "Ranged",
+    "Lethal"
+  ],
+  "accuracy": 1.2,
+  "range": 45,
+  "time_to_activate": 1,
+  "recharge_time": 4,
+  "endurance_cost": 2.08,
+  "target": 19,
+  "modes_disallowed": [
+    9,
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "level",
+        "source>",
+        "15",
+        ">"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.3,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.04,
+          "duration": 4.25,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/NATKNIFECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "level",
+        "source>",
+        "16",
+        "<"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "magnitude_expr": [
+            "15",
+            "level",
+            "source>",
+            "-",
+            ".07",
+            "*",
+            ".3",
+            "+",
+            "@StdResult",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Ranged_Damage",
+          "duration": 4.25,
+          "magnitude_expr": [
+            "15",
+            "level",
+            "source>",
+            "-",
+            ".07",
+            "*",
+            ".3",
+            "+",
+            ".13",
+            "*",
+            "@StdResult",
+            "*"
+          ],
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/NATKNIFECONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "show_in_manage": false,
+  "max_boosts": 0,
+  "travel_suppression": 3,
+  "force_level_bought": 0,
+  "attrib_cache": [
+    4
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/BRAWL_NATURAL.PFX",
+  "attack_bits": [
+    20,
+    298
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    298
+  ],
+  "attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/NATKNIFETHROW.FX",
+  "hit_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/NATKNIFEHIT.FX",
+  "initial_attack_fx": "POWERS/ITEMSANDTEMPPOWERS/INHERENT2ORIGIN/NATKNIFETHROW.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "delayed_hit": true,
+  "attack_frames": 30,
+  "initial_frames_before_hit": 16,
+  "projectile_speed": 60
+}

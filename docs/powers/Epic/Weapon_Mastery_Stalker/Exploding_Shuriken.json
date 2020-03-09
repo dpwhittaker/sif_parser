@@ -1,0 +1,327 @@
+{
+  "crcfull_name": 1299579642,
+  "source_file": "DEFS/POWERS/EPIC_WEAPON_MASTERY_STALKER.POWERS",
+  "source_name": "Epic.Weapon_Mastery_Stalker.Exploding_Shuriken",
+  "display_name": "Exploding Shuriken",
+  "display_help": "This small throwing star is rigged to explode on impact. You must be level 44 and have two other Weapon Mastery Powers before selecting this power. Damage: Moderate, Recharge: Moderate",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Lethal)",
+  "icon_name": "WeaponMastery_ExplodingShuriken.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal"
+  ],
+  "buy_requires": [
+    "Epic.Weapon_Mastery_Stalker.Web_Grenade",
+    "Epic.Weapon_Mastery_Stalker.Caltrops",
+    "&&",
+    "Epic.Weapon_Mastery_Stalker.Web_Grenade",
+    "Epic.Weapon_Mastery_Stalker.Shuriken",
+    "&&",
+    "||",
+    "Epic.Weapon_Mastery_Stalker.Caltrops",
+    "Epic.Weapon_Mastery_Stalker.Shuriken",
+    "&&",
+    "||",
+    "Epic.Weapon_Mastery_Stalker.Web_Grenade",
+    "Epic.Weapon_Mastery_Stalker.Caltrops",
+    "&&",
+    "||",
+    "Epic.Weapon_Mastery_Stalker.Web_Grenade",
+    "Epic.Weapon_Mastery_Stalker.Targeting_Drone",
+    "&&",
+    "||",
+    "Epic.Weapon_Mastery_Stalker.Caltrops",
+    "Epic.Weapon_Mastery_Stalker.Targeting_Drone",
+    "&&",
+    "||"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 10,
+  "range": 70,
+  "time_to_activate": 1.07,
+  "recharge_time": 32,
+  "endurance_cost": 18.98,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.168,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.9716,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.9716,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 0.9716,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "ASTeamCrit"
+      ],
+      "chance": 0.07,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.168,
+          "flags": [
+            4736,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.5,
+      "requires": [
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.168,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    4
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_WEAPONMASTERY_EXPLODINGSHURIKEN.PFX",
+  "attack_bits": [
+    20,
+    320
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    320
+  ],
+  "attack_fx": "ENEMYFX/TSOO/EXPOLDINGSHURIKENHURL01.FX",
+  "hit_fx": "POWERS/CLAWS/CLAWSHIT4.FX",
+  "initial_attack_fx": "ENEMYFX/TSOO/EXPOLDINGSHURIKENHURL01.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 19,
+  "delayed_hit": true,
+  "attack_frames": 32,
+  "initial_frames_before_hit": 19,
+  "projectile_speed": 45,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_WEAPONMASTERY_EXPLODINGSHURIKEN.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_WEAPONMASTERY/EXPLODINGSHURIKEN_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_WEAPONMASTERY/SHURIKEN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_WEAPONMASTERY/EXPLODINGSHURIKEN_ATTACK.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 45,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/EPIC_WEAPONMASTERY_EXPLODINGSHURIKEN.PFX",
+      "attack_bits": [
+        20,
+        320
+      ],
+      "initial_attack_bits": [
+        20,
+        320
+      ],
+      "attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_WEAPONMASTERY/SUBTRACTIVE/EXPLODINGSHURIKEN_ATTACK.FX",
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_WEAPONMASTERY/SUBTRACTIVE/SHURIKEN_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZABLEPOWERS_POOLS/EPIC_WEAPONMASTERY/SUBTRACTIVE/EXPLODINGSHURIKEN_ATTACK.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 32,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 45
+    }
+  ]
+}

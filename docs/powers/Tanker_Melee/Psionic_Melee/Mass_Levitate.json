@@ -1,0 +1,336 @@
+{
+  "crcfull_name": 2185320397,
+  "source_file": "DEFS/POWERS/TANKER_MELEE_PSIONIC_MELEE.POWERS",
+  "source_name": "Tanker_Melee.Psionic_Melee.Mass_Levitate",
+  "display_name": "Mass Levitate",
+  "display_help": "You build up a large amount of telekinetic energy and release it causing nearby foes to be flung into the air. Affected foes will suffer high Smashing damage. If the caster has Insight when this power is used Mass Levitate will also cause a moderate amount of Psionic damage over time. Damage: High, Recharge: Slow",
+  "display_short_help": "PBAoE, High DMG(Smash), Foe Knock Up, +Insight",
+  "icon_name": "PsionicMelee_MassLevitate.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing"
+  ],
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">="
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 10,
+  "time_to_activate": 2.5,
+  "recharge_time": 20,
+  "endurance_cost": 18.512,
+  "boosts_allowed": [
+    28,
+    23,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "chance": 0.2,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Boggled",
+        "target.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+            "display_victim_hit": "",
+            "display_float": "Insight!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+        "source.ownPower?",
+        "!",
+        "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight_Lockout",
+        "source.ownPower?",
+        "!",
+        "&&",
+        "Temporary_Powers.Temporary_Powers.Boggled",
+        "target.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "aspect": 32,
+          "target": 0,
+          "stack_type": 1,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You gain Insight into your foes' weaknesses!",
+            "display_victim_hit": "",
+            "display_float": "Insight!"
+          },
+          "param": {
+            "Power": {
+              "power": [
+                "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.42,
+          "delay": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Melee_Knockback",
+          "scale": 2,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 1.18,
+          "delay": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Melee_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Temporary_Powers.Temporary_Powers.Psionic_Melee_Insight",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            24
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.142,
+          "duration": 3.1,
+          "delay": 2.25,
+          "period": 1,
+          "tick_chance": 0.8,
+          "flags": [
+            644,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Psionic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Psionic damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "FieryEmbrace"
+      ],
+      "chance": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.639,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          },
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/CINDERSHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    8,
+    24,
+    324,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MASSLEVITATE.PFX",
+  "attack_bits": [
+    20,
+    632,
+    272
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    632,
+    272
+  ],
+  "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+  "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE_HIT.FX",
+  "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 42,
+  "attack_frames": 75,
+  "initial_frames_before_hit": 42,
+  "primary_tint": [
+    72,
+    32,
+    244,
+    255
+  ],
+  "secondary_tint": [
+    194,
+    28,
+    133,
+    255
+  ],
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MASSLEVITATE.PFX",
+      "attack_bits": [
+        20,
+        632,
+        272
+      ],
+      "initial_attack_bits": [
+        20,
+        632,
+        272
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/MASSLEVITATE.FX",
+      "frames_before_hit": 42,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 42,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/PSIONICMELEE_MASSLEVITATE.PFX",
+      "attack_bits": [
+        20,
+        632,
+        272
+      ],
+      "initial_attack_bits": [
+        20,
+        632,
+        272
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MASSLEVITATE.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MASSLEVITATE_HIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PSIONICMELEE/SUBTRACTIVE/MASSLEVITATE.FX",
+      "frames_before_hit": 42,
+      "attack_frames": 75,
+      "initial_frames_before_hit": 42
+    }
+  ]
+}

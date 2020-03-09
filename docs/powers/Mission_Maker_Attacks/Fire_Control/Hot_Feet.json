@@ -1,0 +1,162 @@
+{
+  "crcfull_name": 1110457678,
+  "source_file": "DEFS/POWERS/MISSION_MAKER_ATTACKS_FIRE_CONTROL.POWERS",
+  "source_name": "Mission_Maker_Attacks.Fire_Control.Hot_Feet",
+  "display_name": "Hot Feet",
+  "display_help": "While active, you heat the earth in a large area around yourself. Enemy movement is Slowed as they attempt to flee the immediate area. All foes in the affected area may also suffer some damage over time. You cannot fly and must be near the ground to use this power. Damage: Minor(DoT), Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE, Minor DoT(Fire), Foe -SPD",
+  "display_target_help": "The ground is extremely hot and burning you. Your running speed is reduced.",
+  "display_target_short_help": "DoT(Fire), -SPD",
+  "icon_name": "FireTrap_HotFeet.tga",
+  "type": 1,
+  "attack_types": [
+    "AOE",
+    "Fire"
+  ],
+  "near_ground": true,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 20,
+  "time_to_activate": 1.47,
+  "recharge_time": 20,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    19
+  ],
+  "ai_groups": [
+    "kDebuff"
+  ],
+  "effects": [
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "<",
+        "@ForceHit",
+        "||"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            8
+          ],
+          "aspect": 32,
+          "table": "Ranged_Tempdamage",
+          "scale": 0.25,
+          "flags": [
+            648,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHeld",
+        "source>",
+        "0",
+        "<=",
+        "kStun",
+        "source>",
+        "0",
+        "<=",
+        "&&",
+        "kSleep",
+        "source>",
+        "0",
+        "<=",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            260
+          ],
+          "type": 0,
+          "table": "Ranged_Ones",
+          "scale": 4,
+          "magnitude": 3,
+          "stack_type": 3,
+          "flags": [
+            1296,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 15,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            204
+          ],
+          "aspect": 16,
+          "table": "Ranged_Slow",
+          "scale": 0.7,
+          "duration": 2.25,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            200
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.7,
+          "duration": 2.25,
+          "stack_type": 3
+        },
+        {
+          "attrib": [
+            188
+          ],
+          "table": "Ranged_Slow",
+          "scale": 0.7,
+          "duration": 2.25,
+          "stack_type": 3,
+          "flags": [
+            648,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/FIRECONTROL/HOTFEETHIT.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "point_value": 40,
+  "attrib_cache": [
+    8,
+    188,
+    200,
+    204,
+    260,
+    284
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/FIRE_TRAP_HOT_FEET.PFX",
+  "activation_bits": [
+    20,
+    263
+  ],
+  "activation_fx": "POWERS/FIRECONTROL/HOTFEET.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 44,
+  "initial_frames_before_hit": 25
+}

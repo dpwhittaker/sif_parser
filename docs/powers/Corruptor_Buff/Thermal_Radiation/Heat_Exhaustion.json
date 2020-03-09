@@ -1,0 +1,252 @@
+{
+  "crcfull_name": 2679111856,
+  "source_file": "DEFS/POWERS/CORRUPTOR_BUFF_THERMAL_RADIATION.POWERS",
+  "source_name": "Corruptor_Buff.Thermal_Radiation.Heat_Exhaustion",
+  "display_name": "Heat Exhaustion",
+  "display_help": "Overwhelm a single foe with waves of exhausting heat. The initial effect will drain the target of some Endurance, but the heat is so overwhelming that the affected target will be weakened. His Damage output, Endurance Recovery and Hit Point Regeneration will all be reduced. Recharge: Long",
+  "display_short_help": "Ranged Foe -DMG, -END, -Recovery, -Regeneration",
+  "display_target_help": "Your Damage output, Endurance Recovery and HP Regeneration have been reduced.",
+  "display_target_short_help": "-DMG, -Recovery, -Regeneration",
+  "display_attacker_hit": "Your {PowerName} reduced the Damage output, Endurance Recovery and HP Regeneration of {PlayerDest}.",
+  "display_victim_hit": "{PlayerSource} reduces your Damage output, Endurance Recovery and HP Regeneration.",
+  "icon_name": "ThermalRadiation_HeatExhaustion.tga",
+  "attack_types": [
+    "Ranged",
+    "Energy"
+  ],
+  "range": 70,
+  "time_to_activate": 2.07,
+  "recharge_time": 120,
+  "endurance_cost": 13,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Ranged_Debuff_Dam",
+          "scale": 5,
+          "duration": 40,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -5,
+          "duration": 40,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -2,
+          "duration": 40,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_EndDrain",
+          "scale": -0.13,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -20,
+          "duration": 40,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Res_Boolean",
+          "scale": -8,
+          "duration": 40,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "table": "Ranged_EndDrain",
+          "scale": -3.33
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "target>",
+        "Class_Boss_Archvillain",
+        "eq",
+        "arch",
+        "target>",
+        "Class_Boss_BigMonster",
+        "eq",
+        "||"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_EndDrain",
+          "scale": -0.13,
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} drains some endurance from {PlayerDest}!",
+            "display_victim_hit": "{PlayerSource} shocks you with his {PowerName} and drains some of your Endurance!"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3.5,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    88,
+    232,
+    236
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_THERMALRADIATION_HEATEXHAUSTION.PFX",
+  "attack_bits": [
+    20,
+    362
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    362
+  ],
+  "attack_fx": "V_COV/POWERS/THERMALRADIATION/FIRESHIELDHANDS.FX",
+  "initial_attack_fx": "V_COV/POWERS/THERMALRADIATION/FIRESHIELDHANDS.FX",
+  "continuing_fx": "V_COV/POWERS/THERMALRADIATION/ENDDRAIN.FX",
+  "continuing_fx1": "V_COV/POWERS/THERMALRADIATION/ENDDRAIN.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 16,
+  "attack_frames": 62,
+  "initial_frames_before_hit": 16,
+  "custom_fx": [
+    {
+      "token": "Bright Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_THERMALRADIATION_HEATEXHAUSTION.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/FIRESHIELDHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/FIRESHIELDHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/ENDDRAIN.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/ENDDRAIN.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Fire",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/CORRUPTORBUFF_THERMALRADIATION_HEATEXHAUSTION.PFX",
+      "attack_bits": [
+        20,
+        362
+      ],
+      "initial_attack_bits": [
+        20,
+        362
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/SUBTRACTIVE/FIRESHIELDHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/SUBTRACTIVE/FIRESHIELDHANDS.FX",
+      "continuing_fx": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/SUBTRACTIVE/ENDDRAIN.FX",
+      "continuing_fx1": "CUSTOMIZEABLEPOWERS/THERMALRADIATION/SUBTRACTIVE/ENDDRAIN.FX",
+      "frames_before_hit": 16,
+      "attack_frames": 62,
+      "initial_frames_before_hit": 16
+    }
+  ]
+}

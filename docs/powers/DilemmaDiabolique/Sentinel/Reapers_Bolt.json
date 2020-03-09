@@ -1,0 +1,168 @@
+{
+  "crcfull_name": 874574053,
+  "source_file": "DEFS/POWERS/DILEMMADIABOLIQUE_SENTINEL.POWERS",
+  "source_name": "DilemmaDiabolique.Sentinel.Reapers_Bolt",
+  "display_name": "Reaper's Bolt",
+  "display_help": "You unleash a bolt of death energy at a single target. The affected target suffers from negative energy damage over time, endurance drain and reduced recovery. Additionally, the longer the Sentinel remains alive, the more likely his presence will sap the target's soul, causing them to suffer increased endurance cost for all powers.",
+  "display_short_help": "Ranged (Secondary Target), Moderate DMG(Negative Energy), Minor DoT(Negative Energy), EndDrain(Foe), -Rec(Foe), Chance for +EndCost(Foe)",
+  "display_target_help": "You are suffering from endurance drain and from reduced recovery. There is also the potential for your powers to cost more endurance to execute.",
+  "display_target_short_help": "-End, -Rec, Chance for +EndCost",
+  "icon_name": "BanishedPantheon_Sentinel_ReapersBolt.tga",
+  "attack_types": [
+    "Ranged",
+    "NegativeEnergy"
+  ],
+  "range": 150,
+  "time_to_activate": 2.67,
+  "recharge_time": 2.83,
+  "endurance_cost": 10,
+  "target": 19,
+  "ai_groups": [
+    "kSecondaryTarget"
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 4,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          },
+          "fx": {
+            "continuing_fx": "CUSTOMIZEABLEPOWERS/DARKNESSCONTROL/DAMAGEOVERTIME_CONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "table": "Ranged_Ones",
+          "scale": -0.05,
+          "duration": 4,
+          "period": 1,
+          "flags": [
+            192,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "POWERS/COLDCONTROL/COLDMISTCONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 6,
+          "flags": [
+            96,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFEND2CONTINUING.FX"
+          }
+        },
+        {
+          "attrib": [
+            476
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.2,
+          "duration": 600,
+          "flags": [
+            112,
+            0
+          ],
+          "param": {
+            "EffectFilter": {
+              "tag": "SentinelEnd"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tag": [
+        "SentinelEnd"
+      ],
+      "chance": -1,
+      "attrib_mod": [
+        {
+          "attrib": [
+            364
+          ],
+          "aspect": 16,
+          "table": "Ranged_Ones",
+          "scale": -0.08,
+          "duration": 8,
+          "caster_stack_type": 1,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource}'s {PowerName} has increased the endurance cost of your powers!"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    20,
+    88,
+    236,
+    364,
+    476
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/SENTINEL_REAPERS_BOLT.PFX",
+  "attack_bits": [
+    20,
+    686,
+    154,
+    258
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    686,
+    154,
+    258
+  ],
+  "attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_REAPERSBOLT_ATTACK.FX",
+  "hit_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_HIT.FX",
+  "initial_attack_fx": "EVENTS/ENDGAME/DILEMMADIABOLIQUE/DIABOLIQUE_ATTACKS/SENTINEL_REAPERSBOLT_ATTACK.FX",
+  "continuing_fx": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "continuing_fx1": "POWERS/COLDCONTROL/ICEHITCONTINUING.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 45,
+  "attack_frames": 80,
+  "initial_frames_before_hit": 45
+}

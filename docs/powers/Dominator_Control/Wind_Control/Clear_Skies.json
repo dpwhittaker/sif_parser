@@ -1,0 +1,166 @@
+{
+  "crcfull_name": 4188617451,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_WIND_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Wind_Control.Clear_Skies",
+  "auto_issue": true,
+  "free": true,
+  "display_name": "Clear Skies",
+  "display_help": "When training yourself in the creation of a Vortex, you also learn how to create the Clear Skies effect. If you use Vacuum on your own Vortex, you will gain a boost to your chance to hit foes, your attack speed and your recovery. Additionally, the endurance cost of all your powers will be reduced. While the strength of the Clear Skies effect cannot be stacked and cannot be increased, the duration of the effect can be extended from the minimum duration of 30 seconds. The more Pressure you consume when you execute Vacuum, the greater the duration of the Clear Skies bonuses, up to a maximum of 60 seconds. When the bonuses of Clear Skies end, you will be under the Clouded Skies effect, which prevents another Clear Skies buff from applying, for several minutes. Clear Skies is granted automatically when both Vacuum and Vortex have been trained.",
+  "display_short_help": "Self (Auto), +ToHit, +Rech, +Rec, -EndCost",
+  "display_target_help": "You are capable of receiving the boon of Clear Skies, which improves your chance to hit, recovery and attack speed, as well as a grants a reduction in the endurance cost of your powers. This boon can be earned by using Vacuum on your Vortex ally, and will last a variable duration depending on the Pressure consumed when Vacuum is executed. Earning the Clear Skies boon will also cause Clouded Skies when it expires, which prevents acquisition of another boon for several minutes.",
+  "display_target_short_help": "+ToHit, +Rech, +Rec, -EndCost",
+  "icon_name": "WindControl_ClearSkies.tga",
+  "type": 1,
+  "buy_requires": [
+    "accesslevel",
+    "char>",
+    "0",
+    ">=",
+    "Dominator_Control.Wind_Control.Vortex",
+    "&&",
+    "Dominator_Control.Wind_Control.Vacuum",
+    "&&"
+  ],
+  "cast_through_hold": true,
+  "cast_through_sleep": true,
+  "cast_through_stun": true,
+  "cast_through_terrorize": true,
+  "activate_period": 2,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "kClearSkies",
+        "Source.Mode?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            100
+          ],
+          "target": 0,
+          "table": "Ranged_Buff_ToHit",
+          "scale": 2.5,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            356
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.25,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.25,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            364
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.25,
+          "duration": 2.1,
+          "stack_type": 3,
+          "flags": [
+            544,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            491
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 2.1,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Clear Skies"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kClearSkies",
+        "Source.Mode?",
+        "!",
+        "kCloudedSkies",
+        "Source.Mode?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            491
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "duration": 2.1,
+          "caster_stack_type": 1,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Cloudy Skies"
+          }
+        }
+      ]
+    }
+  ],
+  "max_boosts": 0,
+  "attrib_cache": [
+    100,
+    236,
+    356,
+    364,
+    491
+  ]
+}

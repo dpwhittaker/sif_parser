@@ -1,0 +1,237 @@
+{
+  "crcfull_name": 396414640,
+  "source_file": "DEFS/POWERS/EPIC_SENTINEL_MACE_MASTERY.POWERS",
+  "source_name": "Epic.Sentinel_Mace_Mastery.Pulverize",
+  "display_name": "Pulverize",
+  "display_help": "You are capable of Pulverizing a foe with your Nullifier Mace dealing high damage, causing toxic damage over time. Pulverize will occasionally disorient foes as well. Damage: High Recharge: Moderate",
+  "display_short_help": "Melee, High DMG(Smash), Minor DoT(Toxic), Foe Disorient",
+  "display_target_help": "You have been disoriented and poisoned.",
+  "display_target_short_help": "Disorient, DoT(Poison)",
+  "icon_name": "BaneSpider_Pulverize",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "buy_requires": [
+    "$archetype",
+    "@Class_Sentinel",
+    "==",
+    "SpidersKissPatron",
+    "Owned?",
+    "TheStingerPatron",
+    "Owned?",
+    "||",
+    "BloodInTheWaterPatron",
+    "Owned?",
+    "||",
+    "MiragePatron",
+    "Owned?",
+    "||",
+    "&&"
+  ],
+  "accuracy": 1.05,
+  "range": 7,
+  "time_to_activate": 1.5,
+  "recharge_time": 16,
+  "endurance_cost": 8.53,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.64,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            36
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.1,
+          "duration": 4.1,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+          },
+          "fx": {
+            "continuing_fx": "V_COV/ENEMYPOWERS/ARACHNOS/BANEMACE/BANEMACEHITCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 5,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_PvPDamage",
+          "scale": 2.09,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    36,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ARACHNOSSOLDIER_BANE_PULVERIZE.PFX",
+  "attack_bits": [
+    20,
+    130,
+    138,
+    269
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    130,
+    187
+  ],
+  "initial_attack_bits": [
+    20,
+    130,
+    138,
+    269,
+    187
+  ],
+  "activation_fx": "WEAPONS/CUSTOMWEAPON_ARACHNOSMACE.FX",
+  "attack_fx": "POWERS/MEDIEVALWEAPONS/MACESMASH.FX",
+  "hit_fx": "POWERS/MEDIEVALWEAPONS/MACEHIT2.FX",
+  "initial_attack_fx": "POWERS/MEDIEVALWEAPONS/MACESMASH.FX",
+  "mode_bits": [
+    20,
+    130,
+    88
+  ],
+  "attack_frames": 45,
+  "initial_frames_before_hit": 45,
+  "initial_attack_fxframe_delay": 30
+}

@@ -1,0 +1,121 @@
+{
+  "crcfull_name": 1324768346,
+  "source_file": "DEFS/POWERS/EVENT_EVENT_SPEED.POWERS",
+  "source_name": "Event.Event_Speed.Whirlwind",
+  "display_name": "Whirlwind",
+  "display_help": "You spin around at an amazing speed to create a Whirlwind around yourself. Any foes that enter this Whirlwind will be tossed into the air. You must be at least level 20 and have two other Speed Powers before selecting Whirlwind.",
+  "display_short_help": "Toggle: PBAoE, Foe Knockback",
+  "display_attacker_hit": "You spin into a {PowerName}, and can now toss your foes in the air like the garbage they are.",
+  "icon_name": "SuperSpeed_Whirlwind.tga",
+  "type": 2,
+  "attack_types": [
+    "AOE"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 5,
+  "time_to_activate": 1.17,
+  "recharge_time": 20,
+  "activate_period": 0.5,
+  "endurance_cost": 0.525,
+  "ents_auto_hit": [
+    19
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            324
+          ],
+          "table": "Melee_Knockback",
+          "duration": 0.5,
+          "stack_type": 3
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Melee_Knockback",
+          "scale": 2,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            188,
+            192
+          ],
+          "target": 0,
+          "scale": -0.3,
+          "duration": 3,
+          "stack_type": 3,
+          "flags": [
+            96,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": -1.5,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "Your {PowerName} drains {Damage} points of endurance."
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    88,
+    188,
+    192,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/SUPERSPEED_SPIN.PFX",
+  "activation_bits": [
+    601,
+    681
+  ],
+  "activation_fx": "POWERS/SUPERSPEED/SUPERSPEEDTORNADO.FX",
+  "mode_bits": [
+    601
+  ]
+}

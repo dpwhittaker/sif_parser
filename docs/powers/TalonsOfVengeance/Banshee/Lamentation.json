@@ -1,0 +1,197 @@
+{
+  "crcfull_name": 2977697054,
+  "source_file": "DEFS/POWERS/TALONSOFVENGEANCE_BANSHEE.POWERS",
+  "source_name": "TalonsOfVengeance.Banshee.Lamentation",
+  "display_name": "Lamentation",
+  "display_help": "You cry out in a sorrowful lamentation, causing energy and negative energy damage in those around you. There is a chance that your lamentations affect your enemy so deeply that you may feed upon their suffering, healing yourself and increasing the endurance cost of their powers.",
+  "display_short_help": "PBAoE, High DMG(Energy), Moderate DoT(Negative Energy), -DMG(Foe,All), Chance for Heal(Self) and +EndCost(Foe)",
+  "display_target_help": "Your defenses, resistances, regeneration and recovery have been reduced.",
+  "display_target_short_help": "-DEF(All), -RES(All), -Regen, -Rec",
+  "icon_name": "TalonsOfVengeance_Lamentation.tga",
+  "attack_types": [
+    "AOE",
+    "Energy",
+    "NegativeEnergy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 10,
+  "radius": 15,
+  "time_to_activate": 1.97,
+  "recharge_time": 16,
+  "endurance_cost": 14,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 1.2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        },
+        {
+          "attrib": [
+            20
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.15,
+          "duration": 5.1,
+          "delay": 0.5,
+          "period": 1,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Negative Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Negative Energy damage over time."
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "table": "Melee_Debuff_Dam",
+          "scale": 1.25,
+          "duration": 10,
+          "delay": 0.5,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.4",
+        "<=",
+        "TalonsOfVengeance.Lamentation.Heal",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            473
+          ],
+          "target": 0,
+          "delay": 0.5,
+          "flags": [
+            560,
+            0
+          ],
+          "param": {
+            "Power": {
+              "power": [
+                "TalonsOfVengeance.Lamentation.Heal"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.4",
+        "<="
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            364
+          ],
+          "aspect": 16,
+          "scale": -0.1,
+          "duration": 10,
+          "delay": 0.5,
+          "stack_type": 3,
+          "flags": [
+            208,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource}'s feeds upon the deep sorrow invoked within you by her {PowerName}, healing herself and increasing the endurance cost of your powers."
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    364,
+    473
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/V_TALONSOFVENGEANCE_BANSHEE_LAMENTATION.PFX",
+  "attack_bits": [
+    20,
+    363,
+    383
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    363,
+    383
+  ],
+  "attack_fx": "ENEMYFX/PRAETORIAN/TALONS/LAMENTATION.FX",
+  "hit_fx": "ENEMYFX/PRAETORIAN/TALONS/SONICDARKHIT.FX",
+  "initial_attack_fx": "ENEMYFX/PRAETORIAN/TALONS/LAMENTATION.FX",
+  "continuing_fx": "ENEMYFX/PRAETORIAN/TALONS/SONICDARK_CONDITIONAL.FX",
+  "continuing_fx1": "ENEMYFX/PRAETORIAN/TALONS/SONICDARK_CONDITIONAL.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 17,
+  "attack_frames": 59,
+  "initial_frames_before_hit": 17,
+  "primary_tint": [
+    190,
+    245,
+    255,
+    255
+  ],
+  "secondary_tint": [
+    90,
+    165,
+    255,
+    255
+  ]
+}

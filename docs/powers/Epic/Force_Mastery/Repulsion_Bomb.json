@@ -1,0 +1,287 @@
+{
+  "crcfull_name": 3388544053,
+  "source_file": "DEFS/POWERS/EPIC_FORCE_MASTERY.POWERS",
+  "source_name": "Epic.Force_Mastery.Repulsion_Bomb",
+  "display_name": "Repulsion Bomb",
+  "display_help": "A powerful Repulsion Bomb is hurled at your foes dealing a moderate amount of damage and knocking them off of their feet. Foes struck by Repulsion Bomb have a good chance to become disoriented. You must be level 41 and have either Personal Force Field or Repulsion Field to select this power. Damage: Moderate, Recharge: Slow",
+  "display_short_help": "Ranged (Targeted AoE), Moderate DMG(Smash), Foe Knockdown, Disorient",
+  "display_target_help": "You have been Disoriented.",
+  "display_target_short_help": "Disorient",
+  "icon_name": "ForceField_RepulsionBomb.tga",
+  "attack_types": [
+    "AOE",
+    "Smashing"
+  ],
+  "buy_requires": [
+    "Epic.Force_Mastery.Personal_Force_Field",
+    "Epic.Force_Mastery.Repulsion_Field",
+    "||"
+  ],
+  "accuracy": 1.2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 15,
+  "range": 70,
+  "time_to_activate": 3.07,
+  "recharge_time": 45,
+  "endurance_cost": 21.138,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    21,
+    18,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12,
+    8,
+    37
+  ],
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        },
+        {
+          "attrib": [
+            0,
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            36
+          ],
+          "aspect": 16,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": 0.062,
+          "duration": 10.57,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Ones",
+          "scale": 0.67,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_Stun",
+          "scale": 8,
+          "magnitude": 2,
+          "delay": 0.125,
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.4,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 2,
+          "delay": 0.125,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1288,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    36,
+    276,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_FORCEFIELD_REPULSIONBOMB.PFX",
+  "attack_bits": [
+    20,
+    583
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    583
+  ],
+  "attack_fx": "POWERS/FORCEFIELD/REPULSIONBOMBHANDS.FX",
+  "initial_attack_fx": "POWERS/FORCEFIELD/REPULSIONBOMBHANDS.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 55,
+  "delayed_hit": true,
+  "attack_frames": 92,
+  "initial_frames_before_hit": 55,
+  "projectile_speed": 45,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_FORCEFIELD_REPULSIONBOMB.PFX",
+      "attack_bits": [
+        20,
+        583
+      ],
+      "initial_attack_bits": [
+        20,
+        583
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/REPULSIONBOMBHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/REPULSIONBOMBHANDS.FX",
+      "frames_before_hit": 55,
+      "delayed_hit": true,
+      "attack_frames": 92,
+      "initial_frames_before_hit": 55,
+      "projectile_speed": 45,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_FORCEFIELD_REPULSIONBOMB.PFX",
+      "attack_bits": [
+        20,
+        583
+      ],
+      "initial_attack_bits": [
+        20,
+        583
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/REPULSIONBOMBHANDS.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/REPULSIONBOMBHANDS.FX",
+      "frames_before_hit": 55,
+      "delayed_hit": true,
+      "attack_frames": 92,
+      "initial_frames_before_hit": 55,
+      "projectile_speed": 45
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "crcfull_name": 2028083849,
+  "source_file": "DEFS/POWERS/DOMINATOR_CONTROL_PLANT_CONTROL.POWERS",
+  "source_name": "Dominator_Control.Plant_Control.Roots",
+  "display_name": "Roots",
+  "display_help": "Immobilizes a group of foes by entangling their feet in a twisted mass of thorny Roots. Roots is slower and does less damage than Entangle, but it can capture multiple foes in one attack. Like Entangle, Roots can immobilize flying targets, if they are near the ground when attacked. Damage: Minor(DoT), Recharge: Fast",
+  "display_short_help": "Ranged (Targeted AoE), Minor DoT(Smashing, Lethal), Foe Immobilize",
+  "display_target_help": "The Roots have entangled you. You are immobile and cannot fly.",
+  "display_target_short_help": "Immobilize, DoT(Smashing, Lethal), -Fly",
+  "icon_name": "PlantControl_Roots.tga",
+  "attack_types": [
+    "AOE",
+    "Lethal",
+    "Smashing"
+  ],
+  "accuracy": 0.9,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 30,
+  "range": 80,
+  "time_to_activate": 1.67,
+  "recharge_time": 8,
+  "endurance_cost": 13,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    22,
+    18,
+    15,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.1,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 15,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.0651,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage over time."
+          }
+        },
+        {
+          "attrib": [
+            4
+          ],
+          "aspect": 32,
+          "table": "Ranged_PvPDamage",
+          "scale": 0.0651,
+          "duration": 5.2,
+          "period": 2,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Lethal damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Lethal damage over time."
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "magnitude": 5,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_Immobilize",
+          "scale": 22.5,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "table": "Ranged_PvPMez",
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1056,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Immobilize {PlayerDest} with your {PowerName} [DOMINATION].",
+            "display_victim_hit": "{PlayerSource} Immobilizes you with their {PowerName} [DOMINATION].",
+            "display_float": "DOMINATION"
+          },
+          "fx": {
+            "conditional_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            324,
+            328
+          ],
+          "aspect": 24,
+          "table": "Ranged_Ones",
+          "scale": 100,
+          "duration": 12,
+          "flags": [
+            560,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            284
+          ],
+          "table": "Ranged_Ones",
+          "scale": -1.6,
+          "duration": 12,
+          "flags": [
+            544,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "travel_suppression": 3,
+  "attrib_cache": [
+    0,
+    4,
+    272,
+    284,
+    324,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_PLANTCONTROL_ROOTS.PFX",
+  "attack_bits": [
+    20,
+    183,
+    681
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    183,
+    681
+  ],
+  "attack_fx": "V_COV/POWERS/PLANTCONTROL/SEEDTOSS.FX",
+  "hit_fx": "V_COV/POWERS/PLANTCONTROL/PLANTCONTROLHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/PLANTCONTROL/SEEDTOSS.FX",
+  "conditional_fx": "ENEMYFX/CROATOA/TUATHA/ENTANGLE.FX",
+  "conditional_fx1": "ENEMYFX/CROATOA/TUATHA/ENTANGLE.FX",
+  "mode_bits": [
+    20
+  ],
+  "frames_before_hit": 19,
+  "delayed_hit": true,
+  "attack_frames": 50,
+  "initial_frames_before_hit": 19,
+  "projectile_speed": 90,
+  "custom_fx": [
+    {
+      "token": "Color Tintable",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DOMINATORCONTROL_PLANTCONTROL_ROOTS.PFX",
+      "attack_bits": [
+        20,
+        183,
+        681
+      ],
+      "initial_attack_bits": [
+        20,
+        183,
+        681
+      ],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/PLANTCONTROL/SEEDTOSS.FX",
+      "hit_fx": "CUSTOMIZEABLEPOWERS/PLANTCONTROL/PLANTCONTROLHIT.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/PLANTCONTROL/SEEDTOSS.FX",
+      "conditional_fx": "CUSTOMIZEABLEPOWERS/PLANTCONTROL/ENTANGLE_CONTINUING.FX",
+      "conditional_fx1": "CUSTOMIZEABLEPOWERS/PLANTCONTROL/ENTANGLE_CONTINUING.FX",
+      "frames_before_hit": 19,
+      "delayed_hit": true,
+      "attack_frames": 50,
+      "initial_frames_before_hit": 19,
+      "projectile_speed": 90,
+      "palette": "ExtendedEarth"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "crcfull_name": 3636893019,
+  "source_file": "DEFS/POWERS/SENTINEL_DEFENSE_REGENERATION.POWERS",
+  "source_name": "Sentinel_Defense.Regeneration.Second_Wind",
+  "display_name": "Second Wind",
+  "display_help": "When you use this power you will recover a percentage of your missing health, in addition to increasing your maximum hit points in a similar way. The less hit points you have left, the more powerful this effect will be. Should you fall in battle, you can use this power at its maximum strength to stand up and fight again. If used while defeated, you will be protected from XP Debt for 90 seconds and immune to most damage for 15 seconds. Although this power cost no endurance, it will take drain 10 endurance if used while still standing.",
+  "display_short_help": "Self +Max HP, Rez(Special)",
+  "display_target_help": "You have reached within yourself and found a second wind to keep on fighting.",
+  "display_target_short_help": "+HP, +Special",
+  "display_attacker_hit": "You have reached within yourself and found a second wind to keep on fighting.",
+  "icon_name": "Regeneration_Revive.tga",
+  "castable_after_death": 2,
+  "time_to_activate": 1.5,
+  "recharge_time": 250,
+  "ents_auto_hit": [
+    1
+  ],
+  "ents_affected": [
+    1
+  ],
+  "boosts_allowed": [
+    33,
+    18,
+    14
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            80
+          ],
+          "aspect": 8,
+          "type": 3,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 5,
+          "duration": 120,
+          "magnitude_expr": [
+            "100",
+            "kHitPoints%",
+            "target>",
+            "-",
+            "100",
+            "/",
+            "@StdResult",
+            "*",
+            ".45",
+            "*"
+          ],
+          "flags": [
+            560,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} increases your hit points by {Damage}!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            80
+          ],
+          "aspect": 8,
+          "type": 3,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 5,
+          "duration": 120,
+          "magnitude_expr": [
+            "100",
+            "kHitPoints%",
+            "target>",
+            "-",
+            "100",
+            "/",
+            "@StdResult",
+            "*",
+            ".45",
+            "*"
+          ],
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} increases your hit points by {Damage}!",
+            "display_victim_hit": ""
+          }
+        },
+        {
+          "attrib": [
+            28
+          ],
+          "aspect": 32,
+          "type": 3,
+          "target": 0,
+          "table": "Melee_HealSelf",
+          "scale": 10,
+          "magnitude_expr": [
+            "100",
+            "kHitPoints%",
+            "target>",
+            "-",
+            "100",
+            "/",
+            "@StdResult",
+            "*",
+            ".45",
+            "*"
+          ],
+          "flags": [
+            544,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "Your {PowerName} heals you for {Damage} hit points!",
+            "display_victim_hit": ""
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Cur.kHitPoints",
+        "source>",
+        "1",
+        ">="
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": -10,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_bits": [
+              247
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Cur.kHitPoints",
+        "source>",
+        "1",
+        "<"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "scale": 50,
+          "delay": 0.125,
+          "flags": [
+            544,
+            0
+          ],
+          "fx": {
+            "continuing_bits": [
+              387,
+              49
+            ]
+          }
+        },
+        {
+          "attrib": [
+            296
+          ],
+          "target": 0,
+          "scale": 10,
+          "duration": 15,
+          "stack_type": 3,
+          "flags": [
+            112,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "",
+            "display_float": "Untouchable"
+          }
+        },
+        {
+          "attrib": [
+            272
+          ],
+          "type": 0,
+          "target": 0,
+          "scale": 4,
+          "magnitude": 50,
+          "flags": [
+            1072,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            464
+          ],
+          "aspect": 32,
+          "target": 0,
+          "duration": 90,
+          "stack_type": 3,
+          "flags": [
+            560,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "isPVPMap?",
+        "!"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            468
+          ],
+          "duration": 120,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "isPVPMap?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            468
+          ],
+          "duration": 120,
+          "flags": [
+            560,
+            0
+          ],
+          "fx": {
+            "continuing_fx": "PFX2"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    28,
+    80,
+    88,
+    272,
+    296,
+    464,
+    468
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_REGENERATION_REVIVE.PFX",
+  "attack_fx": "POWERS/HEALING/RESURECTION3.FX",
+  "initial_attack_fx": "POWERS/HEALING/RESURECTION3.FX",
+  "frames_before_hit": 44,
+  "attack_frames": 45,
+  "initial_frames_before_hit": 44,
+  "custom_fx": [
+    {
+      "token": "Bright Regeneration",
+      "alt_theme": [
+        "Bright Regeneration Alternate"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_REGENERATION_REVIVE.PFX",
+      "hit_bits": [],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/REGENERATION/RESURECTION3.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/REGENERATION/RESURECTION3.FX",
+      "mode_bits": [],
+      "frames_before_hit": 44,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 44,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark Regeneration",
+      "alt_theme": [
+        "Dark Regeneration Alternate"
+      ],
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_REGENERATION_REVIVE.PFX",
+      "hit_bits": [],
+      "attack_fx": "CUSTOMIZEABLEPOWERS/REGENERATION/SUBTRACTIVE/RESURECTION3.FX",
+      "initial_attack_fx": "CUSTOMIZEABLEPOWERS/REGENERATION/SUBTRACTIVE/RESURECTION3.FX",
+      "mode_bits": [],
+      "frames_before_hit": 44,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 44
+    },
+    {
+      "token": "Minimal FX",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/SCRAPPERDEFENSE_REGENERATION_REVIVE.PFX",
+      "display_name": "No FX",
+      "hit_bits": [],
+      "mode_bits": [],
+      "frames_before_hit": 44,
+      "attack_frames": 45,
+      "initial_frames_before_hit": 44,
+      "palette": "Additive"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "crcfull_name": 4200160338,
+  "source_file": "DEFS/POWERS/ROGUESGALLERY_SHOPKEEPER.POWERS",
+  "source_name": "RoguesGallery.Shopkeeper.Jab",
+  "display_name": "Jab",
+  "display_help": "You strike your target with a strong jab. The speed of this attack may catch your opponent off guard, momentarily stunning them.",
+  "display_short_help": "Melee, Moderate DMG (Smashing), Chance for Stun (Foe)",
+  "display_target_help": "You have been stunned.",
+  "display_target_short_help": "Stun",
+  "icon_name": "SuperStrength_Jab.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "range": 5,
+  "time_to_activate": 1.07,
+  "recharge_time": 2,
+  "endurance_cost": 5,
+  "target": 19,
+  "effects": [
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "table": "Melee_Damage",
+          "scale": 0.8,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 5,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "scale": 5,
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            336,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    0,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/SUPERSTRENGTH_MELEE_QUICK.PFX",
+  "attack_bits": [
+    20,
+    353
+  ],
+  "block_bits": [
+    53
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    353
+  ],
+  "attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSQUICK.FX",
+  "hit_fx": "POWERS/SUPERSTRENGTH/SUPERSTRENGTH_JAB_HIT.FX",
+  "initial_attack_fx": "POWERS/SUPERSTRENGTH/STRENGTHSTREAKSQUICK.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 32
+}

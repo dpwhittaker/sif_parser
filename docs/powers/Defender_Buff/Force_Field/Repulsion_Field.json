@@ -1,0 +1,186 @@
+{
+  "crcfull_name": 3838730490,
+  "source_file": "DEFS/POWERS/DEFENDER_BUFF_FORCE_FIELD.POWERS",
+  "source_name": "Defender_Buff.Force_Field.Repulsion_Field",
+  "display_name": "Repulsion Field",
+  "display_help": "This Toggle power creates a field that violently repels nearby foes. Each villain that is repelled costs you additional Endurance. Recharge: Slow",
+  "display_short_help": "Toggle: PBAoE Knockback",
+  "display_attacker_hit": "You protect yourself with your {PowerName}, and will knock down any villain that approaches you.",
+  "icon_name": "ForceField_RepulsionField.tga",
+  "type": 2,
+  "effect_area": 2,
+  "max_targets_hit": 16,
+  "radius": 9,
+  "time_to_activate": 2.03,
+  "recharge_time": 20,
+  "activate_period": 0.5,
+  "endurance_cost": 0.325,
+  "ents_auto_hit": [
+    19
+  ],
+  "boosts_allowed": [
+    23,
+    18,
+    17
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "tag": [
+        "ReduceIfKD"
+      ],
+      "chance": 1.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 3,
+          "magnitude": 0,
+          "stack_type": 3,
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "magnitude": 0,
+          "flags": [
+            112,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "scale": 3,
+          "duration": 0.5,
+          "magnitude": 0,
+          "stack_type": 3,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            192,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You knocked {PlayerDest} from their feet with your {PowerName} attack!",
+            "display_victim_hit": "{PlayerSource} knocks you from your feet with their {PowerName} attack!"
+          }
+        },
+        {
+          "attrib": [
+            88
+          ],
+          "aspect": 32,
+          "target": 0,
+          "table": "Ranged_Ones",
+          "scale": -1,
+          "magnitude": 0,
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "flags": [
+            112,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            468
+          ],
+          "aspect": 16,
+          "table": "Ranged_Ones",
+          "scale": 0,
+          "magnitude": 0
+        }
+      ]
+    }
+  ],
+  "attrib_cache": [
+    88,
+    328,
+    468
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_FORCEFIELD_REPULSIONFIELD.PFX",
+  "hit_bits": [
+    49,
+    681
+  ],
+  "activation_bits": [
+    20,
+    255
+  ],
+  "activation_fx": "POWERS/FORCEFIELD/REPULSIONFIELD.FX",
+  "frames_before_hit": 25,
+  "attack_frames": 61,
+  "initial_frames_before_hit": 25,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_FORCEFIELD_REPULSIONFIELD.PFX",
+      "activation_bits": [
+        20,
+        255
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/REPULSIONFIELD.FX",
+      "mode_bits": [],
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/DEFENDERBUFF_FORCEFIELD_REPULSIONFIELD.PFX",
+      "activation_bits": [
+        20,
+        255
+      ],
+      "activation_fx": "CUSTOMIZEABLEPOWERS/FORCEFIELD/SUBTRACTIVE/REPULSIONFIELD.FX",
+      "mode_bits": [],
+      "frames_before_hit": 25,
+      "attack_frames": 61,
+      "initial_frames_before_hit": 25
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "crcfull_name": 966448600,
+  "source_file": "DEFS/POWERS/MASTERMIND_PETS_ASSAULT_2.POWERS",
+  "source_name": "Mastermind_Pets.Assault_2.Dual_Plasma_Blast",
+  "display_name": "Dual Plasma Blast",
+  "display_help": "Plasma burns are hard to heal. The burns have halted your Regeneration rate.",
+  "display_short_help": "-Regeneration",
+  "icon_name": "Robotics_LaserRifleBlast.tga",
+  "attack_types": [
+    "AOE",
+    "Energy"
+  ],
+  "effect_area": 2,
+  "max_targets_hit": 5,
+  "radius": 5,
+  "range": 80,
+  "time_to_activate": 4,
+  "recharge_time": 25,
+  "endurance_cost": 10.192,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    17,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    12
+  ],
+  "effects": [
+    {
+      "radius_inner": 0,
+      "radius_outer": 0,
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.21,
+          "duration": 3.1,
+          "delay": 0.5,
+          "period": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage over time.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage over time."
+          }
+        }
+      ]
+    },
+    {
+      "attrib_mod": [
+        {
+          "attrib": [
+            16
+          ],
+          "aspect": 32,
+          "table": "Ranged_Damage",
+          "scale": 0.5,
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Energy damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Energy damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.3,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            328
+          ],
+          "table": "Ranged_Knockback",
+          "suppress": [
+            {
+              "event": 29,
+              "seconds": 10
+            }
+          ],
+          "messages": {
+            "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+            "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.3",
+        "<=",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -5,
+          "duration": 30,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "@ToHitRoll",
+        "@ToHit",
+        "/",
+        "0.3",
+        "<=",
+        "&&"
+      ],
+      "eval_flags": 2,
+      "attrib_mod": [
+        {
+          "attrib": [
+            232
+          ],
+          "table": "Ranged_Ones",
+          "scale": -10,
+          "duration": 30,
+          "flags": [
+            656,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    356
+  ],
+  "attrib_cache": [
+    16,
+    232,
+    328
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/ROBOTARMY_DUALPLASMA_BLAST.PFX",
+  "attack_bits": [
+    174,
+    396,
+    684
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    174,
+    396,
+    684
+  ],
+  "attack_fx": "V_COV/POWERS/ROBOTICS/DUALHEAVYLAZERRIFLEBURST.FX",
+  "hit_fx": "V_COV/POWERS/ROBOTICS/DUALHEAVYHIT.FX",
+  "initial_attack_fx": "V_COV/POWERS/ROBOTICS/DUALHEAVYLAZERRIFLEBURST.FX",
+  "frames_before_hit": 43,
+  "delayed_hit": true,
+  "attack_frames": 120,
+  "initial_frames_before_hit": 43,
+  "projectile_speed": 360
+}

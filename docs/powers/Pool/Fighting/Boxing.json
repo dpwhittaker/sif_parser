@@ -1,0 +1,992 @@
+{
+  "crcfull_name": 1599563301,
+  "source_file": "DEFS/POWERS/POOL_FIGHTING.POWERS",
+  "source_name": "Pool.Fighting.Boxing",
+  "display_name": "Boxing",
+  "display_help": "You strike your opponent with a strong punch that causes light smashing damage and has a small chance to stun foes. If you have also trained Kick, this power's damage is increased by 15% and your chance to stun increases. If you have also trained Cross Punch, this power's damage is increased by 15% and will fatigue the target, draining some endurance and lowering recovery slightly. The synergy with Kick and Cross Punch stacks. Damage: Light, Recharge: Very Fast",
+  "display_short_help": "Melee, Light DMG(Smashing), Fighting Synergy, Foe Stun",
+  "display_target_help": "You have been stunned. You may also be bruised, suffering endurance loss and suppressed recovery.",
+  "display_target_short_help": "Stun; Chance for EndDrain, -Rec",
+  "icon_name": "Fighting_Boxing.tga",
+  "attack_types": [
+    "Melee",
+    "Smashing"
+  ],
+  "range": 7,
+  "time_to_activate": 1.07,
+  "recharge_time": 2.5,
+  "endurance_cost": 4.42,
+  "target": 19,
+  "boosts_allowed": [
+    23,
+    21,
+    18,
+    9,
+    5
+  ],
+  "modes_disallowed": [
+    8,
+    12,
+    117,
+    118
+  ],
+  "effects": [
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.76,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Pool.Fighting.Kick",
+        "source.ownPower?",
+        "!",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 4,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.35,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "Pool.Fighting.Kick",
+        "source.ownPower?",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 4,
+          "magnitude": 3,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "Pool.Fighting.Cross_Punch",
+        "source.ownPower?"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            88
+          ],
+          "scale": -0.02,
+          "flags": [
+            656,
+            0
+          ]
+        },
+        {
+          "attrib": [
+            236
+          ],
+          "scale": -0.05,
+          "duration": 4,
+          "stack_type": 3,
+          "flags": [
+            656,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "",
+            "display_victim_hit": "{PlayerSource} bruises you with {PowerName}, draining endurance and lowering recovery.",
+            "display_float": "FATIGUED!"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_PvPDamage",
+          "scale": 1.249,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Dominator",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_Stun",
+          "scale": 6,
+          "magnitude": 2,
+          "flags": [
+            1280,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.1,
+      "requires": [
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "kStealth",
+        "source>",
+        "0.5",
+        ">",
+        "&&",
+        "arch",
+        "source>",
+        "Class_Dominator",
+        "eq",
+        "&&"
+      ],
+      "attrib_mod": [
+        {
+          "attrib": [
+            276
+          ],
+          "type": 0,
+          "table": "Melee_PvPMez",
+          "magnitude": 2,
+          "suppress": [
+            {
+              "event": 19
+            },
+            {
+              "event": 20
+            },
+            {
+              "event": 21
+            },
+            {
+              "event": 22
+            },
+            {
+              "event": 23
+            }
+          ],
+          "flags": [
+            1056,
+            0
+          ],
+          "messages": {
+            "display_attacker_hit": "You Stun {PlayerDest} with your {PowerName}.",
+            "display_victim_hit": "{PlayerSource} Stuns you with their {PowerName}."
+          },
+          "fx": {
+            "conditional_fx": "GENERICCONTINUING/STUNCONTINUING.FX"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "eq",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.76,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.76,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.76,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.76,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "IncarnateBoss",
+        "target.HasTag?",
+        "||",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "critter",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_Damage",
+          "scale": 0.76,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.05,
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Scrapper",
+        "eq",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_PvPDamage",
+          "scale": 1.249,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kImmobilized",
+        "target>",
+        "0",
+        ">",
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "kStunned",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "arch",
+        "source>",
+        "Class_Controller",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_PvPDamage",
+          "scale": 0.6245,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage.",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage."
+          }
+        }
+      ]
+    },
+    {
+      "chance": 0.2,
+      "requires": [
+        "kHeld",
+        "target>",
+        "0",
+        ">",
+        "kSleep",
+        "target>",
+        "0",
+        ">",
+        "||",
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "&&",
+        "kMeter",
+        "source>",
+        ".9",
+        "<",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_PvPDamage",
+          "scale": 1.249,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "arch",
+        "source>",
+        "Class_Stalker",
+        "eq",
+        "kMeter",
+        "source>",
+        "0",
+        ">",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_PvPDamage",
+          "scale": 1.249,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [CRITICAL].",
+            "display_float": "CRITICAL"
+          }
+        }
+      ]
+    },
+    {
+      "requires": [
+        "kHitPoints%",
+        "target>",
+        "10",
+        "-",
+        "100",
+        "*",
+        "50",
+        "10",
+        "-",
+        "/",
+        "0",
+        "100",
+        "minmax",
+        "rand",
+        "100",
+        "*",
+        "<",
+        "arch",
+        "source>",
+        "Class_Corruptor",
+        "eq",
+        "&&",
+        "enttype",
+        "target>",
+        "player",
+        "eq",
+        "&&"
+      ],
+      "eval_flags": 4,
+      "attrib_mod": [
+        {
+          "attrib": [
+            0
+          ],
+          "aspect": 32,
+          "type": 3,
+          "table": "Melee_PvPDamage",
+          "scale": 1.249,
+          "magnitude_expr": [
+            "@StdResult",
+            "Pool.Fighting.Kick",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "Pool.Fighting.Cross_Punch",
+            "source.ownPowerNum?",
+            ".15",
+            "*",
+            "+",
+            "1",
+            "+",
+            "*"
+          ],
+          "messages": {
+            "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+            "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Smashing damage [SCOURGE].",
+            "display_float": "Scourge"
+          }
+        }
+      ]
+    }
+  ],
+  "strengths_disallowed": [
+    348
+  ],
+  "travel_suppression": 1,
+  "attrib_cache": [
+    0,
+    88,
+    236,
+    276
+  ],
+  "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_FIGHTING_BOXING.PFX",
+  "attack_bits": [
+    20,
+    353
+  ],
+  "hit_bits": [
+    49,
+    681
+  ],
+  "initial_attack_bits": [
+    20,
+    353
+  ],
+  "hit_fx": "POWERS/MARTIALARTS/MARTIALARTSHITSBIG.FX",
+  "mode_bits": [
+    20
+  ],
+  "attack_frames": 32,
+  "custom_fx": [
+    {
+      "token": "Bright",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_FIGHTING_BOXING.PFX",
+      "attack_bits": [
+        20,
+        353
+      ],
+      "initial_attack_bits": [
+        20,
+        353
+      ],
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/FIGHTING/BOXING_HIT.FX",
+      "attack_frames": 32,
+      "palette": "Additive"
+    },
+    {
+      "token": "Dark",
+      "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/POOLS_FIGHTING_BOXING.PFX",
+      "attack_bits": [
+        20,
+        353
+      ],
+      "initial_attack_bits": [
+        20,
+        353
+      ],
+      "hit_fx": "CUSTOMIZABLEPOWERS_POOLS/FIGHTING/SUBTRACTIVE/BOXING_HIT.FX",
+      "attack_frames": 32
+    }
+  ]
+}

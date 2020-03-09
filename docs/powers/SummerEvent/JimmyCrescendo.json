@@ -1,0 +1,942 @@
+{
+  "Envenom": {
+    "crcfull_name": 142392223,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_JIMMYCRESCENDO.POWERS",
+    "source_name": "SummerEvent.JimmyCrescendo.Envenom",
+    "display_name": "Envenom",
+    "display_help": "You poison your foe, reducing their resistance to and defense against all types of damage. Additionally, the target suffers from reduced effectiveness of healing and reduced regeneration.",
+    "display_short_help": "Ranged, -RES(Foe, All), -DEF(Foe, All), -Regen, -Heal",
+    "display_target_help": "Your regeneration, resistances and defenses have been reduced, as has the effectiveness of heals.",
+    "display_target_short_help": "-RES(All), -DEF(All), -Regen, -Heal",
+    "icon_name": "Poison_Envenom.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 70,
+    "time_to_activate": 1.33,
+    "recharge_time": 12,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              184
+            ],
+            "table": "Ranged_Debuff_Def",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDEFCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": -4,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 24,
+            "table": "Ranged_Res_Dmg",
+            "scale": 2,
+            "duration": 30,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "critter",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Ones",
+            "scale": -0.5,
+            "duration": 30,
+            "stack_type": 3
+          }
+        ]
+      },
+      {
+        "requires": [
+          "enttype",
+          "target>",
+          "player",
+          "eq"
+        ],
+        "attrib_mod": [
+          {
+            "attrib": [
+              232
+            ],
+            "table": "Ranged_Res_Boolean",
+            "scale": -11.5,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      36,
+      184,
+      232
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_ENVENOM.PFX",
+    "attack_bits": [
+      20,
+      327,
+      258,
+      681
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      327,
+      258,
+      681
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/POISONLIQUIDPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/POISONLIQUIDPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 24,
+    "delayed_hit": true,
+    "attack_frames": 40,
+    "initial_frames_before_hit": 24,
+    "projectile_speed": 66
+  },
+  "Weaken": {
+    "crcfull_name": 2265983610,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_JIMMYCRESCENDO.POWERS",
+    "source_name": "SummerEvent.JimmyCrescendo.Weaken",
+    "display_name": "Weaken",
+    "display_help": "You poison your foe with a venom that significantly weakens their strength. The affected target's chance to hit and damage output are severely reduced. Additionally, the affected target's secondary power effects, including Heals, Defense Buffs, Endurance Drains, Stuns, Holds, Immobilizes, Knockbacks and more, are all weakened.",
+    "display_short_help": "Ranged, -DMG(Foe, All), -ToHit, -STR(Foe, Secondary Effects)",
+    "display_target_help": "Your chance to hit and damage potential have been reduced, along with the strength of secondary power effects.",
+    "display_target_short_help": "-DMG(All), -ToHit, -STR(Secondary Effects)",
+    "icon_name": "Poison_Weaken.tga",
+    "attack_types": [
+      "Ranged"
+    ],
+    "range": 70,
+    "time_to_activate": 2.07,
+    "recharge_time": 16,
+    "target": 19,
+    "ai_groups": [
+      "kDebuff"
+    ],
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 16,
+            "table": "Ranged_Debuff_Dam",
+            "scale": 3,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFDAMAGECONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              100
+            ],
+            "table": "Ranged_DeBuff_ToHit",
+            "scale": 1.5,
+            "duration": 30,
+            "stack_type": 3,
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DEBUFFTOHITCONTINUING.FX"
+            }
+          },
+          {
+            "attrib": [
+              104,
+              108,
+              112,
+              116,
+              120,
+              124,
+              128,
+              132,
+              136,
+              140,
+              144,
+              184,
+              88,
+              100,
+              188,
+              192,
+              256,
+              264,
+              268,
+              272,
+              276,
+              280,
+              324,
+              328,
+              332
+            ],
+            "aspect": 16,
+            "table": "Ranged_Stun",
+            "scale": -0.5,
+            "duration": 30,
+            "stack_type": 3
+          },
+          {
+            "attrib": [
+              28
+            ],
+            "aspect": 16,
+            "table": "Ranged_Stun",
+            "scale": -0.5,
+            "duration": 30,
+            "stack_type": 3,
+            "flags": [
+              544,
+              0
+            ]
+          }
+        ]
+      }
+    ],
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      36,
+      88,
+      100,
+      104,
+      108,
+      112,
+      116,
+      120,
+      124,
+      128,
+      132,
+      136,
+      140,
+      144,
+      184,
+      188,
+      192,
+      256,
+      264,
+      268,
+      272,
+      276,
+      280,
+      324,
+      328,
+      332
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/M_POISON_WEAKEN.PFX",
+    "attack_bits": [
+      20,
+      362
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      362
+    ],
+    "attack_fx": "V_COV/POWERS/POISON/PALMPOISONLIQUIDPROJECTILE.FX",
+    "hit_fx": "V_COV/POWERS/POISON/POISONHITQUICK.FX",
+    "initial_attack_fx": "V_COV/POWERS/POISON/PALMPOISONLIQUIDPROJECTILE.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 16,
+    "delayed_hit": true,
+    "attack_frames": 62,
+    "initial_frames_before_hit": 16,
+    "projectile_speed": 60
+  },
+  "Lash": {
+    "crcfull_name": 3544785697,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_JIMMYCRESCENDO.POWERS",
+    "source_name": "SummerEvent.JimmyCrescendo.Lash",
+    "display_name": "Lash",
+    "display_help": "You lash out at your foe with a whip of living hellfire, dealing fire damage and causing toxic damage over time. The target also suffers reduced resistance to all forms of damage and may be knocked down.",
+    "display_short_help": "Ranged (Close), High DMG(Fire), Minor DoT(Toxic), -RES(Foe, All), Chance for Knockdown(Foe)",
+    "display_target_help": "Your resistance to all forms of damage has been reduced and you are suffering toxic damage over time.",
+    "display_target_short_help": "DoT (Toxic), -Res",
+    "icon_name": "DemonSummoning_Lash.tga",
+    "attack_types": [
+      "Melee",
+      "Fire"
+    ],
+    "range": 20,
+    "time_to_activate": 1.8,
+    "recharge_time": 8,
+    "endurance_cost": 11.48,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.8,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.13,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -1.25,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.4,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.64,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 4,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_LASH.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      47
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 29,
+    "attack_frames": 54,
+    "initial_frames_before_hit": 29,
+    "primary_tint": [
+      150,
+      180,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      140,
+      200,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_LASH.PFX",
+        "attack_bits": [
+          20,
+          140,
+          766,
+          47
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          140,
+          766,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_OVERHAND.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 54,
+        "initial_frames_before_hit": 29,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_LASH.PFX",
+        "attack_bits": [
+          20,
+          140,
+          766,
+          47
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          140,
+          766,
+          47
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/WHIP_OVERHAND.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/HIT_WHIP.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/WHIP_OVERHAND.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/CONTINUING_TOXIC.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/CONTINUING_TOXIC.FX",
+        "frames_before_hit": 29,
+        "attack_frames": 54,
+        "initial_frames_before_hit": 29
+      }
+    ]
+  },
+  "Crack_Whip": {
+    "crcfull_name": 957913377,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_JIMMYCRESCENDO.POWERS",
+    "source_name": "SummerEvent.JimmyCrescendo.Crack_Whip",
+    "display_name": "Whip",
+    "display_help": "You crack a whip of living hellfire in a cone in front of you, dealing fire damage and causing toxic damage over time to all those caught in the arc. The targets also suffer reduced resistance to all forms of damage and may be knocked down.",
+    "display_short_help": "Ranged (Close Cone), High DMG(Fire), Moderate DoT(Toxic), -RES(Foe, All), Chance for Knockdown(Foe)",
+    "display_target_help": "Your resistance to all forms of damage has been reduced and you are suffering toxic damage over time.",
+    "display_target_short_help": "DoT (Toxic), -Res",
+    "icon_name": "DemonSummoning_CrackWhip.tga",
+    "attack_types": [
+      "Melee",
+      "Fire"
+    ],
+    "effect_area": 1,
+    "max_targets_hit": 10,
+    "radius": 30,
+    "arc": 0.5235988,
+    "range": 60,
+    "time_to_activate": 2.33,
+    "recharge_time": 10,
+    "endurance_cost": 19.32,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.16,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -1,
+            "duration": 6,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          }
+        ]
+      },
+      {
+        "chance": 0.25,
+        "attrib_mod": [
+          {
+            "attrib": [
+              328
+            ],
+            "table": "Melee_Knockback",
+            "scale": 0.64,
+            "messages": {
+              "display_attacker_hit": "You knock {PlayerDest} off their feet with your {PowerName}!",
+              "display_victim_hit": "{PlayerSource} knocks you off your feet with their {PowerName}!"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 8,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36,
+      328
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_CRACKWHIP.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      395
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      395
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20
+    ],
+    "frames_before_hit": 53,
+    "attack_frames": 70,
+    "initial_frames_before_hit": 53,
+    "primary_tint": [
+      150,
+      180,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      140,
+      200,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_CRACKWHIP.PFX",
+        "attack_bits": [
+          20,
+          140,
+          766,
+          395
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          140,
+          766,
+          395
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_LASH.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 53,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_CRACKWHIP.PFX",
+        "attack_bits": [
+          20,
+          140,
+          766,
+          395
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          140,
+          766,
+          395
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/WHIP_LASH.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/HIT_WHIP.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/WHIP_LASH.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/CONTINUING_TOXIC.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/CONTINUING_TOXIC.FX",
+        "frames_before_hit": 53,
+        "attack_frames": 70,
+        "initial_frames_before_hit": 53
+      }
+    ]
+  },
+  "Corruption": {
+    "crcfull_name": 3636169099,
+    "source_file": "DEFS/POWERS/SUMMEREVENT_JIMMYCRESCENDO.POWERS",
+    "source_name": "SummerEvent.JimmyCrescendo.Corruption",
+    "display_name": "Corruption",
+    "display_help": "You fire a bolt of living hellfire from a crack of your whip, corrupting your victim's living essence. The target suffers fire damage and toxic damage over time, along with a reduction in their resistance to all types of damage.",
+    "display_short_help": "Ranged, Minor DMG(Fire), Minor DoT (Toxic), -RES(Foe, All)",
+    "display_target_help": "Your resistance to all forms of damage has been reduced and you are suffering toxic damage over time.",
+    "display_target_short_help": "DoT (Toxic), -Res",
+    "icon_name": "DemonSummoning_Corruption.tga",
+    "attack_types": [
+      "Ranged",
+      "Fire"
+    ],
+    "range": 80,
+    "time_to_activate": 1.23,
+    "recharge_time": 4,
+    "endurance_cost": 7,
+    "target": 19,
+    "effects": [
+      {
+        "attrib_mod": [
+          {
+            "attrib": [
+              8
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.6,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Fire damage.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Fire damage."
+            }
+          },
+          {
+            "attrib": [
+              36
+            ],
+            "aspect": 32,
+            "table": "Melee_Damage",
+            "scale": 0.1,
+            "duration": 3.1,
+            "delay": 0.5,
+            "period": 1,
+            "messages": {
+              "display_attacker_hit": "You hit {PlayerDest} with your {PowerName} for {Damage} points of Toxic damage over time.",
+              "display_victim_hit": "{PlayerSource} hits you with their {PowerName} for {Damage} points of Toxic damage over time."
+            },
+            "fx": {
+              "continuing_fx": "PFX"
+            }
+          },
+          {
+            "attrib": [
+              0,
+              4,
+              8,
+              12,
+              16,
+              20,
+              24,
+              36
+            ],
+            "aspect": 24,
+            "table": "Melee_Res_DMG",
+            "scale": -1.5,
+            "duration": 5,
+            "stack_type": 3,
+            "flags": [
+              656,
+              0
+            ],
+            "fx": {
+              "continuing_fx": "GENERICCONTINUING/DAMAGERESISTANCE/DEBUFFDAMRESCONTINUING.FX"
+            }
+          }
+        ]
+      }
+    ],
+    "preference_multiplier": 2,
+    "attrib_cache": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      36
+    ],
+    "visual_fx": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_CORRUPTION.PFX",
+    "attack_bits": [
+      20,
+      140,
+      766,
+      48
+    ],
+    "block_bits": [
+      53
+    ],
+    "hit_bits": [
+      49,
+      681
+    ],
+    "initial_attack_bits": [
+      20,
+      140,
+      766,
+      48
+    ],
+    "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_STRIKE.FX",
+    "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+    "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_STRIKE.FX",
+    "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+    "mode_bits": [
+      20,
+      130
+    ],
+    "frames_before_hit": 38,
+    "delayed_hit": true,
+    "attack_frames": 37,
+    "initial_frames_before_hit": 38,
+    "projectile_speed": 51,
+    "primary_tint": [
+      150,
+      180,
+      0,
+      255
+    ],
+    "secondary_tint": [
+      140,
+      200,
+      0,
+      255
+    ],
+    "custom_fx": [
+      {
+        "token": "Bright",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_CORRUPTION.PFX",
+        "attack_bits": [
+          20,
+          140,
+          766,
+          48
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          140,
+          766,
+          48
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_STRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/HIT_WHIP.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/WHIP_STRIKE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/CONTINUING_TOXIC.FX",
+        "mode_bits": [
+          20,
+          130
+        ],
+        "frames_before_hit": 38,
+        "delayed_hit": true,
+        "attack_frames": 37,
+        "initial_frames_before_hit": 38,
+        "projectile_speed": 51,
+        "palette": "Additive"
+      },
+      {
+        "token": "Dark",
+        "source_file": "MENU/POWERS/ANIMFX/PLAYERPOWERS/MASTERMINDSUMMON_DEMONSUMMONING_CORRUPTION.PFX",
+        "attack_bits": [
+          20,
+          140,
+          766,
+          48
+        ],
+        "block_bits": 53,
+        "initial_attack_bits": [
+          20,
+          140,
+          766,
+          48
+        ],
+        "attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/WHIP_STRIKE.FX",
+        "hit_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/HIT_WHIP.FX",
+        "initial_attack_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/WHIP_STRIKE.FX",
+        "continuing_fx": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/CONTINUING_TOXIC.FX",
+        "continuing_fx1": "CUSTOMIZEABLEPOWERS/DEMONSUMMONING/SUBTRACTIVE/CONTINUING_TOXIC.FX",
+        "mode_bits": [
+          20,
+          130
+        ],
+        "frames_before_hit": 38,
+        "delayed_hit": true,
+        "attack_frames": 37,
+        "initial_frames_before_hit": 38,
+        "projectile_speed": 51
+      }
+    ]
+  }
+}
