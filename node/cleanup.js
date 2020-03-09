@@ -5,7 +5,7 @@ let messages = JSON.parse(fs.readFileSync(`piggs/clientmessages.json`));
 cleanupFile('powers');
 cleanupFile('powersets');
 cleanupFile('powercats', true);
-cleanupFile('classes');
+cleanupFile('classes', true);
 
 function cleanupFile(file, skipCats) {
     let things = JSON.parse(fs.readFileSync(`piggs/${file}.json`));
@@ -37,10 +37,21 @@ function removeDefaults(objects) {
         let count = 0;
         let arrayOfObjects = false;
         let isObject = false;
+        if (objects.every(o => Array.isArray(o[field]) && o[field].length < 2)) {
+            for (let object of objects) {
+                if (object[field].length == 0) object[field] = null;
+                else object[field] = object[field][0];
+            }
+        }
         for (let object of objects) {
             if (!object) continue;
             if (typeof object[field] === 'string' && object[field] in messages)
                 object[field] = messages[object[field]];
+            if (field === 'mod_table' && object[field]) {
+                let obj = {};
+                for (let entry of object[field]) obj[entry.name] = entry.values;
+                object[field] = obj;
+            }
             let value = JSON.stringify(object[field]);
             if (!value) continue;
             if (value.startsWith("[{")) arrayOfObjects = true;
